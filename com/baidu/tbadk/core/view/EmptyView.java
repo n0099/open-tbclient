@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes3.dex */
 public class EmptyView extends View {
@@ -56,7 +56,7 @@ public class EmptyView extends View {
     public void setHeightDip(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = oi.d(getContext(), i);
+            this.a = mi.d(getContext(), i);
         }
     }
 
@@ -70,7 +70,7 @@ public class EmptyView extends View {
     public void setWidthDip(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = oi.d(getContext(), i);
+            this.b = mi.d(getContext(), i);
         }
     }
 

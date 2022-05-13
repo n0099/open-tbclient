@@ -1,24 +1,149 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nr4;
 /* loaded from: classes7.dex */
-public class yt5 extends ho<ou5, CardViewHolder<mv5>> {
+public class yt5 extends eo<ou5, CardViewHolder<lv5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
+    public rq8 j;
+    public boolean k;
+    public String l;
+    public String m;
+    public String n;
+    public TextView o;
+    public boolean p;
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ou5 a;
+        public final /* synthetic */ yt5 b;
+
+        public a(yt5 yt5Var, ou5 ou5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yt5Var, ou5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yt5Var;
+            this.a = ou5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.f0(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements nr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(yt5 yt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ yt5 b;
+
+        public c(yt5 yt5Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yt5Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yt5Var;
+            this.a = tbPageContext;
+        }
+
+        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
+        public void onPermissionsGranted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = this.b.k ? this.b.l : "0";
+                String str2 = this.b.k ? this.b.m : null;
+                String str3 = this.b.k ? this.b.n : null;
+                MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
+                gf.n().j(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yt5(TbPageContext tbPageContext) {
@@ -39,46 +164,161 @@ public class yt5 extends ho<ou5, CardViewHolder<mv5>> {
                 return;
             }
         }
+        this.k = false;
+        this.p = false;
         this.i = tbPageContext;
     }
 
-    public final void Z(ou5 ou5Var, mv5 mv5Var) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ou5Var, mv5Var) == null) {
-            du5 e = ou5Var.e();
-            if (e != null && e.a() != null && !TextUtils.isEmpty(e.a().a())) {
-                mv5Var.u(e.a().a());
-                mv5Var.m(this.i, TbadkCoreApplication.getInst().getSkinType());
-                H();
-                return;
-            }
-            mv5Var.p(8);
-            H();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.m = str;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public CardViewHolder<mv5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void e0(ou5 ou5Var, lv5 lv5Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new CardViewHolder<>(new mv5(this.i)) : (CardViewHolder) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, ou5Var, lv5Var) == null) || ou5Var.e() == null) {
+            return;
+        }
+        this.o = lv5Var.s();
+        n0();
+        lv5Var.x(8);
+        lv5Var.y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0234));
+        lv5Var.m(this.i, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void f0(ou5 ou5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ou5Var) == null) || ou5Var == null || ou5Var.e() == null) {
+            return;
+        }
+        iu4.k().u(iu4.o("live_publish_live_has_showed"), true);
+        o0(this.o, null, false);
+        j0();
+        TiebaStatic.log("c13618");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ou5 ou5Var, CardViewHolder<mv5> cardViewHolder) {
+    @Override // com.repackage.eo
+    /* renamed from: g0 */
+    public CardViewHolder<lv5> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new CardViewHolder<>(new lv5(this.i)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: h0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ou5 ou5Var, CardViewHolder<lv5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ou5Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ou5Var, cardViewHolder})) == null) {
             if (cardViewHolder.c() == null) {
                 return null;
             }
-            Z(ou5Var, cardViewHolder.c());
+            e0(ou5Var, cardViewHolder.c());
+            cardViewHolder.c().k().setOnClickListener(new a(this, ou5Var));
             return cardViewHolder.c().k();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public final void i0(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) || tbPageContext == null) {
+            return;
+        }
+        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+        permissionJudgePolicy.clearRequestPermissionList();
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.CAMERA");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
+        permissionJudgePolicy.setOnPermissionsGrantedListener(new c(this, tbPageContext));
+        permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
+    }
+
+    public final void j0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (Build.VERSION.SDK_INT < 21) {
+                nr4 nr4Var = new nr4(this.i.getPageActivity());
+                nr4Var.setAutoNight(false);
+                nr4Var.setTitle(R.string.obfuscated_res_0x7f0f0f0a);
+                nr4Var.setMessage(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f04e7));
+                nr4Var.setTitleShowCenter(true);
+                nr4Var.setMessageShowCenter(true);
+                nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0988, new b(this));
+                nr4Var.create(this.i).show();
+            } else if (ViewHelper.checkUpIsLogin(this.i.getPageActivity())) {
+                if (this.j == null) {
+                    this.j = new rq8(this.i);
+                }
+                if (this.k) {
+                    if (this.j.c()) {
+                        return;
+                    }
+                } else if (this.j.d()) {
+                    return;
+                }
+                i0(this.i);
+            }
+        }
+    }
+
+    public void k0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.l = str;
+        }
+    }
+
+    public void l0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    public void m0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public final void n0() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.p) {
+            return;
+        }
+        this.p = true;
+        if (!iu4.k().h(iu4.o("live_publish_live_has_showed"), false)) {
+            iu4.k().u(iu4.o("live_publish_live_has_showed"), true);
+            o0(this.o, null, true);
+            return;
+        }
+        o0(this.o, null, false);
+    }
+
+    public final void o0(TextView textView, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(1048589, this, textView, str, z) == null) || textView == null || this.i == null) {
+            return;
+        }
+        if (z) {
+            textView.setText("");
+            Drawable drawable = this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801e2);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            textView.setCompoundDrawables(null, null, drawable, null);
+            return;
+        }
+        if (str != null) {
+            textView.setText(str);
+        } else {
+            textView.setText("");
+        }
+        textView.setCompoundDrawables(null, null, null, null);
     }
 }

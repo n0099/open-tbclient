@@ -30,9 +30,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ek7;
+import com.repackage.fm4;
 import com.repackage.gk7;
-import com.repackage.ni;
-import com.repackage.ul4;
+import com.repackage.li;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
@@ -77,19 +77,19 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 MemberPrivilegeActivity memberPrivilegeActivity = this.a;
-                memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.g());
+                memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.h());
                 if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
                     int error = httpResponsedMessage.getError();
                     ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
                     if (error != 0) {
-                        this.a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseMemberPrivilegeMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d) : responseMemberPrivilegeMessage.getErrorString());
                         return;
                     }
                     ek7 ek7Var = responseMemberPrivilegeMessage.mData;
                     if (ek7Var != null) {
-                        this.a.mMemberPrivilegeView.f().h(ek7Var);
+                        this.a.mMemberPrivilegeView.g().h(ek7Var);
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
                     }
                 }
             }
@@ -228,10 +228,10 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (R.id.obfuscated_res_0x7f091211 == view2.getId()) {
+            if (R.id.obfuscated_res_0x7f09121e == view2.getId()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_33", "click", 1, new Object[0]);
                 sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 0, TiebaStatic.DQPay.TYPE_VALUE, 3, 1, this.SCENE_ID)));
-            } else if (R.id.obfuscated_res_0x7f091a98 == view2.getId()) {
+            } else if (R.id.obfuscated_res_0x7f091ae6 == view2.getId()) {
                 CurrencyJumpHelper.memberCenterBuyTBean(getPageContext().getPageActivity(), this.SCENE_ID);
             }
         }
@@ -254,25 +254,25 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i == 0 || 1 == this.mMemberPrivilegeView.f().getItemViewType(i)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i == 0 || 1 == this.mMemberPrivilegeView.g().getItemViewType(i)) {
             return;
         }
-        String str = ((ek7.a) this.mMemberPrivilegeView.f().getItem(i)).d;
-        String str2 = ((ek7.a) this.mMemberPrivilegeView.f().getItem(i)).b;
-        if (ni.isEmpty(str)) {
+        String str = ((ek7.a) this.mMemberPrivilegeView.g().getItem(i)).d;
+        String str2 = ((ek7.a) this.mMemberPrivilegeView.g().getItem(i)).b;
+        if (li.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            ul4.q(getPageContext().getPageActivity(), str2, str, true, true, true);
+            fm4.q(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 
     public void requestMemberPrivilegeData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            showLoadingView(this.mMemberPrivilegeView.g(), true);
+            showLoadingView(this.mMemberPrivilegeView.h(), true);
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MEMBER_PRIVILEGE_CMD);
             httpMessage.addParam("st_type", "shop");
             sendMessage(httpMessage);

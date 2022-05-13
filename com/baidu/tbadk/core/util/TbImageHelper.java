@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn4;
+import com.repackage.ki;
 import com.repackage.lb;
-import com.repackage.mi;
+import com.repackage.ln4;
 /* loaded from: classes3.dex */
 public class TbImageHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -93,7 +93,7 @@ public class TbImageHelper {
     private void updateNetworkStatusCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.mIsWifiCache = mi.H();
+            this.mIsWifiCache = ki.H();
         }
     }
 
@@ -150,7 +150,7 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             boolean z = true;
-            if (bn4.c().e() != 0 ? bn4.c().e() != 1 : !this.mIsWifiCache) {
+            if (ln4.c().e() != 0 ? ln4.c().e() != 1 : !this.mIsWifiCache) {
                 z = false;
             }
             setShowBigImage(z);
@@ -166,7 +166,7 @@ public class TbImageHelper {
     public void updatePostImageSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int d = bn4.c().d();
+            int d = ln4.c().d();
             int i = 1300;
             if (d != 0) {
                 if (d != 1) {
@@ -184,11 +184,11 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             String valueOf = String.valueOf(45);
-            if (bn4.c().e() == 0) {
+            if (ln4.c().e() == 0) {
                 if (getIsWifi()) {
                     valueOf = String.valueOf(80);
                 }
-            } else if (bn4.c().e() == 1) {
+            } else if (ln4.c().e() == 1) {
                 valueOf = String.valueOf(80);
             }
             this.mUrlQuality = valueOf;

@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.xk4;
-import com.repackage.yk4;
-import com.repackage.zk4;
+import com.repackage.il4;
+import com.repackage.jl4;
+import com.repackage.kl4;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class PersonListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements zk4 {
+    public static class a implements kl4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,16 +45,16 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // com.repackage.zk4
+        @Override // com.repackage.kl4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = yk4.a(context);
+                TextView a = jl4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(oi.f(context, R.dimen.obfuscated_res_0x7f070305), 0, oi.f(context, R.dimen.obfuscated_res_0x7f070305), 0);
+                    layoutParams.setMargins(mi.f(context, R.dimen.obfuscated_res_0x7f070305), 0, mi.f(context, R.dimen.obfuscated_res_0x7f070305), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -99,7 +99,7 @@ public class PersonListActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            xk4.b().c(5, new a());
+            il4.b().c(5, new a());
         }
     }
 }

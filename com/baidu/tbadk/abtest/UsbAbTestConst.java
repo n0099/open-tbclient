@@ -22,6 +22,7 @@ public class UsbAbTestConst {
     public static final String KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR = "12_11_picpage_ahead_bear_a";
     public static final String KEY_FUN_AD_SDK_SPLASH_CLICK_EYE = "12_8_0_splash_bear_a";
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
+    public static final String KEY_IMG_CLICK_TO_PB = "12_24_tupiandianji_b";
     public static final String KEY_LIKE_MODIFY_TEST_A = "12_23_5_like_modify_a";
     public static final String KEY_LIVE_AUTO_PLAY = "12_9_live_autoplay_a";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
@@ -39,11 +40,13 @@ public class UsbAbTestConst {
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
     public static final String KEY_PB_FORUM_GUIDE_TEST_A = "12_22_pb_forum_guide_a";
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";
+    public static final String KEY_PUSH_JUMP_PB_DIRECT_B = "12_24_push_jump_pb_b";
     public static final String KEY_RED_PACKAGE_SHOW_SECOND_TIME = "12_15_red_package_popup_view_a";
     public static final String KEY_REQUEST_INSERT_AD = "frontpage_popup_a";
     public static final String KEY_SCHEME_START_OPTIMIZE_TEST_B = "12_23_android_scheme_b";
     public static final String KEY_SCHEME_START_OPTIMIZE_TEST_C = "12_23_android_scheme_c";
     public static final String KEY_SCHEME_START_OPTIMIZE_TEST_D = "12_23_android_scheme_d";
+    public static final String KEY_SCHEME_START_OPTIMIZE_TEST_E = "12_24_android_scheme_e";
     public static final String KEY_SHARE_H5_CARD_OPTIMIZE = "12_16_sharecard_a";
     public static final String KEY_SHOW_WRITE_TITLE_TEST_A = "11_9_post_thread_title_out_a";
     public static final String KEY_SIGN_POP_STAMP_DIALOG = "12_18_medal_b";

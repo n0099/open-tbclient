@@ -1,44 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes6.dex */
-public abstract class hg<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hg<T> {
+    BdAsyncTaskParallel getAsyncTaskParallel();
 
-    public hg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getAsyncTaskPriority();
 
-    public void onCancelled(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
+    T getFromLocal(String str, String str2, int i, int i2, eg egVar, Object... objArr);
 
-    public void onLoaded(T t, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, str, i) == null) {
-        }
-    }
+    T getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr);
 
-    public void onProgressUpdate(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr) == null) {
-        }
-    }
+    T getFromRemote(String str, String str2, int i, int i2, eg egVar, Object... objArr);
+
+    boolean isNeedLoad();
+
+    void updateMemory(String str, Object obj, int i, int i2, Object... objArr);
 }

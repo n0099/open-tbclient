@@ -1,36 +1,30 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
-import com.baidu.tbadk.abtest.group.IThreadCardUbsABTest;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.util.Random;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.security.cert.CertificateException;
+import javax.security.cert.X509Certificate;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public abstract class pn4 extends BaseCardInfo implements IThreadCardUbsABTest {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int BIG_IMG = 2;
-    public static final int CONTENT = 1;
-    public static final int HEAD_IMG = 4;
-    public static final int HEAD_VIDEO = 5;
-    public static final int USER_NAME = 3;
+public class pn4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> feedBackReasonMap;
-    public int floorPosition;
-    public Map<BdUniqueId, UsbAbTestSwitch> mABTestMap;
-    public int objType;
 
     public pn4() {
         Interceptable interceptable = $ic;
@@ -45,176 +39,67 @@ public abstract class pn4 extends BaseCardInfo implements IThreadCardUbsABTest {
                 return;
             }
         }
-        this.objType = 1;
-        this.floorPosition = -1;
-        this.mABTestMap = new HashMap();
-        this.feedBackReasonMap = null;
+        a();
     }
 
-    private UsbAbTestSwitch getCurUsbAbTestSwitchByKey(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bdUniqueId)) == null) {
-            if (bdUniqueId == null) {
-                return null;
-            }
-            return this.mABTestMap.get(bdUniqueId);
-        }
-        return (UsbAbTestSwitch) invokeL.objValue;
-    }
-
-    public abstract lp4 getNegFeedBackData();
-
-    public String getPbInputLocate() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Random random = new Random();
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < 16; i++) {
+                stringBuffer.append("abcdefghijklmnopqrstuvwxyz0123456789".charAt(random.nextInt(36)));
+            }
+            return stringBuffer.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public String getRecomReason() {
-        InterceptResult invokeV;
+    public String b(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getThreadData() == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return null;
             }
-            return getThreadData().getRecomReason();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public abstract ThreadData getThreadData();
-
-    public boolean isFromFrs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
+            PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
+            JSONArray jSONArray = new JSONArray();
+            byte[] bytes = str2.getBytes("UTF-8");
+            if (bytes.length % 116 == 0) {
+                length = bytes.length / 116;
+            } else {
+                length = (bytes.length / 116) + 1;
             }
-            return threadData.isFromFrs();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isSelf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ThreadCardUtils.isSelf(getThreadData()) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, bdUniqueId, usbAbTestSwitch) == null) || bdUniqueId == null) {
-            return;
-        }
-        this.mABTestMap.put(bdUniqueId, usbAbTestSwitch);
-    }
-
-    public boolean showCardBottomOpWeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromHomPage || threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isFromVideoTab || threadData.isFromEnterFroumTabFeed || threadData.isFromFeedTab;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showCardEnterFourm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isWorksInfo();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showCardGoodsFourm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isFromHomPage;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showFollowBtn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null || threadData.getAuthor() == null || threadData.isFromLocal || ThreadCardUtils.isSelf(threadData)) {
-                return false;
-            }
-            boolean z = threadData.isBjhDynamicThread() || threadData.isBJHArticleThreadType() || threadData.isBJHVideoThreadType();
-            if ((!threadData.isFromHomPage || (!z && !threadData.isWorksInfo())) && ((!threadData.isFromVideoTab || (!z && !threadData.isWorksInfo())) && (!threadData.isFromFrs() || (!z && !threadData.isWorksInfo())))) {
-                if (!threadData.isFromFeedTab) {
-                    return false;
-                }
-                if (!z && !threadData.isWorksInfo()) {
-                    return false;
+            for (int i = 0; i < length; i++) {
+                if (1 == length) {
+                    jSONArray.put(di.j(c(publicKey, bytes)));
+                } else if (i != length - 1) {
+                    byte[] bArr = new byte[116];
+                    System.arraycopy(bytes, i * 116, bArr, 0, 116);
+                    jSONArray.put(di.j(c(publicKey, bArr)));
+                } else {
+                    int i2 = i * 116;
+                    int length2 = bytes.length - i2;
+                    byte[] bArr2 = new byte[length2];
+                    System.arraycopy(bytes, i2, bArr2, 0, length2);
+                    jSONArray.put(di.j(c(publicKey, bArr2)));
                 }
             }
-            return true;
+            return di.j(jSONArray.toString().getBytes("UTF-8"));
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewPicCut() {
-        InterceptResult invokeV;
+    public final byte[] c(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_B) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewUI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_A) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, key);
+            return cipher.doFinal(bArr);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoReadState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_E) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showWeakenName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

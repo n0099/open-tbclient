@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
-import com.repackage.hz9;
+import com.repackage.cy9;
+import com.repackage.wx9;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class NeverObservableHolder implements bz9.a<Object> {
+public final class NeverObservableHolder implements wx9.a<Object> {
     public static final /* synthetic */ NeverObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final NeverObservableHolder INSTANCE;
-    public static final bz9<Object> NEVER;
+    public static final wx9<Object> NEVER;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public final class NeverObservableHolder implements bz9.a<Object> {
         NeverObservableHolder neverObservableHolder = new NeverObservableHolder("INSTANCE", 0);
         INSTANCE = neverObservableHolder;
         $VALUES = new NeverObservableHolder[]{neverObservableHolder};
-        NEVER = bz9.a(neverObservableHolder);
+        NEVER = wx9.a(neverObservableHolder);
     }
 
     public NeverObservableHolder(String str, int i) {
@@ -57,10 +57,10 @@ public final class NeverObservableHolder implements bz9.a<Object> {
         }
     }
 
-    public static <T> bz9<T> instance() {
+    public static <T> wx9<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (bz9<T>) NEVER : (bz9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (wx9<T>) NEVER : (wx9) invokeV.objValue;
     }
 
     public static NeverObservableHolder valueOf(String str) {
@@ -76,10 +76,10 @@ public final class NeverObservableHolder implements bz9.a<Object> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bz9.a, com.repackage.pz9
-    public void call(hz9<? super Object> hz9Var) {
+    @Override // com.repackage.wx9.a, com.repackage.ky9
+    public void call(cy9<? super Object> cy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, cy9Var) == null) {
         }
     }
 }

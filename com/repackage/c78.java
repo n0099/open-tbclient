@@ -27,7 +27,7 @@ public class c78 {
     public b9 b;
     public int c;
     public int d;
-    public wo e;
+    public to e;
     public View f;
     public boolean g;
     public w68 h;
@@ -76,7 +76,7 @@ public class c78 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
                 return;
             }
-            pg.a().postDelayed(this.a.r, 500L);
+            ng.a().postDelayed(this.a.r, 500L);
         }
     }
 
@@ -114,7 +114,7 @@ public class c78 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            pg.a().postDelayed(this.a.r, 500L);
+            ng.a().postDelayed(this.a.r, 500L);
         }
     }
 
@@ -192,11 +192,11 @@ public class c78 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921387 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (ni.isEmpty(str)) {
+                if (li.isEmpty(str)) {
                     return;
                 }
-                pg.a().removeCallbacks(this.a.o);
-                pg.a().removeCallbacks(this.a.r);
+                ng.a().removeCallbacks(this.a.o);
+                ng.a().removeCallbacks(this.a.r);
                 if (this.a.f != null && (this.a.f.getTag() instanceof w68)) {
                     if (str.equals(((w68) this.a.f.getTag()).getPlayUrl())) {
                         return;
@@ -214,12 +214,12 @@ public class c78 {
         }
     }
 
-    public c78(b9 b9Var, wo woVar) {
+    public c78(b9 b9Var, to toVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, woVar};
+            Object[] objArr = {b9Var, toVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -243,8 +243,8 @@ public class c78 {
         this.q = new d(this, 2921387);
         this.r = new t68(this);
         this.b = b9Var;
-        this.c = oi.i(b9Var.getPageActivity());
-        this.e = woVar;
+        this.c = mi.i(b9Var.getPageActivity());
+        this.e = toVar;
         BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         this.i = new f78();
         b9Var.registerListener(this.p);
@@ -255,8 +255,8 @@ public class c78 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pg.a().removeCallbacks(this.o);
-            pg.a().removeCallbacks(this.r);
+            ng.a().removeCallbacks(this.o);
+            ng.a().removeCallbacks(this.r);
             i();
         }
     }
@@ -299,13 +299,13 @@ public class c78 {
             view2.getGlobalVisibleRect(rect);
             int i2 = this.a;
             if (i2 == 1) {
-                int i3 = oi.i(this.b.getPageActivity()) / 2;
+                int i3 = mi.i(this.b.getPageActivity()) / 2;
                 int i4 = rect.top;
                 return i4 >= 0 && i4 <= i3 && rect.bottom - i4 >= view2.getMeasuredHeight();
             } else if (i2 == 2) {
-                int j = oi.j(this.b.getPageActivity(), true);
+                int j = mi.j(this.b.getPageActivity(), true);
                 float measuredHeight = (view2.getMeasuredHeight() * 2.0f) / 3.0f;
-                float statusBarHeight = UtilHelper.getStatusBarHeight() + measuredHeight + oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+                float statusBarHeight = UtilHelper.getStatusBarHeight() + measuredHeight + mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
                 int mainTabBottomBarHeight = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
                 if (this.j) {
                     this.k = measuredHeight + mainTabBottomBarHeight;
@@ -328,8 +328,8 @@ public class c78 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) {
             this.i.e(i, i2, z);
-            wo woVar = this.e;
-            if (woVar == null || woVar.getListView().getChildCount() == 0 || this.e.getContentViewsCount() == 0) {
+            to toVar = this.e;
+            if (toVar == null || toVar.getListView().getChildCount() == 0 || this.e.getContentViewsCount() == 0) {
                 return;
             }
             w68 w68Var = this.h;
@@ -426,13 +426,13 @@ public class c78 {
     public void n(int i, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            pg.a().removeCallbacks(this.r);
+            ng.a().removeCallbacks(this.r);
             this.r.a(i);
             this.r.c(i2);
             this.r.b(z);
             this.r.d(z2);
             this.i.f(z2);
-            pg.a().postDelayed(this.r, 500L);
+            ng.a().postDelayed(this.r, 500L);
         }
     }
 
@@ -541,8 +541,8 @@ public class c78 {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            pg.a().removeCallbacks(this.o);
-            pg.a().removeCallbacks(this.r);
+            ng.a().removeCallbacks(this.o);
+            ng.a().removeCallbacks(this.r);
             for (int i = 0; i < this.e.getListView().getChildCount(); i++) {
                 View childAt = this.e.getListView().getChildAt(i);
                 if (childAt.getTag() instanceof w68) {

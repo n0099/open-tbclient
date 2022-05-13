@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -99,12 +98,8 @@ public class gl5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                return SapiAccountManager.getInstance().getSession() != null ? SapiAccountManager.getInstance().getSession().uid : "";
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
+            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
+            return baiduIdForAnti == null ? "" : baiduIdForAnti;
         }
         return (String) invokeV.objValue;
     }

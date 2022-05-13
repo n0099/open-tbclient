@@ -66,7 +66,7 @@ public class uq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
                 if (checkUserFaceIdResult != null) {
-                    oi.N(TbadkCoreApplication.getInst(), checkUserFaceIdResult.getResultMsg());
+                    mi.N(TbadkCoreApplication.getInst(), checkUserFaceIdResult.getResultMsg());
                 }
                 if (this.b.b != null) {
                     this.b.b.onFail();
@@ -94,13 +94,13 @@ public class uq7 {
                     this.b.j(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.authsid, checkUserFaceIdResult.livingUname, checkUserFaceIdResult.authWidgetURL);
                 } else if (i == 3) {
                     BdLog.e("人脸验证不可用");
-                    oi.N(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
+                    mi.N(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
                     if (this.b.b != null) {
                         this.b.b.c();
                     }
                 } else {
                     BdLog.e("人脸验证不可用");
-                    oi.N(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
+                    mi.N(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
                     if (this.b.b != null) {
                         this.b.b.c();
                     }
@@ -156,7 +156,7 @@ public class uq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
                 if (sapiResult != null && sapiResult.getResultCode() != -204 && !StringHelper.equals("用户取消操作", sapiResult.getResultMsg())) {
-                    oi.N(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
+                    mi.N(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
                 }
                 if (this.c.b != null) {
                     this.c.b.b(sapiResult instanceof RealNameFaceIDResult, false, null);
@@ -171,7 +171,7 @@ public class uq7 {
                 if (sapiResult instanceof RealNameFaceIDResult) {
                     RealNameFaceIDResult realNameFaceIDResult = (RealNameFaceIDResult) sapiResult;
                     BdLog.d("实名人脸验证成功,callBackKey:" + realNameFaceIDResult.callBackKey + ",authSid:" + realNameFaceIDResult.authSid);
-                    oi.N(TbadkCoreApplication.getInst(), "刷脸验证成功");
+                    mi.N(TbadkCoreApplication.getInst(), "刷脸验证成功");
                     if (this.c.b != null) {
                         this.c.b.b(true, true, realNameFaceIDResult.callBackKey);
                     }
@@ -184,7 +184,7 @@ public class uq7 {
                     UnRealNameFaceIDResult unRealNameFaceIDResult = (UnRealNameFaceIDResult) sapiResult;
                     sb.append(unRealNameFaceIDResult.registerResult);
                     BdLog.d(sb.toString());
-                    oi.N(TbadkCoreApplication.getInst(), "刷脸验证成功");
+                    mi.N(TbadkCoreApplication.getInst(), "刷脸验证成功");
                     if (this.c.b != null) {
                         this.c.b.b(false, true, unRealNameFaceIDResult.callBackKey);
                     }
@@ -229,7 +229,7 @@ public class uq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
                 if (sapiResult != null && sapiResult.getResultCode() != -204 && !StringHelper.equals("用户取消操作", sapiResult.getResultMsg())) {
-                    oi.N(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
+                    mi.N(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
                 }
                 if (this.c.b != null) {
                     this.c.b.a(false, null);
@@ -246,7 +246,7 @@ public class uq7 {
                 UnRealNameFaceIDResult unRealNameFaceIDResult = (UnRealNameFaceIDResult) sapiResult;
                 sb.append(unRealNameFaceIDResult.registerResult);
                 BdLog.d(sb.toString());
-                oi.N(TbadkCoreApplication.getInst(), "刷脸注册成功");
+                mi.N(TbadkCoreApplication.getInst(), "刷脸注册成功");
                 if (this.c.b != null) {
                     this.c.b.a(true, unRealNameFaceIDResult.callBackKey);
                 }

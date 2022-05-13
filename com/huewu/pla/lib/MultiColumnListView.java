@@ -361,7 +361,7 @@ public class MultiColumnListView extends PLA_ListView {
             if (attributeSet == null) {
                 this.mColumnNumber = 2;
             } else {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404cc, R.attr.obfuscated_res_0x7f0404cd, R.attr.obfuscated_res_0x7f0404ce, R.attr.obfuscated_res_0x7f0404d0});
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404d1, R.attr.obfuscated_res_0x7f0404d2, R.attr.obfuscated_res_0x7f0404d3, R.attr.obfuscated_res_0x7f0404d5});
                 int integer = obtainStyledAttributes.getInteger(3, -1);
                 int integer2 = obtainStyledAttributes.getInteger(0, -1);
                 if (this.mFrameRect.width() > this.mFrameRect.height() && integer != -1) {

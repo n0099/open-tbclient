@@ -42,9 +42,9 @@ import com.repackage.g98;
 import com.repackage.h98;
 import com.repackage.i98;
 import com.repackage.j98;
-import com.repackage.kt4;
-import com.repackage.rl8;
-import com.repackage.sl8;
+import com.repackage.ok8;
+import com.repackage.pk8;
+import com.repackage.xt4;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -240,7 +240,7 @@ public class QuickWebView extends BaseWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             if (this.j == null) {
-                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fa4);
+                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fba);
             }
             return this.j;
         }
@@ -282,10 +282,10 @@ public class QuickWebView extends BaseWebView {
         }
     }
 
-    public void h(rl8 rl8Var) {
+    public void h(ok8 ok8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rl8Var) == null) {
-            this.mJsBridge.a(rl8Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ok8Var) == null) {
+            this.mJsBridge.a(ok8Var);
         }
     }
 
@@ -330,7 +330,7 @@ public class QuickWebView extends BaseWebView {
                     try {
                         if (!c2.e) {
                             this.k = 4;
-                            kt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c2.b, "hybridVersion", this.m, "hybridResult", "processing bundle");
+                            xt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c2.b, "hybridVersion", this.m, "hybridResult", "processing bundle");
                             return null;
                         }
                         try {
@@ -349,19 +349,19 @@ public class QuickWebView extends BaseWebView {
                                 if (!str8.contains("/android_asset/")) {
                                     if (!file.exists()) {
                                         this.k = 2;
-                                        kt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "path not found");
+                                        xt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "path not found");
                                         return null;
                                     } else if (ListUtils.isEmpty(arrayList)) {
                                         return null;
                                     } else {
                                         for (String str9 : arrayList) {
                                             if (StringUtils.isNull(str9)) {
-                                                kt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "static file path is null");
+                                                xt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "static file path is null");
                                                 this.k = 1;
                                                 return null;
                                             } else if (!new File(str6, str9).exists()) {
                                                 this.k = 1;
-                                                kt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str9, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "bundle incomplete");
+                                                xt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str9, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "bundle incomplete");
                                                 return null;
                                             }
                                         }
@@ -542,19 +542,19 @@ public class QuickWebView extends BaseWebView {
                 sb.append("_webview_time=");
                 sb.append(System.currentTimeMillis());
                 str2 = sb.toString();
-                kt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
+                xt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
                 String substring = str2.length() > 100 ? str2.substring(0, 100) : str2;
                 if (QuickWebViewSwitch.getInOn()) {
                     String j = j(str2);
                     if (!TextUtils.isEmpty(j)) {
-                        kt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", j, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "success");
+                        xt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", j, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "success");
                         str2 = j;
                         z = true;
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.k).param("obj_name", h98.h).param("obj_param1", this.l).param("obj_id", this.m));
                         this.k = 0;
                         this.l = "none";
                         this.m = "0.0.0.0";
-                        kt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, "switch", Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                        xt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, "switch", Boolean.valueOf(QuickWebViewSwitch.getInOn()));
                     }
                 } else {
                     this.k = 5;
@@ -564,7 +564,7 @@ public class QuickWebView extends BaseWebView {
                 this.k = 0;
                 this.l = "none";
                 this.m = "0.0.0.0";
-                kt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, "switch", Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                xt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, "switch", Boolean.valueOf(QuickWebViewSwitch.getInOn()));
             }
             if (this.b != null) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -620,9 +620,9 @@ public class QuickWebView extends BaseWebView {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView
-    public void setOnJsPromptCallback(sl8 sl8Var) {
+    public void setOnJsPromptCallback(pk8 pk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sl8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, pk8Var) == null) {
             Log.e(o, "QuickWebView do not support setOnJsPromptCallback");
         }
     }

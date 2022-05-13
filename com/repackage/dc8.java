@@ -1,11 +1,22 @@
 package com.repackage;
 
-import java.util.concurrent.atomic.AtomicReference;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
 /* loaded from: classes5.dex */
 public interface dc8 {
-    public static final AtomicReference<dc8> a = new AtomicReference<>(null);
+    void a();
 
-    /* loaded from: classes5.dex */
-    public interface a {
-    }
+    void b();
+
+    void setButtonText(String str, int i);
+
+    void setButtonTextColor(@ColorRes int i);
+
+    void setButtonTextNightColor(int i);
+
+    void setButtonTextSize(@DimenRes int i);
+
+    void setInitText(String str);
+
+    void setRatio(int i);
 }

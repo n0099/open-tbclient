@@ -88,7 +88,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.e(context);
-            this.n = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f090084);
+            this.n = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f090083);
         }
     }
 
@@ -96,7 +96,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05af : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05a2 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
@@ -130,10 +130,10 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.s(logType);
+        clogBuilder.w(logType);
         clogBuilder.h(str);
         clogBuilder.n(ko0Var.l);
-        ez0.b(clogBuilder);
+        ez0.c(clogBuilder);
     }
 
     public boolean n(AdBaseModel adBaseModel) {

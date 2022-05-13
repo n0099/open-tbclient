@@ -1,27 +1,108 @@
 package com.repackage;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+import tbclient.BawuThrones;
 /* loaded from: classes6.dex */
 public class hc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uo> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+    public ad6 a;
+    public BawuThrones b;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static hc6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-333080904, "Lcom/repackage/hc6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-333080904, "Lcom/repackage/hc6$b;");
+                    return;
+                }
+            }
+            a = new hc6(null);
+        }
+    }
+
+    public /* synthetic */ hc6(a aVar) {
+        this();
+    }
+
+    public static hc6 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (hc6) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            ad6 ad6Var = this.a;
+            if (ad6Var != null) {
+                ad6Var.g();
+            }
+            this.a = null;
+        }
+    }
+
+    public BawuThrones b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (BawuThrones) invokeV.objValue;
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
+            httpMessage.addParam("forum_id", str);
+            httpMessage.addParam("thread_id", str2);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void e(BawuThrones bawuThrones) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bawuThrones) == null) {
+            this.b = bawuThrones;
+        }
+    }
+
+    public void f(TbPageContext tbPageContext, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, str, str2) == null) {
+            if (this.a == null) {
+                this.a = new ad6();
+            }
+            this.a.i(tbPageContext, str, str2);
+        }
+    }
 
     public hc6() {
         Interceptable interceptable = $ic;
@@ -33,40 +114,6 @@ public class hc6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-    }
-
-    public List<uo> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void b(v46 v46Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v46Var) == null) {
-            String str = v46Var.d;
-            this.c = v46Var.c;
-            List<RecommendForumInfo> list = v46Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    gc6 gc6Var = new gc6();
-                    gc6Var.r(recommendForumInfo);
-                    this.a.add(gc6Var);
-                }
-            }
-            Page page = this.c;
-            if (page != null) {
-                this.d = page.has_more.intValue() == 1;
-                this.e = this.c.current_page.intValue();
             }
         }
     }

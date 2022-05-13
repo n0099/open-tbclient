@@ -1,9 +1,6 @@
 package com.baidu.tieba.homepage.framework;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
@@ -19,42 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a07;
 /* loaded from: classes3.dex */
 public class RecommendFrsStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                a07.n().q();
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -82,10 +47,6 @@ public class RecommendFrsStatic {
         tbHttpMessageTask2.setRetry(3);
         messageManager2.registerTask(tbHttpMessageTask2);
         TbadkCoreApplication.getInst().RegisterIntent(BigdayActivityConfig.class, BigdayActivity.class);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921619, new a());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        customMessageTask.setPriority(4);
-        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public RecommendFrsStatic() {

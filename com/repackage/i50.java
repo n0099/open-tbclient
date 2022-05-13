@@ -1,64 +1,47 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidKeyException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class i50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m50 a;
 
-    public i50() {
+    public static byte[] a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
+                messageDigest.update(str.getBytes(str2));
+                return messageDigest.digest();
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static i50 b() throws NoSuchPaddingException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            i50 i50Var = new i50();
-            m50 m50Var = new m50();
-            i50Var.a = m50Var;
-            m50Var.e("PKCS1Padding");
-            return i50Var;
-        }
-        return (i50) invokeV.objValue;
-    }
-
-    public final byte[] a(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
+    public static byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr != null) {
-                return this.a.d(bArr, 0, bArr.length);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+                messageDigest.update(bArr);
+                return messageDigest.digest();
+            } catch (Exception unused) {
+                return null;
             }
-            throw new IllegalArgumentException("Null input buffer");
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public void c(int i, t50 t50Var) throws InvalidKeyException {
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, t50Var) == null) {
-            this.a.a(i, t50Var, l50.a);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? d50.b(b(bArr), false) : (String) invokeL.objValue;
     }
 }

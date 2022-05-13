@@ -1,14 +1,151 @@
 package com.repackage;
 
+import android.content.Context;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 /* loaded from: classes6.dex */
-public class kj1 implements xl1 {
+public class kj1 implements sl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        /* renamed from: com.repackage.kj1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0447a implements nf3<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ File a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ a c;
+
+            /* renamed from: com.repackage.kj1$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0448a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ File a;
+                public final /* synthetic */ C0447a b;
+
+                public RunnableC0448a(C0447a c0447a, File file) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0447a, file};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = c0447a;
+                    this.a = file;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        ge3.a(this.b.c.a, this.a);
+                    }
+                }
+            }
+
+            public C0447a(a aVar, File file, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, file, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = file;
+                this.b = str;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.nf3
+            /* renamed from: a */
+            public void onCallback(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                    try {
+                        File file = new File(this.a, "report");
+                        xg4.l(file);
+                        kj1.e(file, this.b, str);
+                        kj1.d(file);
+                        File file2 = new File(this.a, "report.zip");
+                        xg4.j(file2);
+                        xg4.X(file.getAbsolutePath(), file2.getAbsolutePath());
+                        xg4.L(file);
+                        oe3.a0(new RunnableC0448a(this, file2));
+                    } catch (Exception e) {
+                        ux1.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
+                        m03.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f125b)).G();
+                    }
+                }
+            }
+        }
+
+        public a(kj1 kj1Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj1Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                File W2 = f02.W2();
+                if (W2 == null) {
+                    ux1.k("DefaultSwanAppLogManager", "cacheDir 为 null");
+                } else if (!W2.exists() && !W2.mkdirs()) {
+                    ux1.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + W2.getAbsolutePath());
+                } else {
+                    nd3.i(this.a, new C0447a(this, W2, nd3.l(this.a) + "===== 启动信息 =====\n"));
+                }
+            }
+        }
+    }
 
     public kj1() {
         Interceptable interceptable = $ic;
@@ -24,13 +161,45 @@ public class kj1 implements xl1 {
         }
     }
 
-    @Override // com.repackage.xl1
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void d(File file) {
+        File[] C;
+        File[] C2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
+            File file2 = new File(file, "swan");
+            xg4.e(bk2.p0().a(), file2);
+            for (File file3 : xg4.C(file2)) {
+                if (file3.isDirectory()) {
+                    for (File file4 : xg4.C(file3)) {
+                        if (file4 != null && file4.isFile() && !file4.getName().endsWith(".log")) {
+                            xg4.L(file4);
+                        }
+                    }
+                }
+            }
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void e(File file, String str, String str2) throws FileNotFoundException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str, str2) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            String g = id3.g(currentTimeMillis, "yyyyMMdd");
+            File file2 = new File(file, "runninginfo_" + g + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+            String g2 = id3.g(currentTimeMillis, "yyyy-MM-dd HH:mm:ss");
+            PrintWriter printWriter = new PrintWriter(file2);
+            printWriter.println(g2 + "\n" + str + str2);
+            printWriter.flush();
+            printWriter.close();
+        }
+    }
+
+    @Override // com.repackage.sl1
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null) {
+            return;
+        }
+        od3.k(new a(this, context), "log上报");
     }
 }

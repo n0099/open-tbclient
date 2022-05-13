@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j27;
-import com.repackage.oi;
+import com.repackage.j17;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -117,15 +117,15 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0841, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092110);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09210f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083a, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09216b);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09216a);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);
             this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.c.setItemAnimator(new DefaultItemAnimator());
-            this.c.addItemDecoration(new a(this, oi.f(context, R.dimen.tbds44), oi.f(context, R.dimen.tbds20), oi.f(context, R.dimen.tbds44)));
+            this.c.addItemDecoration(new a(this, mi.f(context, R.dimen.tbds44), mi.f(context, R.dimen.tbds20), mi.f(context, R.dimen.tbds44)));
             b();
         }
     }
@@ -141,13 +141,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         this.d.notifyDataSetChanged();
     }
 
-    public void setData(j27 j27Var) {
+    public void setData(j17 j17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j27Var) == null) {
-            if (j27Var != null && !ListUtils.isEmpty(j27Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j17Var) == null) {
+            if (j17Var != null && !ListUtils.isEmpty(j17Var.b)) {
                 setVisibility(0);
-                this.b.setText(j27Var.a);
-                this.d.setData(j27Var.b);
+                this.b.setText(j17Var.a);
+                this.d.setData(j17Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }

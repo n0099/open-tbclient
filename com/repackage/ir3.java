@@ -1,135 +1,177 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.manage.Download;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ir3 {
+public class ir3 extends nr3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<bs3>> a;
 
-    public ir3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755608889, "Lcom/repackage/ir3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755608889, "Lcom/repackage/ir3;");
                 return;
             }
         }
-        this.a = new HashMap<>();
+        d = eh1.a;
     }
 
-    public synchronized void a(String str, bs3 bs3Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ir3(int i) {
+        super("onSuccess", 0, f(null, i, false));
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bs3Var) == null) {
-            synchronized (this) {
-                if (e(str, bs3Var)) {
-                    return;
-                }
-                List<bs3> c = c(str);
-                if (!c.contains(bs3Var)) {
-                    c.add(bs3Var);
-                }
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, c);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public synchronized void b(String str, ds3 ds3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ds3Var) == null) {
-            synchronized (this) {
-                for (bs3 bs3Var : new ArrayList(c(str))) {
-                    if (bs3Var != null) {
-                        bs3Var.a(ds3Var);
-                    }
-                }
-            }
-        }
-    }
-
-    public final List<bs3> c(String str) {
+    public static JSONObject d(Download download) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new ArrayList();
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) ? e(download, false) : (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject e(Download download, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, download, z)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (download == null) {
+                return jSONObject;
             }
-            List<bs3> list = this.a.get(str);
-            return list == null ? new ArrayList() : list;
+            try {
+                jSONObject.put("apkId", new br3(download).h());
+                jSONObject.put("downloadId", download.getId());
+                jSONObject.put("packageName", download.getKeyByUser());
+                jSONObject.put("url", download.getUrl());
+                if (z) {
+                    jSONObject.put("status", Download.DownloadState.CANCEL.ordinal());
+                } else {
+                    jSONObject.put("status", download.getState().ordinal());
+                }
+                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
+                jSONObject.put("total", download.getTotalbytes());
+                jSONObject.put("fileExist", cr3.d(download) ? "1" : "0");
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
         }
-        return (List) invokeL.objValue;
+        return (JSONObject) invokeLZ.objValue;
     }
 
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
+    public static String f(Object obj, int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{obj, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", obj);
+                if (i > -1) {
+                    jSONObject.put("progress", i);
                 }
-                List<bs3> list = this.a.get(str);
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        z = true;
-                    }
+                jSONObject.put("installed", z);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
                 }
-                return z;
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ir3(boolean z) {
+        super("onSuccess", 0, f(null, -1, z));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public final boolean e(String str, bs3 bs3Var) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ir3(Download download) {
+        super("onSuccess", 0, f(d(download), -1, false));
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bs3Var)) == null) ? TextUtils.isEmpty(str) || bs3Var == null : invokeLL.booleanValue;
-    }
-
-    public synchronized void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                g(str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
     }
 
-    public synchronized void g(String str, bs3 bs3Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ir3(Download download, boolean z) {
+        super("onSuccess", 0, f(e(download, z), -1, false));
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, bs3Var) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (bs3Var == null) {
-                    this.a.remove(str);
-                    return;
-                }
-                List<bs3> c = c(str);
-                if (c.contains(bs3Var)) {
-                    c.remove(bs3Var);
-                    if (c.isEmpty()) {
-                        this.a.remove(str);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
         }
     }

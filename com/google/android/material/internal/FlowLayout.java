@@ -65,7 +65,7 @@ public class FlowLayout extends ViewGroup {
     private void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0402eb, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f0406c0}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401e4, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f04049b, R.attr.obfuscated_res_0x7f0406c8}, 0, 0);
             this.lineSpacing = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.itemSpacing = obtainStyledAttributes.getDimensionPixelSize(2, 0);
             obtainStyledAttributes.recycle();
@@ -94,7 +94,7 @@ public class FlowLayout extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f091aed);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f091b3b);
             if (tag instanceof Integer) {
                 return ((Integer) tag).intValue();
             }
@@ -130,7 +130,7 @@ public class FlowLayout extends ViewGroup {
             for (int i10 = 0; i10 < getChildCount(); i10++) {
                 View childAt = getChildAt(i10);
                 if (childAt.getVisibility() == 8) {
-                    childAt.setTag(R.id.obfuscated_res_0x7f091aed, -1);
+                    childAt.setTag(R.id.obfuscated_res_0x7f091b3b, -1);
                 } else {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -147,7 +147,7 @@ public class FlowLayout extends ViewGroup {
                         this.rowCount++;
                         i8 = paddingRight;
                     }
-                    childAt.setTag(R.id.obfuscated_res_0x7f091aed, Integer.valueOf(this.rowCount - 1));
+                    childAt.setTag(R.id.obfuscated_res_0x7f091b3b, Integer.valueOf(this.rowCount - 1));
                     int i11 = i8 + i6;
                     int measuredWidth2 = childAt.getMeasuredWidth() + i11;
                     int measuredHeight = childAt.getMeasuredHeight() + i9;

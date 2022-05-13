@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gl2;
-import com.repackage.jx1;
+import com.repackage.rl2;
+import com.repackage.ux1;
 /* loaded from: classes2.dex */
 public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,13 +49,13 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
             if (this.mHasGotoClearCache) {
                 this.mHasGotoClearCache = false;
                 try {
-                    gl2 launchInfo = getLaunchInfo();
+                    rl2 launchInfo = getLaunchInfo();
                     if (SwanAppNetworkUtils.i(this)) {
                         SwanLauncher.j().n(launchInfo, null);
                         finish();
                     }
                 } catch (Exception e) {
-                    jx1.l(TAG, "SwanAppClearCacheErrorActivity#onRestart", e);
+                    ux1.l(TAG, "SwanAppClearCacheErrorActivity#onRestart", e);
                 }
             }
         }

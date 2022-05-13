@@ -1,9 +1,11 @@
 package com.repackage;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,39 +13,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.binaryresource.BinaryResource;
-import com.facebook.binaryresource.FileBinaryResource;
-import com.facebook.cache.common.CacheKey;
-import com.facebook.cache.common.WriterCallbacks;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.core.ImagePipelineFactory;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.repackage.q42;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class t42 implements m42, s42 {
+public final class t42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public u42 b;
+    public q42 a;
+    public r42 b;
+    public ConcurrentHashMap<String, PrefetchEvent> c;
 
     /* loaded from: classes7.dex */
-    public class a implements w42 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n42 a;
+        public final /* synthetic */ PrefetchEvent a;
+        public final /* synthetic */ t42 b;
 
-        public a(t42 t42Var, n42 n42Var) {
+        public a(t42 t42Var, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t42Var, n42Var};
+                Object[] objArr = {t42Var, prefetchEvent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,86 +46,58 @@ public class t42 implements m42, s42 {
                     return;
                 }
             }
-            this.a = n42Var;
+            this.b = t42Var;
+            this.a = prefetchEvent;
         }
 
-        @Override // com.repackage.w42
-        public void a(ImageRequest imageRequest) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageRequest) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.e(this.a);
             }
-        }
-
-        @Override // com.repackage.w42
-        public void b(ImageRequest imageRequest) {
-            n42 n42Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) || (n42Var = this.a) == null) {
-                return;
-            }
-            n42Var.a();
-        }
-
-        @Override // com.repackage.w42
-        public void c(ImageRequest imageRequest, Throwable th) {
-            n42 n42Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) || (n42Var = this.a) == null) {
-                return;
-            }
-            n42Var.a();
-        }
-
-        @Override // com.repackage.w42
-        public void onCancel(String str) {
-            n42 n42Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (n42Var = this.a) == null) {
-                return;
-            }
-            n42Var.a();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements u42 {
+    public class b implements q42.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PrefetchEvent a;
+        public final /* synthetic */ t42 b;
 
-        public b(t42 t42Var) {
+        public b(t42 t42Var, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t42Var};
+                Object[] objArr = {t42Var, prefetchEvent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = t42Var;
+            this.a = prefetchEvent;
         }
 
-        @Override // com.repackage.u42
-        public CacheKey a(String str) {
-            InterceptResult invokeL;
+        @Override // com.repackage.q42.e
+        public void a(tx2 tx2Var, PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return DefaultCacheKeyFactory.getInstance().getEncodedCacheKey(ImageRequest.fromUri(Uri.parse(str)), null);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tx2Var, pMSAppInfo) == null) {
+                this.b.b.b(this.a, tx2Var, pMSAppInfo);
             }
-            return (CacheKey) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
-        public static t42 a;
+        public static final t42 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -152,166 +117,91 @@ public class t42 implements m42, s42 {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755340801, "Lcom/repackage/t42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755340801, "Lcom/repackage/t42;");
+                return;
+            }
+        }
+        d = eh1.a;
+    }
+
     public /* synthetic */ t42(a aVar) {
         this();
     }
 
-    public static t42 d() {
+    public static t42 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (t42) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a : (t42) invokeV.objValue;
     }
 
-    @Override // com.repackage.m42
-    public void a(String str, File file, n42 n42Var) {
+    public void c(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, file, n42Var) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, prefetchEvent) == null) || prefetchEvent == null) {
             return;
         }
-        boolean z = false;
-        if (file != null && file.exists()) {
-            z = b(str, file);
-        }
-        if (z) {
-            n42Var.a();
-        } else {
-            e(str, new a(this, n42Var));
-        }
+        this.c.put(ws1.a(prefetchEvent.appId), prefetchEvent);
     }
 
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            CacheKey a2 = this.b.a(str);
-            boolean z = false;
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (IOException e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                BinaryResource insert = Fresco.getImagePipelineFactory().getMainFileCache().insert(a2, WriterCallbacks.from(fileInputStream));
-                if (insert != null) {
-                    if (insert.size() > 0) {
-                        z = true;
-                    }
-                }
-                mg4.d(fileInputStream);
-                return z;
-            } catch (IOException e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                if (s42.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
-                mg4.d(fileInputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                mg4.d(fileInputStream2);
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.clear();
         }
-        return invokeLL.booleanValue;
     }
 
-    public final File c(String str) {
-        InterceptResult invokeL;
-        BinaryResource resource;
+    public final void e(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            CacheKey a2 = this.b.a(str);
-            if (a2 == null) {
-                return null;
-            }
-            if (ImagePipelineFactory.getInstance().getMainFileCache().hasKey(a2)) {
-                BinaryResource resource2 = ImagePipelineFactory.getInstance().getMainFileCache().getResource(a2);
-                if (resource2 != null) {
-                    return ((FileBinaryResource) resource2).getFile();
-                }
-                return null;
-            } else if (!ImagePipelineFactory.getInstance().getSmallImageFileCache().hasKey(a2) || (resource = ImagePipelineFactory.getInstance().getSmallImageFileCache().getResource(a2)) == null) {
-                return null;
-            } else {
-                return ((FileBinaryResource) resource).getFile();
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent) == null) {
+            this.a.g(prefetchEvent, new b(this, prefetchEvent));
         }
-        return (File) invokeL.objValue;
     }
 
-    public final DataSource<Void> e(String str, w42 w42Var) {
-        InterceptResult invokeLL;
+    public void f(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, w42Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (w42Var != null) {
-                    w42Var.c(null, new Exception("url is empty"));
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
+            if (d) {
+                Log.d("SwanAppPrefetchManager", "fire preloadEvent abSwitch: " + u42.h());
             }
-            ImagePipeline imagePipeline = Fresco.getImagePipeline();
-            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(str));
-            if (w42Var != null) {
-                newBuilderWithSource.setRequestListener(qj2.B().a(w42Var));
+            if (h(prefetchEvent)) {
+                return;
             }
-            return imagePipeline.prefetchToDiskCache(newBuilderWithSource.build(), null);
+            if (d) {
+                Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
+            }
+            ExecutorUtilsExt.postOnSerial(new a(this, prefetchEvent), "prefetch-event-thread");
         }
-        return (DataSource) invokeLL.objValue;
     }
 
-    @Override // com.repackage.m42
-    public InputStream get(String str) {
+    public final boolean h(PrefetchEvent prefetchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            File c2 = c(str);
-            if (c2 == null || !c2.exists()) {
-                return null;
-            }
-            try {
-                return new FileInputStream(c2);
-            } catch (IOException e) {
-                if (s42.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
-    @Override // com.repackage.m42
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, prefetchEvent)) == null) ? (u42.h() && prefetchEvent != null && prefetchEvent.isValid() && TextUtils.equals(prefetchEvent.state, "show")) ? false : true : invokeL.booleanValue;
     }
 
     public t42() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new b(this);
+        this.c = new ConcurrentHashMap<>();
+        this.a = new q42();
+        this.b = new r42();
     }
 }

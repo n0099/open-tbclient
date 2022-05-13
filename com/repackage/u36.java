@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u36 implements o36 {
+public class u36 implements p36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,22 +26,22 @@ public class u36 implements o36 {
         }
     }
 
-    @Override // com.repackage.o36
+    @Override // com.repackage.p36
     public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
             try {
-                n36.f().i(str2, str3);
+                o36.f().h(str2);
             } catch (Throwable unused) {
-                n36.f().e();
+                o36.f().e();
             }
         }
     }
 
-    @Override // com.repackage.o36
+    @Override // com.repackage.p36
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showH5Dialog" : (String) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -42,10 +42,10 @@ public class a implements Parcelable {
         try {
             c = !TextUtils.isEmpty(messageV3.getNotificationMessage()) ? a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no")) : null;
         } catch (Exception e) {
-            ym9.b("NotifyOption", "parse flyme NotifyOption setting error " + e.getMessage() + " so get from notificationMessage");
+            tl9.b("NotifyOption", "parse flyme NotifyOption setting error " + e.getMessage() + " so get from notificationMessage");
             c = c(messageV3.getNotificationMessage());
         }
-        ym9.d("NotifyOption", "current notify option is " + c);
+        tl9.d("NotifyOption", "current notify option is " + c);
         return c;
     }
 
@@ -66,7 +66,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no such tag NotifyOption";
-        ym9.b("NotifyOption", str);
+        tl9.b("NotifyOption", str);
         return aVar;
     }
 
@@ -84,7 +84,7 @@ public class a implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e) {
-                ym9.b("NotifyOption", "parse json string error " + e.getMessage());
+                tl9.b("NotifyOption", "parse json string error " + e.getMessage());
             }
             return a(jSONObject);
         }
@@ -99,7 +99,7 @@ public class a implements Parcelable {
             }
             return b(new JSONObject(str).getString("no"));
         } catch (JSONException e) {
-            ym9.b("NotifyOption", "parse notificationMessage error " + e.getMessage());
+            tl9.b("NotifyOption", "parse notificationMessage error " + e.getMessage());
             return null;
         }
     }

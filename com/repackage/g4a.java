@@ -1,57 +1,84 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType;
+import java.util.List;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class g4a implements Interceptor {
+public class g4a implements IYYPayAmountView.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
+    public Dialog c;
+    public IYYPayAmountView.ViewParams d;
+    public Activity e;
+    public IPayCallback<CurrencyChargeMessage> f;
+    public s3a g;
 
-    public g4a(int i) {
+    public g4a(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, s3a s3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, s3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
+        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
         this.a = i;
+        this.b = i2;
+        this.c = dialog;
+        this.d = viewParams;
+        this.e = activity;
+        this.f = iPayCallback;
+        this.g = s3aVar;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        int i;
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onRefreshViewFail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            Response proceed = chain.proceed(request);
-            while (!proceed.isSuccessful() && (i = this.b) < this.a) {
-                this.b = i + 1;
-                proceed.close();
-                proceed = chain.proceed(request);
-                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.a), Integer.valueOf(this.b));
-            }
-            return proceed;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str, new Object[0]);
+            i5a.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
         }
-        return (Response) invokeL.objValue;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list) == null) {
+            RLog.info("PayAmountViewCallback", "showInputNumberDialog");
+            i5a.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.j(activity, list, this.d, this.f);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toPayWayDialog(s4a s4aVar, List<PayWayInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, s4aVar, list) == null) {
+            RLog.info("PayAmountViewCallback", "toPayWayDialog");
+            i5a.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.g(this.e, s4aVar, list, this.d, this.f);
+            a5a.b(this.a, this.b, UiEventType.purchasegotopay);
+        }
     }
 }

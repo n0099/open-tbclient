@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz9;
-import com.repackage.dz9;
-import com.repackage.hz9;
-import com.repackage.nz9;
-import com.repackage.s1a;
-import com.repackage.s2a;
-import com.repackage.wz9;
-import com.repackage.z2a;
+import com.repackage.cy9;
+import com.repackage.iy9;
+import com.repackage.m0a;
+import com.repackage.m1a;
+import com.repackage.ry9;
+import com.repackage.t1a;
+import com.repackage.xx9;
+import com.repackage.yx9;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
-public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
+public final class QueuedProducer<T> extends AtomicLong implements yx9, xx9<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
     public static final long serialVersionUID = 7277121710709137047L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hz9<? super T> child;
+    public final cy9<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
@@ -50,19 +50,19 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public QueuedProducer(hz9<? super T> hz9Var) {
-        this(hz9Var, z2a.b() ? new s2a() : new s1a());
+    public QueuedProducer(cy9<? super T> cy9Var) {
+        this(cy9Var, t1a.b() ? new m1a() : new m0a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hz9Var};
+            Object[] objArr = {cy9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((hz9) objArr2[0], (Queue) objArr2[1]);
+                this((cy9) objArr2[0], (Queue) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -98,7 +98,7 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
     private void drain() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.wip.getAndIncrement() == 0) {
-            hz9<? super T> hz9Var = this.child;
+            cy9<? super T> cy9Var = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -115,9 +115,9 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            hz9Var.onNext(null);
+                            cy9Var.onNext(null);
                         } else {
-                            hz9Var.onNext(poll);
+                            cy9Var.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -125,7 +125,7 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        nz9.g(th, hz9Var, poll);
+                        iy9.g(th, cy9Var, poll);
                         return;
                     }
                 }
@@ -156,7 +156,7 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.cz9
+    @Override // com.repackage.xx9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -165,7 +165,7 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
         }
     }
 
-    @Override // com.repackage.cz9
+    @Override // com.repackage.xx9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -175,7 +175,7 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
         }
     }
 
-    @Override // com.repackage.cz9
+    @Override // com.repackage.xx9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || offer(t)) {
@@ -184,7 +184,7 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
         onError(new MissingBackpressureException());
     }
 
-    @Override // com.repackage.dz9
+    @Override // com.repackage.yx9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
@@ -193,18 +193,18 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (i > 0) {
-                wz9.b(this, j);
+                ry9.b(this, j);
                 drain();
             }
         }
     }
 
-    public QueuedProducer(hz9<? super T> hz9Var, Queue<Object> queue) {
+    public QueuedProducer(cy9<? super T> cy9Var, Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hz9Var, queue};
+            Object[] objArr = {cy9Var, queue};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -214,7 +214,7 @@ public final class QueuedProducer<T> extends AtomicLong implements dz9, cz9<T> {
                 return;
             }
         }
-        this.child = hz9Var;
+        this.child = cy9Var;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.z17;
+import com.repackage.z07;
 /* loaded from: classes3.dex */
 public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
     public static /* synthetic */ Interceptable $ic;
@@ -60,9 +60,9 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                     }
                     return;
                 }
-                z17 z17Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+                z07 z07Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
                 if (this.a.a != null) {
-                    this.a.a.a(z17Var);
+                    this.a.a.a(z07Var);
                 }
             }
         }
@@ -70,7 +70,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(z17 z17Var);
+        void a(z07 z07Var);
 
         void onFail(String str);
     }

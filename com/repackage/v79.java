@@ -1,28 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.common.security.RSAUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
 /* loaded from: classes7.dex */
-public class v79 implements t79 {
+public class v79 implements d89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PublicKey a;
+    public i79 a;
+    public float b;
+    public boolean c;
 
-    public v79(String str) throws Exception {
+    public v79() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,32 +28,104 @@ public class v79 implements t79 {
                 return;
             }
         }
-        b(str);
+        this.b = 1.0f;
+        this.c = true;
     }
 
-    @Override // com.repackage.t79
-    public String a(String str) throws Exception {
-        InterceptResult invokeL;
+    @Override // com.repackage.d89
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!b89.a(str)) {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, this.a);
-                return x79.r(cipher.doFinal(str.getBytes()));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            i79 i79Var = this.a;
+            if (i79Var == null || !i79Var.putBytes(bArr, i)) {
+                return 0;
             }
-            throw new Exception("Plaintext can not be blank.");
+            return i;
         }
-        return (String) invokeL.objValue;
+        return invokeLI.intValue;
     }
 
-    public final void b(String str) throws Exception {
+    @Override // com.repackage.d89
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (!b89.a(str)) {
-                this.a = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(x79.n(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.d89
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (i79) lb9.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
             }
-            throw new Exception("PubKey can not be blank.");
+            i79 i79Var = this.a;
+            if (i79Var != null) {
+                i79Var.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
+            }
+            return false;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.repackage.d89
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            i79 i79Var = this.a;
+            return i79Var != null ? i79Var.getOutPutBytes() : new byte[0];
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            i79 i79Var = this.a;
+            if (i79Var != null) {
+                i79Var.setSpeed(f);
+            }
+        }
+    }
+
+    @Override // com.repackage.d89
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.d89
+    public void c() {
+        i79 i79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i79Var = this.a) == null) {
+            return;
+        }
+        i79Var.flush();
+    }
+
+    @Override // com.repackage.d89
+    public void d() {
+        i79 i79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (i79Var = this.a) == null) {
+            return;
+        }
+        i79Var.close();
+        this.a = null;
+    }
+
+    @Override // com.repackage.d89
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 }

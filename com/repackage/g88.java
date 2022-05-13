@@ -21,7 +21,7 @@ public class g88 {
     public View b;
     public BdTypeListView c;
     public NoDataView d;
-    public h45 e;
+    public y45 e;
     public NavigationBarShadowView f;
     public c88 g;
     public View.OnClickListener h;
@@ -54,7 +54,7 @@ public class g88 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.A()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ki.A()) {
                 if (this.a.e != null) {
                     this.a.e.dettachView(this.a.b);
                     this.a.e = null;
@@ -128,8 +128,8 @@ public class g88 {
         this.i = new b(this);
         this.a = context;
         this.b = view2;
-        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09126d);
-        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091504);
+        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09127a);
+        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091524);
         this.c.setOnScrollListener(this.i);
     }
 

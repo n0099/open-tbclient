@@ -1,13 +1,10 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import tbclient.FrsPage.CarrierEnter;
 /* loaded from: classes7.dex */
 public class to4 {
     public static /* synthetic */ Interceptable $ic;
@@ -27,27 +24,15 @@ public class to4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(CarrierEnter carrierEnter) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, carrierEnter) == null) || carrierEnter == null) {
             return;
         }
-        try {
-            jSONObject.optString("icon");
-            jSONObject.optString("name");
-            jSONObject.optString("url");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void b(MemberShowIcon memberShowIcon) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberShowIcon) == null) || memberShowIcon == null) {
-            return;
-        }
-        String str = memberShowIcon.icon;
-        String str2 = memberShowIcon.name;
-        String str3 = memberShowIcon.url;
+        String str = carrierEnter.title;
+        String str2 = carrierEnter.text;
+        String str3 = carrierEnter.headline_cover;
+        String str4 = carrierEnter.url;
+        String str5 = carrierEnter.obj_id;
     }
 }

@@ -411,7 +411,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c6, R.attr.obfuscated_res_0x7f0400c7});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c8, R.attr.obfuscated_res_0x7f0400c9});
             this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, false);
             this.autoShrinkEnabled = obtainStyledAttributes.getBoolean(1, true);
             obtainStyledAttributes.recycle();
@@ -1083,7 +1083,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040266);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040269);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1157,7 +1157,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.isExtended = true;
         Context context2 = getContext();
         this.behavior = new ExtendedFloatingActionButtonBehavior(context2, attributeSet);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040265, R.attr.obfuscated_res_0x7f0402c3, R.attr.obfuscated_res_0x7f040594, R.attr.obfuscated_res_0x7f04059a}, i, obfuscated_res_0x7f10035e, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040268, R.attr.obfuscated_res_0x7f0402c8, R.attr.obfuscated_res_0x7f04059a, R.attr.obfuscated_res_0x7f0405a0}, i, obfuscated_res_0x7f10035e, new int[0]);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 3);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 2);
         MotionSpec createFromAttribute3 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 1);

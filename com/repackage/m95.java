@@ -1,26 +1,25 @@
 package com.repackage;
 
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.model.LoadType;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oa5;
-import com.repackage.pa5;
 /* loaded from: classes6.dex */
-public class m95<Q extends oa5, P extends pa5> implements n95<Q, P> {
+public class m95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
+    public o95 a;
+    public String b;
 
-    public m95() {
+    public m95(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,57 +29,46 @@ public class m95<Q extends oa5, P extends pa5> implements n95<Q, P> {
                 return;
             }
         }
-        this.a = true;
-        this.b = 1;
-        this.c = 1;
+        this.b = str;
     }
 
-    @Override // com.repackage.n95
-    public void a(Q q, P p) {
+    public final void a(String str, int i) {
+        int intValue;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, q, p) == null) || p == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || li.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
             return;
         }
-        if (p.getPageInfo() != null) {
-            ja5 pageInfo = p.getPageInfo();
-            this.c = pageInfo.a;
-            this.a = pageInfo.b;
-            if (q != null && q.c() != null) {
-                q.c().d = pageInfo.c;
-            }
+        int i2 = intValue + 1;
+        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
+        if (intValue2 > 0) {
+            i = (i + (intValue2 * (i2 - 1))) / i2;
         }
-        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
-            this.c = q.c().c;
-            this.a = true;
+        TbSingleton.getInstance().setAnimAvgFps(str, i);
+        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
+        if (i2 >= 5) {
+            TbSingleton.getInstance().setAnimComputedFps(str, i);
+            n95.a();
         }
-        eb5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
     }
 
-    @Override // com.repackage.n95
-    public void b(Q q, boolean z) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) || q == null || q.c() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        ia5 c = q.c();
-        if (z) {
-            if (!c.a()) {
-                this.c = this.b;
-            }
-            c.b = c.a() ? LoadType.PREPEND : LoadType.REFRESH;
-            c.c = this.c;
-        } else {
-            int i = this.c + 1;
-            this.c = i;
-            c.b = LoadType.APPEND;
-            c.c = i;
+        if (this.a == null) {
+            this.a = new o95();
         }
-        eb5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
+        this.a.c();
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void c() {
+        o95 o95Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (o95Var = this.a) == null || Build.VERSION.SDK_INT < 16) {
+            return;
+        }
+        o95Var.d();
+        a(this.b, this.a.b());
     }
 }

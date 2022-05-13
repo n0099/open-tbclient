@@ -55,7 +55,7 @@ public class ls7 extends PostData {
         this.K0 = 0;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.uo
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

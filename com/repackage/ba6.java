@@ -1,171 +1,65 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qe;
 /* loaded from: classes5.dex */
-public class ba6 extends PopupWindow implements View.OnClickListener {
+public class ba6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public TextView b;
-    public TextView c;
-    public View d;
-    public View e;
-    public View f;
-    public LinearLayout g;
-    public da6 h;
-    public Context i;
+    public qe<byte[]> a;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ba6 a;
-
-        public a(ba6 ba6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ba6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ba6Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090e3c).getTop();
-                int y = (int) motionEvent.getY();
-                if (motionEvent.getAction() == 1 && y < top) {
-                    this.a.dismiss();
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ba6(Context context, int i) {
-        super(context);
+    public ba6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(context, i);
-        this.i = context;
-        e();
-        c(TbadkCoreApplication.getInst().getSkinType());
-        this.a.setOnClickListener(this);
-        this.b.setOnClickListener(this);
-        this.c.setOnClickListener(this);
+        b();
     }
 
-    public final void b(Context context, int i) {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0256, (ViewGroup) null);
-            this.d = inflate;
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ee);
-            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921bf);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092172);
-            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090e3c);
-            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f09124d);
-            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f09124e);
-            if (i == 1) {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-            } else {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0204);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            qe<byte[]> qeVar = this.a;
+            qe.b<byte[]> h = (qeVar == null || str == null) ? null : qeVar.h(str);
+            if (h == null || (bArr = h.b) == null) {
+                return null;
             }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            mr4.f();
+            this.a = mr4.d("tb.bawu_team_info");
         }
     }
 
-    public void c(int i) {
+    public void c(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setBackgroundResource(this.g, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) || StringUtils.isNull(str)) {
+            return;
         }
-    }
-
-    public void d(da6 da6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, da6Var) == null) {
-            this.h = da6Var;
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (Build.VERSION.SDK_INT >= 22) {
-                setAttachedInDecor(false);
-            }
-            setContentView(this.d);
-            setWidth(-1);
-            setHeight(oi.i(this.i));
-            setFocusable(true);
-            setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
-            this.d.setOnTouchListener(new a(this));
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            dismiss();
-            da6 da6Var = this.h;
-            if (da6Var == null) {
-                return;
-            }
-            if (view2 == this.a) {
-                da6Var.b();
-            } else if (view2 == this.b) {
-                da6Var.a();
-            }
-        }
+        b();
+        this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

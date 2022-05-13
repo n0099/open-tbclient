@@ -1,142 +1,102 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class q37 extends BaseAdapter {
+import tbclient.GetSugTopic.TopicList;
+import tbclient.GetSugTopic.TopicListModule;
+/* loaded from: classes6.dex */
+public class q37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LayoutInflater a;
+    public String a;
     public int b;
-    public ItemViewHolder c;
-    public List<r37> d;
-    public final ArrayList<ItemViewHolder> e;
-    public View.OnClickListener f;
+    public List<r37> c;
+    public List<t37> d;
 
-    public q37(Context context, int i, ItemViewHolder itemViewHolder) {
+    public q37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), itemViewHolder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList<>();
-        this.a = LayoutInflater.from(context);
-        this.b = i;
-        this.c = itemViewHolder;
+        this.b = -1;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
     }
 
-    public final void a(ItemViewHolder itemViewHolder, r37 r37Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, itemViewHolder, r37Var) == null) || r37Var == null || itemViewHolder == null) {
-            return;
-        }
-        itemViewHolder.c(r37Var);
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || ListUtils.getCount(this.e) <= 0) {
-            return;
-        }
-        Iterator<ItemViewHolder> it = this.e.iterator();
-        while (it.hasNext()) {
-            it.next().e(i);
-        }
-    }
-
-    public void c(List<r37> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.d = list;
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.d) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? ListUtils.getItem(this.d, i) : invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (ListUtils.getItem(this.d, i) == null) {
-                return -1L;
-            }
-            return ((r37) ListUtils.getItem(this.d, i)).hashCode();
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = this.a.inflate(this.b, viewGroup, false);
-                ItemViewHolder d = this.c.d(view2);
-                d.f(this.f);
-                view2.setTag(d);
-                this.e.add(d);
-            }
-            ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
-            if (ListUtils.getItem(this.d, i) != null) {
-                a(itemViewHolder, this.d.get(i));
-            }
-            return itemViewHolder.b();
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean hasStableIds() {
+    public List<r37> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
+    }
+
+    public List<t37> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (List) invokeV.objValue;
+    }
+
+    public void d(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) || topicListModule == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.a = topicListModule.module_title;
+        List<TopicList> list = topicListModule.topic_list;
+        if (list == null) {
+            return;
+        }
+        int count = ListUtils.getCount(list);
+        for (int i = 0; i < count; i++) {
+            r37 r37Var = new r37();
+            TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
+            if (topicList != null) {
+                r37Var.c(topicList);
+                if (!li.isEmptyStringAfterTrim(r37Var.b())) {
+                    this.c.add(r37Var);
+                    this.d.add(new t37(topicList));
+                }
+            }
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 }

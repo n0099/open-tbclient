@@ -1,33 +1,25 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.os.Build;
-import android.text.TextUtils;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class fs9 extends WebViewClient {
+public class fs9 implements lp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public final /* synthetic */ js9 d;
+    public long a;
+    public final /* synthetic */ vs9 b;
 
-    public fs9(js9 js9Var) {
+    public fs9(vs9 vs9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {js9Var};
+            Object[] objArr = {vs9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,87 +29,65 @@ public class fs9 extends WebViewClient {
                 return;
             }
         }
-        this.d = js9Var;
+        this.b = vs9Var;
+        this.a = 0L;
     }
 
-    public final boolean a(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.lp9
+    public void a(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            js9 js9Var = this.d;
-            if (js9Var.d) {
-                js9Var.d = false;
-                js9 js9Var2 = this.d;
-                wo9 wo9Var = js9Var2.b;
-                if (wo9Var != null) {
-                    return wo9Var.a(str, js9Var2.e);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            tq9 a = xq9.a(this.b.a);
+            br9 br9Var = new br9(null);
+            br9Var.a = this.b.b;
+            a.g(br9Var, currentTimeMillis, i, 0);
+            a.m();
+            this.b.j.removeMessages(100101);
+            this.b.d = false;
+            this.b.d(this.b.a(i));
+        }
+    }
+
+    @Override // com.repackage.lp9
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = System.currentTimeMillis();
+            vs9 vs9Var = this.b;
+            vs9Var.j.sendEmptyMessageDelayed(100101, vs9Var.f * 1000);
+        }
+    }
+
+    @Override // com.repackage.lp9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            jo9 jo9Var = (jo9) obj;
+            this.b.j.removeMessages(100101);
+            this.b.d = false;
+            int size = jo9Var.a.size();
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            Info info = size > 0 ? (Info) jo9Var.a.get(0) : null;
+            tq9 a = xq9.a(this.b.a);
+            br9 br9Var = new br9(info);
+            br9Var.a = this.b.b;
+            a.g(br9Var, currentTimeMillis, 200, size);
+            a.m();
+            this.b.c(jo9Var);
+            xr9 xr9Var = this.b.c;
+            if (xr9Var != null && !xr9Var.d()) {
+                vs9 vs9Var = this.b;
+                if (vs9Var.h) {
+                    return;
+                }
+                Info c = vs9Var.c.c();
+                if (c != null) {
+                    this.b.e(c);
+                    return;
                 }
             }
-            return false;
+            this.b.d(PBError.NO_FILL);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-            super.onPageFinished(webView, str);
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = str;
-            }
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
-            super.onPageStarted(webView, str, bitmap);
-            ep9 ep9Var = this.d.a;
-            if (ep9Var != null && !this.c) {
-                this.c = true;
-                ep9Var.onLoaded();
-            }
-            this.a = webView.getUrl();
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
-            super.onReceivedError(webView, webResourceRequest, webResourceError);
-            if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.a)) && Build.VERSION.SDK_INT >= 23) {
-                webResourceError.getDescription().toString();
-                webResourceError.getErrorCode();
-            }
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, webResourceRequest)) == null) {
-            if (Build.VERSION.SDK_INT < 24 || !a(webResourceRequest.getUrl().toString())) {
-                return super.shouldOverrideUrlLoading(webView, webResourceRequest);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 24 || !a(str)) {
-                return super.shouldOverrideUrlLoading(webView, str);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 }

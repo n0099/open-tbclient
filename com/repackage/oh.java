@@ -1,88 +1,41 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class oh {
+public class oh extends bh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ArrayList<gh> a(dh dhVar) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oh(xh xhVar) {
+        super(xhVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dhVar)) == null) {
-            ArrayList arrayList = new ArrayList();
-            File[] b = fh.b(dhVar.C());
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name) && name.startsWith(dhVar.h()) && name.contains("Uploading")) {
-                            arrayList.add(new gh(name, file.length(), file.lastModified()));
-                        }
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xhVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((xh) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            ArrayList<gh> arrayList2 = new ArrayList<>();
-            ArrayList arrayList3 = new ArrayList();
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                gh ghVar = (gh) it.next();
-                if (ghVar != null) {
-                    long j = ghVar.c;
-                    if (j != 0 && j + 604800000 < currentTimeMillis) {
-                        arrayList3.add(ghVar.b);
-                    } else {
-                        arrayList2.add(ghVar);
-                    }
-                }
-            }
-            if (arrayList3.size() > 0) {
-                fh.a(arrayList3, dhVar.C());
-            }
-            return arrayList2;
         }
-        return (ArrayList) invokeL.objValue;
+        this.s = true;
+        this.o = "alert";
     }
 
-    public static BdUploadingLogInfo b(dh dhVar) {
-        InterceptResult invokeL;
+    @Override // com.repackage.bh
+    public String p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dhVar)) == null) {
-            ArrayList<gh> a = a(dhVar);
-            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getTrackLogWriteDir(), dhVar.C(), dhVar.A());
-            if (a != null && a.size() > 0) {
-                if (a.size() > 1) {
-                    Collections.sort(a, new hh());
-                }
-                ArrayList arrayList = new ArrayList();
-                int size = a.size();
-                long j = 0;
-                for (int i = 0; i < size; i++) {
-                    gh ghVar = a.get(i);
-                    j += ghVar.a;
-                    arrayList.add(ghVar);
-                    if (j >= 20480) {
-                        bdUploadingLogInfo.add(arrayList);
-                        arrayList = new ArrayList();
-                        j = 0;
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    bdUploadingLogInfo.add(arrayList);
-                }
-            }
-            return bdUploadingLogInfo;
-        }
-        return (BdUploadingLogInfo) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mon" : (String) invokeV.objValue;
     }
 }

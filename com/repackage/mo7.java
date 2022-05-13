@@ -29,7 +29,7 @@ public class mo7 extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImageFileInfo> a;
     public LinkedHashMap<String, ImageFileInfo> b;
-    public k35 c;
+    public b45 c;
     public BaseFragmentActivity d;
     public lo7 e;
     public int f;
@@ -41,7 +41,7 @@ public class mo7 extends BaseAdapter {
     public String l;
 
     /* loaded from: classes6.dex */
-    public class a implements g35 {
+    public class a implements x35 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -64,11 +64,11 @@ public class mo7 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.g35
-        public void a(fo foVar, String str, boolean z) {
+        @Override // com.repackage.x35
+        public void a(co coVar, String str, boolean z) {
             HeadImageView headImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, foVar, str, z) == null) || (headImageView = (HeadImageView) this.a.findViewWithTag(str)) == null || foVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, coVar, str, z) == null) || (headImageView = (HeadImageView) this.a.findViewWithTag(str)) == null || coVar == null) {
                 return;
             }
             headImageView.invalidate();
@@ -115,14 +115,14 @@ public class mo7 extends BaseAdapter {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) view2.getTag(view2.getId());
                     if (this.a.d.b.containsKey(imageFileInfo.getFilePath())) {
                         this.a.d.b.remove(imageFileInfo.getFilePath());
-                        SkinManager.setBackgroundResource(this.a.c, R.drawable.obfuscated_res_0x7f080652);
+                        SkinManager.setBackgroundResource(this.a.c, R.drawable.obfuscated_res_0x7f080641);
                         if (this.a.d.e != null) {
                             this.a.d.e.onUnChoose();
                         }
                     } else if (this.a.d.e != null) {
                         if (this.a.d.e.canChooseMore()) {
                             this.a.d.b.put(imageFileInfo.getFilePath(), imageFileInfo);
-                            SkinManager.setBackgroundResource(this.a.c, R.drawable.obfuscated_res_0x7f080653);
+                            SkinManager.setBackgroundResource(this.a.c, R.drawable.obfuscated_res_0x7f080642);
                             this.a.d.e.onChoose();
                             return;
                         }
@@ -130,7 +130,7 @@ public class mo7 extends BaseAdapter {
                         if (!TextUtils.isEmpty(this.a.d.l)) {
                             BdToast.c(pageActivity, this.a.d.l).q();
                         } else {
-                            BdToast.c(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f05d1)).q();
+                            BdToast.c(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f05d7)).q();
                         }
                     }
                 }
@@ -158,8 +158,8 @@ public class mo7 extends BaseAdapter {
         public final void b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e68);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c66);
+                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6f);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cb2);
                 view2.setOnClickListener(new a(this));
             }
         }
@@ -184,13 +184,13 @@ public class mo7 extends BaseAdapter {
         this.a = list;
         this.b = new LinkedHashMap<>();
         this.f = (int) baseFragmentActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f07027d);
-        int k = oi.k(baseFragmentActivity.getPageContext().getPageActivity());
+        int k = mi.k(baseFragmentActivity.getPageContext().getPageActivity());
         this.g = k;
-        this.h = (k - oi.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be)) / 3;
-        int f = oi.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070305) / 3;
+        this.h = (k - mi.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be)) / 3;
+        int f = mi.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070305) / 3;
         this.i = f;
         this.j = (f * 2) + 1;
-        this.c = new k35();
+        this.c = new b45();
     }
 
     public void e(Map<String, ImageFileInfo> map) {
@@ -206,10 +206,10 @@ public class mo7 extends BaseAdapter {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (LinkedHashMap) invokeV.objValue;
     }
 
-    public k35 g() {
+    public b45 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (k35) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (b45) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -245,7 +245,7 @@ public class mo7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 bVar = new b(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f7, (ViewGroup) null);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ec, (ViewGroup) null);
                 bVar.b(view3);
                 view3.setTag(bVar);
             } else {
@@ -267,15 +267,15 @@ public class mo7 extends BaseAdapter {
             bVar.b.getLayoutParams().height = this.h;
             bVar.b.setTag(null);
             bVar.b.setRadius(1);
-            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080b7a);
+            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080b95);
             bVar.b.K(null, 12, false);
             bVar.b.invalidate();
             ImageFileInfo imageFileInfo = this.a.get(i);
             if (imageFileInfo != null) {
                 imageFileInfo.clearPageActions();
                 int i4 = this.f;
-                imageFileInfo.addPageAction(u35.g(i4, i4));
-                fo c = this.c.c(imageFileInfo, false);
+                imageFileInfo.addPageAction(l45.g(i4, i4));
+                co c = this.c.c(imageFileInfo, false);
                 bVar.b.setTag(imageFileInfo.toCachedKey(false));
                 if (c != null) {
                     bVar.b.invalidate();
@@ -283,9 +283,9 @@ public class mo7 extends BaseAdapter {
                     this.c.e(imageFileInfo, new a(this, viewGroup), false, this.k);
                 }
                 if (this.b.containsKey(imageFileInfo.getFilePath())) {
-                    SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f080653);
+                    SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f080642);
                 } else {
-                    SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f080652);
+                    SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f080641);
                 }
                 view3.setTag(view3.getId(), imageFileInfo);
             }

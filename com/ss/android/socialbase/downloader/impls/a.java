@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements h.a {
     public final SparseArray<DownloadTask> b = new SparseArray<>();
     public final SparseArray<DownloadTask> c = new SparseArray<>();

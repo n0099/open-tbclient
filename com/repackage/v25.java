@@ -1,40 +1,53 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import android.util.Log;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v25 extends u05 {
-    public static /* synthetic */ Interceptable $ic;
+public class v25 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static int b = 50;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v25(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dd4), 32, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755283048, "Lcom/repackage/v25;")) == null) {
+            return;
         }
-        this.d = R.drawable.obfuscated_res_0x7f08060b;
-        this.f = R.drawable.icon_pure_post_more_vote64;
-        this.g = false;
-        this.i = true;
-        this.n = new int[]{22};
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755283048, "Lcom/repackage/v25;");
+        }
+    }
+
+    public static synchronized int a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (v25.class) {
+                if (!a && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
+                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(identifier);
+                    b = dimensionPixelSize;
+                    a = true;
+                    Log.d("StatusBarHeightUtil", String.format("Get status bar height %d", Integer.valueOf(dimensionPixelSize)));
+                }
+                i = b;
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

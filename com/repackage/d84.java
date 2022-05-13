@@ -1,41 +1,34 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.HashSet;
+@Autowired
 /* loaded from: classes5.dex */
-public final class d84 {
+public class d84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle a(@NonNull a84 a84Var, @Nullable Bundle bundle, String... strArr) {
-        InterceptResult invokeLLL;
+    @Inject
+    public static dd4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, a84Var, bundle, strArr)) == null) {
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (bundle.getLong("timestamp", -1L) < 0) {
-                bundle.putLong("timestamp", System.currentTimeMillis());
-            }
-            return a84Var.m(bundle, new HashSet(Arrays.asList(strArr)));
-        }
-        return (Bundle) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ek2.a() : (dd4) invokeV.objValue;
     }
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle b(@NonNull a84 a84Var, @NonNull String... strArr) {
-        InterceptResult invokeLL;
+    @Inject
+    public static b84 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a84Var, strArr)) == null) ? a(a84Var, null, strArr) : (Bundle) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? jk2.a() : (b84) invokeV.objValue;
+    }
+
+    @Inject
+    public static k94 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? lk2.a() : (k94) invokeV.objValue;
     }
 }

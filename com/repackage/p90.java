@@ -1,24 +1,19 @@
 package com.repackage;
 
-import com.baidu.live.business.model.data.LiveHostInfo;
-import com.baidu.live.business.model.data.LiveStatInfo;
-import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.live.business.model.data.LiveBannerEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class p90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public LiveHostInfo e;
-    public LiveStatInfo f;
-    public boolean g;
+    public List<LiveBannerEntity> a;
 
     public p90() {
         Interceptable interceptable = $ic;
@@ -30,11 +25,8 @@ public class p90 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.g = true;
     }
 
     public void a(JSONObject jSONObject) {
@@ -42,24 +34,25 @@ public class p90 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = false;
-        jSONObject.optString("feed_id");
-        this.b = jSONObject.optString("nid");
-        this.c = jSONObject.optString("room_id");
-        jSONObject.optString("title");
-        jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
-        this.d = jSONObject.optString("cmd");
-        JSONObject optJSONObject = jSONObject.optJSONObject("host");
-        if (optJSONObject != null) {
-            LiveHostInfo liveHostInfo = new LiveHostInfo();
-            this.e = liveHostInfo;
-            liveHostInfo.parserJson(optJSONObject);
+        jSONObject.optInt("inner_errno");
+        jSONObject.optString("inner_msg");
+        jSONObject.optInt("count");
+        jSONObject.optInt("position");
+        JSONArray optJSONArray = jSONObject.optJSONArray("items");
+        if (optJSONArray == null || optJSONArray.length() <= 0) {
+            return;
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("stat");
-        if (optJSONObject2 != null) {
-            LiveStatInfo liveStatInfo = new LiveStatInfo();
-            this.f = liveStatInfo;
-            liveStatInfo.parserJson(optJSONObject2);
+        this.a = new ArrayList();
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
+                liveBannerEntity.parserJson(optJSONObject);
+                if (liveBannerEntity.isValid()) {
+                    liveBannerEntity.position = this.a.size();
+                    this.a.add(liveBannerEntity);
+                }
+            }
         }
     }
 }

@@ -1,27 +1,22 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.template.state.ViewType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db5;
+import tbclient.Page;
 /* loaded from: classes5.dex */
-public class ab5 extends za5<wa5, db5.a> {
+public class ab5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
+    public int a;
+    public boolean b;
+    public Object c;
 
-    public ab5(TbPageContext<?> tbPageContext) {
+    public ab5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,25 +26,21 @@ public class ab5 extends za5<wa5, db5.a> {
                 return;
             }
         }
-        this.e = tbPageContext;
+        this.b = true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.za5
-    /* renamed from: g */
-    public void d(ViewType viewType, wa5 wa5Var, db5.a aVar) {
+    public void a(Page page) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, wa5Var, aVar) == null) {
-            wa5Var.b(aVar);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, page) == null) || page == null) {
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.za5
-    /* renamed from: h */
-    public wa5 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new wa5(this.e.getPageActivity()) : (wa5) invokeLL.objValue;
+        this.b = page.has_more.intValue() == 1;
+        page.has_prev.intValue();
+        this.a = page.current_page.intValue();
+        page.page_size.intValue();
+        page.total_page.intValue();
+        page.offset.intValue();
+        page.total_count.intValue();
+        vb5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
     }
 }

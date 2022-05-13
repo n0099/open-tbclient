@@ -79,7 +79,7 @@ public class dc extends db.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo280c() {
+    public void mo281c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             File file = this.f206a;

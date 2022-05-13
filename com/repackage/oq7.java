@@ -43,19 +43,19 @@ public class oq7 extends jq7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923cc);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09241c);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.topMargin = oi.i(tbPageContext.getPageActivity()) / 2;
+        layoutParams.topMargin = mi.i(tbPageContext.getPageActivity()) / 2;
         this.o.setLayoutParams(layoutParams);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f092294);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09227b);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0922ea);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922d3);
         this.q = tbImageView;
         tbImageView.setIsRound(true);
         this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229d);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b8);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922f3);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09230e);
     }
 
     @Override // com.repackage.jq7
@@ -63,14 +63,14 @@ public class oq7 extends jq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.a(i);
-            vr4 d = vr4.d(this.p);
+            gs4 d = gs4.d(this.p);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0204);
-            vr4 d2 = vr4.d(this.r);
+            gs4 d2 = gs4.d(this.r);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
-            vr4 d3 = vr4.d(this.s);
+            gs4 d3 = gs4.d(this.s);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X08);
             d3.A(R.string.F_X01);
@@ -86,6 +86,6 @@ public class oq7 extends jq7 {
         }
         this.q.K(storageModel.url, 10, false);
         this.r.setText(storageModel.displayname);
-        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1120, storageModel.app));
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f113c, storageModel.app));
     }
 }

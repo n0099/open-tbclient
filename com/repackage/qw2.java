@@ -1,8 +1,9 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +11,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class qw2 implements ow2<mw2> {
+public class qw2 extends pw2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final h13<qw2> h;
+    public static final i13<qw2> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public String g;
+
+    /* loaded from: classes7.dex */
+    public static class a extends h13<qw2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.h13
+        /* renamed from: b */
+        public qw2 a(@NonNull zj2 zj2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zj2Var)) == null) {
+                qw2 qw2Var = new qw2();
+                qw2Var.g = zj2Var.g();
+                qw2Var.b = zj2Var.g();
+                qw2Var.c = zj2Var.readLong();
+                qw2Var.a = zj2Var.g();
+                qw2Var.d = zj2Var.readInt();
+                qw2Var.e = zj2Var.g();
+                qw2Var.f = zj2Var.g();
+                return qw2Var;
+            }
+            return (qw2) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends i13<qw2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.i13
+        /* renamed from: b */
+        public void a(@NonNull qw2 qw2Var, @NonNull ak2 ak2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qw2Var, ak2Var) == null) {
+                ak2Var.f(qw2Var.g);
+                ak2Var.f(qw2Var.b);
+                ak2Var.writeLong(qw2Var.c);
+                ak2Var.f(qw2Var.a);
+                ak2Var.writeInt(qw2Var.d);
+                ak2Var.f(qw2Var.e);
+                ak2Var.f(qw2Var.f);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +109,8 @@ public abstract class qw2 implements ow2<mw2> {
                 return;
             }
         }
-        b = tg1.a;
+        h = new a();
+        i = new b();
     }
 
     public qw2() {
@@ -38,34 +118,59 @@ public abstract class qw2 implements ow2<mw2> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.ow2
-    @SuppressLint({"BDThrowableCheck"})
-    public String b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a)) {
-                return this.a;
-            }
-            String str = System.currentTimeMillis() + "" + hashCode();
-            this.a = str;
-            if (b && rw2.a(str)) {
-                throw new RuntimeException("illegal observer id");
-            }
-            return this.a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) && (this.c >= 0 || !TextUtils.isEmpty(this.b)) : invokeV.booleanValue;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.clone() : invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "SwanPluginModel{pluginAlias='" + this.g + "', versionName='" + this.b + "', versionCode='" + this.c + "', libName='" + this.a + "', category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ow2
-    public abstract /* synthetic */ void onEvent(@NonNull T t);
+    public qw2(JSONObject jSONObject, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        if (jSONObject == null) {
+            return;
+        }
+        this.b = jSONObject.optString("version");
+        this.c = jSONObject.optLong("version_code", -1L);
+        this.a = jSONObject.optString("provider");
+        this.e = jSONObject.optString("path");
+        this.f = jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+        this.d = i2;
+    }
 }

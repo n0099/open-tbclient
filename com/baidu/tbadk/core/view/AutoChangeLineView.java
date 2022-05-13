@@ -31,10 +31,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int obfuscated = 2131304048;
+    public static final int obfuscated = 2131304136;
 
     /* renamed from: E */
-    public static final int obfuscated = 2131304049;
+    public static final int obfuscated = 2131304137;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -298,7 +298,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040306, R.attr.obfuscated_res_0x7f04030e, R.attr.obfuscated_res_0x7f0403ac, R.attr.obfuscated_res_0x7f0403ae, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b1, R.attr.obfuscated_res_0x7f0403b2, R.attr.obfuscated_res_0x7f0403b3, R.attr.obfuscated_res_0x7f0403b4, R.attr.obfuscated_res_0x7f0403b5, R.attr.obfuscated_res_0x7f0403b6, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403b8, R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f04045a, R.attr.obfuscated_res_0x7f040460, R.attr.obfuscated_res_0x7f040461, R.attr.obfuscated_res_0x7f04046c, R.attr.obfuscated_res_0x7f04057b, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f0406db});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04030a, R.attr.obfuscated_res_0x7f040312, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b2, R.attr.obfuscated_res_0x7f0403b4, R.attr.obfuscated_res_0x7f0403b5, R.attr.obfuscated_res_0x7f0403b6, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403b8, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f0403ba, R.attr.obfuscated_res_0x7f0403bb, R.attr.obfuscated_res_0x7f0403bc, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f04045f, R.attr.obfuscated_res_0x7f040465, R.attr.obfuscated_res_0x7f040466, R.attr.obfuscated_res_0x7f040471, R.attr.obfuscated_res_0x7f040580, R.attr.obfuscated_res_0x7f0405a3, R.attr.obfuscated_res_0x7f0406e3});
         this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
         this.o = obtainStyledAttributes.getInteger(16, 0);
         this.p = obtainStyledAttributes.getInteger(17, 0);

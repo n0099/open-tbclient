@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.do3;
-import com.repackage.mo3;
+import com.repackage.oo3;
+import com.repackage.xo3;
 /* loaded from: classes2.dex */
 public class AdDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a mBinder;
-    public mo3 mDownloadManager;
+    public xo3 mDownloadManager;
 
     /* loaded from: classes2.dex */
     public class a extends Binder {
@@ -117,7 +117,7 @@ public class AdDownloadService extends Service {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mDownloadManager = do3.m(AppRuntime.getAppContext(), null);
+            this.mDownloadManager = oo3.m(AppRuntime.getAppContext(), null);
             super.onCreate();
         }
     }
@@ -126,9 +126,9 @@ public class AdDownloadService extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mo3 mo3Var = this.mDownloadManager;
-            if (mo3Var != null) {
-                mo3Var.destroy();
+            xo3 xo3Var = this.mDownloadManager;
+            if (xo3Var != null) {
+                xo3Var.destroy();
                 this.mDownloadManager = null;
             }
             super.onDestroy();

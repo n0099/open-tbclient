@@ -1,9 +1,16 @@
 package com.repackage;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.util.JsonWriter;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,31 +20,289 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td9;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.impl.mmap.YaNativeLogger;
 import java.io.File;
-import java.util.HashMap;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import org.webrtc.RtcCertificatePem;
 /* loaded from: classes7.dex */
-public class ud9 {
+public class ud9 extends Logger {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
-    public static volatile ud9 o;
+    public static final boolean b;
+    public static volatile int c;
+    public static String[] d;
+    public static Object e;
+    public static ExecutorService f;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public boolean c;
-    public boolean d;
-    public long e;
-    public int f;
-    public int g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public int l;
-    public HashMap<String, td9> m;
+    public String a;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ long f;
+        public final /* synthetic */ ud9 g;
+
+        public a(ud9 ud9Var, String str, int i, String str2, String str3, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ud9Var, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = ud9Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+            this.d = str3;
+            this.e = i2;
+            this.f = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.g.u(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Callable<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ long f;
+        public final /* synthetic */ ud9 g;
+
+        public b(ud9 ud9Var, String str, int i, String str2, String str3, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ud9Var, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = ud9Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+            this.d = str3;
+            this.e = i2;
+            this.f = j;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        public Void call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                this.g.u(this.a, this.b, this.c, this.d, this.e, this.f);
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ud9 a;
+
+        public c(ud9 ud9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ud9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ud9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.t(false);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(ud9 ud9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ud9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ud9.z();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (ud9.e) {
+                    String s = ud9.s();
+                    boolean x = ud9.x(s);
+                    pd9 c = pd9.c();
+                    if (!c.m()) {
+                        if (x && c.l()) {
+                            ud9.p();
+                        }
+                        int unused = ud9.c = 2;
+                        return;
+                    }
+                    YaNativeLogger.a();
+                    YaNativeLogger.setBaseDir(ud9.n());
+                    YaNativeLogger.setProcessName(ud9.r(s));
+                    if (x) {
+                        YaNativeLogger.setMainController(true);
+                    } else {
+                        YaNativeLogger.setMainController(false);
+                    }
+                    long h = c.h() * 1024 * 1024;
+                    long min = h <= 0 ? 104857600L : Math.min(h, 1073741824L);
+                    YaNativeLogger.setMaxSizeAllLogFile(min);
+                    long d = c.d() * 1024 * 1024;
+                    YaNativeLogger.setMaxSizePerLogFile(d <= 0 ? 1048576L : Math.min(d, min));
+                    YaNativeLogger.setDefaultSpaceEnable(true);
+                    YaNativeLogger.setDefaultLogIdEnable(true);
+                    long f = c.f() * 1024 * 1024;
+                    if (f <= 0) {
+                        f = DownloadManager.MIN_LEFT_SIZE;
+                    }
+                    YaNativeLogger.setDefaultSpaceMaxSize(f);
+                    List<sd9> e = c.e();
+                    if (e != null && e.size() > 0) {
+                        for (sd9 sd9Var : e) {
+                            if (sd9Var != null && !TextUtils.isEmpty(sd9Var.b())) {
+                                String b = sd9Var.b();
+                                YaNativeLogger.setSpaceEnable(b, sd9Var.c());
+                                long a = sd9Var.a() * 1024 * 1024;
+                                if (a <= 0) {
+                                    a = DownloadManager.MIN_LEFT_SIZE;
+                                }
+                                YaNativeLogger.setSpaceMaxSize(b, a);
+                                long d2 = sd9Var.d() * 60 * 60 * 24;
+                                if (d2 <= 0) {
+                                    d2 = IMConstants.FANS_GROUP_INFO_EXPIRED_TIME;
+                                }
+                                YaNativeLogger.setMaxAliveTimeForSpace(b, d2);
+                            }
+                        }
+                    }
+                    long b2 = c.b() * 1024 * 1024;
+                    if (b2 <= 0) {
+                        b2 = DownloadManager.MIN_LEFT_SIZE;
+                    }
+                    YaNativeLogger.setDefaultLogIdMaxSize(b2);
+                    Map<String, rd9> a2 = c.a();
+                    if (a2 != null && a2.size() > 0) {
+                        for (String str : a2.keySet()) {
+                            if (!TextUtils.isEmpty(str) && a2.get(str) != null) {
+                                rd9 rd9Var = a2.get(str);
+                                YaNativeLogger.setLogIdEnable(str, rd9Var.b());
+                                long a3 = rd9Var.a() * 1024 * 1024;
+                                if (a3 <= 0) {
+                                    a3 = DownloadManager.MIN_LEFT_SIZE;
+                                }
+                                YaNativeLogger.setLogIdMaxSize(str, a3);
+                            }
+                        }
+                    }
+                    long g = c.g() * 24 * 60 * 60;
+                    YaNativeLogger.setDefaultMaxAliveTimeForSpace(g <= 0 ? IMConstants.FANS_GROUP_INFO_EXPIRED_TIME : Math.min(g, (long) RtcCertificatePem.DEFAULT_EXPIRY));
+                    YaNativeLogger.start();
+                    int unused2 = ud9.c = 1;
+                    ud9.e.notifyAll();
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -52,13 +317,19 @@ public class ud9 {
                 return;
             }
         }
-        n = AppConfig.isDebug();
+        b = AppConfig.isDebug();
+        c = 0;
+        d = new String[]{"L0", "L1", "V", "D", "I", "W", "E", "A"};
+        e = new Object();
+        f = Executors.newSingleThreadExecutor();
     }
 
-    public ud9() {
+    public ud9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,272 +339,290 @@ public class ud9 {
                 return;
             }
         }
-        n();
+        this.a = str;
+        A();
+        B();
     }
 
-    public static ud9 f() {
+    public static void A() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && c == 0) {
+            new Thread(new e()).start();
+        }
+    }
+
+    public static boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (o == null) {
-                synchronized (ud9.class) {
-                    if (o == null) {
-                        o = new ud9();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == 0) {
+                synchronized (e) {
+                    while (c == 0) {
+                        try {
+                            e.wait();
+                        } catch (InterruptedException unused) {
+                        }
                     }
                 }
             }
-            return o;
+            return c == 1;
         }
-        return (ud9) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        td9 td9Var;
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.ud9.e.run():void] */
+    public static /* synthetic */ boolean m() {
+        return b;
+    }
+
+    public static String n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, ".yalog").getAbsolutePath() : (String) invokeV.objValue;
+    }
+
+    public static List<String> o(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (C()) {
+                try {
+                    YaNativeLogger.createLogSnapShot(j, j2, str, str2, z, z2, str3, arrayList);
+                } catch (Throwable th) {
+                    if (b) {
+                        th.printStackTrace();
+                    }
+                }
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            q(new File(n()));
+        }
+    }
+
+    public static void q(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65553, null, file) == null) && file != null && file.exists()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        q(file2);
+                    } else {
+                        file2.delete();
+                    }
+                }
+            }
+            file.delete();
+        }
+    }
+
+    public static String r(String str) {
+        InterceptResult invokeL;
+        String replaceAll;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return this.c;
+                return "unknown";
             }
-            HashMap<String, td9> hashMap = this.m;
-            if (hashMap != null && (td9Var = hashMap.get(str)) != null) {
-                return td9Var.e();
+            if (x(str)) {
+                return "main";
             }
-            return this.c;
+            Context appContext = AppRuntime.getAppContext();
+            String str2 = appContext.getApplicationInfo().packageName;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = appContext.getPackageName();
+            }
+            String str3 = str2 + ":";
+            if (str.startsWith(str3)) {
+                String substring = str.substring(str3.length());
+                if (TextUtils.equals("main", substring)) {
+                    return "_main";
+                }
+                replaceAll = !TextUtils.isEmpty(substring) ? substring.replaceAll("[:/]", "_") : "";
+            } else {
+                replaceAll = str.replaceAll("[:/]", "_");
+            }
+            return !TextUtils.isEmpty(replaceAll) ? replaceAll : "unknown";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String s() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            Iterator<ActivityManager.RunningAppProcessInfo> it = ((ActivityManager) appContext.getSystemService("activity")).getRunningAppProcesses().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    str = null;
+                    break;
+                }
+                ActivityManager.RunningAppProcessInfo next = it.next();
+                if (next.pid == Process.myPid()) {
+                    str = next.processName;
+                    break;
+                }
+            }
+            return !TextUtils.isEmpty(str) ? str : appContext.getPackageName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str2 = appContext.getApplicationInfo().processName;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = appContext.getPackageName();
+            }
+            if (str.startsWith(str2)) {
+                return str.length() == str2.length() || str.charAt(str2.length()) != ':';
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public long b(String str) {
-        InterceptResult invokeL;
-        td9 td9Var;
+    public static List<String> y(long j, long j2, String str, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.i;
-            }
-            HashMap<String, td9> hashMap = this.m;
-            if (hashMap != null && (td9Var = hashMap.get(str)) != null) {
-                return td9Var.a();
-            }
-            return this.i;
-        }
-        return invokeL.longValue;
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        td9 td9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.l;
-            }
-            HashMap<String, td9> hashMap = this.m;
-            if (hashMap != null && (td9Var = hashMap.get(str)) != null) {
-                return td9Var.b();
-            }
-            return this.l;
-        }
-        return invokeL.intValue;
-    }
-
-    public long d(String str) {
-        InterceptResult invokeL;
-        td9 td9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.h;
-            }
-            HashMap<String, td9> hashMap = this.m;
-            if (hashMap != null && (td9Var = hashMap.get(str)) != null) {
-                return td9Var.d();
-            }
-            return this.h;
-        }
-        return invokeL.longValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        td9 td9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.g;
-            }
-            HashMap<String, td9> hashMap = this.m;
-            if (hashMap != null && (td9Var = hashMap.get(str)) != null) {
-                return td9Var.c();
-            }
-            return this.g;
-        }
-        return invokeL.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.l : invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : invokeV.longValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
-            this.b = file;
-            if (!file.exists()) {
-                this.b.mkdirs();
-            }
-            File file2 = new File(this.b, "voyager_config.txt");
-            this.a = file2;
-            if (file2.exists()) {
-                q();
-            } else {
-                r();
-            }
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            String f = ne9.f(this.a);
-            if (n) {
-                Log.d("VoyagerConfig", "read from local: " + f);
-            }
-            if (TextUtils.isEmpty(f)) {
-                r();
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(f);
-                this.c = jSONObject.optBoolean("en", vd9.a);
-                this.d = jSONObject.optBoolean("c", vd9.c);
-                this.e = jSONObject.optLong("ui", vd9.e);
-                this.f = jSONObject.optInt("utc", vd9.f);
-                this.i = jSONObject.optLong("et", vd9.g);
-                this.k = jSONObject.optInt("mfc", vd9.i);
-                this.j = jSONObject.optLong("mfs", vd9.h);
-                this.l = jSONObject.optInt("an", vd9.l);
-                this.g = jSONObject.optInt("stmc", vd9.j);
-                this.h = jSONObject.optLong("stms", vd9.k);
-                JSONObject optJSONObject = jSONObject.optJSONObject("set");
-                if (optJSONObject == null || optJSONObject.length() <= 0) {
-                    return;
-                }
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                    if (optJSONObject2 != null && optJSONObject2.length() != 0) {
-                        td9 g = new td9.b(next).g();
-                        if (optJSONObject2.optInt("en") != vd9.n) {
-                            g.f(vd9.a);
-                        } else {
-                            g.f(vd9.b);
-                        }
-                        long optInt = optJSONObject2.optInt("et", 0);
-                        if (optInt > 0) {
-                            g.g(optInt);
-                        } else {
-                            g.g(this.i);
-                        }
-                        int optInt2 = optJSONObject2.optInt("stmc", 0);
-                        if (optInt2 > 0) {
-                            g.i(optInt2);
-                        } else {
-                            g.i(this.g);
-                        }
-                        long optLong = optJSONObject2.optLong("stms", 0L);
-                        if (optLong > 0) {
-                            g.j(optLong);
-                        } else {
-                            g.j(this.h);
-                        }
-                        if (optJSONObject2.optInt("an") != vd9.m) {
-                            g.h(vd9.l);
-                        } else {
-                            g.h(vd9.m);
-                        }
-                        if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
-                            if (this.m == null) {
-                                this.m = new HashMap<>();
-                            }
-                            this.m.put(next, g);
-                        }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (C()) {
+                try {
+                    YaNativeLogger.queryLogFiles(j, j2, str, str2, arrayList);
+                } catch (Throwable th) {
+                    if (b) {
+                        th.printStackTrace();
                     }
                 }
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65558, null) == null) && C()) {
+            try {
+                YaNativeLogger.requestCleanOverQuotaLog();
+            } catch (Throwable th) {
+                if (b) {
+                    th.printStackTrace();
                 }
             }
         }
     }
 
-    public final void r() {
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.c = vd9.a;
-            this.d = vd9.c;
-            this.e = vd9.e;
-            this.f = vd9.f;
-            this.i = vd9.g;
-            this.k = vd9.i;
-            this.j = vd9.h;
-            this.g = vd9.j;
-            this.h = vd9.k;
-            this.l = vd9.l;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            new Handler(Looper.getMainLooper()).postDelayed(new d(this), 30000L);
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void executeRunnable(@NonNull Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            f.execute(runnable);
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void flush(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                t(true);
+            } else {
+                f.execute(new c(this));
+            }
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void log(String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048579, this, str, i, str2, str3) == null) {
+            f.execute(new a(this, str, i, str2, str3, Process.myTid(), System.currentTimeMillis()));
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void logSync(String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, str, i, str2, str3) == null) {
+            try {
+                f.submit(new b(this, str, i, str2, str3, Process.myTid(), System.currentTimeMillis())).get();
+            } catch (Exception e2) {
+                if (b) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && C()) {
+            try {
+                YaNativeLogger.flush(this.a, z);
+            } catch (Throwable th) {
+                if (b) {
+                    th.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void u(String str, int i, String str2, String str3, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j)}) == null) && C()) {
+            int myPid = Process.myPid();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+            StringWriter stringWriter = new StringWriter();
+            JsonWriter jsonWriter = new JsonWriter(stringWriter);
+            try {
+                jsonWriter.beginObject();
+                jsonWriter.name("pid").value(myPid);
+                jsonWriter.name("tid").value(i2);
+                jsonWriter.name("time").value(simpleDateFormat.format(Long.valueOf(j)));
+                if (!TextUtils.isEmpty(str)) {
+                    jsonWriter.name("logid").value(str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    jsonWriter.name("tag").value(str2);
+                }
+                if (i >= 0 && i < d.length) {
+                    jsonWriter.name("level").value(d[i]);
+                } else {
+                    JsonWriter name = jsonWriter.name("level");
+                    name.value("L" + i);
+                }
+                jsonWriter.endObject();
+            } catch (IOException unused) {
+            }
+            YaNativeLogger.b(this.a, "main", str, stringWriter.toString(), str3);
         }
     }
 }

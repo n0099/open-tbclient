@@ -1,117 +1,51 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
+import com.win.opensdk.PBError;
 /* loaded from: classes7.dex */
-public class vo9 implements View.OnClickListener, View.OnTouchListener {
+public class vo9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public long c;
-    public int d;
-    public int e;
-    public long f;
-    public final /* synthetic */ zo9 g;
+    public final /* synthetic */ jp9 a;
 
-    public vo9(zo9 zo9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vo9(jp9 jp9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zo9Var};
+            Object[] objArr = {jp9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = zo9Var;
+        this.a = jp9Var;
     }
 
-    public HashMap a() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.a));
-            hashMap.put("dy", Integer.valueOf(this.b));
-            hashMap.put("dts", Long.valueOf(this.c));
-            hashMap.put("ux", Integer.valueOf(this.d));
-            hashMap.put("uy", Integer.valueOf(this.e));
-            hashMap.put("uts", Long.valueOf(this.f));
-            zo9 zo9Var = this.g;
-            wp9.j(hashMap, zo9Var.p, zo9Var.q, zo9Var.r, zo9Var.s, zo9Var.t, zo9Var.u);
-            return hashMap;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
+            this.a.e = true;
+            this.a.k.removeMessages(11);
+            int wt = this.a.e() ? this.a.f.getWt() : 0;
+            tq9 a = xq9.a(this.a.b);
+            a.e(new br9(this.a.f), 2002, wt * 1000);
+            a.m();
+            this.a.h.onFail(PBError.TIMEOUT);
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a = (int) motionEvent.getRawX();
-                this.b = (int) motionEvent.getRawY();
-                this.c = System.currentTimeMillis();
-                this.g.p = (int) motionEvent.getX();
-                this.g.q = (int) motionEvent.getY();
-                zo9.d(this.g, view2);
-                return false;
-            } else if (action != 1) {
-                return false;
-            } else {
-                this.d = (int) motionEvent.getRawX();
-                this.e = (int) motionEvent.getRawY();
-                this.f = System.currentTimeMillis();
-                this.g.r = (int) motionEvent.getX();
-                this.g.s = (int) motionEvent.getY();
-                zo9 zo9Var = this.g;
-                Info info = zo9Var.c;
-                if (info == null || !ar9.d(info, zo9Var.h)) {
-                    return false;
-                }
-                this.g.h = System.currentTimeMillis();
-                zo9 zo9Var2 = this.g;
-                Context context = zo9Var2.a;
-                String open = zo9Var2.c.getOpen();
-                zo9 zo9Var3 = this.g;
-                ar9.a(context, open, zo9Var3.c, zo9Var3.g, a().toString());
-                yr9 a = cs9.a(this.g.a);
-                a.h(new gs9(this.g.c), null);
-                a.l("desc", a().toString());
-                a.m();
-                wp9.p(this.g.c, a().toString());
-                xo9 xo9Var = this.g.f;
-                if (xo9Var != null) {
-                    xo9Var.onClicked();
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
     }
 }

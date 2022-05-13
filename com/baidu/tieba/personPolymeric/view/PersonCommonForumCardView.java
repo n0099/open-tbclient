@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bg;
 import com.repackage.d58;
-import com.repackage.dg;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -22,7 +22,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public Context e;
     public List<d58> f;
     public List<PersonCommonForumItemView> g;
-    public dg<PersonCommonForumItemView> h;
+    public bg<PersonCommonForumItemView> h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCommonForumCardView(Context context) {
@@ -55,7 +55,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             if (d58Var != null) {
                 PersonCommonForumItemView b = this.h.b();
                 b.setData(d58Var);
-                addView(b, new ViewGroup.LayoutParams(((oi.k(this.e) - oi.f(this.e, R.dimen.tbds88)) - oi.f(this.e, R.dimen.tbds96)) / 2, -2));
+                addView(b, new ViewGroup.LayoutParams(((mi.k(this.e) - mi.f(this.e, R.dimen.tbds88)) - mi.f(this.e, R.dimen.tbds96)) / 2, -2));
                 this.g.add(b);
             }
         }
@@ -91,10 +91,10 @@ public class PersonCommonForumCardView extends FlowLayout {
         }
     }
 
-    public void setForumItemViewBdObjectPool(dg<PersonCommonForumItemView> dgVar) {
+    public void setForumItemViewBdObjectPool(bg<PersonCommonForumItemView> bgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dgVar) == null) {
-            this.h = dgVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bgVar) == null) {
+            this.h = bgVar;
         }
     }
 }

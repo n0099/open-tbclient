@@ -1,128 +1,188 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b00;
-import com.repackage.m00;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class z66 extends ho<qq4, ThreadCardViewHolder<ThreadData>> {
+public class z66 implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public TbPageContext<?> j;
-    public zo k;
+    public b a;
+    public int b;
+    public c c;
 
     /* loaded from: classes7.dex */
-    public class a implements dp {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(z66 z66Var) {
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<d> a;
+
+        public /* synthetic */ b(z66 z66Var, AbsListView absListView, int i, a aVar) {
+            this(z66Var, absListView, i);
+        }
+
+        public final int b(b bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+                if (bVar == null) {
+                    return 0;
+                }
+                for (d dVar : this.a) {
+                    for (d dVar2 : bVar.a) {
+                        if (dVar.a == dVar2.a) {
+                            return dVar.b - dVar2.b;
+                        }
+                    }
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public b(z66 z66Var, AbsListView absListView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z66Var};
+                Object[] objArr = {z66Var, absListView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof fy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardUtils.jumpToPB((pn4) ((fy5) uoVar), view2.getContext(), 2, false);
-                ((ThreadCardViewHolder) view2.getTag()).c().o(new m00.a(1));
+            this.a = new ArrayList();
+            int childCount = absListView.getChildCount();
+            for (int i4 = 0; i4 < childCount; i4++) {
+                View childAt = absListView.getChildAt(i4);
+                if (childAt != null) {
+                    this.a.add(new d(z66Var, childAt, i + i4, null));
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z66(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(AbsListView absListView, int i, int i2);
+    }
+
+    /* loaded from: classes7.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+
+        public /* synthetic */ d(z66 z66Var, View view2, int i, a aVar) {
+            this(z66Var, view2, i);
+        }
+
+        public d(z66 z66Var, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z66Var, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = view2.getTop();
+            view2.getBottom();
+        }
+    }
+
+    public z66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = tbPageContext;
-        this.i = bdUniqueId2;
+        this.b = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public ThreadCardViewHolder<ThreadData> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b00.b bVar = new b00.b(this.j.getPageActivity(), false);
-            bVar.h(new qz(this.j.getPageActivity()));
-            b00 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.k);
-            k.r(2);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
-            V(new a(this));
-            return threadCardViewHolder;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.c = cVar;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        View childAt;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
-            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
-                return null;
+        if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) == null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
+            return;
+        }
+        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
+            int i4 = this.b;
+            if (i4 != 0 && (cVar = this.c) != null) {
+                cVar.a(absListView, 0, -i4);
             }
-            threadData.statFloor = C(i) + 1;
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(qq4Var.s);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            this.b = 0;
+            this.a = null;
+            return;
         }
-        return (View) invokeCommon.objValue;
+        b bVar = new b(this, absListView, i, null);
+        b bVar2 = this.a;
+        if (bVar2 != null) {
+            int b2 = bVar2.b(bVar);
+            this.a = bVar;
+            int i5 = this.b + b2;
+            this.b = i5;
+            c cVar2 = this.c;
+            if (cVar2 != null) {
+                cVar2.a(absListView, i5, b2);
+                return;
+            }
+            return;
+        }
+        this.a = bVar;
+        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
+        this.b = paddingTop;
+        c cVar3 = this.c;
+        if (cVar3 != null) {
+            cVar3.a(absListView, paddingTop, 0);
+        }
     }
 
-    public void b0(zo zoVar) {
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zoVar) == null) {
-            this.k = zoVar;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
         }
     }
 }

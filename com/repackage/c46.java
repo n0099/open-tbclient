@@ -1,175 +1,85 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.emotion.editortool.EmotionTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c46 {
+public class c46 extends i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EmotionGroupType a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public a15 g;
-    public int h;
-    public int i;
-    public int j;
 
-    public c46() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c46(Context context, int i, boolean z) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0524), 5, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = R.drawable.obfuscated_res_0x7f08097a;
+        this.e = R.drawable.obfuscated_res_0x7f08097b;
+        this.h = R.drawable.obfuscated_res_0x7f08097c;
+        this.i = false;
+        this.j = true;
+        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
+        emotionTabHost.setShowBigEmotion(z);
+        this.m = emotionTabHost;
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.i15
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public EmotionGroupType c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (EmotionGroupType) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public a15 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (a15) invokeV.objValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            ((EmotionTabHost) this.m).setShowUserCollect(z);
         }
     }
 
-    public void l(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c46(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0524), 5, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.b = i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-    }
-
-    public void m(EmotionGroupType emotionGroupType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, emotionGroupType) == null) {
-            this.a = emotionGroupType;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void u(a15 a15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, a15Var) == null) {
-            this.g = a15Var;
-        }
+        this.d = R.drawable.obfuscated_res_0x7f08097a;
+        this.e = R.drawable.obfuscated_res_0x7f080803;
+        this.h = R.drawable.obfuscated_res_0x7f08097c;
+        this.i = false;
+        this.j = true;
+        this.m = new EmotionTabHost(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
     }
 }

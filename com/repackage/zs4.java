@@ -1,33 +1,18 @@
 package com.repackage;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class zs4 extends ps4 {
+public final class zs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zs4(xs4 xs4Var) {
-        super(xs4Var);
+    public static void a(Message<?> message) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xs4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xs4) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, message) == null) {
+            MessageManager.getInstance().sendMessage(message);
         }
     }
-
-    public abstract String f();
 }

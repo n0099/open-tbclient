@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
-import com.repackage.ik3;
-import com.repackage.jk3;
-import com.repackage.kk3;
-import com.repackage.lk3;
-import com.repackage.mk3;
-import com.repackage.nk3;
-import com.repackage.pk3;
-import com.repackage.qk3;
+import com.repackage.al3;
+import com.repackage.bl3;
+import com.repackage.tk3;
+import com.repackage.uk3;
+import com.repackage.vk3;
+import com.repackage.wk3;
+import com.repackage.xk3;
+import com.repackage.yk3;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class ConfigNode {
@@ -46,10 +46,10 @@ public final class ConfigNode {
                 return;
             }
         }
-        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", mk3.class, nk3.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", kk3.class, lk3.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, ik3.class, jk3.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", pk3.class, qk3.class);
+        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", xk3.class, yk3.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", vk3.class, wk3.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, tk3.class, uk3.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", al3.class, bl3.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }

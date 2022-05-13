@@ -18,15 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cw6;
-import com.repackage.oe6;
+import com.repackage.cv6;
+import com.repackage.g55;
+import com.repackage.td6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class GameVideoFragment extends BaseFragment implements oe6 {
+public class GameVideoFragment extends BaseFragment implements td6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cw6 a;
+    public cv6 a;
 
     public GameVideoFragment() {
         Interceptable interceptable = $ic;
@@ -42,34 +43,27 @@ public class GameVideoFragment extends BaseFragment implements oe6 {
         }
     }
 
-    @Override // com.repackage.oe6
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.oe6
+    @Override // com.repackage.td6
     public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a066" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a066" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (super.getCurrentPageSourceKeyList() != null) {
                 arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
             } else {
@@ -83,24 +77,24 @@ public class GameVideoFragment extends BaseFragment implements oe6 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.oe6
-    public void m() {
-        cw6 cw6Var;
+    @Override // com.repackage.td6
+    public void l() {
+        cv6 cv6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cw6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cv6Var = this.a) == null) {
             return;
         }
-        cw6Var.x();
+        cv6Var.x();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            cw6 cw6Var = this.a;
-            if (cw6Var != null) {
-                cw6Var.n();
+            cv6 cv6Var = this.a;
+            if (cv6Var != null) {
+                cv6Var.n();
             }
         }
     }
@@ -108,11 +102,11 @@ public class GameVideoFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new cw6(getPageContext(), getUniqueId());
+                this.a = new cv6(getPageContext(), getUniqueId());
             }
             this.a.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
@@ -125,10 +119,10 @@ public class GameVideoFragment extends BaseFragment implements oe6 {
         InterceptResult invokeLLL;
         View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            cw6 cw6Var = this.a;
-            if (cw6Var == null || cw6Var.r() == null) {
+            cv6 cv6Var = this.a;
+            if (cv6Var == null || cv6Var.r() == null) {
                 view2 = null;
             } else {
                 if (this.a.r().getParent() instanceof ViewGroup) {
@@ -148,24 +142,24 @@ public class GameVideoFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            cw6 cw6Var = this.a;
-            if (cw6Var != null) {
-                cw6Var.v();
+            cv6 cv6Var = this.a;
+            if (cv6Var != null) {
+                cv6Var.v();
             }
-            TbadkCoreApplication.getInst().getPersonalizeViewData().a();
+            g55.e().b();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onLazyLoad();
-            cw6 cw6Var = this.a;
-            if (cw6Var != null) {
-                cw6Var.t();
+            cv6 cv6Var = this.a;
+            if (cv6Var != null) {
+                cv6Var.t();
             }
         }
     }
@@ -173,11 +167,11 @@ public class GameVideoFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            cw6 cw6Var = this.a;
-            if (cw6Var != null) {
-                cw6Var.w();
+            cv6 cv6Var = this.a;
+            if (cv6Var != null) {
+                cv6Var.w();
             }
         }
     }
@@ -185,20 +179,27 @@ public class GameVideoFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            cw6 cw6Var = this.a;
-            if (cw6Var != null) {
-                cw6Var.y(isPrimary());
+            cv6 cv6Var = this.a;
+            if (cv6Var != null) {
+                cv6Var.y(isPrimary());
             }
         }
     }
 
-    @Override // com.repackage.oe6
-    public void r() {
+    @Override // com.repackage.td6
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.td6
+    public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }

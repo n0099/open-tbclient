@@ -1,225 +1,21 @@
 package com.repackage;
 
-import android.content.Context;
-import android.opengl.EGLContext;
+import android.opengl.GLES20;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mario.audio.AudioParams;
-import com.baidu.mario.gldraw2d.params.MirrorType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
-import java.util.Timer;
-import java.util.TimerTask;
-import kotlin.jvm.internal.ShortCompanionObject;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 /* loaded from: classes5.dex */
 public class cd0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String A = "cd0";
+    public static final String a = "cd0";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public yc0 b;
-    public int c;
-    public boolean d;
-    public long e;
-    public long f;
-    public long g;
-    public boolean h;
-    public ed0 i;
-    public fd0 j;
-    public ld0 k;
-    public boolean l;
-    public Context m;
-    public int n;
-    public dd0 o;
-    public bd0 p;
-    public jc0 q;
-    public int r;
-    public int s;
-    public byte[] t;
-    public ByteBuffer u;
-    public Timer v;
-    public TimerTask w;
-    public boolean x;
-    public boolean y;
-    public long z;
-
-    /* loaded from: classes5.dex */
-    public class a implements fd0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cd0 a;
-
-        public a(cd0 cd0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cd0Var;
-        }
-
-        @Override // com.repackage.fd0
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.a.g = j;
-                if (j <= this.a.a || !this.a.l) {
-                    return;
-                }
-                this.a.I();
-            }
-        }
-
-        @Override // com.repackage.fd0
-        public void onRecorderComplete(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                String str2 = cd0.A;
-                Log.i(str2, "on RecorderComplete record time :" + this.a.g);
-                if (this.a.o != null) {
-                    this.a.o.x((int) this.a.g, str);
-                }
-            }
-        }
-
-        @Override // com.repackage.fd0
-        public void onRecorderError(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                String str = cd0.A;
-                Log.i(str, "onRecorderError:" + i);
-                if (this.a.o != null) {
-                    this.a.o.onError(i);
-                }
-            }
-        }
-
-        @Override // com.repackage.fd0
-        public void onRecorderStart(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.a.o == null) {
-                return;
-            }
-            this.a.o.onStart();
-            this.a.x = true;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cd0 a;
-
-        public b(cd0 cd0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cd0Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.x && !this.a.y) {
-                    Log.i(cd0.A, "cancel audio time");
-                    this.a.H();
-                    this.a.y = false;
-                    return;
-                }
-                cd0 cd0Var = this.a;
-                cd0Var.K(cd0Var.u, 3840, System.nanoTime() - this.a.z);
-                this.a.y = true;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements jc0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<cd0> a;
-
-        public c(cd0 cd0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(cd0Var);
-            String str = cd0.A;
-            Log.i(str, "gameRecorderRef is:" + this.a.get());
-        }
-
-        @Override // com.repackage.jc0
-        public void a(boolean z, AudioParams audioParams) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, audioParams) == null) || this.a.get() == null) {
-                return;
-            }
-            this.a.get().G(z, audioParams);
-            Log.i(cd0.A, "onAudioStart");
-        }
-
-        @Override // com.repackage.jc0
-        public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.a.get() == null) {
-                return;
-            }
-            this.a.get().y = false;
-            this.a.get().K(byteBuffer, i, j);
-        }
-
-        @Override // com.repackage.jc0
-        public void onAudioStop(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                Log.i(cd0.A, "onAudioStop");
-                if (this.a.get() != null) {
-                    this.a.get().H();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -236,368 +32,81 @@ public class cd0 {
         }
     }
 
-    public cd0(Context context) {
+    public static void a(String str) {
+        int glGetError;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 120000;
-        this.c = -1;
-        this.d = false;
-        this.h = false;
-        this.r = 0;
-        this.s = 0;
-        this.t = ByteBuffer.allocate(3840).putShort(ShortCompanionObject.MIN_VALUE).array();
-        this.u = ByteBuffer.allocate(3840).put(this.t);
-        this.v = null;
-        this.w = null;
-        this.x = false;
-        this.y = false;
-        this.z = 0L;
-        this.m = context;
-        this.i = ed0.x();
-        this.p = null;
-        this.j = new a(this);
-        D(new ld0(), this.j);
-    }
-
-    public void A(bd0 bd0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bd0Var) == null) {
-            this.p = bd0Var;
-        }
-    }
-
-    public void B(ld0 ld0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ld0Var) == null) {
-            this.k = ld0Var;
-        }
-    }
-
-    public void C(dd0 dd0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dd0Var) == null) {
-            this.o = dd0Var;
-        }
-    }
-
-    public void D(ld0 ld0Var, fd0 fd0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, ld0Var, fd0Var) == null) {
-            B(ld0Var);
-            this.j = fd0Var;
-        }
-    }
-
-    public final void E(AudioParams audioParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, audioParams) == null) {
-            if (this.q == null) {
-                q();
-            }
-            if (audioParams == null) {
-                Log.i(A, "audioParams is null,start to create AudioPams");
-                new AudioParams();
-            }
-            if (this.p != null) {
-                String str = A;
-                Log.i(str, "set audio engie:" + this.p);
-                this.p.a(this.q);
-            }
-        }
-    }
-
-    public void F(boolean z, int i, String str, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2)}) == null) || this.l) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        Log.i(A, "startRecored");
-        this.z = System.nanoTime();
-        this.k.u(str);
-        this.k.s(z);
-        int i2 = i * 1000;
-        this.k.v(i2);
-        this.k.x(this.r);
-        this.k.w(this.s);
-        this.e = 0L;
-        this.g = 0L;
-        if (i > 0 && i < 120) {
-            this.a = i2;
-        } else {
-            this.a = 120000;
-        }
-        E(null);
+        Log.e(a, str + ": glError 0x" + Integer.toHexString(glGetError));
     }
 
-    public final void G(boolean z, AudioParams audioParams) {
+    public static FloatBuffer b(float[] fArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048582, this, z, audioParams) == null) {
-            if (audioParams != null) {
-                this.k.t(audioParams.getSampleRate());
-                this.k.r(audioParams.getFrameSize());
-                this.k.q(audioParams.getChannelConfig());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fArr)) == null) {
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
+            allocateDirect.order(ByteOrder.nativeOrder());
+            FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();
+            asFloatBuffer.put(fArr);
+            asFloatBuffer.position(0);
+            return asFloatBuffer;
+        }
+        return (FloatBuffer) invokeL.objValue;
+    }
+
+    public static int c(String str, String str2) {
+        InterceptResult invokeLL;
+        int d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            int d2 = d(35633, str);
+            if (d2 == 0 || (d = d(35632, str2)) == 0) {
+                return -1;
             }
-            this.x = false;
-            this.l = true;
-            H();
-            this.v = new Timer();
-            b bVar = new b(this);
-            this.w = bVar;
-            this.v.schedule(bVar, 300L, 20L);
-        }
-    }
-
-    public final synchronized void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                if (this.v != null) {
-                    this.v.cancel();
-                    this.v = null;
-                    this.w = null;
-                }
+            int glCreateProgram = GLES20.glCreateProgram();
+            a("glCreateProgram");
+            if (glCreateProgram == 0) {
+                Log.e(a, "Could not create program");
             }
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Log.i(A, "stopRecored");
-            r();
-            this.l = false;
-            this.x = false;
-            this.y = false;
-            int i = this.n;
-            if (i != 0) {
-                if (i != 1 && i != 2) {
-                    throw new RuntimeException("unknown status " + this.n);
-                }
-                this.n = 0;
-                ed0 ed0Var = this.i;
-                if (ed0Var != null) {
-                    ed0Var.U();
-                }
+            GLES20.glAttachShader(glCreateProgram, d2);
+            a("glAttachShader");
+            GLES20.glAttachShader(glCreateProgram, d);
+            a("glAttachShader");
+            GLES20.glLinkProgram(glCreateProgram);
+            int[] iArr = new int[1];
+            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
+            if (iArr[0] != 1) {
+                Log.e(a, "Could not link program: ");
+                Log.e(a, GLES20.glGetProgramInfoLog(glCreateProgram));
+                GLES20.glDeleteProgram(glCreateProgram);
+                return -1;
             }
+            return glCreateProgram;
         }
+        return invokeLL.intValue;
     }
 
-    public final void J(int i, long j) {
+    public static int d(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (this.l && this.k != null) {
-                int i2 = this.n;
-                if (i2 == 0) {
-                    p();
-                    ed0 ed0Var = this.i;
-                    if (ed0Var != null) {
-                        ed0Var.S(this.m, this.k, this.j);
-                    }
-                    this.n = 1;
-                } else if (i2 != 1) {
-                    if (i2 == 2) {
-                        this.b.j().f(i);
-                        ed0 ed0Var2 = this.i;
-                        if (ed0Var2 != null) {
-                            ed0Var2.W(this.b);
-                        }
-                        this.n = 1;
-                    } else {
-                        throw new RuntimeException("unknown status " + this.n);
-                    }
-                }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            int glCreateShader = GLES20.glCreateShader(i);
+            a("glCreateShader type=" + i);
+            GLES20.glShaderSource(glCreateShader, str);
+            GLES20.glCompileShader(glCreateShader);
+            int[] iArr = new int[1];
+            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
+            if (iArr[0] == 0) {
+                String str2 = a;
+                Log.e(str2, "Could not compile shader " + i + ":");
+                String str3 = a;
+                Log.e(str3, " " + GLES20.glGetShaderInfoLog(glCreateShader));
+                GLES20.glDeleteShader(glCreateShader);
+                return 0;
             }
-            ed0 ed0Var3 = this.i;
-            if (ed0Var3 == null || this.d) {
-                return;
-            }
-            ed0Var3.H(j - this.e);
+            return glCreateShader;
         }
-    }
-
-    public final void K(ByteBuffer byteBuffer, int i, long j) {
-        ed0 ed0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || (ed0Var = this.i) == null || !this.l || byteBuffer == null || i <= 0 || this.d) {
-            return;
-        }
-        ed0Var.F(byteBuffer, i, j - this.e);
-    }
-
-    public final void p() {
-        ld0 ld0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (ld0Var = this.k) == null || this.b == null) {
-            return;
-        }
-        int l = ld0Var.l();
-        int n = this.k.n();
-        if (l >= 1920 || n >= 1920) {
-            l = (int) ((l * 2) / 3.0f);
-            n = (int) ((n * 2) / 3.0f);
-        }
-        if (l % 2 == 1) {
-            l++;
-        }
-        if (n % 2 == 1) {
-            n++;
-        }
-        String str = A;
-        Log.i(str, "Record video width:" + n + " ;video height:" + l);
-        this.k.x(n);
-        this.k.w(l);
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.q == null) {
-            this.q = new c(this);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.d) {
-            this.e += System.nanoTime() - this.f;
-            this.d = false;
-        }
-    }
-
-    public long s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.g : invokeV.longValue;
-    }
-
-    public void t(boolean z, EGLContext eGLContext, int i, int i2, Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), eGLContext, Integer.valueOf(i), Integer.valueOf(i2), context}) == null) || eGLContext == null) {
-            return;
-        }
-        this.m = context;
-        String str = A;
-        Log.i(str, "onContextChanged:" + eGLContext + "; w:" + i + "; h:" + i2 + "; isFlip:" + z);
-        yc0 yc0Var = this.b;
-        if (yc0Var == null) {
-            this.b = new yc0(eGLContext, 0, true);
-        } else {
-            yc0Var.n(eGLContext);
-        }
-        this.b.i().e(i);
-        this.b.i().d(i2);
-        if (z) {
-            this.b.c().j(MirrorType.VERTICALLY);
-        }
-        this.r = i;
-        this.s = i2;
-        this.k.x(i);
-        this.k.w(i2);
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || this.b == null) {
-            return;
-        }
-        if (this.c != i) {
-            vc0 vc0Var = new vc0();
-            vc0Var.f(i);
-            this.b.q(vc0Var);
-            ed0 ed0Var = this.i;
-            if (ed0Var != null) {
-                ed0Var.s(this.b);
-            }
-            this.c = i;
-        }
-        J(this.c, System.nanoTime());
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.d) {
-                Log.i(A, "pauseRecord cmd has executed, please run resumeRecord!");
-            } else if (this.l) {
-                this.d = true;
-                Log.i(A, "pauseRecord");
-                this.f = System.nanoTime();
-                this.e = 0L;
-                ed0 ed0Var = this.i;
-                if (ed0Var != null) {
-                    ed0Var.I();
-                    long y = (this.f - (this.g * 1000000)) - this.i.y();
-                    this.e = y;
-                    if (y < 0) {
-                        this.e = 0L;
-                    }
-                }
-                dd0 dd0Var = this.o;
-                if (dd0Var != null) {
-                    dd0Var.onPause();
-                }
-                H();
-            }
-        }
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (!this.d) {
-                this.h = true;
-                v();
-                return;
-            }
-            this.h = false;
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            ed0 ed0Var = this.i;
-            if (ed0Var != null) {
-                ed0Var.G();
-                this.i = null;
-            }
-            if (this.j != null) {
-                this.j = null;
-            }
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.d) {
-            this.e += System.nanoTime() - this.f;
-            this.d = false;
-            E(null);
-            dd0 dd0Var = this.o;
-            if (dd0Var != null) {
-                dd0Var.onResume();
-            }
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            if (this.d && this.h) {
-                y();
-            }
-            this.h = false;
-        }
+        return invokeIL.intValue;
     }
 }

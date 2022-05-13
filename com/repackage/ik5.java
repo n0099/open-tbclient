@@ -34,7 +34,7 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
     public static HashMap<b, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
     public NewFriendsActivity a;
-    public List<z57> b;
+    public List<l57> b;
     public c c;
 
     /* loaded from: classes6.dex */
@@ -91,7 +91,7 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, int i2, View view2, z57 z57Var);
+        void a(int i, int i2, View view2, l57 l57Var);
     }
 
     /* loaded from: classes6.dex */
@@ -117,18 +117,18 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
             }
         }
 
-        public void a(z57 z57Var) {
+        public void a(l57 l57Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, z57Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, l57Var) == null) {
                 boolean z = false;
-                this.a.K(z57Var.e(), 12, false);
-                this.b.setText(z57Var.d());
-                if (!TextUtils.isEmpty(z57Var.a())) {
-                    this.c.setText(z57Var.a());
+                this.a.K(l57Var.e(), 12, false);
+                this.b.setText(l57Var.d());
+                if (!TextUtils.isEmpty(l57Var.a())) {
+                    this.c.setText(l57Var.a());
                 } else {
                     this.c.setText("");
                 }
-                int f = z57Var.f();
+                int f = l57Var.f();
                 this.d.setText(((Integer) ik5.d.get(f)).intValue());
                 this.d.setEnabled((f == 0 || f == 1) ? true : true);
             }
@@ -155,11 +155,11 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
         d = new SparseArray<>();
         e = new HashMap<>();
         f = new HashMap<>();
-        d.put(0, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00b6));
-        d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00d4));
-        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d09));
-        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d3a));
-        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f154a));
+        d.put(0, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00b8));
+        d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00d6));
+        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d23));
+        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d54));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1576));
         e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
         e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
         f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));
@@ -188,7 +188,7 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            List<z57> list = this.b;
+            List<l57> list = this.b;
             if (list != null) {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
@@ -206,24 +206,24 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: c */
-    public z57 getItem(int i) {
+    public l57 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.get(i) : (z57) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.get(i) : (l57) invokeI.objValue;
     }
 
-    public synchronized void d(z57 z57Var) {
+    public synchronized void d(l57 l57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l57Var) == null) {
             synchronized (this) {
                 if (this.b != null) {
-                    this.b.remove(z57Var);
+                    this.b.remove(l57Var);
                 }
             }
         }
     }
 
-    public void e(List<z57> list) {
+    public void e(List<l57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -237,22 +237,22 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void g(z57 z57Var) {
+    public void g(l57 l57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, z57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, l57Var) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
-            if (z57Var == null || z57Var.b() == 0) {
+            if (l57Var == null || l57Var.b() == 0) {
                 return;
             }
-            int b2 = b(z57Var.b());
+            int b2 = b(l57Var.b());
             if (b2 != -1) {
                 this.b.remove(b2);
-                this.b.add(0, z57Var);
+                this.b.add(0, l57Var);
                 return;
             }
-            this.b.add(0, z57Var);
+            this.b.add(0, l57Var);
         }
     }
 
@@ -261,7 +261,7 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<z57> list = this.b;
+            List<l57> list = this.b;
             if (list == null) {
                 return 0;
             }
@@ -286,15 +286,15 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
             if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof d)) {
                 dVar = (d) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d007e, (ViewGroup) null);
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d007a, (ViewGroup) null);
                 dVar = new d(null);
-                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ab7);
-                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aba);
-                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab8);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab5);
+                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090aa5);
+                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa8);
+                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa6);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa3);
                 view2.setTag(dVar);
             }
-            z57 item = getItem(i);
+            l57 item = getItem(i);
             dVar.a(item);
             dVar.d.setTag(Integer.valueOf(i));
             dVar.d.setOnClickListener(this);
@@ -313,15 +313,15 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
         return (View) invokeILL.objValue;
     }
 
-    public void h(List<z57> list) {
+    public void h(List<l57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
             if (list != null) {
-                for (z57 z57Var : list) {
-                    g(z57Var);
+                for (l57 l57Var : list) {
+                    g(l57Var);
                 }
             }
         }

@@ -129,7 +129,7 @@ public class fz implements gd {
             }
             Parcelable[] parcelableArr = new Parcelable[fzVarArr.length];
             for (int i = 0; i < fzVarArr.length; i++) {
-                parcelableArr[i] = fzVarArr[i].m371a();
+                parcelableArr[i] = fzVarArr[i].m372a();
             }
             return parcelableArr;
         }
@@ -168,14 +168,14 @@ public class fz implements gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m371a() {
+    public Parcelable m372a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a() : (Parcelable) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m372a() {
+    public String m373a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
@@ -220,7 +220,7 @@ public class fz implements gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m373a(String str) {
+    public void m374a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {

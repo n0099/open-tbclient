@@ -1,70 +1,139 @@
 package com.repackage;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class g72 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public long B;
-    public long C;
-    public boolean D;
-    public int E;
-    public String F;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public String t;
-    public String u;
-    public String v;
-    public long w;
-    public int x;
-    public int y;
-    public int z;
+    public final List<va2> a;
+
+    /* loaded from: classes6.dex */
+    public static class a extends va2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(@Nullable Map<String, String> map) {
+            super("TopPages", map);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Map) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.ua2
+        public String c(sz1 sz1Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sz1Var)) == null) {
+                if (this.d == null) {
+                    this.d = super.c(sz1Var);
+                }
+                return this.d;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755725201, "Lcom/repackage/g72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755725201, "Lcom/repackage/g72;");
+                return;
+            }
+        }
+        b = eh1.a;
+    }
 
     public g72() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.B = PMSAppInfo.DEFAULT_SWAN_APP_PKG_MAX_AGE;
+        this.a = new ArrayList();
     }
 
-    public String a() {
+    public g72 a(va2 va2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, va2Var)) == null) {
+            if (va2Var != null) {
+                this.a.add(va2Var);
+            }
+            return this;
+        }
+        return (g72) invokeL.objValue;
+    }
+
+    public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppDbInfo{appId='" + this.a + "', appKey='" + this.b + "', errorCode=" + this.d + ", errorDetail='" + this.e + "', errorMsg='" + this.f + "', resumeDate='" + this.g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long currentTimeMillis = b ? System.currentTimeMillis() : 0L;
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(NotificationCompat.WearableExtender.KEY_PAGES, c().toString());
+            if (b) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                Log.d("TopPageEvent", "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+            }
+            return new a(treeMap);
         }
-        return (String) invokeV.objValue;
+        return (a) invokeV.objValue;
+    }
+
+    public final JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (va2 va2Var : this.a) {
+                jSONArray.put(va2Var.s());
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

@@ -1,24 +1,20 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bn4 {
+public class bn4 implements LayoutInflater.Factory {
     public static /* synthetic */ Interceptable $ic;
-    public static bn4 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public boolean d;
-    public int e;
+    public dn4 a;
 
     public bn4() {
         Interceptable interceptable = $ic;
@@ -30,126 +26,28 @@ public class bn4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.d = true;
-        this.e = 0;
     }
 
-    public static bn4 c() {
-        InterceptResult invokeV;
-        bn4 bn4Var;
+    public void a(dn4 dn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            bn4 bn4Var2 = f;
-            if (bn4Var2 == null) {
-                synchronized (bn4.class) {
-                    if (f == null) {
-                        f = new bn4();
-                    }
-                    bn4Var = f;
-                }
-                return bn4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dn4Var) == null) {
+            this.a = dn4Var;
+        }
+    }
+
+    @Override // android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
+            if (this.a == null) {
+                this.a = new dn4();
             }
-            return bn4Var2;
+            this.a.i(str, context, attributeSet);
+            return null;
         }
-        return (bn4) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            vt4 k = vt4.k();
-            int l = k.l(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-            this.b = l;
-            return l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int l = vt4.k().l("image_quality", 0);
-            this.a = l;
-            return l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = vt4.k().l("image_quality", 0);
-            vt4.k().l("new_abstract_state", 0);
-            this.e = vt4.k().l("view_image_quality", 0);
-            boolean h = vt4.k().h("show_images", true);
-            this.d = h;
-            if (h) {
-                return;
-            }
-            this.d = true;
-            vt4.k().D("show_images");
-            vt4.k().w("view_image_quality", 0);
-            this.e = 0;
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.b == i) {
-            return;
-        }
-        this.b = i;
-        vt4 k = vt4.k();
-        k.w(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.e == i) {
-            return;
-        }
-        this.e = i;
-        vt4.k().w("view_image_quality", i);
-        TbImageHelper.getInstance().updateFrsShowBigImage();
-        TbImageHelper.getInstance().updateUrlQuality();
+        return (View) invokeLLL.objValue;
     }
 }

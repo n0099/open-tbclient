@@ -1,215 +1,306 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.VideoPlatformStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu4;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-@SuppressLint({"ResourceAsColor"})
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class tq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static tq8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BackgroundListActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public MemberRecommendView e;
-    public BdListView f;
-    public du4 g;
-    public TextView h;
-    public sq8 i;
-    public int j;
 
-    public tq8(BackgroundListActivity backgroundListActivity, rq8 rq8Var) {
+    /* loaded from: classes7.dex */
+    public class a extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tq8 a;
+
+        public a(tq8 tq8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tq8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tq8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                List h = tq8.h();
+                int size = h.size();
+                for (int i = 0; i < size; i++) {
+                    sq8 sq8Var = (sq8) h.get(i);
+                    this.a.j(sq8Var.a, sq8Var.b);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<sq8, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tq8 a;
+
+        public b(tq8 tq8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tq8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tq8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(sq8... sq8VarArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sq8VarArr)) == null) {
+                if (sq8VarArr != null && sq8VarArr.length == 1 && sq8VarArr[0] != null) {
+                    this.a.c(sq8VarArr[0]);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755281994, "Lcom/repackage/tq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755281994, "Lcom/repackage/tq8;");
+                return;
+            }
+        }
+        a = new tq8();
+    }
+
+    public tq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundListActivity, rq8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.g = null;
-        this.j = 0;
-        this.a = backgroundListActivity;
-        this.j = oi.f(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023f);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0132, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f09039d);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e37);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
-        this.e = memberRecommendView;
-        memberRecommendView.setFromType(5);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091279);
-        du4 du4Var = new du4(this.a.getPageContext());
-        this.g = du4Var;
-        this.f.setPullRefresh(du4Var);
-        TextView textView = new TextView(this.a.getActivity());
-        this.h = textView;
-        textView.setHeight(oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        sq8 sq8Var = new sq8(this.a.getPageContext(), rq8Var);
-        this.i = sq8Var;
-        this.f.setAdapter((ListAdapter) sq8Var);
     }
 
-    public final List<List<DressItemData>> a(List<DressItemData> list) {
+    public static tq8 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (tq8) invokeV.objValue;
+    }
+
+    public static JSONObject e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!StringUtils.isNull(str) && new File(str).exists()) {
+                try {
+                    return new JSONObject().put("running", l(wl7.d(str)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                try {
+                    jSONObject = new JSONObject(wl7.e(file));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (m(jSONObject)) {
+                    return jSONObject;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static File[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            File file = new File(yl7.e);
+            if (file.exists()) {
+                return file.listFiles();
+            }
+            return null;
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public static List<sq8> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i = i + 2 + 1) {
-                ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < 3; i2++) {
-                    int i3 = i + i2;
-                    if (i3 < size) {
-                        arrayList2.add(list.get(i3));
+            File[] g = g();
+            if (g == null) {
+                return arrayList;
+            }
+            for (File file : g) {
+                String name = file.getName();
+                JSONObject f = f(file.getAbsolutePath() + yl7.a + "kpi");
+                if (f == null) {
+                    wl7.b(name);
+                } else {
+                    JSONObject e = e(file.getAbsolutePath() + yl7.a + "debug");
+                    if (e == null) {
+                        wl7.b(name);
+                    } else {
+                        arrayList.add(new sq8(name, i(VideoPlatformStatic.c(), f, e)));
                     }
                 }
-                arrayList.add(arrayList2);
             }
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void b() {
+    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.c.setVisibility(0);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
+            try {
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("kpiInfo", jSONObject2);
+                jSONObject4.put("baseInfo", jSONObject);
+                jSONObject4.put("debugInfo", jSONObject3);
+                return jSONObject4;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public static JSONArray l(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int optInt;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public void d() {
-        sq8 sq8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f95.a(this.a.getPageContext(), this.b);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
             }
-            BdListView bdListView = this.f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (sq8Var = this.i) != null) {
-                sq8Var.notifyDataSetChanged();
+            int length = jSONArray.length();
+            boolean z = false;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
+                    z = true;
+                    break;
+                }
             }
-            du4 du4Var = this.g;
-            if (du4Var != null) {
-                du4Var.H(TbadkApplication.getInst().getSkinType());
+            if (!z) {
+                jSONArray.put(new y78(502, "unknown", -4399, "").a());
             }
-            this.e.d();
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+            return jSONArray;
         }
+        return (JSONArray) invokeL.objValue;
     }
 
-    public final void e(List<List<DressItemData>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.f.setVisibility(0);
-                this.i.b(list);
-                this.i.notifyDataSetChanged();
-                return;
-            }
-            this.f.setVisibility(8);
-        }
-    }
-
-    public final boolean f(mr8 mr8Var) {
+    public static boolean m(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mr8Var)) == null) {
-            if (mr8Var != null && !StringUtils.isNull(mr8Var.c())) {
-                this.e.setVisibility(0);
-                this.e.e(mr8Var);
-                return true;
-            }
-            this.e.setVisibility(8);
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
+            int optInt = jSONObject.optInt("errorTimes", -1);
+            int optInt2 = jSONObject.optInt("postSuccess", -1);
+            int optInt3 = jSONObject.optInt("posted", -1);
+            return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
         }
         return invokeL.booleanValue;
     }
 
-    public void g(BdListView.p pVar, cu4.g gVar) {
+    public final void c(sq8 sq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
-            this.f.setOnSrollToBottomListener(pVar);
-            this.g.f(gVar);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2f);
-            this.a.setNetRefreshViewTopMargin(this.j);
-            this.a.showNetRefreshView(this.b, string, false);
-        }
-    }
-
-    public void i(mr8 mr8Var, List<DressItemData> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, mr8Var, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                b();
-                if (f(mr8Var)) {
-                    this.f.removeHeaderView(this.h);
-                    this.f.addHeaderView(this.h);
-                } else {
-                    this.f.removeHeaderView(this.h);
-                }
-                e(a(list));
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sq8Var) == null) {
+            try {
+                byte[] b2 = uq8.b(sq8Var.b);
+                uq8.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+                wl7.b(sq8Var.a);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            h();
         }
     }
 
-    public void j() {
+    public void j(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f.A(0L);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            new b(this).execute(new sq8(str, jSONObject));
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && gi.c()) {
+            new a(this).execute(new Void[0]);
         }
     }
 }

@@ -1,18 +1,19 @@
 package com.repackage;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.member.ForumMemberReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.member.ForumMemberReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pa6 {
+public class pa6 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
 
     public pa6() {
         Interceptable interceptable = $ic;
@@ -28,14 +29,23 @@ public class pa6 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage instanceof ForumMemberReadCacheRequestMessage) {
+                byte[] a = new na6().a(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
+                ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = new ForumMemberReadCacheResponseMessage();
+                try {
+                    forumMemberReadCacheResponseMessage.decodeInBackGround(2003009, a);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return forumMemberReadCacheResponseMessage;
+            }
+            return null;
         }
-        this.a = jSONObject.optLong("id");
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("name_show");
-        this.d = jSONObject.optString("portrait");
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

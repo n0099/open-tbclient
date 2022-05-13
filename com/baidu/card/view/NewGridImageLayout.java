@@ -38,19 +38,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.Cdo;
-import com.repackage.af5;
-import com.repackage.bn4;
-import com.repackage.dg;
-import com.repackage.fz;
-import com.repackage.oi;
-import com.repackage.pn4;
-import com.repackage.tx5;
-import com.repackage.vr4;
+import com.repackage.ao;
+import com.repackage.bg;
+import com.repackage.gs4;
+import com.repackage.ln4;
+import com.repackage.mi;
+import com.repackage.oy;
+import com.repackage.tf5;
+import com.repackage.ux5;
+import com.repackage.zd5;
+import com.repackage.zn4;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.OnClickListener {
+public class NewGridImageLayout extends LinearLayout implements oy<zn4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -60,15 +61,15 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
     public VoteView e;
     public GridImageLayout f;
     public Context g;
-    public pn4 h;
+    public zn4 h;
     public String i;
     public boolean j;
     public boolean k;
-    public tx5<pn4> l;
+    public ux5<zn4> l;
     public boolean m;
     public boolean n;
     public LinkedList<MediaData> o;
-    public af5 p;
+    public tf5 p;
     public View.OnClickListener q;
     public boolean r;
     public int s;
@@ -99,7 +100,7 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            tx5<pn4> subClickListener;
+            ux5<zn4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -135,7 +136,7 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            tx5<pn4> subClickListener;
+            ux5<zn4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -173,7 +174,10 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
         public void a(View view2, String str, int i, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                ThreadCardUtils.startImageViewer(view2, this.a.j ? true : this.a.p.r, this.a.o, i, this.a.h.getThreadData(), this.a.i, this.a.k);
+                if (zd5.c() && zd5.b(view2.getContext(), this.a.i, this.a.h)) {
+                    return;
+                }
+                ThreadCardUtils.startImageViewer(view2, this.a.j ? true : this.a.p.s, this.a.o, i, this.a.h.getThreadData(), this.a.i, this.a.k);
             }
         }
     }
@@ -182,15 +186,15 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pn4 a;
+        public final /* synthetic */ zn4 a;
         public final /* synthetic */ NewGridImageLayout b;
 
-        public d(NewGridImageLayout newGridImageLayout, pn4 pn4Var) {
+        public d(NewGridImageLayout newGridImageLayout, zn4 zn4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newGridImageLayout, pn4Var};
+                Object[] objArr = {newGridImageLayout, zn4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -201,7 +205,7 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
                 }
             }
             this.b = newGridImageLayout;
-            this.a = pn4Var;
+            this.a = zn4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -274,7 +278,10 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
         public void a(View view2, String str, int i, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                ThreadCardUtils.startImageViewer(view2, true, this.a.o, i, this.a.h.getThreadData().originalThreadData.a(), this.a.i, this.a.h.getThreadData().originalThreadData.o);
+                if (zd5.c() && zd5.a(view2.getContext(), this.a.i, this.a.h)) {
+                    return;
+                }
+                ThreadCardUtils.startImageViewer(view2, true, this.a.o, i, this.a.h.getThreadData().originalThreadData.b(), this.a.i, this.a.h.getThreadData().originalThreadData.o);
             }
         }
     }
@@ -326,12 +333,12 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
                 return;
             }
         }
-        oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-        oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds31);
-        oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-        oi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+        mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds31);
+        mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+        mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -373,17 +380,17 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
         VoiceData.VoiceModel voiceModel = voice.get(0);
         this.d.setVoiceModel(voiceModel);
         this.d.setTag(voiceModel);
-        this.d.d();
+        this.d.e();
         if (voiceModel != null) {
             this.d.m(voiceModel.voice_status.intValue());
         }
         this.d.o();
     }
 
-    public tx5<pn4> getSubClickListener() {
+    public ux5<zn4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (tx5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (ux5) invokeV.objValue;
     }
 
     public final void k(ThreadData threadData) {
@@ -403,7 +410,7 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
                 medias = originalThreadInfo.h;
                 z = true;
             }
-            if (bn4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (ln4.c().g() && ListUtils.getCount(medias) != 0) {
                 this.o.clear();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -490,29 +497,29 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f9, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ed, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f7a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f88);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f091f89);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fd3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fe1);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f091fe2);
             this.d = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            GridImageLayout gridImageLayout = (GridImageLayout) findViewById(R.id.obfuscated_res_0x7f091f7f);
+            GridImageLayout gridImageLayout = (GridImageLayout) findViewById(R.id.obfuscated_res_0x7f091fd8);
             this.f = gridImageLayout;
             gridImageLayout.setSupportGifPlay(false);
             this.f.setCornerStyle(1);
             this.f.setAfterClickListener(new b(this));
-            this.p = new af5();
-            int i = oi.p(this.g)[0];
-            this.p.G = (i - (oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
-            this.p.H = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+            this.p = new tf5();
+            int i = mi.p(this.g)[0];
+            this.p.H = (i - (mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
+            this.p.I = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
             this.f.setLayoutStrategy(this.p);
             this.o = new LinkedList<>();
             this.f.setOnImageClickListener(new c(this));
-            VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f091f8a);
+            VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f091fe3);
             this.e = voteView;
             voteView.setBgColor(R.color.CAM_X0207);
         }
@@ -560,41 +567,41 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
         onClickListener.onClick(view2);
     }
 
-    public final boolean p(PollData pollData) {
+    public final boolean q(PollData pollData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pollData)) == null) ? (pollData == null || pollData.getOptions() == null || pollData.getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
+    @Override // com.repackage.oy
     /* renamed from: r */
-    public void a(pn4 pn4Var) {
+    public void a(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, pn4Var) == null) || pn4Var == null || pn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, zn4Var) == null) || zn4Var == null || zn4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = pn4Var.getThreadData();
+        ThreadData threadData = zn4Var.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         if (originalThreadInfo != null && this.m) {
             t(this.f, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            vr4 d2 = vr4.d(this.c);
+            gs4 d2 = gs4.d(this.c);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X07);
-            vr4.d(this.b).z(R.dimen.T_X07);
+            gs4.d(this.b).z(R.dimen.T_X07);
             this.b.setVisibility(8);
             if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
-                SpannableString b2 = originalThreadInfo.b();
-                ThreadCardUtils.setAbstract(this.c, this.b, b2, threadData, this.a, this.m, this.r);
-                if (b2 != null) {
-                    TiePlusEventController.p(originalThreadInfo.f());
+                SpannableString c2 = originalThreadInfo.c();
+                ThreadCardUtils.setAbstract(this.c, this.b, c2, threadData, this.a, this.m, this.r);
+                if (c2 != null) {
+                    TiePlusEventController.p(originalThreadInfo.g());
                 }
             } else {
-                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.g.getString(R.string.obfuscated_res_0x7f0f0ce4)), threadData, this.a, this.m, this.r);
+                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.g.getString(R.string.obfuscated_res_0x7f0f0cfe)), threadData, this.a, this.m, this.r);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             }
-            if (p(originalThreadInfo.G)) {
-                d dVar = new d(this, pn4Var);
+            if (q(originalThreadInfo.G)) {
+                d dVar = new d(this, zn4Var);
                 this.e.setOnClickListener(dVar);
                 this.e.setOnItemClickListener(dVar);
                 this.e.setIsTransmit(true);
@@ -606,9 +613,9 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
         } else {
             t(this.f, UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
             this.e.setVisibility(8);
-            this.c.setTextSize(0, oi.f(this.g, R.dimen.T_X06));
-            this.c.setLineSpacing(oi.f(this.g, R.dimen.M_T_X002), 1.0f);
-            this.b.setTextSize(0, oi.f(this.g, R.dimen.T_X06));
+            this.c.setTextSize(0, mi.f(this.g, R.dimen.T_X06));
+            this.c.setLineSpacing(mi.f(this.g, R.dimen.M_T_X002), 1.0f);
+            this.b.setTextSize(0, mi.f(this.g, R.dimen.T_X06));
             ThreadCardUtils.setTitle(this.b, threadData, this.r);
             SpannableString abstractText = threadData.getAbstractText();
             ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.m, this.r);
@@ -620,8 +627,8 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
             k(threadData);
         }
         setVoiceData(threadData);
-        this.h = pn4Var;
-        if (pn4Var.getThreadData().originalThreadData == null) {
+        this.h = zn4Var;
+        if (zn4Var.getThreadData().originalThreadData == null) {
             return;
         }
         if (threadData.isShareThread) {
@@ -711,25 +718,25 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
         }
     }
 
-    public void setObjectPool(dg<ImageView> dgVar, dg<GifView> dgVar2) {
+    public void setObjectPool(bg<ImageView> bgVar, bg<GifView> bgVar2) {
         GridImageLayout gridImageLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048594, this, dgVar, dgVar2) == null) || (gridImageLayout = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048594, this, bgVar, bgVar2) == null) || (gridImageLayout = this.f) == null) {
             return;
         }
-        gridImageLayout.setObjectPool(dgVar, dgVar2);
+        gridImageLayout.setObjectPool(bgVar, bgVar2);
     }
 
-    public void setPreloadSizeReadyCallback(Cdo cdo) {
+    public void setPreloadSizeReadyCallback(ao aoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, cdo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, aoVar) == null) {
         }
     }
 
-    public void setSubClickListener(tx5<pn4> tx5Var) {
+    public void setSubClickListener(ux5<zn4> ux5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, tx5Var) == null) {
-            this.l = tx5Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, ux5Var) == null) {
+            this.l = ux5Var;
         }
     }
 
@@ -755,8 +762,8 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, threadData)) == null) {
-            pn4 pn4Var = this.h;
-            if (pn4Var == null || pn4Var.getThreadData() == null) {
+            zn4 zn4Var = this.h;
+            if (zn4Var == null || zn4Var.getThreadData() == null) {
                 return true;
             }
             if (this.h.getThreadData().getTid() == null || this.h.getThreadData().getTid().equals(threadData.getTid())) {
@@ -792,7 +799,7 @@ public class NewGridImageLayout extends LinearLayout implements fz<pn4>, View.On
                 return;
             }
         }
-        this.a = oi.k(TbadkCoreApplication.getInst()) - ((oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = mi.k(TbadkCoreApplication.getInst()) - ((mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.j = true;
         this.k = true;
         this.m = false;

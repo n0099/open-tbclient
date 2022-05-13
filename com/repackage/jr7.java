@@ -87,7 +87,7 @@ public class jr7 {
                 super.onPostExecute(forbidTplData);
                 if (this.c != null) {
                     ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
-                    if (errorInfo.errno == 0 && ni.isEmpty(errorInfo.errMsg)) {
+                    if (errorInfo.errno == 0 && li.isEmpty(errorInfo.errMsg)) {
                         this.c.b(forbidTplData);
                     } else {
                         this.c.a(forbidTplData);

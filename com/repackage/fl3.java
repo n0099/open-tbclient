@@ -2,178 +2,68 @@ package com.repackage;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class fl3 {
+public class fl3 implements el3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Method a;
-    public Method b;
-    public Object c;
+    public gl3 a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755704028, "Lcom/repackage/fl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755704028, "Lcom/repackage/fl3;");
-                return;
-            }
-        }
-        d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
-    }
-
-    public fl3(Class<?> cls, Context context) {
+    public fl3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (cls == null) {
-            return;
-        }
-        try {
-            this.c = a(context, cls);
-            Method i3 = m44.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
-            this.a = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-            Method i4 = m44.i(cls, "perfLockRelease", new Class[0]);
-            this.b = i4;
-            if (i4 != null) {
-                i4.setAccessible(true);
-            }
-        } catch (Throwable unused) {
+        this.b = false;
+        c(context);
+    }
+
+    @Override // com.repackage.el3
+    public void a() {
+        gl3 gl3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (gl3Var = this.a) != null && gl3Var.b()) {
+            this.b = false;
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
         }
     }
 
-    public static fl3 b(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
+    @Override // com.repackage.el3
+    public void b(int i) {
+        gl3 gl3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                cls = d();
-                try {
-                    k44.c(cls);
-                } catch (Throwable unused) {
-                }
-            } catch (Throwable unused2) {
-                cls = null;
-            }
-            return new fl3(cls, context);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (gl3Var = this.a) != null && gl3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
         }
-        return (fl3) invokeL.objValue;
     }
 
-    public static Class<?> d() {
-        InterceptResult invokeV;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String[] strArr = d;
-            for (int i = 0; i < strArr.length; i++) {
-                try {
-                    return m44.a(strArr[i]);
-                } catch (Throwable unused) {
-                }
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = gl3.a(context);
         }
-        return (Class) invokeV.objValue;
-    }
-
-    public final Object a(@Nullable Context context, @NonNull Class<?> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
-            Object obj = null;
-            try {
-                Constructor c = m44.c(cls, Context.class);
-                if (c != null) {
-                    obj = c.newInstance(context);
-                }
-            } catch (Throwable unused) {
-            }
-            if (obj == null) {
-                try {
-                    return m44.m(cls);
-                } catch (Throwable unused2) {
-                    return obj;
-                }
-            }
-            return obj;
-        }
-        return invokeLL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.c == null || this.a == null || this.b == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public int e(int i, int... iArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, iArr)) == null) {
-            if (c()) {
-                try {
-                    Object invoke = this.a.invoke(this.c, Integer.valueOf(i), iArr);
-                    if (invoke == null) {
-                        return -1;
-                    }
-                    return ((Integer) invoke).intValue();
-                } catch (Throwable unused) {
-                    return -1;
-                }
-            }
-            return -1;
-        }
-        return invokeIL.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c()) {
-                try {
-                    Object invoke = this.b.invoke(this.c, new Object[0]);
-                    if (invoke == null) {
-                        return -1;
-                    }
-                    return ((Integer) invoke).intValue();
-                } catch (Throwable unused) {
-                    return -1;
-                }
-            }
-            return -1;
-        }
-        return invokeV.intValue;
     }
 }

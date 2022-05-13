@@ -1,46 +1,36 @@
 package com.repackage;
 
-import android.graphics.drawable.ColorDrawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.im.validate.ValidateActivity;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class d97 extends z8<ValidateActivity> {
+public class d97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ValidateActivity c;
-    public BdListView d;
-    public b97 e;
-    public ProgressBar f;
-    public NavigationBar g;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d97 a;
+        public final /* synthetic */ ThreadData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
 
-        public a(d97 d97Var) {
+        public a(ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d97Var};
+                Object[] objArr = {threadData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,115 +40,87 @@ public class d97 extends z8<ValidateActivity> {
                     return;
                 }
             }
-            this.a = d97Var;
+            this.a = threadData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c.finish();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d97(ValidateActivity validateActivity) {
-        super(validateActivity.getPageContext());
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ForumData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public b(ForumData forumData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = forumData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalForumChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    public static void a(@Nullable ForumData forumData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {validateActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{forumData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalForumChatMessage(forumData, j, str2, str3, str4, z);
                 return;
             }
-        }
-        this.c = validateActivity;
-        h();
-        b97 b97Var = new b97(this.c);
-        this.e = b97Var;
-        this.d.setAdapter((ListAdapter) b97Var);
-        this.d.setOnSrollToBottomListener(this.c);
-    }
-
-    @Override // com.repackage.z8
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.destroy();
-            b97 b97Var = this.e;
-            if (b97Var != null) {
-                b97Var.a();
-                this.e = null;
-            }
-            this.c = null;
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            ng.a().postDelayed(new b(forumData, j, str2, str3, str4, z), 500L);
         }
     }
 
-    public ImageView f() {
-        InterceptResult invokeV;
+    public static void b(@Nullable ThreadData threadData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ImageView) invokeV.objValue;
-    }
-
-    public b97 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (b97) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = View.inflate(this.c.getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d0861, null);
-            this.a = inflate;
-            this.c.setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
-            this.g = navigationBar;
-            navigationBar.setTitleText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14b8));
-            this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.d = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0922cd);
-            this.f = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091908);
-            j(false);
-        }
-    }
-
-    public void i(List<ValidateItemData> list) {
-        b97 b97Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || (b97Var = this.e) == null) {
-            return;
-        }
-        b97Var.c(list);
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c.getLayoutMode().k(i == 1);
-            this.c.getLayoutMode().j(this.a);
-            this.g.onChangeSkinType(this.c.getPageContext(), i);
-            if (i != 1 && i != 4) {
-                this.d.setDivider(new ColorDrawable(this.c.getResources().getColor(R.color.common_color_10241)));
-                this.d.setDividerHeight(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{threadData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(threadData, j, str2, str3, str4, z);
                 return;
             }
-            this.d.setDivider(new ColorDrawable(this.c.getResources().getColor(R.color.common_color_10179)));
-            this.d.setDividerHeight(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            ng.a().postDelayed(new a(threadData, j, str2, str3, str4, z), 500L);
         }
     }
 }

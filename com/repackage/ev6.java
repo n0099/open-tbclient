@@ -1,62 +1,65 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.RecomVertical.DataRes;
+import tbclient.RecomVertical.DislikeReason;
+import tbclient.RecomVertical.ThreadPersonalized;
 /* loaded from: classes6.dex */
-public class ev6 implements uo {
+public class ev6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public BdUniqueId e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755724116, "Lcom/repackage/ev6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755724116, "Lcom/repackage/ev6;");
-                return;
+    public static void a(DataRes dataRes, List<ro> list) {
+        yx5 yx5Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) || dataRes == null || list == null) {
+            return;
+        }
+        LongSparseArray longSparseArray = new LongSparseArray();
+        for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
+            if (threadPersonalized2 != null) {
+                longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
             }
         }
-        f = BdUniqueId.gen();
-        g = BdUniqueId.gen();
-    }
-
-    public ev6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        int count = ListUtils.getCount(list);
+        for (int i = 0; i < count; i++) {
+            ro roVar = (ro) ListUtils.getItem(list, i);
+            if ((roVar instanceof yx5) && (threadData = (yx5Var = (yx5) roVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(kg.g(threadData.getTid(), 0L))) != null) {
+                yx5Var.J(threadPersonalized.source);
+                yx5Var.M(threadPersonalized.weight);
+                yx5Var.F(threadPersonalized.abtest_tag);
+                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                threadData.mRecomSource = threadPersonalized.source;
+                threadData.mRecomWeight = threadPersonalized.weight;
+                if (threadData.getThreadVideoInfo() != null) {
+                    yx5Var.H(threadData.getThreadVideoInfo().is_vertical);
+                }
+                List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                if (list2 != null) {
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    for (DislikeReason dislikeReason : list2) {
+                        int intValue = dislikeReason.dislike_id.intValue();
+                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                    }
+                    yx5Var.feedBackReasonMap = sparseArray;
+                    yx5Var.G(threadPersonalized.extra);
+                }
             }
         }
-        this.e = g;
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void b(DataRes dataRes, List<ro> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
+            a(dataRes, list);
+        }
     }
 }

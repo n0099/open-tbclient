@@ -1,24 +1,26 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dq;
 /* loaded from: classes7.dex */
-public class yp {
+public class yp implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
+    public final /* synthetic */ BDHttpDns.a a;
+    public final /* synthetic */ BDHttpDnsResult.ResolveType b;
+    public final /* synthetic */ dq.a c;
 
-    public yp() {
+    public yp(BDHttpDns bDHttpDns, BDHttpDns.a aVar, BDHttpDnsResult.ResolveType resolveType, dq.a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bDHttpDns, aVar, resolveType, aVar2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,60 +30,16 @@ public class yp {
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
-        this.d = -1;
+        this.a = aVar;
+        this.b = resolveType;
+        this.c = aVar2;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a(new BDHttpDnsResult(this.b, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.c.d(), null));
         }
     }
 }

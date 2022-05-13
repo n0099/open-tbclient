@@ -1,0 +1,53 @@
+package com.baidu.searchbox.network.support.dns;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.List;
+/* loaded from: classes2.dex */
+public interface Dns {
+    public static final Dns SYSTEM = new Dns() { // from class: com.baidu.searchbox.network.support.dns.Dns.1
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.network.support.dns.Dns
+        public List<InetAddress> lookup(String str) throws UnknownHostException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null) {
+                    try {
+                        return Arrays.asList(InetAddress.getAllByName(str));
+                    } catch (NullPointerException e) {
+                        UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
+                        unknownHostException.initCause(e);
+                        throw unknownHostException;
+                    }
+                }
+                throw new UnknownHostException("hostname == null");
+            }
+            return (List) invokeL.objValue;
+        }
+    };
+
+    List<InetAddress> lookup(String str) throws UnknownHostException;
+}

@@ -90,7 +90,7 @@ public class dk0 extends Handler {
                 return;
             }
             rj0Var.j = Math.max(rj0Var.i, f) + 0.01f;
-            ej0.b().d(AdDownloadAction.PROGRESS_UPDATE, this.a);
+            ej0.b().e(AdDownloadAction.PROGRESS_UPDATE, this.a);
             b();
         }
     }

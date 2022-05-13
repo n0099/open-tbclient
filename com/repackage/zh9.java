@@ -1,33 +1,83 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
+import com.win.opensdk.PBError;
 /* loaded from: classes7.dex */
-public class zh9 implements AdEventListener {
+public class zh9 extends uh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ ExpressAdListenerWrapper c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ NativeExpressADData2 e;
-    public final /* synthetic */ wh9 f;
+    public bp9 a;
 
-    public zh9(wh9 wh9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, NativeExpressADData2 nativeExpressADData2) {
+    /* loaded from: classes7.dex */
+    public class a implements cp9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ei9 a;
+
+        public a(zh9 zh9Var, ei9 ei9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh9Var, ei9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ei9Var;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onClicked();
+            }
+        }
+
+        @Override // com.repackage.cp9
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.onDisplayed();
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                this.a.a(pBError.getMsg(), pBError.getCode());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.onLoaded();
+            }
+        }
+    }
+
+    public zh9(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wh9Var, expressAdListenerWrapper, str, nativeExpressADData2};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,81 +87,37 @@ public class zh9 implements AdEventListener {
                 return;
             }
         }
-        this.f = wh9Var;
-        this.c = expressAdListenerWrapper;
-        this.d = str;
-        this.e = nativeExpressADData2;
+        this.a = new bp9(context.getApplicationContext(), str);
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onAdClosed() {
+    @Override // com.repackage.th9
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClose();
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.d);
-            }
+            this.a.h();
         }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onClick() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // com.repackage.th9
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked(this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
+            this.a.j();
         }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onExposed() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // com.repackage.uh9
+    public void c(ei9 ei9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.e();
-            this.f.onAdShow(this.e, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ei9Var) == null) {
+            this.a.k(new a(this, ei9Var));
         }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderFail() {
+    @Override // com.repackage.uh9
+    public View d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.f.onError(0, "RenderFail");
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderSuccess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.f.i.put(this.e, this.c);
-            this.f.onAdLoaded((wh9) this.e);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.i() : (View) invokeV.objValue;
     }
 }

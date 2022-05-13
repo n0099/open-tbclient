@@ -51,7 +51,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AXIS_X = 1;
@@ -87,7 +87,7 @@ public class TKBasicAnimation {
     public String timeFunction;
     public String timingFunction;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface AnimationJsCallback {
         void onJsExecuteComplete(double d);
     }
@@ -755,7 +755,7 @@ public class TKBasicAnimation {
             animatorSet.setInterpolator(getInterpolator());
             animatorSet.addListener(this.animatorListener);
             animatorSet.start();
-            view2.setTag(R.id.obfuscated_res_0x7f092062, animatorSet);
+            view2.setTag(R.id.obfuscated_res_0x7f0920bf, animatorSet);
         }
     }
 
@@ -1193,7 +1193,7 @@ public class TKBasicAnimation {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, tKBase) == null) || tKBase == null || tKBase.getView() == null) {
             return;
         }
-        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f092062);
+        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f0920bf);
         if (tag instanceof AnimatorSet) {
             pauseAnimation((AnimatorSet) tag);
         }
@@ -1232,7 +1232,7 @@ public class TKBasicAnimation {
         if (!(interceptable == null || interceptable.invokeL(1048597, this, tKBase) == null) || tKBase == null || tKBase.getView() == null) {
             return;
         }
-        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f092062);
+        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f0920bf);
         if (tag instanceof AnimatorSet) {
             resumeAnimation((AnimatorSet) tag);
         }
@@ -1345,7 +1345,7 @@ public class TKBasicAnimation {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, tKBase) == null) {
             if (newVersionEnable() && tKBase != null && tKBase.getView() != null) {
-                Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f092062);
+                Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f0920bf);
                 if (tag instanceof AnimatorSet) {
                     AnimatorSet animatorSet = (AnimatorSet) tag;
                     animatorSet.removeAllListeners();

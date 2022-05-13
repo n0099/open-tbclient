@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dl7;
-import com.repackage.i05;
 import com.repackage.il7;
+import com.repackage.j15;
 import com.repackage.jl7;
-import com.repackage.v05;
+import com.repackage.w05;
 /* loaded from: classes3.dex */
-public class TailToolController extends NoPressedLinearLayout implements v05 {
+public class TailToolController extends NoPressedLinearLayout implements j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -146,7 +146,7 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.k();
+                this.a.j();
                 this.a.l();
             }
         }
@@ -174,11 +174,11 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         this.g = new a(this, 2001344);
         this.h = new b(this, 2001348);
         this.i = new c(this);
-        j(context);
+        i(context);
     }
 
-    @Override // com.repackage.v05
-    public void b() {
+    @Override // com.repackage.j15
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(0);
@@ -186,24 +186,24 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
-    public void d(i05 i05Var) {
+    @Override // com.repackage.j15
+    public void g(w05 w05Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i05Var) == null) || (editorTools = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) == null) || (editorTools = this.f) == null) {
             return;
         }
-        editorTools.A(i05Var);
+        editorTools.A(w05Var);
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -211,19 +211,11 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
-    public void init() {
+    public final void i(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n();
-        }
-    }
-
-    public final void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.e = context;
-            this.b = new jl7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0805, (ViewGroup) this, true));
+            this.b = new jl7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fe, (ViewGroup) this, true));
             this.c = new il7(context);
             dl7 dl7Var = new dl7(context, this.c, this.i);
             this.d = dl7Var;
@@ -231,7 +223,15 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         }
     }
 
-    public final void k() {
+    @Override // com.repackage.j15
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            n();
+        }
+    }
+
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.e, this.c.i().isEmpty())));
@@ -250,9 +250,9 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                d(new i05(2, 16, " "));
+                g(new w05(2, 16, " "));
             } else {
-                d(new i05(2, 16, null));
+                g(new w05(2, 16, null));
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
@@ -270,10 +270,10 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         m(currentAccountObj.getIsSelectTail());
     }
 
-    @Override // com.repackage.j05
-    public void onAction(i05 i05Var) {
+    @Override // com.repackage.x05
+    public void onAction(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, i05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, w05Var) == null) {
         }
     }
 
@@ -288,7 +288,7 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -306,7 +306,7 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
@@ -314,7 +314,7 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -345,6 +345,6 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         this.g = new a(this, 2001344);
         this.h = new b(this, 2001348);
         this.i = new c(this);
-        j(context);
+        i(context);
     }
 }

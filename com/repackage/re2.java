@@ -1,20 +1,20 @@
 package com.repackage;
 
-import android.os.Bundle;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes7.dex */
-public interface re2 extends ge2 {
+public interface re2 {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(Bundle bundle);
-
-        void onRelease();
+        void a(boolean z);
     }
 
-    void k(String str, Map<String, String> map);
+    void A(@NonNull a aVar);
 
-    void release();
+    @Nullable
+    String b();
 
-    void w(a aVar);
+    @Nullable
+    String k0();
 }

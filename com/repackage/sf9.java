@@ -1,60 +1,81 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.repackage.of9;
 /* loaded from: classes7.dex */
-public class sf9 implements AdRipper {
+public class sf9 implements FunNativeAd2Bridger<TTNativeAd, com.fun.module.csj.f0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TTNativeAd.AdInteractionListener a;
+    public final /* synthetic */ of9 b;
 
-    public sf9() {
+    public sf9(of9 of9Var, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {of9Var, tTNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = of9Var;
+        this.a = new of9.b(of9Var, tTNativeAd);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void destroy(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public RippedAd getRippedAd(Object obj) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.f0, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.csj.f0 createExpressView(TTNativeAd tTNativeAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            return null;
-        }
-        return (RippedAd) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tTNativeAd)) == null) ? pf9.a(tTNativeAd) : (View) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void preParseRippedAd(Object obj) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, TTNativeAd tTNativeAd, BaseNativeAd2<TTNativeAd, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, tTNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.b.c(activity, tTNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.a, funAdInteractionListener);
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void report(Object obj, String str, long j) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, TTNativeAd tTNativeAd, BaseNativeAd2<TTNativeAd, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            TTNativeAd tTNativeAd2 = tTNativeAd;
+            of9 of9Var = this.b;
+            FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = of9Var.j;
+            pid = of9Var.mPid;
+            funNativeAdListenerHelper.startShow(tTNativeAd2, str, pid, this.a, funAdInteractionListener);
+            of9 of9Var2 = this.b;
+            of9Var2.getClass();
+            of9Var2.b(activity, tTNativeAd2, expressInflater.inflate(), baseNativeAd2.getExpressView(), new qf9(of9Var2, funAdInteractionListener, str, tTNativeAd2));
         }
     }
 }

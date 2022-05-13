@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg;
-import com.repackage.mg;
+import com.repackage.ag;
+import com.repackage.kg;
 /* loaded from: classes3.dex */
 public class PvCacheModel {
     public static /* synthetic */ Interceptable $ic;
     public static PvCacheModel mCacheModel;
     public transient /* synthetic */ FieldHolder $fh;
-    public cg<String, String> mCache;
+    public ag<String, String> mCache;
 
     public PvCacheModel() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PvCacheModel {
             }
         }
         this.mCache = null;
-        this.mCache = new cg<>(256);
+        this.mCache = new ag<>(256);
     }
 
     public static synchronized PvCacheModel getInstance() {
@@ -57,8 +57,8 @@ public class PvCacheModel {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        cg<String, String> cgVar = this.mCache;
-        cgVar.h(currentAccount + str, String.valueOf(l));
+        ag<String, String> agVar = this.mCache;
+        agVar.h(currentAccount + str, String.valueOf(l));
     }
 
     public boolean isSameDay(String str) {
@@ -69,12 +69,12 @@ public class PvCacheModel {
                 return false;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            cg<String, String> cgVar = this.mCache;
-            String f = cgVar.f(currentAccount + str);
+            ag<String, String> agVar = this.mCache;
+            String f = agVar.f(currentAccount + str);
             if (TextUtils.isEmpty(f)) {
                 return false;
             }
-            return UtilHelper.isSameDay(mg.g(f, 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(kg.g(f, 0L), System.currentTimeMillis());
         }
         return invokeL.booleanValue;
     }
@@ -85,7 +85,7 @@ public class PvCacheModel {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        cg<String, String> cgVar = this.mCache;
-        cgVar.i(currentAccount + str);
+        ag<String, String> agVar = this.mCache;
+        agVar.i(currentAccount + str);
     }
 }

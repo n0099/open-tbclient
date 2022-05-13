@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
 import com.repackage.al5;
-import com.repackage.rl5;
+import com.repackage.sl5;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -144,7 +145,7 @@ public class AdInfo implements Serializable {
         }
         try {
             JSONObject jSONObject7 = jSONObject.getJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
-            if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray("ad")) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
+            if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray(LaunchStatsUtils.AD)) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
                 if (jSONObject3.has("advisible")) {
                     this.advisible = jSONObject3.getInt("advisible");
                 } else {
@@ -186,7 +187,7 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            al5 b = al5.b(rl5.d());
+            al5 b = al5.b(sl5.d());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }

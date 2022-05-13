@@ -1,7 +1,9 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class zf2 extends de2<ug2> {
+public class zf2 extends oe2<fh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,22 +29,33 @@ public class zf2 extends de2<ug2> {
         }
     }
 
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goForeground" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableLocalMirror" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ug2 ug2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull fh2 fh2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ug2Var) == null) {
-            d(ug2Var, command.what, null, true);
-            ug2Var.a0();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fh2Var) == null) {
+            String str = command.what;
+            d(fh2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals("auto", str2)) {
+                    fh2Var.i0(str2);
+                } else if (TextUtils.equals("enable", str2)) {
+                    fh2Var.i0(str2);
+                } else if (TextUtils.equals(PackageTable.DISABLE, str2)) {
+                    fh2Var.i0(str2);
+                }
+            }
         }
     }
 }

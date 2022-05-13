@@ -1,120 +1,85 @@
 package com.repackage;
 
 import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oe5;
 /* loaded from: classes7.dex */
-public class se5 implements ImageAssetDelegate {
+public class se5 implements oe5.j {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
+    public Bitmap a;
+    public ImageView b;
+    public int c;
+    public ListView d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755323410, "Lcom/repackage/se5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755323410, "Lcom/repackage/se5;");
-                return;
-            }
-        }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    }
-
-    public se5() {
+    public se5(ListView listView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {listView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
+        this.c = -16777216;
+        this.d = listView;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.oe5.j
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            ((ImageView) view2).setImageDrawable(null);
+            this.a.recycle();
+            this.a = null;
         }
     }
 
-    public void d(String str) {
+    @Override // com.repackage.oe5.j
+    public View b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
-        }
-    }
-
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (ni.isEmpty(this.a)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            ListView listView = this.d;
+            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
+            if (childAt == null) {
                 return null;
             }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            fo foVar = (fo) ig.h().n(str, 36, new Object[0]);
-            if (foVar == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
-                }
-                foVar = this.b.getBitmapFromFile(str, 0, 0);
+            childAt.setPressed(false);
+            childAt.setDrawingCacheEnabled(true);
+            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
+            childAt.setDrawingCacheEnabled(false);
+            if (this.b == null) {
+                this.b = new ImageView(this.d.getContext());
             }
-            if (foVar != null && foVar.p() != null) {
-                Bitmap p = foVar.p();
-                try {
-                    if (p.getConfig() != null) {
-                        return p.copy(p.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
-                }
-            }
-            ig.h().m(str, 36, null, null);
-            return null;
+            this.b.setBackgroundColor(this.c);
+            this.b.setPadding(0, 0, 0, 0);
+            this.b.setImageBitmap(this.a);
+            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+            return this.b;
         }
-        return (Bitmap) invokeL.objValue;
+        return (View) invokeI.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
     }
 }

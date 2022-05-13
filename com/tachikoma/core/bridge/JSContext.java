@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class JSContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public class JSContext {
     public Field v8DataField;
 
     /* renamed from: com.tachikoma.core.bridge.JSContext$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class V8AssociateReference {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,33 +1,34 @@
 package com.repackage;
 
+import android.animation.Animator;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.mh9;
 /* loaded from: classes6.dex */
-public class lh9 implements TTNativeExpressAd.ExpressAdInteractionListener {
+public class lh9 implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ ExpressAdListenerWrapper c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ TTNativeExpressAd e;
-    public final /* synthetic */ kh9 f;
+    public final /* synthetic */ mh9.a a;
+    public final /* synthetic */ View b;
+    public final /* synthetic */ ViewGroup c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ float e;
+    public final /* synthetic */ int[] f;
+    public final /* synthetic */ ViewGroup g;
+    public final /* synthetic */ mh9 h;
 
-    public lh9(kh9 kh9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, TTNativeExpressAd tTNativeExpressAd) {
+    public lh9(mh9 mh9Var, mh9.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kh9Var, expressAdListenerWrapper, str, tTNativeExpressAd};
+            Object[] objArr = {mh9Var, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,68 +38,44 @@ public class lh9 implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.f = kh9Var;
-        this.c = expressAdListenerWrapper;
-        this.d = str;
-        this.e = tTNativeExpressAd;
+        this.h = mh9Var;
+        this.a = aVar;
+        this.b = view2;
+        this.c = viewGroup;
+        this.d = f;
+        this.e = f2;
+        this.f = iArr;
+        this.g = viewGroup2;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onAdClicked type: " + i, new Object[0]);
-            this.f.onAdClicked(this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onAdShow type: " + i, new Object[0]);
-            this.f.onAdShow(this.e, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onRenderFail message: " + str + ", code:" + i, new Object[0]);
-            this.f.onError(i, str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.e("CSJNativeExpressAd onRenderSuccess width: " + f + ", height:" + f2, new Object[0]);
-            this.f.j.put(this.e, this.c);
-            this.f.onAdLoaded((kh9) this.e);
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
+            this.h.getClass();
         }
     }
 }

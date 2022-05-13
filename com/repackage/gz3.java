@@ -1,77 +1,137 @@
 package com.repackage;
 
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class gz3 {
+public class gz3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<bt1> a;
 
-    public gz3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755660783, "Lcom/repackage/gz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755660783, "Lcom/repackage/gz3;");
+                return;
+            }
+        }
+        b = eh1.a;
+    }
+
+    public gz3(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        if (jSONArray == null) {
+            return;
+        }
+        if (b) {
+            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
+        }
+        int length = jSONArray.length();
+        int i3 = 0;
+        int i4 = 0;
+        for (int i5 = 0; i5 < length; i5++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("type");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != 1095692943) {
+                    if (hashCode == 1427818632 && optString.equals("download")) {
+                        c = 1;
+                    }
+                } else if (optString.equals("request")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1 && i4 < 10) {
+                        this.a.add(a(optJSONObject));
+                        i4++;
+                    }
+                } else if (i3 < 3) {
+                    this.a.add(b(optJSONObject));
+                    i3++;
+                }
             }
         }
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public final bt1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vr2 d = d();
-            if (d != null) {
-                return d.a();
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            bt1 bt1Var = new bt1();
+            bt1Var.G("type", jSONObject.optString("type"));
+            bt1Var.G("url", jSONObject.optString("url"));
+            bt1Var.G("filePath", jSONObject.optString("filePath"));
+            bt1Var.G("header", c(jSONObject.optJSONObject("header")));
+            return bt1Var;
         }
-        return invokeV.booleanValue;
+        return (bt1) invokeL.objValue;
     }
 
-    public final void b(WebSocketTask task) {
+    public final bt1 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            vr2 d = d();
-            if (d != null) {
-                d.b(task);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            bt1 bt1Var = new bt1();
+            bt1Var.G("type", jSONObject.optString("type"));
+            bt1Var.G("url", jSONObject.optString("url"));
+            bt1Var.G("responseType", jSONObject.optString("responseType"));
+            bt1Var.G("header", c(jSONObject.optJSONObject("header")));
+            return bt1Var;
         }
+        return (bt1) invokeL.objValue;
     }
 
-    public final void c(String taskId) {
+    public final bt1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            Intrinsics.checkNotNullParameter(taskId, "taskId");
-            vr2 d = d();
-            if (d != null) {
-                d.c(taskId);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-        }
-    }
-
-    public final vr2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            j03 L = j03.L();
-            if (L != null) {
-                return L.l0();
+            bt1 bt1Var = new bt1();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                bt1Var.G(next, jSONObject.optString(next));
             }
-            return null;
+            return bt1Var;
         }
-        return (vr2) invokeV.objValue;
+        return (bt1) invokeL.objValue;
     }
 }

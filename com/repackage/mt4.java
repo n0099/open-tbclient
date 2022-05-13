@@ -1,50 +1,33 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mt4 {
+public abstract class mt4 extends ct4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mt4(kt4 kt4Var) {
+        super(kt4Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kt4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((kt4) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
-            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
-            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
-            b(jSONObject, "continuous_crash_times", String.valueOf(st4.q().o()));
-            b(jSONObject, "trigger_safe_mode_status", String.valueOf(st4.q().s()));
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, str2)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            if (str != null && str2 != null) {
-                try {
-                    jSONObject.put(str, str2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
+    public abstract String f();
 }

@@ -81,7 +81,7 @@ public class io7 {
                         faceGroupDraft2 = (FaceGroupDraft) readObject;
                     }
                     objectInputStream2.close();
-                    lg.c(objectInputStream2);
+                    jg.c(objectInputStream2);
                     return faceGroupDraft2;
                 } catch (IOException e) {
                     e = e;
@@ -89,7 +89,7 @@ public class io7 {
                     objectInputStream = objectInputStream2;
                     faceGroupDraft = faceGroupDraft3;
                     e.printStackTrace();
-                    lg.c(objectInputStream);
+                    jg.c(objectInputStream);
                     r2 = faceGroupDraft;
                     return r2;
                 } catch (ClassNotFoundException e2) {
@@ -98,7 +98,7 @@ public class io7 {
                     objectInputStream = objectInputStream2;
                     faceGroupDraft = faceGroupDraft4;
                     e.printStackTrace();
-                    lg.c(objectInputStream);
+                    jg.c(objectInputStream);
                     r2 = faceGroupDraft;
                     return r2;
                 } catch (Throwable th) {
@@ -107,7 +107,7 @@ public class io7 {
                     objectInputStream = objectInputStream2;
                     faceGroupDraft = faceGroupDraft5;
                     th.printStackTrace();
-                    lg.c(objectInputStream);
+                    jg.c(objectInputStream);
                     r2 = faceGroupDraft;
                     return r2;
                 }
@@ -122,7 +122,7 @@ public class io7 {
                 faceGroupDraft = null;
             }
         } catch (Throwable th3) {
-            lg.c(r2);
+            jg.c(r2);
             throw th3;
         }
     }
@@ -141,7 +141,7 @@ public class io7 {
                     a();
                     objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
                 } finally {
-                    lg.d(objectOutputStream2);
+                    jg.d(objectOutputStream2);
                 }
             } catch (FileNotFoundException e) {
                 e = e;
@@ -152,7 +152,7 @@ public class io7 {
             }
             try {
                 objectOutputStream.writeObject(faceGroupDraft);
-                lg.d(objectOutputStream);
+                jg.d(objectOutputStream);
             } catch (FileNotFoundException e3) {
                 e = e3;
                 objectOutputStream2 = objectOutputStream;

@@ -43,7 +43,7 @@ public class zy0 extends yy0 {
             if (TextUtils.isEmpty(str)) {
                 str = "nad_default";
             }
-            return hi0.b().getSharedPreferences(str, i);
+            return ki0.b().getSharedPreferences(str, i);
         }
         return (SharedPreferences) invokeLI.objValue;
     }

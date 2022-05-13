@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mh7 extends fc1<NetworkAgentService> {
+public class mh7 extends qc1<NetworkAgentService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class mh7 extends fc1<NetworkAgentService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
     public NetworkAgentService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

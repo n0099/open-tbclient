@@ -1,68 +1,134 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BDThrowableCheck"})
+import java.io.File;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes7.dex */
-public class u83 extends t83 {
+public abstract class u83 implements y83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
+    public File a;
+    public final long b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755307135, "Lcom/repackage/u83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755307135, "Lcom/repackage/u83;");
+                return;
+            }
+        }
+        c = new ReentrantReadWriteLock();
+    }
 
     public u83() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = d();
+        this.b = getMaxSize();
+    }
+
+    @Override // com.repackage.y83
+    public boolean a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            c.readLock().lock();
+            try {
+                return e() + j > this.b;
+            } finally {
+                c.readLock().unlock();
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.repackage.y83
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            c.writeLock().lock();
+            try {
+                try {
+                    if (this.a == null) {
+                        this.a = d();
+                    }
+                    File file = this.a;
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    xg4.O(String.valueOf(e() + j).getBytes(), file);
+                } catch (Exception e) {
+                    if (eh1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            } finally {
+                c.writeLock().unlock();
             }
         }
     }
 
-    @Override // com.repackage.t83
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle b(s83 s83Var) {
-        InterceptResult invokeL;
+    @NonNull
+    public abstract String c();
+
+    public final File d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s83Var)) == null) {
-            Bundle bundle = new Bundle();
-            r83 b = x83.b(s83Var.a);
-            if (b == null) {
-                if (t83.a) {
-                    throw new IllegalArgumentException("illegal sp.");
-                }
-                return bundle;
-            }
-            int i = s83Var.b;
-            if (i == 1) {
-                bundle.putInt("result_value", b.getInt(s83Var.c, Integer.parseInt(s83Var.d)));
-            } else if (i == 2) {
-                bundle.putLong("result_value", b.getLong(s83Var.c, Long.parseLong(s83Var.d)));
-            } else if (i == 3) {
-                bundle.putBoolean("result_value", b.getBoolean(s83Var.c, Boolean.parseBoolean(s83Var.d)));
-            } else if (i == 4) {
-                bundle.putString("result_value", b.getString(s83Var.c, s83Var.d));
-            } else if (i != 5) {
-                if (t83.a) {
-                    throw new IllegalArgumentException("wrong info params.");
-                }
-            } else {
-                bundle.putFloat("result_value", b.getFloat(s83Var.c, Float.parseFloat(s83Var.d)));
-            }
-            if (t83.a) {
-                Log.d("SwanAppSpDelegation", "Get: " + s83Var);
-            }
-            return bundle;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(c() + File.separator + "record.pro");
         }
-        return (Bundle) invokeL.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                this.a = d();
+            }
+            File file = this.a;
+            if (file.exists() && file.isFile()) {
+                String E = xg4.E(file);
+                try {
+                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
+                        return Long.parseLong(E.trim());
+                    }
+                } catch (Exception e) {
+                    if (eh1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
     }
 }

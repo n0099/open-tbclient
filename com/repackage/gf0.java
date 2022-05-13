@@ -1,60 +1,81 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.if0;
 /* loaded from: classes6.dex */
-public class gf0 {
+public abstract class gf0 implements if0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public if0.a b;
 
-    public static void a(Closeable closeable) {
+    public gf0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public abstract void b();
+
+    public void c(if0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.b = aVar;
+            if (aVar != null) {
+                aVar.a(a(), this);
+            }
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == i) {
             return;
         }
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        this.a = i;
+        if0.a aVar = this.b;
+        if (aVar != null) {
+            aVar.a(i, this);
         }
     }
 
-    public static String b(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
+    public void e(if0.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? c(inputStream, null) : (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream != null) {
-                if (TextUtils.isEmpty(str)) {
-                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
-                }
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-                StringWriter stringWriter = new StringWriter();
-                char[] cArr = new char[4096];
-                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
-                    stringWriter.write(cArr, 0, read);
-                }
-                String stringWriter2 = stringWriter.toString();
-                inputStreamReader.close();
-                stringWriter.close();
-                return (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            int i = this.a;
+            if (i != 0 && 3 != i && 2 != i) {
+                c(aVar);
+                return;
             }
-            throw new IllegalArgumentException("stream may not be null.");
+            d(1);
+            c(aVar);
+            try {
+                b();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                d(3);
+            }
         }
-        return (String) invokeLL.objValue;
     }
 }

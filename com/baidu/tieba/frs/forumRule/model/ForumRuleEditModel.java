@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dj6;
-import com.repackage.kk8;
+import com.repackage.ei6;
+import com.repackage.hj8;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class ForumRuleEditModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dj6 a;
+    public final ei6 a;
     public int b;
     public HttpMessageListener c;
     public HttpMessageListener d;
@@ -117,13 +117,13 @@ public class ForumRuleEditModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRuleEditModel(TbPageContext tbPageContext, dj6 dj6Var, String str) {
+    public ForumRuleEditModel(TbPageContext tbPageContext, ei6 ei6Var, String str) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dj6Var, str};
+            Object[] objArr = {tbPageContext, ei6Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -137,7 +137,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         this.b = -1;
         this.c = new a(this, CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
         this.d = new b(this, CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
-        this.a = dj6Var;
+        this.a = ei6Var;
         D();
     }
 
@@ -167,8 +167,8 @@ public class ForumRuleEditModel extends BdBaseModel {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kk8.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
-            kk8.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
+            hj8.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
+            hj8.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
             registerListener(this.c);
             registerListener(this.d);
         }

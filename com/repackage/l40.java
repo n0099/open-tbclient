@@ -1,159 +1,76 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l40 implements h40 {
-    public static /* synthetic */ Interceptable $ic;
+public class l40 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int b = 5;
+    public static int c = 40;
     public transient /* synthetic */ FieldHolder $fh;
-    public n40 a;
-    public s40 b;
-    public m40 c;
-    public JSONObject d;
-    public Context e;
+    public com.baidu.helios.common.cc.a a;
 
-    public l40(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755579191, "Lcom/repackage/l40;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755579191, "Lcom/repackage/l40;");
+        }
+    }
+
+    public l40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new k40();
-        this.b = new w40();
-        this.c = new j40();
-        if (this.d == null) {
-            c(context);
+        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(c);
+        this.a = aVar;
+        aVar.a(0, c, true);
+    }
+
+    public void a(com.baidu.helios.common.cc.a aVar, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i, i2, i3) == null) {
+            com.baidu.helios.common.cc.a d = this.a.d(i, i + i2);
+            if (i3 == 0) {
+                d.b(aVar);
+            } else if (i3 == 2) {
+                d.e(aVar);
+            } else if (i3 != 3) {
+                d.d(aVar);
+            } else {
+                d.c(aVar);
+            }
+            for (int i4 = 0; i4 < i2; i4++) {
+                this.a.a(i + i4, d.d(i4));
+            }
         }
     }
 
-    @Override // com.repackage.h40
-    public JSONObject a() {
+    public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == null) {
-                c(this.e);
-            }
-            return this.d;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ver", 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                jSONObject.put("aid", this.a.c(this.e));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            try {
-                jSONObject.put("uid", this.c.a(this.e));
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-            try {
-                jSONObject.put("adrid", this.b.b(this.e));
-            } catch (Exception e4) {
-                e4.printStackTrace();
-            }
-            try {
-                jSONObject.put("network", this.b.a(this.e));
-            } catch (Exception e5) {
-                e5.printStackTrace();
-            }
-            try {
-                jSONObject.put("pkg", this.b.c(this.e));
-            } catch (Exception e6) {
-                e6.printStackTrace();
-            }
-            try {
-                jSONObject.put("ctime", this.b.a());
-            } catch (Exception e7) {
-                e7.printStackTrace();
-            }
-            try {
-                jSONObject.put("ua", this.b.d(this.e));
-            } catch (Exception e8) {
-                e8.printStackTrace();
-            }
-            try {
-                jSONObject.put("ut", this.b.b());
-            } catch (Exception e9) {
-                e9.printStackTrace();
-            }
-            try {
-                jSONObject.put("iid", this.a.b(this.e));
-            } catch (Exception e10) {
-                e10.printStackTrace();
-            }
-            try {
-                jSONObject.put("sids", this.a.d(this.e));
-            } catch (Exception e11) {
-                e11.printStackTrace();
-            }
-            try {
-                jSONObject.put("oid", this.a.e(this.e));
-            } catch (Exception e12) {
-                e12.printStackTrace();
-            }
-            try {
-                jSONObject.put("gaid", this.a.a(this.e));
-            } catch (Exception e13) {
-                e13.printStackTrace();
-            }
-            try {
-                jSONObject.put("cver", this.a.a());
-            } catch (Exception e14) {
-                e14.printStackTrace();
-            }
-            try {
-                jSONObject.put("sappinfos", this.a.f(this.e).toString());
-            } catch (Exception e15) {
-                e15.printStackTrace();
-            }
-            try {
-                jSONObject.put("cstoreext", this.a.g(this.e).toString());
-            } catch (Exception e16) {
-                e16.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            if (context == null) {
-                throw new NullPointerException("ctx should not be null");
-            }
-            if (this.e == null) {
-                this.e = context.getApplicationContext();
-            }
-            this.d = b();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
     }
 }

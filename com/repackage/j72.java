@@ -1,28 +1,53 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final class j72 {
+public class j72 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL(b());
-            } catch (Exception e) {
-                e.getStackTrace();
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755635828, "Lcom/repackage/j72;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755635828, "Lcom/repackage/j72;");
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static int a(@NonNull rl2 rl2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "CREATE TABLE IF NOT EXISTS ai_apps_favorites (_id INTEGER PRIMARY KEY AUTOINCREMENT,sort_index INTEGER,app_id TEXT NOT NULL UNIQUE,app_icon TEXT,app_name TEXT,app_type INTEGER,frame_type INTEGER,pay_protected INTEGER,favorite_time INTEGER DEFAULT 0,is_new_favor INTEGER DEFAULT 0);" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rl2Var)) == null) {
+            int i = a;
+            return i != 0 ? i : rl2Var.j("preAppReadyState", 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = 0;
+        }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            a = i;
+        }
     }
 }

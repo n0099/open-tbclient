@@ -223,16 +223,16 @@ public class b {
         imageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), this.d.a));
         final AdTemplate b = this.d.b();
         final com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(b);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0471, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0465, (ViewGroup) null);
         this.f = viewGroup;
-        this.i = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09113e);
-        this.g = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091144);
-        this.h = this.f.findViewById(R.id.obfuscated_res_0x7f09113c);
+        this.i = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09114d);
+        this.g = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091153);
+        this.h = this.f.findViewById(R.id.obfuscated_res_0x7f09114b);
         this.g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (b.this.n) {
-                    com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(b).a(bVar).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.splashscreen.b.1.1
+                    com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(b).a(bVar).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.splashscreen.b.1.1
                         @Override // com.kwad.sdk.core.download.a.a.b
                         public void a() {
                             if (b.this.e != null) {

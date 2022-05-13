@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.BaseChromiumApplication;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
-import com.repackage.j39;
+import com.repackage.e29;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -27,8 +27,8 @@ public class ApplicationStatus {
     public static Activity c;
     public static f d;
     public static final Map<Activity, d> e;
-    public static final j39<e> f;
-    public static final j39<f> g;
+    public static final e29<e> f;
+    public static final e29<f> g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -220,8 +220,8 @@ public class ApplicationStatus {
         }
         a = new Object();
         e = new ConcurrentHashMap();
-        f = new j39<>();
-        g = new j39<>();
+        f = new e29<>();
+        g = new e29<>();
     }
 
     public ApplicationStatus() {
@@ -368,7 +368,7 @@ public class ApplicationStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public j39<e> b;
+        public e29<e> b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -384,13 +384,13 @@ public class ApplicationStatus {
                 }
             }
             this.a = 6;
-            this.b = new j39<>();
+            this.b = new e29<>();
         }
 
-        public j39<e> a() {
+        public e29<e> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (j39) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (e29) invokeV.objValue;
         }
 
         public int b() {

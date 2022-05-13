@@ -15,6 +15,7 @@ public class MsgLocalData extends OrmObject implements Serializable {
     public static final long serialVersionUID = -6687040214263261976L;
     public transient /* synthetic */ FieldHolder $fh;
     public long errno;
+    public String mErrorString;
     public long retry;
     public long rid;
     public short status;
@@ -30,8 +31,10 @@ public class MsgLocalData extends OrmObject implements Serializable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.mErrorString = null;
     }
 
     public long getErrno() {
@@ -40,61 +43,74 @@ public class MsgLocalData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errno : invokeV.longValue;
     }
 
+    public String getErrorString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mErrorString : (String) invokeV.objValue;
+    }
+
     public long getRetry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.retry : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.retry : invokeV.longValue;
     }
 
     public long getRid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rid : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.rid : invokeV.longValue;
     }
 
     public Short getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Short.valueOf(this.status) : (Short) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Short.valueOf(this.status) : (Short) invokeV.objValue;
     }
 
     public String getUpload_offset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.upload_offset : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.upload_offset : (String) invokeV.objValue;
     }
 
     public void setErrno(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             this.errno = j;
+        }
+    }
+
+    public void setErrorString(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.mErrorString = str;
         }
     }
 
     public void setRetry(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
             this.retry = j;
         }
     }
 
     public void setRid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
             this.rid = j;
         }
     }
 
     public void setStatus(Short sh) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sh) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, sh) == null) {
             this.status = sh.shortValue();
         }
     }
 
     public void setUpload_offset(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.upload_offset = str;
         }
     }

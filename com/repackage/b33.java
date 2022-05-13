@@ -1,406 +1,123 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.res.ui.FloatButton;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.tieba.R;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.repackage.gl2;
-import com.repackage.nz2;
-import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b33 extends g23 {
+public class b33 extends y23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String e;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public FloatButton c;
-    public z23 d;
-    public j53 e;
-    public String f;
 
-    /* loaded from: classes5.dex */
-    public class a implements cf3<j53> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ j03 e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ b33 g;
-
-        public a(b33 b33Var, CallbackHandler callbackHandler, String str, JSONObject jSONObject, Context context, j03 j03Var, String str2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755877969, "Lcom/repackage/b33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b33Var, callbackHandler, str, jSONObject, context, j03Var, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.g = b33Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = jSONObject;
-            this.d = context;
-            this.e = j03Var;
-            this.f = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
-        /* renamed from: a */
-        public void onCallback(j53 j53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j53Var) == null) {
-                if (j53Var == null || j53Var.d) {
-                    FloatButton c = this.g.d.c();
-                    if (c != null) {
-                        c.setVisibility(8);
-                    }
-                    h53.o(10005, this.a, this.b);
-                    c73.r(10005, j53Var);
-                } else if (this.g.w(j53Var, this.c.optString("scheme"))) {
-                    this.g.e = j53Var;
-                    SwanAppActivity swanAppActivity = (SwanAppActivity) this.d;
-                    this.g.d = z23.d();
-                    if (this.g.d.c() == null) {
-                        b33 b33Var = this.g;
-                        b33Var.c = b33Var.y(this.d, this.c);
-                        this.g.x(this.b, this.c, this.a, swanAppActivity);
-                    }
-                    this.e.T().h(this.f, Boolean.TRUE);
-                } else {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "open app scheme is not allowed").toString());
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755877969, "Lcom/repackage/b33;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements FullScreenFloatView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ b33 e;
-
-        public b(b33 b33Var, Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b33Var, activity, jSONObject, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = b33Var;
-            this.a = activity;
-            this.b = jSONObject;
-            this.c = callbackHandler;
-            this.d = str;
-        }
-
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void onClick() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (de3.F(this.a, this.e.f)) {
-                    String optString = this.b.optString("scheme");
-                    b33 b33Var = this.e;
-                    this.e.z(this.a, optString, b33Var.v(b33Var.e.i.get(0), optString), this.c, this.d);
-                    return;
-                }
-                try {
-                    String optString2 = this.b.optString(TTDownloadField.TT_DOWNLOAD_URL);
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("url", optString2);
-                    z = de3.e(this.a, jSONObject.toString());
-                } catch (JSONException e) {
-                    if (g23.b) {
-                        e.printStackTrace();
-                    }
-                    z = false;
-                }
-                this.c.handleSchemeDispatchCallback(this.d, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "download app success" : "download app fail").toString());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-
-        public c(b33 b33Var, Activity activity, String str, CallbackHandler callbackHandler, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b33Var, activity, str, callbackHandler, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-            this.b = str;
-            this.c = callbackHandler;
-            this.d = str2;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                boolean W = de3.W(this.a, this.b);
-                this.c.handleSchemeDispatchCallback(this.d, UnitedSchemeUtility.wrapCallbackParams(W ? 0 : 1001, W ? "open app success" : "open app fail").toString());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-
-        public d(b33 b33Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b33Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            }
-        }
+        e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+        f = SchemeConfig.getSchemeHead() + "://swangame/%s";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b33(g13 g13Var) {
-        super(g13Var, "/swanAPI/showOpenAppGuide");
+    public b33(r13 r13Var) {
+        super(r13Var, "/swanAPI/getFavor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((r13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            JSONObject a2 = g23.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params");
-                return false;
-            } else if (j03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else if (!(context instanceof SwanAppActivity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not instanceof SwanAppActivity");
-                return false;
-            } else {
-                String optString = a2.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                    return false;
-                }
-                String optString2 = a2.optString("name");
-                this.f = optString2;
-                if (TextUtils.isEmpty(optString2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "packageName is empty");
-                    return false;
-                }
-                z23 d2 = z23.d();
-                this.d = d2;
-                d2.i(this.f);
-                if (this.d.c() != null) {
-                    this.c = y(context, a2);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
-                }
-                gl2.a X = j03Var.X();
-                if (X != null && !TextUtils.isEmpty(X.T())) {
-                    j03Var.d0().e("mapp_open_external_app", new a(this, callbackHandler, optString, a2, context, j03Var, X.T()));
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launchInfo or source is empty");
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final String v(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            String str4 = "";
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    Iterator<String> keys = jSONObject.keys();
-                    str3 = "";
-                    while (keys.hasNext()) {
-                        try {
-                            String next = keys.next();
-                            if (next.equals("slogan_base")) {
-                                str4 = jSONObject.optString(next);
-                            }
-                            if (str2.contains(next)) {
-                                str3 = jSONObject.optString(next);
-                            }
-                        } catch (JSONException e) {
-                            e = e;
-                            if (g23.b) {
-                                e.printStackTrace();
-                            }
-                            if (!TextUtils.isEmpty(str4)) {
-                                return str4 + str3;
-                            }
-                            return null;
-                        }
-                    }
-                } catch (JSONException e2) {
-                    e = e2;
-                    str3 = "";
-                }
-                if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str3)) {
-                    return str4 + str3;
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean w(j53 j53Var, String str) {
+    @Override // com.repackage.y23
+    public boolean j(u03 u03Var, UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, j53Var, str)) == null) {
-            if (j53Var != null && !TextUtils.isEmpty(str)) {
-                for (String str2 : j53Var.h) {
-                    if (str.contains(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, u03Var, unitedSchemeEntity)) == null) {
+            return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public final void x(String str, JSONObject jSONObject, CallbackHandler callbackHandler, Activity activity) {
+    @Override // com.repackage.y23
+    public void k(u03 u03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, jSONObject, callbackHandler, activity) == null) || callbackHandler == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u03Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            JSONArray jSONArray = new JSONArray();
+            List<SwanFavorItemData> i = SwanFavorDataManager.h().i();
+            if (i.size() > 0) {
+                for (SwanFavorItemData swanFavorItemData : i) {
+                    jSONArray.put(p(swanFavorItemData));
+                }
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("favors", jSONArray);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
         }
-        this.c.setDragImageListener(new b(this, activity, jSONObject, callbackHandler, str));
     }
 
-    public final FloatButton y(Context context, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public final JSONObject p(SwanFavorItemData swanFavorItemData) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, jSONObject)) == null) {
-            this.d.g((SwanAppActivity) context, jSONObject);
-            return this.d.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanFavorItemData)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("appid", swanFavorItemData.getAppKey());
+                jSONObject.put("type", swanFavorItemData.getAppType());
+                jSONObject.put("iconUrl", swanFavorItemData.getIconUrl());
+                jSONObject.put("title", swanFavorItemData.getAppName());
+                jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
+                jSONObject.put("payProtected", swanFavorItemData.getPayProtected());
+                if (swanFavorItemData.getAppFrameType() == 1) {
+                    str = String.format(f, swanFavorItemData.getAppKey());
+                } else {
+                    str = e + swanFavorItemData.getAppKey() + "\"}";
+                }
+                jSONObject.put("scheme", str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject;
         }
-        return (FloatButton) invokeLL.objValue;
-    }
-
-    public final void z(Activity activity, String str, String str2, CallbackHandler callbackHandler, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048581, this, activity, str, str2, callbackHandler, str3) == null) || !(activity instanceof SwanAppActivity) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        String string = activity.getString(R.string.obfuscated_res_0x7f0f0110);
-        String string2 = activity.getString(R.string.obfuscated_res_0x7f0f0108);
-        nz2.a aVar = new nz2.a(activity);
-        aVar.f(true);
-        aVar.x(str2);
-        aVar.n(new rf3());
-        aVar.m(false);
-        aVar.P(string, new c(this, activity, str, callbackHandler, str3));
-        aVar.C(string2, new d(this, callbackHandler, str3));
-        aVar.X();
+        return (JSONObject) invokeL.objValue;
     }
 }

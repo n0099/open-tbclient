@@ -17,7 +17,7 @@ import com.ss.android.socialbase.downloader.depend.l;
 import com.ss.android.socialbase.downloader.depend.p;
 import com.ss.android.socialbase.downloader.depend.u;
 import com.ss.android.socialbase.downloader.depend.y;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a extends IInterface {
     int a(int i) throws RemoteException;
 
@@ -52,7 +52,7 @@ public interface a extends IInterface {
     int l() throws RemoteException;
 
     /* renamed from: com.ss.android.socialbase.downloader.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class AbstractBinderC0621a extends Binder implements a {
         public AbstractBinderC0621a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.model.DownloadAidlTask");
@@ -192,7 +192,7 @@ public interface a extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.model.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static class C0622a implements a {
             public static a a;
             public IBinder b;

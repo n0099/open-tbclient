@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a90;
-import com.repackage.fs4;
-import com.repackage.gs4;
+import com.repackage.d90;
+import com.repackage.iu4;
 import com.repackage.n9;
-import com.repackage.vt4;
+import com.repackage.qs4;
+import com.repackage.rs4;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class InitDebugTask extends LaunchTask {
@@ -42,8 +42,8 @@ public class InitDebugTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(gs4.class.getName());
-            arrayList.add(fs4.class.getName());
+            arrayList.add(rs4.class.getName());
+            arrayList.add(qs4.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
             n9.a().c(arrayList);
         }
@@ -59,13 +59,13 @@ public class InitDebugTask extends LaunchTask {
             if (TextUtils.isEmpty(cuid)) {
                 cuid = "";
             }
-            a90.a(inst, branchNameFromFile, commitIdFromFile, cuid);
+            d90.a(inst, branchNameFromFile, commitIdFromFile, cuid);
         }
     }
 
     private void initUETool() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && vt4.k().h("key_ue_tool_switch", false)) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && iu4.k().h("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

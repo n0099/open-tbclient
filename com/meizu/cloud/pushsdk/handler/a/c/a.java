@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
-import com.repackage.ym9;
+import com.repackage.tl9;
 /* loaded from: classes5.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -28,7 +28,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        ym9.d("AbstractMessageHandler", "start NotificationArrivedHandler match");
+        tl9.d("AbstractMessageHandler", "start NotificationArrivedHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_ARRIVED.equals(i(intent));
     }
 

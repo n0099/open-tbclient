@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg;
-import com.repackage.fo;
-import com.repackage.gg;
-import com.repackage.h35;
+import com.repackage.co;
+import com.repackage.dg;
+import com.repackage.eg;
+import com.repackage.y35;
 /* loaded from: classes3.dex */
 public class PortraitLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         this.size = 80;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.jg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.jg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,38 +147,38 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.jg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof fo)) {
-            fo foVar = (fo) obj;
-            if (foVar.u()) {
-                foVar.A(i);
-                foVar.z(i2);
-                h35.k().b(str, foVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof co)) {
+            co coVar = (co) obj;
+            if (coVar.u()) {
+                coVar.A(i);
+                coVar.z(i2);
+                y35.k().b(str, coVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.jg
-    public fo getFromLocal(String str, String str2, int i, int i2, gg ggVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
+    public co getFromLocal(String str, String str2, int i, int i2, eg egVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ggVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), egVar, objArr})) == null) {
             if (this.mForceDownload) {
                 return null;
             }
-            return super.getFromLocal(str, str2, i, i2, ggVar, objArr);
+            return super.getFromLocal(str, str2, i, i2, egVar, objArr);
         }
-        return (fo) invokeCommon.objValue;
+        return (co) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.jg
-    public fo getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
+    public co getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
@@ -186,12 +186,12 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            fo l = h35.k().l(str);
+            co l = y35.k().l(str);
             if (z) {
-                fg.i(l != null, System.currentTimeMillis() - currentTimeMillis);
+                dg.i(l != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return l;
         }
-        return (fo) invokeCommon.objValue;
+        return (co) invokeCommon.objValue;
     }
 }

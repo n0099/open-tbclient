@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.mg;
-import com.repackage.pg;
+import com.repackage.kg;
+import com.repackage.ng;
 /* loaded from: classes4.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -103,7 +103,7 @@ public class AddExperiencedModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
                 this.a.b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                pg.a().postDelayed(this.a.c, 2000L);
+                ng.a().postDelayed(this.a.c, 2000L);
             }
         }
     }
@@ -155,7 +155,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public static boolean D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? mg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? kg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
     }
 
     public void C(String str, String str2) {
@@ -191,7 +191,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pg.a().removeCallbacks(this.c);
+            ng.a().removeCallbacks(this.c);
         }
     }
 

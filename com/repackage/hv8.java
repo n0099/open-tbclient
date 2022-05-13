@@ -1,29 +1,24 @@
 package com.repackage;
 
+import android.view.View;
+import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoLoadingFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public class hv8 {
+public final /* synthetic */ class hv8 implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ hv8 a = new hv8();
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hv8() {
+    private /* synthetic */ hv8() {
+    }
+
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        vt4.k().l("nani_key_download_show_position", 3);
-        new HashSet();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? VideoLoadingFragment.H0(view2) : invokeL.booleanValue;
     }
 }

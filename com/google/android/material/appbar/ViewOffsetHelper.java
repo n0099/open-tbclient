@@ -21,7 +21,7 @@ public class ViewOffsetHelper {
     public boolean verticalOffsetEnabled;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1021view;
+    public final View f1019view;
 
     public ViewOffsetHelper(View view2) {
         Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public class ViewOffsetHelper {
         }
         this.verticalOffsetEnabled = true;
         this.horizontalOffsetEnabled = true;
-        this.f1021view = view2;
+        this.f1019view = view2;
     }
 
     public void applyOffsets() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View view2 = this.f1021view;
+            View view2 = this.f1019view;
             ViewCompat.offsetTopAndBottom(view2, this.offsetTop - (view2.getTop() - this.layoutTop));
-            View view3 = this.f1021view;
+            View view3 = this.f1019view;
             ViewCompat.offsetLeftAndRight(view3, this.offsetLeft - (view3.getLeft() - this.layoutLeft));
         }
     }
@@ -92,8 +92,8 @@ public class ViewOffsetHelper {
     public void onViewLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.layoutTop = this.f1021view.getTop();
-            this.layoutLeft = this.f1021view.getLeft();
+            this.layoutTop = this.f1019view.getTop();
+            this.layoutLeft = this.f1019view.getLeft();
         }
     }
 

@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d57;
-import com.repackage.f77;
+import com.repackage.e47;
+import com.repackage.v67;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MsgMultiImageTextView extends d57 {
+public class MsgMultiImageTextView extends e47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiContentView y;
+    public MultiContentView B;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0562);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0556);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,28 +39,28 @@ public class MsgMultiImageTextView extends d57 {
                 return;
             }
         }
-        I();
+        N();
     }
 
-    public final void I() {
+    public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = (TextView) e(R.id.obfuscated_res_0x7f091f05);
-            this.y = (MultiContentView) e(R.id.obfuscated_res_0x7f09144d);
+            this.i = (TextView) e(R.id.obfuscated_res_0x7f091f5d);
+            this.B = (MultiContentView) e(R.id.obfuscated_res_0x7f091464);
         }
     }
 
-    public void K(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
+    public void O(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, chatMessage, view2) == null) || chatMessage == null) {
             return;
         }
-        C(chatMessage);
-        List<f77.a> b = f77.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.y.setPosition(this.f);
-        this.y.setOnItemViewLongClickListener(this.c);
-        this.y.setNeedNightMode(true);
-        this.y.setType(1);
-        this.y.setData(tbPageContext, b, view2);
+        F(chatMessage);
+        List<v67.a> b = v67.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.B.setPosition(this.f);
+        this.B.setOnItemViewLongClickListener(this.c);
+        this.B.setNeedNightMode(true);
+        this.B.setType(1);
+        this.B.setData(tbPageContext, b, view2);
     }
 }

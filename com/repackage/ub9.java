@@ -1,38 +1,39 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ub9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static double a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public ub9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
-            if (byteBuffer == null || i == 0) {
-                return 0.0d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            byte[] bArr = new byte[i];
-            byteBuffer.get(bArr);
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            double d = 0.0d;
-            for (int i2 = 0; i2 < i; i2 += 2) {
-                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
-                if (i3 >= 32768) {
-                    i3 = 65535 - i3;
-                }
-                d += i3 * i3;
-            }
-            double d2 = (d / i) / 2.0d;
-            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
         }
-        return invokeLI.doubleValue;
+    }
+
+    public ub9 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this : (ub9) invokeZ.objValue;
+    }
+
+    public ub9 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this : (ub9) invokeI.objValue;
     }
 }

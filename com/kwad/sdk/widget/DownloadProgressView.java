@@ -95,19 +95,19 @@ public class DownloadProgressView extends FrameLayout {
     }
 
     public void a(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0428, this);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910c1);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d041c, this);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910d3);
         this.a = textProgressBar;
         textProgressBar.setTextDimen(this.h);
         this.a.a(this.f, this.g);
         this.a.setProgressDrawable(this.i);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b8);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910c7);
         this.b = textView;
         textView.setTextColor(this.e);
         this.b.setTextSize(0, this.h);
         this.b.setVisibility(0);
         this.b.setBackground(this.j);
-        findViewById(R.id.obfuscated_res_0x7f091082).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.DownloadProgressView.1
+        findViewById(R.id.obfuscated_res_0x7f091091).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.DownloadProgressView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 DownloadProgressView.this.performClick();
@@ -117,7 +117,7 @@ public class DownloadProgressView extends FrameLayout {
 
     @SuppressLint({"CustomViewStyleable"})
     public void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040345, R.attr.obfuscated_res_0x7f040352, R.attr.obfuscated_res_0x7f040353, R.attr.obfuscated_res_0x7f040354, R.attr.obfuscated_res_0x7f040355, R.attr.obfuscated_res_0x7f040356, R.attr.obfuscated_res_0x7f04036b});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040349, R.attr.obfuscated_res_0x7f040356, R.attr.obfuscated_res_0x7f04035b, R.attr.obfuscated_res_0x7f04035d, R.attr.obfuscated_res_0x7f040362, R.attr.obfuscated_res_0x7f040363, R.attr.obfuscated_res_0x7f04036f});
         this.e = obtainStyledAttributes.getColor(3, -45056);
         this.f = obtainStyledAttributes.getColor(1, -1);
         this.g = obtainStyledAttributes.getColor(2, -45056);
@@ -125,12 +125,12 @@ public class DownloadProgressView extends FrameLayout {
         Drawable drawable = obtainStyledAttributes.getDrawable(6);
         this.i = drawable;
         if (drawable == null) {
-            this.i = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080baf);
+            this.i = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bca);
         }
         Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
         this.j = drawable2;
         if (drawable2 == null) {
-            this.j = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bae);
+            this.j = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bc9);
         }
         String string = obtainStyledAttributes.getString(5);
         this.k = string;

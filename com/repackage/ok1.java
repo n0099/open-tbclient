@@ -1,8 +1,9 @@
 package com.repackage;
 
-import java.io.IOException;
-import java.io.InputStream;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface ok1 {
-    InputStream a(InputStream inputStream) throws IOException;
+    String a(@NonNull String str, @Nullable JSONObject jSONObject);
 }

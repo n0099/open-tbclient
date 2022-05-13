@@ -32,7 +32,13 @@ public abstract class BaseTaskPool {
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
-                        return null;
+                        if (i != 4) {
+                            if (i != 5) {
+                                return null;
+                            }
+                            return viewOnActivity();
+                        }
+                        return viewOnAppCreateView();
                     }
                     return onPrivacyPolicyGranted(i2);
                 }
@@ -48,4 +54,8 @@ public abstract class BaseTaskPool {
     public abstract List<LaunchTask> onAppCreateSecond(int i);
 
     public abstract List<LaunchTask> onPrivacyPolicyGranted(int i);
+
+    public abstract List<LaunchTask> viewOnActivity();
+
+    public abstract List<LaunchTask> viewOnAppCreateView();
 }

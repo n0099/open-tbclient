@@ -1,7 +1,9 @@
 package com.repackage;
 
-import org.json.JSONObject;
+import android.graphics.Bitmap;
 /* loaded from: classes6.dex */
 public interface kt {
-    JSONObject c();
+    void a(Bitmap bitmap);
+
+    void onError();
 }

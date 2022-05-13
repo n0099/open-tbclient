@@ -1,71 +1,118 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.lcs.LCSStatisticsResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class z35 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "add_user_collect_emotoin";
+    public static String b = "image_url";
+    public static String c = "package_id";
+    public static String d = "#(meme,setting)";
+    public static String e = "#(meme,collect_";
+    public static String f = "meme,collect_";
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755162923, "Lcom/repackage/z35;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755162923, "Lcom/repackage/z35;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755162923, "Lcom/repackage/z35;");
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("collect_");
+            sb.append(TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Math.abs(a().hashCode()) + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
+        int i = 0;
+        int i2 = 0;
+        while (matcher.find()) {
+            String[] split = matcher.group().split(",");
+            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
+                i2++;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755162923, "Lcom/repackage/z35;");
-                return;
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split2 = matcher2.group().split(",");
+            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
+                i++;
             }
         }
-        boolean z = vt4.k().l("key_lcs_log_switch", 0) == 1;
-        a = z;
-        if (z) {
-            a();
+        if (i2 > 0) {
+            StatisticItem statisticItem = new StatisticItem("c12223");
+            statisticItem.param("obj_param1", i2);
+            TiebaStatic.log(statisticItem);
         }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
-            tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void b(int i, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            c(i, i2, i3, i4, i5, 0);
-        }
-    }
-
-    public static void c(int i, int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) && a) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
-            httpMessage.addParam("cmd", i);
-            httpMessage.addParam("lcs_status", i2);
-            httpMessage.addParam("online_status", i3);
-            httpMessage.addParam("status_change_name", i4);
-            httpMessage.addParam("status_change_trigger", i5);
-            httpMessage.addParam("lcs_vailable", i6);
-            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        if (i > 0) {
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            statisticItem2.param("obj_param1", i);
+            TiebaStatic.log(statisticItem2);
         }
     }
 }

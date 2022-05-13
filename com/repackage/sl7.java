@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.fun.ad.sdk.FunAdSdk;
-import com.repackage.cn4;
+import com.repackage.mn4;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class sl7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (mi.H()) {
+            if (ki.H()) {
                 return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
             }
             return UtilHelper.getGprsIpAddress();
@@ -85,12 +85,12 @@ public class sl7 {
                 stringBuffer.append("&");
             }
             stringBuffer.append("sign_key=" + str);
-            return ui.c(stringBuffer.toString());
+            return si.c(stringBuffer.toString());
         }
         return (String) invokeLL.objValue;
     }
 
-    public static cn4.b d(cn4.b bVar) {
+    public static mn4.b d(mn4.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) {
@@ -113,7 +113,7 @@ public class sl7 {
                 jSONObject.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.b);
                 jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
                 jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new fn4().b(a[1], jSONObject.toString())));
+                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new pn4().b(a[1], jSONObject.toString())));
                 arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
                 NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
                 netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
@@ -122,12 +122,12 @@ public class sl7 {
                 netWork.getNetContext().getRequest().getNetWorkParam().mRequestGzip = true;
                 netWork.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
                 String postNetData = netWork.postNetData();
-                if (!netWork.getNetContext().getResponse().isRequestSuccess() || ni.isEmpty(postNetData)) {
+                if (!netWork.getNetContext().getResponse().isRequestSuccess() || li.isEmpty(postNetData)) {
                     return null;
                 }
                 JSONObject jSONObject2 = new JSONObject(postNetData);
                 if ("0".equals(jSONObject2.optString("errno"))) {
-                    cn4.b bVar2 = new cn4.b();
+                    mn4.b bVar2 = new mn4.b();
                     bVar2.a = jSONObject2.optString("bduss");
                     bVar2.b = jSONObject2.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
                     jSONObject2.optString("uname");
@@ -139,6 +139,6 @@ public class sl7 {
                 return null;
             }
         }
-        return (cn4.b) invokeL.objValue;
+        return (mn4.b) invokeL.objValue;
     }
 }

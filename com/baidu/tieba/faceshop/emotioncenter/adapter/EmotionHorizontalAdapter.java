@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ho;
-import com.repackage.z96;
+import com.repackage.e96;
+import com.repackage.eo;
 /* loaded from: classes3.dex */
-public class EmotionHorizontalAdapter extends ho<z96, EmotionGridViewHolder> {
+public class EmotionHorizontalAdapter extends eo<e96, EmotionGridViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -49,13 +49,13 @@ public class EmotionHorizontalAdapter extends ho<z96, EmotionGridViewHolder> {
             this.a = (EmotionHorizontalView) view2;
         }
 
-        public void c(z96 z96Var) {
+        public void c(e96 e96Var) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, z96Var) == null) || (emotionHorizontalView = this.a) == null || z96Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, e96Var) == null) || (emotionHorizontalView = this.a) == null || e96Var == null) {
                 return;
             }
-            emotionHorizontalView.setData(z96Var.a);
+            emotionHorizontalView.setData(e96Var.a);
         }
     }
 
@@ -82,7 +82,7 @@ public class EmotionHorizontalAdapter extends ho<z96, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
     public EmotionGridViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -97,13 +97,13 @@ public class EmotionHorizontalAdapter extends ho<z96, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, z96 z96Var, EmotionGridViewHolder emotionGridViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, e96 e96Var, EmotionGridViewHolder emotionGridViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z96Var, emotionGridViewHolder})) == null) {
-            emotionGridViewHolder.c(z96Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e96Var, emotionGridViewHolder})) == null) {
+            emotionGridViewHolder.c(e96Var);
             return emotionGridViewHolder.b();
         }
         return (View) invokeCommon.objValue;

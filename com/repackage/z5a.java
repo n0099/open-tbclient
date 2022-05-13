@@ -1,198 +1,58 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.Collection;
 /* loaded from: classes7.dex */
-public class z5a {
+public final class z5a {
     public static /* synthetic */ Interceptable $ic;
+    public static final z5a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements IResult<ProductListResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IResult a;
-
-        public a(IResult iResult) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755159637, "Lcom/repackage/z5a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = iResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.a) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755159637, "Lcom/repackage/z5a;");
                 return;
             }
-            iResult.onSuccess(productListResult, payCallBackBean);
         }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onFail(i, str, payCallBackBean);
-        }
+        a = new z5a();
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements IResult<MyBalanceResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IResult a;
-
-        public b(IResult iResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onSuccess(myBalanceResult, payCallBackBean);
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onFail(i, str, payCallBackBean);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements IResult<BannerConfigResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IResult a;
-
-        public c(IResult iResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onSuccess(bannerConfigResult, payCallBackBean);
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            IResult iResult;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) || (iResult = this.a) == null) {
-                return;
-            }
-            iResult.onFail(i, str, payCallBackBean);
-        }
-    }
-
-    public static void a(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
+    public z5a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, getBannerConfigReqParams, iResult) == null) {
-            IAppPayService b2 = i6a.b(getBannerConfigReqParams.getAppId(), getBannerConfigReqParams.getUsedChannel());
-            if (b2 == null) {
-                RLog.error("PayModelManager", "queryBannerConfig null appPayService", new Object[0]);
-            } else {
-                b2.queryBannerConfigRequest(getBannerConfigReqParams, new c(iResult));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
+    public final int a(Collection<?> collection) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, queryCurrencyReqParams, iResult) == null) {
-            IAppPayService b2 = i6a.b(queryCurrencyReqParams.getAppId(), queryCurrencyReqParams.getUsedChannel());
-            if (b2 == null) {
-                RLog.error("PayModelManager", "queryMyBalance null appPayService", new Object[0]);
-            } else {
-                b2.queryMyBalance(queryCurrencyReqParams, new b(iResult));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
+            if (collection != null) {
+                return collection.size();
             }
+            return 0;
         }
-    }
-
-    public static void c(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, queryCurrencyReqParams, iResult) == null) {
-            IAppPayService b2 = i6a.b(queryCurrencyReqParams.getAppId(), queryCurrencyReqParams.getUsedChannel());
-            if (b2 == null) {
-                RLog.error("PayModelManager", "queryProductList null appPayService", new Object[0]);
-            } else {
-                b2.queryProductList(queryCurrencyReqParams, new a(iResult));
-            }
-        }
+        return invokeL.intValue;
     }
 }

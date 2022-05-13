@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public final class ShareThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -61,15 +61,15 @@ public final class ShareThreadView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082f, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0828, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca7);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ccf);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cf4);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d25);
             this.e = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090605);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ff);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fe);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090600);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905f9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f8);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
             this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
@@ -99,7 +99,7 @@ public final class ShareThreadView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             EditText editText = this.b;
             if (editText != null) {
-                return ni.charSequence2String(editText.getText(), null);
+                return li.charSequence2String(editText.getText(), null);
             }
             return null;
         }

@@ -1,64 +1,100 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ez1 {
+public class ez1 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755720427, "Lcom/repackage/ez1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements of3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ ez1 b;
+
+        public a(ez1 ez1Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ez1Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755720427, "Lcom/repackage/ez1;");
-                return;
+            this.b = ez1Var;
+            this.a = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.of3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.c(this.a) : (Bundle) invokeV.objValue;
+        }
+    }
+
+    public ez1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        boolean z = tg1.a;
     }
 
-    public static void a(String str, String str2) {
+    public final Bundle c(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put("data", str2);
-            wl2.U().m(wl2.U().q().c(), new ka2(str, hashMap));
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            rm1 A = wl2.U().A(wl2.U().C());
-            if (A != null) {
-                jx1.i("ConsoleMessageHelper", "send full San request");
-                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            gz1 gz1Var = new gz1();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i == 1) {
+                bundle2.putBoolean("result", gz1Var.shouldAcceptCookie(string, bundle.getString("param2")));
+                return bundle2;
+            } else if (i == 2) {
+                bundle2.putBoolean("result", gz1Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
+            } else if (i == 3) {
+                gz1Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                return bundle2;
+            } else if (i != 4) {
+                return bundle2;
+            } else {
+                bundle2.putString("result", gz1Var.getCookie(string));
+                return bundle2;
             }
         }
+        return (Bundle) invokeL.objValue;
     }
 
-    public static void c(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a("sanFullData2Console", str);
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a("sanIncData2Console", str);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) lf3.b(new a(this, bundle)) : (Bundle) invokeL.objValue;
     }
 }

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
-import com.repackage.hz9;
+import com.repackage.cy9;
+import com.repackage.wx9;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class EmptyObservableHolder implements bz9.a<Object> {
+public final class EmptyObservableHolder implements wx9.a<Object> {
     public static final /* synthetic */ EmptyObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    public static final bz9<Object> EMPTY;
+    public static final wx9<Object> EMPTY;
     public static final EmptyObservableHolder INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class EmptyObservableHolder implements bz9.a<Object> {
         EmptyObservableHolder emptyObservableHolder = new EmptyObservableHolder("INSTANCE", 0);
         INSTANCE = emptyObservableHolder;
         $VALUES = new EmptyObservableHolder[]{emptyObservableHolder};
-        EMPTY = bz9.a(emptyObservableHolder);
+        EMPTY = wx9.a(emptyObservableHolder);
     }
 
     public EmptyObservableHolder(String str, int i) {
@@ -57,10 +57,10 @@ public final class EmptyObservableHolder implements bz9.a<Object> {
         }
     }
 
-    public static <T> bz9<T> instance() {
+    public static <T> wx9<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (bz9<T>) EMPTY : (bz9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (wx9<T>) EMPTY : (wx9) invokeV.objValue;
     }
 
     public static EmptyObservableHolder valueOf(String str) {
@@ -76,11 +76,11 @@ public final class EmptyObservableHolder implements bz9.a<Object> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bz9.a, com.repackage.pz9
-    public void call(hz9<? super Object> hz9Var) {
+    @Override // com.repackage.wx9.a, com.repackage.ky9
+    public void call(cy9<? super Object> cy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
-            hz9Var.onCompleted();
+        if (interceptable == null || interceptable.invokeL(1048576, this, cy9Var) == null) {
+            cy9Var.onCompleted();
         }
     }
 }

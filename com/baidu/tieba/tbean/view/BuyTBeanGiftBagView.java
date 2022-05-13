@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kn8;
+import com.repackage.hm8;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,22 +24,22 @@ import tbclient.GetIconList.Custom;
 public class BuyTBeanGiftBagView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<kn8> a;
+    public LinkedList<hm8> a;
     public b b;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kn8 a;
+        public final /* synthetic */ hm8 a;
         public final /* synthetic */ BuyTBeanGiftBagView b;
 
-        public a(BuyTBeanGiftBagView buyTBeanGiftBagView, kn8 kn8Var) {
+        public a(BuyTBeanGiftBagView buyTBeanGiftBagView, hm8 hm8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {buyTBeanGiftBagView, kn8Var};
+                Object[] objArr = {buyTBeanGiftBagView, hm8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,7 +50,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
                 }
             }
             this.b = buyTBeanGiftBagView;
-            this.a = kn8Var;
+            this.a = hm8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -65,7 +65,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(kn8 kn8Var);
+        void a(hm8 hm8Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,9 +90,9 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         c();
     }
 
-    public final void b(kn8 kn8Var) {
+    public final void b(hm8 hm8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, kn8Var) == null) || kn8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hm8Var) == null) || hm8Var == null) {
             return;
         }
         TbImageView tbImageView = new TbImageView(getContext());
@@ -102,11 +102,11 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.tbds182));
         layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
         addView(tbImageView, layoutParams);
-        Custom custom = kn8Var.a;
+        Custom custom = hm8Var.a;
         if (custom != null && !StringUtils.isNull(custom.package_pic)) {
-            tbImageView.K(kn8Var.a.package_pic, 10, false);
+            tbImageView.K(hm8Var.a.package_pic, 10, false);
         }
-        tbImageView.setOnClickListener(new a(this, kn8Var));
+        tbImageView.setOnClickListener(new a(this, hm8Var));
     }
 
     public final void c() {
@@ -116,7 +116,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         }
     }
 
-    public void d(List<kn8> list) {
+    public void d(List<hm8> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
@@ -124,7 +124,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         this.a.clear();
         this.a.addAll(list);
         removeAllViews();
-        Iterator<kn8> it = this.a.iterator();
+        Iterator<hm8> it = this.a.iterator();
         while (it.hasNext()) {
             b(it.next());
         }

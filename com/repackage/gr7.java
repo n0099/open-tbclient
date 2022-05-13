@@ -57,7 +57,7 @@ public class gr7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = null;
-            vt4.k().y("key_pb_guide_enter_forum", "");
+            iu4.k().y("key_pb_guide_enter_forum", "");
         }
     }
 
@@ -77,7 +77,7 @@ public class gr7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gs7Var) == null) {
             this.a = gs7Var;
-            vt4.k().y("key_pb_guide_enter_forum", gs7Var.toString());
+            iu4.k().y("key_pb_guide_enter_forum", gs7Var.toString());
         }
     }
 
@@ -104,6 +104,6 @@ public class gr7 {
                 return;
             }
         }
-        this.a = gs7.a(vt4.k().q("key_pb_guide_enter_forum", ""));
+        this.a = gs7.a(iu4.k().q("key_pb_guide_enter_forum", ""));
     }
 }

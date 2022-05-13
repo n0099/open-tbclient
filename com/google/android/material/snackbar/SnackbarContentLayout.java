@@ -128,8 +128,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d27);
-            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091d26);
+            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d80);
+            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091d7f);
         }
     }
 
@@ -185,7 +185,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         if (!(interceptable == null || interceptable.invokeF(1048583, this, f) == null) || f == 1.0f) {
             return;
         }
-        this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e), this.actionView.getCurrentTextColor(), f));
+        this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040171), this.actionView.getCurrentTextColor(), f));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -207,7 +207,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ab, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040457});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ad, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f04045c});
         this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
         this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
         obtainStyledAttributes.recycle();

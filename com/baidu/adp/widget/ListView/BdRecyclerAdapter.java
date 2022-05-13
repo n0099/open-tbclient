@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ko;
-import com.repackage.vo;
+import com.repackage.ho;
+import com.repackage.so;
 /* loaded from: classes.dex */
-public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements vo {
+public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements so {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ko b;
+    public ho b;
     public RecyclerView.Adapter c;
     public RecyclerView.AdapterDataObserver d;
     public RecyclerView.AdapterDataObserver e;
@@ -218,7 +218,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.f = null;
         this.g = null;
         this.a = context;
-        this.b = new ko();
+        this.b = new ho();
         this.e = new a(this);
     }
 
@@ -238,14 +238,14 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         notifyDataSetChanged();
     }
 
-    @Override // com.repackage.vo
+    @Override // com.repackage.so
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getItemCount() : invokeV.intValue;
     }
 
-    @Override // com.repackage.vo
+    @Override // com.repackage.so
     public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -262,8 +262,8 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             RecyclerView.Adapter adapter = this.c;
             if (adapter != null && i2 < (i3 = adapter.getItemCount())) {
                 RecyclerView.Adapter adapter2 = this.c;
-                if (adapter2 instanceof vo) {
-                    return ((vo) adapter2).getItem(i2);
+                if (adapter2 instanceof so) {
+                    return ((so) adapter2).getItem(i2);
                 }
             }
             int n = n();
@@ -380,10 +380,10 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         viewHolder.itemView.setOnLongClickListener(new c(this, viewHolder, viewGroup));
     }
 
-    public ko.c k(int i) {
+    public ho.c k(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.b.e(i) : (ko.c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.b.e(i) : (ho.c) invokeI.objValue;
     }
 
     @Nullable
@@ -393,10 +393,10 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? this.b.g(obj) : (View) invokeL.objValue;
     }
 
-    public ko.c m(int i) {
+    public ho.c m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.b.h(i) : (ko.c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.b.h(i) : (ho.c) invokeI.objValue;
     }
 
     public int n() {
@@ -427,7 +427,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048592, this, viewHolder, i) == null) || i < 0 || getItemViewType(i) == -1 || (viewHolder instanceof ko.b)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048592, this, viewHolder, i) == null) || i < 0 || getItemViewType(i) == -1 || (viewHolder instanceof ho.b)) {
             return;
         }
         int o = o();
@@ -446,7 +446,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         RecyclerView.Adapter adapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, viewGroup, i)) == null) {
-            ko.c m = m(i);
+            ho.c m = m(i);
             boolean z2 = true;
             if (m != null) {
                 viewHolder = m.c;
@@ -456,7 +456,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 z = true;
             }
             if (viewHolder == null) {
-                ko.c k = k(i);
+                ho.c k = k(i);
                 TypeAdapter.ViewHolder viewHolder2 = k != null ? k.c : null;
                 if (k != null && !k.e) {
                     z2 = false;
@@ -540,7 +540,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public RecyclerView.Adapter p() {
+    public RecyclerView.Adapter q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.c : (RecyclerView.Adapter) invokeV.objValue;
@@ -650,7 +650,7 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public void w(ko.a aVar) {
+    public void w(ho.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, aVar) == null) {
             this.b.m(aVar);

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pg;
+import com.repackage.ng;
 /* loaded from: classes4.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -82,17 +82,17 @@ public class YoungsterPasswordActivity extends BaseActivity {
             switch (i) {
                 case 1:
                 case 2:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15d5));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1602));
                     break;
                 case 3:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15cf));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15fc));
                     break;
                 case 4:
                 case 5:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15ce));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15fb));
                     break;
                 case 6:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15ce));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15fb));
                     break;
             }
             this.mYoungsterPasswordView.i(i);
@@ -116,7 +116,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
             super.onClick(view2);
             if (view2 == this.mBack) {
                 this.mYoungsterPasswordView.g();
-                pg.a().postDelayed(this.finishWithResult, 200L);
+                ng.a().postDelayed(this.finishWithResult, 200L);
             }
         }
     }
@@ -127,14 +127,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0062);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
             YoungsterPasswordView youngsterPasswordView = new YoungsterPasswordView(getPageContext());
             this.mYoungsterPasswordView = youngsterPasswordView;
-            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092499)).addView(youngsterPasswordView);
+            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f0924ee)).addView(youngsterPasswordView);
             Intent intent = getIntent();
             if (intent != null) {
                 int intExtra = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, 0);
@@ -155,7 +155,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            pg.a().removeCallbacks(this.finishWithResult);
+            ng.a().removeCallbacks(this.finishWithResult);
         }
     }
 

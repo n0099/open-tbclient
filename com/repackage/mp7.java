@@ -42,7 +42,7 @@ public class mp7<V> implements wp7<V> {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.c) == null) {
             return;
         }
-        baseInterestSelectionFragment.C0();
+        baseInterestSelectionFragment.D0();
     }
 
     public void b() {
@@ -70,6 +70,6 @@ public class mp7<V> implements wp7<V> {
         if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (baseInterestSelectionFragment = this.c) == null) {
             return;
         }
-        baseInterestSelectionFragment.D0(str);
+        baseInterestSelectionFragment.E0(str);
     }
 }

@@ -1,14 +1,9 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,453 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb4;
-import com.repackage.bz1;
-import com.repackage.fj2;
-import java.io.File;
-import java.util.List;
-import java.util.Set;
-import java.util.Vector;
-import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class g32 extends n32 {
+public class g32 extends w22 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public pd4 c;
-    public d32 d;
-    public final List<h94> e;
-    public AtomicInteger f;
-    public boolean g;
-    public final CopyOnWriteArraySet<String> h;
-    public u74<bb4.a> i;
-    public y74<h94> j;
-    public final y74<i94> k;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g32 a;
-
-        public a(g32 g32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g32Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean b = e84.i().b(null, this.a.e, null, null, null);
-                if (b) {
-                    for (h94 h94Var : this.a.e) {
-                        if (this.a.d != null) {
-                            this.a.d.g(h94Var);
-                        }
-                        this.a.X();
-                    }
-                }
-                if (g32.l) {
-                    Log.e("SwanAppBatchDownloadCallback", "update subPkgList =" + b + ", size=" + this.a.e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends u74<bb4.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g32 a;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ bb4.a a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, bb4.a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.b.a.W(this.a)) {
-                        this.b.a.X();
-                        if (this.b.a.d != null) {
-                            this.b.a.d.c(this.a);
-                        }
-                        z32.c(this.a.g.appId);
-                    }
-                    y82.f(this.a.b);
-                }
-            }
-        }
-
-        public b(g32 g32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g32Var;
-        }
-
-        @Override // com.repackage.u74
-        public void l(@NonNull PMSAppInfo pMSAppInfo) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, pMSAppInfo) == null) && pMSAppInfo.isForbiddenApp()) {
-                t23.K(pMSAppInfo.appId, pMSAppInfo.appStatus);
-            }
-        }
-
-        @Override // com.repackage.a84
-        @NonNull
-        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.a.m(bundle, set) : (Bundle) invokeLL.objValue;
-        }
-
-        @Override // com.repackage.u74
-        public void o(bb4.a aVar, PMSAppInfo pMSAppInfo, b94 b94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar, pMSAppInfo, b94Var) == null) {
-                jx1.k("SwanAppBatchDownloadCallback", "#onSingleFetchError errorNo=" + b94Var.a + " errorMsg=" + b94Var.b + " errorDetails=" + b94Var.d);
-                if (this.a.d != null) {
-                    this.a.d.f(b94Var);
-                }
-                if (b94Var.a != 1010) {
-                    this.a.g = true;
-                    return;
-                }
-                PMSAppInfo pMSAppInfo2 = aVar == null ? null : aVar.g;
-                if (pMSAppInfo2 == null) {
-                    pMSAppInfo2 = pMSAppInfo;
-                }
-                this.a.Y(pMSAppInfo2, pMSAppInfo);
-                if (!z32.m(b94Var) || pMSAppInfo2 == null) {
-                    return;
-                }
-                z32.c(pMSAppInfo2.appId);
-            }
-        }
-
-        @Override // com.repackage.u74
-        public void p(@Nullable PMSAppInfo pMSAppInfo, @Nullable PMSAppInfo pMSAppInfo2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048585, this, pMSAppInfo, pMSAppInfo2) == null) {
-                if (pMSAppInfo != null && pMSAppInfo.isForbiddenApp()) {
-                    t23.K(pMSAppInfo.appKey, pMSAppInfo.appStatus);
-                }
-                this.a.Y(pMSAppInfo, pMSAppInfo2);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.y74
-        /* renamed from: q */
-        public String d(bb4.a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, aVar)) == null) {
-                if (aVar == null) {
-                    return null;
-                }
-                int i = aVar.c;
-                if (i == 0) {
-                    return b42.g();
-                }
-                if (i == 1) {
-                    return b42.i();
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v74, com.repackage.y74
-        /* renamed from: r */
-        public void e(bb4.a aVar, b94 b94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048587, this, aVar, b94Var) == null) {
-                super.e(aVar, b94Var);
-                jx1.k("SwanAppBatchDownloadCallback", "onDownloadError：" + b94Var.toString());
-                y82.f(aVar.b);
-                cc3 cc3Var = new cc3();
-                cc3Var.k(11L);
-                cc3Var.i(b94Var.a);
-                cc3Var.d("批量下载，主包下载失败：" + aVar.b);
-                cc3Var.f(b94Var.toString());
-                if (aVar.a != 0) {
-                    if (g32.l) {
-                        Log.e("SwanAppBatchDownloadCallback", "onDownloadError: " + cc3Var.toString());
-                    }
-                } else if (aVar.d == null) {
-                } else {
-                    this.a.c.l(aVar.d);
-                    f32.c().a(aVar.d, PMSDownloadType.BATCH, cc3Var);
-                    jx1.k("SwanAppBatchDownloadCallback", "#onDownloadError del: " + aVar.d.a);
-                    mg4.k(aVar.d.a);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v74, com.repackage.y74
-        /* renamed from: s */
-        public void i(bb4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-                super.i(aVar);
-                jx1.k("SwanAppBatchDownloadCallback", "onFileDownloaded: " + aVar.d.i);
-                this.a.h.add(aVar.b);
-                a aVar2 = new a(this, aVar);
-                ExecutorUtilsExt.postOnSerial(aVar2, aVar.d.g + " 下载完成，执行签名校验-重命名-解压-DB");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v74, com.repackage.y74
-        /* renamed from: t */
-        public void a(bb4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-                super.a(aVar);
-                if (g32.l) {
-                    Log.i("SwanAppBatchDownloadCallback", "onDownloadProgress: " + aVar.d.b + "/" + aVar.d.k);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v74, com.repackage.y74
-        /* renamed from: u */
-        public void c(bb4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
-                super.c(aVar);
-                jx1.k("SwanAppBatchDownloadCallback", "onDownloadStart: " + aVar.b);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v74, com.repackage.y74
-        /* renamed from: v */
-        public void f(bb4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
-                if (g32.l) {
-                    Log.i("SwanAppBatchDownloadCallback", "onDownloading:" + aVar.b);
-                }
-                y82.f(aVar.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PMSAppInfo a;
-        public final /* synthetic */ PMSAppInfo b;
-        public final /* synthetic */ g32 c;
-
-        public c(g32 g32Var, PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g32Var, pMSAppInfo, pMSAppInfo2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = g32Var;
-            this.a = pMSAppInfo;
-            this.b = pMSAppInfo2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PMSAppInfo pMSAppInfo = this.a;
-                if (pMSAppInfo != null) {
-                    pMSAppInfo.updateInstallSrc(this.c.K());
-                    this.b.copyLocalAppInfoData(this.a);
-                } else {
-                    this.b.updateInstallSrc(this.c.K());
-                }
-                this.b.initMaxAgeInfo();
-                if (e84.i().l(this.b)) {
-                    b42.o(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends q32<g32> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g32 c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(g32 g32Var, g32 g32Var2) {
-            super(g32Var2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g32Var, g32Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((n32) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = g32Var;
-        }
-
-        @Override // com.repackage.q32
-        public void p(@NonNull h94 h94Var, @Nullable cc3 cc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, h94Var, cc3Var) == null) {
-                super.p(h94Var, cc3Var);
-                if (cc3Var == null) {
-                    this.c.e.add(h94Var);
-                } else if (g32.l) {
-                    Log.w("SwanAppBatchDownloadCallback", "onDownloadAndUnzipFinish " + h94Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + cc3Var);
-                }
-                y82.f(h94Var.o);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v74, com.repackage.y74
-        /* renamed from: q */
-        public void e(h94 h94Var, b94 b94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, h94Var, b94Var) == null) {
-                super.q(h94Var, b94Var);
-                y82.f(h94Var.o);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v74, com.repackage.y74
-        /* renamed from: u */
-        public void f(h94 h94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, h94Var) == null) {
-                super.f(h94Var);
-                y82.f(h94Var.o);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e extends o32<g32> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g32 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(g32 g32Var, g32 g32Var2) {
-            super(g32Var2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g32Var, g32Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((n32) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g32Var;
-        }
-
-        @Override // com.repackage.o32
-        public void r(@NonNull i94 i94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i94Var) == null) {
-                if (g32.l) {
-                    Log.v("SwanAppBatchDownloadCallback", "onDownloadAndUnzipSuccess:" + i94Var);
-                }
-                if (this.b.d != null) {
-                    this.b.d.e(i94Var);
-                }
-                this.b.X();
-            }
-        }
-
-        @Override // com.repackage.o32
-        public void u(i94 i94Var, cc3 cc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i94Var, cc3Var) == null) {
-                jx1.k("SwanAppBatchDownloadCallback", "onDownloadOrUnzipFail:" + i94Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + cc3Var);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -478,233 +31,71 @@ public class g32 extends n32 {
                 return;
             }
         }
-        l = tg1.a;
+        l = eh1.a;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public g32() {
-        this(null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g32(boolean z, boolean z2) {
+        super(z, z2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((d32) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.repackage.c84
-    public y74<h94> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (y74) invokeV.objValue;
-    }
-
-    @Override // com.repackage.c84
-    public void D(b94 b94Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b94Var) == null) {
-            super.D(b94Var);
-            jx1.k("SwanAppBatchDownloadCallback", "onFetchError: " + b94Var.toString());
-            d32 d32Var = this.d;
-            if (d32Var != null) {
-                d32Var.b(b94Var.a);
-            }
+        if (l) {
+            Log.d("PreloadMasterManager", "PreloadMasterManagerSingle created");
         }
     }
 
-    @Override // com.repackage.c84
-    public void E() {
+    @Override // com.repackage.w22
+    public boolean k(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.E();
-            jx1.k("SwanAppBatchDownloadCallback", "onFetchStart");
-        }
-    }
-
-    @Override // com.repackage.c84
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.F();
-            jx1.k("SwanAppBatchDownloadCallback", "onFetchSuccess");
-        }
-    }
-
-    @Override // com.repackage.c84
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.G();
-            jx1.k("SwanAppBatchDownloadCallback", "onNoPackage");
-            d32 d32Var = this.d;
-            if (d32Var != null) {
-                d32Var.d();
-            }
-        }
-    }
-
-    @Override // com.repackage.c84
-    public void H(pd4 pd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pd4Var) == null) {
-            super.H(pd4Var);
-            this.c = pd4Var;
-            y82.e(pd4Var);
-            jx1.k("SwanAppBatchDownloadCallback", "onPrepareDownload: " + pd4Var.n());
-        }
-    }
-
-    @Override // com.repackage.n32
-    public int L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 7;
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean W(bb4.a aVar) {
-        InterceptResult invokeL;
-        int c2;
-        PMSAppInfo pMSAppInfo;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (aVar == null || aVar.d == null || aVar.g == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, pMSAppInfo)) == null) {
+            PMSAppInfo g = g();
+            if (g == null) {
                 return false;
             }
-            if (!wd3.a(new File(aVar.d.a), aVar.d.m)) {
-                jx1.k("SwanAppBatchDownloadCallback", "onMainPkgDownload: 签名校验失败");
-                return false;
-            }
-            cc3 m = b42.m(aVar.d, this);
-            if (m != null) {
-                jx1.k("SwanAppBatchDownloadCallback", "onMainPkgDownload: 解压失败，" + m);
-                return false;
-            }
-            aVar.g.initMaxAgeInfo();
-            b42.k(aVar.g, aVar.d);
-            aVar.g.updateInstallSrc(K());
-            if (!e84.i().a(aVar.d, aVar.g)) {
-                jx1.k("SwanAppBatchDownloadCallback", "onMainPkgDownload: 存储DB失败");
-                return false;
-            }
-            this.c.m(aVar.d);
-            if (!aVar.h) {
-                b42.o(aVar.g);
-            }
-            b42.b(aVar.d);
-            g94 g94Var = aVar.d;
-            if (g94Var != null) {
-                v03.c(fj2.e.i(g94Var.g, String.valueOf(g94Var.i)).getAbsolutePath(), true);
-            }
-            g94 g94Var2 = aVar.d;
-            if (g94Var2 == null || g94Var2.h != 0 || ((c2 = bz1.b.c()) > 0 && (pMSAppInfo = aVar.g) != null && ((i = pMSAppInfo.rank) == 0 || i > c2))) {
+            if (!TextUtils.equals(pMSAppInfo.appId, g.appId)) {
+                if (l) {
+                    Log.e("PreloadMasterManager", "one master can only prefetch one appId");
+                }
                 return true;
-            }
-            y22 i2 = y22.i();
-            g94 g94Var3 = aVar.d;
-            i2.f(g94Var3.g, g94Var3.i);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void X() {
-        d32 d32Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int incrementAndGet = this.f.incrementAndGet();
-            int n = this.c.n();
-            if (l) {
-                Log.d("SwanAppBatchDownloadCallback", "batch download,total pkg num - " + n + ",success num - " + incrementAndGet);
-            }
-            if (incrementAndGet != n || this.g || (d32Var = this.d) == null) {
-                return;
-            }
-            d32Var.a();
-        }
-    }
-
-    public final void Y(@Nullable PMSAppInfo pMSAppInfo, @Nullable PMSAppInfo pMSAppInfo2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, pMSAppInfo, pMSAppInfo2) == null) || pMSAppInfo == null) {
-            return;
-        }
-        dd3.k(new c(this, pMSAppInfo2, pMSAppInfo), "批量下载-只更新AppInfo-存储DB");
-    }
-
-    @Override // com.repackage.c84, com.repackage.z74
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.b();
-            jx1.k("SwanAppBatchDownloadCallback", "onTotalPkgDownloadFinish");
-            if (l) {
-                Log.e("SwanAppBatchDownloadCallback", "onTotalPkgDownloadFinish");
-            }
-            if (!this.e.isEmpty()) {
-                dd3.k(new a(this), "SwanAppBatchDownloadCallback");
-            }
-            d32 d32Var = this.d;
-            if (d32Var != null) {
-                d32Var.h();
-            }
-            if (z82.a()) {
-                return;
-            }
-            jx1.k("SwanAppBatchDownloadCallback", "#onTotalPkgDownloadFinish excludeIds=" + this.h);
-            t82 d2 = v82.c().d();
-            CopyOnWriteArraySet<String> copyOnWriteArraySet = this.h;
-            ea2 l2 = ea2.l();
-            l2.i(7);
-            d2.t(copyOnWriteArraySet, false, l2.k());
-        }
-    }
-
-    @Override // com.repackage.c84
-    public y74<i94> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k : (y74) invokeV.objValue;
-    }
-
-    @Override // com.repackage.c84
-    public u74<bb4.a> w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.i : (u74) invokeV.objValue;
-    }
-
-    public g32(d32 d32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d32Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            } else if (w(pMSAppInfo, cVar)) {
+                if (l) {
+                    Log.w("PreloadMasterManager", "prefetch app is not the same !!!!");
+                    Log.w("PreloadMasterManager", "bind app info - " + g());
+                    Log.w("PreloadMasterManager", "prefetch app info - " + pMSAppInfo);
+                }
+                return true;
+            } else {
+                return false;
             }
         }
-        this.i = new b(this);
-        this.j = new d(this, this);
-        this.k = new e(this, this);
-        this.d = d32Var;
-        this.e = new Vector();
-        this.f = new AtomicInteger(0);
-        this.h = new CopyOnWriteArraySet<>();
+        return invokeLL.booleanValue;
+    }
+
+    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo, cVar)) == null) {
+            PMSAppInfo g = g();
+            if (this.c == null) {
+                return false;
+            }
+            return (pMSAppInfo.versionCode == g.versionCode && TextUtils.equals(pMSAppInfo.appId, g.appId) && !m(cVar, this.d)) ? false : true;
+        }
+        return invokeLL.booleanValue;
     }
 }

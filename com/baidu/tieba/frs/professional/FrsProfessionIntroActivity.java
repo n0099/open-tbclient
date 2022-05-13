@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -128,7 +128,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 z = false;
             }
             if (z) {
-                int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int f = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.mHeaderContainer.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) layoutParams).height = f;
@@ -170,28 +170,28 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0494);
-            this.mHeaderContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09190a);
-            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091915);
-            this.mGradientView = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f09190b);
-            this.mGoPublishButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091912);
-            this.mGotItButton = findViewById(R.id.obfuscated_res_0x7f091913);
-            this.mBottomView = findViewById(R.id.obfuscated_res_0x7f0903ed);
-            this.mProfessionDesc = findViewById(R.id.obfuscated_res_0x7f09190e);
+            setContentView(R.layout.obfuscated_res_0x7f0d0489);
+            this.mHeaderContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091962);
+            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09196d);
+            this.mGradientView = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091963);
+            this.mGoPublishButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09196a);
+            this.mGotItButton = findViewById(R.id.obfuscated_res_0x7f09196b);
+            this.mBottomView = findViewById(R.id.obfuscated_res_0x7f0903e8);
+            this.mProfessionDesc = findViewById(R.id.obfuscated_res_0x7f091966);
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.onClickListener);
-            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0ede));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09190d);
+            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0efc));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091965);
             this.mBackgroundContent = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.mBackgroundContent.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0b);
-            this.mContainer = findViewById(R.id.obfuscated_res_0x7f09190c);
-            this.mTopCorner = findViewById(R.id.obfuscated_res_0x7f091919);
-            this.mFirstIndex = findViewById(R.id.obfuscated_res_0x7f09190f);
-            this.mFirstIntro = findViewById(R.id.obfuscated_res_0x7f091910);
-            this.mFirstTitle = findViewById(R.id.obfuscated_res_0x7f091911);
-            this.mSecondIndex = findViewById(R.id.obfuscated_res_0x7f091916);
-            this.mSecondIntro = findViewById(R.id.obfuscated_res_0x7f091917);
-            this.mSecondTitle = findViewById(R.id.obfuscated_res_0x7f091918);
+            this.mBackgroundContent.setDefaultResource(R.drawable.obfuscated_res_0x7f080f25);
+            this.mContainer = findViewById(R.id.obfuscated_res_0x7f091964);
+            this.mTopCorner = findViewById(R.id.obfuscated_res_0x7f091971);
+            this.mFirstIndex = findViewById(R.id.obfuscated_res_0x7f091967);
+            this.mFirstIntro = findViewById(R.id.obfuscated_res_0x7f091968);
+            this.mFirstTitle = findViewById(R.id.obfuscated_res_0x7f091969);
+            this.mSecondIndex = findViewById(R.id.obfuscated_res_0x7f09196e);
+            this.mSecondIntro = findViewById(R.id.obfuscated_res_0x7f09196f);
+            this.mSecondTitle = findViewById(R.id.obfuscated_res_0x7f091970);
             this.mGoPublishButton.setEnabled(true);
             this.mGoPublishButton.setOnClickListener(this.onClickListener);
             this.mGotItButton.setOnClickListener(this.onClickListener);

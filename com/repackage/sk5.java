@@ -49,16 +49,16 @@ public class sk5 {
         return (sk5) invokeV.objValue;
     }
 
-    public boolean a(iy4 iy4Var) {
+    public boolean a(wy4 wy4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iy4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wy4Var)) == null) {
             SQLiteDatabase b = uk5.b();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (b != null && iy4Var != null && !TextUtils.isEmpty(currentAccount)) {
+            if (b != null && wy4Var != null && !TextUtils.isEmpty(currentAccount)) {
                 try {
-                    ContentValues c = c(iy4Var);
-                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(iy4Var.e())}) == 0) {
+                    ContentValues c = c(wy4Var);
+                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(wy4Var.e())}) == 0) {
                         b.insert("table_" + currentAccount, null, c);
                     }
                     return true;
@@ -84,8 +84,8 @@ public class sk5 {
                     b.beginTransaction();
                     try {
                         for (rk5 rk5Var : nk5Var.a()) {
-                            for (iy4 iy4Var : rk5Var.a()) {
-                                ContentValues c = c(iy4Var);
+                            for (wy4 wy4Var : rk5Var.a()) {
+                                ContentValues c = c(wy4Var);
                                 b.insert("table_" + currentAccount, null, c);
                             }
                         }
@@ -105,22 +105,22 @@ public class sk5 {
         return invokeL.booleanValue;
     }
 
-    public final ContentValues c(iy4 iy4Var) {
+    public final ContentValues c(wy4 wy4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iy4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wy4Var)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("name", iy4Var.f());
-            contentValues.put("id", Long.valueOf(iy4Var.e()));
-            contentValues.put("user_type", Integer.valueOf(iy4Var.i()));
-            contentValues.put("portrait", iy4Var.h());
-            contentValues.put("quanpin", iy4Var.d());
-            contentValues.put("first_letter", iy4Var.a());
-            contentValues.put("name_show", iy4Var.g());
-            if (iy4Var.b() != null) {
-                contentValues.put("location_hide", Integer.valueOf(iy4Var.b().b()));
-                contentValues.put("location_distance", iy4Var.b().a());
-                contentValues.put("location_time", Long.valueOf(iy4Var.b().c()));
+            contentValues.put("name", wy4Var.f());
+            contentValues.put("id", Long.valueOf(wy4Var.e()));
+            contentValues.put("user_type", Integer.valueOf(wy4Var.i()));
+            contentValues.put("portrait", wy4Var.h());
+            contentValues.put("quanpin", wy4Var.d());
+            contentValues.put("first_letter", wy4Var.a());
+            contentValues.put("name_show", wy4Var.g());
+            if (wy4Var.b() != null) {
+                contentValues.put("location_hide", Integer.valueOf(wy4Var.b().b()));
+                contentValues.put("location_distance", wy4Var.b().a());
+                contentValues.put("location_time", Long.valueOf(wy4Var.b().c()));
             }
             return contentValues;
         }
@@ -146,7 +146,7 @@ public class sk5 {
         return invokeJ.booleanValue;
     }
 
-    public synchronized List<iy4> e() {
+    public synchronized List<wy4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -159,45 +159,45 @@ public class sk5 {
                     b.beginTransaction();
                     char c = 0;
                     try {
-                        String[] strArr = ky4.a;
+                        String[] strArr = yy4.a;
                         int length = strArr.length;
                         int i = 0;
                         while (i < length) {
                             String str = strArr[i];
                             ArrayList arrayList2 = new ArrayList();
-                            iy4 iy4Var = new iy4();
-                            iy4Var.k(str);
-                            arrayList2.add(iy4Var);
+                            wy4 wy4Var = new wy4();
+                            wy4Var.k(str);
+                            arrayList2.add(wy4Var);
                             String[] strArr2 = new String[1];
                             strArr2[c] = str;
                             cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", strArr2);
                             if (cursor != null) {
                                 while (cursor.moveToNext()) {
-                                    iy4 iy4Var2 = new iy4();
-                                    iy4Var2.k(str);
-                                    iy4Var2.o(cursor.getString(cursor.getColumnIndex("name")));
-                                    iy4Var2.p(cursor.getString(cursor.getColumnIndex("name_show")));
-                                    iy4Var2.n(cursor.getLong(cursor.getColumnIndex("id")));
-                                    iy4Var2.r(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    iy4Var2.q(cursor.getString(cursor.getColumnIndex("portrait")));
-                                    iy4Var2.m(cursor.getString(cursor.getColumnIndex("quanpin")));
-                                    iy4Var2.l(new jy4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
-                                    arrayList2.add(iy4Var2);
+                                    wy4 wy4Var2 = new wy4();
+                                    wy4Var2.k(str);
+                                    wy4Var2.o(cursor.getString(cursor.getColumnIndex("name")));
+                                    wy4Var2.p(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    wy4Var2.n(cursor.getLong(cursor.getColumnIndex("id")));
+                                    wy4Var2.r(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    wy4Var2.q(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    wy4Var2.m(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    wy4Var2.l(new xy4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(wy4Var2);
                                 }
                             }
                             if (arrayList2.size() > 1) {
                                 arrayList.addAll(arrayList2);
                             }
-                            pi.a(cursor);
+                            ni.a(cursor);
                             i++;
                             c = 0;
                         }
                         b.setTransactionSuccessful();
-                        pi.a(cursor);
+                        ni.a(cursor);
                     } catch (Exception e) {
                         BdLog.e(e.toString());
                         TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getContactList", new Object[0]);
-                        pi.a(cursor);
+                        ni.a(cursor);
                     }
                     b.endTransaction();
                     return arrayList;
@@ -208,7 +208,7 @@ public class sk5 {
         return (List) invokeV.objValue;
     }
 
-    public synchronized ArrayList<iy4> g() {
+    public synchronized ArrayList<wy4> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -216,51 +216,51 @@ public class sk5 {
                 SQLiteDatabase b = uk5.b();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 Cursor cursor = null;
-                ArrayList<iy4> arrayList = new ArrayList<>();
+                ArrayList<wy4> arrayList = new ArrayList<>();
                 if (b != null && !TextUtils.isEmpty(currentAccount)) {
                     b.beginTransaction();
                     char c = 0;
                     try {
-                        String[] strArr = ky4.a;
+                        String[] strArr = yy4.a;
                         int length = strArr.length;
                         int i = 0;
                         while (i < length) {
                             String str = strArr[i];
                             ArrayList arrayList2 = new ArrayList();
-                            iy4 iy4Var = new iy4();
-                            iy4Var.k(str);
-                            arrayList2.add(iy4Var);
+                            wy4 wy4Var = new wy4();
+                            wy4Var.k(str);
+                            arrayList2.add(wy4Var);
                             String[] strArr2 = new String[2];
                             strArr2[c] = str;
                             strArr2[1] = "1";
                             cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", strArr2);
                             if (cursor != null) {
                                 while (cursor.moveToNext()) {
-                                    iy4 iy4Var2 = new iy4();
-                                    iy4Var2.k(str);
-                                    iy4Var2.o(cursor.getString(cursor.getColumnIndex("name")));
-                                    iy4Var2.p(cursor.getString(cursor.getColumnIndex("name_show")));
-                                    iy4Var2.n(cursor.getLong(cursor.getColumnIndex("id")));
-                                    iy4Var2.r(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    iy4Var2.q(cursor.getString(cursor.getColumnIndex("portrait")));
-                                    iy4Var2.m(cursor.getString(cursor.getColumnIndex("quanpin")));
-                                    iy4Var2.l(new jy4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
-                                    arrayList2.add(iy4Var2);
+                                    wy4 wy4Var2 = new wy4();
+                                    wy4Var2.k(str);
+                                    wy4Var2.o(cursor.getString(cursor.getColumnIndex("name")));
+                                    wy4Var2.p(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    wy4Var2.n(cursor.getLong(cursor.getColumnIndex("id")));
+                                    wy4Var2.r(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    wy4Var2.q(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    wy4Var2.m(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    wy4Var2.l(new xy4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(wy4Var2);
                                 }
                             }
                             if (arrayList2.size() > 1) {
                                 arrayList.addAll(arrayList2);
                             }
-                            pi.a(cursor);
+                            ni.a(cursor);
                             i++;
                             c = 0;
                         }
                         b.setTransactionSuccessful();
-                        pi.a(cursor);
+                        ni.a(cursor);
                     } catch (Exception e) {
                         BdLog.e(e.toString());
                         TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getOfficialAccountList", new Object[0]);
-                        pi.a(cursor);
+                        ni.a(cursor);
                     }
                     b.endTransaction();
                     return arrayList;

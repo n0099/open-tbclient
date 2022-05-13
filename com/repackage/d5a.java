@@ -1,7 +1,18 @@
 package com.repackage;
 
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import android.content.res.Resources;
+import android.util.TypedValue;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface d5a {
-    void a(int i, String str, PayCallBackBean payCallBackBean);
+public class d5a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static int a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) ? (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics()) : invokeF.intValue;
+    }
 }

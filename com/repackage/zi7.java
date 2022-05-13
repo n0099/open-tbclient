@@ -13,7 +13,7 @@ import java.util.List;
 import tbclient.GetVipInfo.VipBannerItem;
 import tbclient.GetVipInfo.VipBannerList;
 /* loaded from: classes7.dex */
-public class zi7 implements uo {
+public class zi7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class zi7 implements uo {
         }
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,11 +1,10 @@
 package com.repackage;
 
-import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,43 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class i62 {
+public class i62 implements f62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public e62 a;
-    public HashMap<String, f62> b;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final i62 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-346129362, "Lcom/repackage/i62$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-346129362, "Lcom/repackage/i62$b;");
-                    return;
-                }
-            }
-            a = new i62(null);
-        }
-    }
+    public final LruCache<String, Long> a;
 
     static {
         InterceptResult invokeClinit;
@@ -64,77 +32,60 @@ public class i62 {
                 return;
             }
         }
-        c = tg1.a;
+        b = eh1.a;
     }
 
-    public /* synthetic */ i62(a aVar) {
-        this();
-    }
-
-    public static i62 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (i62) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false) : invokeV.booleanValue;
-    }
-
-    public final e62 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c && d()) {
-                return new h62();
-            }
-            return new d62();
-        }
-        return (e62) invokeV.objValue;
-    }
-
-    @Nullable
-    public f62 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, f62> hashMap = this.b;
-            if (hashMap != null) {
-                return hashMap.get(str);
-            }
-            return null;
-        }
-        return (f62) invokeL.objValue;
-    }
-
-    public void e(f62 f62Var, g62 g62Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f62Var, g62Var) == null) {
-            this.a.k(f62Var, g62Var);
-        }
-    }
-
-    public i62() {
+    public i62(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        e62 a2 = a();
-        this.a = a2;
-        this.b = a2.h();
-        if (c) {
-            Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+        i = i <= 0 ? 10 : i;
+        this.a = new LruCache<>(i);
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
         }
+    }
+
+    @Override // com.repackage.f62
+    public g62 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (b) {
+                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
+            }
+            Long l = this.a.get(str2);
+            if (l == null) {
+                return null;
+            }
+            g62 g62Var = new g62();
+            g62Var.a = ProcessUtils.getCurProcessName();
+            g62Var.b = l.longValue();
+            return g62Var;
+        }
+        return (g62) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.f62
+    public void b(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        }
+        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

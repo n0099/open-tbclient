@@ -4,8 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.devicescore.IDeviceScore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -205,22 +208,9 @@ public class ScheduleStrategy {
             if (d >= 0.0d) {
                 return d;
             }
-            staticScore = getStaticScore();
-            double dynamicScore2 = getDynamicScore();
-            dynamicScore = dynamicScore2;
-            double d2 = staticScore;
-            if (d2 >= 0.0d && dynamicScore2 >= 0.0d) {
-                deviceScore = (staticScoreWeight * d2) + (dynamicScoreWeight * dynamicScore2);
-            } else {
-                double d3 = staticScore;
-                if (d3 >= 0.0d && dynamicScore < 0.0d) {
-                    deviceScore = d3;
-                } else if (staticScore < 0.0d) {
-                    double d4 = dynamicScore;
-                    if (d4 >= 0.0d) {
-                        deviceScore = d4;
-                    }
-                }
+            IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
+            if (iDeviceScore != null) {
+                deviceScore = iDeviceScore.getFinalScore(BdBaseApplication.getInst());
             }
             return deviceScore;
         }

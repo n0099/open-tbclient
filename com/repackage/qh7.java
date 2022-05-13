@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class qh7 implements YYPayService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements c85 {
+    /* loaded from: classes6.dex */
+    public class a implements t85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YYPayService.YYPayResultCallback a;
@@ -37,21 +37,21 @@ public class qh7 implements YYPayService {
             this.a = yYPayResultCallback;
         }
 
-        @Override // com.repackage.c85
-        public void a(h85 h85Var) {
+        @Override // com.repackage.t85
+        public void a(y85 y85Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h85Var) == null) {
-                if (h85Var != null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, y85Var) == null) {
+                if (y85Var != null) {
                     YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                    yYPayResultMessage.setStatus(h85Var.g);
-                    yYPayResultMessage.setAppid(h85Var.b);
-                    yYPayResultMessage.setUid(h85Var.h.longValue());
-                    yYPayResultMessage.setUsedChannel(h85Var.i);
-                    yYPayResultMessage.setCurrencyType(h85Var.d);
-                    yYPayResultMessage.setAmount(h85Var.a.longValue());
-                    yYPayResultMessage.setCurrencyAmount(h85Var.c.longValue());
-                    yYPayResultMessage.setOrderId(h85Var.f);
-                    yYPayResultMessage.setExpand(h85Var.e);
+                    yYPayResultMessage.setStatus(y85Var.g);
+                    yYPayResultMessage.setAppid(y85Var.b);
+                    yYPayResultMessage.setUid(y85Var.h.longValue());
+                    yYPayResultMessage.setUsedChannel(y85Var.i);
+                    yYPayResultMessage.setCurrencyType(y85Var.d);
+                    yYPayResultMessage.setAmount(y85Var.a.longValue());
+                    yYPayResultMessage.setCurrencyAmount(y85Var.c.longValue());
+                    yYPayResultMessage.setOrderId(y85Var.f);
+                    yYPayResultMessage.setExpand(y85Var.e);
                     this.a.onSuccess(yYPayResultMessage);
                     return;
                 }
@@ -59,7 +59,7 @@ public class qh7 implements YYPayService {
             }
         }
 
-        @Override // com.repackage.c85
+        @Override // com.repackage.t85
         public void onFail(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -102,7 +102,7 @@ public class qh7 implements YYPayService {
     public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new g85(context, 1, str, l, new a(this, yYPayResultCallback)));
+            MessageManager.getInstance().runTask(2921546, String.class, new x85(context, 1, str, l, new a(this, yYPayResultCallback)));
         }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b21;
+import com.repackage.l21;
 import com.repackage.tx0;
 /* loaded from: classes2.dex */
 public class BdVideoBattery extends View {
@@ -42,10 +42,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        d = b21.d(2.0f);
-        e = b21.d(2.0f);
-        f = b21.d(2.0f);
-        g = b21.d(4.0f);
+        d = l21.d(2.0f);
+        e = l21.d(2.0f);
+        f = l21.d(2.0f);
+        g = l21.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

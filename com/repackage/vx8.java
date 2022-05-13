@@ -1,10 +1,5 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,75 +8,52 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class vx8 {
     public static /* synthetic */ Interceptable $ic;
-    public static vx8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755215685, "Lcom/repackage/vx8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755215685, "Lcom/repackage/vx8;");
-        }
-    }
 
     public vx8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new SparseArray<>();
     }
 
-    public static synchronized vx8 b() {
-        InterceptResult invokeV;
-        vx8 vx8Var;
+    public static vx8 a(int i, float f, float f2, float f3, float f4, float f5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (vx8.class) {
-                if (b == null) {
-                    b = new vx8();
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? new vx8() : (vx8) invokeCommon.objValue;
+    }
+
+    public static vx8 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    return null;
+                                }
+                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
+                            }
+                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
+                        }
+                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
+                    }
+                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
                 }
-                vx8Var = b;
+                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
             }
-            return vx8Var;
+            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
         }
-        return (vx8) invokeV.objValue;
-    }
-
-    public CloudMusicData.MusicTagList.MusicList a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get(4096) : (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = null;
-            b = null;
-        }
-    }
-
-    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
-            this.a.put(4096, musicList);
-        }
+        return (vx8) invokeI.objValue;
     }
 }

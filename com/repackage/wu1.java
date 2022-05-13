@@ -1,8 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class wu1 extends pt1 {
+public class wu1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Align a;
+    public float a;
+    public float b;
 
     public wu1() {
         Interceptable interceptable = $ic;
@@ -29,36 +28,24 @@ public class wu1 extends pt1 {
         }
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
-        Paint.Align align;
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) || (align = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) {
+            if (bu1Var.a() == 0) {
+                bu1Var.b(canvas.save());
+            }
+            canvas.scale(this.a, this.b);
         }
-        qt1Var.e.setTextAlign(align);
     }
 
-    @Override // com.repackage.pt1
+    @Override // com.repackage.au1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "left")) {
-                        this.a = Paint.Align.LEFT;
-                    } else if (TextUtils.equals(optString, "center")) {
-                        this.a = Paint.Align.CENTER;
-                    } else if (TextUtils.equals(optString, "right")) {
-                        this.a = Paint.Align.RIGHT;
-                    }
-                }
-            } catch (Exception e) {
-                if (tg1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
+            return;
         }
+        this.a = (float) jSONArray.optDouble(0);
+        this.b = (float) jSONArray.optDouble(1);
     }
 }

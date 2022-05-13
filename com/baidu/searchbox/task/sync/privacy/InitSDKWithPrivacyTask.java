@@ -6,15 +6,16 @@ import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f40;
-import com.repackage.ii0;
-import com.repackage.ub1;
-import com.repackage.z49;
+import com.repackage.fc1;
+import com.repackage.li0;
+import com.repackage.o30;
+import com.repackage.u39;
 /* loaded from: classes2.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +39,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                ii0.c();
+                li0.c();
             }
         }
     }
@@ -46,7 +47,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            f40.a.c(TbadkCoreApplication.getInst()).b().t();
+            o30.a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -54,8 +55,8 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (ub1.g()) {
-                z49.a();
+            if (fc1.g()) {
+                u39.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }
@@ -65,7 +66,9 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            initAxeSdk();
+            if (!LaunchUpApplicationSwitch.getIsOn()) {
+                initAxeSdk();
+            }
             initAdRuntime();
         }
     }

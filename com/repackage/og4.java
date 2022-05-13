@@ -1,112 +1,63 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public class og4 {
+public class og4 extends dh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final og4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-129042376, "Lcom/repackage/og4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                if (hexString.length() == 1) {
-                    sb.append("0");
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-129042376, "Lcom/repackage/og4$a;");
+                    return;
                 }
-                sb.append(hexString);
-                sb.append(str);
             }
-            return sb.toString();
+            a = new og4();
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        ReadableByteChannel readableByteChannel;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public og4() {
+        super("com.baidu.searchbox_aiapp_openstat");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            ReadableByteChannel readableByteChannel2 = null;
-            try {
-                readableByteChannel = Channels.newChannel(new FileInputStream(file));
-            } catch (IOException unused) {
-                readableByteChannel = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                String c = c(z, readableByteChannel);
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    mg4.d(readableByteChannel);
-                }
-                return c;
-            } catch (IOException unused2) {
-                if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                    mg4.d(readableByteChannel);
-                }
-                return null;
-            } catch (Throwable th2) {
-                th = th2;
-                readableByteChannel2 = readableByteChannel;
-                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
-                    mg4.d(readableByteChannel2);
-                }
-                throw th;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLZ.objValue;
     }
 
-    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeZL;
+    public static og4 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                ByteBuffer allocate = ByteBuffer.allocate(8192);
-                while (readableByteChannel.read(allocate) != -1) {
-                    allocate.flip();
-                    messageDigest.update(allocate);
-                    allocate.clear();
-                }
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
-            }
-        }
-        return (String) invokeZL.objValue;
-    }
-
-    public static String d(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
-            }
-        }
-        return (String) invokeLZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (og4) invokeV.objValue;
     }
 }

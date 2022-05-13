@@ -1,149 +1,123 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
 /* loaded from: classes7.dex */
-public class wo4 {
+public class wo4 implements Comparable<wo4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
+    public int b;
     public String c;
-    public int d;
+    public String d;
     public String e;
     public String f;
     public String g;
-    public float h;
+    public String h;
     public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public boolean n;
+    public int o;
+    public int p;
 
-    public wo4() {
+    public wo4(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = true;
+        this.a = i;
+        this.b = i2;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static wo4 b(TbLinkSpanGroup tbLinkSpanGroup, hs6 hs6Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (StringUtils.isNull(this.c)) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, hs6Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
             }
-            int i = this.d;
-            if (i != 1) {
-                return i == 2 && !StringUtils.isNull(this.e);
+            wo4 wo4Var = new wo4(tbLinkSpanGroup.e(), 2);
+            if (hs6Var == null) {
+                return wo4Var;
             }
-            int i2 = this.a;
-            return i2 == 1 || i2 == 4 || i2 == 2 || i2 == 3;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            String[] split = str.split(",");
-            if (split == null || split.length < 2) {
-                return;
+            if (TextUtils.isEmpty(hs6Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f157b);
+            } else {
+                str = hs6Var.f() + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040d);
             }
-            int e = mg.e(split[0], 1);
-            int e2 = mg.e(split[1], 1);
-            if (e2 != 0) {
-                this.h = e / e2;
+            wo4Var.d = str;
+            wo4Var.c = hs6Var.c();
+            wo4Var.m = hs6Var.a();
+            if (!ListUtils.isEmpty(hs6Var.b()) && hs6Var.b().get(0) != null) {
+                wo4Var.e = hs6Var.b().get(0).a();
             }
-        } catch (Exception e3) {
-            BdLog.e(e3.getMessage());
+            wo4Var.l = hs6Var.f();
+            wo4Var.f = hs6Var.d();
+            if (hs6Var.e() != null) {
+                wo4Var.j = hs6Var.e().a();
+                wo4Var.k = hs6Var.e().b();
+            }
+            tbLinkSpanGroup.y(wo4Var);
+            return wo4Var;
         }
+        return (wo4) invokeLL.objValue;
     }
 
-    public void g(JSONObject jSONObject) {
+    public static wo4 c(TbLinkSpanGroup tbLinkSpanGroup, xv4 xv4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, xv4Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            wo4 wo4Var = new wo4(tbLinkSpanGroup.e(), 1);
+            if (xv4Var == null) {
+                return wo4Var;
+            }
+            wo4Var.c = xv4Var.e;
+            wo4Var.e = xv4Var.d;
+            wo4Var.l = xv4Var.f;
+            wo4Var.f = xv4Var.g;
+            wo4Var.g = xv4Var.c;
+            wo4Var.n = xv4Var.h;
+            String str = xv4Var.i;
+            wo4Var.i = xv4Var.b == 1;
+            wo4Var.o = xv4Var.b;
+            tbLinkSpanGroup.y(wo4Var);
+            return wo4Var;
         }
-        try {
-            this.a = jSONObject.optInt("bannerType");
-            this.b = jSONObject.optString("bannerUrl");
-            this.c = jSONObject.optString("value");
-            this.d = jSONObject.optInt("type");
-            this.e = jSONObject.optString("desc");
-            jSONObject.optInt("template_id");
-            this.f = jSONObject.optString("obj_id");
-            jSONObject.optString("tag_name");
-            this.g = jSONObject.optString("tag_name_url");
-            f(jSONObject.optString("tag_name_wh"));
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        return (wo4) invokeLL.objValue;
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull wo4 wo4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public void h(Banner banner) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, banner) == null) || banner == null) {
-            return;
-        }
-        this.a = banner.banner_type.intValue();
-        this.b = banner.banner_url;
-        this.c = banner.value;
-        this.d = banner.type.intValue();
-        this.e = banner.desc;
-        banner.template_id.intValue();
-        this.f = banner.obj_id;
-        String str = banner.tag_name;
-        this.g = banner.tag_name_url;
-        f(banner.tag_name_wh);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wo4Var)) == null) ? this.p - wo4Var.p : invokeL.intValue;
     }
 }

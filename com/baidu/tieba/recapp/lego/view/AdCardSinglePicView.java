@@ -5,8 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd7;
-import com.repackage.kc8;
-import com.repackage.oc8;
+import com.repackage.jb8;
+import com.repackage.nb8;
+import com.repackage.pd7;
 /* loaded from: classes3.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public XfremodeRoundLayout j0;
-    public TbImageView k0;
+    public XfremodeRoundLayout V;
+    public AdImageView W;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -52,7 +53,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.R("image");
+                this.a.Q("image");
             }
         }
     }
@@ -78,20 +79,20 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void P(AdCard adCard) {
+    public void O(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            kc8 kc8Var = adCard.picInfo;
-            if (kc8Var != null && !jd7.e(kc8Var.c)) {
-                String str = kc8Var.c.get(0);
-                boolean s0 = s0(this.k0, adCard, kc8Var);
-                if (!TextUtils.isEmpty(str) && s0) {
+            jb8 jb8Var = adCard.picInfo;
+            if (jb8Var != null && !pd7.e(jb8Var.c)) {
+                String str = jb8Var.c.get(0);
+                boolean n0 = n0(this.W, adCard, jb8Var);
+                if (!TextUtils.isEmpty(str) && n0) {
                     this.o.setVisibility(0);
-                    this.k0.K(str, 17, false);
+                    this.W.n(str);
                 } else {
                     this.o.setVisibility(8);
                 }
-                this.k0.setOnClickListener(new a(this));
+                this.W.setOnClickListener(new a(this));
                 return;
             }
             this.o.setVisibility(8);
@@ -99,18 +100,18 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void V(View view2) {
+    public void U(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            float Q = Q(R.string.J_X05);
+            float P = P(R.string.J_X05);
             if (view2 instanceof XfremodeRoundLayout) {
-                ((XfremodeRoundLayout) view2).setRoundLayoutRadius(new float[]{Q, Q, Q, Q, Q, Q, Q, Q});
+                ((XfremodeRoundLayout) view2).setRoundLayoutRadius(new float[]{P, P, P, P, P, P, P, P});
             }
-            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ab6);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900ad);
-            this.k0 = tbImageView;
-            tbImageView.setPlaceHolder(3);
-            this.j0.setRoundLayoutRadius(new float[]{Q, Q, Q, Q, Q, Q, Q, Q});
+            this.V = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b04);
+            AdImageView adImageView = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914e4);
+            this.W = adImageView;
+            adImageView.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
+            this.V.setRoundLayoutRadius(new float[]{P, P, P, P, P, P, P, P});
         }
     }
 
@@ -118,21 +119,21 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d017e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d017a : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d017c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0178 : invokeV.intValue;
     }
 
-    public boolean s0(TbImageView tbImageView, AdCard adCard, @NonNull kc8 kc8Var) {
+    public boolean n0(View view2, AdCard adCard, @NonNull jb8 jb8Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, tbImageView, adCard, kc8Var)) == null) {
-            if (adCard == null || tbImageView == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, view2, adCard, jb8Var)) == null) {
+            if (adCard == null || view2 == null) {
                 return false;
             }
             double d = 1.0d;
@@ -141,41 +142,41 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i = this.B;
             int i2 = (int) (i * d);
-            int b = (int) (oc8.b(i) * d);
+            int b = (int) (nb8.b(i) * d);
             if (!adCard.isNeedResize()) {
-                t0(tbImageView, b, i2);
+                o0(view2, b, i2);
                 return true;
             }
-            int i3 = kc8Var.e;
-            int i4 = kc8Var.d;
+            int i3 = jb8Var.e;
+            int i4 = jb8Var.d;
             if (i2 > 0 && i3 > 0 && i4 > 0) {
                 int i5 = (i3 * i2) / i4;
                 if (i5 > i2) {
                     return false;
                 }
-                t0(tbImageView, i5, i2);
+                o0(view2, i5, i2);
                 return true;
             }
             int i6 = this.B;
-            t0(tbImageView, (int) (i6 * 0.75f), i6);
+            o0(view2, (int) (i6 * 0.75f), i6);
             return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public void t0(TbImageView tbImageView, int i, int i2) {
+    public void o0(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048581, this, tbImageView, i, i2) == null) || tbImageView == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) || view2 == null) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(i2, i);
         } else {
             layoutParams.height = i;
             layoutParams.width = i2;
         }
-        this.j0.setLayoutParams(layoutParams);
-        tbImageView.setLayoutParams(layoutParams);
+        this.V.setLayoutParams(layoutParams);
+        view2.setLayoutParams(layoutParams);
     }
 }

@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b00;
-import com.repackage.m00;
-import com.repackage.ty;
-/* loaded from: classes7.dex */
-public class qn7 extends in7<fy5, ThreadCardViewHolder<fy5>> implements qi5 {
+import com.repackage.cy;
+import com.repackage.kz;
+import com.repackage.vz;
+/* loaded from: classes6.dex */
+public class qn7 extends in7<gy5, ThreadCardViewHolder<gy5>> implements ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId k;
     public TbPageContext<?> l;
     public String m;
     public boolean n;
-    public tx5<fy5> o;
+    public ux5<gy5> o;
 
-    /* loaded from: classes7.dex */
-    public class a extends tx5<fy5> {
+    /* loaded from: classes6.dex */
+    public class a extends ux5<gy5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qn7 b;
@@ -54,18 +54,18 @@ public class qn7 extends in7<fy5, ThreadCardViewHolder<fy5>> implements qi5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tx5
+        @Override // com.repackage.ux5
         /* renamed from: d */
-        public void a(View view2, fy5 fy5Var) {
+        public void a(View view2, gy5 gy5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, fy5Var) == null) {
-                fn7.b(this.b, fy5Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, gy5Var) == null) {
+                fn7.b(this.b, gy5Var);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements ty.b {
+    /* loaded from: classes6.dex */
+    public class b implements cy.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,24 +85,24 @@ public class qn7 extends in7<fy5, ThreadCardViewHolder<fy5>> implements qi5 {
             }
         }
 
-        @Override // com.repackage.ty.b
-        public void a(pn4 pn4Var, View view2) {
+        @Override // com.repackage.cy.b
+        public void a(zn4 zn4Var, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, pn4Var, view2) == null) || pn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, zn4Var, view2) == null) || zn4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09229d) {
-                pn4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09227b) {
-                pn4Var.objType = 4;
+            if (view2.getId() == R.id.obfuscated_res_0x7f0922f3) {
+                zn4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0922d3) {
+                zn4Var.objType = 4;
             } else {
-                pn4Var.objType = 1;
+                zn4Var.objType = 1;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements dp {
+    /* loaded from: classes6.dex */
+    public class c implements bp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qn7 a;
@@ -125,18 +125,18 @@ public class qn7 extends in7<fy5, ThreadCardViewHolder<fy5>> implements qi5 {
             this.a = qn7Var;
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof fy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof gy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                fy5 fy5Var = (fy5) uoVar;
-                fy5Var.f = 1;
+                gy5 gy5Var = (gy5) roVar;
+                gy5Var.f = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), fy5Var);
+                    this.a.o.a(threadCardViewHolder.b(), gy5Var);
                 }
-                ThreadCardUtils.jumpToPB(fy5Var, view2.getContext(), 17, false, this.a.j.getOrignalPage().getTopicId(), this.a.Z() ? "3" : "2");
-                threadCardViewHolder.c().o(new m00.a(1));
+                ThreadCardUtils.jumpToPB(gy5Var, view2.getContext(), 17, false, this.a.j.getOrignalPage().getTopicId(), this.a.Z() ? "3" : "2");
+                threadCardViewHolder.c().o(new vz.a(1));
             }
         }
     }
@@ -166,41 +166,41 @@ public class qn7 extends in7<fy5, ThreadCardViewHolder<fy5>> implements qi5 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: d0 */
-    public ThreadCardViewHolder<fy5> M(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<gy5> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b00.b bVar = new b00.b(this.l.getPageActivity());
-            ty tyVar = new ty(this.l.getPageActivity());
-            tyVar.t(this.k);
-            tyVar.b(128);
-            tyVar.c(1024);
-            tyVar.s(new b(this));
-            bVar.o(tyVar);
-            g00 g00Var = new g00(this.l.getPageActivity());
-            bVar.n(g00Var);
-            g00Var.u(2);
-            bVar.h(new f00(this.l.getPageActivity()));
-            bVar.h(new az(this.l.getPageActivity()));
-            dz dzVar = new dz(this.l.getPageActivity());
-            dzVar.x(this.n);
-            dzVar.w(ImageViewerConfig.FROM_CONCERN);
-            bVar.h(dzVar);
-            d00 d00Var = new d00(this.l.getPageActivity());
-            vn4 vn4Var = new vn4();
-            vn4Var.b = 9;
-            vn4Var.h = 9;
-            d00Var.v(vn4Var);
-            d00Var.x(9);
-            d00Var.C(4);
-            d00Var.y(17);
-            d00Var.w(false);
-            bVar.m(d00Var);
-            b00 i = bVar.i();
+            kz.b bVar = new kz.b(this.l.getPageActivity());
+            cy cyVar = new cy(this.l.getPageActivity());
+            cyVar.t(this.k);
+            cyVar.b(128);
+            cyVar.c(1024);
+            cyVar.s(new b(this));
+            bVar.o(cyVar);
+            pz pzVar = new pz(this.l.getPageActivity());
+            bVar.n(pzVar);
+            pzVar.u(2);
+            bVar.h(new oz(this.l.getPageActivity()));
+            bVar.h(new jy(this.l.getPageActivity()));
+            my myVar = new my(this.l.getPageActivity());
+            myVar.x(this.n);
+            myVar.w(ImageViewerConfig.FROM_CONCERN);
+            bVar.h(myVar);
+            mz mzVar = new mz(this.l.getPageActivity());
+            fo4 fo4Var = new fo4();
+            fo4Var.b = 9;
+            fo4Var.h = 9;
+            mzVar.v(fo4Var);
+            mzVar.x(9);
+            mzVar.C(4);
+            mzVar.y(17);
+            mzVar.w(false);
+            bVar.m(mzVar);
+            kz i = bVar.i();
             i.r(17);
-            ThreadCardViewHolder<fy5> threadCardViewHolder = new ThreadCardViewHolder<>(i);
+            ThreadCardViewHolder<gy5> threadCardViewHolder = new ThreadCardViewHolder<>(i);
             threadCardViewHolder.k(this.k);
             V(new c(this));
             return threadCardViewHolder;
@@ -209,28 +209,28 @@ public class qn7 extends in7<fy5, ThreadCardViewHolder<fy5>> implements qi5 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: e0 */
-    public View S(int i, View view2, ViewGroup viewGroup, fy5 fy5Var, ThreadCardViewHolder<fy5> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, gy5 gy5Var, ThreadCardViewHolder<gy5> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fy5Var, threadCardViewHolder})) == null) {
-            if (fy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || fy5Var.a == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gy5Var, threadCardViewHolder})) == null) {
+            if (gy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || gy5Var.a == null) {
                 return null;
             }
-            fy5Var.I(fy5Var.position + 1);
+            gy5Var.I(gy5Var.position + 1);
             threadCardViewHolder.c().b(this.m);
             threadCardViewHolder.v(true, Align.ALIGN_RIGHT_TOP);
-            threadCardViewHolder.g(fy5Var);
+            threadCardViewHolder.g(gy5Var);
             threadCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.c().p(this.o);
-            fn7.c(this, fy5Var);
+            fn7.c(this, gy5Var);
             return threadCardViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.qi5
+    @Override // com.repackage.ij5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {

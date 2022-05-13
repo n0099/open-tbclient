@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
-import com.repackage.ly;
+import com.repackage.ux;
 /* loaded from: classes.dex */
-public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, ly {
+public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -362,7 +362,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         dispatch$default(this, runnable, null, false, 6, null);
     }
 
-    /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
     public final boolean isTerminated() {
         return this._isTerminated;
     }

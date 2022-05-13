@@ -1,158 +1,40 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ce3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755800128, "Lcom/repackage/ce3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755800128, "Lcom/repackage/ce3;");
-                return;
-            }
+    public static void a(SwanAppActivity swanAppActivity) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, swanAppActivity) == null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
+            return;
         }
-        a = tg1.a;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? j03.L() != null ? j03.L().b : "" : (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? xc3.b(xc3.a(), "yyyy-MM-dd") : (String) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            JSONObject d = d(a());
-            if (d != null) {
-                return d.optInt("launch_count", 0);
-            }
-            return 0;
+        if (tw2.D()) {
+            fy1.k().s();
         }
-        return invokeV.intValue;
-    }
-
-    public static JSONObject d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String string = x83.a().getString("dailyInfo", "");
-            if (a) {
-                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
-            }
-            JSONObject jSONObject = null;
-            try {
-                JSONObject jSONObject2 = TextUtils.isEmpty(string) ? new JSONObject() : new JSONObject(string);
-                if (f(jSONObject2)) {
-                    jSONObject2.put("date", b());
-                }
-                jSONObject = jSONObject2.optJSONObject(str);
-                if (jSONObject == null) {
-                    jSONObject2.put(str, new JSONObject());
-                    x83.a().putString("dailyInfo", jSONObject2.toString());
-                    return jSONObject;
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                }
-            }
-            return jSONObject;
+        Bundle bundle = new Bundle();
+        bundle.putAll(intent.getExtras());
+        bundle.putBoolean("should_ignore_launch_time", true);
+        Bundle bundle2 = bundle.getBundle("mExtraData");
+        if (bundle2 == null) {
+            bundle2 = new Bundle();
+            bundle.putBundle("mExtraData", bundle2);
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            JSONObject d = d(a());
-            long optLong = d != null ? d.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-            if (d != null) {
-                return d.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean f(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String b = b();
-            String optString = jSONObject.optString("date", "");
-            return TextUtils.isEmpty(optString) || !optString.equals(b);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
-            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
-        }
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            i(a(), "visit_duration", Long.valueOf(e()));
-        }
-    }
-
-    public static void i(String str, String str2, Object obj) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
-            String string = x83.a().getString("dailyInfo", "");
-            if (a) {
-                Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
-            }
-            try {
-                if (TextUtils.isEmpty(string)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(string);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str);
-                if (optJSONObject != null) {
-                    optJSONObject.put(str2, obj);
-                } else {
-                    jSONObject.put(str, new JSONObject());
-                }
-                x83.a().putString("dailyInfo", jSONObject.toString());
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                }
-            }
-        }
+        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
+        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
+        t03.J().o(new String[0]);
+        bundle.remove("pms_db_info_onload");
+        bundle.remove("pms_db_info_updated");
+        bundle.remove("mPage");
+        bundle.putString("launch_id", SwanLauncher.h());
+        t03.J().m(bundle, "update_tag_by_activity_on_relaunch");
     }
 }

@@ -1,7 +1,9 @@
 package com.repackage;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ql1 {
-    void a(boolean z);
+    void a();
 
-    boolean b();
+    void b();
+
+    void c();
 }

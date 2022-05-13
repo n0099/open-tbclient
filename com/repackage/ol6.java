@@ -1,75 +1,103 @@
 package com.repackage;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GameCodeList;
+import tbclient.ItemGameCode;
 /* loaded from: classes6.dex */
-public class ol6 extends zs4 {
+public class ol6 extends zn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<GameCodeList> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ol6(xs4 xs4Var) {
-        super(xs4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xs4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xs4) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755435816, "Lcom/repackage/ol6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755435816, "Lcom/repackage/ol6;");
                 return;
             }
         }
+        c = BdUniqueId.gen();
     }
 
-    @at4(isAsync = false, value = "isGameInstall")
-    private JSONObject isGameInstall(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public ol6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            JSONObject jSONObject2 = new JSONObject();
-            String optString = jSONObject.optString("packagename");
-            try {
-                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
-                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
-                    jSONObject2.put("isInstall", true);
-                } else {
-                    jSONObject2.put("isInstall", false);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                try {
-                    jSONObject2.put("isInstall", false);
-                } catch (JSONException unused) {
-                    BdLog.e(e.getMessage());
-                }
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
-            }
-            return jSONObject2;
         }
-        return (JSONObject) invokeL.objValue;
+        this.b = new ArrayList();
     }
 
-    @Override // com.repackage.zs4
-    public String f() {
+    public List<GameCodeList> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    @Override // com.repackage.zn4
+    public wp4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (wp4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zn4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void i(ItemGameCode itemGameCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, itemGameCode) == null) {
+            this.a = itemGameCode.unclaimed_num.intValue();
+            this.b = new ArrayList(itemGameCode.game_code_list);
+        }
     }
 }

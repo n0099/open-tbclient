@@ -1,78 +1,58 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rt1 extends pt1 {
+public abstract class rt1 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
-    public float b;
-    public float c;
-    public boolean d;
 
-    public rt1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rt1(r13 r13Var, String str) {
+        super(r13Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, unitedSchemeEntity, callbackHandler, z) == null) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, z ? 0 : 1001);
         }
-        if (!this.d && Math.abs(this.c) >= 360.0f) {
-            Path path = qt1Var.f;
-            RectF rectF = this.a;
-            float f = rectF.bottom;
-            float f2 = rectF.top;
-            path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
-            qt1Var.f.arcTo(this.a, 0.0f, this.b);
-            return;
-        }
-        float f3 = this.c % 360.0f;
-        if (f3 < 0.0f && !this.d) {
-            f3 += 360.0f;
-        } else if (f3 > 0.0f && this.d) {
-            f3 -= 360.0f;
-        }
-        qt1Var.f.arcTo(this.a, this.b, f3);
     }
 
-    @Override // com.repackage.pt1
-    public void b(JSONArray jSONArray) {
+    public rv1 k(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            if (jSONArray.length() > 4) {
-                int g = ae3.g((float) jSONArray.optDouble(0));
-                int g2 = ae3.g((float) jSONArray.optDouble(1));
-                int g3 = ae3.g((float) jSONArray.optDouble(2));
-                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
-                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
-                this.b = degrees;
-                this.c = degrees2 - degrees;
-            }
-            if (jSONArray.length() > 5) {
-                this.d = jSONArray.optBoolean(5);
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) ? new rv1(unitedSchemeEntity.getParams().get("params")) : (rv1) invokeL.objValue;
+    }
+
+    public JSONObject l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? UnitedSchemeUtility.wrapCallbackParams(i) : (JSONObject) invokeI.objValue;
     }
 }

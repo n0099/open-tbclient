@@ -101,9 +101,9 @@ public class dp7 extends cp7 {
                     return;
                 }
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f14);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f22);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c79);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f21);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cc5);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setBackgroundResource(view2, R.drawable.bg_interest_item_selection);
         }
@@ -134,9 +134,9 @@ public class dp7 extends cp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, op7Var) == null) {
             if (op7Var.g()) {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(imageView, R.drawable.obfuscated_res_0x7f080605, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(imageView, R.drawable.obfuscated_res_0x7f0805f4, SvgManager.SvgResourceStateType.NORMAL);
             } else {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(imageView, R.drawable.obfuscated_res_0x7f0805e9, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(imageView, R.drawable.obfuscated_res_0x7f0805d9, SvgManager.SvgResourceStateType.NORMAL);
             }
         }
     }
@@ -182,7 +182,7 @@ public class dp7 extends cp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d04fc, viewGroup, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d04f1, viewGroup, false);
                 bVar = new b(view2);
                 view2.setTag(bVar);
             } else {

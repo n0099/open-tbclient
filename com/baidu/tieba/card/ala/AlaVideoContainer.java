@@ -26,12 +26,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ki;
 import com.repackage.m78;
 import com.repackage.mi;
-import com.repackage.oi;
-import com.repackage.pg;
+import com.repackage.ng;
 import com.repackage.r78;
-import com.repackage.vx5;
+import com.repackage.wx5;
 import com.repackage.y68;
 /* loaded from: classes3.dex */
 public class AlaVideoContainer extends LinearLayout {
@@ -39,7 +39,7 @@ public class AlaVideoContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable A;
     public View a;
-    public vx5 b;
+    public wx5 b;
     public TbVideoViewContainer c;
     public y68 d;
     public TbImageView e;
@@ -133,14 +133,14 @@ public class AlaVideoContainer extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == this.a.a.getId()) {
-                if (mi.z()) {
+                if (ki.z()) {
                     if (this.a.q != null) {
                         this.a.q.onClick(view2);
                         return;
                     }
                     return;
                 }
-                oi.K(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0c4e));
+                mi.K(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0c65));
             }
         }
     }
@@ -255,7 +255,7 @@ public class AlaVideoContainer extends LinearLayout {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048585, this, i, i2, obj)) == null) {
-                pg.a().post(this.a.A);
+                ng.a().post(this.a.A);
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -282,8 +282,8 @@ public class AlaVideoContainer extends LinearLayout {
                 this.a.l.g();
                 this.a.j.setVisibility(8);
                 this.a.e.setVisibility(8);
-                pg.a().postDelayed(this.a.x, 3000L);
-                pg.a().removeCallbacks(this.a.A);
+                ng.a().postDelayed(this.a.x, 3000L);
+                ng.a().removeCallbacks(this.a.A);
             }
         }
 
@@ -512,7 +512,7 @@ public class AlaVideoContainer extends LinearLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.m.setVisibility(0);
                 this.a.j.setVisibility(8);
-                pg.a().postDelayed(this.a.z, 2000L);
+                ng.a().postDelayed(this.a.z, 2000L);
             }
         }
     }
@@ -546,10 +546,10 @@ public class AlaVideoContainer extends LinearLayout {
         n();
     }
 
-    public vx5 getController() {
+    public wx5 getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (vx5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (wx5) invokeV.objValue;
     }
 
     public y68 getVideoView() {
@@ -576,11 +576,11 @@ public class AlaVideoContainer extends LinearLayout {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0115, (ViewGroup) this, true);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0922fd);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0111, (ViewGroup) this, true);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092351);
             this.a = findViewById;
             findViewById.setOnClickListener(this.v);
-            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f09237c);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f0923cd);
             this.c = tbVideoViewContainer;
             y68 control = tbVideoViewContainer.getControl();
             this.d = control;
@@ -590,37 +590,37 @@ public class AlaVideoContainer extends LinearLayout {
             this.c.setLayoutParams(layoutParams);
             this.d.setOperableVideoContainer(this.w);
             this.d.setOnSurfaceDestroyedListener(this.y);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ed8);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ee5);
             this.e = tbImageView;
             tbImageView.setDrawCorner(true);
             this.e.setPlaceHolder(3);
             this.e.setEvent(this.u);
             this.e.setGifIconSupport(false);
             this.e.setConrers(15);
-            this.e.setRadius(oi.f(getContext(), R.dimen.tbds10));
+            this.e.setRadius(mi.f(getContext(), R.dimen.tbds10));
             this.e.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
-            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f0911f2);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092202);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090ec5);
+            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f0911ff);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09225a);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090ed2);
             this.h = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911dd);
+            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911ec);
             this.k = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01013a);
-            AudioAnimationView audioAnimationView = (AudioAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09185f);
+            AudioAnimationView audioAnimationView = (AudioAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0918b7);
             this.l = audioAnimationView;
             audioAnimationView.setCertainColumnCount(4);
             this.l.setColumnColor(R.color.CAM_X0302);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f0911cf);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092308);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f0911dc);
-            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092322);
-            this.r = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0912d5);
-            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09214c);
-            this.b = new vx5(this);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091852);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f0911de);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235c);
+            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f0911eb);
+            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092378);
+            this.r = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0912e5);
+            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921a3);
+            this.b = new wx5(this);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918aa);
             o(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -675,9 +675,9 @@ public class AlaVideoContainer extends LinearLayout {
             this.l.f();
             this.m.setVisibility(8);
             this.o.setVisibility(8);
-            pg.a().removeCallbacks(this.x);
-            pg.a().removeCallbacks(this.z);
-            pg.a().removeCallbacks(this.A);
+            ng.a().removeCallbacks(this.x);
+            ng.a().removeCallbacks(this.z);
+            ng.a().removeCallbacks(this.A);
         }
     }
 

@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
 import com.repackage.go0;
 import com.repackage.lo0;
+import com.repackage.m11;
 import com.repackage.ty0;
 import com.repackage.un0;
 import java.util.List;
@@ -62,7 +62,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, lo0 lo0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, lo0Var) == null) {
-            int i = R.layout.obfuscated_res_0x7f0d05d3;
+            int i = R.layout.obfuscated_res_0x7f0d05c6;
             if (lo0Var != null) {
                 if (lo0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
                     i = lo0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
@@ -83,11 +83,11 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c0);
-            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c2);
-            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c1);
+            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914de);
+            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914e0);
+            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914df);
             Resources resources = context.getResources();
-            this.t = (((((c11.c.e(context) - c11.c.a(getContext(), this.m)) - c11.c.a(getContext(), this.n)) - c11.c.a(getContext(), this.o)) - c11.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
+            this.t = (((((m11.c.e(context) - m11.c.a(getContext(), this.m)) - m11.c.a(getContext(), this.n)) - m11.c.a(getContext(), this.o)) - m11.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
             this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f07052f))) * ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f07052e)));
             AdImageView adImageView = this.q;
             if (adImageView != null) {
@@ -135,15 +135,15 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
             un0 un0Var2 = (un0) ty0.d(list, 1);
             un0 un0Var3 = (un0) ty0.d(list, 2);
             if (un0Var != null && (adImageView3 = this.q) != null) {
-                adImageView3.g(un0Var.a);
+                adImageView3.n(un0Var.a);
             }
             if (un0Var2 != null && (adImageView2 = this.r) != null) {
-                adImageView2.g(un0Var2.a);
+                adImageView2.n(un0Var2.a);
             }
             if (un0Var3 == null || (adImageView = this.s) == null) {
                 return;
             }
-            adImageView.g(un0Var3.a);
+            adImageView.n(un0Var3.a);
         }
     }
 

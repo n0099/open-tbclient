@@ -7,144 +7,173 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes5.dex */
-public class c99 implements i99 {
+public class c99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public byte[] b;
-    public boolean c;
 
-    public c99() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final int b;
 
-    @Override // com.repackage.i99
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            float f = this.a;
-            if (f != 1.0d) {
-                if (bArr != null) {
-                    this.b = c(bArr, f);
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return i;
             }
-            this.b = bArr;
-            this.c = true;
-            return i;
+            this.a = i;
+            this.b = i2;
         }
-        return invokeLI.intValue;
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        }
     }
 
-    @Override // com.repackage.i99
-    public boolean a() {
-        InterceptResult invokeV;
+    public static int[] a(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            float f = this.a;
-            return f >= 0.0f && f <= 1.0f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int[] iArr = new int[2];
+            if (f > 1.0f) {
+                iArr[0] = i;
+                iArr[1] = (int) (i * f);
+                int i2 = iArr[1] % 16;
+                if (i2 > 8) {
+                    iArr[1] = iArr[1] + (16 - i2);
+                } else {
+                    iArr[1] = iArr[1] - i2;
+                }
+            } else {
+                iArr[1] = i;
+                iArr[0] = (int) (i * (1.0f / f));
+                int i3 = iArr[0] % 16;
+                if (i3 > 8) {
+                    iArr[0] = iArr[0] + (16 - i3);
+                } else {
+                    iArr[0] = iArr[0] - i3;
+                }
+            }
+            return iArr;
         }
-        return invokeV.booleanValue;
+        return (int[]) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.i99
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    public static int[] b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int[] iArr = new int[2];
+            if (i > i2) {
+                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i3 == 0) {
+                    iArr[0] = c(i);
+                    iArr[1] = c(i);
+                    return iArr;
+                }
+                if (i3 > 0) {
+                    iArr[1] = i;
+                    iArr[0] = (int) (i * (1.0f / f));
+                } else {
+                    iArr[1] = i2;
+                    iArr[0] = (int) (i2 * (1.0f / f));
+                }
+                iArr[0] = c(iArr[0]);
+            } else {
+                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i4 == 0) {
+                    iArr[0] = c(i2);
+                    iArr[1] = c(i2);
+                    return iArr;
+                }
+                if (i4 > 0) {
+                    iArr[0] = i;
+                    iArr[1] = (int) (i * f);
+                } else {
+                    iArr[0] = i2;
+                    iArr[1] = (int) (i2 * f);
+                }
+                iArr[1] = c(iArr[1]);
+            }
+            return iArr;
         }
-        return invokeIIII.booleanValue;
+        return (int[]) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.i99
-    public byte[] a(int i) {
+    public static int c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.c) {
-                this.c = false;
-                return this.b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i % 16;
+            return i2 > 8 ? i + (16 - i2) : i - i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static a d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i > 1920 || i2 > 1920) {
+                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                return new a(a2[0], a2[1]);
             }
-            return null;
+            return new a(i, i2);
         }
-        return (byte[]) invokeI.objValue;
+        return (a) invokeII.objValue;
     }
 
-    public void b(float f) {
+    public static a e(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.a = f;
-        }
-    }
-
-    @Override // com.repackage.i99
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.i99
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = false;
-            this.b = null;
-        }
-    }
-
-    public final byte[] c(byte[] bArr, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, bArr, f)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
             }
-            int length = bArr.length / 2;
-            short[] sArr = new short[length];
-            for (int i = 0; i < length; i++) {
-                int i2 = i * 2;
-                sArr[i] = (short) (((short) (((bArr[i2 + 1] & 255) << 8) | (bArr[i2] & 255))) * f);
-            }
-            for (int i3 = 0; i3 < length; i3++) {
-                int i4 = i3 * 2;
-                bArr[i4] = (byte) (sArr[i3] & 255);
-                bArr[i4 + 1] = (byte) ((sArr[i3] & 65280) >> 8);
-            }
-            return bArr;
+            int[] a2 = a(f, i);
+            return new a(a2[0], a2[1]);
         }
-        return (byte[]) invokeLF.objValue;
+        return (a) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.i99
-    public void d() {
+    public static a f(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c = false;
-            this.b = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] b = b(f, i, i2);
+            return new a(b[0], b[1]);
         }
+        return (a) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.i99
-    public void e() {
+    public static boolean g(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

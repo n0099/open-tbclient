@@ -1,58 +1,53 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes7.dex */
-public class uo9 extends Handler {
+public class uo9 {
     public static /* synthetic */ Interceptable $ic;
+    public static uo9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ xp9 a;
+    public ThreadPoolExecutor a;
+    public np9 b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uo9(xp9 xp9Var, Looper looper) {
-        super(looper);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755254094, "Lcom/repackage/uo9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755254094, "Lcom/repackage/uo9;");
+                return;
+            }
+        }
+        d = new uo9();
+    }
+
+    public uo9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xp9Var, looper};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = xp9Var;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            if (message.what != 1101) {
-                return;
-            }
-            this.a.e.removeMessages(1101);
-            xp9 xp9Var = this.a;
-            if (!xp9Var.b && xp9Var.b(xp9Var.a)) {
-                up9 up9Var = this.a.c;
-                if (up9Var != null) {
-                    up9Var.a();
-                }
-                this.a.b = true;
-                return;
-            }
-            this.a.e.sendEmptyMessageDelayed(1101, 300L);
-        }
+        this.c = false;
+        this.a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     }
 }

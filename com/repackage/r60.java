@@ -1,152 +1,308 @@
 package com.repackage;
 
-import android.util.Pair;
+import android.content.Context;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.support.dns.Dns;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import kotlin.UShort;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Proxy;
+import java.net.ProxySelector;
+import java.util.ArrayList;
+import java.util.List;
+import javax.net.SocketFactory;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes7.dex */
-public abstract class r60 {
+public class r60 implements Cloneable, Call.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final m60 b;
+    @Nullable
+    public final Proxy c;
+    public final List<n60> d;
+    public final List<n60> e;
+    public final ProxySelector f;
+    public final SSLSocketFactory g;
+    public final HostnameVerifier h;
+    public final Dns i;
+    public final int j;
+    public final int k;
+    public final int l;
+    public v60 m;
+    public boolean n;
+    public boolean o;
+    public String p;
 
-    public static int a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) ? byteBuffer.getShort(i) & UShort.MAX_VALUE : invokeLI.intValue;
-    }
-
-    public static Pair<ByteBuffer, Long> b(RandomAccessFile randomAccessFile) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, randomAccessFile)) == null) {
-            if (randomAccessFile.length() < 22) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755398523, "Lcom/repackage/r60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Pair<ByteBuffer, Long> c = c(randomAccessFile, 0);
-            return c != null ? c : c(randomAccessFile, 65535);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static Pair<ByteBuffer, Long> c(RandomAccessFile randomAccessFile, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, randomAccessFile, i)) == null) {
-            if (i < 0 || i > 65535) {
-                throw new IllegalArgumentException("maxCommentSize: " + i);
-            }
-            long length = randomAccessFile.length();
-            if (length < 22) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
-            allocate.order(ByteOrder.LITTLE_ENDIAN);
-            long capacity = length - allocate.capacity();
-            randomAccessFile.seek(capacity);
-            randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-            int h = h(allocate);
-            if (h == -1) {
-                return null;
-            }
-            allocate.position(h);
-            ByteBuffer slice = allocate.slice();
-            slice.order(ByteOrder.LITTLE_ENDIAN);
-            return Pair.create(slice, Long.valueOf(capacity + h));
-        }
-        return (Pair) invokeLI.objValue;
-    }
-
-    public static void d(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
-            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
-        }
-    }
-
-    public static void e(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j >= 0 && j <= 4294967295L) {
-                byteBuffer.putInt(byteBuffer.position() + i, (int) j);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755398523, "Lcom/repackage/r60;");
                 return;
             }
-            throw new IllegalArgumentException("uint32 value of out range: " + j);
         }
+        new ArrayList(2);
     }
 
-    public static void f(ByteBuffer byteBuffer, long j) {
+    public r60(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65541, null, byteBuffer, j) == null) {
-            d(byteBuffer);
-            e(byteBuffer, byteBuffer.position() + 16, j);
-        }
-    }
-
-    public static final boolean g(RandomAccessFile randomAccessFile, long j) throws IOException {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, randomAccessFile, j)) == null) {
-            long j2 = j - 20;
-            if (j2 < 0) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            randomAccessFile.seek(j2);
-            return randomAccessFile.readInt() == 1347094023;
         }
-        return invokeLJ.booleanValue;
+        this.n = false;
+        this.o = false;
+        this.p = null;
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = Util.immutableList(aVar.d);
+        this.e = Util.immutableList(aVar.e);
+        this.f = aVar.f;
+        this.g = aVar.g;
+        this.h = aVar.h;
+        this.i = aVar.k;
+        this.j = aVar.l;
+        this.k = aVar.m;
+        this.l = aVar.n;
+        if (!this.d.contains(null)) {
+            if (!this.e.contains(null)) {
+                this.m = aVar.o;
+                this.n = aVar.i;
+                this.o = aVar.j;
+                this.p = aVar.p;
+                return;
+            }
+            throw new IllegalStateException("Null network interceptor: " + this.e);
+        }
+        throw new IllegalStateException("Null interceptor: " + this.d);
     }
 
-    public static int h(ByteBuffer byteBuffer) {
+    @Override // com.baidu.searchbox.network.outback.core.Call.Factory
+    public Call newCall(Request request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
-            d(byteBuffer);
-            int capacity = byteBuffer.capacity();
-            if (capacity < 22) {
-                return -1;
-            }
-            int i = capacity - 22;
-            int min = Math.min(i, 65535);
-            for (int i2 = 0; i2 < min; i2++) {
-                int i3 = i - i2;
-                if (byteBuffer.getInt(i3) == 101010256 && a(byteBuffer, i3 + 20) == i2) {
-                    return i3;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) ? q60.c(request, this, false) : (Call) invokeL.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public m60 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (m60) invokeV.objValue;
+    }
+
+    public HostnameVerifier q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (HostnameVerifier) invokeV.objValue;
+    }
+
+    public v60 r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (v60) invokeV.objValue;
+    }
+
+    public List<n60> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
+    }
+
+    public List<n60> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (List) invokeV.objValue;
+    }
+
+    public a u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new a(this) : (a) invokeV.objValue;
+    }
+
+    public ProxySelector v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (ProxySelector) invokeV.objValue;
+    }
+
+    public int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public SSLSocketFactory x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : (SSLSocketFactory) invokeV.objValue;
+    }
+
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.p : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public m60 b;
+        @Nullable
+        public Proxy c;
+        public final List<n60> d;
+        public final List<n60> e;
+        public ProxySelector f;
+        @Nullable
+        public SSLSocketFactory g;
+        public HostnameVerifier h;
+        public boolean i;
+        public boolean j;
+        public Dns k;
+        public int l;
+        public int m;
+        public int n;
+        public v60 o;
+        public String p;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return -1;
+            this.d = new ArrayList();
+            this.e = new ArrayList();
+            this.b = new m60();
+            ProxySelector proxySelector = ProxySelector.getDefault();
+            this.f = proxySelector;
+            if (proxySelector == null) {
+                this.f = new p60();
+            }
+            SocketFactory.getDefault();
+            this.h = null;
+            this.k = Dns.SYSTEM;
+            this.l = 10000;
+            this.m = 10000;
+            this.n = 10000;
+            this.o = new t60();
         }
-        return invokeL.intValue;
-    }
 
-    public static long i(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
-    }
-
-    public static long j(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, byteBuffer)) == null) {
-            d(byteBuffer);
-            return i(byteBuffer, byteBuffer.position() + 16);
+        public a a(n60 n60Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n60Var)) == null) {
+                if (n60Var != null) {
+                    this.d.add(n60Var);
+                    return this;
+                }
+                throw new IllegalArgumentException("interceptor == null");
+            }
+            return (a) invokeL.objValue;
         }
-        return invokeL.longValue;
-    }
 
-    public static long k(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, byteBuffer)) == null) {
-            d(byteBuffer);
-            return i(byteBuffer, byteBuffer.position() + 12);
+        public r60 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new r60(this) : (r60) invokeV.objValue;
         }
-        return invokeL.longValue;
+
+        public a c(m60 m60Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m60Var)) == null) {
+                if (m60Var != null) {
+                    this.b = m60Var;
+                    return this;
+                }
+                throw new IllegalArgumentException("dispatcher == null");
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(v60 v60Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v60Var)) == null) {
+                this.o = v60Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a(r60 r60Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r60Var};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.d = new ArrayList();
+            this.e = new ArrayList();
+            this.b = r60Var.b;
+            this.c = r60Var.c;
+            this.d.addAll(r60Var.d);
+            this.e.addAll(r60Var.e);
+            this.f = r60Var.f;
+            this.k = r60Var.i;
+            this.l = r60Var.j;
+            this.m = r60Var.k;
+            this.n = r60Var.l;
+            this.o = r60Var.m;
+            this.i = r60Var.n;
+            this.j = r60Var.o;
+            this.p = r60Var.p;
+            this.h = r60Var.h;
+            this.g = r60Var.g;
+        }
     }
 }

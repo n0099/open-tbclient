@@ -1,115 +1,143 @@
 package com.repackage;
 
-import android.os.Build;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class cj5 extends zs4 {
+public class cj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cj5(xs4 xs4Var) {
-        super(xs4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xs4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xs4) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @at4(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MODEL;
-            int k = oi.k(getContext());
-            int i = oi.i(getContext());
-            String str3 = String.valueOf(k) + "," + String.valueOf(i);
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
-                jSONObject.put("systemName", "android");
-                jSONObject.put("systemVersion", str);
-                jSONObject.put("model", str2);
-                jSONObject.put("cuid", cuid);
-                jSONObject.put("resolution", str3);
-                jSONObject.put("appVersion", versionName);
-            } catch (JSONException unused) {
+                String versionName = TbadkCoreApplication.getInst().getVersionName();
+                String q = iu4.k().q("version_name", "");
+                if (TextUtils.isEmpty(versionName)) {
+                    return null;
+                }
+                if (versionName.equals(q)) {
+                    return iu4.k().q("apk_md5", "");
+                }
+                iu4.k().y("version_name", versionName);
+                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                iu4.k().y("apk_md5", aPKMd5);
+                return aPKMd5;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @at4(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        InterceptResult invokeV;
-        int i;
+    public static void b(Context context, VersionData versionData) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (mi.H()) {
-                i = 1;
-                str = CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
-            } else if (mi.t()) {
-                i = 3;
-                str = "2G";
-            } else if (mi.u()) {
-                i = 4;
-                str = "3G";
-            } else if (mi.v()) {
-                i = 5;
-                str = "4G";
-            } else {
-                i = 0;
-                str = "NotReachable";
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
             try {
-                jSONObject.put("netStatus", i);
-                jSONObject.put("netDesc", str);
-            } catch (JSONException unused) {
+                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                str = "-1";
+                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent.setFlags(268435488);
+                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
+                intent.putExtra("func", "11");
+                Bundle bundle = new Bundle();
+                bundle.putInt("versioncode", versionData.getNewVersionCode());
+                bundle.putLong("patch_size", kg.g(versionData.getPatchSize(), 0L));
+                bundle.putString("patch_url", versionData.getPatch());
+                bundle.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle.putString("downurl", versionData.getUrl());
+                bundle.putString("versionname", versionData.getNewVersion());
+                bundle.putString("iconurl", versionData.getTiebaIconUrl());
+                bundle.putString("updatetime", li.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle.putString("size", versionData.getSize());
+                bundle.putString("signmd5", str);
+                bundle.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent.putExtra("extra_client_downloadinfo", bundle);
+                context.startActivity(intent);
+            } catch (NumberFormatException e2) {
+                BdLog.detailException(e2);
+                str = "-1";
+                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent2.setFlags(268435488);
+                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent2.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
+                intent2.putExtra("func", "11");
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("versioncode", versionData.getNewVersionCode());
+                bundle2.putLong("patch_size", kg.g(versionData.getPatchSize(), 0L));
+                bundle2.putString("patch_url", versionData.getPatch());
+                bundle2.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle2.putString("downurl", versionData.getUrl());
+                bundle2.putString("versionname", versionData.getNewVersion());
+                bundle2.putString("iconurl", versionData.getTiebaIconUrl());
+                bundle2.putString("updatetime", li.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle2.putString("size", versionData.getSize());
+                bundle2.putString("signmd5", str);
+                bundle2.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent2.putExtra("extra_client_downloadinfo", bundle2);
+                context.startActivity(intent2);
             }
-            return jSONObject;
+            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+            intent22.setFlags(268435488);
+            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+            intent22.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
+            intent22.putExtra("func", "11");
+            Bundle bundle22 = new Bundle();
+            bundle22.putInt("versioncode", versionData.getNewVersionCode());
+            bundle22.putLong("patch_size", kg.g(versionData.getPatchSize(), 0L));
+            bundle22.putString("patch_url", versionData.getPatch());
+            bundle22.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
+            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+            bundle22.putString("downurl", versionData.getUrl());
+            bundle22.putString("versionname", versionData.getNewVersion());
+            bundle22.putString("iconurl", versionData.getTiebaIconUrl());
+            bundle22.putString("updatetime", li.getDateStringDay(new Date(System.currentTimeMillis())));
+            bundle22.putString("size", versionData.getSize());
+            bundle22.putString("signmd5", str);
+            bundle22.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+            intent22.putExtra("extra_client_downloadinfo", bundle22);
+            context.startActivity(intent22);
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    @at4(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
+    public static boolean c(Context context, CombineDownload combineDownload) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) ? (combineDownload == null || dj8.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true : invokeLL.booleanValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || TbSingleton.getInstance().getSyncModel() == null) {
             return;
         }
-        BdToast.c(getContext(), jSONObject.optString("message")).q();
-    }
-
-    @Override // com.repackage.zs4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
+        ty4 syncModel = TbSingleton.getInstance().getSyncModel();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().s(), syncModel.j())));
     }
 }

@@ -152,7 +152,7 @@ public class p78 {
                 statisticItem.param("playduration", this.c);
                 statisticItem.param("player_type", 1);
                 statisticItem.param("is_finish", a() ? 1 : 0);
-                if (!ni.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                if (!li.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     statisticItem.param("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
                 m78 m78Var = this.e;

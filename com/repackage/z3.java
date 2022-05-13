@@ -109,12 +109,12 @@ public class z3 implements f7 {
 
         /* renamed from: com.repackage.z3$c$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0562c implements o<q> {
+        public class C0569c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C0562c(c cVar, String[] strArr) {
+            public C0569c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -717,7 +717,7 @@ public class z3 implements f7 {
                 u7Var2.i("offset", new n(this, strArr));
                 u7Var2.i("orig", new a(this, strArr));
                 u7Var2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                u7Var2.i(AnimationProperty.ROTATE, new C0562c(this, strArr));
+                u7Var2.i(AnimationProperty.ROTATE, new C0569c(this, strArr));
                 u7Var2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(h3Var.m()), 1024);
                 try {

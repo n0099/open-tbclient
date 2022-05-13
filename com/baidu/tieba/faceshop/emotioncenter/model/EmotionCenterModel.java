@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.ca6;
+import com.repackage.h96;
 /* loaded from: classes3.dex */
 public class EmotionCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -61,17 +61,17 @@ public class EmotionCenterModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003354 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                ca6 ca6Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof ca6)) {
-                    ca6Var = (ca6) extra;
+                h96 h96Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof h96)) {
+                    h96Var = (h96) extra;
                 }
-                if (ca6Var == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
+                if (h96Var == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
                 if (this.a.a == 1) {
-                    ca6Var.i0(emotionCenterResponseMessage.data);
+                    h96Var.i0(emotionCenterResponseMessage.data);
                 } else {
-                    ca6Var.Q(emotionCenterResponseMessage.data);
+                    h96Var.Q(emotionCenterResponseMessage.data);
                 }
             }
         }
@@ -103,14 +103,14 @@ public class EmotionCenterModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(ca6 ca6Var) {
+    public void A(h96 h96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ca6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, h96Var) == null) {
             this.a = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             httpMessage.addParam(Config.PACKAGE_NAME, 1);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(ca6Var);
+            httpMessage.setExtra(h96Var);
             sendMessage(httpMessage);
         }
     }
@@ -145,15 +145,15 @@ public class EmotionCenterModel extends BdBaseModel {
         }
     }
 
-    public void z(ca6 ca6Var) {
+    public void z(h96 h96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ca6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, h96Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             int i = this.a + 1;
             this.a = i;
             httpMessage.addParam(Config.PACKAGE_NAME, i);
             httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(ca6Var);
+            httpMessage.setExtra(h96Var);
             sendMessage(httpMessage);
         }
     }

@@ -21,13 +21,13 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     @NonNull
     public AdTemplate b;
     public AdInfo c;
-    public InterfaceC0323a d;
+    public InterfaceC0322a d;
     @NonNull
     public Context e;
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0323a {
+    public interface InterfaceC0322a {
         void a();
 
         void b();
@@ -59,21 +59,21 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
             b = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b);
         }
-        b.setViewCallback(new a.InterfaceC0305a() { // from class: com.kwad.sdk.feed.widget.base.a.1
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
+        b.setViewCallback(new a.InterfaceC0304a() { // from class: com.kwad.sdk.feed.widget.base.a.1
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
             public void a(View view2) {
                 a.this.j();
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
             public void b() {
             }
         });
@@ -133,54 +133,54 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     public abstract int getLayoutId();
 
     public void j() {
-        InterfaceC0323a interfaceC0323a;
-        if (!this.b.mPvReported && (interfaceC0323a = this.d) != null) {
-            interfaceC0323a.b();
+        InterfaceC0322a interfaceC0322a;
+        if (!this.b.mPvReported && (interfaceC0322a = this.d) != null) {
+            interfaceC0322a.b();
         }
         com.kwad.sdk.core.report.a.a(this.b, (JSONObject) null);
     }
 
     public void k() {
         com.kwad.sdk.core.report.a.a(this.b, getTouchCoords());
-        InterfaceC0323a interfaceC0323a = this.d;
-        if (interfaceC0323a != null) {
-            interfaceC0323a.a();
+        InterfaceC0322a interfaceC0322a = this.d;
+        if (interfaceC0322a != null) {
+            interfaceC0322a.a();
         }
     }
 
     public void l() {
-        InterfaceC0323a interfaceC0323a = this.d;
-        if (interfaceC0323a != null) {
-            interfaceC0323a.a();
+        InterfaceC0322a interfaceC0322a = this.d;
+        if (interfaceC0322a != null) {
+            interfaceC0322a.a();
         }
     }
 
     public void m() {
         com.kwad.sdk.core.report.a.a(this.b);
-        InterfaceC0323a interfaceC0323a = this.d;
-        if (interfaceC0323a != null) {
-            interfaceC0323a.c();
+        InterfaceC0322a interfaceC0322a = this.d;
+        if (interfaceC0322a != null) {
+            interfaceC0322a.c();
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        InterfaceC0323a interfaceC0323a = this.d;
-        if (interfaceC0323a != null) {
-            interfaceC0323a.e();
+        InterfaceC0322a interfaceC0322a = this.d;
+        if (interfaceC0322a != null) {
+            interfaceC0322a.e();
         }
     }
 
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
-        InterfaceC0323a interfaceC0323a = this.d;
-        if (interfaceC0323a != null) {
-            interfaceC0323a.d();
+        InterfaceC0322a interfaceC0322a = this.d;
+        if (interfaceC0322a != null) {
+            interfaceC0322a.d();
         }
     }
 
-    public void setInnerAdInteractionListener(InterfaceC0323a interfaceC0323a) {
-        this.d = interfaceC0323a;
+    public void setInnerAdInteractionListener(InterfaceC0322a interfaceC0322a) {
+        this.d = interfaceC0322a;
     }
 
     public void setMargin(int i) {

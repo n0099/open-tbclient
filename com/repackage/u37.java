@@ -1,158 +1,24 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
 /* loaded from: classes7.dex */
 public class u37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity<?> a;
-    public SparseArray<String> b;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ u37 b;
-
-        public a(u37 u37Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u37Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = u37Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                di.a(this.a.t);
-                oi.N(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f043f));
-            }
-        }
-    }
-
-    public u37(BaseActivity<?> baseActivity) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.a = baseActivity;
-    }
-
-    public final void b(ShareItem shareItem, String str, long j, String str2) {
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) && UbsABTestHelper.isShareH5CardOptimizeABTestA()) {
-            StringBuilder sb = new StringBuilder();
-            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
-                if (str.length() > 20) {
-                    sb.append(str.substring(0, 20));
-                    sb.append(StringHelper.STRING_MORE);
-                } else {
-                    sb.append(str);
-                }
-                sb.append(StringUtils.lineSeparator);
-            }
-            if (j > 0) {
-                sb.append(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f1416));
-                sb.append(StringHelper.numFormatOver10000(j));
-            }
-            shareItem.z0 = sb.toString();
-            if (StringUtils.isNull(str2)) {
-                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
-            } else {
-                parse = Uri.parse(str2);
-            }
-            shareItem.A0 = parse;
-        }
-    }
-
-    public final SparseArray<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                SparseArray<String> sparseArray = new SparseArray<>(8);
-                this.b = sparseArray;
-                sparseArray.put(2, "topic_wx_timeline");
-                this.b.put(3, "topic_wx_friend");
-                this.b.put(4, "topic_qq_zone");
-                this.b.put(5, "topic_tencent_weibo");
-                this.b.put(6, "topic_sina_weibo");
-            }
-            return this.b;
-        }
-        return (SparseArray) invokeV.objValue;
-    }
-
-    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            if (TextUtils.isEmpty(str) && z) {
-                BaseActivity<?> baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c40));
-                return;
-            }
-            if (StringUtils.isNull(str3)) {
-                str3 = "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
-            }
-            Uri parse = StringUtils.isNull(str4) ? null : Uri.parse(str4);
-            ShareItem shareItem = new ShareItem();
-            shareItem.r = str2;
-            shareItem.s = str5;
-            shareItem.t = str3;
-            shareItem.b = true;
-            shareItem.q = str;
-            shareItem.v = parse;
-            b(shareItem, str5, j, str6);
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
-            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-            shareDialogConfig.setIsCopyLink(true);
-            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            r67.p();
+            g77.o();
+            LocalViewSize.getInstance().initial(TbadkCoreApplication.getInst().getContext());
+            y67.l().m(TbadkCoreApplication.getInst().getContext());
+            h77.b().d();
+            c77.i();
+            l77.j();
         }
     }
 }

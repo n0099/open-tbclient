@@ -1,64 +1,30 @@
 package com.repackage;
 
-import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class wc5<KEY> {
+public class wc5 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap<KEY, Long> a;
-    public final long b;
 
-    public wc5(int i, @NonNull TimeUnit timeUnit) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), timeUnit};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayMap<>();
-        this.b = timeUnit.toMillis(i);
-    }
-
-    public static <T> wc5<T> b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new wc5<>(1000, TimeUnit.MILLISECONDS) : (wc5) invokeV.objValue;
-    }
-
-    public synchronized boolean a(@NonNull KEY key) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                Long l = this.a.get(key);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                if (l == null) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else if (uptimeMillis - l.longValue() > this.b) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else {
-                    return false;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = a;
+            if (j > currentTimeMillis) {
+                a = currentTimeMillis;
+                return false;
+            } else if (currentTimeMillis - j < 500) {
+                return true;
+            } else {
+                a = currentTimeMillis;
+                return false;
             }
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

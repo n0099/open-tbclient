@@ -59,8 +59,8 @@ public class ja {
                 BdLog.i("this is reconn time:" + this.a.b);
                 BdSocketLinkService.startService(true, "time to reconnStragety");
                 ja.c(this.a);
-                if (mi.z()) {
-                    if (this.a.b >= kh.o().q("alert_im", 3)) {
+                if (ki.z()) {
+                    if (this.a.b >= ih.o().q("alert_im", 3)) {
                         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                         bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.b) + "_times");
                     }
@@ -114,7 +114,7 @@ public class ja {
             } else if (!this.a) {
                 this.a = true;
                 this.c.removeMessages(1);
-                if (oj.j().l()) {
+                if (mj.j().l()) {
                     BdLog.d("启动重连策略失败，  WebSocketClient opened");
                     f("in Opened");
                     return;

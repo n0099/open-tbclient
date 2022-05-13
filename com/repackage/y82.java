@@ -1,147 +1,54 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y82 {
+public abstract class y82 implements z82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755188002, "Lcom/repackage/y82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755188002, "Lcom/repackage/y82;");
-                return;
-            }
-        }
-        a = tg1.a;
-        b = new HashMap();
-        c = new Object();
-        d = z82.a();
-    }
-
-    public static void a() {
+    public y82() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove all exclude appIds");
-            }
-            synchronized (c) {
-                b.clear();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public static Set<String> b() {
+    @Override // com.repackage.z82
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting b() {
         InterceptResult invokeV;
-        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
-            }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return ne3.a(strArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return (Set) invokeV.objValue;
+        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    @Override // com.repackage.z82
+    public void c(c82 c82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (d && !TextUtils.isEmpty(str)) {
-                synchronized (c) {
-                    containsKey = b.containsKey(str);
-                }
-                if (a) {
-                    Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-                }
-                return containsKey;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num == null) {
-                    b.put(str, 1);
-                } else {
-                    b.put(str, Integer.valueOf(num.intValue() + 1));
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c82Var) == null) {
         }
     }
 
-    public static void e(pd4 pd4Var) {
+    @Override // com.repackage.z82
+    public void d(c82 c82Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, pd4Var) == null) && d && pd4Var != null) {
-            for (f94 f94Var : pd4Var.j()) {
-                if (f94Var instanceof g94) {
-                    d(f94Var.g);
-                } else if (f94Var instanceof h94) {
-                    d(((h94) f94Var).o);
-                }
-            }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num != null) {
-                    int intValue = num.intValue() - 1;
-                    if (intValue <= 0) {
-                        b.remove(str);
-                    } else {
-                        b.put(str, Integer.valueOf(intValue));
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c82Var) == null) {
         }
     }
 }

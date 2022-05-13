@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.g;
-import com.repackage.f30;
+import com.repackage.o20;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -313,7 +313,7 @@ public class CommonUtils {
     public static String getNetwork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new f30().b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new o20().b() : (String) invokeV.objValue;
     }
 
     public static String getOSVersion() {

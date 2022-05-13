@@ -54,10 +54,10 @@ public class KSFrameLayout extends FrameLayout implements j {
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f04036d};
+            int[] iArr = {R.attr.obfuscated_res_0x7f040371};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f04036d), 0.0f);
+            this.e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040371), 0.0f);
             obtainStyledAttributes.recycle();
         }
         h hVar = new h(this, this);

@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -218,7 +217,7 @@ public class ck7 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.a = jSONObject.optString(AdUploadHttpRequest.KEY_PRODUCT_ID);
+            this.a = jSONObject.optString("productId");
             this.b = jSONObject.optString("title");
             jSONObject.optString("desc");
             this.c = jSONObject.optString("discount");

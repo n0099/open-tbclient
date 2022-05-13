@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae3;
+import com.repackage.le3;
 /* loaded from: classes2.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        c = ae3.g(15.0f);
+        c = le3.g(15.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.b = true;
-        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f0603bb));
+        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f0603be));
         this.b = z;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.hk5;
-import com.repackage.iy4;
+import com.repackage.wy4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -65,7 +65,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<iy4> y(String str) {
+    public List<wy4> y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -74,27 +74,27 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<iy4> c = this.a.c();
+                List<wy4> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (iy4 iy4Var : c) {
-                    String f = iy4Var.f();
-                    String d = iy4Var.d();
+                for (wy4 wy4Var : c) {
+                    String f = wy4Var.f();
+                    String d = wy4Var.d();
                     if (!TextUtils.isEmpty(f) && f.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(iy4Var);
+                        arrayList.add(wy4Var);
                     } else if (!TextUtils.isEmpty(d) && d.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(iy4Var);
+                        arrayList.add(wy4Var);
                     }
                 }
-                for (iy4 iy4Var2 : c) {
-                    String f2 = iy4Var2.f();
-                    String d2 = iy4Var2.d();
-                    if (!arrayList.contains(iy4Var2)) {
+                for (wy4 wy4Var2 : c) {
+                    String f2 = wy4Var2.f();
+                    String d2 = wy4Var2.d();
+                    if (!arrayList.contains(wy4Var2)) {
                         if (!TextUtils.isEmpty(f2) && f2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(iy4Var2);
+                            arrayList.add(wy4Var2);
                         } else if (!TextUtils.isEmpty(d2) && d2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(iy4Var2);
+                            arrayList.add(wy4Var2);
                         }
                     }
                 }

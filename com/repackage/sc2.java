@@ -1,16 +1,17 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sc2 extends j83 {
+public class sc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tc2 a;
+    public String b;
+    public Map<String, Object> c;
 
     public sc2() {
         Interceptable interceptable = $ic;
@@ -24,23 +25,5 @@ public class sc2 extends j83 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.repackage.j83
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? tc2.p() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.n83
-    public long getMaxSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 52428800L;
-        }
-        return invokeV.longValue;
     }
 }

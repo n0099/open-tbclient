@@ -1,77 +1,83 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes7.dex */
-public class x27 extends tw5<v27> {
+public class x27 implements ro {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public v27 j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x27(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755223404, "Lcom/repackage/x27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755223404, "Lcom/repackage/x27;");
                 return;
             }
         }
-        this.i = k().findViewById(R.id.obfuscated_res_0x7f09058d);
+        a = BdUniqueId.gen();
     }
 
-    @Override // com.repackage.tw5
-    public int d() {
-        InterceptResult invokeV;
+    public x27() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c3 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.tw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void a(TopicList topicList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
-    /* renamed from: s */
-    public void l(v27 v27Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, v27Var) == null) || v27Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) || topicList == null) {
             return;
         }
-        this.j = v27Var;
-        SkinManager.setBackgroundColor(this.i, v27Var.b);
-        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
-        layoutParams.height = oi.f(this.c, v27Var.a);
-        this.i.setLayoutParams(layoutParams);
+        topicList.topic_id.longValue();
+        String str = topicList.topic_name;
+        topicList.tag.intValue();
+        topicList.discuss_num.longValue();
+        String str2 = topicList.topic_desc;
+        String str3 = topicList.topic_pic;
+    }
+
+    public void b(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    @Override // com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,36 +1,36 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.appsearchlib.Info;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.repackage.w53;
-import org.json.JSONException;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ws3 extends os3 {
+public class ws3 implements pm1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, Boolean> a;
+    public vs3 b;
 
     /* loaded from: classes7.dex */
-    public class a implements w53.f {
+    public class a implements yd2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nd2 a;
+        public final /* synthetic */ yd2 a;
+        public final /* synthetic */ ws3 b;
 
-        public a(ws3 ws3Var, nd2 nd2Var) {
+        public a(ws3 ws3Var, yd2 yd2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ws3Var, nd2Var};
+                Object[] objArr = {ws3Var, yd2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,94 +40,108 @@ public class ws3 extends os3 {
                     return;
                 }
             }
-            this.a = nd2Var;
+            this.b = ws3Var;
+            this.a = yd2Var;
         }
 
-        @Override // com.repackage.w53.f
-        public void a(int i) {
+        @Override // com.repackage.yd2
+        public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == -1) {
-                    ws3.c(this.a, "202");
-                } else if (i != 1) {
-                    this.a.onFail(101, "noPermission");
-                } else {
-                    ws3.c(this.a, BasicPushStatus.SUCCESS_CODE);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.b.g(true);
+                this.a.a(jSONObject);
+            }
+        }
+
+        @Override // com.repackage.yd2
+        public void onFail(int i, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.b.g(false);
+                this.a.onFail(i, str);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755190854, "Lcom/repackage/ws3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755190854, "Lcom/repackage/ws3;");
-                return;
-            }
-        }
-        c = tg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ws3() {
-        super("addShortcutToDesktop");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new vs3();
     }
 
-    public static void c(nd2 nd2Var, String str) {
+    @Override // com.repackage.pm1
+    @Nullable
+    public us1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull yd2 yd2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, nd2Var, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", str);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, yd2Var)) == null) {
+            if (f()) {
+                yd2Var.a(null);
+                return null;
             }
-            nd2Var.a(jSONObject);
+            return this.b.a(jSONObject, c(yd2Var));
         }
+        return (us1) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.os3
-    public js1 a(JSONObject jSONObject, nd2 nd2Var) {
-        InterceptResult invokeLL;
+    public final yd2 c(@NonNull yd2 yd2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nd2Var)) == null) {
-            j03 a0 = j03.a0();
-            if (a0 != null && a0.x() != null && a0.V() != null) {
-                if (w53.s(a0.x(), a0.V().K(), a0.V().H()) == 1) {
-                    c(nd2Var, Info.kBaiduPIDValue);
-                    return null;
-                }
-                w53.j(a0.x(), a0.V(), 1, new a(this, nd2Var));
-                return null;
-            }
-            nd2Var.onFail(100, "swan or activity is null");
-            if (c) {
-                Log.d("AddShortcutToDesktop", "swan or activity is null");
-                return null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yd2Var)) == null) ? new a(this, yd2Var) : (yd2) invokeL.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            u03 a0 = u03.a0();
+            if (a0 != null) {
+                return a0.N();
             }
             return null;
         }
-        return (js1) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.b.a, str) : invokeL.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Boolean bool;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (TextUtils.isEmpty(d) || (bool = this.a.get(d)) == null) {
+                return false;
+            }
+            return bool.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            String d = d();
+            if (TextUtils.isEmpty(d)) {
+                return;
+            }
+            this.a.put(d, Boolean.valueOf(z));
+        }
     }
 }

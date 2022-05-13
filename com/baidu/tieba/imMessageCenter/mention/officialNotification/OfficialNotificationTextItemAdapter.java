@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.va7;
+import com.repackage.eb7;
 /* loaded from: classes3.dex */
-public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<va7> {
+public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<eb7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext s;
-    public View.OnClickListener t;
+    public TbPageContext t;
+    public View.OnClickListener u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialNotificationTextItemAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -40,23 +40,23 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<va
                 return;
             }
         }
-        this.s = tbPageContext;
+        this.t = tbPageContext;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.ho
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.eo
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<va7> msgViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<eb7> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            va7 c = msgViewHolder.c();
+            eb7 c = msgViewHolder.c();
             c.b();
             if (c != null) {
                 c.c(chatMessage);
@@ -67,14 +67,14 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<va
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<va7> M(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<eb7> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            va7 va7Var = new va7(this.s, viewGroup, this.t);
-            return new MsgCommonItemAdapter.MsgViewHolder<>(va7Var.a(), va7Var);
+            eb7 eb7Var = new eb7(this.t, viewGroup, this.u);
+            return new MsgCommonItemAdapter.MsgViewHolder<>(eb7Var.a(), eb7Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
@@ -82,7 +82,7 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<va
     public void m0(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.t = onClickListener;
+            this.u = onClickListener;
         }
     }
 }

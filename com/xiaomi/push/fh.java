@@ -57,11 +57,11 @@ public class fh extends fs {
             if (z) {
                 fgVar.a("1");
             }
-            byte[] m407a = gz.m407a();
-            if (m407a != null) {
+            byte[] m408a = gz.m408a();
+            if (m408a != null) {
                 du.j jVar = new du.j();
-                jVar.a(a.a(m407a));
-                fgVar.a(jVar.m319a(), (String) null);
+                jVar.a(a.a(m408a));
+                fgVar.a(jVar.m320a(), (String) null);
             }
             return fgVar;
         }
@@ -122,14 +122,14 @@ public class fh extends fs {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faVar) == null) || faVar == null) {
             return;
         }
-        if (faVar.m343a()) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m347c());
+        if (faVar.m344a()) {
+            com.xiaomi.channel.commonutils.logger.b.m109a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m348c());
         }
         if (faVar.a() == 0) {
-            if ("PING".equals(faVar.m340a())) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("[Slim] RCV ping id=" + faVar.e());
+            if ("PING".equals(faVar.m341a())) {
+                com.xiaomi.channel.commonutils.logger.b.m109a("[Slim] RCV ping id=" + faVar.e());
                 g();
-            } else if ("CLOSE".equals(faVar.m340a())) {
+            } else if ("CLOSE".equals(faVar.m341a())) {
                 c(13, null);
             }
         }
@@ -169,14 +169,14 @@ public class fh extends fs {
 
     @Override // com.xiaomi.push.fs
     /* renamed from: a  reason: collision with other method in class */
-    public void mo353a(boolean z) {
+    public void mo354a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (this.f362a == null) {
                 throw new fw("The BlobWriter is null.");
             }
             fa a = a(z);
-            com.xiaomi.channel.commonutils.logger.b.m108a("[Slim] SND ping id=" + a.e());
+            com.xiaomi.channel.commonutils.logger.b.m109a("[Slim] SND ping id=" + a.e());
             b(a);
             f();
         }
@@ -210,8 +210,8 @@ public class fh extends fs {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
                 if (this.f364a == null && !TextUtils.isEmpty(((fl) this).f378a)) {
-                    String m650a = com.xiaomi.push.service.bi.m650a();
-                    this.f364a = com.xiaomi.push.service.be.a(((fl) this).f378a.getBytes(), (((fl) this).f378a.substring(((fl) this).f378a.length() / 2) + m650a.substring(m650a.length() / 2)).getBytes());
+                    String m651a = com.xiaomi.push.service.bi.m651a();
+                    this.f364a = com.xiaomi.push.service.be.a(((fl) this).f378a.getBytes(), (((fl) this).f378a.substring(((fl) this).f378a.length() / 2) + m651a.substring(m651a.length() / 2)).getBytes());
                 }
                 bArr = this.f364a;
             }

@@ -23,13 +23,13 @@ public interface b extends IInterface {
 
         /* renamed from: com.kwai.filedownloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0355a implements b {
+        public static class C0354a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0355a(IBinder iBinder) {
+            public C0354a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -430,7 +430,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0355a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0354a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -438,7 +438,7 @@ public interface b extends IInterface {
         public static b d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0355a.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0354a.a : (b) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -460,11 +460,11 @@ public interface b extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        a(a.AbstractBinderC0353a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0352a.a(parcel.readStrongBinder()));
                         return true;
                     case 2:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        b(a.AbstractBinderC0353a.a(parcel.readStrongBinder()));
+                        b(a.AbstractBinderC0352a.a(parcel.readStrongBinder()));
                         return true;
                     case 3:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");

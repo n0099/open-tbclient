@@ -1,82 +1,56 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webview.container.BaseNativeBrowserContainer;
+import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s21;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public interface u21 {
-    public static final u21 a = new a();
+public class u21 implements s21.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements u21 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public u21() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-
-        @Override // com.repackage.u21
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return false;
-            }
-            return invokeI.booleanValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static u21 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-6303425, "Lcom/repackage/u21$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-6303425, "Lcom/repackage/u21$b;");
-                    return;
-                }
-            }
-            a = s21.f();
-        }
-
-        @NonNull
-        public static u21 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (a == null) {
-                    a = u21.a;
-                }
-                return a;
-            }
-            return (u21) invokeV.objValue;
-        }
+    @Override // com.repackage.s21.a
+    public AbsContainer a(y21 y21Var, z21 z21Var, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, y21Var, z21Var, i)) == null) ? new BaseNativeBrowserContainer(y21Var, z21Var) : (AbsContainer) invokeLLI.objValue;
     }
 
-    boolean a(int i);
+    @Override // com.repackage.s21.a
+    public boolean b(HashMap<String, String> hashMap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // com.repackage.s21.a
+    public void c(Context context, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        }
+    }
 }

@@ -1,145 +1,60 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.adp.titan.TitanDownloadService;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.titan.sdk.internal.util.Files;
-import com.baidu.titan.sdk.loader.LoaderHead;
-import com.baidu.titan.sdk.loader.LoaderManager;
-import com.baidu.titan.sdk.pm.PatchInstallInfo;
-import com.baidu.titan.sdk.pm.PatchManager;
-import com.baidu.titan.sdk.pm.PatchMetaInfo;
-import com.baidu.titan.sdk.pm.TitanPaths;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
 public class zn {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<bo> a;
 
-    /* loaded from: classes7.dex */
-    public static class a implements PatchManager.PatchInstallObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vn a;
-        public final /* synthetic */ PackageInfo b;
-        public final /* synthetic */ boolean c;
-
-        public a(vn vnVar, PackageInfo packageInfo, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vnVar, packageInfo, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vnVar;
-            this.b = packageInfo;
-            this.c = z;
-        }
-
-        @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
-        public void onPatchInstalled(int i, Bundle bundle) {
-            LoaderHead createFromJson;
-            PatchMetaInfo createFromPatch;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
-                int i2 = (i == 0 || i == 1) ? 0 : -1;
-                String str = "install-resut:" + i;
-                vn vnVar = this.a;
-                if (vnVar != null) {
-                    vnVar.a(this.b.packageName, i2, str);
-                }
-                Log.d(TitanDownloadService.TAG, "patch install result code = " + i2);
-                if (i2 == 0) {
-                    zn.c(this.b);
-                }
-                if (this.c) {
-                    return;
-                }
-                int loadState = LoaderManager.getInstance().getLoadState();
-                if (loadState == -4 || loadState == -1) {
-                    File headFile = TitanPaths.getHeadFile();
-                    if (!headFile.exists() || (createFromJson = LoaderHead.createFromJson(Files.getFileStringContent(headFile))) == null || (createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile())) == null || createFromPatch.loadPolicy != 1) {
-                        return;
-                    }
-                    LoaderManager.getInstance().loadInTime();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964020911, "Lcom/repackage/zn;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964020911, "Lcom/repackage/zn;");
+    public zn() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = pn.a;
+        this.a = new SparseArray<>();
     }
 
-    public static void b(Context context, vn vnVar, PackageInfo packageInfo, boolean z) {
+    public bo a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, vnVar, packageInfo, Boolean.valueOf(z)}) == null) {
-            if (a) {
-                Log.d(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
-            }
-            PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(vnVar, packageInfo, z));
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (bo) invokeI.objValue;
     }
 
-    public static void c(PackageInfo packageInfo) {
+    public boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, packageInfo) == null) {
-            xn d = xn.d();
-            if (packageInfo != null) {
-                long j = packageInfo.updateVersion;
-                if (j != 0) {
-                    d.j(j);
-                    Context appContext = AppRuntime.getAppContext();
-                    if (appContext != null) {
-                        try {
-                            android.content.pm.PackageInfo packageInfo2 = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-                            if (packageInfo2 != null) {
-                                d.h(packageInfo2.versionCode);
-                            }
-                        } catch (PackageManager.NameNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                int i = packageInfo.errNo;
-                if (i == 0 || i == -2) {
-                    d.i(System.currentTimeMillis());
-                }
-            }
-            d.l();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            bo a = a(i);
+            return a != null && a.b() > 0 && a.a() > 0;
         }
+        return invokeI.booleanValue;
+    }
+
+    public boolean c(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
+            if (i2 <= 0 || i3 <= 0) {
+                return false;
+            }
+            this.a.put(i, new bo(i2, i3));
+            return true;
+        }
+        return invokeIII.booleanValue;
     }
 }

@@ -1,81 +1,67 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.Context;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class tl9 {
+public class tl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static a b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Handler a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            HandlerThread handlerThread = new HandlerThread("BlockCanary-" + str);
-            handlerThread.start();
-            this.a = new Handler(handlerThread.getLooper());
-        }
-
-        public Handler a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Handler) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755286768, "Lcom/repackage/tl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755286768, "Lcom/repackage/tl9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755286768, "Lcom/repackage/tl9;")) == null) {
+            return;
         }
-        a = new a("loop");
-        b = new a("writer");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755286768, "Lcom/repackage/tl9;");
+        }
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a() : (Handler) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            com.meizu.cloud.pushsdk.base.h.b().a(str, str2);
+        }
     }
 
-    public static Handler b() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a() : (Handler) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            com.meizu.cloud.pushsdk.base.h.b().d(str, str2);
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            com.meizu.cloud.pushsdk.base.h.b().a(false);
+        }
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            com.meizu.cloud.pushsdk.base.h.b().b(str, str2);
+        }
+    }
+
+    public static void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            com.meizu.cloud.pushsdk.base.h.b().a(context);
+            com.meizu.cloud.pushsdk.base.h b = com.meizu.cloud.pushsdk.base.h.b();
+            b.a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
+        }
     }
 }

@@ -6,83 +6,105 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class xa4 extends n94<db4> {
+public class xa4 implements qa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ea4> a;
+    public k84 b;
+    public List<q94> c;
+    public List<q94> d;
+    public List<q94> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xa4(c84 c84Var, nb4 nb4Var) {
-        super(c84Var, nb4Var);
+    public xa4(k84 k84Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c84Var, nb4Var};
+            Object[] objArr = {k84Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((c84) objArr2[0], (nb4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.b = k84Var;
+        this.a = new ArrayList();
+        sa4.b().e(this);
     }
 
-    @Override // com.repackage.n94
-    public String h() {
+    @Override // com.repackage.qa4
+    public <T> void a(ua4<T> ua4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ua4Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.qa4
+    public <T> void b(ua4<T> ua4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ua4Var) == null) || ua4Var.k()) {
+            return;
+        }
+        Iterator<ea4> it = this.a.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            ea4 next = it.next();
+            if (next.b(ua4Var)) {
+                int i = ua4Var.i();
+                this.a.remove(next);
+                if (i == 2) {
+                    this.e.add(next.a().a.b);
+                } else if (i == 3) {
+                    this.d.add(next.a().a.b);
+                } else if (i == 10) {
+                    this.c.add(next.a().a.b);
+                }
+            }
+        }
+        d();
+    }
+
+    public void c(ea4 ea4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ea4Var) == null) || ea4Var == null) {
+            return;
+        }
+        this.a.add(ea4Var);
+    }
+
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getplugin" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: v */
-    public boolean f(db4 db4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, db4Var)) == null) {
-            if (db4Var == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.isEmpty()) {
+                this.b.b();
+                sa4.b().g(this);
+                return true;
             }
-            i94 i94Var = db4Var.a;
-            return i94Var == null || i94Var.a();
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: w */
-    public b94 t(db4 db4Var) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, db4Var)) == null) {
-            this.a.F();
-            pd4 pd4Var = new pd4();
-            q(db4Var.a, pd4Var);
-            if (pd4Var.n() == 0) {
-                this.a.G();
-                return null;
-            }
-            this.a.H(pd4Var);
-            s94.c(db4Var, this.a);
-            return null;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || d()) {
+            return;
         }
-        return (b94) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: x */
-    public db4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? od4.h(jSONObject) : (db4) invokeL.objValue;
+        for (ea4 ea4Var : this.a) {
+            ea4Var.c(false);
+        }
     }
 }

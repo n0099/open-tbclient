@@ -1,110 +1,120 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.GeneralResource;
+import tbclient.HotUserRankEntry;
+import tbclient.Tabfeedlist.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class o66 extends tw5<j66> {
+public class o66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public int j;
-    public TextView k;
-    public View l;
-    public TextView m;
-    public j66 n;
+    public ArrayList<ro> a;
+    public ArrayList<vq4> b;
+    public pq4 c;
+    public q66 d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o66(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public o66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.j = 3;
-        this.i = tbPageContext;
-        s();
-    }
-
-    @Override // com.repackage.tw5
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0720 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.tw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.j = i;
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(k(), R.color.CAM_X0205);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        tx5<j66> e;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 != this.m || (e = e()) == null || this.n.k() >= this.n.g().size()) {
-            return;
-        }
-        e.a(view2, this.n);
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View k = k();
-            this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091a09);
-            this.l = k.findViewById(R.id.obfuscated_res_0x7f0920a6);
-            TextView textView = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091a0a);
-            this.m = textView;
-            textView.setOnClickListener(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
-    /* renamed from: t */
-    public void l(j66 j66Var) {
+    /* renamed from: a */
+    public o66 clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, j66Var) == null) || j66Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            o66 o66Var = new o66();
+            o66Var.a = this.a;
+            o66Var.b = this.b;
+            o66Var.c = this.c;
+            o66Var.d = this.d;
+            o66Var.e = this.e;
+            return o66Var;
         }
-        this.n = j66Var;
-        m(this.i, this.j);
-        if (StringUtils.isNull(j66Var.getTitle())) {
-            return;
-        }
-        this.k.setText(j66Var.getTitle());
+        return (o66) invokeV.objValue;
     }
 
-    public void u(boolean z) {
+    public q66 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.l.setVisibility(z ? 0 : 8);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (q66) invokeV.objValue;
+    }
+
+    public pq4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (pq4) invokeV.objValue;
+    }
+
+    public ArrayList<vq4> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<ro> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public void g(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) || dataRes == null) {
+            return;
         }
+        this.a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.a.add(threadData);
+        }
+        this.b = new ArrayList<>();
+        if (!ListUtils.isEmpty(dataRes.resource_list)) {
+            for (GeneralResource generalResource : dataRes.resource_list) {
+                vq4 vq4Var = new vq4();
+                vq4Var.e(generalResource);
+                this.b.add(vq4Var);
+            }
+        }
+        pq4 pq4Var = new pq4();
+        this.c = pq4Var;
+        pq4Var.k(dataRes.recommend_forum_info);
+        if (dataRes.hot_userrank_entry != null) {
+            q66 q66Var = new q66();
+            this.d = q66Var;
+            HotUserRankEntry hotUserRankEntry = dataRes.hot_userrank_entry;
+            q66Var.a = hotUserRankEntry.hot_user;
+            q66Var.b = hotUserRankEntry.module_name;
+            q66Var.c = hotUserRankEntry.module_icon;
+        }
+        this.e = dataRes.is_new_url.intValue() == 1;
     }
 }

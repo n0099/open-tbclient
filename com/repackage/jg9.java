@@ -5,98 +5,102 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jg9 implements TTRewardVideoAd.RewardAdInteractionListener {
+public class jg9 extends of9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ TTRewardVideoAd c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ ph9 e;
 
-    public jg9(ph9 ph9Var, TTRewardVideoAd tTRewardVideoAd, String str) {
+    /* loaded from: classes6.dex */
+    public class a implements TTAdNative.FeedAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jg9 a;
+
+        public a(jg9 jg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jg9Var;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJNative onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
+        public void onFeedAdLoad(List<TTFeedAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
+                    onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTFeedAd tTFeedAd : list) {
+                    arrayList.add(tTFeedAd);
+                }
+                this.a.onAdLoaded((List) arrayList);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jg9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ph9Var, tTRewardVideoAd, str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = ph9Var;
-        this.c = tTRewardVideoAd;
-        this.d = str;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdClose() {
+    @Override // com.repackage.of9
+    public void d(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClose();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.e.onAdShow(this.c, this.a, this.d);
-            this.a = true;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdVideoBarClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClicked(this.b, this.d);
-            this.b = true;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify(boolean z, int i, String str, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
-            LogPrinter.d("onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2);
-            this.e.onRewardedVideo(z, this.d);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onSkippedVideo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.e("CSJRewardVideoAd onSkippedVideo", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onVideoComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onVideoError() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LogPrinter.d();
-            this.e.onAdError(0, "F:onVideoError");
+        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
+            AdSlot.Builder downloadType = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType);
+            Ssp.Pid pid = this.mPid;
+            this.i.loadFeedAd(downloadType.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 }

@@ -77,9 +77,9 @@ public class f88 extends BaseAdapter {
             if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
                 if (z) {
                     this.a.b = personPostModel;
-                    Iterator<uo> it = this.a.b.postList.iterator();
+                    Iterator<ro> it = this.a.b.postList.iterator();
                     while (it.hasNext()) {
-                        uo next = it.next();
+                        ro next = it.next();
                         if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                             it.remove();
                         }
@@ -129,11 +129,11 @@ public class f88 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091898) {
+                if (id == R.id.obfuscated_res_0x7f0918f0) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if (id == R.id.obfuscated_res_0x7f0922c7) {
+                } else if (id == R.id.obfuscated_res_0x7f09231d) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if ((id == R.id.obfuscated_res_0x7f090f72 || id == R.id.obfuscated_res_0x7f091619 || id == R.id.obfuscated_res_0x7f090f68 || id == R.id.obfuscated_res_0x7f091a4d) && (strArr = (String[]) view2.getTag()) != null) {
+                } else if ((id == R.id.obfuscated_res_0x7f090f7f || id == R.id.obfuscated_res_0x7f091636 || id == R.id.obfuscated_res_0x7f090f75 || id == R.id.obfuscated_res_0x7f091a9b) && (strArr = (String[]) view2.getTag()) != null) {
                     if (!"0".equals(strArr[2]) && strArr[1] != null) {
                         SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.a.f.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
                         createSubPbActivityConfig.setKeyPageStartFrom(4);
@@ -176,12 +176,12 @@ public class f88 extends BaseAdapter {
                     return;
                 }
             }
-            this.t = view2.findViewById(R.id.obfuscated_res_0x7f0917a0);
+            this.t = view2.findViewById(R.id.obfuscated_res_0x7f0917df);
             this.i.setIsRound(true);
-            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906e8);
+            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906e3);
             this.r = replyLinearLayout;
             replyLinearLayout.setPageContext(tbPageContext);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091619);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091636);
             this.s = textView;
             textView.setOnClickListener(this);
             this.e.setVisibility(8);
@@ -192,11 +192,11 @@ public class f88 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 super.a(i);
-                vr4 d = vr4.d(this.s);
+                gs4 d = gs4.d(this.s);
                 d.v(R.color.CAM_X0107);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
-                vr4 d2 = vr4.d(this.t);
+                gs4 d2 = gs4.d(this.t);
                 d2.n(R.string.J_X05);
                 d2.f(R.color.CAM_X0201);
             }
@@ -266,7 +266,7 @@ public class f88 extends BaseAdapter {
                     for (int i3 = 0; i3 < length2; i3++) {
                         stringBuffer.append(h.content[i2].post_content[i3].text);
                     }
-                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(h.thread_id), String.valueOf(h.content[i2].post_id), String.valueOf(h.content[i2].post_type), StringHelper.getFormatTime(h.content[i2].create_time * 1000) + (h.content[i2].is_author_view == 1 ? " " + viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0c7b) : ""), String.valueOf(h.thread_type)});
+                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(h.thread_id), String.valueOf(h.content[i2].post_id), String.valueOf(h.content[i2].post_type), StringHelper.getFormatTime(h.content[i2].create_time * 1000) + (h.content[i2].is_author_view == 1 ? " " + viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0c94) : ""), String.valueOf(h.thread_type)});
                 }
             }
             cVar.r.setPost(h);
@@ -298,7 +298,7 @@ public class f88 extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
-        ArrayList<uo> arrayList;
+        ArrayList<ro> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             PersonPostModel personPostModel = this.b;
@@ -337,7 +337,7 @@ public class f88 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06d6, viewGroup, false);
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06ce, viewGroup, false);
                 cVar = new c(view2, this.f);
                 view2.setTag(cVar);
             } else {

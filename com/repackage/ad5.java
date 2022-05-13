@@ -1,27 +1,40 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class ad5<T> {
+public class ad5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ad5() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return false;
             }
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf <= 0 || indexOf >= 20) {
+                int indexOf2 = str.indexOf("tiebapic");
+                return indexOf2 > 0 && indexOf2 < 20;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public abstract T doInBackground();
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c() : invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? FileHelper.checkSD() && lb.c() : invokeV.booleanValue;
+    }
 }

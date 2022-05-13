@@ -1,91 +1,94 @@
 package com.repackage;
 
-import android.net.Uri;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zm5 extends ShareItem {
+public class zm5 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public zm5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zm5(r13 r13Var) {
+        super(r13Var, "/swan/publishThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.u0 : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.t0 : (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s0 : (String) invokeV.objValue;
-    }
-
-    public JSONArray o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.v0 : (JSONArray) invokeV.objValue;
-    }
-
-    public void p(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            this.n0 = true;
-            this.r = jSONObject.getString("title");
-            this.t = jSONObject.getString("linkUrl");
-            this.s = jSONObject.optString("content");
-            this.w = jSONObject.optString("imageUrl");
-            this.s0 = jSONObject.optString("mediaType");
-            String optString = StringUtils.isNull(this.w) ? jSONObject.optString("iconUrl") : this.w;
-            this.w = optString;
-            this.v = Uri.parse(optString);
-            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
-            if (optJSONObject != null) {
-                this.o0 = optJSONObject.optString("source2");
-                this.q0 = optJSONObject.optString("source3");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
-            if (optJSONObject2 != null) {
-                this.p0 = 2;
-                this.v0 = optJSONObject2.optJSONArray("cmd_pannel");
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
-                this.w0 = optJSONObject3;
-                if (optJSONObject3 != null) {
-                    this.t0 = optJSONObject3.optString("key");
-                    this.u0 = this.w0.optString("content");
-                    return;
-                }
                 return;
             }
-            this.p0 = "url".equals(jSONObject.optString("type")) ? 1 : 3;
         }
+    }
+
+    public static boolean j(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("path");
+                if (StringUtils.isNull(optString)) {
+                    String optString2 = jSONObject.optString("appid");
+                    if (StringUtils.isNull(optString2)) {
+                        return false;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, vl5.a(optString2, "", "", 0)));
+                    return true;
+                }
+                String substring = optString.substring(39);
+                if (StringUtils.isNull(substring)) {
+                    return false;
+                }
+                JSONObject jSONObject2 = new JSONObject(li.getUrlDecode(substring));
+                String optString3 = jSONObject2.optString("third_app_id");
+                String optString4 = jSONObject2.optString("third_app_name");
+                String optString5 = jSONObject2.optString("third_app_pic");
+                String optString6 = jSONObject2.optString("third_app_link");
+                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
+                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            j(context, unitedSchemeEntity.getParam("params"));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

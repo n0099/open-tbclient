@@ -1,110 +1,107 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.CardForum;
-import tbclient.Personalized.PersonalForum;
 /* loaded from: classes6.dex */
-public class lz6 extends dy5 implements ly5 {
+public class lz6 extends s78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardForum e;
+    public ThreadData P0;
 
-    public lz6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lz6(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        m0(true);
     }
 
-    public static boolean q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.ly5
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.showTopDivider = z;
-        }
-    }
-
-    @Override // com.repackage.ly5
-    public int getPosition() {
+    @Override // com.repackage.u78
+    public int b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CardForum cardForum = this.e;
-            if (cardForum != null) {
-                return cardForum.position.intValue();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.ly5
-    public boolean l() {
+    @Override // com.repackage.u78, com.repackage.r78
+    public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.isPlaying() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.u78, com.repackage.r78
+    public boolean onBackground(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? super.onBackground(z) : invokeZ.booleanValue;
+    }
+
+    @Override // com.repackage.s78, com.repackage.u78, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            startPlay();
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean r() {
-        InterceptResult invokeV;
+    @Override // com.repackage.s78, com.repackage.u78, com.repackage.r78
+    public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(getDataList()) > 0 : invokeV.booleanValue;
-    }
-
-    public void s(CardForum cardForum) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) || cardForum == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null) {
             return;
         }
-        this.e = cardForum;
-        this.mGroupTitle = cardForum.card_title;
-        if (cardForum.position != null) {
-            m(i() + cardForum.position.intValue());
-        } else {
-            m(i() + 0);
-        }
-        if (ListUtils.getCount(cardForum.forum_list) > 0) {
-            for (PersonalForum personalForum : cardForum.forum_list) {
-                if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
-                    cy5 cy5Var = new cy5();
-                    cy5Var.b = personalForum.avatar;
-                    cy5Var.c = personalForum.forum_name;
-                    cy5Var.d = mg.e("" + personalForum.forum_id, -1);
-                    cy5Var.e = personalForum.is_like.intValue() == 1;
-                    e(cy5Var);
-                }
-            }
+        super.setData(threadData);
+        ThreadData threadData2 = this.P0;
+        this.P0 = threadData;
+    }
+
+    @Override // com.repackage.u78, com.repackage.r78
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            super.setUniqueId(bdUniqueId);
         }
     }
 
-    @Override // com.repackage.ly5
-    public void t(boolean z) {
+    @Override // com.repackage.u78, com.repackage.r78
+    public void startPlay() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.showBottomDivider = z;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.startPlay();
+        }
+    }
+
+    @Override // com.repackage.u78, com.repackage.r78
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.stopPlay();
         }
     }
 }

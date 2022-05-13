@@ -1,39 +1,22 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class x25 implements y25 {
+public class x25 {
     public static /* synthetic */ Interceptable $ic;
+    public static x25 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
+    public int a;
 
-    public x25(Context context) {
+    public x25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,43 +26,35 @@ public class x25 implements y25 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029e, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909e1);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e3);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909df);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909e2);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06c9);
-        b();
+        this.a = 0;
     }
 
-    @Override // com.repackage.y25
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(com.kuaishou.weapon.un.w0.A).tlRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL));
-    }
-
-    @Override // com.repackage.y25
-    public View getView() {
+    public static x25 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (x25.class) {
+                    if (b == null) {
+                        b = new x25();
+                    }
+                }
+            }
+            return b;
         }
-        return (View) invokeV.objValue;
+        return (x25) invokeV.objValue;
     }
 
-    @Override // com.repackage.y25
-    public void onClick() {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
     }
 }

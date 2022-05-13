@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vl5;
+import com.repackage.wl5;
 /* loaded from: classes2.dex */
 public class InitSwanAppTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class InitSwanAppTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vl5.a();
+            wl5.a();
         }
     }
 

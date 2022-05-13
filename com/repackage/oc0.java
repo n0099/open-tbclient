@@ -1,8 +1,5 @@
 package com.repackage;
 
-import android.opengl.EGL14;
-import android.opengl.EGLSurface;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,11 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class oc0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String c = "oc0";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nc0 a;
-    public EGLSurface b;
+    public qc0 a;
+    public uc0 b;
+    public bd0 c;
 
     static {
         InterceptResult invokeClinit;
@@ -34,12 +31,12 @@ public class oc0 {
         }
     }
 
-    public oc0(nc0 nc0Var) {
+    public oc0(bd0 bd0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nc0Var};
+            Object[] objArr = {bd0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,54 +46,98 @@ public class oc0 {
                 return;
             }
         }
-        this.b = EGL14.EGL_NO_SURFACE;
-        this.a = nc0Var;
+        this.c = bd0Var;
+        this.a = new qc0(bd0Var.f(), 1);
+        d();
     }
 
-    public void a(Object obj) {
+    public final void a(uc0 uc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            if (this.b == EGL14.EGL_NO_SURFACE) {
-                this.b = this.a.b(obj);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uc0Var) == null) {
+            if (uc0Var == null) {
+                this.b = new tc0();
+            } else {
+                this.b = uc0Var;
             }
-            throw new IllegalStateException("surface already created");
+            this.b.b(this.c.j(), this.c.i());
         }
     }
 
-    public void b(nc0 nc0Var) {
+    public void b(long j) {
+        bd0 bd0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nc0Var) == null) || nc0Var.d(this.b)) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.b == null || (bd0Var = this.c) == null) {
             return;
         }
-        nc0Var.e(this.b);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.g(this.b);
-            this.b = EGL14.EGL_NO_SURFACE;
+        if (bd0Var.l()) {
+            d();
         }
-    }
-
-    public void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.a.h(this.b, j);
+        if (j != 0) {
+            this.c.h().h(j);
         }
+        this.b.a(this.c.e(), this.c.h());
     }
 
-    public boolean e() {
+    public qc0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            boolean i = this.a.i(this.b);
-            if (!i) {
-                Log.d(c, "WARNING: swapBuffers() failed");
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (qc0) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            float[] b = this.c.h().b();
+            dd0.b(b);
+            zc0 c = this.c.c();
+            dd0.e(b, c.g(), c.h());
+            dd0.a(b, c.d());
+            dd0.c(b, c.b());
+            if ((c.f() + 360) % 180 == 0) {
+                dd0.d(b, this.c.j(), this.c.i(), c.e(), c.c());
+                return;
             }
-            return i;
+            xc0 clone = this.c.i().clone();
+            clone.e(this.c.i().b());
+            clone.d(this.c.i().c());
+            dd0.d(b, this.c.j(), clone, c.e(), c.c());
         }
-        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            uc0 uc0Var = this.b;
+            if (uc0Var != null) {
+                uc0Var.release();
+                this.b = null;
+            }
+            qc0 qc0Var = this.a;
+            if (qc0Var != null) {
+                qc0Var.f();
+                this.a = null;
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            uc0 g = this.c.g();
+            this.b = g;
+            a(g);
+        }
+    }
+
+    public void g(uc0 uc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, uc0Var) == null) {
+            bd0 bd0Var = this.c;
+            if (bd0Var != null) {
+                bd0Var.o(uc0Var);
+            }
+            this.b.release();
+            a(uc0Var);
+        }
     }
 }

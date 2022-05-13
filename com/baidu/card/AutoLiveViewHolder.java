@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kd5;
+import com.repackage.de5;
 import com.repackage.w68;
 /* loaded from: classes.dex */
 public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements w68 {
@@ -125,7 +125,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements w68 {
     public void startPlay() {
         TbLiveContainer tbLiveContainer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (tbLiveContainer = this.a) != null && kd5.d(tbLiveContainer.getContext())) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (tbLiveContainer = this.a) != null && de5.d(tbLiveContainer.getContext())) {
             this.a.startPlay();
         }
     }

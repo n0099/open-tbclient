@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gz;
-import com.repackage.pg;
-import com.repackage.r07;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.ng;
+import com.repackage.py;
+import com.repackage.rz6;
 /* loaded from: classes3.dex */
-public class PostAnimateFloatView extends FrameLayout implements gz {
+public class PostAnimateFloatView extends FrameLayout implements py {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                r07.f();
+                rz6.f();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -280,7 +280,7 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.d) {
                 this.a.e = false;
-                pg.a().postDelayed(this.a.i, 5000L);
+                ng.a().postDelayed(this.a.i, 5000L);
             }
         }
 
@@ -356,19 +356,19 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
                 valueAnimator2.removeAllUpdateListeners();
                 this.g.removeAllListeners();
             }
-            pg.a().removeCallbacks(this.i);
+            ng.a().removeCallbacks(this.i);
         }
     }
 
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04af, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ac8);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918a8);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c4);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04a4, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b16);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091900);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09191c);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0e9f));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ebd));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -412,13 +412,13 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
         }
     }
 
-    @Override // com.repackage.gz
+    @Override // com.repackage.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08091e, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -426,7 +426,7 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                vr4 d2 = vr4.d(linearLayout);
+                gs4 d2 = gs4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

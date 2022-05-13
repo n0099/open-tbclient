@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j68 extends tw5<h58> implements View.OnClickListener {
+public class j68 extends uw5<h58> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -44,14 +44,14 @@ public class j68 extends tw5<h58> implements View.OnClickListener {
         s(k());
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b3 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -79,17 +79,17 @@ public class j68 extends tw5<h58> implements View.OnClickListener {
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090577);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f092098);
-            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091329);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915fb);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090535);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090574);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f0920f3);
+            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091338);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091613);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090532);
             this.l.setOnClickListener(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: t */
     public void l(h58 h58Var) {
         Interceptable interceptable = $ic;

@@ -48,7 +48,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.r();
+                this.a.u();
             }
         }
 
@@ -56,7 +56,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.s();
+                this.a.v();
                 if (this.a.b) {
                     this.a.b = false;
                 }
@@ -69,7 +69,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.a.t();
+                this.a.w();
                 if (this.a.b) {
                     this.a.cancelAnimation();
                     this.a.b = false;
@@ -81,7 +81,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.u();
+                this.a.x();
                 this.a.a = true;
             }
         }
@@ -155,7 +155,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     }
 
     @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
-    public void e() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
@@ -181,17 +181,26 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         return (View) invokeV.objValue;
     }
 
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            addAnimatorListener(new a(this));
+            loop(true);
+            setFrame(0);
+        }
+    }
+
     @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
     public void onFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.a) {
             this.b = true;
         }
     }
@@ -199,7 +208,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     @Override // com.airbnb.lottie.LottieAnimationView
     public void playAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (isAnimating()) {
                 cancelAnimation();
             }
@@ -208,36 +217,27 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         }
     }
 
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    public final void s() {
+    public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    public final void t() {
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
-    public final void u() {
+    public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
-    public final void v() {
+    public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            addAnimatorListener(new a(this));
-            loop(true);
-            setFrame(0);
         }
     }
 
@@ -283,6 +283,6 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
         }
         this.a = false;
         this.b = false;
-        v();
+        init();
     }
 }

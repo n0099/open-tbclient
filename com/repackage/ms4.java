@@ -1,18 +1,88 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.Message;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ms4 {
+public class ms4 implements ks4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Message<?> message) {
+    public ms4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, message) == null) {
-            MessageManager.getInstance().sendMessage(message);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
+    }
+
+    @Override // com.repackage.ks4
+    public ns4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ns4 ns4Var = new ns4();
+            ns4Var.c(R.drawable.obfuscated_res_0x7f080683);
+            ns4Var.g(R.drawable.obfuscated_res_0x7f080684);
+            ns4Var.h(R.dimen.obfuscated_res_0x7f07027c);
+            ns4Var.d(81);
+            ns4Var.e(R.dimen.obfuscated_res_0x7f07027c);
+            return ns4Var;
+        }
+        return (ns4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ks4
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ks4
+    public ps4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ps4 ps4Var = new ps4();
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            if (resources != null) {
+                ps4Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a5));
+            }
+            return ps4Var;
+        }
+        return (ps4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ks4
+    public TbImageView d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TbImageView tbImageView = new TbImageView(context);
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbImageView.setGifIconSupport(false);
+            return tbImageView;
+        }
+        return (TbImageView) invokeL.objValue;
     }
 }

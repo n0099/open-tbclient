@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa1;
+import com.repackage.la1;
 /* loaded from: classes2.dex */
 public class SwitchButton extends CompoundButton {
     public static /* synthetic */ Interceptable $ic;
@@ -381,7 +381,7 @@ public class SwitchButton extends CompoundButton {
             duration.setInterpolator(new AccelerateDecelerateInterpolator());
             this.H = new RectF();
             float f12 = getResources().getDisplayMetrics().density * 2.0f;
-            TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040396, R.attr.obfuscated_res_0x7f040397, R.attr.obfuscated_res_0x7f040398, R.attr.obfuscated_res_0x7f040399, R.attr.obfuscated_res_0x7f04039a, R.attr.obfuscated_res_0x7f04039b, R.attr.obfuscated_res_0x7f04039c, R.attr.obfuscated_res_0x7f04039d, R.attr.obfuscated_res_0x7f04039e, R.attr.obfuscated_res_0x7f04039f, R.attr.obfuscated_res_0x7f0403a0, R.attr.obfuscated_res_0x7f0403a1, R.attr.obfuscated_res_0x7f0403a2, R.attr.obfuscated_res_0x7f0403a3, R.attr.obfuscated_res_0x7f0403a4, R.attr.obfuscated_res_0x7f0403a5, R.attr.obfuscated_res_0x7f0403a6, R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403a9, R.attr.obfuscated_res_0x7f0403aa, R.attr.obfuscated_res_0x7f0403ab});
+            TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04039a, R.attr.obfuscated_res_0x7f04039b, R.attr.obfuscated_res_0x7f04039c, R.attr.obfuscated_res_0x7f04039d, R.attr.obfuscated_res_0x7f04039e, R.attr.obfuscated_res_0x7f04039f, R.attr.obfuscated_res_0x7f0403a0, R.attr.obfuscated_res_0x7f0403a1, R.attr.obfuscated_res_0x7f0403a2, R.attr.obfuscated_res_0x7f0403a3, R.attr.obfuscated_res_0x7f0403a4, R.attr.obfuscated_res_0x7f0403a5, R.attr.obfuscated_res_0x7f0403a6, R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403a9, R.attr.obfuscated_res_0x7f0403aa, R.attr.obfuscated_res_0x7f0403ab, R.attr.obfuscated_res_0x7f0403ac, R.attr.obfuscated_res_0x7f0403ad, R.attr.obfuscated_res_0x7f0403ae, R.attr.obfuscated_res_0x7f0403af});
             if (obtainStyledAttributes2 != null) {
                 drawable = obtainStyledAttributes2.getDrawable(11);
                 ColorStateList colorStateList4 = obtainStyledAttributes2.getColorStateList(10);
@@ -484,7 +484,7 @@ public class SwitchButton extends CompoundButton {
                 this.k = 3309506;
             }
             if (!this.C && this.d == null) {
-                ColorStateList b = aa1.b(this.k);
+                ColorStateList b = la1.b(this.k);
                 this.d = b;
                 this.p = b.getDefaultColor();
             }
@@ -495,7 +495,7 @@ public class SwitchButton extends CompoundButton {
             boolean z5 = drawable2 != null;
             this.D = z5;
             if (!z5 && this.c == null) {
-                ColorStateList a2 = aa1.a(this.k);
+                ColorStateList a2 = la1.a(this.k);
                 this.c = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.q = defaultColor;
@@ -1362,8 +1362,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.k = i;
-            this.d = aa1.b(i);
-            this.c = aa1.a(this.k);
+            this.d = la1.b(i);
+            this.c = la1.a(this.k);
             this.D = false;
             this.C = false;
             refreshDrawableState();

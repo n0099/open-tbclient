@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.db;
-import com.repackage.jh;
-import com.repackage.lf;
-import com.repackage.of;
+import com.repackage.hh;
+import com.repackage.mf;
+import com.repackage.pf;
 import com.repackage.r9;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -73,8 +73,8 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final of c;
-        public volatile lf d;
+        public final pf c;
+        public volatile mf d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new of();
+            this.c = new pf();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -136,15 +136,15 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                 }
                 List<Map.Entry<String, Object>> encodeInBackGround = this.a.encodeInBackGround();
                 long currentTimeMillis = System.currentTimeMillis();
-                this.c.b().t(this.b.getUrl());
-                this.c.b().r(this.b.getMethod());
-                this.c.b().q(this.a.getHeaders());
-                this.c.b().s(encodeInBackGround);
+                this.c.b().v(this.b.getUrl());
+                this.c.b().t(this.b.getMethod());
+                this.c.b().r(this.a.getHeaders());
+                this.c.b().u(encodeInBackGround);
                 int a = this.b.getTimeOut().a();
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new lf(this.c);
+                    this.d = new mf(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
@@ -191,7 +191,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                             String url = this.b.getUrl();
                             boolean isSuccess = newInstance.isSuccess();
                             db dbVar = newInstance.performanceData;
-                            jh.a(str, cmd, url, isSuccess, true, j2, j11, dbVar.g, j3, j4, dbVar.i);
+                            hh.a(str, cmd, url, isSuccess, true, j2, j11, dbVar.g, j3, j4, dbVar.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -202,7 +202,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                                 BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                             }
                             ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                            jh.a(str, cmd, this.b.getUrl(), false, true, j8, 0L, 0L, 0L, 0L, 0);
+                            hh.a(str, cmd, this.b.getUrl(), false, true, j8, 0L, 0L, 0L, 0L, 0);
                             return errorHttpResponsedMessage;
                         }
                     }
@@ -256,14 +256,14 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                             j2 = j8;
                             j4 = j;
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f059f));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a5));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
                             String url2 = this.b.getUrl();
                             boolean isSuccess2 = newInstance.isSuccess();
                             db dbVar2 = newInstance.performanceData;
-                            jh.a(str, cmd, url2, isSuccess2, true, j2, j11, dbVar2.g, j3, j4, dbVar2.i);
+                            hh.a(str, cmd, url2, isSuccess2, true, j2, j11, dbVar2.g, j3, j4, dbVar2.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -283,14 +283,14 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                     } catch (Exception e8) {
                         e = e8;
                         newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f059f));
+                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a5));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }
                         String url22 = this.b.getUrl();
                         boolean isSuccess22 = newInstance.isSuccess();
                         db dbVar22 = newInstance.performanceData;
-                        jh.a(str, cmd, url22, isSuccess22, true, j2, j11, dbVar22.g, j3, j4, dbVar22.i);
+                        hh.a(str, cmd, url22, isSuccess22, true, j2, j11, dbVar22.g, j3, j4, dbVar22.i);
                         newInstance.logStatInBackground(this.a.getCmd(), this.c);
                         newInstance.setStartTime(System.currentTimeMillis());
                         publishProgress(newInstance);
@@ -306,7 +306,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                 String url222 = this.b.getUrl();
                 boolean isSuccess222 = newInstance.isSuccess();
                 db dbVar222 = newInstance.performanceData;
-                jh.a(str, cmd, url222, isSuccess222, true, j2, j11, dbVar222.g, j3, j4, dbVar222.i);
+                hh.a(str, cmd, url222, isSuccess222, true, j2, j11, dbVar222.g, j3, j4, dbVar222.i);
                 newInstance.logStatInBackground(this.a.getCmd(), this.c);
                 newInstance.setStartTime(System.currentTimeMillis());
                 publishProgress(newInstance);

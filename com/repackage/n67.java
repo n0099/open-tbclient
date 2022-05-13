@@ -1,304 +1,215 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.db.pojo.OldUserData;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.data.UpdatesItemData;
+import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class n67 {
+public class n67 extends z8<UpdatesActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public UpdatesActivity c;
+    public BdListView d;
+    public l67 e;
+    public ProgressBar f;
+    public Button g;
+    public Button h;
+    public Button i;
+    public NavigationBar j;
+    public View k;
+    public View l;
 
-    public static void a(LinkedList<ImMessageCenterPojo> linkedList, ImMessageCenterPojo imMessageCenterPojo) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n67(UpdatesActivity updatesActivity) {
+        super(updatesActivity.getPageContext());
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, linkedList, imMessageCenterPojo) == null) || linkedList == null || imMessageCenterPojo == null) {
-            return;
-        }
-        int i = 0;
-        int size = linkedList.size();
-        while (i < size) {
-            ImMessageCenterPojo imMessageCenterPojo2 = linkedList.get(i);
-            if (imMessageCenterPojo2 != null && imMessageCenterPojo.getLast_content_time() > imMessageCenterPojo2.getLast_content_time()) {
-                break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {updatesActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((b9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            i++;
         }
-        linkedList.add(i, imMessageCenterPojo);
+        this.c = updatesActivity;
+        n();
+        l67 l67Var = new l67(this.c);
+        this.e = l67Var;
+        this.d.setAdapter((ListAdapter) l67Var);
+        this.d.setOnScrollListener(this.c);
     }
 
-    public static void b() {
-        LinkedList<ImMessageCenterPojo> e;
-        long j;
-        String str;
-        ImMessageCenterPojo imMessageCenterPojo;
-        ImMessageCenterPojo fromCommonMsg;
+    @Override // com.repackage.z8
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (e = m67.f().e()) == null || e.size() == 0) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.destroy();
+            l67 l67Var = this.e;
+            if (l67Var != null) {
+                l67Var.a();
+                this.e = null;
+            }
+            this.c = null;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.g.setVisibility(0);
+            this.b.setVisibility(0);
+            this.h.setVisibility(8);
+            this.k.setVisibility(8);
+            r(0);
+            o();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g.setVisibility(8);
+            this.b.setVisibility(8);
+            this.h.setVisibility(0);
+            this.k.setVisibility(0);
+            o();
+        }
+    }
+
+    public View h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public Button i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (Button) invokeV.objValue;
+    }
+
+    public Button j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (Button) invokeV.objValue;
+    }
+
+    public Button k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (Button) invokeV.objValue;
+    }
+
+    public l67 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (l67) invokeV.objValue;
+    }
+
+    public BdListView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (BdListView) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            View inflate = View.inflate(this.c.getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d084c, null);
+            this.a = inflate;
+            this.c.setContentView(inflate);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.j = navigationBar;
+            this.b = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.j.setTitleText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14bf));
+            this.k = this.j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d084d, (View.OnClickListener) null);
+            this.l = this.j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d084e, (View.OnClickListener) null);
+            Button button = (Button) this.k.findViewById(R.id.obfuscated_res_0x7f090416);
+            this.i = button;
+            button.setOnClickListener(this.c);
+            this.b.setOnClickListener(this.c);
+            this.d = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0922c4);
+            this.f = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091960);
+            Button button2 = (Button) this.l.findViewById(R.id.obfuscated_res_0x7f090417);
+            this.g = button2;
+            button2.setOnClickListener(this.c);
+            Button button3 = (Button) this.l.findViewById(R.id.obfuscated_res_0x7f09040e);
+            this.h = button3;
+            button3.setOnClickListener(this.c);
+            r(0);
+            s(false);
+        }
+    }
+
+    public void o() {
+        l67 l67Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (l67Var = this.e) == null) {
             return;
         }
-        BdLog.i("upgradeData");
-        LinkedList linkedList = new LinkedList();
-        LinkedList linkedList2 = new LinkedList();
-        long j2 = 0;
-        int i = 0;
-        for (String str2 : p67.t().h()) {
-            if (!TextUtils.isEmpty(str2)) {
-                long i2 = p67.t().i(str2);
-                if (j2 < i2) {
-                    j2 = i2;
-                }
-                CommonMsgPojo j3 = p67.t().j(str2);
-                if (j3 != null && (fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(j3)) != null) {
-                    if (fromCommonMsg.getIsFriend() == 0 && fromCommonMsg.getUnread_count() > 0) {
-                        i = 1;
-                    }
-                    fromCommonMsg.setUnread_count(p67.t().l(str2));
-                    a(linkedList, fromCommonMsg);
-                }
-            }
+        l67Var.notifyDataSetChanged();
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.c.getLayoutMode().k(i == 1);
+            this.c.getLayoutMode().j(this.a);
+            this.j.onChangeSkinType(this.c.getPageContext(), i);
+            SkinManager.setBackgroundResource(this.i, R.drawable.btn_delete_groupupdates);
         }
-        int i3 = 0;
-        for (String str3 : o67.t().h()) {
-            if (!TextUtils.isEmpty(str3)) {
-                long i4 = o67.t().i(str3);
-                if (j2 < i4) {
-                    j2 = i4;
-                }
-                CommonMsgPojo j4 = o67.t().j(str3);
-                if (j4 != null) {
-                    j4.checkRidAndSelf();
-                    ImMessageCenterPojo fromCommonMsg2 = ImMessageCenterPojo.fromCommonMsg(j4);
-                    if (fromCommonMsg2 != null) {
-                        int l = o67.t().l(str3);
-                        fromCommonMsg2.setUnread_count(l);
-                        if (l > 0) {
-                            i3 = 1;
-                        }
-                        a(linkedList2, fromCommonMsg2);
-                    }
-                }
-            }
+    }
+
+    public void q(List<UpdatesItemData> list) {
+        l67 l67Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, list) == null) || (l67Var = this.e) == null) {
+            return;
         }
-        Iterator<ImMessageCenterPojo> it = e.iterator();
-        ImMessageCenterPojo imMessageCenterPojo2 = null;
-        ImMessageCenterPojo imMessageCenterPojo3 = null;
-        ImMessageCenterPojo imMessageCenterPojo4 = null;
-        ImMessageCenterPojo imMessageCenterPojo5 = null;
-        ImMessageCenterPojo imMessageCenterPojo6 = null;
-        ImMessageCenterPojo imMessageCenterPojo7 = null;
-        while (it.hasNext()) {
-            ImMessageCenterPojo next = it.next();
-            if (next != null && next.getGid() != null) {
-                if (next.getGid().equals(TbEnum.CustomGroupId.OFFICIAL_MERGE)) {
-                    imMessageCenterPojo2 = next;
-                } else if (next.getGid().equals(TbEnum.CustomGroupId.STRANGE_MERGE)) {
-                    imMessageCenterPojo3 = next;
-                } else if (next.getCustomGroupType() == 0 && next.getGroup_name() != null && next.getGroup_name().equals("系统消息群")) {
-                    imMessageCenterPojo4 = next;
-                } else if (next.getGid().equals("9") && next.getCustomGroupType() == 5) {
-                    imMessageCenterPojo5 = next;
-                } else if (next.getGid().equals("10") && next.getCustomGroupType() == 6) {
-                    imMessageCenterPojo6 = next;
-                } else if (next.getGroup_name() != null && next.getGroup_name().equals("我的私聊") && next.getCustomGroupType() == 2) {
-                    imMessageCenterPojo7 = next;
-                }
-            }
+        l67Var.c(list);
+    }
+
+    public void r(int i) {
+        Button button;
+        UpdatesActivity updatesActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (button = this.i) == null || (updatesActivity = this.c) == null) {
+            return;
         }
-        if (imMessageCenterPojo2 == null) {
-            imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
-            imMessageCenterPojo2.setCustomGroupType(-8);
-            imMessageCenterPojo2.setIs_hidden(1);
-            imMessageCenterPojo2.setUnread_count(0);
+        button.setText(String.format(updatesActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0493), Integer.valueOf(i)));
+        if (i == 0) {
+            this.i.setEnabled(false);
         } else {
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
-            imMessageCenterPojo2.setCustomGroupType(-8);
-            imMessageCenterPojo2.setUnread_count(i3);
-            e.remove(imMessageCenterPojo2);
+            this.i.setEnabled(true);
         }
-        if (linkedList2.size() > 0) {
-            imMessageCenterPojo2.setLast_content(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content());
-            j = j2;
-            imMessageCenterPojo2.setLast_content_time(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content_time());
-            imMessageCenterPojo2.setLast_rid(((ImMessageCenterPojo) linkedList2.get(0)).getLast_rid());
-            imMessageCenterPojo2.setLast_user_name(((ImMessageCenterPojo) linkedList2.get(0)).getLast_user_name());
-        } else {
-            j = j2;
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.f.setVisibility(z ? 0 : 8);
         }
-        m67.f().n(imMessageCenterPojo2, 2);
-        if (linkedList2.size() > 0) {
-            Iterator it2 = linkedList2.iterator();
-            while (it2.hasNext()) {
-                ImMessageCenterPojo imMessageCenterPojo8 = (ImMessageCenterPojo) it2.next();
-                imMessageCenterPojo8.setCustomGroupType(4);
-                Iterator<ImMessageCenterPojo> it3 = e.iterator();
-                while (true) {
-                    if (it3.hasNext()) {
-                        ImMessageCenterPojo next2 = it3.next();
-                        if (next2.getGid() != null && next2.getGid().equals(imMessageCenterPojo8.getGid())) {
-                            imMessageCenterPojo8.setIs_hidden(next2.getIs_hidden());
-                            break;
-                        }
-                    }
-                }
-                m67.f().n(imMessageCenterPojo8, 2);
-            }
-        }
-        if (linkedList.size() > 0) {
-            Iterator it4 = linkedList.iterator();
-            while (it4.hasNext()) {
-                ImMessageCenterPojo imMessageCenterPojo9 = (ImMessageCenterPojo) it4.next();
-                imMessageCenterPojo9.setCustomGroupType(2);
-                Iterator<ImMessageCenterPojo> it5 = e.iterator();
-                while (true) {
-                    if (it5.hasNext()) {
-                        ImMessageCenterPojo next3 = it5.next();
-                        if (next3.getGid() != null && next3.getGid().equals(imMessageCenterPojo9.getGid())) {
-                            imMessageCenterPojo9.setIs_hidden(next3.getIs_hidden());
-                            break;
-                        }
-                    }
-                }
-                m67.f().n(imMessageCenterPojo9, 2);
-            }
-        }
-        if (imMessageCenterPojo3 == null) {
-            imMessageCenterPojo3 = new ImMessageCenterPojo();
-            imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
-            imMessageCenterPojo3.setCustomGroupType(-7);
-            imMessageCenterPojo3.setIs_hidden(1);
-            imMessageCenterPojo3.setUnread_count(0);
-        } else {
-            imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
-            imMessageCenterPojo3.setCustomGroupType(-7);
-            imMessageCenterPojo3.setUnread_count(i);
-            e.remove(imMessageCenterPojo3);
-        }
-        if (linkedList.size() > 0) {
-            Iterator it6 = linkedList.iterator();
-            while (true) {
-                if (!it6.hasNext()) {
-                    imMessageCenterPojo = null;
-                    break;
-                }
-                ImMessageCenterPojo imMessageCenterPojo10 = (ImMessageCenterPojo) it6.next();
-                if (imMessageCenterPojo10.getIsFriend() == 0) {
-                    imMessageCenterPojo = imMessageCenterPojo10;
-                    break;
-                }
-            }
-            if (imMessageCenterPojo != null) {
-                imMessageCenterPojo3.setLast_content(imMessageCenterPojo.getLast_content());
-                imMessageCenterPojo3.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                imMessageCenterPojo3.setLast_rid(imMessageCenterPojo.getLast_rid());
-                imMessageCenterPojo3.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-            }
-        }
-        m67.f().n(imMessageCenterPojo3, 2);
-        if (imMessageCenterPojo4 == null) {
-            imMessageCenterPojo4 = new ImMessageCenterPojo();
-        } else {
-            m67.f().c(imMessageCenterPojo4.getGid(), 0);
-        }
-        imMessageCenterPojo4.setCustomGroupType(-2);
-        imMessageCenterPojo4.setIs_hidden(1);
-        imMessageCenterPojo4.setPulled_msgId(f67.h().i(imMessageCenterPojo4.getGid()));
-        m67.f().n(imMessageCenterPojo4, 2);
-        if (imMessageCenterPojo5 == null) {
-            imMessageCenterPojo5 = new ImMessageCenterPojo();
-        }
-        imMessageCenterPojo5.setCustomGroupType(5);
-        imMessageCenterPojo5.setIs_hidden(1);
-        imMessageCenterPojo5.setPulled_msgId(f67.h().i(imMessageCenterPojo5.getGid()));
-        m67.f().n(imMessageCenterPojo5, 2);
-        if (imMessageCenterPojo6 == null) {
-            imMessageCenterPojo6 = new ImMessageCenterPojo();
-        }
-        imMessageCenterPojo6.setCustomGroupType(6);
-        imMessageCenterPojo6.setIs_hidden(1);
-        imMessageCenterPojo6.setPulled_msgId(f67.h().i(imMessageCenterPojo6.getGid()));
-        m67.f().n(imMessageCenterPojo6, 2);
-        if (imMessageCenterPojo7 == null) {
-            imMessageCenterPojo7 = new ImMessageCenterPojo();
-        } else {
-            m67.f().c(imMessageCenterPojo7.getGid(), 2);
-        }
-        ImMessageCenterPojo imMessageCenterPojo11 = imMessageCenterPojo7;
-        imMessageCenterPojo11.setCustomGroupType(-1);
-        imMessageCenterPojo11.setIs_hidden(1);
-        imMessageCenterPojo11.setPulled_msgId(j);
-        m67.f().n(imMessageCenterPojo11, 2);
-        ImMessageCenterPojo imMessageCenterPojo12 = new ImMessageCenterPojo();
-        imMessageCenterPojo12.setGid(TbEnum.CustomGroupId.GROUP_UPDATE);
-        imMessageCenterPojo12.setCustomGroupType(-3);
-        imMessageCenterPojo12.setIs_hidden(!vt4.k().h("is_show_updates", true));
-        imMessageCenterPojo12.setUnread_count(g67.f().g("group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change", 1));
-        LinkedList<GroupNewsPojo> c = g67.f().c(0L, 1, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
-        if (c != null && c.size() > 0) {
-            imMessageCenterPojo12.setLast_content(c.get(0).getContent());
-            imMessageCenterPojo12.setLast_content_time(c.get(0).getTime());
-        }
-        m67.f().n(imMessageCenterPojo12, 2);
-        ImMessageCenterPojo imMessageCenterPojo13 = new ImMessageCenterPojo();
-        imMessageCenterPojo13.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
-        imMessageCenterPojo13.setCustomGroupType(-4);
-        imMessageCenterPojo13.setIs_hidden(!vt4.k().h("is_show_validate", true));
-        imMessageCenterPojo13.setUnread_count(g67.f().g("apply_join_group", 1));
-        LinkedList<GroupNewsPojo> c2 = g67.f().c(0L, 1, 0, "apply_join_group");
-        if (c2 != null && c2.size() > 0) {
-            imMessageCenterPojo13.setLast_content(c2.get(0).getContent());
-            imMessageCenterPojo13.setLast_content_time(c2.get(0).getTime());
-        }
-        m67.f().n(imMessageCenterPojo13, 2);
-        Iterator<ImMessageCenterPojo> it7 = e.iterator();
-        while (it7.hasNext()) {
-            ImMessageCenterPojo next4 = it7.next();
-            if (next4 != null && next4.getGid() != null && next4.getCustomGroupType() == 1) {
-                next4.setUnread_count(f67.h().k(next4.getGid()));
-                next4.setPulled_msgId(f67.h().i(next4.getGid()));
-                CommonMsgPojo j5 = f67.h().j(next4.getGid());
-                if (j5 != null) {
-                    j5.checkRidAndSelf();
-                    String u = a97.u(j5.getMsg_type(), j5.getContent());
-                    UserData userData = new UserData();
-                    try {
-                        userData = (UserData) OrmObject.objectWithJsonStr(j5.getUser_info(), UserData.class);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    if (userData != null) {
-                        if (ni.isEmpty(userData.getUserId())) {
-                            OldUserData oldUserData = new OldUserData();
-                            try {
-                                oldUserData = (OldUserData) OrmObject.objectWithJsonStr(j5.getUser_info(), OldUserData.class);
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                            if (oldUserData != null) {
-                                oldUserData.setToUserData(userData);
-                            }
-                        }
-                        str = userData.getName_show();
-                    } else {
-                        str = "";
-                    }
-                    next4.setLast_content(u);
-                    next4.setLast_user_name(str);
-                    next4.setLast_rid(j5.getRid());
-                    next4.setLast_content_time(j5.getCreate_time() * 1000);
-                }
-                m67.f().n(next4, 2);
-            }
-        }
-        k67.d().c("delete from tb_message_center where custom_group_type is null or custom_group_type=0 or gid in (0,2,3,6,11,12)");
     }
 }

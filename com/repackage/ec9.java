@@ -1,74 +1,128 @@
 package com.repackage;
 
+import android.content.Context;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ul9;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public abstract class ec9 {
+public class ec9 extends dc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static double a(String str, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Double.valueOf(d)})) == null) {
-            if (str == null) {
-                return d;
+    /* loaded from: classes5.dex */
+    public class a implements ul9.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicBoolean a;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ ec9 c;
+
+        public a(ec9 ec9Var, AtomicBoolean atomicBoolean, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ec9Var, atomicBoolean, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                return Double.parseDouble(str);
-            } catch (Exception unused) {
-                return d;
+            this.c = ec9Var;
+            this.a = atomicBoolean;
+            this.b = obj;
+        }
+
+        @Override // com.repackage.ul9.c
+        public void a(int i, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
+                this.c.g = i;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
             }
         }
-        return invokeCommon.doubleValue;
+
+        @Override // com.repackage.ul9.c
+        public void b(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+                this.c.d = str;
+                this.c.b = z;
+                this.c.c = true;
+                this.c.g = 0;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
     }
 
-    public static float b(String str, float f) {
-        InterceptResult invokeLF;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ec9(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLF.floatValue;
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -200;
     }
 
-    public static int c(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.repackage.cc9
+    public cc9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n();
+            return this;
         }
-        return invokeLI.intValue;
+        return (cc9) invokeV.objValue;
     }
 
-    public static long d(String str, long j) {
-        InterceptResult invokeLJ;
+    public cc9 n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, str, j)) == null) {
-            if (str == null) {
-                return j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Object obj = new Object();
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            ul9.d(this.a, new a(this, atomicBoolean, obj));
+            synchronized (obj) {
+                if (!atomicBoolean.get()) {
+                    try {
+                        obj.wait(PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+                    } catch (InterruptedException unused) {
+                    }
+                }
             }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
-            }
+            return this;
         }
-        return invokeLJ.longValue;
+        return (cc9) invokeV.objValue;
     }
 }

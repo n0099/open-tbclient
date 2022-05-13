@@ -1,129 +1,51 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.GroupSettingItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.share.ImShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.y77;
 /* loaded from: classes5.dex */
-public class a87 extends z77 {
+public class a87 {
     public static /* synthetic */ Interceptable $ic;
-    public static a87 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImShareDialogView a;
+    public y77 b;
+    public z77 c;
+    public ThreadData d;
+    public ForumData e;
+    public MetaData f;
+    public b g;
 
     /* loaded from: classes5.dex */
-    public class a extends ad5<Boolean> {
+    public class a implements z77 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ a87 d;
-
-        public a(a87 a87Var, String str, String str2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a87Var, str, str2, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = a87Var;
-            this.a = str;
-            this.b = str2;
-            this.c = j;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.ad5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                GroupSettingItemData a = this.d.a(this.a, this.b);
-                if (a != null && a.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.c) {
-                        return Boolean.FALSE;
-                    }
-                }
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ad5<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ a87 c;
-
-        public b(a87 a87Var, GroupSettingItemData groupSettingItemData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a87Var, groupSettingItemData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = a87Var;
-            this.a = groupSettingItemData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends ad5<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ Context a;
         public final /* synthetic */ a87 b;
 
-        public c(a87 a87Var, String str) {
+        public a(a87 a87Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a87Var, str};
+                Object[] objArr = {a87Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -134,183 +56,178 @@ public class a87 extends z77 {
                 }
             }
             this.b = a87Var;
-            this.a = str;
+            this.a = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
+        @Override // com.repackage.z77
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.b.b().remove(this.a);
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755902831, "Lcom/repackage/a87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755902831, "Lcom/repackage/a87;");
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b == null) {
                 return;
             }
+            mi.w(this.a, this.b.a);
+            this.b.b.dismiss();
+            if (this.b.g != null) {
+                this.b.g.onCancel();
+            }
         }
-        b = new a87();
+
+        @Override // com.repackage.z77
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (this.b.d == null) {
+                    if (this.b.e != null) {
+                        d97.a(this.b.e, str, this.b.f.getUserIdLong(), this.b.f.getUserName(), this.b.f.getName_show(), this.b.f.getPortrait(), this.b.f.getIsMyFriend() == 1);
+                        a87 a87Var = this.b;
+                        a87Var.q(1, 0, 3, String.valueOf(a87Var.f.getUserIdLong()));
+                    }
+                } else {
+                    d97.b(this.b.d, str, this.b.f.getUserIdLong(), this.b.f.getUserName(), this.b.f.getName_show(), this.b.f.getPortrait(), this.b.f.getIsMyFriend() == 1);
+                    int i = this.b.d.threadType == 40 ? 2 : 1;
+                    a87 a87Var2 = this.b;
+                    a87Var2.q(1, 0, i, String.valueOf(a87Var2.f.getUserIdLong()));
+                }
+                if (this.b.b != null) {
+                    mi.w(this.a, this.b.a);
+                    this.b.b.dismiss();
+                    if (this.b.g != null) {
+                        this.b.g.b();
+                    }
+                }
+            }
+        }
     }
 
-    public a87() {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void b();
+
+        void onCancel();
+    }
+
+    public a87(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        i(context);
+        j(context);
     }
 
-    public static a87 k() {
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (a87) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.d == null && this.e == null) ? false : true : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.z77
-    public qe<String> b() {
-        InterceptResult invokeV;
+    public final void i(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            br4.f();
-            return br4.g("tb.im_group_setting");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = new a(this, context);
         }
-        return (qe) invokeV.objValue;
     }
 
-    @Override // com.repackage.z77
-    public void h(ChatSetting chatSetting) {
+    public final void j(final Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                qe<String> b2 = b();
-                String str = uid + "@" + gid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-                synchronized (this.a) {
-                    this.a.put(str, groupSettingItemData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            ImShareDialogView imShareDialogView = new ImShareDialogView(context);
+            this.a = imShareDialogView;
+            imShareDialogView.setShareClickCallBack(this.c);
+            y77 y77Var = new y77(context, R.style.obfuscated_res_0x7f100104);
+            this.b = y77Var;
+            y77Var.setContentView(this.a);
+            this.b.a(new y77.a() { // from class: com.repackage.v77
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.repackage.y77.a
+                public final void onClick() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        a87.this.l(context);
+                    }
                 }
-                b2.g(str, jsonStrWithObject);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
+            });
+            Window window = this.b.getWindow();
+            window.addFlags(512);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.y = mi.f(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003ee);
+            window.setGravity(80);
+            window.setLayout(-1, -2);
         }
     }
 
-    @Override // com.repackage.z77
-    public void i(ChatSetting chatSetting, ic5<Void> ic5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, ic5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                String str = uid + "@" + gid;
-                synchronized (this.a) {
-                    this.a.put(str, groupSettingItemData);
-                }
-                dd5.c(new b(this, groupSettingItemData, str), ic5Var);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    public void j(String str, String str2, ic5<Void> ic5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, ic5Var) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        String str3 = str + "@" + str2;
-        synchronized (this.a) {
-            this.a.remove(str3);
-        }
-        dd5.c(new c(this, str3), ic5Var);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.z77
-    /* renamed from: l */
-    public GroupSettingItemData a(String str, String str2) {
+    public final boolean k(Context context, View view2) {
         InterceptResult invokeLL;
-        GroupSettingItemData groupSettingItemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
+            if (view2 == null) {
+                return false;
             }
-            String str3 = str + "@" + str2;
-            synchronized (this.a) {
-                ChatSetting chatSetting = this.a.get(str3);
-                groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
-            }
-            if (groupSettingItemData == null) {
-                GroupSettingItemData groupSettingItemData2 = new GroupSettingItemData();
-                groupSettingItemData2.setUid(str);
-                groupSettingItemData2.setGid(str2);
-                groupSettingItemData2.setAcceptNotify(true);
-                groupSettingItemData2.setInGroup(true);
-                return groupSettingItemData2;
-            }
-            return groupSettingItemData;
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            return iArr[1] < context.getResources().getDisplayMetrics().heightPixels / 2;
         }
-        return (GroupSettingItemData) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void m(String str, String str2, long j, ic5<Boolean> ic5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), ic5Var}) == null) {
-            dd5.c(new a(this, str, str2, j), ic5Var);
+    public /* synthetic */ void l(Context context) {
+        if (k(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
+            mi.w(context, this.a);
+        } else {
+            this.b.dismiss();
         }
     }
 
-    public void n() {
+    public void m(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.e(GroupSettingItemData.class);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.g = bVar;
         }
     }
 
-    public void o(String str, String str2, boolean z, ic5<Void> ic5Var) {
-        GroupSettingItemData a2;
+    public void n(ForumData forumData, MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Boolean.valueOf(z), ic5Var}) == null) || (a2 = a(str, str2)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, forumData, metaData) == null) {
+            this.e = forumData;
+            this.f = metaData;
+            this.a.l(forumData, metaData);
         }
-        a2.setAlreadyApply(z);
-        a2.setLastApplyTimeStamp(System.currentTimeMillis());
-        i(a2, ic5Var);
     }
 
-    public void p(String str, String str2, boolean z, ic5<Void> ic5Var) {
-        GroupSettingItemData a2;
+    public void o(ThreadData threadData, MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Boolean.valueOf(z), ic5Var}) == null) || (a2 = a(str, str2)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, threadData, metaData) == null) {
+            this.d = threadData;
+            this.f = metaData;
+            this.a.m(threadData, metaData);
         }
-        a2.setInGroup(z);
-        i(a2, ic5Var);
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.b != null && h()) {
+            this.b.show();
+        }
+    }
+
+    public final void q(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SEND_MSG).addParam("obj_source", i).addParam("obj_param1", i3).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.FRIEND_UID, str));
+        }
     }
 }

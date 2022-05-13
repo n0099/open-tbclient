@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kd8;
+import com.repackage.ki;
 import com.repackage.mi;
-import com.repackage.oi;
-import com.repackage.ve8;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {
@@ -36,7 +36,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public static final int UNACCEPT_MSG = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<OfficialAccountPushInfo> list;
-    public ve8 mAdapter;
+    public kd8 mAdapter;
     public BdListView mList;
     public NavigationBar mNavigationBar;
     public NoNetworkView mNetworkView;
@@ -63,21 +63,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     private void InitData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            if (!mi.z() && ListUtils.isEmpty(this.list)) {
+            if (!ki.z() && ListUtils.isEmpty(this.list)) {
                 showNoNetWorkView();
             } else if (ListUtils.isEmpty(this.list)) {
                 showNoData();
             } else {
-                ve8 ve8Var = this.mAdapter;
-                if (ve8Var == null) {
-                    ve8 ve8Var2 = new ve8(getPageContext());
-                    this.mAdapter = ve8Var2;
-                    ve8Var2.a(this.list);
+                kd8 kd8Var = this.mAdapter;
+                if (kd8Var == null) {
+                    kd8 kd8Var2 = new kd8(getPageContext());
+                    this.mAdapter = kd8Var2;
+                    kd8Var2.a(this.list);
                     this.mList.setAdapter((ListAdapter) this.mAdapter);
                     this.mAdapter.b(this);
                     return;
                 }
-                ve8Var.a(this.list);
+                kd8Var.a(this.list);
                 this.mAdapter.notifyDataSetChanged();
             }
         }
@@ -86,16 +86,16 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     private void InitUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0915df);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0915f5);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca2));
-            this.mList = (BdListView) findViewById(R.id.obfuscated_res_0x7f09126d);
-            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07023f)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c2f), null);
+            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cbb));
+            this.mList = (BdListView) findViewById(R.id.obfuscated_res_0x7f09127a);
+            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07023f)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c45), null);
             this.mNoDataView = a;
             a.setVisibility(0);
-            this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091590);
+            this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0915a4);
         }
     }
 
@@ -113,7 +113,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.list == null || this.mAdapter == null) {
             return;
         }
-        if (!mi.z()) {
+        if (!ki.z()) {
             this.mAdapter.notifyDataSetChanged();
             return;
         }
@@ -159,7 +159,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0631);
+            setContentView(R.layout.obfuscated_res_0x7f0d0625);
             dealWithIntent();
             InitUI();
             InitData();
@@ -179,7 +179,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.mList.setVisibility(8);
             this.mNoDataView.setVisibility(0);
-            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c2f));
+            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c45));
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         }
     }
@@ -189,7 +189,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.mList.setVisibility(8);
             this.mNoDataView.setVisibility(0);
-            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0f69));
+            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0f84));
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         }
     }

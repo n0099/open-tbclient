@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Item;
 /* loaded from: classes6.dex */
-public class es7 implements uo {
+public class es7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class es7 implements uo {
         this.a = item;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

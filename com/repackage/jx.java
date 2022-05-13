@@ -1,11 +1,11 @@
 package com.repackage;
 /* loaded from: classes6.dex */
-public interface jx<T> {
-    T a();
+public interface jx {
+    void a(Error error);
 
-    void a(T t);
+    void onComplete();
 
-    void b();
+    void onException(Exception exc);
 
-    boolean c();
+    void onStart();
 }

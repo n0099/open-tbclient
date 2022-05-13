@@ -360,7 +360,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04df);
+                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
                 PassManagerStatic.z();
                 init();
                 setupViews();
@@ -398,7 +398,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(getAuthUrl());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f105c);
+                setTitleText(R.string.obfuscated_res_0x7f0f1074);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
                 this.sapiWebView.loadUrl(getModifyPwdUrl(), getBindBdussCookies());
                 this.sapiWebView.setChangePwdCallback(new d(this));

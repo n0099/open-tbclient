@@ -1,671 +1,185 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Pair;
+import android.content.Context;
+import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import com.baidu.turbonet.net.UrlRequest;
-import com.baidu.turbonet.net.UrlRequestException;
-import com.baidu.turbonet.net.UrlResponseInfo;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.nio.ByteBuffer;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class t39 extends HttpURLConnection {
+public class t39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TurbonetEngine a;
-    public final w39 b;
-    public UrlRequest c;
-    public final List<Pair<String, String>> d;
-    public u39 e;
-    public v39 f;
-    public UrlResponseInfo g;
-    public UrlRequestException h;
-    public boolean i;
-    public boolean j;
-    public List<Map.Entry<String, String>> k;
-    public Map<String, List<String>> l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public String p;
-    public String q;
-    public int r;
-    public boolean s;
-    public boolean t;
 
-    /* loaded from: classes7.dex */
-    public class a extends UrlRequest.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t39 a;
-
-        public a(t39 t39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t39Var;
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
-                this.a.g = urlResponseInfo;
-                g(new IOException("stream closed"));
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, urlRequestException) == null) {
-                if (urlRequestException != null) {
-                    i39.c("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", this.a.getURL().toString(), urlRequestException);
-                    this.a.g = urlResponseInfo;
-                    this.a.h = urlRequestException;
-                    g(this.a.h);
-                    return;
-                }
-                throw new IllegalStateException("Exception cannot be null in onFailed.");
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, urlRequest, urlResponseInfo, byteBuffer) == null) {
-                this.a.g = urlResponseInfo;
-                this.a.b.quit();
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void d(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, urlRequest, urlResponseInfo, str) == null) {
-                this.a.i = true;
-                try {
-                    URL url = new URL(str);
-                    boolean equals = url.getProtocol().equals(((HttpURLConnection) this.a).url.getProtocol());
-                    if (((HttpURLConnection) this.a).instanceFollowRedirects) {
-                        ((HttpURLConnection) this.a).url = url;
-                    }
-                    if (((HttpURLConnection) this.a).instanceFollowRedirects && (equals || this.a.o)) {
-                        this.a.c.d();
-                        return;
-                    }
-                } catch (MalformedURLException unused) {
-                }
-                this.a.g = urlResponseInfo;
-                this.a.c.cancel();
-                g(null);
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, urlRequest, urlResponseInfo) == null) {
-                this.a.g = urlResponseInfo;
-                this.a.b.quit();
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, urlRequest, urlResponseInfo) == null) {
-                i39.h("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
-                this.a.g = urlResponseInfo;
-                g(null);
-            }
-        }
-
-        public final void g(IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-                if (this.a.e != null) {
-                    this.a.e.d(iOException);
-                }
-                if (this.a.f != null) {
-                    this.a.f.h(iOException);
-                }
-                this.a.j = true;
-                this.a.b.quit();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t39(URL url, TurbonetEngine turbonetEngine) {
-        super(url);
+    public static void a() {
+        i49 c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {url, turbonetEngine};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((URL) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = false;
-        this.j = false;
-        this.o = false;
-        this.r = 0;
-        this.s = false;
-        this.t = false;
-        this.a = turbonetEngine;
-        this.b = new w39(getURL().toString());
-        this.e = new u39(this);
-        this.d = new ArrayList();
-    }
-
-    public final void A(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, str2, z) == null) {
-            if (!((HttpURLConnection) this).connected) {
-                int q = q(str);
-                if (q >= 0) {
-                    if (z) {
-                        this.d.remove(q);
-                    } else {
-                        throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
-                    }
-                }
-                this.d.add(Pair.create(str, str2));
-                return;
-            }
-            throw new IllegalStateException("Cannot modify request property after connection is made.");
-        }
-    }
-
-    public final void B() throws IOException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ((HttpURLConnection) this).connected) {
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (c = o49.c()) == null) {
             return;
         }
-        UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(this), this.b, this.a);
-        if (((HttpURLConnection) this).doOutput) {
-            if (((HttpURLConnection) this).method.equals("GET")) {
-                ((HttpURLConnection) this).method = "POST";
-            }
-            v39 v39Var = this.f;
-            if (v39Var != null) {
-                builder.k(v39Var.f(), this.b);
-                if (getRequestProperty("Content-Length") == null && !z()) {
-                    addRequestProperty("Content-Length", Long.toString(this.f.f().a()));
-                }
-                this.f.g();
-            } else if (getRequestProperty("Content-Length") == null) {
-                addRequestProperty("Content-Length", "0");
-            }
-            if (getRequestProperty("Content-Type") == null) {
-                addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            }
-        }
-        for (Pair<String, String> pair : this.d) {
-            builder.a((String) pair.first, (String) pair.second);
-        }
-        if (!getUseCaches()) {
-            builder.c();
-        }
-        builder.f(((HttpURLConnection) this).method);
-        if (this.m) {
-            builder.d();
-        }
-        if (this.n) {
-            builder.l();
-        }
-        if (!TextUtils.isEmpty(this.p)) {
-            builder.e(this.p);
-        }
-        if (!TextUtils.isEmpty(this.q)) {
-            builder.g(this.q);
-        }
-        builder.i(getConnectTimeout());
-        builder.h(getReadTimeout());
-        builder.j(v());
-        ((HttpURLConnection) this).connected = true;
-        UrlRequest b = builder.b();
-        this.c = b;
-        b.start();
+        c.b();
     }
 
-    @Override // java.net.URLConnection
-    public final void addRequestProperty(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            A(str, str2, false);
-        }
-    }
-
-    @Override // java.net.URLConnection
-    public void connect() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            getOutputStream();
-            B();
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public void disconnect() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && ((HttpURLConnection) this).connected) {
-            this.c.cancel();
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public InputStream getErrorStream() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                w();
-                if (this.g.c() >= 400) {
-                    return this.e;
-                }
-                return null;
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public final String getHeaderField(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            try {
-                w();
-                Map<String, List<String>> r = r();
-                if (r.containsKey(str)) {
-                    List<String> list = r.get(str);
-                    return list.get(list.size() - 1);
-                }
-                return null;
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public final String getHeaderFieldKey(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            Map.Entry<String, String> t = t(i);
-            if (t == null) {
-                return null;
-            }
-            return t.getKey();
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Map<String, List<String>> getHeaderFields() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            try {
-                w();
-                return r();
-            } catch (IOException unused) {
-                return Collections.emptyMap();
-            }
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public InputStream getInputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            w();
-            if (!((HttpURLConnection) this).instanceFollowRedirects && this.i) {
-                throw new IOException("Cannot read response body of a redirect.");
-            }
-            if (this.g.c() < 400) {
-                return this.e;
-            }
-            throw new FileNotFoundException(((HttpURLConnection) this).url.toString());
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public OutputStream getOutputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f == null && ((HttpURLConnection) this).doOutput) {
-                if (!((HttpURLConnection) this).connected) {
-                    if (z()) {
-                        this.f = new r39(this, ((HttpURLConnection) this).chunkLength, this.b, this.s, this.t);
-                        B();
-                    } else {
-                        long x = x();
-                        if (x != -1) {
-                            this.f = new s39(this, x, this.b);
-                            B();
-                        } else {
-                            i39.a("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
-                            String requestProperty = getRequestProperty("Content-Length");
-                            if (requestProperty == null) {
-                                this.f = new q39(this);
-                            } else {
-                                try {
-                                    this.f = new q39(this, Long.parseLong(requestProperty));
-                                } catch (NumberFormatException unused) {
-                                    i39.c("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.", new Object[0]);
-                                    this.f = new q39(this);
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    throw new ProtocolException("Cannot write to OutputStream after receiving response.");
-                }
-            }
-            return this.f;
-        }
-        return (OutputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Map<String, List<String>> getRequestProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (!((HttpURLConnection) this).connected) {
-                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Pair<String, String> pair : this.d) {
-                    if (!treeMap.containsKey(pair.first)) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(pair.second);
-                        treeMap.put(pair.first, Collections.unmodifiableList(arrayList));
-                    } else {
-                        throw new IllegalStateException("Should not have multiple values.");
-                    }
-                }
-                return Collections.unmodifiableMap(treeMap);
-            }
-            throw new IllegalStateException("Cannot access request headers after connection is set.");
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public String getRequestProperty(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            int q = q(str);
-            if (q >= 0) {
-                return (String) this.d.get(q).second;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            g49 a = o49.a();
+            if (a != null) {
+                return a.getAppContext();
             }
             return null;
         }
+        return (Context) invokeV.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            g49 a = o49.a();
+            return a != null ? a.c(str) : str;
+        }
         return (String) invokeL.objValue;
     }
 
-    @Override // java.net.HttpURLConnection
-    public int getResponseCode() throws IOException {
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            w();
-            return this.g.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            g49 a = o49.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // java.net.HttpURLConnection
-    public String getResponseMessage() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            w();
-            return this.g.d();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void o() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.j) {
-                UrlRequestException urlRequestException = this.h;
-                if (urlRequestException == null) {
-                    if (this.g == null) {
-                        throw new NullPointerException("Response info is null when there is no exception.");
-                    }
-                    return;
-                }
-                throw urlRequestException;
-            }
-            throw new IllegalStateException("No response.");
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.o = true;
-        }
-    }
-
-    public final int q(String str) {
+    public static IBinder e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            for (int i = 0; i < this.d.size(); i++) {
-                if (((String) this.d.get(i).first).equalsIgnoreCase(str)) {
-                    return i;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            i49 c = o49.c();
+            if (c != null) {
+                return c.a(str);
             }
-            return -1;
+            return null;
         }
-        return invokeL.intValue;
+        return (IBinder) invokeL.objValue;
     }
 
-    public final Map<String, List<String>> r() {
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            g49 a = o49.a();
+            return a != null ? a.getInt(str, i) : i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            g49 a = o49.a();
+            return a != null ? a.getLong(str, j) : j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            g49 a = o49.a();
+            return a != null ? a.e(str) : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static i39 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            Map<String, List<String>> map = this.l;
-            if (map != null) {
-                return map;
-            }
-            TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-            for (Map.Entry<String, String> entry : s()) {
-                ArrayList arrayList = new ArrayList();
-                if (treeMap.containsKey(entry.getKey())) {
-                    arrayList.addAll((Collection) treeMap.get(entry.getKey()));
-                }
-                arrayList.add(entry.getValue());
-                treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
-            }
-            Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-            this.l = unmodifiableMap;
-            return unmodifiableMap;
-        }
-        return (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? o49.e() : (i39) invokeV.objValue;
     }
 
-    public final List<Map.Entry<String, String>> s() {
+    public static m39 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            List<Map.Entry<String, String>> list = this.k;
-            if (list != null) {
-                return list;
-            }
-            this.k = new ArrayList();
-            for (Map.Entry<String, String> entry : this.g.b()) {
-                if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
-                    this.k.add(new AbstractMap.SimpleImmutableEntry(entry));
-                }
-            }
-            List<Map.Entry<String, String>> unmodifiableList = Collections.unmodifiableList(this.k);
-            this.k = unmodifiableList;
-            return unmodifiableList;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? o49.f() : (m39) invokeV.objValue;
     }
 
-    @Override // java.net.URLConnection
-    public final void setRequestProperty(String str, String str2) {
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) {
-            A(str, str2, true);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            g49 a = o49.a();
+            return a != null ? a.b(z) : "";
         }
+        return (String) invokeZ.objValue;
     }
 
-    public final Map.Entry<String, String> t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            try {
-                w();
-                List<Map.Entry<String, String>> s = s();
-                if (i >= s.size()) {
-                    return null;
-                }
-                return s.get(i);
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (Map.Entry) invokeI.objValue;
-    }
-
-    public void u(ByteBuffer byteBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, byteBuffer) == null) {
-            this.c.read(byteBuffer);
-            this.b.b(getReadTimeout());
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public boolean usingProxy() {
+    public static boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            h49 b = o49.b();
+            if (b != null) {
+                return b.a();
+            }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public int v() {
+    public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.r : invokeV.intValue;
-    }
-
-    public final void w() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            v39 v39Var = this.f;
-            if (v39Var != null) {
-                v39Var.e();
-                if (z()) {
-                    this.f.close();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            g49 a = o49.a();
+            if (a != null) {
+                return a.isDebug();
             }
-            if (!this.j) {
-                B();
-                this.b.b(getReadTimeout());
-                this.j = true;
-            }
-            o();
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final long x() {
-        InterceptResult invokeV;
+    public static void n(String str, int i) {
+        g49 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            long j = ((HttpURLConnection) this).fixedContentLength;
-            try {
-                long j2 = getClass().getField("fixedContentLengthLong").getLong(this);
-                return j2 != -1 ? j2 : j;
-            } catch (Exception unused) {
-                return j;
-            }
+        if (!(interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) || (a = o49.a()) == null) {
+            return;
         }
-        return invokeV.longValue;
+        a.putInt(str, i);
     }
 
-    public UrlResponseInfo y() {
-        InterceptResult invokeV;
+    public static void o(String str, long j) {
+        g49 a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.g : (UrlResponseInfo) invokeV.objValue;
-    }
-
-    public final boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? ((HttpURLConnection) this).chunkLength > 0 : invokeV.booleanValue;
-    }
-
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public final String getHeaderField(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            Map.Entry<String, String> t = t(i);
-            if (t == null) {
-                return null;
-            }
-            return t.getValue();
+        if (!(interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) || (a = o49.a()) == null) {
+            return;
         }
-        return (String) invokeI.objValue;
+        a.putLong(str, j);
+    }
+
+    public static void p(String str, String str2) {
+        g49 a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) || (a = o49.a()) == null) {
+            return;
+        }
+        a.putString(str, str2);
+    }
+
+    public static void q(int i) {
+        g49 a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65552, null, i) == null) || (a = o49.a()) == null) {
+            return;
+        }
+        a.a(i);
     }
 }

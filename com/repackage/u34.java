@@ -1,39 +1,27 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class u34 extends p34 {
+public class u34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int j;
-    public v34 k;
-    public v34 l;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements nf3<g63> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u34 a;
+        public final /* synthetic */ b a;
 
-        public a(u34 u34Var) {
+        public a(u34 u34Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u34Var};
+                Object[] objArr = {u34Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,163 +31,50 @@ public class u34 extends p34 {
                     return;
                 }
             }
-            this.a = u34Var;
+            this.a = bVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(g63 g63Var) {
+            JSONObject jSONObject;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || this.a.j < -1) {
-                return;
-            }
-            if (this.a.j == -1) {
-                this.a.c.p();
-            } else {
-                this.a.c.v(this.a.j);
+            if (interceptable == null || interceptable.invokeL(1048576, this, g63Var) == null) {
+                if (g63Var != null && (jSONObject = g63Var.g) != null) {
+                    ux1.b("OpenData", "onOpenDataCallback success: ", jSONObject);
+                    this.a.a(g63Var.g);
+                    return;
+                }
+                this.a.a(null);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u34 a;
-
-        public b(u34 u34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u34Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                u34 u34Var = this.a;
-                RecommendItemModel y = u34Var.y(u34Var.j);
-                this.a.k.b.setImageURI(y.iconUrl);
-                this.a.k.c.setText(y.appName);
-                this.a.k.a.setAlpha(1.0f);
-                u34 u34Var2 = this.a;
-                RecommendItemModel y2 = this.a.y(u34Var2.x(u34Var2.j));
-                this.a.l.b.setImageURI(y2.iconUrl);
-                this.a.l.c.setText(y2.appName);
-                this.a.l.a.setAlpha(0.0f);
-                u34.super.k();
-            }
-        }
+    public interface b {
+        void a(JSONObject jSONObject);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u34(@NonNull Context context, @NonNull s34 s34Var) {
-        super(context, s34Var);
+    public u34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, s34Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (s34) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.j = -2;
     }
 
-    @Override // com.repackage.p34, com.repackage.q34
-    public void e(x34 x34Var) {
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, x34Var) == null) {
-            super.e(x34Var);
-            if (z(x34Var)) {
-                return;
-            }
-            this.j = -2;
-            this.l.b.setImageURI(x34Var.a.iconUrl);
-            this.l.c.setText(x34Var.a.appName);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || hm2.U().getActivity() == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.p34
-    public View i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            v34 v34Var = new v34(this.a);
-            this.l = v34Var;
-            v34Var.a.setAlpha(0.0f);
-            frameLayout.addView(this.l.a);
-            v34 v34Var2 = new v34(this.a);
-            this.k = v34Var2;
-            v34Var2.a.setAlpha(0.0f);
-            this.k.b.setActualImageResource(17170445);
-            this.k.c.setText((CharSequence) null);
-            frameLayout.addView(this.k.a);
-            this.k.a.setOnClickListener(new a(this));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.p34
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (z(this.b)) {
-                this.k.a.setAlpha(1.0f);
-                this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080169);
-                this.k.c.setText(R.string.obfuscated_res_0x7f0f1311);
-                super.k();
-                return;
-            }
-            this.j = x(this.j);
-            this.l.a.animate().setDuration(160L).alpha(1.0f);
-            this.k.a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
-        }
-    }
-
-    public final int x(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int i2 = i + 1;
-            if (i2 == this.b.b.size()) {
-                return -1;
-            }
-            return i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public final RecommendItemModel y(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == -1 ? this.b.a : this.b.b.get(i) : (RecommendItemModel) invokeI.objValue;
-    }
-
-    public final boolean z(x34 x34Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, x34Var)) == null) ? x34Var == null || x34Var.b == null || x34Var.a == null : invokeL.booleanValue;
+        g63.B(hm2.U().getActivity(), "snsapi_userinfo", null, true, "GameUserInfoRequest", new a(this, bVar));
     }
 }

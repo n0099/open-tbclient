@@ -1,74 +1,107 @@
 package com.repackage;
 
+import android.content.Context;
 import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.pay.PayConfig;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class v85 {
     public static /* synthetic */ Interceptable $ic;
+    public static v85 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public x85 a;
-    public String b;
 
-    public v85(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755277282, "Lcom/repackage/v85;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755277282, "Lcom/repackage/v85;");
+        }
+    }
+
+    public v85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = str;
     }
 
-    public final void a(String str, int i) {
-        int intValue;
+    public static synchronized v85 c() {
+        InterceptResult invokeV;
+        v85 v85Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || ni.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (v85.class) {
+                if (a == null) {
+                    a = new v85();
+                }
+                v85Var = a;
+            }
+            return v85Var;
         }
-        int i2 = intValue + 1;
-        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
-        if (intValue2 > 0) {
-            i = (i + (intValue2 * (i2 - 1))) / i2;
-        }
-        TbSingleton.getInstance().setAnimAvgFps(str, i);
-        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
-        if (i2 >= 5) {
-            TbSingleton.getInstance().setAnimComputedFps(str, i);
-            w85.a();
+        return (v85) invokeV.objValue;
+    }
+
+    public void a(PayConfig payConfig, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
+            if (payConfig != null && context != null) {
+                if (!d()) {
+                    e(R.string.obfuscated_res_0x7f0f0e94);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
+                return;
+            }
+            e(R.string.obfuscated_res_0x7f0f0e93);
         }
     }
 
-    public void b() {
+    public void b(String str, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) == null) || tbPageContext == null) {
             return;
         }
-        if (this.a == null) {
-            this.a = new x85();
-        }
-        this.a.c();
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
     }
 
-    public void c() {
-        x85 x85Var;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (x85Var = this.a) == null || Build.VERSION.SDK_INT < 16) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 : invokeV.booleanValue;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            mi.M(TbadkCoreApplication.getInst().getContext(), i);
         }
-        x85Var.d();
-        a(this.b, this.a.b());
     }
 }

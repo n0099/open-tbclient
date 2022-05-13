@@ -1,121 +1,153 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes6.dex */
-public final class pu9 implements Runnable {
+public class pu9 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ tu9 a;
+    public byte[] a;
+    public int b;
+    public int c;
+    public final xu9 d;
 
-    public pu9(tu9 tu9Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public pu9(InputStream inputStream) throws IOException {
+        this(inputStream, 16384, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tu9Var};
+            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tu9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = "";
-            HashMap b = hu9.b(this.a.a);
-            b.put("pid", this.a.b);
-            xu9.c(this.a, b);
-            tu9 tu9Var = this.a;
-            char c = 0;
-            try {
-                String[] split = mr9.J(tu9Var.a).split(",");
-                ArrayList<ns9> arrayList = new ArrayList();
-                arrayList.clear();
-                int length = split.length;
-                int i = 0;
-                while (i < length) {
-                    String[] split2 = split[i].split(":");
-                    String str2 = split2[c];
-                    String str3 = split2[1];
-                    if (System.currentTimeMillis() - Long.parseLong(str3) < mr9.H(tu9Var.a)) {
-                        ns9 ns9Var = new ns9();
-                        ns9Var.a = str2;
-                        ns9Var.b = Long.parseLong(str3);
-                        arrayList.add(ns9Var);
-                    }
-                    i++;
-                    c = 0;
-                }
-                if (!arrayList.isEmpty()) {
-                    String str4 = "";
-                    String str5 = str4;
-                    for (ns9 ns9Var2 : arrayList) {
-                        str4 = str4 + ns9Var2.a + ",";
-                        str5 = str5 + ns9Var2.a + ":" + ns9Var2.b + ",";
-                    }
-                    if (!TextUtils.isEmpty(str4)) {
-                        b.put("a605", str4.substring(0, str4.length() - 1));
-                    }
-                    if (!TextUtils.isEmpty(str5)) {
-                        mr9.m(tu9Var.a, str5.substring(0, str5.length() - 1), true);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            tu9 tu9Var2 = this.a;
-            try {
-                String[] split3 = mr9.I(tu9Var2.a).split(",");
-                ArrayList<ns9> arrayList2 = new ArrayList();
-                arrayList2.clear();
-                for (String str6 : split3) {
-                    String[] split4 = str6.split(":");
-                    String str7 = split4[0];
-                    String str8 = split4[1];
-                    if (System.currentTimeMillis() - Long.parseLong(str8) <= mr9.H(tu9Var2.a)) {
-                        ns9 ns9Var3 = new ns9();
-                        ns9Var3.a = str7;
-                        ns9Var3.b = Long.parseLong(str8);
-                        arrayList2.add(ns9Var3);
-                    }
-                }
-                if (!arrayList2.isEmpty()) {
-                    String str9 = "";
-                    String str10 = str9;
-                    for (ns9 ns9Var4 : arrayList2) {
-                        str9 = str9 + ns9Var4.a + ",";
-                        str10 = str10 + ns9Var4.a + ":" + ns9Var4.b + ",";
-                    }
-                    if (!TextUtils.isEmpty(str9)) {
-                        b.put("a601", str9.substring(0, str9.length() - 1));
-                    }
-                    if (!TextUtils.isEmpty(str10)) {
-                        mr9.g(tu9Var2.a, str10.substring(0, str10.length() - 1), true);
-                    }
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            try {
-                str = this.a.c + hu9.a(b);
-            } catch (UnsupportedEncodingException unused) {
-            }
-            wp9.s(str, null, new lu9(this));
+            xu9.a(this.d);
         }
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c >= this.b) {
+                byte[] bArr = this.a;
+                int read = read(bArr, 0, bArr.length);
+                this.b = read;
+                this.c = 0;
+                if (read == -1) {
+                    return -1;
+                }
+            }
+            byte[] bArr2 = this.a;
+            int i = this.c;
+            this.c = i + 1;
+            return bArr2[i] & 255;
+        }
+        return invokeV.intValue;
+    }
+
+    public pu9(InputStream inputStream, int i, byte[] bArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        xu9 xu9Var = new xu9();
+        this.d = xu9Var;
+        if (i <= 0) {
+            throw new IllegalArgumentException("Bad buffer size:" + i);
+        } else if (inputStream != null) {
+            this.a = new byte[i];
+            this.b = 0;
+            this.c = 0;
+            try {
+                xu9.c(xu9Var, inputStream);
+                if (bArr != null) {
+                    ru9.s(this.d, bArr);
+                }
+            } catch (BrotliRuntimeException e) {
+                throw new IOException("Brotli decoder initialization failed", e);
+            }
+        } else {
+            throw new IllegalArgumentException("source is null");
+        }
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (i < 0) {
+                throw new IllegalArgumentException("Bad offset: " + i);
+            } else if (i2 >= 0) {
+                int i3 = i + i2;
+                if (i3 > bArr.length) {
+                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
+                } else if (i2 == 0) {
+                    return 0;
+                } else {
+                    int max = Math.max(this.b - this.c, 0);
+                    if (max != 0) {
+                        max = Math.min(max, i2);
+                        System.arraycopy(this.a, this.c, bArr, i, max);
+                        this.c += max;
+                        i += max;
+                        i2 -= max;
+                        if (i2 == 0) {
+                            return max;
+                        }
+                    }
+                    try {
+                        this.d.Z = bArr;
+                        this.d.U = i;
+                        this.d.V = i2;
+                        this.d.W = 0;
+                        ru9.i(this.d);
+                        if (this.d.W == 0) {
+                            return -1;
+                        }
+                        return this.d.W + max;
+                    } catch (BrotliRuntimeException e) {
+                        throw new IOException("Brotli stream decoding failed", e);
+                    }
+                }
+            } else {
+                throw new IllegalArgumentException("Bad length: " + i2);
+            }
+        }
+        return invokeLII.intValue;
     }
 }

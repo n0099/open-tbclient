@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.chosen.posts.request.ChosenPostCacheModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,20 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.HotThread.HotThreadResIdl;
-import tbclient.HotThread.Pic;
-import tbclient.HotThread.tinfo;
+import java.util.HashMap;
+import tbclient.HotThread.DataReq;
+import tbclient.HotThread.HotThreadReqIdl;
 /* loaded from: classes7.dex */
-public class xy5 implements p65, j65 {
+public class xy5 implements e75, b75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<tinfo> a;
+    public int a;
 
     public xy5() {
         Interceptable interceptable = $ic;
@@ -37,88 +30,80 @@ public class xy5 implements p65, j65 {
         }
     }
 
-    public List<tinfo> a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<tinfo> list = this.a;
-            if (list == null || list.size() <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (tinfo tinfoVar : this.a) {
-                if (b(tinfoVar)) {
-                    arrayList.add(tinfoVar);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a++;
         }
-        return (List) invokeV.objValue;
     }
 
-    public final boolean b(tinfo tinfoVar) {
-        InterceptResult invokeL;
+    @Override // com.repackage.g75
+    public Object f(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tinfoVar)) == null) {
-            if (tinfoVar == null) {
-                return false;
-            }
-            List<Pic> list = tinfoVar.pics;
-            if (list == null || list.size() <= 0) {
-                return (StringUtils.isNull(tinfoVar.title) && StringUtils.isNull(tinfoVar._abstract)) ? false : true;
-            }
-            return true;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.a);
+            HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
+            DataReq build = builder.build(false);
+            builder2.data = build;
+            jd5.a(build, true);
+            return builder2.build(false);
         }
-        return invokeL.booleanValue;
+        return invokeZ.objValue;
     }
 
-    @Override // com.repackage.k65
+    @Override // com.repackage.a75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ChosenPostCacheModel.CACHE_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j65
-    public boolean initByByteArray(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.repackage.b75
+    public boolean isNeedUid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            try {
-                initByProtobuf((HotThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, HotThreadResIdl.class));
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p65
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.repackage.b75
+    public boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p65
-    public void initByProtobuf(Message message) {
+    @Override // com.repackage.d75
+    public HashMap<String, Object> u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, message) == null) && (message instanceof HotThreadResIdl)) {
-            HotThreadResIdl hotThreadResIdl = (HotThreadResIdl) message;
-            Error error = hotThreadResIdl.error;
-            this.a = hotThreadResIdl.data.hot_thread;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.j65
-    public byte[] toCacheByteArray() {
+    @Override // com.repackage.d75
+    public HashMap<String, String> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return null;
         }
-        return (byte[]) invokeV.objValue;
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.repackage.b75
+    public String x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "tb.pb_normal" : (String) invokeV.objValue;
     }
 }

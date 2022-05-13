@@ -52,7 +52,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     public String getCommonTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0de0) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfa) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
@@ -72,28 +72,28 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     public String getNavigationBarTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0de5) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0dff) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String getNoCommonTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0de1) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfb) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String getNoPersonalTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f02a1) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f02a6) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String getPersonalTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0de4) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfe) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
@@ -131,16 +131,16 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        d38 f1;
+        d38 g1;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.onPageSelected(i);
             PersonBarAdapter personBarAdapter = this.mAdapter;
-            if (personBarAdapter == null || personBarAdapter.getItem(i) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i)) == null || !(baseFragment instanceof PersonBarFragment) || (f1 = ((PersonBarFragment) baseFragment).f1()) == null) {
+            if (personBarAdapter == null || personBarAdapter.getItem(i) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i)) == null || !(baseFragment instanceof PersonBarFragment) || (g1 = ((PersonBarFragment) baseFragment).g1()) == null) {
                 return;
             }
-            f1.f(false);
-            f1.notifyDataSetChanged();
+            g1.f(false);
+            g1.notifyDataSetChanged();
         }
     }
 }

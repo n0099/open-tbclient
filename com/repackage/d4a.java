@@ -1,287 +1,330 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType;
+import tv.athena.revenue.payui.model.PayFlowModel;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class d4a {
+public class d4a implements w3a {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient b;
-    public static volatile d4a c;
-    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, List<Cookie>> a;
+    public String a;
+    public int b;
+    public int c;
+    public Context d;
+    public r4a e;
+    public PayUIKitConfig f;
+    public x3a g;
+    public v3a h;
+    public r3a i;
+    public SparseArray<Integer> j;
+    public SparseArray<s3a> k;
+    public SparseArray<PayFlowModel> l;
 
-    /* loaded from: classes5.dex */
-    public class a implements CookieJar {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d4a a;
-
-        public a(d4a d4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d4aVar;
-        }
-
-        @Override // okhttp3.CookieJar
-        public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-                List<Cookie> list = (List) this.a.a.get(httpUrl.host());
-                return list != null ? list : new ArrayList();
-            }
-            return (List) invokeL.objValue;
-        }
-
-        @Override // okhttp3.CookieJar
-        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
-                this.a.a.put(httpUrl.host(), list);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e4a a;
-        public final /* synthetic */ Request b;
-
-        public b(d4a d4aVar, e4a e4aVar, Request request) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d4aVar, e4aVar, request};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e4aVar;
-            this.b = request;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                boolean isCanceled = call.isCanceled();
-                RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
-                this.a.a(this.b, isCanceled, iOException);
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                String unused = d4a.d = response.body().string();
-                try {
-                    this.a.b(d4a.d);
-                    RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + d4a.d);
-                } catch (Exception e) {
-                    RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e.getMessage(), new Object[0]);
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755816000, "Lcom/repackage/d4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755816000, "Lcom/repackage/d4a;");
-                return;
-            }
-        }
-        MediaType.parse("application/json;charset=utf-8");
-        MediaType.parse("application/octet-stream");
-        MediaType.parse("text/x-markdown;charset=utf-8");
-    }
-
-    public d4a() {
+    public d4a(Context context, int i, int i2, r4a r4aVar, x3a x3aVar, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), r4aVar, x3aVar, payUIKitConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new g4a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new a(this));
-        cookieJar.dns(f4a.b());
-        b = cookieJar.build();
-        RLog.info("HttpCore", "HttpCore -- init");
+        this.a = "YYPayController";
+        this.j = new SparseArray<>(2);
+        this.k = new SparseArray<>();
+        this.l = new SparseArray<>();
+        this.a += "@" + hashCode();
+        this.b = i;
+        this.d = context;
+        this.e = r4aVar;
+        this.c = i2;
+        this.g = x3aVar;
+        this.f = payUIKitConfig;
+        this.h = new c4a(i, i2, r4aVar, payUIKitConfig);
+        this.i = new z3a(this.b, this.c, this.f, this.e);
+        this.j.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), 0);
+        this.j.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), 0);
+        RLog.info(this.a, "create YYPayController:" + this + " appId:" + i + " userChannel:" + i2);
     }
 
-    public static d4a f() {
+    @Override // com.repackage.p3a
+    public synchronized PayFlowModel a(PayFlowType payFlowType) {
+        InterceptResult invokeL;
+        PayFlowModel payFlowModel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payFlowType)) == null) {
+            synchronized (this) {
+                payFlowModel = this.l.get(payFlowType.getTypeId());
+            }
+            return payFlowModel;
+        }
+        return (PayFlowModel) invokeL.objValue;
+    }
+
+    @Override // com.repackage.w3a
+    public synchronized void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            synchronized (this) {
+                RLog.info(this.a, "startWalletActivity");
+                i(activity, null);
+            }
+        }
+    }
+
+    @Override // com.repackage.w3a
+    public synchronized void c(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, bVar, iPayCallback) == null) {
+            synchronized (this) {
+                String str = this.a;
+                RLog.info(str, "startPayChannelDialog viewParams:" + bVar);
+                if (bVar == null) {
+                    bVar = new IYYPayWayView.b();
+                }
+                PayFlowModel payFlowModel = this.l.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
+                if (payFlowModel != null) {
+                    bVar.c = payFlowModel.appCustomExpand;
+                    bVar.e = payFlowModel.viewEventListener;
+                }
+                String str2 = this.a;
+                RLog.info(str2, "startPayChannelDialog payFlowModel:" + payFlowModel);
+                s3a s3aVar = this.k.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
+                if (s3aVar == null) {
+                    RLog.error(this.a, "startPayChannelDialog error walletPayFlowHandler null", new Object[0]);
+                } else {
+                    s3aVar.a(activity, bVar, iPayCallback);
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.w3a
+    public synchronized void d(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, payFlowType) == null) {
+            synchronized (this) {
+                s3a s3aVar = this.k.get(payFlowType.getTypeId());
+                if (s3aVar != null) {
+                    s3aVar.release();
+                }
+                this.k.remove(payFlowType.getTypeId());
+                this.l.remove(payFlowType.getTypeId());
+                n("releasePayFlow payFlowType:" + payFlowType + " payFlowHandler:" + s3aVar);
+            }
+        }
+    }
+
+    @Override // com.repackage.w3a
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (d4a.class) {
-                    if (c == null) {
-                        c = new d4a();
-                    }
-                }
-            }
-            return c;
-        }
-        return (d4a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? g(PayFlowType.WALLET_PAY_FLOW) && g(PayFlowType.DIOALOG_PAY_FLOW) : invokeV.booleanValue;
     }
 
-    public static String i(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.w3a
+    public synchronized void f(String str, PayFlowType payFlowType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (map == null) {
-                new HashMap();
-            } else {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, payFlowType) == null) {
+            synchronized (this) {
+                int intValue = this.j.get(payFlowType.getTypeId()).intValue();
+                int i = intValue + 1;
+                String str2 = this.a;
+                RLog.info(str2, "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCount:" + i);
+                this.j.put(payFlowType.getTypeId(), Integer.valueOf(i));
+            }
+        }
+    }
+
+    @Override // com.repackage.w3a
+    public synchronized boolean g(PayFlowType payFlowType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, payFlowType)) == null) {
+            synchronized (this) {
+                s3a s3aVar = this.k.get(payFlowType.getTypeId());
                 boolean z = true;
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (z && !str.contains("?")) {
+                if (s3aVar == null) {
+                    String str = this.a;
+                    RLog.info(str, "shouldReleasePayFlow payFlowHandler null return true payFlowType:" + payFlowType);
+                    return true;
+                } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
+                    if (s3aVar.n() != PayDialogType.PAY_NONE_DIALOG) {
                         z = false;
-                        sb.append("?");
-                    } else {
-                        sb.append("&");
                     }
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    if (entry.getValue() == null) {
-                        sb.append(" ");
-                    } else {
-                        sb.append(entry.getValue());
+                    int intValue = this.j.get(payFlowType.getTypeId()).intValue();
+                    String str2 = this.a;
+                    RLog.info(str2, "shouldReleasePayFlow  payFlowType:" + payFlowType + " activityCount:" + intValue + " payDialogType:" + s3aVar.n() + " shouldRelease" + z);
+                    return z;
+                } else {
+                    int intValue2 = this.j.get(payFlowType.getTypeId()).intValue();
+                    if (intValue2 != 0 || s3aVar.n() != PayDialogType.PAY_NONE_DIALOG) {
+                        z = false;
                     }
+                    String str3 = this.a;
+                    RLog.info(str3, "shouldReleasePayFlow payFlowType:" + payFlowType + " activityCount:" + intValue2 + " PayDialogType:" + s3aVar.n() + " shouldRelease:" + z);
+                    return z;
                 }
             }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void d(int i, int i2) {
+    @Override // com.repackage.w3a
+    public synchronized void h(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "cancelAllRequest appId:" + i + " useChannel:" + i2 + " requestTag：" + g);
-            OkHttpClient okHttpClient = b;
-            if (okHttpClient != null && okHttpClient.dispatcher() != null) {
-                for (Call call : b.dispatcher().queuedCalls()) {
-                    if (g.equals(call.request().tag())) {
-                        RLog.info("HttpCore", "cancel queued call:" + call);
-                        call.cancel();
-                    }
-                }
-                for (Call call2 : b.dispatcher().runningCalls()) {
-                    if (g.equals(call2.request().tag())) {
-                        RLog.info("HttpCore", "cancel running call:" + call2);
-                        call2.cancel();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, activity, viewParams, iPayCallback) == null) {
+            synchronized (this) {
+                String str = this.a;
+                RLog.info(str, "startPayDialog viewParams:" + viewParams);
+                l(PayFlowType.DIOALOG_PAY_FLOW);
+                o(PayFlowType.DIOALOG_PAY_FLOW, viewParams);
+                d3a.d(this.b, this.c, PayFlowType.DIOALOG_PAY_FLOW);
+                b4a b4aVar = new b4a(this.d, this.b, this.c, this.g, this.h, this.i, new y3a(PayFlowType.DIOALOG_PAY_FLOW, this.h), PayFlowType.DIOALOG_PAY_FLOW, this.f);
+                this.k.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), b4aVar);
+                n("startPayDialog showPayAmountDialog");
+                b4aVar.e(activity, iPayCallback, viewParams);
+                a5a.b(this.b, this.c, UiEventType.purchaseshow);
+            }
+        }
+    }
+
+    @Override // com.repackage.w3a
+    public synchronized void i(Activity activity, IYYPayAmountView.ViewParams viewParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewParams) == null) {
+            synchronized (this) {
+                String str = this.a;
+                RLog.info(str, "startWalletActivity viewParams:" + viewParams);
+                l(PayFlowType.WALLET_PAY_FLOW);
+                o(PayFlowType.WALLET_PAY_FLOW, viewParams);
+                d3a.d(this.b, this.c, PayFlowType.WALLET_PAY_FLOW);
+                this.k.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), new b4a(this.d, this.b, this.c, this.g, this.h, this.i, new y3a(PayFlowType.WALLET_PAY_FLOW, this.h), PayFlowType.WALLET_PAY_FLOW, this.f));
+                String c = u4a.c(this.f);
+                n("startWalletActivity walletUrl:" + q5a.a(c));
+                g5a.a(PayFlowType.WALLET_PAY_FLOW, this.b, this.c, this.f, activity, c, "我的钱包");
+                a5a.b(this.b, this.c, UiEventType.walletshow);
+            }
+        }
+    }
+
+    @Override // com.repackage.w3a
+    public synchronized void j(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, payFlowType) == null) {
+            synchronized (this) {
+                int intValue = this.j.get(payFlowType.getTypeId()).intValue();
+                int i = intValue - 1;
+                RLog.info(this.a, "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCountt:" + i);
+                this.j.put(payFlowType.getTypeId(), Integer.valueOf(i));
+            }
+        }
+    }
+
+    public final PayFlowModel k(IYYPayAmountView.ViewParams viewParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewParams)) == null) {
+            if (viewParams != null) {
+                PayFlowModel payFlowModel = new PayFlowModel();
+                payFlowModel.appCustomExpand = viewParams.appCustomExpand;
+                payFlowModel.viewEventListener = viewParams.viewEventListener;
+                String str = this.a;
+                RLog.info(str, "createPayFlowModel PayFlowModel:" + payFlowModel);
+                return payFlowModel;
+            }
+            RLog.info(this.a, "createPayFlowModel but viewParams null");
+            return null;
+        }
+        return (PayFlowModel) invokeL.objValue;
+    }
+
+    public void l(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, payFlowType) == null) {
+            String str = this.a;
+            RLog.info(str, "innerReleasePayFlow payFlowType:" + payFlowType);
+            d(payFlowType);
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                l5a.c(this.d);
+            } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
+                l5a.b(this.d);
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            RLog.info(this.a, "releaseAllPayFlow");
+            d(PayFlowType.WALLET_PAY_FLOW);
+            d(PayFlowType.DIOALOG_PAY_FLOW);
+        }
+    }
+
+    public final synchronized void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            synchronized (this) {
+                int size = this.k.size();
+                int size2 = this.l.size();
+                String str2 = this.a;
+                RLog.info(str2, ("reportPayFlowMapSize from: " + str) + " payFlowHanderMapSize:" + size + " payFlowModelMapSize:" + size2);
+            }
+        }
+    }
+
+    public final void o(PayFlowType payFlowType, IYYPayAmountView.ViewParams viewParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, payFlowType, viewParams) == null) {
+            String str = this.a;
+            RLog.info(str, "updatePayFlowModel payFlowType :" + payFlowType + " viewParams:" + viewParams);
+            if (viewParams == null) {
+                RLog.info(this.a, "updatePayFlowModel with value null");
+                this.l.put(payFlowType.getTypeId(), null);
                 return;
             }
-            RLog.error("HttpCore", "cancelAllRequest error okHttpClient null", new Object[0]);
-        }
-    }
-
-    public String e(String str, Map<String, String> map, int i, int i2, String str2, String str3, String str4, String str5, int i3, e4a e4aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, Integer.valueOf(i3), e4aVar})) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "enqueuePost requestTag=" + g);
-            if (map == null) {
-                map = new HashMap<>();
+            PayFlowModel k = k(viewParams);
+            String str2 = this.a;
+            RLog.info(str2, "updatePayFlowModel payFlowModel :" + k);
+            if (k != null) {
+                this.l.put(payFlowType.getTypeId(), k);
             }
-            FormBody.Builder builder = new FormBody.Builder();
-            h(map, builder);
-            FormBody build = builder.build();
-            String i4 = i(str, null);
-            RLog.debug("HttpCore", "HttpCore -- enqueuePost--url:" + i4);
-            Request.Builder url = new Request.Builder().url(i4);
-            Request build2 = url.addHeader("X-AppId", i + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).tag(g).post(build).build();
-            try {
-                b.newCall(build2).enqueue(new b(this, e4aVar, build2));
-            } catch (Exception e) {
-                e.printStackTrace();
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e.getMessage(), new Object[0]);
-            }
-            return d;
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public String g(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.repackage.w3a
+    public synchronized void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return "payhttp:appId=" + i + "&userchanel=" + i2;
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public final void h(Map<String, String> map, FormBody.Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, map, builder) == null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                builder.add(entry.getKey(), entry.getValue() == null ? "" : entry.getValue());
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            synchronized (this) {
+                RLog.info(this.a, "release()");
+                m();
+                this.k.clear();
+                this.l.clear();
             }
         }
     }

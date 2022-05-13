@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.bean.MusicData;
-import com.repackage.m99;
+import com.repackage.h89;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
@@ -104,7 +104,7 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return (EffectInfo) new m99().b(str, EffectInfo.class);
+                return (EffectInfo) new h89().b(str, EffectInfo.class);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -139,7 +139,7 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return new m99().a(effectInfo);
+                return new h89().a(effectInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

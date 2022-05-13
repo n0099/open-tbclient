@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.pz6;
+import com.repackage.mi;
+import com.repackage.py6;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
@@ -110,19 +110,19 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039b, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0392, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090227);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09021d);
             AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.a);
             this.d = alaRecommendListAdapter;
             this.c.setAdapter(alaRecommendListAdapter);
             this.c.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.c.setItemAnimator(new DefaultItemAnimator());
-            int f = oi.f(this.a, R.dimen.tbds20);
+            int f = mi.f(this.a, R.dimen.tbds20);
             this.c.addItemDecoration(new CommonSpaceItemDecoration(f, 0, f));
             BdRecyclerView bdRecyclerView = this.c;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), this.c.getPaddingTop(), this.c.getPaddingRight(), oi.f(this.c.getContext(), HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds0, R.dimen.tbds51)));
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), this.c.getPaddingTop(), this.c.getPaddingRight(), mi.f(this.c.getContext(), HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds0, R.dimen.tbds51)));
         }
     }
 
@@ -165,11 +165,11 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(pz6 pz6Var) {
+    public void setData(py6 py6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pz6Var) == null) {
-            if (pz6Var != null && !ListUtils.isEmpty(pz6Var.e())) {
-                this.e = pz6Var.e();
+        if (interceptable == null || interceptable.invokeL(1048581, this, py6Var) == null) {
+            if (py6Var != null && !ListUtils.isEmpty(py6Var.e())) {
+                this.e = py6Var.e();
                 setVisibility(0);
                 d();
                 return;

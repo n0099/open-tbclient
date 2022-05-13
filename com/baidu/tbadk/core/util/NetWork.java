@@ -25,15 +25,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.repackage.ag;
-import com.repackage.cw4;
-import com.repackage.dw4;
-import com.repackage.en4;
-import com.repackage.hp4;
-import com.repackage.jt6;
-import com.repackage.kt4;
-import com.repackage.m55;
-import com.repackage.ui;
+import com.repackage.c65;
+import com.repackage.js6;
+import com.repackage.on4;
+import com.repackage.pw4;
+import com.repackage.qw4;
+import com.repackage.si;
+import com.repackage.sp4;
+import com.repackage.xt4;
+import com.repackage.yf;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -92,7 +92,7 @@ public class NetWork {
                 }
             }
             stringBuffer.append("tiebaclient!!!");
-            this.mNet.addPostData("sign", ui.c(stringBuffer.toString()));
+            this.mNet.addPostData("sign", si.c(stringBuffer.toString()));
             if (this.netContext.getRequest().mNeedSig) {
                 this.mNet.addPostData(FunAdSdk.PLATFORM_SIG, StringU.b(stringBuffer.toString()));
             }
@@ -130,20 +130,20 @@ public class NetWork {
             this.mNet = NetWorkCoreFacotry.getInstance().createINetWorkCore(this.netContext);
             this.mNetLogin = null;
             this.netContext.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
-            ag.o(TbadkCoreApplication.getInst().getCuid());
-            ag.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            ag.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
-            ag.r(TbadkCoreApplication.getInst().getCuidGid());
+            yf.o(TbadkCoreApplication.getInst().getCuid());
+            yf.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+            yf.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
+            yf.r(TbadkCoreApplication.getInst().getCuidGid());
         }
     }
 
-    private hp4 login(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    private sp4 login(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, this, str, str2, z)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    kt4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    xt4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -163,35 +163,35 @@ public class NetWork {
                     this.mNetLogin.getNetContext().getRequest().getNetWorkParam().mRequestGzip = true;
                     String postNetData = this.mNetLogin.postNetData();
                     if (this.mNetLogin.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        hp4 hp4Var = new hp4();
-                        hp4Var.c(postNetData);
-                        String userId = hp4Var.b().getUserId();
+                        sp4 sp4Var = new sp4();
+                        sp4Var.c(postNetData);
+                        String userId = sp4Var.b().getUserId();
                         if (userId != null && userId.length() > 0) {
                             AccountData accountData = new AccountData();
-                            accountData.setAccount(hp4Var.b().getUserName());
-                            if (hp4Var.b().getPassword() != null) {
-                                accountData.setPassword(hp4Var.b().getPassword());
+                            accountData.setAccount(sp4Var.b().getUserName());
+                            if (sp4Var.b().getPassword() != null) {
+                                accountData.setPassword(sp4Var.b().getPassword());
                             } else {
                                 accountData.setPassword(str2);
                             }
-                            accountData.setID(hp4Var.b().getUserId());
-                            accountData.setBDUSS(hp4Var.b().getBDUSS());
-                            accountData.setPortrait(hp4Var.b().getPortrait());
+                            accountData.setID(sp4Var.b().getUserId());
+                            accountData.setBDUSS(sp4Var.b().getBDUSS());
+                            accountData.setPortrait(sp4Var.b().getPortrait());
                             accountData.setIsActive(1);
-                            if (hp4Var.a() != null) {
-                                accountData.setTbs(hp4Var.a().getTbs());
+                            if (sp4Var.a() != null) {
+                                accountData.setTbs(sp4Var.a().getTbs());
                             }
-                            en4.g(accountData);
+                            on4.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            kt4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            xt4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-                            return hp4Var;
+                            return sp4Var;
                         }
-                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c2d);
                         return null;
                     } else if (this.mNetLogin.isNetSuccess()) {
                         int serverErrorCode = this.mNetLogin.getServerErrorCode();
-                        if ((serverErrorCode == 1 || serverErrorCode == 2 || serverErrorCode == 5) && z) {
+                        if (serverErrorCode == 1 || serverErrorCode == 2 || serverErrorCode == 5) {
                             TbadkCoreApplication.getInst().handler.sendMessage(TbadkCoreApplication.getInst().handler.obtainMessage(1));
                         }
                         return null;
@@ -202,15 +202,15 @@ public class NetWork {
             }
             return null;
         }
-        return (hp4) invokeLLZ.objValue;
+        return (sp4) invokeLL.objValue;
     }
 
     private void modSessionData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            String currentBduss = TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getCurrentBduss() : m55.b();
+            String currentBduss = TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getCurrentBduss() : c65.b();
             BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, currentBduss);
-            BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : m55.f());
+            BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : c65.f());
             if (currentBduss != null) {
                 ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
                 int size = postData.size();
@@ -245,10 +245,81 @@ public class NetWork {
         return (String) invokeL.objValue;
     }
 
-    private String process(int i) {
-        InterceptResult invokeI;
+    private String process(int i, boolean z) {
+        InterceptResult invokeCommon;
+        String netString;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i)) == null) ? process(i, false) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            this.netContext.getRequest().mNeedSig = this.mNeedSig && EncSigNewSwitch.isOn();
+            if (i == 1) {
+                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
+                    this.netContext.getRequest().addCommonParam(this.mNet);
+                }
+                addStatisticsDataParam();
+                netString = this.mNet.getNetString();
+            } else if (i == 2) {
+                if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
+                    getNetContext().getRequest().addBdussData(this.mNet);
+                }
+                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
+                    this.netContext.getRequest().addCommonParam(this.mNet);
+                }
+                addStatisticsDataParam();
+                netString = this.mNet.postNetData();
+            } else if (i != 3) {
+                return null;
+            } else {
+                if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
+                    getNetContext().getRequest().addBdussData(this.mNet);
+                }
+                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
+                    this.netContext.getRequest().addCommonParam(this.mNet);
+                }
+                addSign();
+                netString = this.mNet.postMultiNetData();
+            }
+            if (!this.netContext.getResponse().isNetSuccess()) {
+                NetWorkState.addStatisticsData(this.mStatisticsData);
+                NetWorkState.addErrorNumsAndGet(this.mErrorNums);
+                return (z && TextUtils.isEmpty(netString)) ? netErrorToString(this.netContext.getResponse()) : netString;
+            } else if (this.netContext.getResponse().isRequestSuccess()) {
+                return netString;
+            } else {
+                if (this.netContext.getResponse().mServerErrorCode == 1 && this.netContext.getRequest().mNeedBackgroundLogin) {
+                    String str = this.netContext.getResponse().mErrorString;
+                    this.netContext.getResponse().mErrorString = "";
+                    AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                    if (currentAccountObj == null) {
+                        currentAccountObj = on4.e();
+                    }
+                    if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
+                        on4.c(currentAccountObj.getID());
+                        if (ReloginManager.g().i()) {
+                            removeAccount(currentAccountObj);
+                            ReloginManager.g().f(null);
+                            return null;
+                        }
+                        sp4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
+                        removeAccount(currentAccountObj);
+                        if (login == null) {
+                            if (this.mNetLogin != null) {
+                                this.netContext.getResponse().mErrorString = this.mNetLogin.getErrorString();
+                                return null;
+                            }
+                            this.netContext.getResponse().mErrorString = str;
+                            return netString;
+                        }
+                        netString = process_second(i);
+                    } else {
+                        sendLoginMessage();
+                        return null;
+                    }
+                }
+                js6.b(this);
+                return netString;
+            }
+        }
+        return (String) invokeCommon.objValue;
     }
 
     private String process_second(int i) {
@@ -256,7 +327,7 @@ public class NetWork {
         String netString;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) {
             modSessionData();
             if (i == 1) {
                 netString = this.mNet.getNetString();
@@ -278,9 +349,9 @@ public class NetWork {
     }
 
     private void removeAccount(AccountData accountData) {
-        dw4 b;
+        qw4 b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b = cw4.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65547, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b = pw4.b()) == null) {
             return;
         }
         b.c(accountData);
@@ -288,7 +359,7 @@ public class NetWork {
 
     private void sendLoginMessage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             Handler handler = TbadkCoreApplication.getInst().handler;
             handler.sendMessage(handler.obtainMessage(1));
         }
@@ -345,86 +416,57 @@ public class NetWork {
         return (byte[]) invokeV.objValue;
     }
 
-    public long getNetDataSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.b : invokeV.longValue;
-    }
-
     public int getNetErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.netContext.getResponse().mNetErrorCode : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getResponse().mNetErrorCode : invokeV.intValue;
     }
 
     public String getNetException() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.netContext.getResponse().mException : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.netContext.getResponse().mException : (String) invokeV.objValue;
     }
 
     public String getNetString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? process(1) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? process(1, false) : (String) invokeV.objValue;
     }
 
     public ArrayList<BasicNameValuePair> getPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mNet.getPostData() : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mNet.getPostData() : (ArrayList) invokeV.objValue;
     }
 
     public int getServerErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.netContext.getResponse().mServerErrorCode : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.netContext.getResponse().mServerErrorCode : invokeV.intValue;
     }
 
     public boolean isNetSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.netContext.getResponse().isNetSuccess() : invokeV.booleanValue;
-    }
-
-    public boolean multiAccountLogin(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048593, this, str, str2, z)) == null) {
-            if (login(str, str2, z) == null) {
-                if (this.mNetLogin != null) {
-                    this.netContext.getResponse().mErrorString = this.mNetLogin.getErrorString();
-                    return false;
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeLLZ.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.netContext.getResponse().isNetSuccess() : invokeV.booleanValue;
     }
 
     public String postMultiNetData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? process(3, false) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? process(3, false) : (String) invokeV.objValue;
     }
 
     public String postNetData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? process(2) : (String) invokeV.objValue;
-    }
-
-    public void setCanHttpsDownToHttp(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.netContext.getRequest().mCanHttpsDownToHttp = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? process(2, false) : (String) invokeV.objValue;
     }
 
     public void setCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             INetWorkCore iNetWorkCore = this.mNet;
             if (iNetWorkCore != null) {
                 iNetWorkCore.setCancel();
@@ -438,21 +480,21 @@ public class NetWork {
 
     public void setNeedSig(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.mNeedSig = z;
         }
     }
 
     public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) {
             this.mNet.setPostData(arrayList);
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             this.netContext.getRequest().getNetWorkParam().mUrl = str;
         }
     }
@@ -461,7 +503,7 @@ public class NetWork {
         InterceptResult invokeLL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, str2)) == null) {
             try {
                 InputStream GetStreamFromTmpFile = FileHelper.GetStreamFromTmpFile(str2);
                 byte[] bArr2 = new byte[5120];
@@ -490,7 +532,7 @@ public class NetWork {
         InterceptResult invokeL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
             try {
                 InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
                 byte[] bArr2 = new byte[5120];
@@ -515,83 +557,6 @@ public class NetWork {
         return (String) invokeL.objValue;
     }
 
-    private String process(int i, boolean z) {
-        InterceptResult invokeCommon;
-        String netString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            this.netContext.getRequest().mNeedSig = this.mNeedSig && EncSigNewSwitch.isOn();
-            if (i == 1) {
-                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
-                    this.netContext.getRequest().addCommonParam(this.mNet);
-                }
-                addStatisticsDataParam();
-                netString = this.mNet.getNetString();
-            } else if (i == 2) {
-                if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
-                    getNetContext().getRequest().addBdussData(this.mNet);
-                }
-                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
-                    this.netContext.getRequest().addCommonParam(this.mNet);
-                }
-                addStatisticsDataParam();
-                netString = this.mNet.postNetData();
-            } else if (i != 3) {
-                return null;
-            } else {
-                if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
-                    getNetContext().getRequest().addBdussData(this.mNet);
-                }
-                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
-                    this.netContext.getRequest().addCommonParam(this.mNet);
-                }
-                addSign();
-                netString = this.mNet.postMultiNetData();
-            }
-            if (!this.netContext.getResponse().isNetSuccess()) {
-                NetWorkState.addStatisticsData(this.mStatisticsData);
-                NetWorkState.addErrorNumsAndGet(this.mErrorNums);
-                return (z && TextUtils.isEmpty(netString)) ? netErrorToString(this.netContext.getResponse()) : netString;
-            } else if (this.netContext.getResponse().isRequestSuccess()) {
-                return netString;
-            } else {
-                if (this.netContext.getResponse().mServerErrorCode == 1 && this.netContext.getRequest().mNeedBackgroundLogin) {
-                    String str = this.netContext.getResponse().mErrorString;
-                    this.netContext.getResponse().mErrorString = "";
-                    AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                    if (currentAccountObj == null) {
-                        currentAccountObj = en4.e();
-                    }
-                    if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                        en4.c(currentAccountObj.getID());
-                        if (ReloginManager.g().i()) {
-                            removeAccount(currentAccountObj);
-                            ReloginManager.g().f(null);
-                            return null;
-                        }
-                        hp4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
-                        removeAccount(currentAccountObj);
-                        if (login == null) {
-                            if (this.mNetLogin != null) {
-                                this.netContext.getResponse().mErrorString = this.mNetLogin.getErrorString();
-                                return null;
-                            }
-                            this.netContext.getResponse().mErrorString = str;
-                            return netString;
-                        }
-                        netString = process_second(i);
-                    } else {
-                        sendLoginMessage();
-                        return null;
-                    }
-                }
-                jt6.b(this);
-                return netString;
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
     public void addPostData(BasicNameValuePair basicNameValuePair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, basicNameValuePair) == null) {
@@ -608,7 +573,7 @@ public class NetWork {
     public String postMultiNetData(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) ? process(3, z) : (String) invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) ? process(3, z) : (String) invokeZ.objValue;
     }
 
     public void addPostData(String str, byte[] bArr) {

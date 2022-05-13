@@ -1,87 +1,151 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.GeneralSecurityException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes6.dex */
-public class he3 implements kd4 {
+public class he3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final he3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-331323235, "Lcom/repackage/he3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-331323235, "Lcom/repackage/he3$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755651173, "Lcom/repackage/he3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new he3(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755651173, "Lcom/repackage/he3;");
+                return;
+            }
         }
+        a = eh1.a;
     }
 
-    public /* synthetic */ he3(a aVar) {
-        this();
-    }
-
-    public static he3 b() {
-        InterceptResult invokeV;
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (he3) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) ? b(file, str, null) : invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.kd4
-    public boolean a(@NonNull String str, @NonNull int i) {
-        InterceptResult invokeLI;
+    public static boolean b(File file, String str, bf3 bf3Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (i == 0) {
-                File file = new File(fj2.g(), str);
-                return file.exists() && file.isDirectory();
-            } else if (i != 1) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, bf3Var)) == null) {
+            boolean z = file == null;
+            if (z || !file.exists() || TextUtils.isEmpty(str)) {
+                if (bf3Var != null) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("zipfile: isEmpty=");
+                    sb.append(z);
+                    sb.append("; exists=");
+                    sb.append(z ? "" : Boolean.valueOf(file.exists()));
+                    bf3Var.a = sb.toString();
+                }
                 return false;
-            } else {
-                File file2 = new File(rj2.g().b(), str);
-                return file2.exists() && file2.isDirectory();
+            }
+            ReadableByteChannel readableByteChannel = null;
+            try {
+                readableByteChannel = Channels.newChannel(new FileInputStream(file));
+                return d(readableByteChannel, str, bf3Var);
+            } catch (IOException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return false;
+            } finally {
+                xg4.d(readableByteChannel);
             }
         }
-        return invokeLI.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public he3() {
+    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) ? d(readableByteChannel, str, null) : invokeLL.booleanValue;
+    }
+
+    public static boolean d(ReadableByteChannel readableByteChannel, String str, bf3 bf3Var) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, bf3Var)) == null) {
+            boolean z = readableByteChannel == null;
+            if (z || TextUtils.isEmpty(str)) {
+                if (bf3Var != null) {
+                    bf3Var.a = "zipSource isNullIs=" + z;
+                }
+                return false;
+            }
+            String c = zg4.c(false, readableByteChannel);
+            if (bf3Var != null) {
+                bf3Var.a = c;
+            }
+            try {
+                String str2 = new String(e(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), IMAudioTransRequest.CHARSET);
+                if (bf3Var != null) {
+                    bf3Var.b = str2;
+                }
+                return TextUtils.equals(str2, c);
+            } catch (Exception e) {
+                if (a) {
+                    Log.i("SwanAppSignChecker", e.toString());
+                    e.printStackTrace();
+                }
+                if (bf3Var != null) {
+                    bf3Var.b = e.getLocalizedMessage();
+                }
+                return false;
             }
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, publicKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static PublicKey f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
+            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+                return null;
+            }
+        }
+        return (PublicKey) invokeL.objValue;
     }
 }

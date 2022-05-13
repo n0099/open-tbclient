@@ -112,9 +112,9 @@ public class ConcernSelectView extends FrameLayout {
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f10de);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f10f8);
                 } else {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f0262);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f0264);
                 }
                 if (this.a.l != null) {
                     this.a.l.a(0);
@@ -156,7 +156,7 @@ public class ConcernSelectView extends FrameLayout {
                 TiebaStatic.log(new StatisticItem("c12774").param("obj_locate", "3"));
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0105);
-                this.a.d.setText(R.string.obfuscated_res_0x7f0f050e);
+                this.a.d.setText(R.string.obfuscated_res_0x7f0f0514);
                 if (this.a.l != null) {
                     this.a.l.a(1);
                 }
@@ -431,18 +431,18 @@ public class ConcernSelectView extends FrameLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01fd, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090940);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090941);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913eb);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f4);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090265);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01f6, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090936);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090937);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091400);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091409);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09025b);
             if (FollowListSwitch.isOn()) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f10de);
-                this.e.setText(R.string.obfuscated_res_0x7f0f10de);
+                this.d.setText(R.string.obfuscated_res_0x7f0f10f8);
+                this.e.setText(R.string.obfuscated_res_0x7f0f10f8);
             }
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09084f);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090f65);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090847);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090f71);
             this.b.setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.f.setOnClickListener(new c(this));

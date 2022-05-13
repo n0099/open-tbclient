@@ -1,116 +1,107 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class op8 extends wa {
+public class op8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final jo8 b;
+    public TbPageContext<?> a;
+    public int b;
+    public BdUniqueId c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public op8(MainTabActivity mainTabActivity, wn8 wn8Var) {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+    public op8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wn8Var};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.mLogicController;
+        this.c = null;
+        this.d = -1;
+        this.a = tbPageContext;
+        this.c = bdUniqueId;
     }
 
-    public final void a() {
-        jo8 jo8Var;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (jo8Var = this.b) == null || jo8Var.a() == null || this.a.mLikeForumNum != 1) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void b(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) == null) || dressItemData == null || dressItemData.getPropsId() == 0) {
             return;
         }
-        this.b.a().d();
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        MainTabActivity mainTabActivity = this.a;
-        if (currentActivity != mainTabActivity || mainTabActivity.mCurrentTabIndex.intValue() == 1) {
+        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
+        personalBackgroundPreviewActivityConfig.setFrom(this.d);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void d(int i, String str, DressItemData dressItemData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
+            int i2 = dressItemData.getFreeUserLevel() == 101 ? 9 : 0;
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            if (i == gp8.a) {
+                int i3 = this.d;
+                fp8.d(this.a, z ? 4 : 2, str, i2, i3 == 1 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY : i3 == 0 ? MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY : "", MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+            } else if (i == gp8.b) {
+                fp8.c(this.a, z ? 4 : 2, str, i2);
+            }
+        }
+    }
+
+    public void e(DressItemData dressItemData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, dressItemData, z) == null) || dressItemData == null) {
             return;
         }
-        this.b.a().h();
-    }
-
-    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        jo8 jo8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
-                this.a.mLikeForumNum = profileHttpResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.mLikeForumNum == 1 && (jo8Var = this.b) != null && jo8Var.a() != null) {
-                    this.b.a().d();
-                    this.b.a().h();
-                }
-                a();
-            }
-            if (profileHttpResponseMessage == null || profileHttpResponseMessage.getMemberBlockInfo() == null) {
-                return;
-            }
-            this.a.isPermanentBan = profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1;
-            this.a.isAutoPay = profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1;
+        if (!TbadkCoreApplication.isLogin()) {
+            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
+            return;
         }
-    }
-
-    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
-                this.a.mLikeForumNum = profileSocketResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.mLikeForumNum == 1) {
-                    jo8 jo8Var = this.b;
-                    if (jo8Var != null && jo8Var.a() != null) {
-                        this.b.a().d();
-                    }
-                    a();
-                }
-            }
-            if (profileSocketResponseMessage == null || profileSocketResponseMessage.getMemberBlockInfo() == null) {
-                return;
-            }
-            this.a.isPermanentBan = profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1;
-            this.a.isAutoPay = profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1;
-        }
-    }
-
-    @Override // com.repackage.wa
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, responsedMessage) == null) {
-            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
-                if (z) {
-                    c((ProfileSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                    b((ProfileHttpResponseMessage) responsedMessage);
-                }
-            }
-        }
+        this.b = dressItemData.getPropsId();
+        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
+        backgroundSetRequestMessage.setFromDetail(z);
+        backgroundSetRequestMessage.setRequestUniqueId(this.c);
+        backgroundSetRequestMessage.setPropId(this.b);
+        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
     }
 }

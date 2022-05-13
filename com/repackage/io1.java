@@ -1,57 +1,101 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ci1;
-import com.repackage.dl2;
-import com.repackage.h72;
-import com.repackage.ie3;
-import com.repackage.j42;
-import com.repackage.jy1;
-import com.repackage.mr1;
-import com.repackage.o93;
-import com.repackage.p33;
-import com.repackage.ra2;
-import com.repackage.t82;
-import com.repackage.w52;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class io1 {
+public final class io1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static final io1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static HashMap<Class, Object> a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755611834, "Lcom/repackage/io1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755611834, "Lcom/repackage/io1;");
+                return;
+            }
+        }
+        b = new io1();
+    }
+
+    public io1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            HashMap<Class, Object> hashMap = new HashMap<>();
-            hashMap.put(p33.b.class, new p33.b());
-            hashMap.put(h72.f.class, new h72.f());
-            hashMap.put(h72.g.class, new h72.g());
-            hashMap.put(j42.a.class, new j42.a());
-            hashMap.put(w52.a.class, new w52.a());
-            hashMap.put(ie3.c.class, new ie3.c());
-            hashMap.put(o93.b.class, new o93.b());
-            hashMap.put(dl2.c.class, new dl2.c());
-            hashMap.put(wr2.class, new wr2());
-            hashMap.put(sn1.class, new sn1());
-            hashMap.put(tn1.class, new tn1());
-            hashMap.put(v83.class, new v83());
-            hashMap.put(u83.class, new u83());
-            hashMap.put(y83.class, new y83());
-            hashMap.put(n92.class, new n92());
-            hashMap.put(t82.c.class, new t82.c());
-            hashMap.put(gq2.class, new gq2());
-            hashMap.put(mr1.b.class, new mr1.b());
-            hashMap.put(ci1.a.class, new ci1.a());
-            hashMap.put(ty1.class, new ty1());
-            hashMap.put(ra2.a.class, new ra2.a());
-            hashMap.put(ra2.b.class, new ra2.b());
-            hashMap.put(jt2.class, new jt2());
-            hashMap.put(jy1.b.class, new jy1.b());
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = a;
+            if (str == null || StringsKt__StringsJVMKt.isBlank(str)) {
+                a = b();
+            }
+            return a;
         }
-        return (HashMap) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            c93 a2 = i93.a();
+            if (a2 != null) {
+                return a2.getString("alliance_login_uk", null);
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c(int i, JSONObject jsonObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jsonObject) == null) {
+            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+            if (i == 0) {
+                e(jsonObject);
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            i93.a().putString("alliance_login_uk", "");
+            a = null;
+        }
+    }
+
+    public final void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            i93.a().putString("alliance_login_uk", jSONObject.optString("uk"));
+        }
     }
 }

@@ -62,14 +62,14 @@ public class it7 extends ft7<CustomDialogData> implements View.OnClickListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907b0);
-            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907bf);
-            this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09079c);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092494);
-            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091579);
-            this.j = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090342);
-            this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090816);
-            this.l = (LinearLayout) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0919bb);
+            this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907ad);
+            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907bc);
+            this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090799);
+            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0924e3);
+            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091596);
+            this.j = getViewGroup().findViewById(R.id.obfuscated_res_0x7f09033b);
+            this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f09080d);
+            this.l = (LinearLayout) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091a13);
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
@@ -87,7 +87,7 @@ public class it7 extends ft7<CustomDialogData> implements View.OnClickListener {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0211 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d020a : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

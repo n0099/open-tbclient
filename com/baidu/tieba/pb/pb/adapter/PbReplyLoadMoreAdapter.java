@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jz7;
-import com.repackage.wu7;
+import com.repackage.gz7;
+import com.repackage.vu7;
 /* loaded from: classes3.dex */
-public class PbReplyLoadMoreAdapter extends wu7<PostData, ReplyLoadMoreViewHolder> {
+public class PbReplyLoadMoreAdapter extends vu7<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener o;
@@ -48,7 +48,7 @@ public class PbReplyLoadMoreAdapter extends wu7<PostData, ReplyLoadMoreViewHolde
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ce);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092225);
         }
 
         public void c() {
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends wu7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(jz7 jz7Var, BdUniqueId bdUniqueId) {
-        super(jz7Var, bdUniqueId);
+    public PbReplyLoadMoreAdapter(gz7 gz7Var, BdUniqueId bdUniqueId) {
+        super(gz7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jz7Var, bdUniqueId};
+            Object[] objArr = {gz7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((jz7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((gz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,14 +97,14 @@ public class PbReplyLoadMoreAdapter extends wu7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: b0 */
     public ReplyLoadMoreViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069d, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f0921ce).setOnClickListener(this.o);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068f, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f092225).setOnClickListener(this.o);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.c();
             return replyLoadMoreViewHolder;
@@ -113,7 +113,7 @@ public class PbReplyLoadMoreAdapter extends wu7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wu7, com.repackage.ho
+    @Override // com.repackage.vu7, com.repackage.eo
     /* renamed from: c0 */
     public View S(int i, View view2, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

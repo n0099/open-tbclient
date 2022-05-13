@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ug;
+import com.repackage.sg;
 /* loaded from: classes.dex */
 public class AlaRefreshScoreModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -81,7 +81,7 @@ public class AlaRefreshScoreModel extends BdBaseModel {
                     if (contentStr != null && contentStr.length() > 200) {
                         contentStr = contentStr.substring(0, 200);
                     }
-                    ug statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    sg statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("workflow", "synctdou");
                     statsItem.b("eventType", "syncfail");
                     statsItem.c("response_code", Integer.valueOf(httpResponsedMessage.getStatusCode()));

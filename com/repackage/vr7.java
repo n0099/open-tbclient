@@ -37,10 +37,10 @@ public class vr7 {
             }
         }
         this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090643);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090640);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090641);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090642);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09063b);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090638);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090639);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09063a);
     }
 
     public void a() {

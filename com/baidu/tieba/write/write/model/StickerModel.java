@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.j19;
-import com.repackage.kk8;
-import com.repackage.mi;
+import com.repackage.e09;
+import com.repackage.hj8;
+import com.repackage.ki;
 import com.repackage.wa;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j19 a;
+    public e09 a;
     public wa b;
 
     /* loaded from: classes4.dex */
@@ -122,9 +122,9 @@ public class StickerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (mi.A()) {
-                kk8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                kk8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            if (ki.A()) {
+                hj8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                hj8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);
@@ -135,10 +135,10 @@ public class StickerModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void z(j19 j19Var) {
+    public void z(e09 e09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j19Var) == null) {
-            this.a = j19Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, e09Var) == null) {
+            this.a = e09Var;
         }
     }
 }

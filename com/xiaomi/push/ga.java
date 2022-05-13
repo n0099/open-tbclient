@@ -216,9 +216,9 @@ public class ga extends gc {
                 sb.append(b);
             }
             sb.append(o());
-            gg m381a = m381a();
-            if (m381a != null) {
-                sb.append(m381a.m385a());
+            gg m382a = m382a();
+            if (m382a != null) {
+                sb.append(m382a.m386a());
             }
             sb.append("</iq>");
             return sb.toString();

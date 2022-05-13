@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.br4;
-import com.repackage.c35;
-import com.repackage.il8;
-import com.repackage.mg;
+import com.repackage.fk8;
+import com.repackage.kg;
+import com.repackage.mr4;
 import com.repackage.qe;
+import com.repackage.s35;
 import com.repackage.wa;
 import com.squareup.wire.Wire;
 import tbclient.Anti;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public il8 e;
+    public fk8 e;
     public boolean f;
     public wa g;
 
@@ -211,7 +211,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new il8("profileStat");
+        this.e = new fk8("profileStat");
         registerListener(this.g);
     }
 
@@ -219,8 +219,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            br4.f();
-            return br4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            mr4.f();
+            return mr4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
         return (qe) invokeV.objValue;
     }
@@ -254,7 +254,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.f = true;
         ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            profileRequestMessage.set_uid(Long.valueOf(mg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+            profileRequestMessage.set_uid(Long.valueOf(kg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
         }
         if (z) {
             G();
@@ -303,7 +303,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 if (user != null) {
                     setUser(user);
                 }
-                c35.d().i(getUser());
+                s35.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;
@@ -311,7 +311,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c17));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c2d));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);
@@ -371,9 +371,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void O() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e == null) {
-            il8 il8Var = new il8("profileStat");
-            this.e = il8Var;
-            il8Var.f();
+            fk8 fk8Var = new fk8("profileStat");
+            this.e = fk8Var;
+            fk8Var.f();
         }
     }
 

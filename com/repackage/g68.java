@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class g68 extends tw5<e58> {
+public class g68 extends uw5<e58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -87,21 +87,21 @@ public class g68 extends tw5<e58> {
         this.i = tbPageContext;
         View k = k();
         this.j = k;
-        this.k = k.findViewById(R.id.obfuscated_res_0x7f090812);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090cc6);
-        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f090cb2);
+        this.k = k.findViewById(R.id.obfuscated_res_0x7f090809);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090cb2);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f090c9e);
         this.m = hTypeListView;
         this.n = new c48(this.i, hTypeListView);
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0198 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0193 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -122,7 +122,7 @@ public class g68 extends tw5<e58> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, e58Var) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-                this.i.showToast(R.string.obfuscated_res_0x7f0f079e);
+                this.i.showToast(R.string.obfuscated_res_0x7f0f07a7);
             } else if (ViewHelper.checkUpIsLogin(this.i.getPageActivity())) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.i.getPageActivity(), e58Var.c, e58Var.d, e58Var.e, e58Var.f)));
             }
@@ -130,7 +130,7 @@ public class g68 extends tw5<e58> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: u */
     public void l(e58 e58Var) {
         Interceptable interceptable = $ic;
@@ -142,11 +142,11 @@ public class g68 extends tw5<e58> {
                 this.n.b(aVar);
                 this.m.setData(v(e58Var.g));
                 if (e58Var.a) {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f07a2);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07ab);
                 } else if (e58Var.b) {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f07a1);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07aa);
                 } else {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f07a0);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07a9);
                 }
                 m(this.i, TbadkCoreApplication.getInst().getSkinType());
                 return;
@@ -155,7 +155,7 @@ public class g68 extends tw5<e58> {
         }
     }
 
-    public final List<uo> v(List<uo> list) {
+    public final List<ro> v(List<ro> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
@@ -163,9 +163,9 @@ public class g68 extends tw5<e58> {
             if (count <= 0) {
                 return list;
             }
-            List<uo> arrayList = new ArrayList<>(list);
-            int f = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            int f2 = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
+            List<ro> arrayList = new ArrayList<>(list);
+            int f = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            int f2 = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
             if (count > 7) {
                 arrayList = arrayList.subList(0, 7);
                 f58 f58Var = new f58();
@@ -173,9 +173,9 @@ public class g68 extends tw5<e58> {
                 f58Var.a = f;
                 ListUtils.add(arrayList, f58Var);
             }
-            b18 b18Var = new b18(f2, f);
-            ListUtils.add(arrayList, 0, b18Var);
-            ListUtils.add(arrayList, b18Var);
+            v08 v08Var = new v08(f2, f);
+            ListUtils.add(arrayList, 0, v08Var);
+            ListUtils.add(arrayList, v08Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

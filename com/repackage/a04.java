@@ -1,50 +1,113 @@
 package com.repackage;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.v8engine.FontParser;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a04 extends jw2 implements gx2 {
+public class a04 extends zz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static final Set<String> h;
-    public static long i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
+    public e82 b;
 
     /* loaded from: classes5.dex */
-    public class a implements pz9<String> {
+    public class a extends ResponseCallback<f04> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ Bundle b;
+        public final /* synthetic */ h04 a;
+        public final /* synthetic */ bt1 b;
         public final /* synthetic */ a04 c;
 
-        public a(a04 a04Var, boolean z, Bundle bundle) {
+        /* renamed from: com.repackage.a04$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0373a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ f04 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0373a(a aVar, f04 f04Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, f04Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = f04Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    f34.call(this.b.b, true, this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    f34.call(aVar.b, false, aVar.a);
+                }
+            }
+        }
+
+        public a(a04 a04Var, h04 h04Var, bt1 bt1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a04Var, Boolean.valueOf(z), bundle};
+                Object[] objArr = {a04Var, h04Var, bt1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,122 +118,121 @@ public class a04 extends jw2 implements gx2 {
                 }
             }
             this.c = a04Var;
-            this.a = z;
-            this.b = bundle;
+            this.a = h04Var;
+            this.b = bt1Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(String str) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(f04 f04Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a) {
-                    if (a04.g) {
-                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + a04.i);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, f04Var, i) == null) {
+                if (zz3.a) {
+                    Log.d("CheckAdvisedToRestApi", "on success");
+                }
+                this.c.b.post(new RunnableC0373a(this, f04Var));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public f04 parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                ResponseBody body = response.body();
+                if (body == null) {
+                    return null;
+                }
+                String string = body.string();
+                if (zz3.a) {
+                    Log.d("CheckAdvisedToRestApi", "parse response: " + string);
+                }
+                JSONObject jSONObject = new JSONObject(string);
+                String optString = jSONObject.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    if (zz3.a) {
+                        Log.d("CheckAdvisedToRestApi", "errno = " + optString);
                     }
-                    kx2.k().c(this.c, a04.i);
+                    h04 h04Var = this.a;
+                    h04Var.errNo = optString;
+                    h04Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
+                    return null;
                 }
-                t82 d = v82.c().d();
-                if (d != null) {
-                    List<String> singletonList = Collections.singletonList(this.b.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                    ea2 l = ea2.l();
-                    l.i(6);
-                    d.h(singletonList, true, l.k());
+                String optString2 = jSONObject.optJSONObject("data").optString("result");
+                f04 f04Var = new f04();
+                f04Var.result = !TextUtils.equals(optString2, "0");
+                f04Var.errNo = "0";
+                f04Var.errMsg = f34.b("checkIsUserAdvisedToRest", "ok");
+                return f04Var;
+            }
+            return (f04) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                if (zz3.a) {
+                    Log.e("CheckAdvisedToRestApi", "on fail");
                 }
-                if (a04.g) {
-                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d);
+                if (TextUtils.isEmpty(this.a.errMsg)) {
+                    h04 h04Var = this.a;
+                    h04Var.errNo = "100";
+                    h04Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
                 }
-                if (this.a) {
-                    return;
-                }
-                this.c.h();
+                this.c.b.post(new b(this));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755910612, "Lcom/repackage/a04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755910612, "Lcom/repackage/a04;");
-                return;
-            }
-        }
-        g = tg1.a;
-        h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
-        i = TimeUnit.SECONDS.toMillis(10L);
-    }
-
-    public a04() {
+    public a04(@NonNull e82 e82Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e82Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = SwanAppProcessInfo.UNKNOWN.index;
+        this.b = e82Var;
     }
 
-    @Override // com.repackage.gx2
-    public void a(String str, ix2 ix2Var) {
+    @JavascriptInterface
+    public void checkIsUserAdvisedToRest(JsObject jsObject) {
+        bt1 F;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, ix2Var) == null) && ix2Var.b.index == this.f && h.contains(str)) {
-            kx2.k().h(this);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
-            }
-            h();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) || (F = bt1.F(jsObject)) == null || this.b == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.jw2
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-            this.f = i2;
-            boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
-                Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
+        h04 h04Var = new h04();
+        try {
+            int d = F.d("todayPlayedTime");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ma_id", u03.f0());
+                jSONObject.put("todayPlayedTime", String.valueOf(d));
+            } catch (JSONException e) {
+                if (zz3.a) {
+                    e.printStackTrace();
+                }
             }
-            bz9.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("scheme");
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
+            a(kx3.b().f(), jSONObject.toString(), new a(this, h04Var, F));
+        } catch (JSTypeMismatchException e2) {
+            if (zz3.a) {
+                e2.printStackTrace();
             }
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            SchemeRouter.invoke(AppRuntime.getAppContext(), string);
-        }
-    }
-
-    @Override // com.repackage.gx2
-    public void timeout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "timeout");
-            }
-            h();
+            h04Var.errNo = FontParser.sFontWeightDefault;
+            h04Var.errMsg = f34.a("checkIsUserAdvisedToRest", e2);
+            f34.call(F, false, h04Var);
         }
     }
 }

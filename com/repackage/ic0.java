@@ -1,126 +1,342 @@
 package com.repackage;
 
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ic0 {
     public static /* synthetic */ Interceptable $ic;
+    public static ic0 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public ec0 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755623397, "Lcom/repackage/ic0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ic0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-304630530, "Lcom/repackage/ic0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-304630530, "Lcom/repackage/ic0$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755623397, "Lcom/repackage/ic0;");
+            a = new ic0();
+        }
+    }
+
+    public ic0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
+        this.b = Config.TRACE_VISIT_RECENT_DAY;
     }
 
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public static ic0 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                d = a.a;
             }
-            String c = c(map);
-            if (TextUtils.isEmpty(c)) {
-                return str;
-            }
-            if (str.contains("?")) {
-                return str + "&" + c;
-            }
-            return str + "?" + c;
+            return d;
         }
-        return (String) invokeLL.objValue;
+        return (ic0) invokeV.objValue;
     }
 
-    public static String b(String str) {
+    public int a(Context context, boolean z, String str) {
+        InterceptResult invokeCommon;
+        ec0 ec0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
+            if (TextUtils.isEmpty(str) || (ec0Var = this.c) == null) {
+                return -16777216;
+            }
+            return ec0Var.a(context, z, str);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public int b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            if (z) {
+                return ia0.a().h;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return ia0.a().f;
+            }
+            if ("dark".equals(this.b)) {
+                return ia0.a().g;
+            }
+            return ia0.a().e;
+        }
+        return invokeZ.intValue;
+    }
+
+    public int c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (z) {
+                return ia0.a().n;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return ia0.a().l;
+            }
+            if ("dark".equals(this.b)) {
+                return ia0.a().m;
+            }
+            return ia0.a().k;
+        }
+        return invokeZ.intValue;
+    }
+
+    public int d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (z) {
+                return ia0.a().t;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return ia0.a().r;
+            }
+            if ("dark".equals(this.b)) {
+                return ia0.a().s;
+            }
+            return ia0.a().q;
+        }
+        return invokeZ.intValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (z) {
+                return x90.a().o;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return x90.a().m;
+            }
+            if ("dark".equals(this.b)) {
+                return x90.a().n;
+            }
+            return x90.a().l;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            if (z) {
+                return x90.a().s;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return x90.a().q;
+            }
+            if ("dark".equals(this.b)) {
+                return x90.a().r;
+            }
+            return x90.a().p;
+        }
+        return invokeZ.intValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (z) {
+                return x90.a().w;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return x90.a().u;
+            }
+            if ("dark".equals(this.b)) {
+                return x90.a().v;
+            }
+            return x90.a().t;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            if (z) {
+                return x90.a().A;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return x90.a().y;
+            }
+            if ("dark".equals(this.b)) {
+                return x90.a().z;
+            }
+            return x90.a().x;
+        }
+        return invokeZ.intValue;
+    }
+
+    public int j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            if (z) {
+                return ia0.a().d;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return ia0.a().b;
+            }
+            if ("dark".equals(this.b)) {
+                return ia0.a().c;
+            }
+            return ia0.a().a;
+        }
+        return invokeZ.intValue;
+    }
+
+    public String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            if (z) {
+                return x90.a().d;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return x90.a().b;
+            }
+            if ("dark".equals(this.b)) {
+                return x90.a().c;
+            }
+            return x90.a().a;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int l(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            if (z) {
+                return x90.a().h;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return x90.a().f;
+            }
+            if ("dark".equals(this.b)) {
+                return x90.a().g;
+            }
+            return x90.a().e;
+        }
+        return invokeZ.intValue;
+    }
+
+    public GradientDrawable m(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, context, z)) == null) {
+            float a2 = ba0.a(context, 18.0f);
+            float[] fArr = {a2, a2, a2, a2, a2, a2, a2, a2};
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadii(fArr);
+            gradientDrawable.setColor(a(context, z, "color_btn_fill"));
+            gradientDrawable.setStroke(1, a(context, z, "color_btn_stroke"));
+            return gradientDrawable;
+        }
+        return (GradientDrawable) invokeLZ.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return R.drawable.obfuscated_res_0x7f080d3c;
+            }
+            if ("dark".equals(this.b)) {
+            }
+            return R.drawable.obfuscated_res_0x7f080d3b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void p(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            this.a = str;
+            if (q(str2)) {
+                this.b = str2;
+            }
+            if ("baidu".equals(this.a)) {
+                this.c = new dc0();
+            } else if ("haokan".equals(this.a)) {
+                this.c = new fc0();
+            } else if ("quanmin".equals(this.a)) {
+                this.c = new gc0();
+            } else if ("tieba".equals(this.a)) {
+                this.c = new hc0();
+            }
+            this.c.b(str2);
+        }
+    }
+
+    public final boolean q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(indexOf + 1);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? Config.TRACE_VISIT_RECENT_DAY.equals(str) || SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) || "dark".equals(str) : invokeL.booleanValue;
     }
 
-    public static String c(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
+    public void r(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
+        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && q(str)) {
+            this.b = str;
+            ec0 ec0Var = this.c;
+            if (ec0Var != null) {
+                ec0Var.b(str);
             }
-            StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str2 = map.get(str);
-                if (str != null) {
-                    try {
-                        encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        if (gc0.i()) {
-                            throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                        }
-                    }
-                } else {
-                    encode = "";
-                }
-                sb.append(encode);
-                sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
-            }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static Map<String, String> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
-                try {
-                    hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
     }
 }

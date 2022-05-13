@@ -1,7 +1,6 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,46 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class or1 extends ir1 {
+public abstract class or1 implements qr1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ or1 b;
-
-        public a(or1 or1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {or1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = or1Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new js1(0, this.b.y()));
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -65,65 +31,70 @@ public class or1 extends ir1 {
                 return;
             }
         }
-        boolean z = tg1.a;
+        a = u03.v;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public or1(@NonNull ko1 ko1Var) {
-        super(ko1Var);
+    public or1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ko1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ko1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.mo1
-    public String j() {
+    @Override // com.repackage.qr1
+    public us1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
-    }
-
-    public js1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getPerformanceLevel", false);
-            Pair<js1, JSONObject> s = s(str);
-            if (!((js1) s.first).isSuccess()) {
-                return (js1) s.first;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (u03.a0() == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
+                }
+                return d(1001);
             }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new js1(202, "cb is empty");
+            d02 V = hm2.U().V();
+            if (V == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
+                }
+                return d(1001);
             }
-            dd3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
-            return new js1(0);
+            a02 m = V.m();
+            if (m == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
+                }
+                return d(1001);
+            }
+            return c(m);
         }
-        return (js1) invokeL.objValue;
+        return (us1) invokeV.objValue;
     }
 
-    public JSONObject y() {
-        InterceptResult invokeV;
+    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String b = qj2.u0().b();
-            jx1.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jd3.f(jSONObject, "performanceLevel", b);
+            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
+            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
+            jSONObject.putOpt("left", Integer.valueOf(i));
+            jSONObject.putOpt("right", Integer.valueOf(i3));
+            jSONObject.putOpt("top", Integer.valueOf(i2));
+            jSONObject.putOpt("bottom", Integer.valueOf(i4));
             return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        return (JSONObject) invokeIIII.objValue;
     }
+
+    public abstract us1 c(@NonNull a02 a02Var);
+
+    public abstract us1 d(int i);
 }

@@ -1,147 +1,59 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class xo5 {
+public class xo5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public yo5 a;
-    public zo5 b;
-    public dp5 c;
-    public cp5 d;
-    public ap5 e;
-    public bp5 f;
-    public List<ho> g;
+    public wn5 a;
+    public wn5 b;
+    public boolean c;
 
-    /* loaded from: classes7.dex */
-    public class a implements rp5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public a(xo5 xo5Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755164845, "Lcom/repackage/xo5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xo5Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.repackage.rp5
-        public void a(vn5 vn5Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, vn5Var) == null) || vn5Var == null || vn5Var.getThreadData() == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755164845, "Lcom/repackage/xo5;");
                 return;
             }
-            if (vn5Var.getThreadData().getThreadAlaInfo() != null && vn5Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                AlaInfoData threadAlaInfo = vn5Var.getThreadData().getThreadAlaInfo();
-                TbPageContext tbPageContext = this.a;
-                YyExtData yyExtData = threadAlaInfo.mYyExtData;
-                String str = yyExtData.mSid;
-                String str2 = yyExtData.mSsid;
-                String str3 = yyExtData.mTemplateId;
-                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, threadAlaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
-                return;
-            }
-            ho5.i(this.a.getPageActivity(), vn5Var.getThreadData());
         }
+        d = BdUniqueId.gen();
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements rp5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(xo5 xo5Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xo5Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.repackage.rp5
-        public void a(vn5 vn5Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, vn5Var) == null) || vn5Var == null || vn5Var.getThreadData() == null || vn5Var.getThreadData().getThreadAlaInfo() == null || vn5Var.getThreadData().getThreadAlaInfo().mYyExtData == null) {
-                return;
-            }
-            AlaInfoData threadAlaInfo = vn5Var.getThreadData().getThreadAlaInfo();
-            TbPageContext tbPageContext = this.a;
-            YyExtData yyExtData = threadAlaInfo.mYyExtData;
-            String str = yyExtData.mSid;
-            String str2 = yyExtData.mSsid;
-            String str3 = yyExtData.mTemplateId;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD);
-        }
-    }
-
-    public xo5(TbPageContext tbPageContext) {
+    public xo5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = new LinkedList();
-        this.a = new yo5(tbPageContext);
-        this.b = new zo5(tbPageContext);
-        this.c = new dp5(tbPageContext);
-        this.d = new cp5(tbPageContext);
-        this.e = new ap5(tbPageContext);
-        this.f = new bp5(tbPageContext);
-        this.b.b0(new a(this, tbPageContext));
-        this.d.b0(new b(this, tbPageContext));
-        this.g.add(this.a);
-        this.g.add(this.b);
-        this.g.add(this.c);
-        this.g.add(this.d);
-        this.g.add(this.e);
-        this.g.add(this.f);
+        this.c = false;
     }
 
-    public List<ho> a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

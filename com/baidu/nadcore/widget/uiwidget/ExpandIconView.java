@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.m11;
 /* loaded from: classes2.dex */
 public class ExpandIconView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -304,10 +304,10 @@ public class ExpandIconView extends View {
         this.k = new Point();
         this.l = new Point();
         this.m = new Path();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04008e, R.attr.obfuscated_res_0x7f040157, R.attr.obfuscated_res_0x7f0403dc, R.attr.obfuscated_res_0x7f040665}, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04008e, R.attr.obfuscated_res_0x7f04015a, R.attr.obfuscated_res_0x7f0403e0, R.attr.obfuscated_res_0x7f04066d}, 0, 0);
         try {
-            this.e = obtainStyledAttributes.getDimensionPixelSize(2, c11.c.a(getContext(), 40.0f));
-            this.f = obtainStyledAttributes.getDimensionPixelSize(3, c11.c.a(getContext(), 2.0f));
+            this.e = obtainStyledAttributes.getDimensionPixelSize(2, m11.c.a(getContext(), 40.0f));
+            this.f = obtainStyledAttributes.getDimensionPixelSize(3, m11.c.a(getContext(), 2.0f));
             int color = obtainStyledAttributes.getColor(1, -16777216);
             long integer = obtainStyledAttributes.getInteger(0, 150);
             obtainStyledAttributes.recycle();

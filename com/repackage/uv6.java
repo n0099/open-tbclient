@@ -1,164 +1,83 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class uv6 {
+public class uv6 extends eo<ap, NoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeRecyclerView b;
-    public LinkedList<ho> c;
-    public zv6 d;
-    public wv6 e;
-    public xv6 f;
-    public yv6 g;
+    public int i;
 
-    public uv6(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uv6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), ap.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        this.c = new LinkedList<>();
-        b();
+        this.i = 3;
     }
 
-    public List<uo> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                return bdTypeRecyclerView.getData();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.eo
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ap apVar, NoDataItemViewHolder noDataItemViewHolder) {
+        a0(i, view2, viewGroup, apVar, noDataItemViewHolder);
+        return view2;
     }
 
-    public final void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public NoDataItemViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new zv6(this.a, fy5.z0);
-            this.e = new wv6(this.a, gy5.U);
-            this.f = new xv6(this.a, fy5.I0);
-            this.g = new yv6(this.a, fy5.G0);
-            this.d.f0(this.b);
-            this.e.h0(this.b);
-            this.f.e0(this.b);
-            this.g.g0(this.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.a(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0077, viewGroup, false);
+            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+            return new NoDataItemViewHolder(inflate);
         }
+        return (NoDataItemViewHolder) invokeL.objValue;
     }
 
-    public void c() {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public View a0(int i, View view2, ViewGroup viewGroup, ap apVar, NoDataItemViewHolder noDataItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeRecyclerView = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, apVar, noDataItemViewHolder})) == null) {
+            noDataItemViewHolder.a.setText(apVar.a);
+            if (this.i != TbadkCoreApplication.getInst().getSkinType()) {
+                SkinManager.setImageResource(noDataItemViewHolder.b, apVar.b);
+                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
+                this.i = TbadkCoreApplication.getInst().getSkinType();
+            }
+            return view2;
         }
-        bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e() {
-        wv6 wv6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (wv6Var = this.e) == null) {
-            return;
-        }
-        wv6Var.onPause();
-    }
-
-    public void f(List<uo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            zv6 zv6Var = this.d;
-            if (zv6Var != null) {
-                zv6Var.d0(i);
-            }
-            wv6 wv6Var = this.e;
-            if (wv6Var != null) {
-                wv6Var.f0(i);
-            }
-            xv6 xv6Var = this.f;
-            if (xv6Var != null) {
-                xv6Var.c0(i);
-            }
-            yv6 yv6Var = this.g;
-            if (yv6Var != null) {
-                yv6Var.e0(i);
-            }
-        }
-    }
-
-    public void h(NEGFeedBackView.b bVar) {
-        yv6 yv6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (yv6Var = this.g) == null) {
-            return;
-        }
-        yv6Var.d0(bVar);
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            zv6 zv6Var = this.d;
-            if (zv6Var != null) {
-                zv6Var.e0(bdUniqueId);
-            }
-            wv6 wv6Var = this.e;
-            if (wv6Var != null) {
-                wv6Var.g0(bdUniqueId);
-            }
-            xv6 xv6Var = this.f;
-            if (xv6Var != null) {
-                xv6Var.d0(bdUniqueId);
-            }
-            yv6 yv6Var = this.g;
-            if (yv6Var != null) {
-                yv6Var.f0(bdUniqueId);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

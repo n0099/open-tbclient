@@ -1,80 +1,130 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Objects;
 import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
 /* loaded from: classes7.dex */
 public class sx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final sx4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public boolean f;
+    public String g;
+    public String h;
+    public int i;
+    public int j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755305182, "Lcom/repackage/sx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755305182, "Lcom/repackage/sx4;");
-                return;
-            }
-        }
-        b = new sx4(false);
-    }
-
-    public sx4(boolean z) {
+    public sx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = z;
     }
 
-    @NonNull
-    public static sx4 b(@Nullable JSONObject jSONObject) {
+    @Nullable
+    public static sx4 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            return new sx4((jSONObject != null ? jSONObject.optInt("voice_room_config") : 0) == 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("[pic-tab]")) {
+                String[] split = str.split(" ");
+                if (split.length != 5) {
+                    return null;
+                }
+                try {
+                    sx4 sx4Var = new sx4();
+                    sx4Var.g = split[1];
+                    sx4Var.h = split[2];
+                    sx4Var.i = Integer.parseInt(split[3]);
+                    sx4Var.j = Integer.parseInt(split[4]);
+                    return sx4Var;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return null;
         }
         return (sx4) invokeL.objValue;
     }
 
-    @NonNull
-    public static sx4 c(@Nullable DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            return new sx4((dataRes != null ? dataRes.voice_room_config.intValue() : 0) == 1);
-        }
-        return (sx4) invokeL.objValue;
-    }
-
-    public boolean a() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (d()) {
+                return "[pic-tab] " + this.g + " " + this.h + " " + this.i + " " + this.j;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.b) || this.a <= 0 : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(this.h) && this.i > 0 && this.j > 0 : invokeV.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("tab_type");
+        this.b = jSONObject.optString("tab_name");
+        this.c = jSONObject.optString("tab_code");
+        this.d = jSONObject.optString("tab_url");
+        this.e = jSONObject.optString("tab_version");
+        this.g = jSONObject.optString("selected_pic_url");
+        this.h = jSONObject.optString("unselected_pic_url");
+        this.i = jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH);
+        this.j = jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || sx4.class != obj.getClass()) {
+                return false;
+            }
+            sx4 sx4Var = (sx4) obj;
+            return this.a == sx4Var.a && this.f == sx4Var.f && this.i == sx4Var.i && this.j == sx4Var.j && Objects.equals(this.b, sx4Var.b) && Objects.equals(this.c, sx4Var.c) && Objects.equals(this.d, sx4Var.d) && Objects.equals(this.e, sx4Var.e) && Objects.equals(this.g, sx4Var.g) && Objects.equals(this.h, sx4Var.h);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b, this.c, this.d, this.e, Boolean.valueOf(this.f), this.g, this.h, Integer.valueOf(this.i), Integer.valueOf(this.j)) : invokeV.intValue;
     }
 }

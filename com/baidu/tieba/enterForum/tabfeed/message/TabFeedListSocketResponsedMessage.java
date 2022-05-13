@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f76;
-import com.repackage.i65;
-import com.repackage.uo;
+import com.repackage.o66;
+import com.repackage.ro;
+import com.repackage.y65;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements i65 {
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements y65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f76 enterForumTabFeedData;
+    public o66 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -44,7 +44,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enterForumTabFeedData.c() : invokeV.objValue;
     }
 
-    public ArrayList<uo> getThreadList() {
+    public ArrayList<ro> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.enterForumTabFeedData.e() : (ArrayList) invokeV.objValue;
@@ -67,9 +67,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                f76 f76Var = new f76();
-                this.enterForumTabFeedData = f76Var;
-                f76Var.g(tabfeedlistResIdl.data);
+                o66 o66Var = new o66();
+                this.enterForumTabFeedData = o66Var;
+                o66Var.g(tabfeedlistResIdl.data);
             }
         }
     }

@@ -1,88 +1,75 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class qg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
+    public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
-        int i;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        if (inputStream == null) {
-            return null;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[1024];
-        while (true) {
-            try {
-                i = inputStream.read(bArr, 0, 1024);
-            } catch (IOException unused) {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
+                return null;
             }
-            if (i != -1) {
-                byteArrayOutputStream.write(bArr, 0, i);
-            } else {
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                mg4.d(byteArrayOutputStream);
-                return byteArray;
-            }
+            return connectivityManager.getActiveNetworkInfo();
         }
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "2g";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "3g";
+                case 13:
+                case 18:
+                case 19:
+                    return "4g";
+                case 20:
+                    return "5g";
+                default:
+                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
             }
         }
-        return (String) invokeL.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    mg4.d(inputStream);
-                    return str;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                mg4.d(inputStream);
-                throw th;
-            }
-            mg4.d(inputStream);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            return (a == null || !a.isConnected()) ? "no" : a.getType() == 1 ? "wifi" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

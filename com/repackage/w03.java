@@ -1,50 +1,183 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class w03<T> implements nj2<T, byte[]> {
+public class w03 extends v03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, Object> a;
 
-    public w03() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755255241, "Lcom/repackage/w03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755255241, "Lcom/repackage/w03;");
+                return;
+            }
+        }
+        b = eh1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w03(u03 u03Var) {
+        super(u03Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u03Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((u03) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = new HashMap();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
     }
 
-    public abstract T a(@NonNull oj2 oj2Var) throws Exception;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nj2
-    public final T call(byte[] bArr) throws Exception {
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            if (bArr == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            oj2 oj2Var = new oj2(byteArrayInputStream);
-            T a = a(oj2Var);
-            oj2Var.close();
-            byteArrayInputStream.close();
-            return a;
+            return this.a.containsKey(str);
         }
-        return (T) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public Boolean c(String str, Boolean bool) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool)) == null) {
+            try {
+                return (Boolean) f(str, bool);
+            } catch (ClassCastException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return bool;
+            }
+        }
+        return (Boolean) invokeLL.objValue;
+    }
+
+    public Integer d(String str, Integer num) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, num)) == null) {
+            try {
+                return (Integer) f(str, num);
+            } catch (ClassCastException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return num;
+            }
+        }
+        return (Integer) invokeLL.objValue;
+    }
+
+    public String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            try {
+                return (String) f(str, str2);
+            } catch (ClassCastException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final <V> V f(String str, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, v)) == null) {
+            if (b(str)) {
+                if (this.a.get(str) == null) {
+                    return null;
+                }
+                try {
+                    return (V) this.a.get(str);
+                } catch (Exception e) {
+                    if (b) {
+                        e.printStackTrace();
+                        return v;
+                    }
+                    return v;
+                }
+            }
+            return v;
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a();
+        }
+    }
+
+    public void h(String str, Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, bool) == null) {
+            k(str, bool);
+        }
+    }
+
+    public void i(String str, Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, num) == null) {
+            k(str, num);
+        }
+    }
+
+    public void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+            k(str, str2);
+        }
+    }
+
+    public final <V> void k(String str, V v) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, v) == null) {
+            this.a.put(str, v);
+        }
     }
 }

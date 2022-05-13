@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pg5;
-import com.repackage.qg5;
-import com.repackage.qt4;
-import com.repackage.vt4;
+import com.repackage.du4;
+import com.repackage.ih5;
+import com.repackage.iu4;
+import com.repackage.jh5;
 import com.repackage.x8;
 /* loaded from: classes3.dex */
 public class YoungsterPasswordView extends LinearLayout implements View.OnClickListener {
@@ -91,15 +91,15 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                             return;
                         }
                         if (this.a.h.equals(passWord)) {
-                            qg5.f(passWord);
+                            jh5.f(passWord);
                             if (this.a.i == 1) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921487));
-                                if (x8.f().g() > 3) {
-                                    x8.f().m(3);
+                                if (x8.g().h() > 3) {
+                                    x8.g().n(3);
                                 }
                             } else {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 2));
-                                qt4.e(this.a.getContext(), 2);
+                                du4.e(this.a.getContext(), 2);
                             }
                             this.a.g();
                             return;
@@ -110,19 +110,19 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                         this.a.c.e();
                         return;
                     case 3:
-                        if (qg5.e(passWord)) {
-                            pg5.a();
-                            qg5.a();
+                        if (jh5.e(passWord)) {
+                            ih5.a();
+                            jh5.a();
                             if (this.a.i != 2 && this.a.i != 3) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921484, 3));
                                 if (this.a.a != null) {
                                     this.a.a.getPageActivity().finish();
                                 }
                             } else {
-                                qt4.e(this.a.getContext(), 2);
+                                du4.e(this.a.getContext(), 2);
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 3));
-                            vt4.k().u("key_youngster_homgpage_top_view_closed", false);
+                            iu4.k().u("key_youngster_homgpage_top_view_closed", false);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921509, Boolean.FALSE));
                             return;
                         }
@@ -142,15 +142,15 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                             return;
                         }
                         if (this.a.h.equals(passWord)) {
-                            qg5.f(passWord);
+                            jh5.f(passWord);
                             if (this.a.i == 2 || this.a.i == 3) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 5));
-                                qt4.e(this.a.getContext(), 2);
+                                du4.e(this.a.getContext(), 2);
                                 return;
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921484, 5));
-                            if (x8.f().g() > 3) {
-                                x8.f().m(3);
+                            if (x8.g().h() > 3) {
+                                x8.g().n(3);
                                 return;
                             }
                             return;
@@ -161,8 +161,8 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                         this.a.c.e();
                         return;
                     case 6:
-                        if (qg5.e(passWord)) {
-                            pg5.a();
+                        if (jh5.e(passWord)) {
+                            ih5.a();
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921561, 6));
                             if (this.a.a != null) {
                                 this.a.a.getPageActivity().finish();
@@ -218,7 +218,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             }
             BdTopToast bdTopToast = new BdTopToast(this.a.getContext(), 2000);
             bdTopToast.i(false);
-            bdTopToast.h(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f15dc));
+            bdTopToast.h(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f1609));
             bdTopToast.j((ViewGroup) this.a.getParent().getParent());
         }
     }
@@ -258,17 +258,17 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08a5, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092235);
-            this.c = (PasswordView) findViewById(R.id.obfuscated_res_0x7f091664);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092234);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee1);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09249a);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d089a, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09228d);
+            this.c = (PasswordView) findViewById(R.id.obfuscated_res_0x7f09168b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09228c);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eee);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924ef);
             this.c.setOnPasswordInputComplete(this.k);
             this.f.setOnClickListener(this);
             BdTopToast bdTopToast = new BdTopToast(getContext(), 2000);
             bdTopToast.i(false);
-            bdTopToast.h(getContext().getString(R.string.obfuscated_res_0x7f0f15d2));
+            bdTopToast.h(getContext().getString(R.string.obfuscated_res_0x7f0f15ff));
             this.j = bdTopToast;
         }
     }
@@ -280,26 +280,26 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             this.e.setVisibility(8);
             switch (i) {
                 case 1:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15d8);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d9);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f1605);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f1606);
                     return;
                 case 2:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15dd);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d9);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f160a);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f1606);
                     return;
                 case 3:
                 case 6:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15d0);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d1);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f15fd);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f15fe);
                     this.e.setVisibility(0);
                     return;
                 case 4:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15d7);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d6);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f1604);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f1603);
                     return;
                 case 5:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15dd);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d6);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f160a);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f1603);
                     return;
                 default:
                     return;
@@ -332,7 +332,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             if (i == 3 || i == 6) {
                 String youngsterVerifyUrl = YoungsterVerifyActivityConfig.getYoungsterVerifyUrl();
                 if (!StringUtils.isNull(youngsterVerifyUrl)) {
-                    YoungsterVerifyActivityConfig youngsterVerifyActivityConfig = new YoungsterVerifyActivityConfig(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15de), youngsterVerifyUrl, true);
+                    YoungsterVerifyActivityConfig youngsterVerifyActivityConfig = new YoungsterVerifyActivityConfig(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f160b), youngsterVerifyUrl, true);
                     youngsterVerifyActivityConfig.setKeyYoungsterPasswordFrom(this.i);
                     youngsterVerifyActivityConfig.setNoMenu(true);
                     youngsterVerifyActivityConfig.setFixTitle(true);

@@ -217,7 +217,7 @@ public class hq0 implements fq0 {
     public void c(@NonNull io0 io0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, io0Var) == null) {
-            BdVideoSeries c = a21.c(io0Var.g);
+            BdVideoSeries c = k21.c(io0Var.g);
             IVideoUpdateStrategy n1 = this.b.n1();
             if (c != null) {
                 c.setVideoAd(f(io0Var.f));

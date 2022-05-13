@@ -1,62 +1,49 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class k18 implements uo {
+public class k18 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uo> a;
+    public q18 a;
+    public BdTypeListView b;
+    public List<eo> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755611617, "Lcom/repackage/k18;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755611617, "Lcom/repackage/k18;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public k18() {
+    public k18(TbPageContext tbPageContext, BdTypeListView bdTypeListView, ux5<i28> ux5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, ux5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
+        this.b = bdTypeListView;
+        q18 q18Var = new q18(tbPageContext, i28.l);
+        this.a = q18Var;
+        q18Var.b0(ux5Var);
+        this.c.add(this.a);
+        this.b.a(this.c);
     }
 
-    public List<uo> a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.H();
+        }
     }
 }

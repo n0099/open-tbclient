@@ -179,7 +179,7 @@ public class z9 extends r9<SocketMessage, SocketMessageTask> implements ga {
     public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, socketMessage, socketMessageTask) == null) {
-            oi.c();
+            mi.c();
             if (socketMessage == null || socketMessageTask == null) {
                 return;
             }
@@ -265,7 +265,7 @@ public class z9 extends r9<SocketMessage, SocketMessageTask> implements ga {
             if (u9Var != null) {
                 u9Var.a();
             }
-            if (oi.C() && !v9.a(this.e) && !v9.a(this.d) && !v9.a(this.c) && BdSocketLinkService.isAvailable()) {
+            if (mi.C() && !v9.a(this.e) && !v9.a(this.d) && !v9.a(this.c) && BdSocketLinkService.isAvailable()) {
                 v9.b(this.c);
                 v9.i(this.d, this.e);
                 v9.i(this.d, this.c);
@@ -291,22 +291,22 @@ public class z9 extends r9<SocketMessage, SocketMessageTask> implements ga {
     }
 
     @Override // com.repackage.ga
-    public void c(jj jjVar) {
+    public void c(hj hjVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jjVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, hjVar) == null) {
             E();
             ga gaVar = this.f;
             if (gaVar != null) {
-                gaVar.c(jjVar);
+                gaVar.c(hjVar);
             }
         }
     }
 
     @Override // com.repackage.ga
-    public void d(rj rjVar) {
+    public void d(pj pjVar) {
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, rjVar) == null) || rjVar == null || (bArr = rjVar.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, pjVar) == null) || pjVar == null || (bArr = pjVar.a) == null) {
             return;
         }
         this.i = System.currentTimeMillis();
@@ -318,8 +318,8 @@ public class z9 extends r9<SocketMessage, SocketMessageTask> implements ga {
             ba.a("queue", b2, h, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
             x9 o = o(b2, h);
             if (o != null) {
-                o.m = rjVar.b;
-                o.n = rjVar.c;
+                o.m = pjVar.b;
+                o.n = pjVar.c;
             }
             if (this.h != null) {
                 if (c.a.b() == this.h.c() && v9.i(this.d, this.e)) {
@@ -334,11 +334,11 @@ public class z9 extends r9<SocketMessage, SocketMessageTask> implements ga {
             }
             ga gaVar = this.f;
             if (gaVar != null) {
-                gaVar.d(rjVar);
+                gaVar.d(pjVar);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2000986));
         } catch (CoderException unused) {
-            int q = kh.o().q("alert_protobuf", 2);
+            int q = ih.o().q("alert_protobuf", 2);
             int i = this.j + 1;
             this.j = i;
             if (i >= q) {

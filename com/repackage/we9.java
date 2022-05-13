@@ -1,24 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdLoader;
+import com.repackage.ue9;
 /* loaded from: classes7.dex */
-public class we9 {
+public class we9 implements ue9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
+    public final /* synthetic */ qe9 a;
 
-    public we9(String str, long j, boolean z, float f) {
+    public we9(ye9 ye9Var, qe9 qe9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z), Float.valueOf(f)};
+            Object[] objArr = {ye9Var, qe9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,19 +28,13 @@ public class we9 {
                 return;
             }
         }
-        this.a = z;
-        this.b = f;
+        this.a = qe9Var;
     }
 
-    public float a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ue9.a
+    public FunAdLoader a(gk9 gk9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.floatValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gk9Var)) == null) ? new ck9(this.a, gk9Var) : (FunAdLoader) invokeL.objValue;
     }
 }

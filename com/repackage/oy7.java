@@ -1,53 +1,92 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Rect;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.w35;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class oy7 implements uo {
+public class oy7 implements qy7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ExcContent a;
+    public SpannableString b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755423292, "Lcom/repackage/oy7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755423292, "Lcom/repackage/oy7;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public oy7() {
+    public oy7(ExcContent excContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {excContent};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = excContent;
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
+    @Override // com.repackage.qy7
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.qy7
+    public CharSequence b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.a) : (CharSequence) invokeV.objValue;
+    }
+
+    public final SpannableString c(ExcContent excContent) {
+        InterceptResult invokeL;
+        String str;
+        int b;
+        w35.a c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
+            if (this.b == null && (b = TbFaceManager.e().b((str = excContent.text))) != 0) {
+                String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.e().f(str) + SmallTailInfo.EMOTION_SUFFIX;
+                this.b = new SpannableString(str2 + " ");
+                wf5 wf5Var = new wf5(TbadkCoreApplication.getInst().getContext(), b);
+                if (TbFaceManager.e().c(str) != null) {
+                    int a = (int) (c.a() * 0.6d);
+                    wf5Var.setBounds(new Rect(0, 0, a, a));
+                } else {
+                    wf5Var.setBounds(new Rect(0, 0, 0, 0));
+                }
+                this.b.setSpan(new ImageSpan(wf5Var, 0), 0, str2.length(), 33);
+            }
+            return this.b;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ry7
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
     }
 }

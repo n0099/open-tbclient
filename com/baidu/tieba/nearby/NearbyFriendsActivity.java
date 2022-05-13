@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bn7;
+import com.repackage.c25;
 import com.repackage.cn7;
-import com.repackage.n15;
-import com.repackage.o15;
+import com.repackage.d25;
 /* loaded from: classes3.dex */
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -95,12 +95,12 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            o15 o15Var = customResponsedMessage.getData() instanceof o15 ? (o15) customResponsedMessage.getData() : null;
-            if (o15Var == null || o15Var.b() != 1) {
+            d25 d25Var = customResponsedMessage.getData() instanceof d25 ? (d25) customResponsedMessage.getData() : null;
+            if (d25Var == null || d25Var.b() != 1) {
                 return;
             }
             NearbyFriendsActivity nearbyFriendsActivity = this.a;
-            new n15(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09152e), o15Var).m();
+            new c25(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09154c), d25Var).m();
         }
     }
 

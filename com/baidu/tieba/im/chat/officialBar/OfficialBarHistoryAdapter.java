@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a97;
-import com.repackage.f77;
-import com.repackage.g57;
+import com.repackage.g47;
+import com.repackage.v67;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class OfficialBarHistoryAdapter extends BaseAdapter {
@@ -62,11 +62,11 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                 return;
             }
             ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) this.a.d.get(intValue);
-            String f = a97.f(PreferencesUtil.LEFT_MOUNT + aVar.c + PreferencesUtil.RIGHT_MOUNT, true);
-            if (f == null) {
+            String h = a97.h(PreferencesUtil.LEFT_MOUNT + aVar.c + PreferencesUtil.RIGHT_MOUNT, true);
+            if (h == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(this.a.a, f, String.valueOf(aVar.d))));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(this.a.a, h, String.valueOf(aVar.d))));
         }
     }
 
@@ -142,7 +142,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                     };
                     chatMessage.setContent(aVar.c);
                     chatMessage.setMsgType(aVar.b);
-                    g57.e(historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
+                    g47.e(historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
                 } else if (itemViewType == 1) {
                     if (view2 == null) {
                         view2 = new HistoryItemView(this.a);
@@ -188,7 +188,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                     };
                     chatMessage2.setContent(PreferencesUtil.LEFT_MOUNT + aVar.c + PreferencesUtil.RIGHT_MOUNT);
                     chatMessage2.setMsgType(aVar.b);
-                    g57.d(this.a, view2, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    g47.d(this.a, view2, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView2.getImageView().setTag(Integer.valueOf(i));
                     historyItemView2.getImageView().setOnClickListener(this.c);
                 } else if (itemViewType == 2) {
@@ -198,7 +198,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                     MultiContentView multiContentView = new MultiContentView(this.a);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.a);
-                    multiContentView.setData(this.b.getPageContext(), f77.a(aVar.c, "", 0L, 0L), viewGroup);
+                    multiContentView.setData(this.b.getPageContext(), v67.a(aVar.c, "", 0L, 0L), viewGroup);
                     ((HistoryItemView) view2).a(multiContentView);
                 }
             }

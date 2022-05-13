@@ -1,305 +1,300 @@
 package com.repackage;
 
-import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
 public class e20 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
+    public static e20 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
+    public String a;
+    public String b;
+    public SharedPreferences c;
 
-    /* loaded from: classes5.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public File a;
-        public String b;
-        public a c;
-        public boolean d;
-        public final /* synthetic */ e20 e;
-
-        public a(e20 e20Var, File file) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755789650, "Lcom/repackage/e20;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e20Var, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = e20Var;
-            this.d = false;
-            this.d = true;
-            this.a = file;
-            this.b = file.getName();
-        }
-
-        public a(e20 e20Var, String str, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e20Var, str, aVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.e = e20Var;
-            this.d = false;
-            this.b = str;
-            this.c = aVar;
-            this.d = false;
-        }
-
-        public a a(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                if (this.d) {
-                    throw new IllegalStateException("isolate session is not support");
-                }
-                ArrayList arrayList = new ArrayList();
-                a aVar = this;
-                do {
-                    arrayList.add(aVar.h());
-                    aVar = aVar.i();
-                } while (aVar != null);
-                int size = arrayList.size() - 1;
-                while (size >= 0) {
-                    size--;
-                    file = new File(file, (String) arrayList.get(size));
-                }
-                return new a(this.e, file);
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public File b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new File(this.a, str) : (File) invokeL.objValue;
-        }
-
-        public String c(String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) ? e20.b(g(), str, "UTF-8", z) : (String) invokeLZ.objValue;
-        }
-
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                g().mkdirs();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755789650, "Lcom/repackage/e20;");
+                return;
             }
         }
-
-        public boolean e(String str, String str2, boolean z) {
-            InterceptResult invokeLLZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, str, str2, z)) == null) ? e20.d(g(), str, str2, "UTF-8", z) : invokeLLZ.booleanValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? new a(this.e, str, this) : (a) invokeL.objValue;
-        }
-
-        public File g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                File file = this.a;
-                if (file != null) {
-                    return file;
-                }
-                File file2 = this.c == null ? new File(this.e.a(), this.b) : new File(this.c.g(), this.b);
-                this.a = file2;
-                return file2;
-            }
-            return (File) invokeV.objValue;
-        }
-
-        public String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        public a i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (a) invokeV.objValue;
-        }
+        d = AppConfig.isDebug();
     }
 
-    public e20(Context context) {
+    public e20() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        e().mkdirs();
+        d();
     }
 
-    public static String b(File file, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        FileInputStream fileInputStream;
+    public static e20 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, Boolean.valueOf(z)})) != null) {
-            return (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (e20.class) {
+                    if (e == null) {
+                        e = new e20();
+                    }
+                }
+            }
+            return e;
         }
-        c(file);
-        File file2 = new File(file, str);
-        ByteArrayOutputStream byteArrayOutputStream = null;
-        try {
-            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+        return (e20) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+            f();
+            e();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String g = g();
+            this.b = g;
+            if (!TextUtils.isEmpty(g) || TextUtils.isEmpty(this.a)) {
+                return;
+            }
+            this.b = this.a;
+            j();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String i = i();
+            this.a = i;
+            if (TextUtils.isEmpty(i)) {
+                this.a = h();
+            }
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c.getString("channel", null) : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
+        if (com.repackage.e20.d == false) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003c, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromAssets", r2);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0070, code lost:
+        if (com.repackage.e20.d == false) goto L21;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = null;
             try {
-                fileInputStream = new FileInputStream(file2);
+                inputStream = AppRuntime.getAppContext().getAssets().open("channel");
+            } catch (Exception e2) {
+                e = e2;
+                inputStream = null;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                bufferedReader = null;
+                th = th2;
+                inputStream = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
+                    try {
+                        str = bufferedReader.readLine();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e3) {
+                                if (d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e3);
+                                }
+                            }
                         }
-                        byteArrayOutputStream2.write(bArr, 0, read);
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e4) {
+                            e = e4;
+                        }
+                    } catch (Exception e5) {
+                        e = e5;
+                        if (d) {
+                            Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
+                        }
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e6) {
+                                if (d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
+                                }
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (Exception e7) {
+                                e = e7;
+                            }
+                        }
+                        return str;
                     }
-                    byte[] byteArray = byteArrayOutputStream2.toByteArray();
-                    if (z) {
-                        byteArray = new s10().a(byteArray);
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e8) {
+                            if (d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e8);
+                            }
+                        }
                     }
-                    String str3 = new String(byteArray, str2);
-                    h20.b(fileInputStream);
-                    h20.b(byteArrayOutputStream2);
-                    return str3;
-                } catch (Exception unused) {
-                    byteArrayOutputStream = byteArrayOutputStream2;
-                    h20.b(fileInputStream);
-                    h20.b(byteArrayOutputStream);
-                    return "";
-                } catch (Throwable th) {
-                    th = th;
-                    byteArrayOutputStream = byteArrayOutputStream2;
-                    h20.b(fileInputStream);
-                    h20.b(byteArrayOutputStream);
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e9) {
+                            if (d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e9);
+                            }
+                        }
+                    }
                     throw th;
                 }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                fileInputStream = null;
-                byteArrayOutputStream = byteArrayOutputStream2;
-                th = th2;
-            }
-        } catch (Exception unused3) {
-            fileInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            fileInputStream = null;
-        }
-    }
-
-    public static void c(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            file.mkdirs();
-        }
-    }
-
-    public static boolean d(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        c(file);
-        File file2 = new File(file, str);
-        FileOutputStream fileOutputStream = null;
-        try {
-            FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-            try {
-                if (z) {
-                    fileOutputStream2.write(new s10().b(str2.getBytes()));
-                } else {
-                    fileOutputStream2.write(str2.getBytes(str3));
+            } catch (Exception e10) {
+                e = e10;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                bufferedReader = null;
+                th = th4;
+                if (inputStream != null) {
                 }
-                h20.b(fileOutputStream2);
-                return true;
-            } catch (Exception unused) {
-                fileOutputStream = fileOutputStream2;
-                h20.b(fileOutputStream);
-                return false;
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = fileOutputStream2;
-                h20.b(fileOutputStream);
+                if (bufferedReader != null) {
+                }
                 throw th;
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
+            return str;
         }
+        return (String) invokeV.objValue;
     }
 
-    public File a() {
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0030, code lost:
+        if (com.repackage.e20.d == false) goto L10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0032, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r3);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004a, code lost:
+        if (com.repackage.e20.d == false) goto L10;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(this.a.getApplicationInfo().dataDir) : (File) invokeV.objValue;
-    }
-
-    public final File e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new File(a(), ".cesium") : (File) invokeV.objValue;
-    }
-
-    public synchronized a f() {
-        InterceptResult invokeV;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.b == null) {
-                    this.b = new a(this, ".cesium", null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = null;
+            try {
+                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f11006a);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
+                try {
+                    str = bufferedReader.readLine();
+                    try {
+                        openRawResource.close();
+                        bufferedReader.close();
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Exception e3) {
+                    if (d) {
+                        Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
+                    }
+                    try {
+                        openRawResource.close();
+                        bufferedReader.close();
+                    } catch (Exception e4) {
+                        e = e4;
+                    }
                 }
-                aVar = this.b;
+            } catch (Exception e5) {
+                if (d) {
+                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
+                }
             }
-            return aVar;
+            return str;
         }
-        return (a) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.c.edit().putString("channel", this.b).apply();
+        }
     }
 }

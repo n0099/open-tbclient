@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.iu4;
 import com.repackage.mm7;
-import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class CollectUpdateReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,14 +40,14 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && ACTION_NAME.equals(intent.getAction())) {
             mm7.b().g();
-            if (vt4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            if (iu4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);
                     intent2.putExtra("is_notify", true);
                     intent2.setFlags(603979776);
                     PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                    String string = context.getString(R.string.obfuscated_res_0x7f0f03f3);
+                    String string = context.getString(R.string.obfuscated_res_0x7f0f03f9);
                     NotificationHelper.showNotification(context, 28, context.getString(R.string.obfuscated_res_0x7f0f029e), string, string, service, false);
                 } catch (Throwable th) {
                     if (BdLog.isDebugMode()) {

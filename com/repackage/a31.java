@@ -1,43 +1,29 @@
 package com.repackage;
 
-import android.app.Activity;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface a31 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
-    public static final a31 b = new a();
+public class a31 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements a31 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static <T> void a(@NonNull v31 v31Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, v31Var, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-
-        @Override // com.repackage.a31
-        public void a(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            }
+        if (!str.startsWith("javascript:")) {
+            str = "javascript:" + str;
         }
+        v31Var.loadUrl(str, null);
     }
 
-    void a(@NonNull Activity activity);
+    public static <T> void b(@NonNull v31 v31Var, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{v31Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            a(v31Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
+        }
+    }
 }

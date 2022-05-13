@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dq4;
 import com.repackage.f9;
-import com.repackage.oi;
-import com.repackage.sp4;
-import com.repackage.uv7;
+import com.repackage.mi;
+import com.repackage.tv7;
 /* loaded from: classes3.dex */
 public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -43,12 +43,12 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public ImageView l;
     public TextView m;
     public View n;
-    public sp4 o;
-    public sp4 p;
-    public sp4 q;
+    public dq4 o;
+    public dq4 p;
+    public dq4 q;
     public TbPageContext r;
     public int s;
-    public uv7 t;
+    public tv7 t;
     public b u;
     public View.OnClickListener v;
 
@@ -79,7 +79,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.r.getPageActivity()) && oi.C()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.r.getPageActivity()) && mi.C()) {
                 if (this.a.u != null) {
                     this.a.u.a(this.a.t);
                 }
@@ -108,7 +108,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(uv7 uv7Var);
+        void a(tv7 tv7Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -133,62 +133,62 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.v = new a(this);
         this.r = tbPageContext;
         this.u = bVar;
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091702);
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0916e2);
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172e);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092092);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092090);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09208e);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09208d);
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091567);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091568);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091569);
-        this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c4d);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c4e);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c4f);
-        this.n = view2.findViewById(R.id.obfuscated_res_0x7f091701);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172a);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09170a);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091756);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920ed);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920eb);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e9);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e8);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091584);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091585);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091586);
+        this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c39);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c3a);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c3b);
+        this.n = view2.findViewById(R.id.obfuscated_res_0x7f091729);
         k(this.v);
     }
 
-    public void i(uv7 uv7Var) {
+    public void i(tv7 tv7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, uv7Var) == null) || uv7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tv7Var) == null) || tv7Var == null) {
             return;
         }
-        this.t = uv7Var;
-        sp4 sp4Var = uv7Var.F0;
-        this.o = sp4Var;
-        this.p = uv7Var.G0;
-        this.q = uv7Var.H0;
-        if (sp4Var != null) {
-            this.d.K(sp4Var.d, 10, false);
+        this.t = tv7Var;
+        dq4 dq4Var = tv7Var.F0;
+        this.o = dq4Var;
+        this.p = tv7Var.G0;
+        this.q = tv7Var.H0;
+        if (dq4Var != null) {
+            this.d.K(dq4Var.d, 10, false);
             this.f.setText(this.o.b);
             this.g.setText(this.o.e);
             this.e.setText(this.o.f);
-            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f08109f);
-            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080e36);
+            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0810b5);
+            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080e50);
         } else {
             this.c.setVisibility(8);
         }
-        sp4 sp4Var2 = this.p;
-        if (sp4Var2 != null) {
-            this.j.setText(sp4Var2.b);
+        dq4 dq4Var2 = this.p;
+        if (dq4Var2 != null) {
+            this.j.setText(dq4Var2.b);
             SkinManager.setBackgroundResource(this.i, R.drawable.icon_frs_news);
         } else {
             this.h.setVisibility(8);
             this.j.setVisibility(8);
             this.i.setVisibility(8);
         }
-        sp4 sp4Var3 = this.q;
-        if (sp4Var3 != null) {
-            this.m.setText(sp4Var3.b);
+        dq4 dq4Var3 = this.q;
+        if (dq4Var3 != null) {
+            this.m.setText(dq4Var3.b);
             SkinManager.setBackgroundResource(this.l, R.drawable.icon_frs_game);
         } else {
             this.k.setVisibility(8);
             this.m.setVisibility(8);
             this.m.setVisibility(8);
         }
-        this.a.setTag(uv7Var);
+        this.a.setTag(tv7Var);
     }
 
     public void j(int i) {

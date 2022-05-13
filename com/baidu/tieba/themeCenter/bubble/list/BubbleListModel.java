@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kk8;
-import com.repackage.mr8;
+import com.repackage.hj8;
+import com.repackage.jq8;
 import com.repackage.wa;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListActivity a;
-    public mr8 b;
+    public jq8 b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public c e;
@@ -158,7 +158,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(int i, String str, mr8 mr8Var, List<DressItemData> list);
+        void a(int i, String str, jq8 jq8Var, List<DressItemData> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -266,8 +266,8 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            kk8.h(309031, BubbleListSocketResponseMessage.class, false, false);
-            kk8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
+            hj8.h(309031, BubbleListSocketResponseMessage.class, false, false);
+            hj8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

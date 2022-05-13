@@ -1,133 +1,68 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbChildTitleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
 /* loaded from: classes7.dex */
-public class su7 {
+public class su7 extends vu7<as7, PbChildTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static su7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qe<byte[]> a;
-    public qe<byte[]> b;
 
-    public su7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public su7(gz7 gz7Var, BdUniqueId bdUniqueId) {
+        super(gz7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gz7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((gz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
     }
 
-    public static synchronized su7 b() {
-        InterceptResult invokeV;
-        su7 su7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (su7.class) {
-                if (c == null) {
-                    c = new su7();
-                }
-                su7Var = c;
-            }
-            return su7Var;
-        }
-        return (su7) invokeV.objValue;
+    @Override // com.repackage.vu7, com.repackage.eo
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        c0(i, view2, viewGroup, (as7) obj, (PbChildTitleViewHolder) viewHolder);
+        return view2;
     }
 
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        qe.b<byte[]> h;
-        byte[] bArr;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: b0 */
+    public PbChildTitleViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (z) {
-                qe<byte[]> qeVar = this.a;
-                if (qeVar != null && str != null) {
-                    h = qeVar.h(str);
-                }
-                h = null;
-            } else {
-                qe<byte[]> qeVar2 = this.b;
-                if (qeVar2 != null && str != null) {
-                    h = qeVar2.h(str);
-                }
-                h = null;
-            }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLZ.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbChildTitleViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0666, viewGroup, false)) : (PbChildTitleViewHolder) invokeL.objValue;
     }
 
-    public final void c() {
+    public View c0(int i, View view2, ViewGroup viewGroup, as7 as7Var, PbChildTitleViewHolder pbChildTitleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                br4.f();
-                this.a = br4.d("tb.pb_mark");
-            }
-            if (this.b == null) {
-                br4.f();
-                this.b = br4.d("tb.pb_normal");
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, as7Var, pbChildTitleViewHolder})) == null) {
+            super.S(i, view2, viewGroup, as7Var, pbChildTitleViewHolder);
+            pbChildTitleViewHolder.c(as7Var);
+            pbChildTitleViewHolder.e();
+            return view2;
         }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                qe<byte[]> qeVar = this.a;
-                if (qeVar == null || str == null) {
-                    return;
-                }
-                qeVar.i(str, new byte[0], 0L);
-                return;
-            }
-            qe<byte[]> qeVar2 = this.b;
-            if (qeVar2 == null || str == null) {
-                return;
-            }
-            qeVar2.i(str, new byte[0], 0L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) || str == null) {
-            return;
-        }
-        c();
-        if (z) {
-            this.a.e(str, bArr, 604800000L);
-        } else {
-            this.b.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void f(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) || bArr == null || str == null) {
-            return;
-        }
-        c();
-        this.a.e(str, bArr, 2592000000L);
+        return (View) invokeCommon.objValue;
     }
 }

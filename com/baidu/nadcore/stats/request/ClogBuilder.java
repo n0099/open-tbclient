@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -575,47 +576,47 @@ public class ClogBuilder extends jz0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            c("da_locate", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    public ClogBuilder p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             c("da_menu1", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder p(@NonNull String str) {
+    public ClogBuilder q(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             c("da_menu2", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder q(Page page) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, page)) == null) {
-            c(BdVideoAd.AD_VIDEO_DAPAGE, page.type);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder r(String str) {
+    public ClogBuilder r(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            c(BdVideoAd.AD_VIDEO_DAPAGE, str);
+            c("da_menu3", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder s(LogType logType) {
+    public ClogBuilder s(Page page) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, logType)) == null) {
-            c("da_type", logType.type);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, page)) == null) {
+            c(BdVideoAd.AD_VIDEO_DAPAGE, page.type);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -625,7 +626,7 @@ public class ClogBuilder extends jz0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            c("da_type", str);
+            c(BdVideoAd.AD_VIDEO_DAPAGE, str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -638,7 +639,7 @@ public class ClogBuilder extends jz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             super.toString();
-            if (this.a.toString().contains("ad")) {
+            if (this.a.toString().contains(LaunchStatsUtils.AD)) {
                 return this.a.toString();
             }
             try {
@@ -649,7 +650,7 @@ public class ClogBuilder extends jz0 {
                     this.a.append('&');
                 }
                 StringBuilder sb = this.a;
-                sb.append("ad");
+                sb.append(LaunchStatsUtils.AD);
                 sb.append('=');
                 sb.append(encode);
                 return sb.toString();
@@ -658,5 +659,55 @@ public class ClogBuilder extends jz0 {
             }
         }
         return (String) invokeV.objValue;
+    }
+
+    public ClogBuilder u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            c("da_page_num", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    public ClogBuilder v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            c("place_id", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    public ClogBuilder w(LogType logType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, logType)) == null) {
+            c("da_type", logType.type);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    public ClogBuilder x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            c("da_type", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    public ClogBuilder y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            c("video_pos", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
     }
 }

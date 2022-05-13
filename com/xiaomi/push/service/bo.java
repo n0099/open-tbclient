@@ -79,7 +79,7 @@ public final class bo implements Runnable {
                 try {
                     try {
                         File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                        com.xiaomi.push.y.m681a(file);
+                        com.xiaomi.push.y.m682a(file);
                         randomAccessFile = new RandomAccessFile(file, "rw");
                         try {
                             fileLock2 = randomAccessFile.getChannel().lock();

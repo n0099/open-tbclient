@@ -1,111 +1,119 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.newdetail.HotTopicDetailView;
+import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseApplyMessage;
+import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
+import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
+import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class v37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<HotTopicDetailActivity> a;
-    public View b;
-    public String c;
-    public String d;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public static class a extends ua {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v37 a;
 
-        public a(v37 v37Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v37Var};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = v37Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+        @Override // com.repackage.ra
+        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+            c(socketResponsedMessage2);
+            return socketResponsedMessage2;
+        }
+
+        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                fn7.g(this.a.a, "c14391");
-                this.a.c();
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+                if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
+                    PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
+                    if (pushNotifyMessageDecoder.getMsgList() != null) {
+                        Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
+                        while (it.hasNext()) {
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
+                        }
+                    }
+                }
+                return socketResponsedMessage;
             }
+            return (SocketResponsedMessage) invokeL.objValue;
         }
     }
 
-    public v37(View view2, TbPageContext<?> tbPageContext) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        this.b = view2;
-        if (view2 instanceof TextView) {
-            HotTopicDetailView.setWriteViewStyle((TextView) view2, SkinManager.getColor(R.color.CAM_X0302));
-        }
-        this.b.setOnClickListener(new a(this));
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.c == null) {
-            return;
-        }
-        String format = StringUtils.isNull(this.d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f086a), this.d);
-        WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.a.getPageActivity());
-        newInstance.setIntentAction(IntentAction.ActivityForResult);
-        newInstance.setRequestCode(25065);
-        newInstance.setType(9).setForumId("0").setTopicId(String.valueOf(this.c)).setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL).setCallFrom("1").setTitle(format).send();
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            b();
+            c();
         }
     }
 
-    public void e(String str) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            w37.b(104102, ResponseUpdateMaskInfoMessage.class, false);
+            w37.b(202003, ResponsePullMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            w37.b(202009, PushResponseMessage.class, false);
+            w37.b(202006, PushNotifyMessageDecoder.class, false);
+            w37.b(104103, ResponseGetMaskInfoMessage.class, false);
+            w37.b(304100, ResponseAddFriendMessage.class, false);
+            w37.b(304102, ResponseDeleteFriendMessage.class, false);
+            w37.b(304103, ResponseApplyMessage.class, false);
+            w37.b(205002, ResponseCommitInviteMessage.class, false);
+            w37.b(104104, ResponseCheckUserMaskMessage.class, false);
+            MessageManager.getInstance().registerStickyMode(2001120);
         }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            MessageManager.getInstance().addResponsedMessageRule(new a(202006));
+            MessageManager.getInstance().addResponsedMessageRule(new a77());
+            MessageManager.getInstance().addResponsedMessageRule(new f77());
+            MessageManager.getInstance().addMessageRule(new z67());
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

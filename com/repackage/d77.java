@@ -1,59 +1,70 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d77 extends la {
+public class d77 {
     public static /* synthetic */ Interceptable $ic;
+    public static d77 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ib a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d77() {
-        super(2016004);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755814419, "Lcom/repackage/d77;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755814419, "Lcom/repackage/d77;");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ra
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        InterceptResult invokeL;
+    public d77() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            if (customResponsedMessage == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (customResponsedMessage instanceof MemoryChangedMessage) {
-                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-                ImMessageCenterPojo data = memoryChangedMessage.getData();
-                if (data != null && data.getCustomGroupType() == -8) {
-                    return new MemoryChangedMessage(x47.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-                if (data != null && data.getCustomGroupType() == -7) {
-                    return new MemoryChangedMessage(y47.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-            }
-            return customResponsedMessage;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a = null;
+        this.a = new ib(1000, 1000, 1000);
+    }
+
+    public static d77 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (d77.class) {
+                    if (b == null) {
+                        b = new d77();
+                    }
+                }
+            }
+            return b;
+        }
+        return (d77) invokeV.objValue;
+    }
+
+    public ib b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ib) invokeV.objValue;
     }
 }

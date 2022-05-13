@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
+import com.repackage.kg;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PluginSetting implements Serializable, Cloneable {
@@ -84,8 +84,8 @@ public class PluginSetting implements Serializable, Cloneable {
                 }
                 String[] split2 = split[i].split("-");
                 if (split2 != null && split2.length == 2) {
-                    int e = mg.e(split2[0], -1);
-                    int e2 = mg.e(split2[1], -1);
+                    int e = kg.e(split2[0], -1);
+                    int e2 = kg.e(split2[1], -1);
                     if (e >= 0 && e2 >= 0 && e <= e2) {
                         int i2 = i * 2;
                         iArr[i2] = e;

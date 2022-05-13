@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.PbPage.PbSortType;
 /* loaded from: classes6.dex */
-public class os7 implements uo {
+public class os7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId h;
     public static final BdUniqueId i;
@@ -62,7 +62,7 @@ public class os7 implements uo {
         this.b = bdUniqueId;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hl5 extends fc1<cn0> {
+public class hl5 extends qc1<cn0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,21 +38,21 @@ public class hl5 extends fc1<cn0> {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05b9 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05ac : invokeV.intValue;
         }
 
         @Override // com.repackage.cn0
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05bd : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05b0 : invokeV.intValue;
         }
 
         @Override // com.repackage.cn0
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d05bb : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d05ae : invokeV.intValue;
         }
     }
 
@@ -71,7 +71,7 @@ public class hl5 extends fc1<cn0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
     public cn0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

@@ -80,7 +80,7 @@ public class mm7 {
                 if (list.isEmpty()) {
                     return;
                 }
-                vt4.k().y("collect_update_time_key", new JSONArray((Collection) list).toString());
+                iu4.k().y("collect_update_time_key", new JSONArray((Collection) list).toString());
                 mm7.b().g();
             }
         }
@@ -132,8 +132,8 @@ public class mm7 {
         }
         this.a = false;
         MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
-        kk8.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, kk8.a("c/f/livegroup/getStoreRemindTime", 309117));
+        hj8.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, hj8.a("c/f/livegroup/getStoreRemindTime", 309117));
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
@@ -160,7 +160,7 @@ public class mm7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long m = vt4.k().m("collect_request_time_key", -1L);
+            long m = iu4.k().m("collect_request_time_key", -1L);
             if (m == -1) {
                 return true;
             }
@@ -174,7 +174,7 @@ public class mm7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String q = vt4.k().q("collect_update_time_key", null);
+            String q = iu4.k().q("collect_update_time_key", null);
             if (TextUtils.isEmpty(q)) {
                 return null;
             }
@@ -236,7 +236,7 @@ public class mm7 {
             if (this.a) {
                 z = false;
             }
-            vt4.k().u("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
+            iu4.k().u("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
         }
     }
 
@@ -268,7 +268,7 @@ public class mm7 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            vt4.k().x("collect_request_time_key", System.currentTimeMillis());
+            iu4.k().x("collect_request_time_key", System.currentTimeMillis());
         }
     }
 }

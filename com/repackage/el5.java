@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class el5 extends fc1<yh0> {
+public class el5 extends qc1<bi0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements yh0 {
+    public class a implements bi0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,27 +37,27 @@ public class el5 extends fc1<yh0> {
             }
         }
 
-        @Override // com.repackage.yh0
-        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable zh0 zh0Var) {
+        @Override // com.repackage.bi0
+        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, zh0Var)) == null) {
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, ci0Var)) == null) {
                 Log.e("CMDConfig", "host invoke command = " + str);
                 return false;
             }
             return invokeLLLL.booleanValue;
         }
 
-        @Override // com.repackage.yh0
-        public void b(String str, String str2, bi0 bi0Var) {
+        @Override // com.repackage.bi0
+        public void b(String str, String str2, ei0 ei0Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bi0Var) == null) || bi0Var == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, ei0Var) == null) || ei0Var == null) {
                 return;
             }
-            bi0Var.onResult(true);
+            ei0Var.onResult(true);
         }
 
-        @Override // com.repackage.yh0
+        @Override // com.repackage.bi0
         public String[] c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class el5 extends fc1<yh0> {
             return (String[]) invokeV.objValue;
         }
 
-        @Override // com.repackage.yh0
+        @Override // com.repackage.bi0
         public boolean d(Context context, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -93,11 +93,11 @@ public class el5 extends fc1<yh0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
-    public yh0 createService() throws ServiceNotFoundException {
+    public bi0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (yh0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (bi0) invokeV.objValue;
     }
 }

@@ -1,21 +1,40 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.HashMap;
 import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 /* loaded from: classes7.dex */
-public abstract class v74<T> implements y74<T> {
+public class v74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public Map<String, String> c;
+    public RequestBody d;
+    public ResponseCallback e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public Object i;
+    public int j;
+    public int k;
+    public a l;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+    }
 
     public v74() {
         Interceptable interceptable = $ic;
@@ -27,77 +46,83 @@ public abstract class v74<T> implements y74<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
     }
 
-    @Override // com.repackage.y74
-    public void a(T t) {
+    public v74 a(MediaType mediaType, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
+            if (mediaType != null && str != null) {
+                this.d = RequestBody.create(mediaType, str);
+            }
+            return this;
         }
+        return (v74) invokeLL.objValue;
     }
 
-    @Override // com.repackage.y74
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-        }
-    }
-
-    @Override // com.repackage.y74
-    public void e(T t, b94 b94Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, b94Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.y74
-    public void f(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-        }
-    }
-
-    public int g() {
+    public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 100;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (a) invokeV.objValue;
     }
 
-    @Override // com.repackage.y74
-    public b94 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
+    public v74(String str, ResponseCallback responseCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) ? new b94(2302, "业务层默认不处理下载流") : (b94) invokeCommon.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, responseCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.e = responseCallback;
     }
 
-    @Override // com.repackage.y74
-    public void i(T t) {
+    public v74(String str, RequestBody requestBody, ResponseCallback responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, requestBody, responseCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-    }
-
-    @Override // com.repackage.y74
-    public void j(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-        }
-    }
-
-    @Override // com.repackage.y74
-    public Map<String, Object> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("queue_priority", Integer.valueOf(g()));
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.d = requestBody;
+        this.e = responseCallback;
     }
 }

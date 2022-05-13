@@ -24,15 +24,15 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.aw1;
-import com.repackage.cx1;
-import com.repackage.dp2;
-import com.repackage.jx1;
-import com.repackage.yv1;
-import com.repackage.zv1;
+import com.repackage.jw1;
+import com.repackage.kw1;
+import com.repackage.lw1;
+import com.repackage.nx1;
+import com.repackage.op2;
+import com.repackage.ux1;
 import java.io.File;
 /* loaded from: classes2.dex */
-public class VideoContainerManager extends yv1<VideoHolderWrapper, dp2> {
+public class VideoContainerManager extends jw1<VideoHolderWrapper, op2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context i;
@@ -113,9 +113,9 @@ public class VideoContainerManager extends yv1<VideoHolderWrapper, dp2> {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 ImageView imageView = new ImageView(this.d.i);
                 this.b = imageView;
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811a6);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811bc);
                 this.b.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f08119c);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811b2);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 addView(this.b, layoutParams);
@@ -200,19 +200,19 @@ public class VideoContainerManager extends yv1<VideoHolderWrapper, dp2> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoContainerManager(@NonNull Context context, @NonNull dp2 dp2Var) {
-        super(context, dp2Var);
+    public VideoContainerManager(@NonNull Context context, @NonNull op2 op2Var) {
+        super(context, op2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, dp2Var};
+            Object[] objArr = {context, op2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (zv1) objArr2[1]);
+                super((Context) objArr2[0], (kw1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -264,7 +264,7 @@ public class VideoContainerManager extends yv1<VideoHolderWrapper, dp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.yv1
+    @Override // com.repackage.jw1
     @NonNull
     /* renamed from: L */
     public VideoHolderWrapper v(@NonNull Context context) {
@@ -290,17 +290,17 @@ public class VideoContainerManager extends yv1<VideoHolderWrapper, dp2> {
         }
     }
 
-    public void O(dp2 dp2Var) {
+    public void O(op2 op2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dp2Var) == null) || dp2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, op2Var) == null) || op2Var == null) {
             return;
         }
-        P(dp2Var);
+        P(op2Var);
     }
 
-    public final void P(dp2 dp2Var) {
+    public final void P(op2 op2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, dp2Var) == null) || dp2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, op2Var) == null) || op2Var == null) {
             return;
         }
         if (!(m() != null)) {
@@ -308,16 +308,16 @@ public class VideoContainerManager extends yv1<VideoHolderWrapper, dp2> {
                 ((ViewGroup) I().getParent()).removeView(I());
             }
             G().setDescendantFocusability(393216);
-            aw1 insert = insert();
-            jx1.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + dp2Var.h);
+            lw1 insert = insert();
+            ux1.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + op2Var.h);
             return;
         }
-        dp2 n = n();
-        if (!TextUtils.equals(dp2Var.b, n.b) || !TextUtils.equals(dp2Var.c, n.c) || !TextUtils.equals(dp2Var.d, n.d)) {
-            cx1.a("video", "updateCoverContainerPosition with different id");
+        op2 n = n();
+        if (!TextUtils.equals(op2Var.b, n.b) || !TextUtils.equals(op2Var.c, n.c) || !TextUtils.equals(op2Var.d, n.d)) {
+            nx1.a("video", "updateCoverContainerPosition with different id");
         }
-        aw1 update = update((VideoContainerManager) dp2Var);
-        jx1.b("video", "Update CoverContainerWrapper " + update.a() + " position " + dp2Var.h);
+        lw1 update = update((VideoContainerManager) op2Var);
+        ux1.b("video", "Update CoverContainerWrapper " + update.a() + " position " + op2Var.h);
     }
 
     public final void Q(View view2, int i) {
@@ -328,7 +328,7 @@ public class VideoContainerManager extends yv1<VideoHolderWrapper, dp2> {
         view2.setVisibility(i);
     }
 
-    @Override // com.repackage.yv1
+    @Override // com.repackage.jw1
     @NonNull
     public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;

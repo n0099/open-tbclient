@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qp7 implements uo {
+public class qp7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class qp7 implements uo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

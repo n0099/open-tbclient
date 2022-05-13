@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int w;
+    public int z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicDetailSpecialLayout(Context context) {
@@ -38,7 +38,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.w = 3;
+        this.z = 3;
         H();
     }
 
@@ -62,11 +62,11 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
 
     public void I(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.w == i) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.z == i) {
             return;
         }
         getListAdapter().notifyDataSetChanged();
-        this.w = i;
+        this.z = i;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,7 +88,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.w = 3;
+        this.z = 3;
         H();
     }
 
@@ -111,7 +111,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.w = 3;
+        this.z = 3;
         H();
     }
 }

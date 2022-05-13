@@ -1,7 +1,11 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface mv2 {
-    void a(String str);
+    long a();
 
-    void b(int i, String str);
+    void b(long j);
+
+    void c(long j);
+
+    String getType();
 }

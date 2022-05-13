@@ -1,152 +1,293 @@
 package com.repackage;
 
-import android.content.DialogInterface;
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.stampmission.mission.StampMission;
-import com.baidu.tieba.stampmission.view.SingleStampView;
-import com.baidu.tieba.stampmission.view.StampMissionContentView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.data.FeedForumData;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
+    public String h;
+    public List<FeedForumData> i;
+    public List<ni8> j;
+    public String k;
+    public BlockPopInfoData l;
+    public int m;
+    public String n;
 
-    public static int a(List<oi8> list) {
-        InterceptResult invokeL;
+    public zi8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int i = 0;
-            for (oi8 oi8Var : list) {
-                if (oi8Var.a() >= oi8Var.b()) {
-                    i++;
-                }
-            }
-            if (i == 0) {
-                return 1;
-            }
-            if (i == 1) {
-                return 2;
-            }
-            if (i == 2) {
-                return 3;
-            }
-            return i == list.size() ? 4 : 0;
         }
-        return invokeL.intValue;
+        this.i = new ArrayList();
+        this.j = new ArrayList();
+        this.b = 0;
+        this.c = 0;
+        w("");
+        y(0);
+        u(0);
+        x(0);
     }
 
-    public static /* synthetic */ void b(qr4 qr4Var, oi8 oi8Var) {
-        ul4.m(TbadkCoreApplication.getInst(), "https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount() + "&icon_name=" + oi8Var.e());
-        qr4Var.d();
-    }
-
-    public static void e(pi8 pi8Var, String str, qi8 qi8Var) {
+    public BlockPopInfoData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pi8Var, str, qi8Var) == null) || pi8Var == null || pi8Var.h == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (BlockPopInfoData) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (String) invokeV.objValue;
+    }
+
+    public List<FeedForumData> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (List) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public List<ni8> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j : (List) invokeV.objValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final void o(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        ArrayList arrayList = new ArrayList();
-        if (pi8Var.h.a != null) {
-            oi8 oi8Var = new oi8();
-            oi8Var.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f062d));
-            oi8Var.j(pi8Var.h.a.a);
-            oi8Var.i(pi8Var.h.a.b);
-            oi8Var.f(ni8.r().q(StampMission.Type.FOLLOW_FORUM));
-            oi8Var.g(ni8.r().s(StampMission.Type.FOLLOW_FORUM));
-            arrayList.add(oi8Var);
-        }
-        if (pi8Var.h.b != null) {
-            oi8 oi8Var2 = new oi8();
-            oi8Var2.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09e1));
-            oi8Var2.j(pi8Var.h.b.a);
-            oi8Var2.i(pi8Var.h.b.b);
-            oi8Var2.f(ni8.r().q(StampMission.Type.LIKE_THREAD));
-            oi8Var2.g(ni8.r().s(StampMission.Type.LIKE_THREAD));
-            arrayList.add(oi8Var2);
-        }
-        if (pi8Var.h.c != null) {
-            oi8 oi8Var3 = new oi8();
-            oi8Var3.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9c));
-            oi8Var3.j(pi8Var.h.c.a);
-            oi8Var3.i(pi8Var.h.c.b);
-            oi8Var3.f(ni8.r().q(StampMission.Type.REPLAY_THREAD));
-            oi8Var3.g(ni8.r().s(StampMission.Type.REPLAY_THREAD));
-            arrayList.add(oi8Var3);
-        }
-        f(arrayList, (pi8Var.b * 1000) - System.currentTimeMillis(), str, qi8Var);
-    }
-
-    public static void f(List<oi8> list, long j, String str, qi8 qi8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{list, Long.valueOf(j), str, qi8Var}) == null) || list.isEmpty() || j < 0 || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
+        this.k = jSONObject.optString("block_dealurl");
+        String optString = jSONObject.optString("block_content");
+        if (StringUtils.isNull(optString)) {
             return;
         }
-        if (!UbsABTestHelper.isStampMissionDialogABTestA() || TbadkCoreApplication.getInst().getCurrentActivity().toString().contains("MainTabActivity")) {
-            TBAlertConfig.b a = TBAlertConfig.a(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f064c, TBAlertConfig.OperateBtnStyle.FORCE));
-            final qr4 qr4Var = new qr4(TbadkCoreApplication.getInst().getCurrentActivity());
-            final StampMissionContentView stampMissionContentView = new StampMissionContentView(TbadkCoreApplication.getInst().getCurrentActivity());
-            stampMissionContentView.setData(list, j, new SingleStampView.a() { // from class: com.repackage.xi8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+        this.l = blockPopInfoData;
+        blockPopInfoData.block_info = optString;
+        blockPopInfoData.ahead_url = this.k;
+        blockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
+        this.l.ok_info = jSONObject.optString("block_cancel");
+    }
 
-                @Override // com.baidu.tieba.stampmission.view.SingleStampView.a
-                public final void a(oi8 oi8Var) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, oi8Var) == null) {
-                        zi8.b(qr4.this, oi8Var);
-                    }
+    public void p(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, jSONArray) == null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
+                    FeedForumData feedForumData = new FeedForumData();
+                    feedForumData.setForumId(jSONObject.optString("forum_id"));
+                    feedForumData.setForumName(jSONObject.optString("forum_name"));
+                    feedForumData.setMemberCount(jSONObject.optInt("member_count", 0));
+                    feedForumData.setPostNum(jSONObject.optInt("post_num", 0));
+                    feedForumData.setAvatar(jSONObject.optString("avatar"));
+                    feedForumData.setReason(jSONObject.optString("reason"));
+                    feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
+                    feedForumData.setPos(jSONObject.optInt("pos", 0));
+                    this.i.add(feedForumData);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
-            });
-            qr4Var.v(R.string.obfuscated_res_0x7f0f11c1);
-            qr4Var.l(R.string.obfuscated_res_0x7f0f11c2);
-            qr4Var.j(stampMissionContentView);
-            qr4Var.i(false);
-            qr4Var.t(true);
-            qr4Var.g();
-            qr4Var.q(new DialogInterface.OnDismissListener() { // from class: com.repackage.yi8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.content.DialogInterface.OnDismissListener
-                public final void onDismiss(DialogInterface dialogInterface) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                        StampMissionContentView.this.a();
-                    }
-                }
-            });
-            qr4Var.h(new View.OnClickListener() { // from class: com.repackage.wi8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        StampMissionContentView.this.a();
-                    }
-                }
-            });
-            qr4Var.s(a);
-            qr4Var.y();
-            vt4.k().x(str, System.currentTimeMillis());
-            if (qi8Var != null) {
-                qi8Var.c = a(list);
-                ri8.a(qi8Var);
             }
         }
+    }
+
+    public void q(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, jSONArray) == null) {
+            this.j.clear();
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return;
+            }
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    ni8 a = ni8.a((JSONObject) jSONArray.opt(i));
+                    if (a != null) {
+                        this.j.add(a);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                s(jSONObject.optJSONObject("info"));
+                p(jSONObject.optJSONArray("feed_forum"));
+                q(jSONObject.optJSONArray("recom_forum"));
+                this.m = jSONObject.optInt("error_code");
+                this.n = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public void s(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.optInt("is_black", 0);
+            this.b = jSONObject.optInt("like_num", 0);
+            this.c = jSONObject.optInt("level_id", 0);
+            this.f = jSONObject.optString("member_sum");
+            y(jSONObject.optInt("is_like", 0));
+            w(jSONObject.optString("level_name", ""));
+            x(jSONObject.optInt("levelup_score", 0));
+            u(jSONObject.optInt("cur_score", 0));
+            o(jSONObject);
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void t(BlockPopInfoData blockPopInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, blockPopInfoData) == null) {
+            this.l = blockPopInfoData;
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void w(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048601, this, i) == null) || i < 0) {
+            return;
+        }
+        this.c = i;
     }
 }

@@ -1,58 +1,50 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater;
+import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class jr8 extends BaseAdapter {
+public class jr8 {
     public static /* synthetic */ Interceptable $ic;
+    public static jr8 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lr8> a;
-    public TbPageContext<?> b;
+    public int a;
+    public int b;
+    public Context c;
+    public TextWordsEntity.TextStyleEntity d;
+    public TextWordsEntity.TextFontEntity e;
+    public final TextPaint f;
+    public final TextPaint g;
+    public final TextPaint h;
+    public int i;
+    public List<String> j;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public View c;
-        public View d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public jr8(TbPageContext<?> tbPageContext) {
+    public jr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,95 +54,222 @@ public class jr8 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.b = 5;
+        this.j = new ArrayList();
+        this.f = new TextPaint(1);
+        this.g = new TextPaint(1);
+        this.h = new TextPaint(1);
+        this.a = mb9.j(R.dimen.tbds72);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public lr8 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<lr8> list = this.a;
-            if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
-                return null;
-            }
-            return this.a.get(i);
-        }
-        return (lr8) invokeI.objValue;
-    }
-
-    public void b(List<lr8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static jr8 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<lr8> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            lr8 item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0247, viewGroup, false);
-                aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090844);
-                aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080b7a);
-                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090843);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09200d);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907fd);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                aVar.a.K(item.a(), 10, false);
-                aVar.b.setText(item.b());
-                vt4 k = vt4.k();
-                if (item.c() - k.m("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                    aVar.c.setVisibility(0);
-                } else {
-                    aVar.c.setVisibility(4);
-                }
-                if (i == getCount() - 1) {
-                    aVar.d.setVisibility(8);
-                } else {
-                    aVar.d.setVisibility(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (k == null) {
+                synchronized (jr8.class) {
+                    if (k == null) {
+                        k = new jr8();
+                    }
                 }
             }
-            this.b.getLayoutMode().j(view2);
-            return view2;
+            return k;
         }
-        return (View) invokeILL.objValue;
+        return (jr8) invokeV.objValue;
+    }
+
+    public final void a(String str, Canvas canvas, int i, int i2, int i3, TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textPaint}) == null) {
+            i(textPaint);
+            canvas.drawText(str, i, i2, textPaint);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.setTypeface(Typeface.DEFAULT);
+            this.g.setTypeface(Typeface.DEFAULT);
+            this.h.setTypeface(Typeface.DEFAULT);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f.setShader(null);
+            this.f.setColor(-1);
+            this.f.clearShadowLayer();
+            this.g.clearShadowLayer();
+            this.h.clearShadowLayer();
+            this.j.clear();
+        }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str.contains("\n")) {
+                String[] split = str.split("\n");
+                if (split.length > 1) {
+                    int i = 0;
+                    int i2 = 0;
+                    for (int i3 = 0; i3 < split.length; i3++) {
+                        int length = split[i3].length();
+                        if (length > i2) {
+                            i = i3;
+                            i2 = length;
+                        }
+                    }
+                    return split[i];
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) (ob9.e() * 0.85d) : invokeV.intValue;
+    }
+
+    public final int[] g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new int[]{0, 0};
+            }
+            String e = e(str);
+            int[] iArr = new int[2];
+            TextPaint textPaint = new TextPaint(1);
+            i(textPaint);
+            textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setTextSize(this.a);
+            float measureText = textPaint.measureText(e) + 2.0f + 40.0f;
+            if (measureText > f()) {
+                measureText = f() + 2.0f;
+            }
+            float f = 0.0f;
+            if (measureText > 0.0f) {
+                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.b, Layout.Alignment.ALIGN_CENTER, 0);
+                this.i = measuredStaticLayout.getLineCount();
+                int i = 0;
+                for (int i2 = 0; i2 < this.i; i2++) {
+                    int lineEnd = measuredStaticLayout.getLineEnd(i2);
+                    if (lineEnd != 0) {
+                        this.j.add(str.substring(i, lineEnd));
+                        i = lineEnd;
+                    }
+                }
+                f = measuredStaticLayout.getHeight() + 2.0f + 40.0f;
+            }
+            iArr[0] = (int) measureText;
+            iArr[1] = (int) f;
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public Bitmap h(Context context, String str, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
+        InterceptResult invokeLLLL;
+        int i;
+        int i2;
+        int i3;
+        Canvas canvas;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, str, textStyleEntity, textFontEntity)) == null) {
+            c();
+            this.c = context;
+            this.d = textStyleEntity;
+            this.e = textFontEntity;
+            this.f.setTextSize(this.a);
+            int[] g = g(str);
+            if (g[0] >= 1 && g[1] >= 1) {
+                Bitmap a = ya9.a(this.d);
+                NinePatchChunk f = ya9.f(a, this.d);
+                if (f != null) {
+                    Rect rect = f.padding;
+                    i = rect.left;
+                    int i4 = rect.top;
+                    g[0] = g[0] + i;
+                    g[1] = g[1] + i4;
+                    g[0] = g[0] + rect.right;
+                    g[1] = g[1] + rect.bottom;
+                    if (a != null && g[0] < a.getWidth()) {
+                        g[0] = a.getWidth();
+                    }
+                    i2 = i4;
+                } else {
+                    i = 0;
+                    i2 = 0;
+                }
+                Bitmap createBitmap = Bitmap.createBitmap(g[0], g[1], Bitmap.Config.ARGB_8888);
+                Canvas canvas2 = new Canvas(createBitmap);
+                canvas2.save();
+                int i5 = 20;
+                ya9.b(a, f, canvas2, 20);
+                int g2 = ya9.g(this.f);
+                int i6 = i + 20;
+                int abs = (g2 / 2) + ((int) (Math.abs(this.f.ascent() + this.f.descent()) / 2.0f)) + 20 + i2;
+                int i7 = 0;
+                while (i7 < this.i) {
+                    int i8 = i7 + 1;
+                    ya9.c(this.f, this.d, null);
+                    int[] d = ya9.d(this.f, this.g, this.h, this.d, null);
+                    ya9.e(canvas2, this.f, i6, (g2 * i7) + i5 + i2, (g2 * i8) + i5 + i2, this.d, null);
+                    if (d[0] != 0) {
+                        i3 = i7;
+                        canvas = canvas2;
+                        a(this.j.get(i7), canvas2, i6, abs, i3, this.g);
+                    } else {
+                        i3 = i7;
+                        canvas = canvas2;
+                    }
+                    if (d[1] != 0) {
+                        a(this.j.get(i3), canvas, i6, abs, i3, this.h);
+                    }
+                    a(this.j.get(i3), canvas, i6, abs, i3, this.f);
+                    abs += g2;
+                    canvas2 = canvas;
+                    i7 = i8;
+                    i5 = 20;
+                }
+                canvas2.restore();
+                return createBitmap;
+            }
+            return Bitmap.createBitmap(10, this.a, Bitmap.Config.ARGB_8888);
+        }
+        return (Bitmap) invokeLLLL.objValue;
+    }
+
+    public final void i(TextPaint textPaint) {
+        TextWordsEntity.TextFontEntity textFontEntity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.e) == null) {
+            return;
+        }
+        try {
+            if (textFontEntity.isDefault()) {
+                b();
+                return;
+            }
+            this.e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
+            textPaint.setTypeface(Typeface.createFromFile(this.e.getSourceFile()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
+        }
     }
 }

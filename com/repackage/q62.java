@@ -1,15 +1,35 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class q62 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class q62 extends r94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String q;
 
-    public abstract void a();
+    public q62() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    public abstract void b();
-
-    public abstract void c();
+    @Override // com.repackage.q94
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.a() && !TextUtils.isEmpty(this.q) : invokeV.booleanValue;
+    }
 }

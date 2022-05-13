@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rl8;
+import com.repackage.ok8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
@@ -27,7 +27,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int continuousSignAllDays;
     public int forumId;
     public CustomMessageListener mBuyMemberListener;
-    public rl8 mSupplementSignInterface;
+    public ok8 mSupplementSignInterface;
     public int signBonusPoint;
     public int supplementSignDays;
 
@@ -87,7 +87,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         this.supplementSignDays = 0;
         this.signBonusPoint = 0;
         this.mBuyMemberListener = new a(this, 2001194);
-        this.mSupplementSignInterface = new rl8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.mSupplementSignInterface = new ok8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -110,7 +110,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.rl8
+            @Override // com.repackage.ok8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

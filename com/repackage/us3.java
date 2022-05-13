@@ -1,237 +1,114 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
-import com.baidu.swan.gamecenter.network.models.ReservationGameResultData;
-import com.baidu.swan.gamecenter.network.models.ResultData;
-import com.baidu.tieba.R;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import org.json.JSONException;
+import com.baidubce.AbstractBceClient;
+import com.repackage.rl2;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class us3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Gson a;
 
-    /* loaded from: classes7.dex */
-    public class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vs3 a;
-        public final /* synthetic */ us3 b;
-
-        /* renamed from: com.repackage.us3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0531a extends TypeToken<ResultData<ReservationGameResultData>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0531a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public a(us3 us3Var, vs3 vs3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755250436, "Lcom/repackage/us3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {us3Var, vs3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = us3Var;
-            this.a = vs3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || TextUtils.isEmpty(str) || this.a == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755250436, "Lcom/repackage/us3;");
                 return;
             }
-            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0531a(this).getType());
-            if (resultData == null) {
-                this.a.onFail("result is null");
-            } else if (resultData.errno == 0) {
-                T t = resultData.data;
-                if (t != 0 && ((ReservationGameResultData) t).apps != null) {
-                    this.a.onSuccess(((ReservationGameResultData) t).apps);
-                    return;
-                }
-                this.a.onFail("result data is null");
-            } else {
-                vs3 vs3Var = this.a;
-                if (vs3Var != null) {
-                    vs3Var.onFail(resultData.errmsg);
-                }
-            }
         }
+        a = eh1.a;
+    }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            vs3 vs3Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) || (vs3Var = this.a) == null) {
+    public static void a(String str, String str2, String str3, String str4, ss3 ss3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, ss3Var) == null) {
+            String l = ts3.l(str2);
+            if (TextUtils.isEmpty(l)) {
                 return;
             }
-            vs3Var.onFail(exc.toString());
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            ts3 ts3Var = new ts3();
+            ts3Var.m(ss3Var);
+            ts3Var.b = l;
+            ts3Var.e = str3;
+            ts3Var.v = str;
+            ts3Var.l = oe3.D();
+            if (u03.a0() != null) {
+                rl2.a V = u03.a0().V();
+                ts3Var.a = n73.n(V.G());
+                ts3Var.f = V.H();
+                ts3Var.c = V.T();
+            }
+            ts3Var.t = str4;
+            n73.x("1245", ts3Var);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(us3 us3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {us3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final us3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(53785053, "Lcom/repackage/us3$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(53785053, "Lcom/repackage/us3$c;");
-                    return;
-                }
-            }
-            a = new us3(null);
-        }
-    }
-
-    public /* synthetic */ us3(a aVar) {
-        this();
-    }
-
-    public static final us3 b() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a : (us3) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-                b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f0196).G();
-            } else if (TextUtils.isEmpty(str)) {
-            } else {
-                String n = zw3.b().n();
-                l53 a2 = qj2.q().a();
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("app_id", Long.valueOf(str));
-                    l74.g().getRequest().cookieManager(a2).url(n).addUrlParam("data", jSONObject.toString()).build().executeAsync(new b(this));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
         }
     }
 
-    public void d(vs3<List<ReservationGameInfo>> vs3Var) {
+    public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vs3Var) == null) && SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-            String c2 = zw3.b().c();
-            l53 a2 = qj2.q().a();
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = ts3.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            ts3 ts3Var = new ts3();
+            ts3Var.b = l;
+            ts3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            ts3Var.a("packageName", str3);
+            n73.x("1245", ts3Var);
+        }
+    }
+
+    public static void d(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = kx3.b().d();
+            JSONObject jSONObject = new JSONObject();
             try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("status", 2);
-                l74.g().getRequest().cookieManager(a2).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new a(this, vs3Var));
-            } catch (JSONException e) {
-                e.printStackTrace();
+                jSONObject.put("cuid", bk2.h0().i(bk2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", bk2.n().a());
+                jSONObject.put("version", oe3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) w74.h(bk2.c()).postRequest().cookieManager(bk2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
             }
         }
-    }
-
-    public us3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Gson();
     }
 }

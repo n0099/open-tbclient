@@ -1,47 +1,33 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.AppPosInfo;
 /* loaded from: classes7.dex */
 public class rb8 {
     public static /* synthetic */ Interceptable $ic;
+    public static rb8 f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rb8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-47653364, "Lcom/repackage/rb8$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-47653364, "Lcom/repackage/rb8$a;");
-                    return;
-                }
-            }
-            a = new rb8();
-        }
-    }
+    public String a;
+    public String b;
+    public long c;
+    public String d;
+    public String e;
 
     public rb8() {
         Interceptable interceptable = $ic;
@@ -53,136 +39,186 @@ public class rb8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = iu4.k().q("asp_shown_info", "");
     }
 
     public static rb8 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (rb8) invokeV.objValue;
-    }
-
-    public final ContentValues a(sb8 sb8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sb8Var)) == null) {
-            if (sb8Var == null || TextUtils.isEmpty(sb8Var.a)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                synchronized (yk8.class) {
+                    if (f == null) {
+                        f = new rb8();
+                    }
+                }
             }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("download_key", sb8Var.a);
-            contentValues.put("package_name", sb8Var.b);
-            contentValues.put("finish_download_time", String.valueOf(sb8Var.c));
-            contentValues.put("show_times", String.valueOf(sb8Var.d));
-            contentValues.put("last_show_time", String.valueOf(sb8Var.e));
-            contentValues.put("ad_string", sb8Var.f);
-            contentValues.put("cmatch", sb8Var.g);
-            contentValues.put("install_status", Integer.valueOf(sb8Var.h));
-            contentValues.put("ad_extension_info1", sb8Var.i);
-            contentValues.put("ad_extension_info2", sb8Var.j);
-            contentValues.put("ad_extension_info3", sb8Var.k);
-            return contentValues;
+            return f;
         }
-        return (ContentValues) invokeL.objValue;
+        return (rb8) invokeV.objValue;
     }
 
-    public final sb8 b(Cursor cursor) {
-        InterceptResult invokeL;
+    public AppPosInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-            if (cursor != null && !cursor.isClosed()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(ki.H());
+            builder.latitude = this.b;
+            builder.longitude = this.a;
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "bd09ll";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.B();
+                builder.mercator_lon = e.C();
+                builder.mercator_city = Integer.valueOf(e.y());
+                builder.mercator_radius = e.E();
+                builder.mercator_time = Long.valueOf(e.F());
+            }
+            return builder.build(false);
+        }
+        return (AppPosInfo) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AppPosInfo c = c();
+            JSONObject jSONObject = new JSONObject();
+            if (c != null) {
                 try {
-                    sb8 sb8Var = new sb8();
-                    sb8Var.a = cursor.getString(cursor.getColumnIndex("download_key"));
-                    sb8Var.b = cursor.getString(cursor.getColumnIndex("package_name"));
-                    sb8Var.c = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
-                    sb8Var.d = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
-                    sb8Var.e = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
-                    sb8Var.f = cursor.getString(cursor.getColumnIndex("ad_string"));
-                    sb8Var.g = cursor.getString(cursor.getColumnIndex("cmatch"));
-                    sb8Var.h = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
-                    sb8Var.i = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
-                    sb8Var.j = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
-                    sb8Var.k = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
-                    return sb8Var;
-                } catch (Exception unused) {
+                    jSONObject.put("ap_mac", c.ap_mac);
+                    jSONObject.put("ap_connected", c.ap_connected);
+                    jSONObject.put("latitude", c.latitude);
+                    jSONObject.put("longitude", c.longitude);
+                    jSONObject.put("addr_timestamp", c.addr_timestamp);
+                    jSONObject.put("coordinate_type", c.coordinate_type);
+                    jSONObject.put("asp_shown_info", c.asp_shown_info);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LAT, c.mercator_lat);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LON, c.mercator_lon);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_CITY, c.mercator_city);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_RADIUS, c.mercator_radius);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_TIME, c.mercator_time);
+                    jSONObject.put("mercator_province_name", c.mercator_province_name);
+                    jSONObject.put("mercator_city_name", c.mercator_city_name);
+                    jSONObject.put("mercator_district_name", c.mercator_district_name);
+                } catch (JSONException unused) {
                 }
             }
-            return null;
+            return jSONObject.toString();
         }
-        return (sb8) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public synchronized void c(Integer num, Integer num2) {
+    public AppPosInfo c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, num, num2) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                f.delete("ad_follow_up_info_table", "finish_download_time < ? and show_times >= ?", new String[]{String.valueOf(System.currentTimeMillis() - ((((num.intValue() * 24) * 60) * 60) * 1000)), String.valueOf(num2)});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-        }
-    }
-
-    public synchronized void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                f.delete("ad_follow_up_info_table", "download_key = ?", new String[]{str});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-        }
-    }
-
-    public synchronized List<sb8> f(Integer num, Integer num2) {
-        InterceptResult invokeLL;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, num, num2)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                long currentTimeMillis = System.currentTimeMillis() - ((((num.intValue() * 24) * 60) * 60) * 1000);
-                arrayList = new ArrayList();
-                Cursor rawQuery = f.rawQuery("SELECT * FROM ad_follow_up_info_table where finish_download_time > ? and show_times < ? and install_status = ? order by finish_download_time desc", new String[]{String.valueOf(currentTimeMillis), String.valueOf(num2), String.valueOf(1)});
-                while (rawQuery.moveToNext()) {
-                    sb8 b = b(rawQuery);
-                    if (b != null && !arrayList.contains(b)) {
-                        arrayList.add(b);
-                    }
-                }
-                f.setTransactionSuccessful();
-                pi.a(rawQuery);
-                f.endTransaction();
-            }
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public synchronized void g(sb8 sb8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sb8Var) == null) {
-            synchronized (this) {
-                if (sb8Var != null) {
-                    if (!TextUtils.isEmpty(sb8Var.a) && !TextUtils.isEmpty(sb8Var.b)) {
-                        SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                        f.beginTransaction();
-                        f.replace("ad_follow_up_info_table", null, a(sb8Var));
-                        f.setTransactionSuccessful();
-                        f.endTransaction();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(ki.H());
+            String str = this.b;
+            builder.latitude = str;
+            builder.longitude = this.a;
+            if (li.isEmpty(str) || li.isEmpty(this.a)) {
+                String q = iu4.k().q("key_last_receive_location_latitude_and_longitude", "");
+                if (!li.isEmpty(q)) {
+                    String[] split = q.split(",");
+                    if (split.length >= 2) {
+                        builder.latitude = split[0];
+                        builder.longitude = split[1];
                     }
                 }
             }
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "BD09LL";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.B();
+                builder.mercator_lon = e.C();
+                builder.mercator_city = Integer.valueOf(e.y());
+                builder.mercator_radius = e.E();
+                builder.mercator_time = Long.valueOf(e.F());
+                builder.mercator_province_name = e.D();
+                builder.mercator_city_name = e.z();
+                builder.mercator_district_name = e.A();
+            }
+            return builder.build(false);
+        }
+        return (AppPosInfo) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.d)) {
+                f();
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+            if (PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadWifiState(applicationContext)) {
+                try {
+                    WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
+                    if (connectionInfo != null) {
+                        this.d = connectionInfo.getBSSID();
+                    } else {
+                        this.d = "";
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            iu4.k().y("asp_shown_info", this.e);
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.c = j;
         }
     }
 }

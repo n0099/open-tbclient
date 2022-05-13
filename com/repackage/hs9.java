@@ -1,69 +1,44 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 /* loaded from: classes6.dex */
-public class hs9 extends Handler {
+public class hs9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ os9 a;
+    public final /* synthetic */ bp9 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hs9(os9 os9Var, Looper looper) {
-        super(looper);
+    public hs9(bp9 bp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {os9Var, looper};
+            Object[] objArr = {bp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = os9Var;
+        this.a = bp9Var;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        String str;
-        Context context;
+    @Override // java.lang.Runnable
+    public void run() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            try {
-                if (i != 11) {
-                    if (i == 12) {
-                        str = (String) message.obj;
-                        context = this.a.a;
-                    }
-                }
-                str = (String) message.obj;
-                yr9 a = cs9.a(this.a.a);
-                try {
-                    a.b = cs9.d("ps", new gs9(this.a.b));
-                    a.k("co", 2002);
-                    a.l("msg", str);
-                } catch (JSONException unused) {
-                }
-                a.m();
-                context = this.a.a;
-                ds9.a(context, Uri.parse(str));
-            } catch (Exception unused2) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bp9 bp9Var = this.a;
+            if (bp9Var.h == null || bp9Var.i == null || (view2 = bp9Var.j) == null) {
+                return;
             }
+            view2.setVisibility(0);
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -145,13 +145,13 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 return;
             }
         }
-        this.a = oi.f(TbadkApplication.getInst(), R.dimen.tbds22);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0829, this);
-        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a42);
-        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a44);
-        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a43);
-        this.e = findViewById(R.id.obfuscated_res_0x7f0903dc);
-        int k = (((oi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
-        int k2 = (((oi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
+        this.a = mi.f(TbadkApplication.getInst(), R.dimen.tbds22);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0822, this);
+        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a38);
+        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a3a);
+        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a39);
+        this.e = findViewById(R.id.obfuscated_res_0x7f0903d7);
+        int k = (((mi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
+        int k2 = (((mi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
     }
 }

@@ -1,5 +1,6 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class yy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vy8 a;
 
     public yy8() {
         Interceptable interceptable = $ic;
@@ -20,40 +22,22 @@ public class yy8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    public static yy8 a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
+    public vy8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? new yy8() : (yy8) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (vy8) invokeV.objValue;
     }
 
-    public static yy8 b(int i) {
-        InterceptResult invokeI;
+    public void b(vy8 vy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
-                }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
-            }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vy8Var) == null) {
+            this.a = vy8Var;
         }
-        return (yy8) invokeI.objValue;
     }
 }

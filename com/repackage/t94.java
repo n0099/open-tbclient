@@ -1,14 +1,20 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class t94 {
+public class t94 extends q94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
 
     public t94() {
         Interceptable interceptable = $ic;
@@ -24,18 +30,15 @@ public abstract class t94 {
         }
     }
 
-    public abstract ja4 a();
-
-    public abstract boolean b(ja4 ja4Var);
-
-    public abstract void c(boolean z);
-
-    public String toString() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() / 1000 : invokeV.longValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() - this.d > this.o : invokeV.booleanValue;
     }
 }

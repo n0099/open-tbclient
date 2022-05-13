@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pb1;
+import com.repackage.ac1;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements pb1 {
+public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements ac1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider impleme
         }
     }
 
-    @Override // com.repackage.pb1
+    @Override // com.repackage.ac1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

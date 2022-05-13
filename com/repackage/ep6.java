@@ -1,115 +1,61 @@
 package com.repackage;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.sportspage.notification.AlarmReceiver;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ep6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public CustomMessageListener b;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ep6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ep6 ep6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ep6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ep6Var;
+    public static void a(zh5 zh5Var, ForumData forumData, List<ro> list, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{zh5Var, forumData, list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || ListUtils.isEmpty(list)) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                try {
-                    JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
-                    String optString = jSONObject.optString("gameId");
-                    String optString2 = jSONObject.optString("gameName");
-                    String optString3 = jSONObject.optString("gameTime");
-                    String optString4 = jSONObject.optString("gameType");
-                    String q = vt4.k().q("key_match_id_list_" + optString4, "");
-                    String str2 = "match_id_" + optString4 + "_" + optString;
-                    if (TextUtils.isEmpty(q)) {
-                        str = str2;
-                    } else {
-                        str = "," + str2;
-                    }
-                    if (TextUtils.isEmpty(q) || !q.contains(str2)) {
-                        vt4.k().y("key_match_id_list_" + optString4, q + str);
-                    }
-                    Intent intent = new Intent(this.a.a.getPageActivity(), AlarmReceiver.class);
-                    intent.putExtra("KEY_MATCH_NAME", optString2);
-                    intent.putExtra("KEY_MATCH_TYPE", optString4);
-                    intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(this.a.a.getPageActivity(), 0, intent, 0);
-                    Calendar calendar = Calendar.getInstance();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    calendar.setTimeInMillis(currentTimeMillis);
-                    long g = (mg.g(optString3, 0L) * 1000) - currentTimeMillis;
-                    if (g > 0) {
-                        calendar.add(14, (int) g);
-                    }
-                    ((AlarmManager) this.a.a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+        hi5 hi5Var = new hi5(zh5Var, 5);
+        hi5Var.E(list);
+        if (forumData != null) {
+            hi5Var.v(forumData.getId());
+            hi5Var.u(forumData.getFirst_class());
+            hi5Var.C(forumData.getSecond_class());
         }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            hi5Var.z(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+        }
+        hi5Var.y(z);
+        hi5Var.A(i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, hi5Var));
     }
 
-    public ep6(TbPageContext tbPageContext) {
+    public static void b(zh5 zh5Var, FrsViewData frsViewData, List<ro> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, zh5Var, frsViewData, list, i) == null) || frsViewData == null) {
+            return;
+        }
+        a(zh5Var, frsViewData.getForum(), list, false, i);
+    }
+
+    public static void c(qj8 qj8Var, List<ro> list, List<ro> list2) {
+        int[] iArr;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, qj8Var, list, list2) == null) || qj8Var == null || ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0) {
+            return;
+        }
+        for (int i : qj8.f) {
+            ro roVar = (ro) ListUtils.getItem(list, i);
+            if (roVar != null && (indexOf = list2.indexOf(roVar)) >= 0) {
+                qj8Var.a(i, indexOf);
             }
         }
-        a aVar = new a(this, 2921404);
-        this.b = aVar;
-        this.a = tbPageContext;
-        tbPageContext.registerListener(aVar);
     }
 }

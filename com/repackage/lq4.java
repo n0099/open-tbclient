@@ -1,20 +1,21 @@
 package com.repackage;
 
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
 /* loaded from: classes6.dex */
 public class lq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jp4 a;
-    public List<zn4> b;
-    public List<ao4> c;
-    public List<ip4> d;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
     public lq4() {
         Interceptable interceptable = $ic;
@@ -30,36 +31,47 @@ public class lq4 {
         }
     }
 
-    public void a(SeniorLottery seniorLottery) {
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, seniorLottery) == null) || seniorLottery == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
             return;
         }
-        jp4 jp4Var = new jp4();
-        this.a = jp4Var;
-        jp4Var.a(seniorLottery.theme);
-        this.b = new ArrayList();
-        int size = seniorLottery.award_info.size();
-        for (int i = 0; i < size; i++) {
-            zn4 zn4Var = new zn4();
-            zn4Var.a(seniorLottery.award_info.get(i));
-            this.b.add(zn4Var);
+        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.b = intent.getStringExtra("recom_source");
+        this.c = intent.getStringExtra("recom_abtag");
+        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
+    }
+
+    public void b(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null) {
+            return;
         }
-        String str = seniorLottery.myaward;
-        this.c = new ArrayList();
-        int size2 = seniorLottery.luck_users.size();
-        for (int i2 = 0; i2 < size2; i2++) {
-            ao4 ao4Var = new ao4();
-            ao4Var.a(seniorLottery.luck_users.get(i2));
-            this.c.add(ao4Var);
+        this.a = threadData.mRecomWeight;
+        this.b = threadData.mRecomSource;
+        this.c = threadData.mRecomAbTag;
+        this.d = threadData.mRecomExtra;
+    }
+
+    public void c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
+            return;
         }
-        String str2 = seniorLottery.act_desc;
-        this.d = new ArrayList();
-        int size3 = seniorLottery.act_regular.size();
-        for (int i3 = 0; i3 < size3; i3++) {
-            ip4 ip4Var = new ip4();
-            ip4Var.a(seniorLottery.act_regular.get(i3));
-            this.d.add(ip4Var);
+        intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
+        intent.putExtra("recom_source", this.b);
+        intent.putExtra("recom_abtag", this.c);
+        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
+    }
+
+    public void d(m78 m78Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, m78Var) == null) || m78Var == null) {
+            return;
         }
+        m78Var.g = this.a;
+        m78Var.f = this.b;
+        m78Var.l = this.c;
+        m78Var.o = this.d;
     }
 }

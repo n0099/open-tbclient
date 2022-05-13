@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bo7;
-import com.repackage.i35;
-import com.repackage.ui;
+import com.repackage.si;
+import com.repackage.z35;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -105,7 +105,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                     collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                     collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                    StringBuilder sb = new StringBuilder(i35.f);
+                    StringBuilder sb = new StringBuilder(z35.f);
                     if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                         sb.append(collectEmotionData.pkgId);
                         sb.append(",");
@@ -119,7 +119,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     sb.append(",");
                     sb.append(collectEmotionData.height);
                     sb.append(",");
-                    String lowerCase = ui.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
+                    String lowerCase = si.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
                     collectEmotionData.sharpText = SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX;
                     this.mCollectEmotionList.add(collectEmotionData);
                 }

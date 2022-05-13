@@ -1,24 +1,27 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdLoader;
-import com.repackage.zf9;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class bg9 implements zf9.a {
+public class bg9 implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ vf9 a;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ TTFullScreenVideoAd c;
+    public final /* synthetic */ ag9 d;
 
-    public bg9(dg9 dg9Var, vf9 vf9Var) {
+    public bg9(ag9 ag9Var, TTFullScreenVideoAd tTFullScreenVideoAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dg9Var, vf9Var};
+            Object[] objArr = {ag9Var, tTFullScreenVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,13 +31,52 @@ public class bg9 implements zf9.a {
                 return;
             }
         }
-        this.a = vf9Var;
+        this.d = ag9Var;
+        this.c = tTFullScreenVideoAd;
     }
 
-    @Override // com.repackage.zf9.a
-    public FunAdLoader a(ll9 ll9Var) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdClose() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ll9Var)) == null) ? new hl9(this.a, ll9Var) : (FunAdLoader) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdVideoBarClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.b, new String[0]);
+            this.b = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+        }
     }
 }

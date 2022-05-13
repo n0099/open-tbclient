@@ -17,8 +17,8 @@ public class c48 {
     public t38 a;
     public z38 b;
     public u38 c;
-    public f18 d;
-    public List<ho> e;
+    public z08 d;
+    public List<eo> e;
 
     public c48(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class c48 {
         this.a = new t38(tbPageContext, m58.c);
         this.b = new z38(tbPageContext);
         this.c = new u38(tbPageContext, f58.c);
-        this.d = new f18(tbPageContext.getPageActivity(), b18.d);
+        this.d = new z08(tbPageContext.getPageActivity(), v08.d);
         this.e.add(this.a);
         this.e.add(this.b);
         this.e.add(this.c);

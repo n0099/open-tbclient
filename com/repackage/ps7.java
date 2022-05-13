@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ps7 implements uo {
+public class ps7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class ps7 implements uo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

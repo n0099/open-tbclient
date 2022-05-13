@@ -37,7 +37,7 @@ public class a {
             }
         }
         this.os = bq.a();
-        this.miuiVersion = l.m570a();
+        this.miuiVersion = l.m571a();
     }
 
     public String getPackageName() {

@@ -1,70 +1,29 @@
 package com.repackage;
-
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class xd0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xd0 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755175571, "Lcom/repackage/xd0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755175571, "Lcom/repackage/xd0;");
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void b(xd0 xd0Var);
     }
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - a > 3) {
-            return;
-        }
-        Log.i("cyber-" + str, str2);
+    /* loaded from: classes7.dex */
+    public interface b {
+        boolean d(xd0 xd0Var, int i, int i2);
     }
 
-    public static void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - a > 6) {
-            return;
-        }
-        Log.e("cyber-" + str, str2, th);
+    /* loaded from: classes7.dex */
+    public interface c {
+        boolean e(xd0 xd0Var, int i, int i2, Object obj);
     }
 
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 4) {
-            return;
-        }
-        Log.i("cyber-" + str, str2);
+    /* loaded from: classes7.dex */
+    public interface d {
+        void c(xd0 xd0Var);
     }
 
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 5) {
-            return;
-        }
-        Log.w("cyber-" + str, str2);
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || 7 - a > 6) {
-            return;
-        }
-        Log.e("cyber-" + str, str2);
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(xd0 xd0Var);
     }
 }

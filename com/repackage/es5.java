@@ -1,73 +1,76 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class es5 extends ho<ks5, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+public class es5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public sn5 j;
+    public b9 a;
+    public final List<eo> b;
+    public BdTypeMultiColumnListView c;
+    public fs5 d;
+    public is5 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public es5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public es5(b9 b9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {b9Var, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.b = new ArrayList();
+        this.a = b9Var;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.i)) : (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ks5 ks5Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ks5Var, alaGameFrsGameViewHolder})) == null) {
-            alaGameFrsGameViewHolder.a.l(ks5Var);
-            alaGameFrsGameViewHolder.a.u(this.j);
-            return alaGameFrsGameViewHolder.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new fs5((TbPageContext) this.a, ls5.b);
+            this.e = new is5((TbPageContext) this.a, ls5.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void b0(sn5 sn5Var) {
+    public void b(tn5 tn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sn5Var) == null) {
-            this.j = sn5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tn5Var) == null) {
+            fs5 fs5Var = this.d;
+            if (fs5Var != null) {
+                fs5Var.b0(tn5Var);
+            }
+            is5 is5Var = this.e;
+            if (is5Var != null) {
+                is5Var.b0(tn5Var);
+            }
         }
+    }
+
+    public void c(List<ro> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.c) == null) {
+            return;
+        }
+        bdTypeMultiColumnListView.setData(list);
     }
 }

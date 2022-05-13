@@ -27,7 +27,7 @@ public class mb implements jb {
     }
 
     @Override // com.repackage.jb
-    public fo a(byte[] bArr, int i, int i2) {
+    public co a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -35,13 +35,13 @@ public class mb implements jb {
             if (f == null) {
                 return null;
             }
-            return new fo(f);
+            return new co(f);
         }
-        return (fo) invokeLII.objValue;
+        return (co) invokeLII.objValue;
     }
 
     @Override // com.repackage.jb
-    public fo get(String str) {
+    public co get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -49,8 +49,8 @@ public class mb implements jb {
             if (e == null) {
                 return null;
             }
-            return new fo(e);
+            return new co(e);
         }
-        return (fo) invokeL.objValue;
+        return (co) invokeL.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.i;
 
 import kotlin.text.Typography;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static StringBuilder a(StringBuilder sb, String str) {
         sb.append(Typography.quote);

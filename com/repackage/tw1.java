@@ -1,51 +1,73 @@
 package com.repackage;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class tw1 extends qv1 {
+public final class tw1 extends jw1<CameraPreview, ot1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tw1() {
-        super("input", "viewId");
+    public tw1(@NonNull Context context, @NonNull ot1 ot1Var) {
+        super(context, ot1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, ot1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (kw1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        g(2);
     }
 
-    @Override // com.repackage.qv1, com.repackage.vv1, com.repackage.xv1, com.repackage.zv1, com.repackage.iq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jw1
+    @NonNull
+    /* renamed from: F */
+    public CameraPreview v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new CameraPreview(context, n()) : (CameraPreview) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jw1
+    /* renamed from: G */
+    public void C(@NonNull CameraPreview cameraPreview, @NonNull ot1 ot1Var, @NonNull mx1 mx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cameraPreview, ot1Var, mx1Var) == null) {
+            super.C(cameraPreview, ot1Var, mx1Var);
+            if (t()) {
+                cameraPreview.p(ot1Var);
+            }
         }
-        super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new pq2();
+    }
+
+    @Override // com.repackage.jw1
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.z();
+            CameraPreview q = q();
+            if (q != null) {
+                q.h();
+            }
         }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        this.M = jSONObject.optInt("confirmHold") == 1;
-        this.N = jSONObject.optInt("adjustPosition", 1) == 1;
     }
 }

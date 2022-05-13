@@ -1,43 +1,27 @@
 package com.repackage;
 
-import android.util.Base64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes7.dex */
 public final class re3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755353263, "Lcom/repackage/re3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755353263, "Lcom/repackage/re3;");
-                return;
-            }
-        }
-        a = a("b3Bwbw==");
-        b = a("T1BQTw==");
-        a("T3Bwbw==");
-        c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
-        d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
+    public static Uri a(@NonNull Context context, @NonNull File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) ? FileProvider.getUriForFile(context, b().a(context), file) : (Uri) invokeLL.objValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static ik1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new String(Base64.decode(str, 0)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? bk2.p() : (ik1) invokeV.objValue;
     }
 }

@@ -1,97 +1,67 @@
 package com.repackage;
 
-import android.animation.Keyframe;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.graphics.Color;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@UiThread
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.tachikoma.core.component.TKBase;
 /* loaded from: classes6.dex */
-public class p34 implements q34 {
+public class p34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public x34 b;
-    public b c;
-    public Handler d;
-    public ViewGroup e;
-    public int f;
-    public boolean g;
-    public ObjectAnimator h;
-    public s34 i;
+    public a a;
+    @V8JavascriptField
+    public String backgroundColor;
+    @V8JavascriptField
+    public String borderColor;
+    @V8JavascriptField
+    public double borderRadius;
+    @V8JavascriptField
+    public int borderWidth;
+    @V8JavascriptField
+    public String color;
+    @V8JavascriptField
+    public double fontSize;
+    @V8JavascriptField
+    public String fontWeight;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public boolean hidden;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int lineHeight;
+    @V8JavascriptField
+    public double opacity;
+    @V8JavascriptField
+    public String textAlign;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
 
     /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p34 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(p34 p34Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p34Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p34Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                int f = this.a.f();
-                if (f > 0 && this.a.g) {
-                    this.a.d.sendEmptyMessageDelayed(1, f);
-                }
-                this.a.k();
-            }
-        }
+    public interface a {
+        void s();
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void c();
-
-        void p();
-
-        void v(int i);
-    }
-
-    public p34(@NonNull Context context, @NonNull s34 s34Var) {
+    public p34(@NonNull bt1 bt1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, s34Var};
+            Object[] objArr = {bt1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,169 +71,72 @@ public class p34 implements q34 {
                 return;
             }
         }
-        this.a = context;
-        this.i = s34Var;
-        j(i());
-        h();
-        b();
+        this.fontSize = 16.0d;
+        this.opacity = 1.0d;
+        a(bt1Var);
     }
 
-    @NonNull
-    public static p34 c(int i, @NonNull Context context, @NonNull s34 s34Var) {
-        InterceptResult invokeILL;
+    public static int c(@ColorInt int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, context, s34Var)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    return new u34(context, s34Var);
-                }
-                return new w34(context, s34Var);
-            }
-            return new u34(context, s34Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            float f = (((-16777216) & i) >>> 24) / 255.0f;
+            return f > 0.0f ? Color.argb(255, (int) ((((16711680 & i) >> 16) * f) + 0.5d), (int) ((((65280 & i) >> 8) * f) + 0.5d), (int) (((i & 255) * f) + 0.5d)) : i;
         }
-        return (p34) invokeILL.objValue;
+        return invokeI.intValue;
     }
 
-    public final void b() {
+    public final void a(@NonNull bt1 bt1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.setVisibility(8);
-            c34.a(this.e, g());
-        }
-    }
-
-    public final ObjectAnimator d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
-            ofPropertyValuesHolder.setDuration(600L);
-            return ofPropertyValuesHolder;
-        }
-        return (ObjectAnimator) invokeV.objValue;
-    }
-
-    @Override // com.repackage.o34
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = false;
-            this.d.removeCallbacksAndMessages(null);
-            c34.d(this.e);
-        }
-    }
-
-    @Override // com.repackage.q34
-    public void e(x34 x34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, x34Var) == null) {
-            this.b = x34Var;
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 5000;
-        }
-        return invokeV.intValue;
-    }
-
-    public final pq2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            pq2 pq2Var = new pq2();
-            pq2Var.l(y24.a(this.i.left) - this.f);
-            pq2Var.m(y24.a(this.i.top) - this.f);
-            pq2Var.n(-2);
-            pq2Var.j(-2);
-            return pq2Var;
-        }
-        return (pq2) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = d();
-            this.d = new a(this, Looper.getMainLooper());
-        }
-    }
-
-    @Override // com.repackage.o34
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g = false;
-            this.d.removeMessages(1);
-            this.e.setVisibility(8);
-        }
-    }
-
-    @SuppressLint({"InflateParams"})
-    public View i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07e5, (ViewGroup) null) : (View) invokeV.objValue;
-    }
-
-    public final void j(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            this.f = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0706c8);
-            this.e = new FrameLayout(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(y24.a(this.i.width), y24.a(this.i.height));
-            int i = this.f;
-            layoutParams.setMargins(i, i, i, i);
-            this.e.setBackgroundColor(0);
-            this.e.addView(view2, layoutParams);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.h.start();
-        }
-    }
-
-    @Override // com.repackage.q34
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.g) {
-            this.d.removeMessages(1);
-            if (z) {
-                this.d.sendEmptyMessage(1);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bt1Var) == null) {
+            this.left = bt1Var.r("left", this.left);
+            this.top = bt1Var.r("top", this.top);
+            this.width = bt1Var.r("width", this.width);
+            this.height = bt1Var.r("height", this.height);
+            this.backgroundColor = bt1Var.C("backgroundColor", this.backgroundColor);
+            this.borderColor = bt1Var.C("borderColor", this.borderColor);
+            this.borderRadius = bt1Var.n("borderRadius", this.borderRadius);
+            this.borderWidth = bt1Var.r("borderWidth", this.borderWidth);
+            this.fontSize = bt1Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
+            this.lineHeight = bt1Var.r("lineHeight", this.lineHeight);
+            this.textAlign = bt1Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
+            this.fontWeight = bt1Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
+            this.hidden = bt1Var.m(TKBase.VISIBILITY_HIDDEN, this.hidden);
+            this.opacity = bt1Var.n(NativeConstants.OPACITY, this.opacity);
+            this.color = bt1Var.C("color", this.color);
+            if (eh1.a) {
+                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
             }
         }
     }
 
-    @Override // com.repackage.o34
-    public void show() {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.g = true;
-            this.e.setVisibility(0);
-            this.d.removeMessages(1);
-            this.d.sendEmptyMessage(1);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 
-    @Override // com.repackage.q34
-    public void u(b bVar) {
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (eh1.a) {
+                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
+            }
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.s();
+            }
         }
     }
 
-    @Override // com.repackage.q34
-    public void update() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            c34.f(this.e, g());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
-import com.repackage.xj9;
+import com.repackage.si9;
 /* loaded from: classes4.dex */
 public class KsModule implements Module {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +36,7 @@ public class KsModule implements Module {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
             KsAdSDK.init(funAdConfig.appContext, new SdkConfig.Builder().appId(str).appName(funAdConfig.appName).showNotification(true).debug(funAdConfig.logEnabled).canReadICCID(funAdConfig.ksCanReadICCID).canReadNearbyWifiList(funAdConfig.ksCanReadNearbyWifiList).canReadMacAddress(funAdConfig.ksCanReadMacAddress).customController(funAdConfig.ksCustomCtr).build());
-            return new xj9();
+            return new si9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

@@ -1,68 +1,83 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.frs.itemtab.holder.FrsItemAcceleratorHolder;
+import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wk6;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class xk6 {
+public class xk6 extends eo<ll6, FrsItemAcceleratorHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public BdTypeListView b;
-    public final List<ho> c;
-    public wk6 d;
+    public BdUniqueId i;
 
-    public xk6(b9 b9Var, BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xk6(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, bdTypeListView};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = b9Var;
-        this.b = bdTypeListView;
-        a();
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public FrsItemAcceleratorHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wk6 wk6Var = new wk6((TbPageContext) this.a, cl6.h);
-            this.d = wk6Var;
-            this.c.add(wk6Var);
-            this.b.a(this.c);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsItemAcceleratorHolder(new FrsItemAcceleratorView(viewGroup.getContext()), this.i) : (FrsItemAcceleratorHolder) invokeL.objValue;
     }
 
-    public void b(wk6.a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ll6 ll6Var, FrsItemAcceleratorHolder frsItemAcceleratorHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d.b0(aVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ll6Var, frsItemAcceleratorHolder})) == null) {
+            frsItemAcceleratorHolder.c(ll6Var);
+            frsItemAcceleratorHolder.f();
+            if (TbSingleton.getInstance().isItemTabVisible) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new gv4(17)));
+                if (ll6Var.a() == TbSingleton.getInstance().acceleratorItemId) {
+                    frsItemAcceleratorHolder.d();
+                    return null;
+                }
+                frsItemAcceleratorHolder.e();
+                return null;
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void c(List<uo> list) {
-        BdTypeListView bdTypeListView;
+    public void b0(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
         }
-        bdTypeListView.setData(list);
     }
 }

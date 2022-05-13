@@ -1,35 +1,37 @@
 package com.repackage;
 
-import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public interface kk2 {
-    boolean a(Context context, zm2 zm2Var, sm2 sm2Var, j03 j03Var);
+public class kk2 implements k94 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, um2 um2Var, sm2 sm2Var, j03 j03Var);
+    public kk2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean c(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var);
-
-    void d(pm1 pm1Var);
-
-    boolean e(Context context, tm2 tm2Var, sm2 sm2Var, j03 j03Var);
-
-    void f(pm1 pm1Var);
-
-    boolean g(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var);
-
-    boolean h(Context context, xm2 xm2Var, sm2 sm2Var, j03 j03Var);
-
-    void i(pm1 pm1Var);
-
-    boolean j(Context context, ym2 ym2Var, sm2 sm2Var, j03 j03Var);
-
-    boolean k(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var);
-
-    boolean l(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var);
-
-    boolean m(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var);
-
-    boolean n(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var);
-
-    boolean update(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var);
+    @Override // com.repackage.k94
+    public vg4 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new l93(str) : (vg4) invokeL.objValue;
+    }
 }

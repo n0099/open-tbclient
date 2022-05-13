@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b21;
 import com.repackage.om0;
 import com.repackage.pm0;
-import com.repackage.r11;
 import com.repackage.tk0;
 import com.repackage.vk0;
 /* loaded from: classes2.dex */
@@ -156,8 +156,8 @@ public class AdInstallTipsView extends LinearLayout implements vk0, View.OnClick
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b1, this));
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db9));
+            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a4, this));
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd3));
             setOrientation(0);
             setGravity(16);
             this.i = new tk0<>(this);
@@ -167,16 +167,16 @@ public class AdInstallTipsView extends LinearLayout implements vk0, View.OnClick
     public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900ba);
-            this.e = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b8);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bd);
-            this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bb);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b9);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900bc);
-            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b42));
-            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b51));
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900b0);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b1);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b5);
+            this.e = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b3);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b8);
+            this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b4);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b7);
+            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b56));
+            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b65));
             this.e.setTimerTextFormat(null, "s");
             this.h.setTimerTextFormat(null, "s");
             this.e.setTextColor(Color.parseColor("#FF4141"));
@@ -192,7 +192,7 @@ public class AdInstallTipsView extends LinearLayout implements vk0, View.OnClick
             this.c.setOnClickListener(this);
             this.f.setOnClickListener(this);
             setOnClickListener(this);
-            r11.a(getContext(), this.c, 10.0f);
+            b21.a(getContext(), this.c, 10.0f);
         }
     }
 
@@ -202,13 +202,13 @@ public class AdInstallTipsView extends LinearLayout implements vk0, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0900b5) {
+            if (id == R.id.obfuscated_res_0x7f0900b0) {
                 area = ClogBuilder.Area.ICON;
-            } else if (id == R.id.obfuscated_res_0x7f0900b6) {
+            } else if (id == R.id.obfuscated_res_0x7f0900b1) {
                 area = ClogBuilder.Area.NAME;
-            } else if (id == R.id.obfuscated_res_0x7f0900ba || id == R.id.obfuscated_res_0x7f0900b8 || id == R.id.obfuscated_res_0x7f0900b9) {
+            } else if (id == R.id.obfuscated_res_0x7f0900b5 || id == R.id.obfuscated_res_0x7f0900b3 || id == R.id.obfuscated_res_0x7f0900b4) {
                 area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
-            } else if (id != R.id.obfuscated_res_0x7f0900bd && id != R.id.obfuscated_res_0x7f0900bb && id != R.id.obfuscated_res_0x7f0900bc) {
+            } else if (id != R.id.obfuscated_res_0x7f0900b8 && id != R.id.obfuscated_res_0x7f0900b6 && id != R.id.obfuscated_res_0x7f0900b7) {
                 area = ClogBuilder.Area.HOTAREA;
             } else {
                 area = ClogBuilder.Area.INSTALL_NOW_BUTTON;

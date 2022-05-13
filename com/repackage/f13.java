@@ -1,6 +1,9 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +11,178 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-@Service
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class f13 extends g13 {
+public final class f13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final i13<a> e;
+        public static final h13<a> f;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+        public int d;
+
+        /* renamed from: com.repackage.f13$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static class C0410a extends i13<a> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0410a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.i13
+            /* renamed from: b */
+            public void a(@NonNull a aVar, @NonNull ak2 ak2Var) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, ak2Var) == null) {
+                    ak2Var.writeInt(aVar.a);
+                    ak2Var.writeInt(aVar.b);
+                    ak2Var.writeInt(aVar.c);
+                    ak2Var.writeInt(aVar.d);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public static class b extends h13<a> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.h13
+            /* renamed from: b */
+            public a a(@NonNull zj2 zj2Var) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zj2Var)) == null) {
+                    a aVar = new a();
+                    aVar.a = zj2Var.readInt();
+                    aVar.b = zj2Var.readInt();
+                    aVar.c = zj2Var.readInt();
+                    aVar.d = zj2Var.readInt();
+                    return aVar;
+                }
+                return (a) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-436604660, "Lcom/repackage/f13$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-436604660, "Lcom/repackage/f13$a;");
+                    return;
+                }
+            }
+            e = new C0410a();
+            f = new b();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return b();
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
+                if (optJSONObject == null) {
+                    return b();
+                }
+                a aVar = new a();
+                if (optJSONObject.optInt("request") > 0 && optJSONObject.optInt("request") <= 60000) {
+                    aVar.a = optJSONObject.optInt("request", 10000);
+                } else {
+                    aVar.a = 10000;
+                }
+                aVar.b = optJSONObject.optInt("connectSocket", 60000);
+                aVar.c = optJSONObject.optInt("uploadFile");
+                aVar.d = optJSONObject.optInt("downloadFile");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public static a b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (f13.a) {
+                    Log.w("SwanAppCommonConfigData", "NetworkConfig createNullObject()");
+                }
+                a aVar = new a();
+                aVar.a = 10000;
+                aVar.b = 60000;
+                return aVar;
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public static int c(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
+                if (aVar != null && aVar.a > 0) {
+                    return aVar.a;
+                }
+                return 10000;
+            }
+            return invokeL.intValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,65 +197,6 @@ public class f13 extends g13 {
                 return;
             }
         }
-        b = tg1.a;
-    }
-
-    public f13() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.g13
-    public void a() {
-        List<g23> b2;
-        List<g23> a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            b(new zk2(this));
-            b(new wx1(this));
-            b(new by1(this));
-            b(new px1(this));
-            b(new c23(this));
-            b(new n13(this));
-            b(new o33(this));
-            b(new db2(this));
-            b(new mb2(this));
-            b(new eb2(this));
-            b(new ib2(this));
-            b(new jb2(this));
-            b(new hb2(this));
-            b(new nb2(this));
-            b(new gb2(this));
-            b(new lb2(this));
-            b(new ag3(this));
-            b(new kb2(this));
-            b(new fb2(this));
-            oh1 d = rj2.d();
-            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
-                for (g23 g23Var : a) {
-                    b(g23Var);
-                }
-            }
-            if (b) {
-                b(new ob2(this));
-                b(new h13(this));
-                if (d == null || (b2 = d.b(this)) == null || b2.isEmpty()) {
-                    return;
-                }
-                for (g23 g23Var2 : b2) {
-                    b(g23Var2);
-                }
-            }
-        }
+        a = eh1.a;
     }
 }

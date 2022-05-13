@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.df5;
-import com.repackage.gf5;
-import com.repackage.jf5;
-import com.repackage.nf5;
-import com.repackage.qk;
+import com.repackage.cg5;
+import com.repackage.gg5;
+import com.repackage.nk;
+import com.repackage.wf5;
+import com.repackage.zf5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -26,11 +26,11 @@ public class TbRichTextData extends OrmObject {
     public int a;
     public SpannableStringBuilder b;
     public TbRichTextImageInfo c;
-    public ArrayList<df5> d;
+    public ArrayList<wf5> d;
     public TbRichTextVoiceInfo e;
     public TbRichTextTextInfo f;
     public TbRichTextEmotionInfo g;
-    public jf5 h;
+    public cg5 h;
     public TbRichTextLinkImageInfo i;
     public TbRichTextMemeInfo j;
     public int k;
@@ -38,8 +38,8 @@ public class TbRichTextData extends OrmObject {
     public int m;
     public TbRichTextEvaluateItemInfo n;
     public TbRichTextTiebaPlusInfo o;
-    public List<nf5> p;
-    public gf5 q;
+    public List<gg5> p;
+    public zf5 q;
 
     /* loaded from: classes3.dex */
     public class TbRichTextTextInfo extends OrmObject {
@@ -91,11 +91,11 @@ public class TbRichTextData extends OrmObject {
         this.e = null;
         this.f = null;
         this.l = false;
-        this.m = qk.a;
+        this.m = nk.a;
         this.p = new ArrayList();
     }
 
-    public ArrayList<df5> A() {
+    public ArrayList<wf5> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -137,10 +137,10 @@ public class TbRichTextData extends OrmObject {
         return (TbRichTextImageInfo) invokeV.objValue;
     }
 
-    public gf5 F() {
+    public zf5 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.q : (gf5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.q : (zf5) invokeV.objValue;
     }
 
     public TbRichTextLinkImageInfo G() {
@@ -186,7 +186,7 @@ public class TbRichTextData extends OrmObject {
     }
 
     @NonNull
-    public List<nf5> L() {
+    public List<gg5> L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.p : (List) invokeV.objValue;
@@ -198,7 +198,7 @@ public class TbRichTextData extends OrmObject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.o : (TbRichTextTiebaPlusInfo) invokeV.objValue;
     }
 
-    public jf5 N() {
+    public cg5 N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -207,7 +207,7 @@ public class TbRichTextData extends OrmObject {
             }
             return this.h;
         }
-        return (jf5) invokeV.objValue;
+        return (cg5) invokeV.objValue;
     }
 
     public TbRichTextVoiceInfo O() {
@@ -244,12 +244,12 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void S(int i, int i2) {
-        ArrayList<df5> arrayList;
+        ArrayList<wf5> arrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) || (arrayList = this.d) == null) {
             return;
         }
-        Iterator<df5> it = arrayList.iterator();
+        Iterator<wf5> it = arrayList.iterator();
         while (it.hasNext()) {
             it.next().setBounds(0, 0, i, i2);
         }
@@ -269,10 +269,10 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public void V(gf5 gf5Var) {
+    public void V(zf5 zf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, gf5Var) == null) {
-            this.q = gf5Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, zf5Var) == null) {
+            this.q = zf5Var;
         }
     }
 
@@ -310,7 +310,7 @@ public class TbRichTextData extends OrmObject {
             if (i == 35 || i == 36) {
                 this.o = tbRichTextTiebaPlusInfo;
                 if (threadData != null) {
-                    tbRichTextTiebaPlusInfo.C(threadData);
+                    tbRichTextTiebaPlusInfo.setThreadData(threadData);
                     this.o.setTid(threadData.getTid());
                     this.o.setForumId(String.valueOf(threadData.getFid()));
                 }
@@ -318,10 +318,10 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public void b0(jf5 jf5Var) {
+    public void b0(cg5 cg5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048603, this, jf5Var) == null) && this.a == 32) {
-            this.h = jf5Var;
+        if ((interceptable == null || interceptable.invokeL(1048603, this, cg5Var) == null) && this.a == 32) {
+            this.h = cg5Var;
         }
     }
 
@@ -381,10 +381,10 @@ public class TbRichTextData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public void y(@NonNull nf5 nf5Var) {
+    public void y(@NonNull gg5 gg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, nf5Var) == null) {
-            this.p.add(nf5Var);
+        if (interceptable == null || interceptable.invokeL(1048609, this, gg5Var) == null) {
+            this.p.add(gg5Var);
         }
     }
 
@@ -424,7 +424,7 @@ public class TbRichTextData extends OrmObject {
         this.e = null;
         this.f = null;
         this.l = false;
-        this.m = qk.a;
+        this.m = nk.a;
         this.p = new ArrayList();
         this.a = i;
         this.f = new TbRichTextTextInfo(this);

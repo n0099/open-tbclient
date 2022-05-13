@@ -1,80 +1,88 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.guide.TaskGuideData;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sq;
-import com.repackage.uq;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class tq implements sq.a {
+public final class tq {
     public static /* synthetic */ Interceptable $ic;
+    public static final tq a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDHttpDns.a a;
-    public final BDHttpDns b;
-    public final uq c;
 
-    public tq(Context context, BDHttpDns.a aVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964026584, "Lcom/repackage/tq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964026584, "Lcom/repackage/tq;");
+                return;
+            }
+        }
+        a = new tq();
+    }
+
+    public tq() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = aVar;
-        BDHttpDns j = BDHttpDns.j(context);
-        this.b = j;
-        this.c = j.d();
     }
 
-    @Override // com.repackage.sq.a
-    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
-        BDHttpDns.a aVar;
-        BDHttpDnsResult bDHttpDnsResult;
+    public final void a(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
+        qv f;
+        iv d;
+        iv d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
-            if (i == -1) {
-                xq.a("Async resolve failed, host(%s), dns resolve failed", str);
-                aVar = this.a;
-                if (aVar == null) {
-                    return;
-                }
-                bDHttpDnsResult = new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2);
-            } else if (i != 0) {
-                xq.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
-                return;
-            } else {
-                Object[] objArr = new Object[4];
-                objArr[0] = str;
-                objArr[1] = arrayList != null ? arrayList.toString() : null;
-                objArr[2] = arrayList2 != null ? arrayList2.toString() : null;
-                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
-                xq.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
-                uq.a aVar2 = new uq.a();
-                aVar2.a(60L);
-                aVar2.e(System.currentTimeMillis() / 1000);
-                aVar2.b(arrayList);
-                aVar2.f(arrayList2);
-                this.c.c(str, aVar2);
-                aVar = this.a;
-                if (aVar == null) {
-                    return;
-                }
-                bDHttpDnsResult = new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2);
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, taskInfo, taskStatus) == null) {
+            hv v = BDPTask.m.v();
+            if (v != null && (d2 = v.d()) != null) {
+                d2.b(taskInfo.getSingleKey(), ds.c.a());
             }
-            aVar.a(bDHttpDnsResult);
+            hv v2 = BDPTask.m.v();
+            if (v2 != null && (d = v2.d()) != null) {
+                d.a(taskInfo.getSingleKey());
+            }
+            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
+            String c = rv.a.c(taskStatus);
+            hv v3 = BDPTask.m.v();
+            if (v3 == null || (f = v3.f()) == null) {
+                return;
+            }
+            f.a(str, "icon_clk", rv.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
+        }
+    }
+
+    public final void b(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
+        qv f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, taskInfo, taskStatus) == null) {
+            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
+            String c = rv.a.c(taskStatus);
+            hv v = BDPTask.m.v();
+            if (v == null || (f = v.f()) == null) {
+                return;
+            }
+            f.a(str, "close_clk", rv.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
         }
     }
 }

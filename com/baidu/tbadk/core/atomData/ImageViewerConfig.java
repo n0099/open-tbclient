@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xb5;
+import com.repackage.oc5;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
@@ -443,6 +443,6 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", bVar.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, xb5.c());
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, oc5.c());
     }
 }

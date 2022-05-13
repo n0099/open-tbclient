@@ -4,12 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
+import okhttp3.Request;
 /* loaded from: classes7.dex */
-public abstract class y2a<E> extends AbstractQueue<E> {
+public abstract class y2a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long producerIndex;
 
     public y2a() {
         Interceptable interceptable = $ic;
@@ -24,4 +23,8 @@ public abstract class y2a<E> extends AbstractQueue<E> {
             }
         }
     }
+
+    public abstract void a(Request request, boolean z, Exception exc);
+
+    public abstract void b(T t);
 }

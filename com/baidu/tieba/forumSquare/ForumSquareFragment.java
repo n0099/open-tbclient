@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac6;
-import com.repackage.bc6;
+import com.repackage.fb6;
+import com.repackage.gb6;
 /* loaded from: classes3.dex */
 public class ForumSquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ac6 a;
+    public fb6 a;
 
     public ForumSquareFragment() {
         Interceptable interceptable = $ic;
@@ -33,26 +33,26 @@ public class ForumSquareFragment extends BaseFragment {
         }
     }
 
-    public void B0(String str) {
-        ac6 ac6Var;
+    public void C0(String str) {
+        fb6 fb6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (ac6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (fb6Var = this.a) == null) {
             return;
         }
-        ac6Var.m(str);
+        fb6Var.j(str);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        bc6 bc6Var;
+        gb6 gb6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            ac6 ac6Var = this.a;
-            if (ac6Var == null || (bc6Var = ac6Var.d) == null) {
+            fb6 fb6Var = this.a;
+            if (fb6Var == null || (gb6Var = fb6Var.d) == null) {
                 return;
             }
-            bc6Var.a(i);
+            gb6Var.a(i);
         }
     }
 
@@ -70,10 +70,10 @@ public class ForumSquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                ac6 ac6Var = new ac6(getContext(), getPageContext());
-                this.a = ac6Var;
-                ac6Var.h();
-                this.a.g();
+                fb6 fb6Var = new fb6(getContext(), getPageContext());
+                this.a = fb6Var;
+                fb6Var.e();
+                this.a.d();
             }
             return this.a.d.e();
         }
@@ -85,9 +85,9 @@ public class ForumSquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            ac6 ac6Var = this.a;
-            if (ac6Var != null) {
-                ac6Var.p();
+            fb6 fb6Var = this.a;
+            if (fb6Var != null) {
+                fb6Var.m();
             }
         }
     }

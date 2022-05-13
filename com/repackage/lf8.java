@@ -1,99 +1,43 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class lf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static void a(int i, ShareEntity shareEntity) {
+    public lf8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65536, null, i, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
-            int i2 = 6;
-            if (i == 2) {
-                i2 = 3;
-            } else if (i == 3) {
-                i2 = 2;
-            } else if (i == 4) {
-                i2 = 4;
-            } else if (i != 6) {
-                i2 = i != 8 ? 0 : 5;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                statisticItem.param("tid", stats.getString("tid"));
-                statisticItem.param("uid", stats.getString("uid"));
-                statisticItem.param("fid", stats.getString("fid"));
-            }
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void b(int i, ShareEntity shareEntity) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-            int i2 = 6;
-            if (i == 2) {
-                i2 = 3;
-            } else if (i == 3) {
-                i2 = 2;
-            } else if (i == 4) {
-                i2 = 4;
-            } else if (i != 6) {
-                i2 = i != 8 ? 0 : 5;
-            }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                int i3 = stats.getInt("obj_param1");
-                if (i3 != 0) {
-                    statisticItem.param("obj_param1", i3);
-                    if (i3 == 2) {
-                        statisticItem.param("fid", stats.getString("fid"));
-                    } else if (i3 == 3) {
-                        int i4 = stats.getInt("obj_type");
-                        if (i4 != 0) {
-                            statisticItem.param("obj_type", i4);
-                        }
-                        statisticItem.param("tid", stats.getString("tid")).param("fid", stats.getString("fid"));
-                    }
-                }
-                String string = stats.getString(TiebaStatic.Params.OBJ_URL);
-                if (!ni.isEmpty(string)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_URL, string);
-                }
-                int i5 = stats.getInt("obj_locate");
-                int i6 = stats.getInt("source", 0);
-                if (i6 == 10 || i6 == 16 || i6 == 3) {
-                    i5 = i6;
-                }
-                statisticItem.param("obj_locate", i5);
-                if (i6 == 15) {
-                    return;
-                }
-            }
-            TiebaStatic.log(statisticItem);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
+            this.b = jSONObject.optString("link");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

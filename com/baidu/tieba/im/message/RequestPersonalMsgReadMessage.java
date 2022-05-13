@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l77;
 import com.repackage.t9;
-import com.repackage.v77;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
 /* loaded from: classes3.dex */
@@ -48,7 +48,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements t9
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = v77.i;
+                builder.groupId = l77.i;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);

@@ -1,219 +1,110 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.VideoClickTabData;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.PriorityQueue;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class sn8 {
+public class sn8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static MainTabScheduleStrategy b;
-    public static boolean c;
-    public static final PriorityQueue<yn8> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final tm8 b;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sn8.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sn8.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yn8 a;
-
-        public c(yn8 yn8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yn8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755314668, "Lcom/repackage/sn8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755314668, "Lcom/repackage/sn8;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+        super(2007002);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, tm8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = MainTabScheduleStrategy.FLUSHING;
-        c = false;
-        d = new PriorityQueue<>();
+        this.a = mainTabActivity;
+        this.b = tm8Var;
+        setPriority(100);
     }
 
-    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
+    public final void a(Intent intent) {
+        tm8 tm8Var;
+        int a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
-            b = mainTabScheduleStrategy;
-            if (mainTabScheduleStrategy == MainTabScheduleStrategy.UNSCHEDULE || c) {
-                return;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null || (tm8Var = this.b) == null || tm8Var.z() == null) {
+            return;
+        }
+        try {
+            if (intent.hasExtra("locate_type")) {
+                a = intent.getIntExtra("locate_type", 1);
+            } else {
+                a = this.a.mAppEntranceModel.a();
             }
-            g(true);
+            this.b.z().setCurrentTabByType(a);
+        } catch (Throwable th) {
+            BdLog.e(th);
+            this.a.finish();
         }
     }
 
-    public static void c(yn8 yn8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ArrayList<d55> b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, yn8Var) == null) {
-            System.nanoTime();
-            yn8Var.b();
-            pg.a().postAtFrontOfQueue(new c(yn8Var));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null || (b = ((f55) customResponsedMessage.getData()).b()) == null || b.size() == 0) {
+            return;
         }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c = false;
-            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
-                return;
-            }
-            if (b == MainTabScheduleStrategy.FLUSHING) {
-                e();
-                return;
-            }
-            if (d.peek() != null && a >= d.peek().a) {
-                yn8 poll = d.poll();
-                if (poll == null) {
-                    return;
+        this.b.A(b);
+        MainTabActivity mainTabActivity = this.a;
+        if (mainTabActivity.isUseCurrType) {
+            if (mainTabActivity.reloginGotoType != 23) {
+                tm8 tm8Var = this.b;
+                if (tm8Var != null && tm8Var.z() != null) {
+                    this.b.z().setCurrentTabByType(this.a.reloginGotoType);
                 }
-                c(poll);
+            } else {
+                VideoClickTabData videoClickTabData = new VideoClickTabData();
+                Bundle reloginVideoMiddleBundle = TbSingleton.getInstance().getReloginVideoMiddleBundle();
+                TbSingleton.getInstance().setReloginVideoMiddleBundle(null);
+                reloginVideoMiddleBundle.remove(VideoPlayActivityConfig.VIDEO_VIEW_RECT);
+                videoClickTabData.setVideoMiddleBundle(reloginVideoMiddleBundle);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921610, videoClickTabData));
             }
-            if (b == MainTabScheduleStrategy.SCHEDULE) {
-                g(false);
-            }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            while (!d.isEmpty()) {
-                yn8 poll = d.poll();
-                if (poll != null) {
-                    poll.b();
-                    poll.c();
-                }
-            }
-        }
-    }
-
-    public static void f(yn8 yn8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, yn8Var) == null) || yn8Var == null) {
-            return;
-        }
-        if (b == MainTabScheduleStrategy.FLUSHING) {
-            if (!(yn8Var instanceof zn8)) {
-                yn8Var.d();
-                yn8Var.b();
-            }
-            yn8Var.c();
-            return;
-        }
-        yn8Var.d();
-        d.add(yn8Var);
-        if (b == MainTabScheduleStrategy.UNSCHEDULE || c) {
-            return;
-        }
-        g(false);
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65543, null, z) == null) || c) {
-            return;
-        }
-        c = true;
-        if (z) {
-            pg.a().postAtFrontOfQueue(new a());
         } else {
-            pg.a().post(new b());
+            tm8 tm8Var2 = this.b;
+            if (tm8Var2 != null && tm8Var2.z() != null) {
+                if (this.a.getIntent() != null && this.a.getIntent().getDataString() != null && this.a.getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                    this.b.z().setCurrentTabByType(2);
+                } else {
+                    a(this.a.getIntent());
+                }
+            }
         }
+        this.a.isUseCurrType = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921567, null));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921579, 0));
     }
 }

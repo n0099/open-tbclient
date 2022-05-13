@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ef5;
-import com.repackage.nf5;
-import com.repackage.z45;
+import com.repackage.gg5;
+import com.repackage.p55;
+import com.repackage.xf5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -93,16 +93,16 @@ public class TbRichText extends OrmObject {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e40);
-            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1533);
-            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14fe);
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e5e);
+            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f155f);
+            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1529);
         }
     }
 
     public final void E(TbRichTextItem tbRichTextItem) {
         TbRichTextTiebaPlusInfo S;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbRichTextItem) == null) || tbRichTextItem == null || tbRichTextItem.getType() != 36 || !UbsABTestHelper.isTiebaPlusCardModelABTestB() || (S = tbRichTextItem.S()) == null || S.B() == null || S.B().plugin_user == null || S.B().plugin_user.is_download_card_whiteuser.intValue() != 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbRichTextItem) == null) || tbRichTextItem == null || tbRichTextItem.getType() != 36 || !UbsABTestHelper.isTiebaPlusCardModelABTestB() || (S = tbRichTextItem.S()) == null || S.A() == null || S.A().plugin_user == null || S.A().plugin_user.is_download_card_whiteuser.intValue() != 1) {
             return;
         }
         tbRichTextItem.setType(35);
@@ -119,7 +119,7 @@ public class TbRichText extends OrmObject {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
         TbRichTextCommInfo E;
-        Pair<CharSequence, nf5> p;
+        Pair<CharSequence, gg5> p;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) == null) || this.b == null) {
             return;
@@ -225,23 +225,23 @@ public class TbRichText extends OrmObject {
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
                             tbRichTextData.T(true);
                         }
-                        if (type == 35 && TiePlusHelper.i(next.S()) && (p = ef5.p(type, threadData, next.T())) != null) {
+                        if (type == 35 && TiePlusHelper.i(next.S()) && (p = xf5.p(type, threadData, next.T())) != null) {
                             charSequence = p.first;
-                            nf5 nf5Var = p.second;
-                            nf5Var.a(postData);
-                            nf5Var.b(i);
+                            gg5 gg5Var = p.second;
+                            gg5Var.a(postData);
+                            gg5Var.b(i);
                             tbRichTextData.T(true);
-                            tbRichTextData.y(nf5Var);
+                            tbRichTextData.y(gg5Var);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null && type == 18 && (E = next.E()) != null) {
                             PbContent B = E.B();
                             if (threadData != null && B != null) {
-                                z45 f = z45.f(threadData, B);
+                                p55 f = p55.f(threadData, B);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                                charSequence = ef5.o(f);
+                                charSequence = xf5.o(f);
                             }
                         }
                         if (charSequence == null && tbRichTextData != null) {

@@ -16,7 +16,7 @@ public class lj0 extends SQLiteOpenHelper {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lj0() {
-        super(hi0.b(), "nad.core.download.db", (SQLiteDatabase.CursorFactory) null, 1);
+        super(ki0.b(), "nad.core.download.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -60,38 +60,38 @@ public class rj7 {
         TbPageContext<MemberExchangeActivity> pageContext = memberExchangeActivity.getPageContext();
         this.a = pageContext;
         this.b = pageContext.getPageActivity();
-        memberExchangeActivity.setContentView(R.layout.obfuscated_res_0x7f0d053b);
-        View findViewById = memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913ce);
+        memberExchangeActivity.setContentView(R.layout.obfuscated_res_0x7f0d052f);
+        View findViewById = memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913e3);
         this.c = findViewById;
         findViewById.setOnClickListener(memberExchangeActivity);
-        NavigationBar navigationBar = (NavigationBar) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091515);
+        NavigationBar navigationBar = (NavigationBar) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091534);
         this.d = navigationBar;
         navigationBar.setOnClickListener(memberExchangeActivity);
-        this.f = this.d.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f05ad));
-        this.e = (NoNetworkView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091598);
+        this.f = this.d.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f05b3));
+        this.e = (NoNetworkView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0915ac);
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.showBottomLine();
-        HeadImageView headImageView = (HeadImageView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913cf);
+        HeadImageView headImageView = (HeadImageView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913e4);
         this.g = headImageView;
         headImageView.setIsRound(true);
-        this.h = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913d3);
-        this.i = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913ca);
-        this.j = (TbImageView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913d2);
-        this.k = (EditText) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f09091f);
-        oi.w(this.a.getPageActivity(), this.k);
-        TextView textView = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f090ccf);
+        this.h = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913e8);
+        this.i = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913df);
+        this.j = (TbImageView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f0913e7);
+        this.k = (EditText) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f090917);
+        mi.w(this.a.getPageActivity(), this.k);
+        TextView textView = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f090cbb);
         this.l = textView;
         textView.setOnClickListener(memberExchangeActivity);
-        TextView textView2 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091af4);
+        TextView textView2 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091b42);
         this.m = textView2;
         textView2.setOnClickListener(null);
-        TextView textView3 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091af1);
+        TextView textView3 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091b3f);
         this.n = textView3;
         textView3.setClickable(false);
-        TextView textView4 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091af2);
+        TextView textView4 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091b40);
         this.o = textView4;
         textView4.setClickable(false);
-        TextView textView5 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091af3);
+        TextView textView5 = (TextView) memberExchangeActivity.findViewById(R.id.obfuscated_res_0x7f091b41);
         this.p = textView5;
         textView5.setClickable(false);
         c(TbadkApplication.getInst().getSkinType());
@@ -102,15 +102,15 @@ public class rj7 {
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, str5) == null) {
             this.g.K(str, 12, false);
             this.h.setText(str2);
-            if (!ni.isEmpty(str3)) {
+            if (!li.isEmpty(str3)) {
                 this.j.setVisibility(0);
                 this.j.K(str3, 10, false);
             } else {
                 this.j.setVisibility(8);
             }
-            if (!ni.isEmpty(str4)) {
+            if (!li.isEmpty(str4)) {
                 TextView textView = this.i;
-                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1512) + str4);
+                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f153d) + str4);
                 return;
             }
             this.i.setText(str5);

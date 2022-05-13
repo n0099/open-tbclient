@@ -1,18 +1,13 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.view.MotionEvent;
+import com.baidu.adp.widget.refresh.IRefreshable$State;
 /* loaded from: classes6.dex */
 public interface jp {
-    boolean a(MotionEvent motionEvent);
+    void a(IRefreshable$State iRefreshable$State);
 
-    void b(int i, int i2);
+    void b();
 
-    void c(int i);
+    void c();
 
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
-
-    void draw(Canvas canvas);
-
-    boolean e(MotionEvent motionEvent);
+    void d();
 }

@@ -6,11 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes7.dex */
-public final class s2a<E> extends u1a<E> {
+public final class s2a implements dy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SequentialSubscription a;
 
     public s2a() {
         Interceptable interceptable = $ic;
@@ -25,54 +26,32 @@ public final class s2a<E> extends u1a<E> {
                 return;
             }
         }
-        c(new LinkedQueueNode<>());
-        e(this.producerNode);
-        this.consumerNode.soNext(null);
+        this.a = new SequentialSubscription();
     }
 
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
+    public void a(dy9 dy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                this.producerNode.soNext(linkedQueueNode);
-                this.producerNode = linkedQueueNode;
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dy9Var) == null) {
+            if (dy9Var != null) {
+                this.a.update(dy9Var);
+                return;
             }
-            throw new NullPointerException("null elements not allowed");
+            throw new IllegalArgumentException("Subscription can not be null");
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // java.util.Queue
-    public E peek() {
+    @Override // com.repackage.dy9
+    public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
-            }
-            return null;
-        }
-        return (E) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
     }
 
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
+    @Override // com.repackage.dy9
+    public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                this.consumerNode = lvNext;
-                return andNullValue;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
-        return (E) invokeV.objValue;
     }
 }

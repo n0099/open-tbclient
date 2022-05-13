@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.repackage.at;
-import com.repackage.bv;
-import com.repackage.ms;
-import com.repackage.ns;
-import com.repackage.st;
-import com.repackage.zt;
+import com.repackage.bt;
+import com.repackage.it;
+import com.repackage.js;
+import com.repackage.ku;
+import com.repackage.vr;
+import com.repackage.wr;
 import java.util.Map;
 import java.util.UUID;
 import kotlin.Metadata;
@@ -40,10 +40,10 @@ public final class a {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000-\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J!\u0010\u000b\u001a\u00020\u00042\b\u0010\b\u001a\u0004\u0018\u00010\u00072\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ#\u0010\u000e\u001a\u0004\u0018\u00010\u00072\b\u0010\b\u001a\u0004\u0018\u00010\r2\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000e\u0010\u000f¨\u0006\u0012"}, d2 = {"com/baidu/bdtask/ctrl/repo/TaskRepo$finishReq$5", "Lcom/baidu/searchbox/http/callback/ResponseCallback;", "Ljava/lang/Exception;", "exception", "", "onFail", "(Ljava/lang/Exception;)V", "Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "response", "", "statusCode", "onSuccess", "(Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;I)V", "Lokhttp3/Response;", "parseResponse", "(Lokhttp3/Response;I)Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "<init>", "(Lcom/baidu/bdtask/ctrl/repo/TaskRepoCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes.dex */
-    public static final class b extends ResponseCallback<ns> {
+    public static final class b extends ResponseCallback<wr> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ms a;
+        public final /* synthetic */ vr a;
 
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "run"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.repo.a$b$a  reason: collision with other inner class name */
@@ -78,9 +78,9 @@ public final class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     DebugTrace.a.c(new TaskRepo$finishReq$5$onFail$1$1(this));
-                    ms msVar = this.a.a;
+                    vr vrVar = this.a.a;
                     Exception exc = this.b;
-                    msVar.a((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
+                    vrVar.a((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
                 }
             }
         }
@@ -91,14 +91,14 @@ public final class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
-            public final /* synthetic */ ns b;
+            public final /* synthetic */ wr b;
 
-            public RunnableC0072b(b bVar, ns nsVar) {
+            public RunnableC0072b(b bVar, wr wrVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, nsVar};
+                    Object[] objArr = {bVar, wrVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -109,19 +109,19 @@ public final class a {
                     }
                 }
                 this.a = bVar;
-                this.b = nsVar;
+                this.b = wrVar;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ns nsVar = this.b;
-                    if ((nsVar != null ? nsVar.d() : null) == null) {
+                    wr wrVar = this.b;
+                    if ((wrVar != null ? wrVar.d() : null) == null) {
                         this.a.a.a("task complete request failed", 301);
                     } else if (!this.b.a()) {
-                        ms msVar = this.a.a;
-                        msVar.a("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
+                        vr vrVar = this.a.a;
+                        vrVar.a("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
                     } else {
                         this.a.a.a(this.b.d());
                     }
@@ -129,12 +129,12 @@ public final class a {
             }
         }
 
-        public b(ms msVar) {
+        public b(vr vrVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {msVar};
+                Object[] objArr = {vrVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -144,13 +144,13 @@ public final class a {
                     return;
                 }
             }
-            this.a = msVar;
+            this.a = vrVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
-        public ns parseResponse(Response response, int i) {
+        public wr parseResponse(Response response, int i) {
             InterceptResult invokeLI;
             ResponseBody body;
             Interceptable interceptable = $ic;
@@ -159,20 +159,20 @@ public final class a {
                 if (string == null || TextUtils.isEmpty(string)) {
                     return null;
                 }
-                ns a = ns.d.a(string).a();
+                wr a = wr.d.a(string).a();
                 this.a.b(a);
                 return a;
             }
-            return (ns) invokeLI.objValue;
+            return (wr) invokeLI.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
-        public void onSuccess(ns nsVar, int i) {
+        public void onSuccess(wr wrVar, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nsVar, i) == null) {
-                bv.c(new RunnableC0072b(this, nsVar));
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wrVar, i) == null) {
+                ku.c(new RunnableC0072b(this, wrVar));
             }
         }
 
@@ -180,7 +180,7 @@ public final class a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                bv.c(new RunnableC0071a(this, exc));
+                ku.c(new RunnableC0071a(this, exc));
             }
         }
     }
@@ -218,15 +218,15 @@ public final class a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            zt b2 = at.c.h().b();
+            it b2 = js.c.h().b();
             return "" + b2.b() + "/bdtls/ug_task/api/task/external/" + str + "/complete?behavior=" + i;
         }
         return (String) invokeLI.objValue;
     }
 
-    public final void b(TaskInfo taskInfo, TaskStatus taskStatus, ms msVar) {
+    public final void b(TaskInfo taskInfo, TaskStatus taskStatus, vr vrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus, msVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus, vrVar) == null) {
             TaskProcess process = taskStatus.getProcess();
             JSONObject jSONObject = new JSONObject();
             try {
@@ -234,15 +234,15 @@ public final class a {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            c(taskInfo.getToken(), taskInfo.getId(), taskInfo.getBehavior(), taskInfo.getFingerprint(), jSONObject, null, msVar);
+            c(taskInfo.getToken(), taskInfo.getId(), taskInfo.getBehavior(), taskInfo.getFingerprint(), jSONObject, null, vrVar);
         }
     }
 
     /* JADX WARN: Type inference failed for: r6v13, types: [T, java.lang.String] */
-    public final void c(String str, String str2, int i, String str3, JSONObject jSONObject, JSONObject jSONObject2, ms msVar) {
+    public final void c(String str, String str2, int i, String str3, JSONObject jSONObject, JSONObject jSONObject2, vr vrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), str3, jSONObject, jSONObject2, msVar}) == null) {
-            st stVar = new st();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), str3, jSONObject, jSONObject2, vrVar}) == null) {
+            bt btVar = new bt();
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
             objectRef.element = "";
             try {
@@ -250,7 +250,7 @@ public final class a {
                 jSONObject3.put("reqId", UUID.randomUUID().toString());
                 jSONObject3.put("token", str);
                 jSONObject3.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, 2);
-                jSONObject3.put(CommandMessage.SDK_VERSION, at.c.h().getSdkVersion());
+                jSONObject3.put(CommandMessage.SDK_VERSION, js.c.h().getSdkVersion());
                 jSONObject3.put(TaskInfo.keyFingerprint, str3);
                 if (jSONObject != null) {
                     jSONObject3.put("ext", jSONObject);
@@ -258,7 +258,7 @@ public final class a {
                 if (jSONObject2 != null) {
                     jSONObject3.put(LaunchStatsUtils.EXTERNAL_LAUNCH, jSONObject2);
                 }
-                Map<String, Object> a = at.c.g().a();
+                Map<String, Object> a = js.c.g().a();
                 Map map = a != null ? MapsKt__MapsKt.toMap(a) : null;
                 JSONObject jSONObject4 = new JSONObject();
                 if (map != null) {
@@ -269,9 +269,9 @@ public final class a {
                 jSONObject3.put("antiInfo", jSONObject4);
                 objectRef.element = jSONObject3.toString();
                 DebugTrace.a.c(new TaskRepo$finishReq$4(objectRef));
-                stVar.j(a(str2, i), (String) objectRef.element, new b(msVar));
+                btVar.j(a(str2, i), (String) objectRef.element, new b(vrVar));
             } catch (Exception e) {
-                msVar.a("task request serialize failed  : " + e.getMessage(), 202);
+                vrVar.a("task request serialize failed  : " + e.getMessage(), 202);
             }
         }
     }

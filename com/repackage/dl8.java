@@ -1,61 +1,48 @@
 package com.repackage;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.tbadk.core.data.AbstractData;
-import com.baidu.tbadk.data.MetaData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class dl8 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
-    public List<AbstractData> b;
 
-    public dl8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755763455, "Lcom/repackage/dl8;")) == null) {
+            return;
         }
-        this.b = new ArrayList();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755763455, "Lcom/repackage/dl8;");
+        }
     }
 
-    public void a(JSONObject jSONObject) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.optString("id");
-                MetaData metaData = new MetaData();
-                this.a = metaData;
-                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
-                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-                this.b = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        AbstractData abstractData = new AbstractData();
-                        abstractData.parserJson(optJSONArray.getJSONObject(i));
-                        this.b.add(abstractData);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a = false;
         }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = true;
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
     }
 }

@@ -13,15 +13,15 @@ public class dq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public List<ho> b;
-    public zo c;
+    public List<eo> b;
+    public xo c;
 
-    public dq7(TbPageContext tbPageContext, zo zoVar) {
+    public dq7(TbPageContext tbPageContext, xo xoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zoVar};
+            Object[] objArr = {tbPageContext, xoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,7 +32,7 @@ public class dq7 {
             }
         }
         this.a = tbPageContext;
-        this.c = zoVar;
+        this.c = xoVar;
         a();
         this.c.a(this.b);
     }
@@ -47,15 +47,15 @@ public class dq7 {
     }
 
     public void b() {
-        zo zoVar;
+        xo xoVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (zoVar = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (xoVar = this.c) == null) {
             return;
         }
-        zoVar.getListAdapter().notifyDataSetChanged();
+        xoVar.getListAdapter().notifyDataSetChanged();
     }
 
-    public void c(List<uo> list) {
+    public void c(List<ro> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.c.setData(list);

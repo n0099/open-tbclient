@@ -1,37 +1,106 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ky7 {
+public class ky7 extends eo<ly7, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14349");
-            statisticItem.param("tid", str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("post_id", str3);
-            TiebaStatic.log(statisticItem);
+    /* loaded from: classes6.dex */
+    public static class a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public int b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = 3;
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915b1);
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b != TbadkApplication.getInst().getSkinType()) {
+                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+                }
+                this.b = TbadkApplication.getInst().getSkinType();
+            }
         }
     }
 
-    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ky7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14348");
-            statisticItem.param("tid", str2);
-            statisticItem.param("uid", str3);
-            statisticItem.param("post_id", str4);
-            statisticItem.param("pid", str4);
-            statisticItem.param("fname", str5);
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public a M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07a6, viewGroup, false)) : (a) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ly7 ly7Var, a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ly7Var, aVar})) == null) {
+            aVar.c();
+            return aVar.b();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

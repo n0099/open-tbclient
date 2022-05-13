@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fz;
-import com.repackage.n00;
-import com.repackage.pn4;
-import com.repackage.tx5;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.oy;
+import com.repackage.ux5;
+import com.repackage.wz;
+import com.repackage.zn4;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements oy<zn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,10 +44,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public tx5<pn4> m;
-    public pn4 n;
+    public ux5<zn4> m;
+    public zn4 n;
     public View.OnClickListener o;
-    public n00 p;
+    public wz p;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    tx5 tx5Var = this.a.m;
+                    ux5 ux5Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    tx5Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    ux5Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -149,18 +149,18 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0876, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d086d, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091606);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0922fd);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09161e);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092351);
             new WeakReference(TbadkCoreApplication.getInst());
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092371);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092372);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09233f);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f092334);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092341);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092343);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092305);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923c1);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0923c2);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092390);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f092385);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092392);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092394);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092359);
             this.c.setConrers(15);
             this.c.setRadiusById(R.string.J_X05);
             this.c.setDrawCorner(true);
@@ -171,21 +171,21 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
+    @Override // com.repackage.oy
     /* renamed from: g */
-    public void a(pn4 pn4Var) {
+    public void a(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) || pn4Var == null || pn4Var.getThreadData() == null || pn4Var.getThreadData().originalThreadData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zn4Var) == null) || zn4Var == null || zn4Var.getThreadData() == null || zn4Var.getThreadData().originalThreadData == null) {
             return;
         }
-        OriginalThreadInfo originalThreadInfo = pn4Var.getThreadData().originalThreadData;
+        OriginalThreadInfo originalThreadInfo = zn4Var.getThreadData().originalThreadData;
         originalThreadInfo.r.is_vertical.intValue();
         String str = originalThreadInfo.f;
         originalThreadInfo.r.video_length.intValue();
         originalThreadInfo.r.video_duration.intValue();
         long j = originalThreadInfo.e;
         this.i.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
-        this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e4e), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
+        this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e6c), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.h.setVisibility(8);
         this.c.K(originalThreadInfo.r.thumbnail_url, 10, false);
     }
@@ -201,13 +201,13 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (this.b != i) {
-                vr4.d(this.d).s(R.array.Mask_X003);
-                vr4.d(this.d).n(R.string.J_X05);
+                gs4.d(this.d).s(R.array.Mask_X003);
+                gs4.d(this.d).n(R.string.J_X05);
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
                 this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e7, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ff, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             }
             this.b = i;
         }
@@ -229,10 +229,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
         }
     }
 
-    public void setData(pn4 pn4Var) {
+    public void setData(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pn4Var) == null) {
-            this.n = pn4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, zn4Var) == null) {
+            this.n = zn4Var;
         }
     }
 
@@ -243,18 +243,18 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
         }
     }
 
-    public void setOnCardSubClickListener(tx5<pn4> tx5Var) {
+    public void setOnCardSubClickListener(ux5<zn4> ux5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tx5Var) == null) {
-            this.m = tx5Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ux5Var) == null) {
+            this.m = ux5Var;
         }
     }
 
-    public void setVideoAreaClickListener(n00 n00Var) {
+    public void setVideoAreaClickListener(wz wzVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, n00Var) == null) {
-            this.p = n00Var;
-            if (n00Var != null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, wzVar) == null) {
+            this.p = wzVar;
+            if (wzVar != null) {
                 i();
             }
         }

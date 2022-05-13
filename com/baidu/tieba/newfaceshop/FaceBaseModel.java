@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public abstract class FaceBaseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public abstract class FaceBaseModel extends BdBaseModel {
     public void sendMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (oi.B()) {
+            if (mi.B()) {
                 super.sendMessage(message);
             } else {
                 new Handler(Looper.getMainLooper()).post(new a(this, message));

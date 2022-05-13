@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk8;
-import com.repackage.f95;
-import com.repackage.id7;
-import com.repackage.lc7;
+import com.repackage.od7;
+import com.repackage.sc7;
+import com.repackage.w95;
+import com.repackage.yi8;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
@@ -73,8 +73,8 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.getScheme())) {
                 return;
             }
-            lc7.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
-            bk8.c(this.b.i, this.a.getScheme());
+            sc7.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
+            yi8.c(this.b.i, this.a.getScheme());
         }
     }
 
@@ -98,24 +98,24 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         }
     }
 
-    private void setMoreColor(id7 id7Var) {
+    private void setMoreColor(od7 od7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, id7Var) == null) {
-            if (id7Var == null) {
+        if (interceptable == null || interceptable.invokeL(65537, this, od7Var) == null) {
+            if (od7Var == null) {
                 SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
             } else {
-                z(this.r, id7Var.b(), id7Var.c(), R.color.CAM_X0302);
+                y(this.r, od7Var.b(), od7Var.c(), R.color.CAM_X0302);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: D */
-    public void u(HorRankCard horRankCard, int i) {
+    /* renamed from: C */
+    public void t(HorRankCard horRankCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, horRankCard, i) == null) {
-            f95.a(this.i, getRootView());
+            w95.a(this.i, getRootView());
             SkinManager.setBackgroundColor(this.p, R.color.CAM_X0308);
             SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201);
             SkinManager.setImageResource(this.t, R.color.CAM_X0204);
@@ -128,8 +128,8 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: E */
-    public void v(HorRankCard horRankCard) {
+    /* renamed from: D */
+    public void u(HorRankCard horRankCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, horRankCard) == null) {
             List<HorRankCard.a> rankInfoList = horRankCard.getRankInfoList();
@@ -147,7 +147,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
             }
             if (!TextUtils.isEmpty(horRankCard.getCardTitle())) {
                 this.q.setVisibility(0);
-                z(this.q, horRankCard.getTitleColor(), horRankCard.getTitleColorNight(), R.color.CAM_X0105);
+                y(this.q, horRankCard.getTitleColor(), horRankCard.getTitleColorNight(), R.color.CAM_X0105);
                 this.q.setText(horRankCard.getCardTitle());
             } else {
                 this.q.setVisibility(8);
@@ -160,7 +160,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                 SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
                 this.m.setOnClickListener(null);
             }
-            id7 rightText = horRankCard.getRightText();
+            od7 rightText = horRankCard.getRightText();
             if (rightText.f()) {
                 this.s.setVisibility(8);
                 this.r.setVisibility(0);
@@ -178,19 +178,19 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View r() {
+    public View q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a3, (ViewGroup) null, false);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d019e, (ViewGroup) null, false);
             this.m = linearLayout;
-            this.n = (HorizontalScrollListView) l(linearLayout, R.id.obfuscated_res_0x7f090db3);
-            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091ab5);
-            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f091202);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090dae);
-            this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f091aa9);
-            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091a90);
-            this.t = (ImageView) l(this.m, R.id.obfuscated_res_0x7f0907ea);
+            this.n = (HorizontalScrollListView) l(linearLayout, R.id.obfuscated_res_0x7f090da3);
+            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091b03);
+            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f09120f);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090d9e);
+            this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f091af7);
+            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091ade);
+            this.t = (ImageView) l(this.m, R.id.obfuscated_res_0x7f0907e1);
             return this.m;
         }
         return (View) invokeV.objValue;

@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rv9;
+import com.repackage.mu9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -191,7 +191,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(rv9.g(false))) {
+                if (str.startsWith(mu9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -234,7 +234,7 @@ public final class AssistActivity extends Activity {
                         e.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(rv9.g(true))) {
+                } else if (str.startsWith(mu9.g(true))) {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -515,7 +515,7 @@ public final class AssistActivity extends Activity {
             this.mFrameLayout.addView(this.mProgressView);
             this.mFrameLayout.addView(this.mTextView);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e0);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805d0);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(convertDipToPixels(5.0f), convertDipToPixels(5.0f), 0, 0);

@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h95;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.y95;
 /* loaded from: classes3.dex */
 public abstract class SuspendedActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public NoNetworkView.b mNetListener;
     public NoNetworkView mNoNetView;
     public SusPendedView mRootView;
-    public h95 mSuspendedContentView;
+    public y95 mSuspendedContentView;
     public TranView mTranView;
 
     /* loaded from: classes3.dex */
@@ -121,7 +121,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.mRootView = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091ade);
+            this.mRootView = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091b2c);
             initTranView();
             initNavigationBar();
             initNoNetView();
@@ -136,9 +136,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     private void initContentView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906f2);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906ef);
             this.mContentView = linearLayout;
-            h95 suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
+            y95 suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
             this.mSuspendedContentView = suspendedContentView;
             if (suspendedContentView != null) {
                 this.mRootView.setContentViewTop(suspendedContentView);
@@ -149,16 +149,16 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
-            navigationBar.mCenterText.setTextSize(0, oi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
-            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.obfuscated_res_0x7f0f04d8), new b(this));
+            navigationBar.mCenterText.setTextSize(0, mi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
+            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.obfuscated_res_0x7f0f04de), new b(this));
             this.mCancel = addTextButton;
-            addTextButton.setTextSize(0, oi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
+            addTextButton.setTextSize(0, mi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
             this.mNavigationBar.setIsCorner(true);
             this.mNavigationBar.setStatusBarVisibility(8);
             this.mNavigationBar.hideBottomLine();
-            this.mNavigationBarGroup = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091518);
+            this.mNavigationBarGroup = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091537);
             this.mNavigationBarGroup.addView(this.mTranView, 0, new LinearLayout.LayoutParams(-1, getTranViewHeight()));
         }
     }
@@ -166,7 +166,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     private void initNoNetView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923af);
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ff);
             this.mNoNetView = noNetworkView;
             noNetworkView.a(this.mNetListener);
         }
@@ -185,8 +185,8 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h95 h95Var = this.mSuspendedContentView;
-            if (h95Var == null || h95Var.isOnViewCancel()) {
+            y95 y95Var = this.mSuspendedContentView;
+            if (y95Var == null || y95Var.isOnViewCancel()) {
                 if (this.mTranView != null) {
                     this.mRootView.h();
                 } else {
@@ -220,9 +220,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
                 super.finish();
                 return;
             }
-            h95 h95Var = this.mSuspendedContentView;
-            if (h95Var != null) {
-                Intent resultIntent = h95Var.getResultIntent();
+            y95 y95Var = this.mSuspendedContentView;
+            if (y95Var != null) {
+                Intent resultIntent = y95Var.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -238,12 +238,12 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         }
     }
 
-    public abstract h95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
+    public abstract y95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
 
     public int getTranViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds153) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds153) : invokeV.intValue;
     }
 
     public View.OnClickListener getTranViewOnClickListener() {
@@ -265,9 +265,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.mContentView, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.mCancel, (int) R.color.CAM_X0105);
-            h95 h95Var = this.mSuspendedContentView;
-            if (h95Var != null) {
-                h95Var.onViewChangeSkinType(i);
+            y95 y95Var = this.mSuspendedContentView;
+            if (y95Var != null) {
+                y95Var.onViewChangeSkinType(i);
             }
         }
     }

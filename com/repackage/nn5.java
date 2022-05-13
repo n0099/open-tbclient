@@ -1,27 +1,65 @@
 package com.repackage;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class nn5 {
+public class nn5 implements bl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mn5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized mn5 a() {
-        InterceptResult invokeV;
-        mn5 mn5Var;
+    public nn5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (nn5.class) {
-                if (a == null) {
-                    a = new mn5();
-                }
-                mn5Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return mn5Var;
         }
-        return (mn5) invokeV.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? TbadkCoreApplication.getInst().getZid(context, null, 0, null) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.bl2
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return c(context);
+            }
+            return b(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, mn5.class, null);
+            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
+        }
+        return (String) invokeL.objValue;
     }
 }

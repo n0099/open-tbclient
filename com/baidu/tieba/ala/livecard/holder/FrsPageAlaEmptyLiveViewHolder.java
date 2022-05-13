@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jt5;
+import com.repackage.kt5;
 /* loaded from: classes3.dex */
 public class FrsPageAlaEmptyLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jt5 a;
+    public kt5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPageAlaEmptyLiveViewHolder(jt5 jt5Var) {
-        super(jt5Var.k());
+    public FrsPageAlaEmptyLiveViewHolder(kt5 kt5Var) {
+        super(kt5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jt5Var};
+            Object[] objArr = {kt5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class FrsPageAlaEmptyLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = jt5Var;
+        this.a = kt5Var;
     }
 }

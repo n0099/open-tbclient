@@ -59,13 +59,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dt7;
-import com.repackage.ex5;
-import com.repackage.mx7;
+import com.repackage.fx5;
+import com.repackage.jx7;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
+public class zt7 extends eo<PostData, PbCommenFloorItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int i;
@@ -79,12 +79,12 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
     public bs7 q;
     public boolean r;
     public SparseIntArray s;
-    public hy7 t;
-    public kx7 u;
-    public mx7 v;
+    public ey7 t;
+    public hx7 u;
+    public jx7 v;
     public TbRichTextView.s w;
-    public dg<ConstrainImageLayout> x;
-    public dg<TbImageView> y;
+    public bg<ConstrainImageLayout> x;
+    public bg<TbImageView> y;
     public dt7 z;
 
     /* loaded from: classes7.dex */
@@ -120,7 +120,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 int measuredWidth = this.a.e.getMeasuredWidth();
                 String str = this.b;
                 PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder = this.a;
-                ew7.a(measuredWidth, str, pbCommenFloorItemViewHolder.f, pbCommenFloorItemViewHolder.g, pbCommenFloorItemViewHolder.F, pbCommenFloorItemViewHolder.I, pbCommenFloorItemViewHolder.H);
+                dw7.a(measuredWidth, str, pbCommenFloorItemViewHolder.f, pbCommenFloorItemViewHolder.g, pbCommenFloorItemViewHolder.F, pbCommenFloorItemViewHolder.I, pbCommenFloorItemViewHolder.H);
             }
         }
     }
@@ -177,7 +177,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements eg<ConstrainImageLayout> {
+    public class c implements cg<ConstrainImageLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zt7 a;
@@ -202,7 +202,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             e(constrainImageLayout2);
@@ -211,7 +211,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             h(constrainImageLayout2);
@@ -225,7 +225,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: f */
         public void b(ConstrainImageLayout constrainImageLayout) {
             Interceptable interceptable = $ic;
@@ -235,7 +235,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: g */
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
@@ -251,7 +251,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements eg<TbImageView> {
+    public class d implements cg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zt7 a;
@@ -276,7 +276,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -285,7 +285,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -299,7 +299,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -310,7 +310,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -529,7 +529,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    mx7.b bVar = this.b.b.v.b;
+                    jx7.b bVar = this.b.b.v.b;
                     h hVar = this.b;
                     bVar.a(hVar.b.q, null, this.a, hVar.a.n.getLayoutStrategy());
                 }
@@ -561,10 +561,10 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof SparseArray)) {
                 SparseArray sparseArray = (SparseArray) view2.getTag();
-                if (!(sparseArray.get(R.id.obfuscated_res_0x7f091e72) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091e72)) == null || this.a.b == null || this.b.v == null) {
+                if (!(sparseArray.get(R.id.obfuscated_res_0x7f091eca) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091eca)) == null || this.a.b == null || this.b.v == null) {
                     return;
                 }
-                pg.a().postDelayed(new a(this, postData), 100L);
+                ng.a().postDelayed(new a(this, postData), 100L);
                 String Q = this.b.q.Q();
                 if ((StringUtils.isNull(Q) || "0".equals(this.b.q.Q())) && this.b.q.O() != null) {
                     Q = this.b.q.O().getNid();
@@ -730,8 +730,8 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         this.r = false;
         this.s = new SparseIntArray();
         this.t = null;
-        this.x = new dg<>(new c(this), 6, 0);
-        this.y = new dg<>(new d(this), 12, 0);
+        this.x = new bg<>(new c(this), 6, 0);
+        this.y = new bg<>(new d(this), 12, 0);
         this.z = new dt7(new e(this));
         this.j = tbPageContext;
         this.i = C0(R.dimen.tbds14);
@@ -792,36 +792,36 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             ArrayList<IconData> tShowInfoNew = postData.s().getTShowInfoNew();
             UserIconBox userIconBox = pbCommenFloorItemViewHolder.I;
             if (userIconBox != null) {
-                userIconBox.setTag(R.id.obfuscated_res_0x7f091ea4, postData.s().getUserId());
-                kx7 kx7Var = this.u;
-                if (kx7Var != null) {
-                    pbCommenFloorItemViewHolder.I.setOnClickListener(kx7Var.c);
+                userIconBox.setTag(R.id.obfuscated_res_0x7f091efc, postData.s().getUserId());
+                hx7 hx7Var = this.u;
+                if (hx7Var != null) {
+                    pbCommenFloorItemViewHolder.I.setOnClickListener(hx7Var.c);
                 }
-                int f2 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-                int f3 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                int f2 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+                int f3 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
                 UserIconBox userIconBox2 = pbCommenFloorItemViewHolder.I;
-                i3 = R.id.obfuscated_res_0x7f091ea4;
+                i3 = R.id.obfuscated_res_0x7f091efc;
                 userIconBox2.g(iconInfo, 2, f2, f2, f3);
             } else {
-                i3 = R.id.obfuscated_res_0x7f091ea4;
+                i3 = R.id.obfuscated_res_0x7f091efc;
             }
             if (pbCommenFloorItemViewHolder.H != null) {
                 if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
                     pbCommenFloorItemViewHolder.H.setTag(tShowInfoNew.get(0).getUrl());
                 }
-                kx7 kx7Var2 = this.u;
-                if (kx7Var2 != null) {
-                    pbCommenFloorItemViewHolder.H.setOnClickListener(kx7Var2.d);
+                hx7 hx7Var2 = this.u;
+                if (hx7Var2 != null) {
+                    pbCommenFloorItemViewHolder.H.setOnClickListener(hx7Var2.d);
                 }
-                int f4 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-                pbCommenFloorItemViewHolder.H.h(tShowInfoNew, 3, f4, f4, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
+                int f4 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+                pbCommenFloorItemViewHolder.H.h(tShowInfoNew, 3, f4, f4, mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             }
             if (ListUtils.isEmpty(tShowInfoNew) && !postData.s().isBigV()) {
                 if (UbsABTestHelper.isPBPlanA()) {
                     if (DeviceInfoUtil.isMate30()) {
-                        ew7.k(pbCommenFloorItemViewHolder.f);
+                        dw7.k(pbCommenFloorItemViewHolder.f);
                     } else {
-                        vr4.d(pbCommenFloorItemViewHolder.f).A(R.string.F_X02);
+                        gs4.d(pbCommenFloorItemViewHolder.f).A(R.string.F_X02);
                     }
                     SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0108, 1);
                 } else {
@@ -833,15 +833,15 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             String avater = postData.s().getAvater();
             int i4 = postData.g0 ? 2 : 8;
             pbCommenFloorItemViewHolder.f.setTag(i3, postData.s().getUserId());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091eac, postData.s().getUserName());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091eae, postData.s().getVirtualUserUrl());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091e9b, yy7.i(this.q, postData, postData.h0, i4, 2));
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091f04, postData.s().getUserName());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091f06, postData.s().getVirtualUserUrl());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091ef3, vy7.i(this.q, postData, postData.h0, i4, 2));
             String name_show = postData.s().getName_show();
             String userName = postData.s().getUserName();
             if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                 pbCommenFloorItemViewHolder.f.setText(dr7.b(this.a, pbCommenFloorItemViewHolder.f.getText().toString()));
                 pbCommenFloorItemViewHolder.f.setGravity(16);
-                pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091e7d, dr7.a());
+                pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091ed5, dr7.a());
                 SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0312, 1);
             }
             if (postData.s().getPendantData() != null && !StringUtils.isNull(postData.s().getPendantData().getImgUrl())) {
@@ -858,7 +858,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 pbCommenFloorItemViewHolder.G.getHeadView().setFName(bs7Var2 != null ? bs7Var2.n() : "");
                 pbCommenFloorItemViewHolder.G.getHeadView().setFloor(postData.A());
                 pbCommenFloorItemViewHolder.G.getHeadView().setTid(postData.I());
-                pbCommenFloorItemViewHolder.G.getHeadView().setTag(R.id.obfuscated_res_0x7f091e9b, yy7.i(this.q, postData, postData.h0, i4, 2));
+                pbCommenFloorItemViewHolder.G.getHeadView().setTag(R.id.obfuscated_res_0x7f091ef3, vy7.i(this.q, postData, postData.h0, i4, 2));
                 pbCommenFloorItemViewHolder.G.m(postData.s().getPendantData().getImgUrl());
             } else {
                 pbCommenFloorItemViewHolder.m.setGodIconWidth(R.dimen.tbds36);
@@ -871,8 +871,8 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 pbCommenFloorItemViewHolder.m.setFloor(postData.A());
                 pbCommenFloorItemViewHolder.m.setTid(postData.I());
                 pbCommenFloorItemViewHolder.m.setUserName(postData.s().getUserName(), postData.Z());
-                pbCommenFloorItemViewHolder.m.setTag(R.id.obfuscated_res_0x7f091eae, postData.s().getVirtualUserUrl());
-                pbCommenFloorItemViewHolder.m.setTag(R.id.obfuscated_res_0x7f091e9b, yy7.i(this.q, postData, postData.h0, i4, 2));
+                pbCommenFloorItemViewHolder.m.setTag(R.id.obfuscated_res_0x7f091f06, postData.s().getVirtualUserUrl());
+                pbCommenFloorItemViewHolder.m.setTag(R.id.obfuscated_res_0x7f091ef3, vy7.i(this.q, postData, postData.h0, i4, 2));
                 pbCommenFloorItemViewHolder.m.setImageDrawable(null);
                 pbCommenFloorItemViewHolder.m.K(avater, 28, false);
                 pbCommenFloorItemViewHolder.m.setVisibility(0);
@@ -939,16 +939,16 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 pbCommenFloorItemViewHolder.F.setVisibility(8);
             }
         }
-        int e2 = ew7.e();
+        int e2 = dw7.e();
         String name_show2 = postData.s() != null ? postData.s().getName_show() : "";
-        int d2 = fd5.d(name_show2);
+        int d2 = xd5.d(name_show2);
         if (postData.s() != null && !StringUtils.isNull(postData.s().getSealPrefix())) {
             int i6 = e2 - 2;
             if (d2 > i6) {
-                name_show2 = fd5.n(name_show2, i6) + StringHelper.STRING_MORE;
+                name_show2 = xd5.n(name_show2, i6) + StringHelper.STRING_MORE;
             }
         } else if (d2 > e2) {
-            name_show2 = fd5.n(name_show2, e2) + StringHelper.STRING_MORE;
+            name_show2 = xd5.n(name_show2, e2) + StringHelper.STRING_MORE;
         }
         if (postData.s() != null && !StringUtils.isNull(postData.s().getSealPrefix())) {
             pbCommenFloorItemViewHolder.f.setText(D0(postData.s().getSealPrefix(), name_show2));
@@ -957,24 +957,24 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             pbCommenFloorItemViewHolder.e.post(new a(this, pbCommenFloorItemViewHolder, name_show2));
         }
         SparseArray sparseArray = new SparseArray();
-        sparseArray.put(R.id.obfuscated_res_0x7f091e56, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f091e72, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f091e74, view2);
-        sparseArray.put(R.id.obfuscated_res_0x7f091e80, Integer.valueOf(i2));
-        sparseArray.put(R.id.obfuscated_res_0x7f091e7f, Integer.valueOf(postData.A()));
-        sparseArray.put(R.id.obfuscated_res_0x7f091e66, postData.I());
-        sparseArray.put(R.id.obfuscated_res_0x7f09169a, pbCommenFloorItemViewHolder.l);
-        sparseArray.put(R.id.obfuscated_res_0x7f09169b, pbCommenFloorItemViewHolder.b0);
-        sparseArray.put(R.id.obfuscated_res_0x7f091698, pbCommenFloorItemViewHolder.t);
-        sparseArray.put(R.id.obfuscated_res_0x7f091699, pbCommenFloorItemViewHolder.u);
+        sparseArray.put(R.id.obfuscated_res_0x7f091eae, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091eca, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091ecc, view2);
+        sparseArray.put(R.id.obfuscated_res_0x7f091ed8, Integer.valueOf(i2));
+        sparseArray.put(R.id.obfuscated_res_0x7f091ed7, Integer.valueOf(postData.A()));
+        sparseArray.put(R.id.obfuscated_res_0x7f091ebe, postData.I());
+        sparseArray.put(R.id.obfuscated_res_0x7f0916c1, pbCommenFloorItemViewHolder.l);
+        sparseArray.put(R.id.obfuscated_res_0x7f0916c2, pbCommenFloorItemViewHolder.b0);
+        sparseArray.put(R.id.obfuscated_res_0x7f0916bf, pbCommenFloorItemViewHolder.t);
+        sparseArray.put(R.id.obfuscated_res_0x7f0916c0, pbCommenFloorItemViewHolder.u);
         bs7 bs7Var6 = this.q;
         if (bs7Var6 != null && bs7Var6.O() != null) {
             threadData = this.q.O();
         }
         if (threadData != null && threadData.isUgcThreadType()) {
-            sparseArray.put(R.id.obfuscated_res_0x7f091697, Boolean.TRUE);
+            sparseArray.put(R.id.obfuscated_res_0x7f0916be, Boolean.TRUE);
         } else {
-            sparseArray.put(R.id.obfuscated_res_0x7f091697, Boolean.FALSE);
+            sparseArray.put(R.id.obfuscated_res_0x7f0916be, Boolean.FALSE);
         }
         boolean z7 = (postData.s() == null || StringUtils.isNull(postData.s().getVirtualUserUrl())) ? false : true;
         bs7 bs7Var7 = this.q;
@@ -1019,42 +1019,42 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 }
                 int i7 = postData.A() != 1 ? 1 : 0;
                 if (!z) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e98, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e75, Integer.valueOf(this.q.V()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef0, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ecd, Integer.valueOf(this.q.V()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e63, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e64, postData.s().getName_show());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e65, postData.s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091ebb, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091ebc, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091ebd, postData.s().getPortrait());
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e98, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef0, Boolean.FALSE);
                 }
                 if (!z4) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091eab, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e6d, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f03, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ec5, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091ea7, postData.s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091ea8, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091ea6, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091eff, postData.s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f00, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091efe, postData.s().getName_show());
                     }
                     if (this.q.O() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091eaa, this.q.O().getId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f02, this.q.O().getId());
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f091ea9, postData.I());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f01, postData.I());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091eab, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f03, Boolean.FALSE);
                 }
                 if (!z3) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e96, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e6a, Boolean.valueOf(postData.d0()));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e75, Integer.valueOf(this.q.V()));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e59, Boolean.valueOf(z5));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e5a, Integer.valueOf(i7));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e58, postData.I());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091eee, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ec2, Boolean.valueOf(postData.d0()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ecd, Integer.valueOf(this.q.V()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091eb1, Boolean.valueOf(z5));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091eb2, Integer.valueOf(i7));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091eb0, postData.I());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e96, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091eee, Boolean.FALSE);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f091e6e, Boolean.valueOf(z6));
+                sparseArray.put(R.id.obfuscated_res_0x7f091ec6, Boolean.valueOf(z6));
                 pbCommenFloorItemViewHolder.n.setTag(sparseArray);
             }
         }
@@ -1076,7 +1076,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
         if (!z3) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f091e6e, Boolean.valueOf(z6));
+        sparseArray.put(R.id.obfuscated_res_0x7f091ec6, Boolean.valueOf(z6));
         pbCommenFloorItemViewHolder.n.setTag(sparseArray);
     }
 
@@ -1104,8 +1104,8 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             if (str2 == null || str == null) {
                 return spannableStringBuilder;
             }
-            arrayList.add(new ex5.a(str, R.drawable.pic_smalldot_title));
-            return ex5.h(this.a, str2, arrayList, true);
+            arrayList.add(new fx5.a(str, R.drawable.pic_smalldot_title));
+            return fx5.h(this.a, str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -1118,9 +1118,9 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             if (sparseArray == null) {
                 return "1";
             }
-            Object obj = sparseArray.get(R.id.obfuscated_res_0x7f09172f);
+            Object obj = sparseArray.get(R.id.obfuscated_res_0x7f091757);
             String str = obj != null ? obj : "1";
-            sparseArray.remove(R.id.obfuscated_res_0x7f09172f);
+            sparseArray.remove(R.id.obfuscated_res_0x7f091757);
             view2.setTag(sparseArray);
             return str.toString();
         }
@@ -1141,14 +1141,14 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: G0 */
     public PbCommenFloorItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069b, viewGroup, false);
-            ((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091712)).addView(LayoutInflater.from(inflate.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0693, (ViewGroup) null));
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068d, viewGroup, false);
+            ((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09173a)).addView(LayoutInflater.from(inflate.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0685, (ViewGroup) null));
             PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder = new PbCommenFloorItemViewHolder(this.j, inflate, 0);
             pbCommenFloorItemViewHolder.o.setConstrainLayoutPool(this.x);
             pbCommenFloorItemViewHolder.o.setImageViewPool(this.y);
@@ -1213,17 +1213,17 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
     }
 
-    public void J0(kx7 kx7Var) {
+    public void J0(hx7 hx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, kx7Var) == null) {
-            this.u = kx7Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, hx7Var) == null) {
+            this.u = hx7Var;
         }
     }
 
-    public void K0(mx7 mx7Var) {
+    public void K0(jx7 jx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mx7Var) == null) {
-            this.v = mx7Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, jx7Var) == null) {
+            this.v = jx7Var;
         }
     }
 
@@ -1251,9 +1251,9 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             O0(pbCommenFloorItemViewHolder.g);
             if (UbsABTestHelper.isPBPlanA()) {
                 if (DeviceInfoUtil.isMate30()) {
-                    ew7.k(pbCommenFloorItemViewHolder.f);
+                    dw7.k(pbCommenFloorItemViewHolder.f);
                 } else {
-                    vr4.d(pbCommenFloorItemViewHolder.f).A(R.string.F_X02);
+                    gs4.d(pbCommenFloorItemViewHolder.f).A(R.string.F_X02);
                 }
                 SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0108, 1);
             } else {
@@ -1268,13 +1268,13 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             pbCommenFloorItemViewHolder.n.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.e0, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f0, R.color.CAM_X0107, 1);
-            SkinManager.setBackgroundShapeDrawable(pbCommenFloorItemViewHolder.q, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds21), R.color.CAM_X0206, R.color.CAM_X0206);
+            SkinManager.setBackgroundShapeDrawable(pbCommenFloorItemViewHolder.q, mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds21), R.color.CAM_X0206, R.color.CAM_X0206);
             SkinManager.getColor(R.color.CAM_X0107);
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.r, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.r, (int) R.color.CAM_X0304);
             pbCommenFloorItemViewHolder.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right, SkinManager.getColor(R.color.CAM_X0304), null), (Drawable) null);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.t, R.drawable.obfuscated_res_0x7f080956, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.u, R.drawable.obfuscated_res_0x7f080957, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.t, R.drawable.obfuscated_res_0x7f08096a, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.u, R.drawable.obfuscated_res_0x7f08096b, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
             pbCommenFloorItemViewHolder.q.d();
             pbCommenFloorItemViewHolder.o.b();
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.P, R.color.CAM_X0304, 1);
@@ -1284,20 +1284,20 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             SkinManager.setImageResource(pbCommenFloorItemViewHolder.Q, R.drawable.icon_arrow_more_gray);
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.T, (int) R.color.CAM_X0107);
             if (pbCommenFloorItemViewHolder.R.getVisibility() == 8) {
-                pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f03eb);
+                pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f03f0);
             } else {
                 bs7 bs7Var = this.q;
                 if (bs7Var != null && StringUtils.isNull(bs7Var.k())) {
                     pbCommenFloorItemViewHolder.T.setText(this.q.k());
                 } else {
-                    pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f05c3);
+                    pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f05c9);
                 }
             }
             pbCommenFloorItemViewHolder.l.J(TbadkCoreApplication.getInst().getSkinType());
             pbCommenFloorItemViewHolder.e(skinType);
             SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.K, R.color.CAM_X0203);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.c0, R.drawable.obfuscated_res_0x7f080931, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.g0, R.drawable.obfuscated_res_0x7f080931, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.c0, R.drawable.obfuscated_res_0x7f080945, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.g0, R.drawable.obfuscated_res_0x7f080945, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
             pbCommenFloorItemViewHolder.d();
         }
         pbCommenFloorItemViewHolder.a = skinType;
@@ -1327,53 +1327,53 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 if (str != null && !str.equals("0") && this.p.equals(s.getUserId())) {
                     textView.setVisibility(0);
                     textView.setAlpha(1.0f);
-                    textView.setText(R.string.obfuscated_res_0x7f0f0856);
+                    textView.setText(R.string.obfuscated_res_0x7f0f085e);
                     textView.setBackgroundColor(0);
-                    vr4 d2 = vr4.d(textView);
+                    gs4 d2 = gs4.d(textView);
                     d2.n(R.string.J_X04);
                     d2.l(R.dimen.L_X01);
                     d2.v(R.color.CAM_X0302);
                     d2.k(R.color.CAM_X0302);
                     return;
                 } else if (s.getIs_bawu() == 1 && postData.e0()) {
-                    vr4 d3 = vr4.d(textView);
+                    gs4 d3 = gs4.d(textView);
                     d3.v(R.color.CAM_X0101);
                     d3.n(R.string.J_X04);
                     d3.f(R.color.CAM_X0302);
                     textView.setVisibility(0);
-                    textView.setText(R.string.obfuscated_res_0x7f0f0332);
+                    textView.setText(R.string.obfuscated_res_0x7f0f0337);
                     return;
                 } else if (s.getIs_bawu() == 1 && "manager".equals(s.getBawu_type())) {
-                    vr4 d4 = vr4.d(textView);
+                    gs4 d4 = gs4.d(textView);
                     d4.v(R.color.CAM_X0101);
                     d4.n(R.string.J_X04);
                     d4.f(R.color.CAM_X0302);
                     textView.setVisibility(0);
-                    textView.setText(R.string.obfuscated_res_0x7f0f02eb);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02f0);
                     return;
                 } else if (s.getIs_bawu() == 1 && PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(s.getBawu_type())) {
-                    vr4 d5 = vr4.d(textView);
+                    gs4 d5 = gs4.d(textView);
                     d5.v(R.color.CAM_X0101);
                     d5.n(R.string.J_X04);
                     d5.f(R.color.CAM_X0302);
                     textView.setVisibility(0);
-                    textView.setText(R.string.obfuscated_res_0x7f0f02ec);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02f1);
                     return;
                 } else if (s.getIs_bawu() == 1 && "pri_content_assist".equals(s.getBawu_type())) {
-                    vr4 d6 = vr4.d(textView);
+                    gs4 d6 = gs4.d(textView);
                     d6.v(R.color.CAM_X0101);
                     d6.n(R.string.J_X04);
                     d6.f(R.color.CAM_X0302);
                     textView.setVisibility(0);
-                    textView.setText(R.string.obfuscated_res_0x7f0f02e8);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02ed);
                     return;
                 } else if (s.getIs_bawu() == 1 && "pri_manage_assist".equals(s.getBawu_type())) {
-                    vr4 d7 = vr4.d(textView);
+                    gs4 d7 = gs4.d(textView);
                     d7.v(R.color.CAM_X0101);
                     d7.n(R.string.J_X04);
                     d7.f(R.color.CAM_X0302);
                     textView.setVisibility(0);
-                    textView.setText(R.string.obfuscated_res_0x7f0f02e9);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02ee);
                     return;
                 } else {
                     textView.setVisibility(8);
@@ -1385,7 +1385,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     public /* bridge */ /* synthetic */ View S(int i2, View view2, ViewGroup viewGroup, PostData postData, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
         H0(i2, view2, viewGroup, postData, pbCommenFloorItemViewHolder);
         return view2;
@@ -1418,14 +1418,14 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         if (!(interceptable == null || interceptable.invokeLLZ(1048597, this, tbRichTextView, view2, z) == null) || tbRichTextView == null || view2 == null) {
             return;
         }
-        int k2 = (((oi.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - tbRichTextView.getPaddingLeft()) - tbRichTextView.getPaddingRight();
+        int k2 = (((mi.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - tbRichTextView.getPaddingLeft()) - tbRichTextView.getPaddingRight();
         if (tbRichTextView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) tbRichTextView.getLayoutParams();
             k2 = (k2 - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin;
         }
         int C0 = z ? C0(R.dimen.tbds115) : 0;
         tbRichTextView.getLayoutStrategy().q((int) ((k2 - C0) * 1.0f));
-        tbRichTextView.getLayoutStrategy().G = (k2 - C0) - C0(R.dimen.tbds122);
+        tbRichTextView.getLayoutStrategy().H = (k2 - C0) - C0(R.dimen.tbds122);
         tbRichTextView.getLayoutStrategy().p((int) (k2 * 1.618f * 1.0f));
     }
 
@@ -1435,7 +1435,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             if (z) {
                 pbCommenFloorItemViewHolder.R.setVisibility(8);
                 if (StringUtils.isNull(str)) {
-                    pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f05c3);
+                    pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f05c9);
                     return;
                 } else {
                     pbCommenFloorItemViewHolder.T.setText(str);
@@ -1443,7 +1443,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 }
             }
             pbCommenFloorItemViewHolder.R.setVisibility(0);
-            pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f03eb);
+            pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f03f0);
         }
     }
 
@@ -1466,28 +1466,28 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         if (z) {
             pbCommenFloorItemViewHolder.n.getLayoutStrategy().m(0);
             if (z2) {
-                pbCommenFloorItemViewHolder.n.getLayoutStrategy().l(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+                pbCommenFloorItemViewHolder.n.getLayoutStrategy().l(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
                 if (layoutParams2 != null) {
-                    layoutParams2.topMargin = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+                    layoutParams2.topMargin = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
                 }
             } else {
-                pbCommenFloorItemViewHolder.n.getLayoutStrategy().l(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8));
+                pbCommenFloorItemViewHolder.n.getLayoutStrategy().l(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8));
                 if (layoutParams2 != null) {
                     layoutParams2.topMargin = 0;
                 }
             }
             pbCommenFloorItemViewHolder.S.setLayoutParams(layoutParams2);
             if (layoutParams != null) {
-                layoutParams.topMargin = oi.f(this.a, R.dimen.tbds20);
+                layoutParams.topMargin = mi.f(this.a, R.dimen.tbds20);
                 pbCommenFloorItemViewHolder.K.setLayoutParams(layoutParams);
                 return;
             }
             return;
         }
-        pbCommenFloorItemViewHolder.n.getLayoutStrategy().l(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
-        pbCommenFloorItemViewHolder.n.getLayoutStrategy().m(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        pbCommenFloorItemViewHolder.n.getLayoutStrategy().l(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        pbCommenFloorItemViewHolder.n.getLayoutStrategy().m(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
         if (layoutParams != null) {
-            layoutParams.topMargin = oi.f(this.a, R.dimen.tbds14);
+            layoutParams.topMargin = mi.f(this.a, R.dimen.tbds14);
             pbCommenFloorItemViewHolder.K.setLayoutParams(layoutParams);
         }
     }
@@ -1507,7 +1507,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         if (!(interceptable == null || interceptable.invokeL(1048602, this, postData) == null) || postData == null) {
             return;
         }
-        StatisticItem i2 = yy7.i(this.q, postData, postData.h0, postData.g0 ? 2 : 8, 6);
+        StatisticItem i2 = vy7.i(this.q, postData, postData.h0, postData.g0 ? 2 : 8, 6);
         postData.i0 = i2;
         if (ListUtils.isEmpty(postData.R())) {
             return;
@@ -1547,20 +1547,20 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
     }
 
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.p = str;
-        }
-    }
-
     public final void p0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048606, this, pbCommenFloorItemViewHolder, postData) == null) || pbCommenFloorItemViewHolder == null || postData == null || (imageView = pbCommenFloorItemViewHolder.J) == null || this.q == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048605, this, pbCommenFloorItemViewHolder, postData) == null) || pbCommenFloorItemViewHolder == null || postData == null || (imageView = pbCommenFloorItemViewHolder.J) == null || this.q == null) {
             return;
         }
         imageView.setVisibility(8);
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.p = str;
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:0x007f  */
@@ -1586,7 +1586,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         String str = null;
         boolean z3 = true;
         if (postData.A() > 0 && (bs7Var2 = this.q) != null && !bs7Var2.g0()) {
-            String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0961), Integer.valueOf(postData.A()));
+            String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0965), Integer.valueOf(postData.A()));
             pbCommenFloorItemViewHolder.E.setVisibility(0);
             pbCommenFloorItemViewHolder.E.setText(format);
             z = true;
@@ -1598,7 +1598,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             str = postData.s().getIpAddress();
             if (!TextUtils.isEmpty(str)) {
                 z2 = true;
-                nz4 M = postData.M();
+                b05 M = postData.M();
                 z3 = (M != null || StringUtils.isNull(M.b()) || (bs7Var = this.q) == null || bs7Var.g0()) ? false : false;
                 if (!z) {
                     pbCommenFloorItemViewHolder.i.setVisibility(0);
@@ -1623,7 +1623,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 if (!z2) {
                     pbCommenFloorItemViewHolder.k.setVisibility(0);
                     pbCommenFloorItemViewHolder.k.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds14), 0, 0, 0);
-                    pbCommenFloorItemViewHolder.k.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ad) + str);
+                    pbCommenFloorItemViewHolder.k.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d8) + str);
                 } else if (z3) {
                     pbCommenFloorItemViewHolder.k.setVisibility(0);
                     pbCommenFloorItemViewHolder.k.setPadding(this.i, 0, 0, 0);
@@ -1640,7 +1640,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             }
         }
         z2 = false;
-        nz4 M2 = postData.M();
+        b05 M2 = postData.M();
         if (M2 != null) {
         }
         if (!z) {
@@ -1764,7 +1764,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 sparseArray = new SparseArray();
                 pbCommenFloorItemViewHolder.s.setTag(sparseArray);
             }
-            sparseArray.put(R.id.obfuscated_res_0x7f091e72, postData);
+            sparseArray.put(R.id.obfuscated_res_0x7f091eca, postData);
             if (postData.E() == 2) {
                 pbCommenFloorItemViewHolder.s.setVisibility(8);
             } else {
@@ -1779,7 +1779,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 sparseArray2 = new SparseArray();
                 pbCommenFloorItemViewHolder.t.setTag(sparseArray2);
             }
-            sparseArray2.put(R.id.obfuscated_res_0x7f091e72, postData);
+            sparseArray2.put(R.id.obfuscated_res_0x7f091eca, postData);
         }
         if (this.q != null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_FLOOR_COMPLAINT);
@@ -1791,7 +1791,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             TiebaStatic.log(statisticItem);
         }
         if (pbCommenFloorItemViewHolder.U != null) {
-            PbFloorComplaint pbFloorComplaint = (PbFloorComplaint) view2.findViewById(R.id.obfuscated_res_0x7f0916b0);
+            PbFloorComplaint pbFloorComplaint = (PbFloorComplaint) view2.findViewById(R.id.obfuscated_res_0x7f0916d8);
             pbCommenFloorItemViewHolder.U = pbFloorComplaint;
             pbCommenFloorItemViewHolder.V = Boolean.TRUE;
             pbFloorComplaint.setRemindText(postData.C());
@@ -1820,7 +1820,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
                 sparseArray3 = new SparseArray();
                 pbCommenFloorItemViewHolder.u.setTag(sparseArray3);
             }
-            sparseArray3.put(R.id.obfuscated_res_0x7f091e72, postData);
+            sparseArray3.put(R.id.obfuscated_res_0x7f091eca, postData);
         }
         pbCommenFloorItemViewHolder.r.setVisibility(8);
         if (!postData.d0() && !postData.c0(false)) {
@@ -1833,15 +1833,15 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             pbCommenFloorItemViewHolder.q.setVisibility(8);
         } else {
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.q.getLayoutParams();
-            layoutParams2.topMargin = oi.f(this.a, R.dimen.tbds10);
-            layoutParams2.leftMargin = oi.f(this.a, R.dimen.tbds148);
-            layoutParams2.rightMargin = oi.f(this.a, R.dimen.M_W_X007);
-            layoutParams2.bottomMargin = oi.f(this.a, R.dimen.tbds20);
+            layoutParams2.topMargin = mi.f(this.a, R.dimen.tbds10);
+            layoutParams2.leftMargin = mi.f(this.a, R.dimen.tbds148);
+            layoutParams2.rightMargin = mi.f(this.a, R.dimen.M_W_X007);
+            layoutParams2.bottomMargin = mi.f(this.a, R.dimen.tbds20);
             pbCommenFloorItemViewHolder.q.setLayoutParams(layoutParams2);
             if (this.t == null) {
-                hy7 hy7Var = new hy7(this.a);
-                this.t = hy7Var;
-                hy7Var.f(this.r);
+                ey7 ey7Var = new ey7(this.a);
+                this.t = ey7Var;
+                ey7Var.f(this.r);
                 this.t.h(this.k);
                 this.t.e(this.l);
                 String str = null;
@@ -1872,14 +1872,14 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         }
         pbCommenFloorItemViewHolder.s.setVisibility(8);
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.p.getLayoutParams();
-        layoutParams3.topMargin = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
-        layoutParams3.bottomMargin = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        layoutParams3.topMargin = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
+        layoutParams3.bottomMargin = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
         if (pbCommenFloorItemViewHolder.r.getVisibility() == 8) {
             pbCommenFloorItemViewHolder.p.setVisibility(8);
         } else {
             pbCommenFloorItemViewHolder.p.setVisibility(0);
         }
-        pbCommenFloorItemViewHolder.f0.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f8e));
+        pbCommenFloorItemViewHolder.f0.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa6));
     }
 
     public final void w0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, View view2) {
@@ -1891,14 +1891,14 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         if (layoutParams == null) {
             layoutParams = new LinearLayout.LayoutParams(-2, -2);
         }
-        layoutParams.rightMargin = oi.f(this.a, R.dimen.M_W_X007);
-        layoutParams.leftMargin = oi.f(this.a, R.dimen.tbds148);
+        layoutParams.rightMargin = mi.f(this.a, R.dimen.M_W_X007);
+        layoutParams.leftMargin = mi.f(this.a, R.dimen.tbds148);
         layoutParams.topMargin = 0;
         layoutParams.bottomMargin = 0;
         pbCommenFloorItemViewHolder.n.setPadding(0, 0, 0, 0);
         pbCommenFloorItemViewHolder.n.k0(null);
         pbCommenFloorItemViewHolder.n.setBackgroundDrawable(null);
-        pbCommenFloorItemViewHolder.n.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f08120b);
+        pbCommenFloorItemViewHolder.n.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f081221);
         pbCommenFloorItemViewHolder.n.getLayoutStrategy().x(R.drawable.pic_video);
         j0(pbCommenFloorItemViewHolder.n, view2, !StringUtils.isNull(postData.u()));
         pbCommenFloorItemViewHolder.n.setLayoutParams(layoutParams);
@@ -1909,10 +1909,10 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         if (sparseArray == null) {
             sparseArray = new SparseArray();
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f091e56, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f091e6f, Boolean.FALSE);
+        sparseArray.put(R.id.obfuscated_res_0x7f091eae, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091ec7, Boolean.FALSE);
         pbCommenFloorItemViewHolder.n.setTag(sparseArray);
-        pbCommenFloorItemViewHolder.b.setTag(R.id.obfuscated_res_0x7f091e69, sparseArray);
+        pbCommenFloorItemViewHolder.b.setTag(R.id.obfuscated_res_0x7f091ec1, sparseArray);
         pbCommenFloorItemViewHolder.g0.setTag(sparseArray);
         pbCommenFloorItemViewHolder.c0.setTag(sparseArray);
     }
@@ -1931,7 +1931,7 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         if (interceptable == null || interceptable.invokeLL(1048617, this, pbCommenFloorItemViewHolder, postData) == null) {
             if (postData != null && postData.U() != null) {
                 TbRichText P = postData.P();
-                l08.c(postData.U(), pbCommenFloorItemViewHolder.L, false, false, P != null && StringUtils.isNull(P.toString()) && StringUtils.isNull(postData.u()));
+                i08.c(postData.U(), pbCommenFloorItemViewHolder.L, false, false, P != null && StringUtils.isNull(P.toString()) && StringUtils.isNull(postData.u()));
                 return;
             }
             pbCommenFloorItemViewHolder.L.setVisibility(8);

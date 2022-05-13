@@ -1,10 +1,16 @@
 package com.repackage;
 
-import android.opengl.GLES20;
+import android.graphics.SurfaceTexture;
+import android.opengl.EGL14;
+import android.opengl.EGLConfig;
+import android.opengl.EGLContext;
+import android.opengl.EGLDisplay;
+import android.opengl.EGLExt;
+import android.opengl.EGLSurface;
 import android.util.Log;
+import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,23 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.Buffer;
-import java.util.LinkedList;
-/* loaded from: classes7.dex */
-public class qc0 extends pc0 implements rc0 {
+import com.baidu.webkit.internal.monitor.MonitorType;
+import org.webrtc.EglBase10;
+/* loaded from: classes6.dex */
+public final class qc0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String k = "qc0";
+    public static final String d = "qc0";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public vc0 d;
-    public uc0 e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+    public EGLDisplay a;
+    public EGLContext b;
+    public EGLConfig c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,160 +44,202 @@ public class qc0 extends pc0 implements rc0 {
         }
     }
 
-    public qc0() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public qc0(EGLContext eGLContext, int i) {
+        this(eGLContext, i, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eGLContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((EGLContext) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
-        this.c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
-        new LinkedList();
     }
 
-    @Override // com.repackage.rc0
-    public void a(sc0 sc0Var, xc0 xc0Var) {
+    public final void a(String str) {
+        int eglGetError;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, sc0Var, xc0Var) == null) {
-            vc0 vc0Var = this.d;
-            if (vc0Var != null && vc0Var.e()) {
-                l();
-                d(this.d);
-                c(sc0Var, xc0Var);
-                g(sc0Var, xc0Var);
-                j();
-                k(this.d);
-                f();
-                return;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (eglGetError = EGL14.eglGetError()) == 12288) {
+            return;
+        }
+        throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+    }
+
+    public EGLSurface b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
+                throw new RuntimeException("invalid surface: " + obj);
             }
-            Log.e(k, "onDraw filter has not been setup!!!");
-        }
-    }
-
-    @Override // com.repackage.rc0
-    public void b(vc0 vc0Var, uc0 uc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc0Var, uc0Var) == null) {
-            this.d = vc0Var;
-            this.e = uc0Var;
-            e(this.b, this.c);
-            if (this.a != -1) {
-                h();
-                return;
+            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.a, this.c, obj, new int[]{12344}, 0);
+            a("eglCreateWindowSurface");
+            if (eglCreateWindowSurface != null) {
+                return eglCreateWindowSurface;
             }
-            throw new RuntimeException("Unable to create program");
+            throw new RuntimeException("surface was null");
         }
+        return (EGLSurface) invokeL.objValue;
     }
 
-    public void c(sc0 sc0Var, xc0 xc0Var) {
+    public final EGLConfig c(int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sc0Var, xc0Var) == null) {
-            GLES20.glUniformMatrix4fv(this.g, 1, false, xc0Var.b(), 0);
-            GLES20.glUniformMatrix4fv(this.h, 1, false, xc0Var.c(), 0);
-            GLES20.glEnableVertexAttribArray(this.f);
-            GLES20.glVertexAttribPointer(this.f, sc0Var.a(), 5126, false, sc0Var.f(), (Buffer) sc0Var.d());
-            GLES20.glEnableVertexAttribArray(this.i);
-            GLES20.glVertexAttribPointer(this.i, sc0Var.a(), 5126, false, sc0Var.c(), (Buffer) sc0Var.b());
-        }
-    }
-
-    public void d(vc0 vc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vc0Var) == null) {
-            GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(vc0Var.getType(), vc0Var.c());
-            GLES20.glUniform1i(this.j, 0);
-        }
-    }
-
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            if (this.d.getType() != 36197) {
-                str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            int[] iArr = {MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, i2 >= 3 ? 68 : 4, 12344, 0, 12344};
+            if ((i & 1) != 0) {
+                iArr[14] = 12610;
+                iArr[15] = 1;
             }
-            this.a = zc0.c(str, str2);
+            EGLConfig[] eGLConfigArr = new EGLConfig[1];
+            if (!EGL14.eglChooseConfig(this.a, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                String str = d;
+                Log.w(str, "unable to find RGB8888 / " + i2 + " EGLConfig");
+                return null;
+            }
+            return eGLConfigArr[0];
+        }
+        return (EGLConfig) invokeCommon.objValue;
+    }
+
+    public boolean d(EGLSurface eGLSurface) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eGLSurface)) == null) ? this.b.equals(EGL14.eglGetCurrentContext()) && eGLSurface.equals(EGL14.eglGetCurrentSurface(12377)) : invokeL.booleanValue;
+    }
+
+    public void e(EGLSurface eGLSurface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eGLSurface) == null) {
+            if (this.a == EGL14.EGL_NO_DISPLAY) {
+                Log.d(d, "NOTE: makeCurrent w/o display");
+            }
+            if (!EGL14.eglMakeCurrent(this.a, eGLSurface, eGLSurface, this.b)) {
+                throw new RuntimeException("eglMakeCurrent failed");
+            }
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            GLES20.glUseProgram(0);
-        }
-    }
-
-    public void g(sc0 sc0Var, xc0 xc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, sc0Var, xc0Var) == null) {
-            if (xc0Var.e()) {
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-                GLES20.glClear(16384);
+            EGLDisplay eGLDisplay = this.a;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
+                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
+                EGL14.eglDestroyContext(this.a, this.b);
+                EGL14.eglReleaseThread();
+                EGL14.eglTerminate(this.a);
             }
-            if (xc0Var.d()) {
-                GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
-                GLES20.glBlendFunc(770, 771);
+            this.a = EGL14.EGL_NO_DISPLAY;
+            this.b = EGL14.EGL_NO_CONTEXT;
+            this.c = null;
+        }
+    }
+
+    public void finalize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            try {
+                if (this.a != EGL14.EGL_NO_DISPLAY) {
+                    Log.w(d, "WARNING: EGLCore was not explicitly released -- state may be leaked");
+                    f();
+                }
+            } finally {
+                super.finalize();
             }
-            GLES20.glDrawArrays(5, 0, sc0Var.e());
-            if (xc0Var.d()) {
-                GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
+        }
+    }
+
+    public void g(EGLSurface eGLSurface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, eGLSurface) == null) {
+            EGL14.eglDestroySurface(this.a, eGLSurface);
+        }
+    }
+
+    public void h(EGLSurface eGLSurface, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, eGLSurface, j) == null) {
+            EGLExt.eglPresentationTimeANDROID(this.a, eGLSurface, j);
+        }
+    }
+
+    public boolean i(EGLSurface eGLSurface) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eGLSurface)) == null) ? EGL14.eglSwapBuffers(this.a, eGLSurface) : invokeL.booleanValue;
+    }
+
+    public qc0(EGLContext eGLContext, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.j = GLES20.glGetUniformLocation(this.a, "uTexture");
-            this.f = GLES20.glGetAttribLocation(this.a, "aPosition");
-            this.g = GLES20.glGetUniformLocation(this.a, "uMVPMatrix");
-            this.h = GLES20.glGetUniformLocation(this.a, "uTexMatrix");
-            this.i = GLES20.glGetAttribLocation(this.a, "aTextureCoord");
+        EGLDisplay eGLDisplay = EGL14.EGL_NO_DISPLAY;
+        this.a = eGLDisplay;
+        this.b = EGL14.EGL_NO_CONTEXT;
+        this.c = null;
+        if (eGLDisplay == EGL14.EGL_NO_DISPLAY) {
+            eGLContext = eGLContext == null ? EGL14.EGL_NO_CONTEXT : eGLContext;
+            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
+            this.a = eglGetDisplay;
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                int[] iArr = new int[2];
+                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
+                    if ((i & 2) != 0) {
+                        Log.d(d, "Trying GLES 3");
+                        EGLConfig c = c(i, 3, z);
+                        if (c != null) {
+                            EGLContext eglCreateContext = EGL14.eglCreateContext(this.a, c, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
+                            if (EGL14.eglGetError() == 12288) {
+                                this.c = c;
+                                this.b = eglCreateContext;
+                            }
+                        }
+                    }
+                    if (this.b == EGL14.EGL_NO_CONTEXT) {
+                        Log.d(d, "Trying GLES 2");
+                        EGLConfig c2 = c(i, 2, z);
+                        if (c2 != null) {
+                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.a, c2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                            a("eglCreateContext");
+                            this.c = c2;
+                            this.b = eglCreateContext2;
+                        } else {
+                            throw new RuntimeException("Unable to find a suitable EGLConfig");
+                        }
+                    }
+                    int[] iArr2 = new int[1];
+                    EGL14.eglQueryContext(this.a, this.b, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
+                    String str = d;
+                    Log.d(str, "EGLContext created, client version " + iArr2[0]);
+                    return;
+                }
+                this.a = null;
+                throw new RuntimeException("unable to initialize EGL14");
+            }
+            throw new RuntimeException("unable to get EGL14 display");
         }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            GLES20.glDeleteProgram(this.a);
-            this.a = -1;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            GLES20.glDisableVertexAttribArray(this.f);
-            GLES20.glDisableVertexAttribArray(this.i);
-        }
-    }
-
-    public void k(vc0 vc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vc0Var) == null) {
-            GLES20.glBindTexture(vc0Var.getType(), 0);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            GLES20.glUseProgram(this.a);
-        }
-    }
-
-    @Override // com.repackage.rc0
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            i();
-        }
+        throw new RuntimeException("EGL already set up");
     }
 }

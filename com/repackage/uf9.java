@@ -1,45 +1,100 @@
 package com.repackage;
 
-import android.util.Base64;
-import com.baidu.searchbox.retrieve.file.util.AESUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.Charset;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 /* loaded from: classes7.dex */
-public class uf9 {
+public abstract class uf9<A> extends ReporterPidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TTAdNative i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755262743, "Lcom/repackage/uf9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public uf9(FunAdType funAdType, Ssp.Pid pid) {
+        this(funAdType, pid, false);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755262743, "Lcom/repackage/uf9;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public uf9(FunAdType funAdType, Ssp.Pid pid, boolean z) {
+        this(funAdType, pid, z, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            Charset forName = Charset.forName("UTF-8");
-            SecretKeySpec secretKeySpec = new SecretKeySpec(Base64.decode(str2.getBytes(forName), 0), "AES");
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(2, secretKeySpec);
-            return new String(cipher.doFinal(Base64.decode(str.getBytes(forName), 0)), forName);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uf9(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
+        super(funAdType, pid, true, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ff9(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader, com.fun.ad.sdk.internal.api.PidLoader
+    public synchronized void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                super.destroy();
+                this.i = null;
+            }
+        }
     }
 }

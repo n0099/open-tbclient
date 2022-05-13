@@ -78,11 +78,11 @@ public class bk0 extends ck0 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            p();
+            l();
         }
     }
 
-    public boolean y() {
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -92,11 +92,11 @@ public class bk0 extends ck0 implements View.OnClickListener {
         return invokeV.booleanValue;
     }
 
-    public void z(xj0 xj0Var, Activity activity) {
+    public void v(xj0 xj0Var, Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xj0Var, activity) == null) && (this.f.get() instanceof DefaultDownloadViewLP)) {
             DefaultDownloadViewLP defaultDownloadViewLP = (DefaultDownloadViewLP) this.f.get();
-            defaultDownloadViewLP.b(false);
+            defaultDownloadViewLP.d(false);
             sk0.c(xj0Var, defaultDownloadViewLP, activity, new a(this), null);
         }
     }

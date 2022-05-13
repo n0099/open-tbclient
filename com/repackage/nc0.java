@@ -1,15 +1,9 @@
 package com.repackage;
 
 import android.graphics.SurfaceTexture;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLExt;
-import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
+import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class nc0 {
+public class nc0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String d = "nc0";
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLDisplay a;
-    public EGLContext b;
-    public EGLConfig c;
+    public pc0 a;
+    public List<oc0> b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,202 +38,134 @@ public final class nc0 {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public nc0(EGLContext eGLContext, int i) {
-        this(eGLContext, i, false);
+    public nc0(Object obj, List<bd0> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i)};
+            Object[] objArr = {obj, list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((EGLContext) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.c = 0;
+        b(obj, list);
     }
 
-    public final void a(String str) {
-        int eglGetError;
+    public void a(long j) {
+        List<oc0> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (eglGetError = EGL14.eglGetError()) == 12288) {
+        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.a == null || (list = this.b) == null || list.size() == 0) {
             return;
         }
-        throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
-    }
-
-    public EGLSurface b(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
-                throw new RuntimeException("invalid surface: " + obj);
+        synchronized (this) {
+            for (oc0 oc0Var : this.b) {
+                this.a.b(oc0Var.c());
+                oc0Var.b(j);
             }
-            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.a, this.c, obj, new int[]{12344}, 0);
-            a("eglCreateWindowSurface");
-            if (eglCreateWindowSurface != null) {
-                return eglCreateWindowSurface;
-            }
-            throw new RuntimeException("surface was null");
+            notifyAll();
         }
-        return (EGLSurface) invokeL.objValue;
+        this.a.d(j);
+        this.a.e();
     }
 
-    public final EGLConfig c(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public final void b(Object obj, List<bd0> list) {
+        oc0 oc0Var;
+        pc0 pc0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int[] iArr = {MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, i2 >= 3 ? 68 : 4, 12344, 0, 12344};
-            if ((i & 1) != 0) {
-                iArr[14] = 12610;
-                iArr[15] = 1;
-            }
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (!EGL14.eglChooseConfig(this.a, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                String str = d;
-                Log.w(str, "unable to find RGB8888 / " + i2 + " EGLConfig");
-                return null;
-            }
-            return eGLConfigArr[0];
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) || list == null || list.size() == 0) {
+            return;
         }
-        return (EGLConfig) invokeCommon.objValue;
-    }
-
-    public boolean d(EGLSurface eGLSurface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eGLSurface)) == null) ? this.b.equals(EGL14.eglGetCurrentContext()) && eGLSurface.equals(EGL14.eglGetCurrentSurface(12377)) : invokeL.booleanValue;
-    }
-
-    public void e(EGLSurface eGLSurface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eGLSurface) == null) {
-            if (this.a == EGL14.EGL_NO_DISPLAY) {
-                Log.d(d, "NOTE: makeCurrent w/o display");
-            }
-            if (!EGL14.eglMakeCurrent(this.a, eGLSurface, eGLSurface, this.b)) {
-                throw new RuntimeException("eglMakeCurrent failed");
-            }
+        List<oc0> list2 = this.b;
+        if (list2 == null) {
+            this.b = new ArrayList();
+        } else {
+            list2.clear();
         }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            EGLDisplay eGLDisplay = this.a;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-                EGL14.eglDestroyContext(this.a, this.b);
-                EGL14.eglReleaseThread();
-                EGL14.eglTerminate(this.a);
-            }
-            this.a = EGL14.EGL_NO_DISPLAY;
-            this.b = EGL14.EGL_NO_CONTEXT;
-            this.c = null;
-        }
-    }
-
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        for (int i = 0; i < list.size(); i++) {
             try {
-                if (this.a != EGL14.EGL_NO_DISPLAY) {
-                    Log.w(d, "WARNING: EGLCore was not explicitly released -- state may be leaked");
-                    f();
+                this.b.add(new oc0(list.get(i)));
+                if (list.get(i).k()) {
+                    this.c = i;
                 }
-            } finally {
-                super.finalize();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        int size = this.b.size();
+        int i2 = this.c;
+        if (size > i2) {
+            if (obj != null) {
+                if (obj instanceof Surface) {
+                    this.a = new pc0(this.b.get(this.c).c(), (Surface) obj, true);
+                } else if (obj instanceof SurfaceTexture) {
+                    this.a = new pc0(this.b.get(this.c).c(), (SurfaceTexture) obj);
+                } else if (obj instanceof SurfaceHolder) {
+                    this.a = new pc0(this.b.get(this.c).c(), (SurfaceHolder) obj);
+                }
+            } else {
+                List<oc0> list3 = this.b;
+                if (list3 != null && list3 != null && (oc0Var = list3.get(i2)) != null && (pc0Var = this.a) != null) {
+                    pc0Var.f(oc0Var.c());
+                }
+            }
+        }
+        for (oc0 oc0Var2 : this.b) {
+            pc0 pc0Var2 = this.a;
+            if (pc0Var2 != null) {
+                pc0Var2.b(oc0Var2.c());
+                oc0Var2.f();
             }
         }
     }
 
-    public void g(EGLSurface eGLSurface) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eGLSurface) == null) {
-            EGL14.eglDestroySurface(this.a, eGLSurface);
-        }
-    }
-
-    public void h(EGLSurface eGLSurface, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, eGLSurface, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.a, eGLSurface, j);
-        }
-    }
-
-    public boolean i(EGLSurface eGLSurface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eGLSurface)) == null) ? EGL14.eglSwapBuffers(this.a, eGLSurface) : invokeL.booleanValue;
-    }
-
-    public nc0(EGLContext eGLContext, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        EGLDisplay eGLDisplay = EGL14.EGL_NO_DISPLAY;
-        this.a = eGLDisplay;
-        this.b = EGL14.EGL_NO_CONTEXT;
-        this.c = null;
-        if (eGLDisplay == EGL14.EGL_NO_DISPLAY) {
-            eGLContext = eGLContext == null ? EGL14.EGL_NO_CONTEXT : eGLContext;
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.a = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                int[] iArr = new int[2];
-                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    if ((i & 2) != 0) {
-                        Log.d(d, "Trying GLES 3");
-                        EGLConfig c = c(i, 3, z);
-                        if (c != null) {
-                            EGLContext eglCreateContext = EGL14.eglCreateContext(this.a, c, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
-                            if (EGL14.eglGetError() == 12288) {
-                                this.c = c;
-                                this.b = eglCreateContext;
-                            }
-                        }
-                    }
-                    if (this.b == EGL14.EGL_NO_CONTEXT) {
-                        Log.d(d, "Trying GLES 2");
-                        EGLConfig c2 = c(i, 2, z);
-                        if (c2 != null) {
-                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.a, c2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
-                            a("eglCreateContext");
-                            this.c = c2;
-                            this.b = eglCreateContext2;
-                        } else {
-                            throw new RuntimeException("Unable to find a suitable EGLConfig");
-                        }
-                    }
-                    int[] iArr2 = new int[1];
-                    EGL14.eglQueryContext(this.a, this.b, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
-                    String str = d;
-                    Log.d(str, "EGLContext created, client version " + iArr2[0]);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            pc0 pc0Var = this.a;
+            if (pc0Var != null) {
+                pc0Var.g();
                 this.a = null;
-                throw new RuntimeException("unable to initialize EGL14");
             }
-            throw new RuntimeException("unable to get EGL14 display");
+            List<oc0> list = this.b;
+            if (list != null) {
+                for (oc0 oc0Var : list) {
+                    oc0Var.e();
+                }
+                this.b.clear();
+                this.b = null;
+            }
         }
-        throw new RuntimeException("EGL already set up");
+    }
+
+    public void d(uc0 uc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, uc0Var) == null) {
+            for (oc0 oc0Var : this.b) {
+                pc0 pc0Var = this.a;
+                if (pc0Var != null) {
+                    pc0Var.b(oc0Var.c());
+                    oc0Var.g(uc0Var);
+                }
+            }
+        }
+    }
+
+    public void e(List<bd0> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Log.d(d, "updateSurfaceDrawer !!!");
+            this.a.c();
+            for (oc0 oc0Var : this.b) {
+                oc0Var.e();
+            }
+            this.b.clear();
+            b(null, list);
+        }
     }
 }

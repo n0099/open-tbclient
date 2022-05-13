@@ -1,75 +1,48 @@
 package com.repackage;
 
-import android.app.Activity;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes6.dex */
-public class f5a implements x4a {
+public class f5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public PayUIKitConfig c;
-    public x5a d;
 
-    public f5a(int i, int i2, PayUIKitConfig payUIKitConfig, x5a x5aVar) {
+    public static void a(View view2, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, x5aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) || view2 == null || imageView == null) {
+            return;
         }
-        this.a = i;
-        this.b = i2;
-        this.c = payUIKitConfig;
-        this.d = x5aVar;
+        view2.setVisibility(8);
+        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
+        }
     }
 
-    @Override // com.repackage.x4a
-    public void a(Activity activity, PayFlowType payFlowType, b6a b6aVar, y5a y5aVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
+    public static void b(View view2, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, b6aVar, y5aVar, appCustomExpand, iPayCallback, str}) == null) {
-            x5a x5aVar = this.d;
-            if (x5aVar == null) {
-                RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
-                return;
-            }
-            c4a b = x5aVar.b(payFlowType);
-            b.r(iPayCallback);
-            b.p(activity);
-            b.u(y5aVar.a);
-            b.w(b6aVar.a);
-            b.q(appCustomExpand);
-            b.A(str);
-            b.v(payFlowType.getTypeId());
-            PayType payType = b6aVar.a;
-            if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY) {
-                b.x(a6a.b(this.c));
-            }
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.b);
-            if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
-                middleRevenue.getMiddlePayService().a(b);
-            } else {
-                RLog.error("PayCoreImpl", "requestPay error middleRevenue null", new Object[0]);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) || view2 == null || imageView == null) {
+            return;
         }
+        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
+        }
+        view2.setVisibility(0);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
+        ofFloat.setDuration(1000L);
+        ofFloat.setInterpolator(new LinearInterpolator());
+        ofFloat.setRepeatCount(-1);
+        ofFloat.start();
+        imageView.setTag(ofFloat);
     }
 }

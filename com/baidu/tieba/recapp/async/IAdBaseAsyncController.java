@@ -18,7 +18,6 @@ public interface IAdBaseAsyncController {
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
-        public static final Type PIC_BANNER;
         public static final Type PIC_PAGE;
         public static final Type VIDEO_FLOW;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,11 +35,10 @@ public interface IAdBaseAsyncController {
                     return;
                 }
             }
-            PIC_BANNER = new Type("PIC_BANNER", 0);
-            PIC_PAGE = new Type("PIC_PAGE", 1);
-            Type type = new Type("VIDEO_FLOW", 2);
+            PIC_PAGE = new Type("PIC_PAGE", 0);
+            Type type = new Type("VIDEO_FLOW", 1);
             VIDEO_FLOW = type;
-            $VALUES = new Type[]{PIC_BANNER, PIC_PAGE, type};
+            $VALUES = new Type[]{PIC_PAGE, type};
         }
 
         public Type(String str, int i) {

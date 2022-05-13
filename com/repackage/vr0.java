@@ -91,12 +91,12 @@ public final class vr0 extends as0 {
         int b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.bottomMargin = b21.b(10.0f);
+            this.c.bottomMargin = l21.b(10.0f);
             FrameLayout.LayoutParams layoutParams = this.c;
             if (r().V()) {
-                b = b21.b(45.0f);
+                b = l21.b(45.0f);
             } else {
-                b = b21.b(15.0f);
+                b = l21.b(15.0f);
             }
             layoutParams.leftMargin = b;
             TextView mNextTips = this.b;
@@ -109,8 +109,8 @@ public final class vr0 extends as0 {
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.bottomMargin = b21.b(45.0f);
-            this.c.leftMargin = b21.b(15.0f);
+            this.c.bottomMargin = l21.b(45.0f);
+            this.c.leftMargin = l21.b(15.0f);
             TextView mNextTips = this.b;
             Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
             mNextTips.setLayoutParams(this.c);
@@ -126,18 +126,18 @@ public final class vr0 extends as0 {
             Intrinsics.checkNotNullExpressionValue(context, "context");
             textView.setTextSize(0, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070568));
             textView.setTextColor(-1);
-            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.obfuscated_res_0x7f080e0d));
+            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.obfuscated_res_0x7f080e27));
             textView.setGravity(16);
             textView.setAlpha(0.0f);
             textView.setMaxEms(18);
             textView.setMaxLines(1);
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setIncludeFontPadding(false);
-            textView.setPadding(b21.b(13.0f), 0, b21.b(13.0f), 0);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, b21.b(24.0f));
+            textView.setPadding(l21.b(13.0f), 0, l21.b(13.0f), 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, l21.b(24.0f));
             this.c = layoutParams;
             layoutParams.gravity = BadgeDrawable.BOTTOM_START;
-            layoutParams.leftMargin = b21.b(15.0f);
+            layoutParams.leftMargin = l21.b(15.0f);
             textView.setLayoutParams(this.c);
             Unit unit = Unit.INSTANCE;
             this.b = textView;

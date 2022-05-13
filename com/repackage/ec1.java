@@ -1,20 +1,9 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ec1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ec1<T> {
+    void a(ac1<List<T>> ac1Var);
 
-    public static List<cc1> a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
+    List<T> getList();
 }

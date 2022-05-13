@@ -1,56 +1,148 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uf6;
 /* loaded from: classes7.dex */
 public class vf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qf6 a;
+    public TbPageContext b;
+    public py4 c;
+    public BdUniqueId d;
+    public CustomMessageListener e;
 
-    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
-                    hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
-                    i++;
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vf6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vf6 vf6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return hashMap;
+            this.a = vf6Var;
         }
-        return (Map) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            UpdateAttentionMessage updateAttentionMessage;
+            UpdateAttentionMessage.a data;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || this.a.a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
+                return;
+            }
+            if (!data.a) {
+                this.a.a.f(updateAttentionMessage.getData().b);
+            } else {
+                this.a.a.h(data.d);
+            }
+        }
     }
 
-    public static String[] b(List<TornadoNodeInfo> list, int i) {
-        InterceptResult invokeLI;
+    public vf6(TbPageContext tbPageContext, qf6 qf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (ListUtils.isEmpty(list) || i <= 0) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, qf6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String[] strArr = new String[i];
-            int i2 = 0;
-            for (int i3 = 0; i3 < list.size(); i3++) {
-                for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
-                    strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
-                    i2++;
-                }
-            }
-            return strArr;
         }
-        return (String[]) invokeLI.objValue;
+        this.d = BdUniqueId.gen();
+        this.e = new a(this, 2001115);
+        this.b = tbPageContext;
+        this.a = qf6Var;
+        this.c = new py4(tbPageContext);
+        this.e.setSelfListener(true);
+        this.e.setTag(this.d);
+        MessageManager.getInstance().registerListener(this.e);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            py4 py4Var = this.c;
+            if (py4Var != null) {
+                py4Var.g();
+            }
+            MessageManager.getInstance().unRegisterListener(this.e);
+        }
+    }
+
+    public void c(uf6 uf6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uf6Var) == null) {
+            if (!ki.z()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c64);
+            } else if (uf6Var == null || uf6Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                py4 py4Var = this.c;
+                uf6.b bVar = uf6Var.m;
+                py4Var.k(!bVar.e, bVar.d, bVar.a, this.d);
+            }
+        }
+    }
+
+    public void d(uf6 uf6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uf6Var) == null) {
+            if (!ki.z()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c64);
+            } else if (uf6Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("thread_id", uf6Var.b);
+                httpMessage.addParam("op_type", Boolean.valueOf(uf6Var.h));
+                httpMessage.addParam("obj_type", 3);
+                httpMessage.addParam("agree_type", 2);
+                httpMessage.addParam("forum_id", uf6Var.a);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                if (!StringUtil.isEmpty(uf6Var.i)) {
+                    httpMessage.addParam("obj_source", uf6Var.i);
+                }
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
+                this.a.g();
+            }
+        }
     }
 }

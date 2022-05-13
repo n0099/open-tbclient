@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.repackage.o77;
+import com.repackage.e77;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -27,6 +27,7 @@ public class MessageSyncMessage extends TbSocketMessage {
     public int height;
     public LongSparseArray<Long> mMids;
     public NewpushRepair newpushRepire;
+    public long notifyMsgId;
     public int smallHeight;
     public int smallWidth;
     public String syncTypeString;
@@ -112,10 +113,11 @@ public class MessageSyncMessage extends TbSocketMessage {
             builder.smallHeight = Integer.valueOf(getSmallHeight());
             builder.smallWidth = Integer.valueOf(getSmallWidth());
             builder.gettype = getSyncTypeString();
+            builder.notify_msg_id = Long.valueOf(this.notifyMsgId);
             if (builder.groupMids == null) {
                 builder.groupMids = new ArrayList();
             }
-            long d = o77.e().d();
+            long d = e77.e().d();
             boolean z = false;
             for (int i = 0; i < this.mMids.size(); i++) {
                 long keyAt = this.mMids.keyAt(i);
@@ -125,17 +127,17 @@ public class MessageSyncMessage extends TbSocketMessage {
                     builder2.groupId = Long.valueOf(keyAt);
                     builder2.lastMsgId = valueAt;
                     if (d == keyAt) {
-                        builder2.excludeMid = o77.e().g();
+                        builder2.excludeMid = e77.e().g();
                         z = true;
                     }
                     builder.groupMids.add(builder2.build(false));
                 }
             }
-            if (!z && o77.e().i()) {
+            if (!z && e77.e().i()) {
                 GroupLastId.Builder builder3 = new GroupLastId.Builder();
                 builder3.groupId = Long.valueOf(d);
-                builder3.lastMsgId = o77.e().f();
-                builder3.excludeMid = o77.e().g();
+                builder3.lastMsgId = e77.e().f();
+                builder3.excludeMid = e77.e().g();
                 builder.groupMids.add(builder3.build(false));
             }
             builder.newpushRepire = getNewpushRepire();
@@ -210,30 +212,37 @@ public class MessageSyncMessage extends TbSocketMessage {
         }
     }
 
+    public void setNotifyMsgId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.notifyMsgId = j;
+        }
+    }
+
     public void setSmallHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.smallHeight = i;
         }
     }
 
     public void setSmallWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.smallWidth = i;
         }
     }
 
     public void setSyncTypeString(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             this.syncTypeString = str;
         }
     }
 
     public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.width = i;
         }
     }

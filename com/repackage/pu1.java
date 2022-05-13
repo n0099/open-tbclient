@@ -1,8 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class pu1 extends pt1 {
+public class pu1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Cap a;
+    public int a;
+    public int b;
 
     public pu1() {
         Interceptable interceptable = $ic;
@@ -25,33 +24,31 @@ public class pu1 extends pt1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = Integer.MAX_VALUE;
+        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
-        Paint.Cap cap;
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) || (cap = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) || (i = this.a) == Integer.MAX_VALUE || (i2 = this.b) == Integer.MAX_VALUE) {
             return;
         }
-        qt1Var.c.setStrokeCap(cap);
+        bu1Var.f.lineTo(i, i2);
     }
 
-    @Override // com.repackage.pt1
+    @Override // com.repackage.au1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
             return;
         }
-        String optString = jSONArray.optString(0);
-        if (TextUtils.equals(optString, "butt")) {
-            this.a = Paint.Cap.BUTT;
-        } else if (TextUtils.equals(optString, "round")) {
-            this.a = Paint.Cap.ROUND;
-        } else if (TextUtils.equals(optString, "square")) {
-            this.a = Paint.Cap.SQUARE;
-        }
+        this.a = le3.g((float) jSONArray.optDouble(0));
+        this.b = le3.g((float) jSONArray.optDouble(1));
     }
 }

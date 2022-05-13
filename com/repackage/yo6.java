@@ -1,123 +1,221 @@
 package com.repackage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewCommonUtil;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.vc.FrsTopView;
+import android.view.ViewParent;
+import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.qr6;
-/* compiled from: TopViewLogic.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uo6;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class yo6 {
+public class yo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ViewGroup b;
+    public zo6 c;
+    public uo6 d;
+    public m95 e;
+    public uo6.a f;
+    public Runnable g;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? UbsABTestHelper.isFrsModifyABTestA() : invokeV.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a implements uo6.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yo6 a;
 
-    public static void b(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, view2) == null) && a()) {
-            ViewCommonUtil.setViewMargin(view2, -1, -1, -1, UtilHelper.getDimenPixelSize(R.dimen.tbds9));
-        }
-    }
-
-    public static void c(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, view2) == null) && a()) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds18);
-            ViewCommonUtil.setViewPadding(view2, -1, dimenPixelSize, -1, dimenPixelSize);
-        }
-    }
-
-    public static void d(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
-            if (a()) {
-                vr4 d = vr4.d(view2);
-                d.n(R.string.J_X05);
-                d.f(R.color.CAM_X0201);
-                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
+        public a(yo6 yo6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yo6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
+            }
+            this.a = yo6Var;
+        }
+
+        @Override // com.repackage.uo6.a
+        public void onStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    if (!TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        return;
+                    }
+                    if (this.a.e == null) {
+                        this.a.e = new m95("anim_switch_trans_frs");
+                    }
+                    this.a.e.b();
+                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
+                } else if (i != 2) {
+                    if (i == 0) {
+                        this.a.j();
+                    }
+                } else {
+                    this.a.k();
+                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        this.a.e.c();
+                    }
+                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yo6 a;
+
+        public b(yo6 yo6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yo6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yo6Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public yo6(Context context, ViewGroup viewGroup, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
         }
+        this.f = new a(this);
+        this.g = new b(this);
+        this.a = context;
+        this.b = viewGroup;
+        zo6 zo6Var = new zo6(context);
+        this.c = zo6Var;
+        uo6 a2 = vo6.a(zo6Var, intent);
+        this.d = a2;
+        a2.b(this.f);
     }
 
-    public static void e(@NonNull qr6.f fVar) {
+    public static boolean i(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar) == null) && a()) {
-            ViewCommonUtil.setViewWidthHeight(fVar.d, -3, -2);
-            ViewCommonUtil.setViewWidthHeight(fVar.c, -3, -2);
-            ViewCommonUtil.setViewWidthHeight(fVar.e, -3, -2);
-            ViewCommonUtil.setViewWidthHeight(fVar.f, -3, -2);
-            ViewCommonUtil.setViewMargin(fVar.f, 0, 0, 0, 0);
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds18);
-            ViewCommonUtil.setViewPadding(fVar.f, -1, dimenPixelSize, -1, dimenPixelSize);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) ? (intent == null || intent.getIntExtra("transition_type", 0) == 0) ? false : true : invokeL.booleanValue;
     }
 
-    public static void f(@NonNull TextView textView, @ColorInt int i) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, textView, i) == null) {
-            Context context = textView.getContext();
-            if (a()) {
-                textView.setTextColor(i);
-                textView.setTextSize(0, oi.f(context, R.dimen.T_X07));
-                ViewGroup.LayoutParams layoutParams = textView.getLayoutParams();
-                layoutParams.width = -2;
-                layoutParams.height = -2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ng.a().removeCallbacks(this.g);
+            if (this.d.a() == 1) {
+                ng.a().postDelayed(this.g, 10L);
                 return;
             }
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(oi.f(context, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(i).into(textView);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            textView.setTextSize(0, oi.f(context, R.dimen.T_X10));
-            ViewGroup.LayoutParams layoutParams2 = textView.getLayoutParams();
-            layoutParams2.width = oi.f(context, R.dimen.tbds74);
-            layoutParams2.height = oi.f(context, R.dimen.tbds40);
+            k();
+            this.d.c();
         }
     }
 
-    @Nullable
-    public static BdTypeRecyclerView g(@Nullable FrsTopView frsTopView, @Nullable BdTypeRecyclerView bdTypeRecyclerView) {
-        InterceptResult invokeLL;
+    public final void g() {
+        View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, frsTopView, bdTypeRecyclerView)) == null) {
-            if (!a() || frsTopView == null || bdTypeRecyclerView == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(8);
             }
-            View v = bdTypeRecyclerView.v(Integer.valueOf(zo6.a));
-            if (v != null) {
-                bdTypeRecyclerView.removeHeaderView(v);
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 == null || (findViewById = viewGroup2.findViewById(16908290)) == null) {
+                return;
             }
-            if (frsTopView.getParent() instanceof ViewGroup) {
-                ((ViewGroup) frsTopView.getParent()).removeView(frsTopView);
-            }
-            frsTopView.setTag(R.id.obfuscated_res_0x7f090f60, Integer.valueOf(zo6.a));
-            bdTypeRecyclerView.s(frsTopView);
-            return bdTypeRecyclerView;
+            findViewById.setVisibility(8);
         }
-        return (BdTypeRecyclerView) invokeLL.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b == null) {
+            return;
+        }
+        f();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ViewParent parent = this.c.a.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this.c.a);
+            }
+            ng.a().removeCallbacks(this.g);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(0);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 == null || viewGroup2.findViewById(16908290) == null) {
+                return;
+            }
+            this.b.findViewById(16908290).setVisibility(0);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.b == null) {
+            return;
+        }
+        j();
+        this.b.addView(this.c.a);
+        g();
+        this.d.d();
     }
 }

@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.graphics.SurfaceTexture;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,36 +8,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-import com.repackage.v99;
-import com.repackage.w99;
-import com.repackage.x99;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.repackage.ga9;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class ca9 implements w99, x99.a, v99.a {
+public class ca9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p99 a;
-    public s99 b;
-    public Executor c;
-    public String d;
-    public n99 e;
-    public w99.a f;
-    public int g;
-    public y99 h;
-    public x99 i;
-    public List<v99> j;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
+    public float f;
+    public ga9 g;
+    public ga9.f h;
+    public ga9.b i;
+    public ga9.e j;
+    public ma9 k;
+    public String l;
+    public int m;
+    public SurfaceTexture n;
+    public int o;
+    public int p;
+    public na9 q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public int u;
+    public boolean v;
 
-    public ca9(p99 p99Var, s99 s99Var, Executor executor, String str, n99 n99Var, w99.a aVar) {
+    public ca9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p99Var, s99Var, executor, str, n99Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,321 +51,228 @@ public class ca9 implements w99, x99.a, v99.a {
                 return;
             }
         }
-        this.a = p99Var;
-        this.b = s99Var;
-        this.c = executor;
-        this.d = str;
-        this.e = n99Var;
-        this.f = aVar;
-        g();
+        this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+        this.c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
+        this.d = 1;
+        this.e = 1.0f;
+        this.f = 0.0f;
+        this.p = -100;
+        this.s = false;
+        this.t = 10000;
+        this.u = 30;
     }
 
-    @Override // com.repackage.v99.a
-    public void a(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) && k()) {
-            this.g = 108;
-            this.b.a(downloadException);
-            m();
-        }
-    }
-
-    @Override // com.repackage.x99.a
-    public void b(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            if (this.i.isCanceled()) {
-                onConnectCanceled();
-            } else if (this.i.isPaused()) {
-                onDownloadPaused();
-            } else {
-                this.g = 108;
-                this.b.b(downloadException);
-                m();
-            }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            File file = new File(this.h.a(), this.h.d());
-            if (file.exists() && file.isFile()) {
-                file.delete();
-            }
-        }
-    }
-
-    @Override // com.repackage.w99
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            x99 x99Var = this.i;
-            if (x99Var != null) {
-                x99Var.cancel();
-            }
-            for (v99 v99Var : this.j) {
-                v99Var.cancel();
-            }
-            if (this.g != 104) {
-                onDownloadCanceled();
-            }
-        }
-    }
-
-    public final void d(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.g = 104;
-            h(j, z);
-            for (v99 v99Var : this.j) {
-                this.c.execute(v99Var);
-            }
-        }
-    }
-
-    public final List<ga9> e(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int b = this.e.b();
-            int i = 0;
-            while (i < b) {
-                long j2 = j / b;
-                long j3 = j2 * i;
-                arrayList.add(new ga9(i, this.d, this.a.c(), j3, i == b + (-1) ? j : (j2 + j3) - 1, 0L));
-                i++;
-            }
-            return arrayList;
-        }
-        return (List) invokeJ.objValue;
-    }
-
-    public final ga9 f() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ga9(0, this.d, this.a.c(), 0L) : (ga9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ga9 ga9Var = this.g;
+            if (ga9Var != null) {
+                ga9Var.c();
+                this.g.l(null);
+            }
+            return this.l;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public final void g() {
+    public void b(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = new y99(this.a.b().toString(), this.a.c(), this.a.a());
-            this.j = new LinkedList();
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.f = f;
         }
     }
 
-    public final void h(long j, boolean z) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.j.clear();
-            if (z) {
-                List<ga9> e = e(j);
-                int i = 0;
-                for (ga9 ga9Var : e) {
-                    i = (int) (i + ga9Var.b());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.o = i;
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || i <= 0 || i2 <= 0) {
+            return;
+        }
+        if (this.o <= 0) {
+            this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        }
+        this.a = i;
+        this.b = i2;
+        if (i2 > i) {
+            int i3 = this.o;
+            i2 = ((i2 * i3) / i) - (((i3 * i2) / i) % 16);
+            i = i3;
+        } else if (i2 < i) {
+            int i4 = this.o;
+            i = ((i * i4) / i2) - (((i4 * i) / i2) % 16);
+            i2 = i4;
+        }
+        this.a = i;
+        this.b = i2;
+    }
+
+    public void e(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+            this.n = surfaceTexture;
+        }
+    }
+
+    public void f(ga9.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void g(ga9.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+            this.j = eVar;
+        }
+    }
+
+    public void h(ma9 ma9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ma9Var) == null) {
+            this.k = ma9Var;
+        }
+    }
+
+    public void i(na9 na9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, na9Var) == null) {
+            this.q = na9Var;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.l = str;
+            try {
+                ga9 ga9Var = new ga9();
+                this.g = ga9Var;
+                ga9Var.d(this.e);
+                this.g.B(this.p);
+                if (this.f != 0.0f) {
+                    this.g.A(this.f);
                 }
-                this.h.f(i);
-                for (ga9 ga9Var2 : e) {
-                    this.j.add(new ea9(this.h, ga9Var2, this));
+                this.g.l(this.h);
+                this.g.i(this.i);
+                this.g.k(this.j);
+                this.g.r(this.q);
+                this.g.E(this.r);
+                this.g.I(this.s);
+                this.g.s(this.v);
+            } catch (Throwable th) {
+                va9.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.v = z;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.m++;
+            try {
+                if (this.g != null && this.g.u(2)) {
+                    File file = new File(this.l);
+                    if (!file.getParentFile().exists()) {
+                        file.getParentFile().mkdirs();
+                    }
+                    if (this.f == 90.0f || this.f == 270.0f) {
+                        int i = this.a;
+                        this.a = this.b;
+                        this.b = i;
+                    }
+                    this.g.j(new ga9.d(file, this.a, this.b, this.c, this.u, null, this.n.getTimestamp(), this.t));
                 }
+                if (this.g == null || this.m % this.d != 0 || this.k == null) {
+                    return;
+                }
+                this.k.a(this.g, this.n);
+            } catch (Throwable th) {
+                va9.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.u = i;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.t = i;
+        }
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ga9 ga9Var = this.g;
+            if (ga9Var != null) {
+                return ga9Var.u(1);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public void t(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+            this.e = f;
+            if (Math.abs(f - 3.0f) < 0.01f) {
+                this.d = 2;
                 return;
             }
-            this.j.add(new fa9(this.h, f(), this));
-        }
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            for (v99 v99Var : this.j) {
-                if (v99Var.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.w99
-    public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = this.g;
-            return i == 101 || i == 102 || i == 103 || i == 104;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            for (v99 v99Var : this.j) {
-                if (!v99Var.isComplete()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            for (v99 v99Var : this.j) {
-                if (v99Var.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            for (v99 v99Var : this.j) {
-                if (v99Var.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f.a(this.d, this);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            da9 da9Var = new da9(this.a.c(), this);
-            this.i = da9Var;
-            this.c.execute(da9Var);
-        }
-    }
-
-    @Override // com.repackage.x99.a
-    public void onConnectCanceled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            c();
-            this.g = 107;
-            this.b.onConnectCanceled();
-            m();
-        }
-    }
-
-    @Override // com.repackage.x99.a
-    public void onConnectPaused() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            onDownloadPaused();
-        }
-    }
-
-    @Override // com.repackage.x99.a
-    public void onConnected(long j, long j2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            if (this.i.isCanceled()) {
-                onConnectCanceled();
-                return;
-            }
-            this.g = 103;
-            this.b.onConnected(j, j2, z);
-            this.h.e(z);
-            this.h.g(j2);
-            d(j2, z);
-        }
-    }
-
-    @Override // com.repackage.x99.a
-    public void onConnecting() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.g = 102;
-            this.b.onConnecting();
-        }
-    }
-
-    @Override // com.repackage.v99.a
-    public void onDownloadCanceled() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && i()) {
-            c();
-            this.g = 107;
-            this.b.onDownloadCanceled();
-            m();
-        }
-    }
-
-    @Override // com.repackage.v99.a
-    public void onDownloadCompleted(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && j()) {
-            this.g = 105;
-            this.b.onDownloadCompleted(str);
-            m();
-        }
-    }
-
-    @Override // com.repackage.v99.a
-    public void onDownloadPaused() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && l()) {
-            this.g = 106;
-            this.b.onDownloadPaused();
-            m();
-        }
-    }
-
-    @Override // com.repackage.v99.a
-    public void onDownloadProgress(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.b.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
-        }
-    }
-
-    @Override // com.repackage.w99
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            x99 x99Var = this.i;
-            if (x99Var != null) {
-                x99Var.pause();
-            }
-            for (v99 v99Var : this.j) {
-                v99Var.pause();
-            }
-            if (this.g != 104) {
-                onDownloadPaused();
-            }
-        }
-    }
-
-    @Override // com.repackage.w99
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.g = 101;
-            this.b.onStarted();
-            n();
+            int i = (Math.abs(this.e - 2.0f) > 0.01f ? 1 : (Math.abs(this.e - 2.0f) == 0.01f ? 0 : -1));
+            this.d = 1;
         }
     }
 }

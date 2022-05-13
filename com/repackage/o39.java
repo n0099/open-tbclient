@@ -1,7 +1,10 @@
 package com.repackage;
 
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,17 +12,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o39 extends InputStream {
+public class o39 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public p39 b;
-    public long c;
-    public boolean d;
+    public int a;
+    public int b;
+    public JSONObject c;
+    public JSONObject d;
+    public JSONObject e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public List<b39> m;
 
     static {
         InterceptResult invokeClinit;
@@ -34,15 +50,15 @@ public class o39 extends InputStream {
                 return;
             }
         }
-        e = o39.class.getName();
+        n = t39.m();
     }
 
-    public o39(InputStream inputStream, p39 p39Var) {
+    public o39(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, p39Var};
+            Object[] objArr = {str, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,165 +68,190 @@ public class o39 extends InputStream {
                 return;
             }
         }
-        this.c = 0L;
-        this.d = false;
-        this.a = inputStream;
-        this.b = p39Var;
+        this.m = new ArrayList();
+        this.c = jSONObject;
     }
 
-    @Override // java.io.InputStream
-    public int available() throws IOException {
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.a.available();
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            }
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public List<b39> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (List) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : invokeV.intValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                if (this.c != null && this.c.length() != 0) {
+                    JSONObject jSONObject = this.c;
+                    this.d = jSONObject.optJSONObject("set");
+                    this.a = jSONObject.optInt("threshold", 10000);
+                    this.b = jSONObject.optInt("timeup", 604800000);
+                    this.f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
+                    jSONObject.optString(StickerDataChangeType.REPLACE);
+                    this.e = jSONObject.optJSONObject("del");
+                    this.g = jSONObject.optInt("all_size", 614400);
+                    this.h = jSONObject.optInt("single_size", 153600);
+                    this.i = jSONObject.optInt("real_size", 614400);
+                    this.j = jSONObject.optInt("non_real_size", 614400);
+                    this.k = jSONObject.optInt("trigger_number", 100);
+                    this.l = jSONObject.optInt("trigger_interval", 180);
+                    int i = 1;
+                    if (this.d != null) {
+                        Iterator<String> keys = this.d.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
+                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+                                String optString = optJSONObject.optString("version");
+                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
+                                    Iterator<String> it = keys;
+                                    b39 b39Var = new b39(next, optJSONObject2.optInt("switch", i) != 0, optJSONObject2.optInt(Constant.IS_REAL, 0) == 1, optJSONObject2.optInt("timeout", 60), optJSONObject2.optInt("type", 0), optJSONObject2.optInt("isAbtest", 0) == 1);
+                                    if (e39.a(next)) {
+                                        b39Var.y(optJSONObject2.optInt("isSend", 1) == 1);
+                                    }
+                                    if (optJSONObject2.has("rate")) {
+                                        b39Var.D(optJSONObject2.getInt("rate"));
+                                    }
+                                    if (optJSONObject2.has("c")) {
+                                        b39Var.u(optJSONObject2.getString("c"));
+                                    }
+                                    if (optJSONObject2.has("limitUnit")) {
+                                        b39Var.A(optJSONObject2.getInt("limitUnit"));
+                                    }
+                                    if (optJSONObject2.has("limitCnt")) {
+                                        b39Var.z(optJSONObject2.getInt("limitCnt"));
+                                    }
+                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
+                                        b39Var.w(optJSONObject2.getInt(Constant.ID_TYPE));
+                                    }
+                                    b39Var.C(optJSONObject2.optInt("ch", 0) == 1);
+                                    if (optJSONObject2.has("dfc")) {
+                                        b39Var.x(optJSONObject2.getInt("dfc") == 1);
+                                    }
+                                    if (optJSONObject2.has("reallog")) {
+                                        b39Var.E(optJSONObject2.getInt("reallog") == 1);
+                                    }
+                                    if (optJSONObject2.has("gflow")) {
+                                        b39Var.v(optJSONObject2.getInt("gflow"));
+                                    }
+                                    if (optJSONObject2.has("uploadType")) {
+                                        b39Var.F(optJSONObject2.optInt("uploadType", -1));
+                                    }
+                                    int optInt = optJSONObject2.optInt("lcache", 2);
+                                    if (optInt == 1 || optInt == 0) {
+                                        b39Var.B(optInt);
+                                    }
+                                    b39Var.G(optString);
+                                    this.m.add(b39Var);
+                                    keys = it;
+                                    i = 1;
+                                }
+                            }
+                        }
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m(List<b39> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.m = list;
+        }
+    }
+
+    public o39(List<b39> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.m = new ArrayList();
+        if (list == null || list.size() <= 0) {
             return;
         }
-        this.d = true;
-        try {
-            try {
-                if (this.a.read() == -1) {
-                    this.b.onComplete(this.c);
-                } else {
-                    this.b.a(this.c);
-                }
-                this.a.close();
-            } catch (Exception unused) {
-                this.a.close();
-            } catch (Throwable th) {
-                try {
-                    this.a.close();
-                } catch (Exception e2) {
-                    this.b.b(e2, this.c);
-                }
-                throw th;
-            }
-        } catch (Exception e3) {
-            this.b.b(e3, this.c);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, 0, bArr.length);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                try {
-                    this.a.reset();
-                } catch (IOException e2) {
-                    this.b.b(e2, this.c);
-                    throw e2;
-                }
-            }
-        }
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            long skip = this.a.skip(j);
-            this.c += skip;
-            return skip;
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, i, i2);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read();
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeV.intValue;
+        this.m.addAll(list);
     }
 }

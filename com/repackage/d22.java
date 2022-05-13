@@ -1,14 +1,16 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d22 implements z72 {
+public class d22 extends v12<JSONObject, us1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,17 +28,42 @@ public class d22 implements z72 {
         }
     }
 
-    @Override // com.repackage.z72
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.z12
+    @NonNull
+    /* renamed from: c */
+    public us1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ic3.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z72
-    public r72 b(String str, o82 o82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, o82Var, v8ThreadDelegatePolicy)) == null) ? new c22(str, o82Var, v8ThreadDelegatePolicy) : (r72) invokeLLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new us1(202);
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new us1(202, "data is required");
+            }
+            String optString = optJSONObject.optString("status");
+            if (TextUtils.isEmpty(optString)) {
+                return new us1(202, "status is required");
+            }
+            char c = 65535;
+            int hashCode = optString.hashCode();
+            if (hashCode != 48) {
+                if (hashCode == 49 && optString.equals("1")) {
+                    c = 0;
+                }
+            } else if (optString.equals("0")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return new us1(202, "status value is invalid");
+                }
+                new t12().d();
+            }
+            return new us1(0);
+        }
+        return (us1) invokeL.objValue;
     }
 }

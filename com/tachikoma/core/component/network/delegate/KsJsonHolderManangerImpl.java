@@ -16,7 +16,7 @@ import com.tachikoma.core.component.imageview.TKCDNUrlInner;
 import com.tachikoma.core.component.network.TKErrorInner;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KsJsonHolderManangerImpl implements b {
     public static /* synthetic */ Interceptable $ic;
     public static KsJsonHolderManangerImpl mInstance;

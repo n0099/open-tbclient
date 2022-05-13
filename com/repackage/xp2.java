@@ -30,7 +30,7 @@ public class xp2 extends wp2 {
                 return;
             }
         }
-        boolean z = tg1.a;
+        boolean z = eh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,27 +54,27 @@ public class xp2 extends wp2 {
     }
 
     @Override // com.repackage.wp2
-    public boolean a(rp2 rp2Var, tp2 tp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
+    public boolean a(mp2 mp2Var, op2 op2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{rp2Var, tp2Var, context, unitedSchemeEntity, callbackHandler, j03Var})) == null) {
-            jx1.i("vrvideo", "remove, video id:" + tp2Var.j + " slave id: " + tp2Var.c);
-            d(rp2Var, tp2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mp2Var, op2Var, context, unitedSchemeEntity, callbackHandler, u03Var})) == null) {
+            ux1.i("video", "remove, video id:" + op2Var.j + " slave id: " + op2Var.c);
+            d(mp2Var, op2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final void d(rp2 rp2Var, tp2 tp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public final void d(mp2 mp2Var, op2 op2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rp2Var, tp2Var, unitedSchemeEntity, callbackHandler) == null) {
-            yv1 a = ww1.a(tp2Var);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mp2Var, op2Var, unitedSchemeEntity, callbackHandler) == null) {
+            jw1 a = hx1.a(op2Var);
             if (a != null) {
                 a.B();
             } else {
-                cx1.a("VrVideoRemoveAction", "remove with a null component");
+                nx1.a("VideoPlayerAction", "remove with a null component");
             }
-            rp2Var.onDestroy();
+            mp2Var.onDestroy();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

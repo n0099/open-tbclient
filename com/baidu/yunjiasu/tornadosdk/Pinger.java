@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.yunjiasu.ping.Ping;
 import com.baidu.yunjiasu.ping.PingStatistics;
-import com.repackage.cf9;
+import com.repackage.xd9;
 import java.net.InetAddress;
 import kotlin.Metadata;
 import kotlin.concurrent.ThreadsKt;
@@ -46,7 +46,7 @@ public final class Pinger {
             }
         }
         INSTANCE = new Pinger();
-        pingHandler = new Handler(cf9.a);
+        pingHandler = new Handler(xd9.a);
     }
 
     public Pinger() {
@@ -64,7 +64,7 @@ public final class Pinger {
     }
 
     /* renamed from: pingHandler$lambda-0  reason: not valid java name */
-    public static final boolean m95pingHandler$lambda0(Message message) {
+    public static final boolean m96pingHandler$lambda0(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message)) == null) {

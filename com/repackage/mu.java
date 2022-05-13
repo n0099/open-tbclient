@@ -1,44 +1,48 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
-public class mu<VD extends TaskDialogData> implements pu<VD> {
+public class mu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ru<VD> a;
 
-    public mu() {
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
-        this.a = new ru<>();
+        return (String) invokeLLZ.objValue;
     }
 
-    public qu<VD> a() {
-        InterceptResult invokeV;
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (qu) invokeV.objValue;
-    }
-
-    public void b(VD vd) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vd) == null) {
-            this.a.o(vd);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception unused) {
+            }
+            return a(bArr, "", z);
         }
+        return (String) invokeLZ.objValue;
     }
 }

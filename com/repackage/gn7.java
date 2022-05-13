@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gn7 extends ho<wn7, b> {
+public class gn7 extends eo<wn7, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<HotTopicDetailActivity> i;
-    public km4<wn7> j;
+    public vm4<wn7> j;
 
     /* loaded from: classes6.dex */
-    public class a implements km4<wn7> {
+    public class a implements vm4<wn7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gn7 a;
@@ -47,7 +47,7 @@ public class gn7 extends ho<wn7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: b */
         public void c(View view2, wn7 wn7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class gn7 extends ho<wn7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: d */
         public void a(View view2, wn7 wn7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -116,10 +116,10 @@ public class gn7 extends ho<wn7, b> {
             }
         }
 
-        public void f(km4<wn7> km4Var) {
+        public void f(vm4<wn7> vm4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, km4Var) == null) {
-                this.a.setOnItemCoverListener(km4Var);
+            if (interceptable == null || interceptable.invokeL(1048579, this, vm4Var) == null) {
+                this.a.setOnItemCoverListener(vm4Var);
             }
         }
     }
@@ -148,7 +148,7 @@ public class gn7 extends ho<wn7, b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
     public b M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -164,7 +164,7 @@ public class gn7 extends ho<wn7, b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: b0 */
     public View S(int i, View view2, ViewGroup viewGroup, wn7 wn7Var, b bVar) {
         InterceptResult invokeCommon;

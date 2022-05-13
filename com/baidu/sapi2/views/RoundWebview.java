@@ -70,7 +70,7 @@ public class RoundWebview extends SapiWebView {
             Paint paint2 = new Paint();
             this.j = paint2;
             paint2.setXfermode(null);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040552, R.attr.obfuscated_res_0x7f040553, R.attr.obfuscated_res_0x7f040559, R.attr.obfuscated_res_0x7f04055a});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040557, R.attr.obfuscated_res_0x7f040558, R.attr.obfuscated_res_0x7f04055e, R.attr.obfuscated_res_0x7f04055f});
             this.a = obtainStyledAttributes.getDimension(2, 0.0f);
             this.b = obtainStyledAttributes.getDimension(3, 0.0f);
             this.c = obtainStyledAttributes.getDimension(0, 0.0f);

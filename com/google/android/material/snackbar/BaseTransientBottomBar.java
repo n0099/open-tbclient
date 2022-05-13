@@ -115,7 +115,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @NonNull
 
     /* renamed from: view  reason: collision with root package name */
-    public final SnackbarBaseLayout f1027view;
+    public final SnackbarBaseLayout f1025view;
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -385,7 +385,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.setShape(0);
                 gradientDrawable.setCornerRadius(dimension);
-                gradientDrawable.setColor(MaterialColors.layer(this, R.attr.obfuscated_res_0x7f04016e, R.attr.obfuscated_res_0x7f040167, getBackgroundOverlayColorAlpha()));
+                gradientDrawable.setColor(MaterialColors.layer(this, R.attr.obfuscated_res_0x7f040171, R.attr.obfuscated_res_0x7f04016a, getBackgroundOverlayColorAlpha()));
                 if (this.backgroundTint != null) {
                     Drawable wrap = DrawableCompat.wrap(gradientDrawable);
                     DrawableCompat.setTintList(wrap, this.backgroundTint);
@@ -553,7 +553,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 }
             }
             Context context2 = getContext();
-            TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ab, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040457});
+            TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ad, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f04045c});
             if (obtainStyledAttributes.hasValue(6)) {
                 ViewCompat.setElevation(this, obtainStyledAttributes.getDimensionPixelSize(6, 0));
             }
@@ -586,7 +586,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
         int i = Build.VERSION.SDK_INT;
         USE_OFFSET_API = i >= 16 && i <= 19;
-        SNACKBAR_STYLE_ATTR = new int[]{R.attr.obfuscated_res_0x7f0405a9};
+        SNACKBAR_STYLE_ATTR = new int[]{R.attr.obfuscated_res_0x7f0405af};
         TAG = BaseTransientBottomBar.class.getSimpleName();
         handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.1
             public static /* synthetic */ Interceptable $ic;
@@ -671,16 +671,16 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     BaseTransientBottomBar baseTransientBottomBar = this.this$0;
-                    if (baseTransientBottomBar.f1027view == null || baseTransientBottomBar.context == null || (screenHeight = (this.this$0.getScreenHeight() - this.this$0.getViewAbsoluteBottom()) + ((int) this.this$0.f1027view.getTranslationY())) >= this.this$0.extraBottomMarginGestureInset) {
+                    if (baseTransientBottomBar.f1025view == null || baseTransientBottomBar.context == null || (screenHeight = (this.this$0.getScreenHeight() - this.this$0.getViewAbsoluteBottom()) + ((int) this.this$0.f1025view.getTranslationY())) >= this.this$0.extraBottomMarginGestureInset) {
                         return;
                     }
-                    ViewGroup.LayoutParams layoutParams = this.this$0.f1027view.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = this.this$0.f1025view.getLayoutParams();
                     if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
                         Log.w(BaseTransientBottomBar.TAG, "Unable to apply gesture inset because layout params are not MarginLayoutParams");
                         return;
                     }
                     ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin += this.this$0.extraBottomMarginGestureInset - screenHeight;
-                    this.this$0.f1027view.requestLayout();
+                    this.this$0.f1025view.requestLayout();
                 }
             }
         };
@@ -738,20 +738,20 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             this.context = context;
             ThemeEnforcement.checkAppCompatTheme(context);
             SnackbarBaseLayout snackbarBaseLayout = (SnackbarBaseLayout) LayoutInflater.from(this.context).inflate(getSnackbarBaseLayoutResId(), this.targetParent, false);
-            this.f1027view = snackbarBaseLayout;
+            this.f1025view = snackbarBaseLayout;
             if (view2 instanceof SnackbarContentLayout) {
                 ((SnackbarContentLayout) view2).updateActionTextColorAlphaIfNeeded(snackbarBaseLayout.getActionTextColorAlpha());
             }
-            this.f1027view.addView(view2);
-            ViewGroup.LayoutParams layoutParams = this.f1027view.getLayoutParams();
+            this.f1025view.addView(view2);
+            ViewGroup.LayoutParams layoutParams = this.f1025view.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 this.originalMargins = new Rect(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
             }
-            ViewCompat.setAccessibilityLiveRegion(this.f1027view, 1);
-            ViewCompat.setImportantForAccessibility(this.f1027view, 1);
-            ViewCompat.setFitsSystemWindows(this.f1027view, true);
-            ViewCompat.setOnApplyWindowInsetsListener(this.f1027view, new OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.3
+            ViewCompat.setAccessibilityLiveRegion(this.f1025view, 1);
+            ViewCompat.setImportantForAccessibility(this.f1025view, 1);
+            ViewCompat.setFitsSystemWindows(this.f1025view, true);
+            ViewCompat.setOnApplyWindowInsetsListener(this.f1025view, new OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseTransientBottomBar this$0;
@@ -789,7 +789,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     return (WindowInsetsCompat) invokeLL.objValue;
                 }
             });
-            ViewCompat.setAccessibilityDelegate(this.f1027view, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.4
+            ViewCompat.setAccessibilityDelegate(this.f1025view, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseTransientBottomBar this$0;
@@ -845,7 +845,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     private void animateViewOut(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65553, this, i) == null) {
-            if (this.f1027view.getAnimationMode() == 1) {
+            if (this.f1025view.getAnimationMode() == 1) {
                 startFadeOutAnimation(i);
             } else {
                 startSlideOutAnimation(i);
@@ -904,7 +904,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        this.this$0.f1027view.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                        this.this$0.f1025view.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                     }
                 }
             });
@@ -947,8 +947,8 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        this.this$0.f1027view.setScaleX(floatValue);
-                        this.this$0.f1027view.setScaleY(floatValue);
+                        this.this$0.f1025view.setScaleX(floatValue);
+                        this.this$0.f1025view.setScaleY(floatValue);
                     }
                 }
             });
@@ -974,8 +974,8 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
-            int height = this.f1027view.getHeight();
-            ViewGroup.LayoutParams layoutParams = this.f1027view.getLayoutParams();
+            int height = this.f1025view.getHeight();
+            ViewGroup.LayoutParams layoutParams = this.f1025view.getLayoutParams();
             return layoutParams instanceof ViewGroup.MarginLayoutParams ? height + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin : height;
         }
         return invokeV.intValue;
@@ -987,8 +987,8 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
             int[] iArr = new int[2];
-            this.f1027view.getLocationOnScreen(iArr);
-            return iArr[1] + this.f1027view.getHeight();
+            this.f1025view.getLocationOnScreen(iArr);
+            return iArr[1] + this.f1025view.getHeight();
         }
         return invokeV.intValue;
     }
@@ -997,7 +997,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, this)) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f1027view.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f1025view.getLayoutParams();
             return (layoutParams instanceof CoordinatorLayout.LayoutParams) && (((CoordinatorLayout.LayoutParams) layoutParams).getBehavior() instanceof SwipeDismissBehavior);
         }
         return invokeV.booleanValue;
@@ -1078,7 +1078,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 animateViewIn();
                 return;
             }
-            this.f1027view.setVisibility(0);
+            this.f1025view.setVisibility(0);
             onViewShown();
         }
     }
@@ -1175,9 +1175,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             int translationYBottom = getTranslationYBottom();
             if (USE_OFFSET_API) {
-                ViewCompat.offsetTopAndBottom(this.f1027view, translationYBottom);
+                ViewCompat.offsetTopAndBottom(this.f1025view, translationYBottom);
             } else {
-                this.f1027view.setTranslationY(translationYBottom);
+                this.f1025view.setTranslationY(translationYBottom);
             }
             ValueAnimator valueAnimator = new ValueAnimator();
             valueAnimator.setIntValues(translationYBottom, 0);
@@ -1255,9 +1255,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                         int intValue = ((Integer) valueAnimator2.getAnimatedValue()).intValue();
                         if (BaseTransientBottomBar.USE_OFFSET_API) {
-                            ViewCompat.offsetTopAndBottom(this.this$0.f1027view, intValue - this.previousAnimatedIntValue);
+                            ViewCompat.offsetTopAndBottom(this.this$0.f1025view, intValue - this.previousAnimatedIntValue);
                         } else {
-                            this.this$0.f1027view.setTranslationY(intValue);
+                            this.this$0.f1025view.setTranslationY(intValue);
                         }
                         this.previousAnimatedIntValue = intValue;
                     }
@@ -1346,9 +1346,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                         int intValue = ((Integer) valueAnimator2.getAnimatedValue()).intValue();
                         if (BaseTransientBottomBar.USE_OFFSET_API) {
-                            ViewCompat.offsetTopAndBottom(this.this$0.f1027view, intValue - this.previousAnimatedIntValue);
+                            ViewCompat.offsetTopAndBottom(this.this$0.f1025view, intValue - this.previousAnimatedIntValue);
                         } else {
-                            this.this$0.f1027view.setTranslationY(intValue);
+                            this.this$0.f1025view.setTranslationY(intValue);
                         }
                         this.previousAnimatedIntValue = intValue;
                     }
@@ -1362,7 +1362,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public void updateMargins() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65568, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f1027view.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f1025view.getLayoutParams();
             if ((layoutParams instanceof ViewGroup.MarginLayoutParams) && this.originalMargins != null) {
                 int i = this.anchorView != null ? this.extraBottomMarginAnchorView : this.extraBottomMarginWindowInset;
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
@@ -1370,12 +1370,12 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 marginLayoutParams.bottomMargin = rect.bottom + i;
                 marginLayoutParams.leftMargin = rect.left + this.extraLeftMarginWindowInset;
                 marginLayoutParams.rightMargin = rect.right + this.extraRightMarginWindowInset;
-                this.f1027view.requestLayout();
+                this.f1025view.requestLayout();
                 if (Build.VERSION.SDK_INT < 29 || !shouldUpdateGestureInset()) {
                     return;
                 }
-                this.f1027view.removeCallbacks(this.bottomMarginGestureInsetRunnable);
-                this.f1027view.post(this.bottomMarginGestureInsetRunnable);
+                this.f1025view.removeCallbacks(this.bottomMarginGestureInsetRunnable);
+                this.f1025view.post(this.bottomMarginGestureInsetRunnable);
                 return;
             }
             Log.w(TAG, "Unable to update margins because layout params are not MarginLayoutParams");
@@ -1402,7 +1402,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public void animateViewIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1027view.post(new Runnable(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.9
+            this.f1025view.post(new Runnable(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseTransientBottomBar this$0;
@@ -1429,11 +1429,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 public void run() {
                     SnackbarBaseLayout snackbarBaseLayout;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (snackbarBaseLayout = this.this$0.f1027view) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (snackbarBaseLayout = this.this$0.f1025view) == null) {
                         return;
                     }
                     snackbarBaseLayout.setVisibility(0);
-                    if (this.this$0.f1027view.getAnimationMode() == 1) {
+                    if (this.this$0.f1025view.getAnimationMode() == 1) {
                         this.this$0.startFadeInAnimation();
                     } else {
                         this.this$0.startSlideInAnimation();
@@ -1467,7 +1467,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public int getAnimationMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1027view.getAnimationMode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1025view.getAnimationMode() : invokeV.intValue;
     }
 
     public Behavior getBehavior() {
@@ -1500,14 +1500,14 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public int getSnackbarBaseLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? hasSnackbarStyleAttr() ? R.layout.obfuscated_res_0x7f0d057a : R.layout.obfuscated_res_0x7f0d0220 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? hasSnackbarStyleAttr() ? R.layout.obfuscated_res_0x7f0d056d : R.layout.obfuscated_res_0x7f0d0219 : invokeV.intValue;
     }
 
     @NonNull
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1027view : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1025view : (View) invokeV.objValue;
     }
 
     public boolean hasSnackbarStyleAttr() {
@@ -1525,7 +1525,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public final void hideView(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            if (shouldAnimate() && this.f1027view.getVisibility() == 0) {
+            if (shouldAnimate() && this.f1025view.getVisibility() == 0) {
                 animateViewOut(i);
             } else {
                 onViewHidden(i);
@@ -1561,9 +1561,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     this.callbacks.get(size).onDismissed(this, i);
                 }
             }
-            ViewParent parent = this.f1027view.getParent();
+            ViewParent parent = this.f1025view.getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(this.f1027view);
+                ((ViewGroup) parent).removeView(this.f1025view);
             }
         }
     }
@@ -1612,7 +1612,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            this.f1027view.setAnimationMode(i);
+            this.f1025view.setAnimationMode(i);
             return this;
         }
         return (B) invokeI.objValue;
@@ -1671,7 +1671,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public final void showView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.f1027view.setOnAttachStateChangeListener(new OnAttachStateChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.6
+            this.f1025view.setOnAttachStateChangeListener(new OnAttachStateChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseTransientBottomBar this$0;
@@ -1698,7 +1698,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 public void onViewAttachedToWindow(View view2) {
                     WindowInsets rootWindowInsets;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || Build.VERSION.SDK_INT < 29 || (rootWindowInsets = this.this$0.f1027view.getRootWindowInsets()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || Build.VERSION.SDK_INT < 29 || (rootWindowInsets = this.this$0.f1025view.getRootWindowInsets()) == null) {
                         return;
                     }
                     this.this$0.extraBottomMarginGestureInset = rootWindowInsets.getMandatorySystemGestureInsets().bottom;
@@ -1743,20 +1743,20 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     }
                 }
             });
-            if (this.f1027view.getParent() == null) {
-                ViewGroup.LayoutParams layoutParams = this.f1027view.getLayoutParams();
+            if (this.f1025view.getParent() == null) {
+                ViewGroup.LayoutParams layoutParams = this.f1025view.getLayoutParams();
                 if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
                     setUpBehavior((CoordinatorLayout.LayoutParams) layoutParams);
                 }
                 this.extraBottomMarginAnchorView = calculateBottomMarginForAnchorView();
                 updateMargins();
-                this.f1027view.setVisibility(4);
-                this.targetParent.addView(this.f1027view);
+                this.f1025view.setVisibility(4);
+                this.targetParent.addView(this.f1025view);
             }
-            if (ViewCompat.isLaidOut(this.f1027view)) {
+            if (ViewCompat.isLaidOut(this.f1025view)) {
                 showViewImpl();
             } else {
-                this.f1027view.setOnLayoutChangeListener(new OnLayoutChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.7
+                this.f1025view.setOnLayoutChangeListener(new OnLayoutChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BaseTransientBottomBar this$0;
@@ -1783,7 +1783,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     public void onLayoutChange(View view2, int i, int i2, int i3, int i4) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-                            this.this$0.f1027view.setOnLayoutChangeListener(null);
+                            this.this$0.f1025view.setOnLayoutChangeListener(null);
                             this.this$0.showViewImpl();
                         }
                     }

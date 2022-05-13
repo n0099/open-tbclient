@@ -1,53 +1,76 @@
 package com.repackage;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class y62 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static final boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755189924, "Lcom/repackage/y62;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755189924, "Lcom/repackage/y62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755189924, "Lcom/repackage/y62;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        c = eh1.a;
+        bk2.g0().getSwitch("swan_sailor_init_delay", false);
+        d = false;
+    }
+
+    public y62() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755189924, "Lcom/repackage/y62;");
-        }
+        this.b = false;
     }
 
-    public static int a(@NonNull gl2 gl2Var) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gl2Var)) == null) {
-            int i = a;
-            return i != 0 ? i : gl2Var.j("preAppReadyState", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c) {
+                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
+            }
+            return d;
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static void b() {
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
         }
-    }
-
-    public static void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            a = i;
-        }
+        return (String) invokeV.objValue;
     }
 }

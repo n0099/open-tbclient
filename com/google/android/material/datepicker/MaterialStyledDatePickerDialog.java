@@ -149,7 +149,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
             }
         }
         Context context2 = getContext();
-        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f04016e, MaterialStyledDatePickerDialog.class.getCanonicalName());
+        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f040171, MaterialStyledDatePickerDialog.class.getCanonicalName());
         MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100124);
         if (Build.VERSION.SDK_INT >= 21) {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(resolveOrThrow));

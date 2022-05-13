@@ -6,11 +6,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class su5 {
+public class su5 extends po4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
     public su5() {
         Interceptable interceptable = $ic;
@@ -26,12 +24,13 @@ public class su5 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.repackage.po4
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optString("name");
-        this.b = jSONObject.optString("url");
+        jSONObject.optInt("open_level", 1);
+        jSONObject.optInt("open_status", 2);
     }
 }

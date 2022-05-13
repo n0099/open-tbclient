@@ -1,11 +1,13 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,31 +15,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Locale;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.repackage.rd4;
+import java.io.File;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
 /* loaded from: classes6.dex */
-public abstract class ja2 {
+public final class ja2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static final String b;
+    public static final Map<String, la2> c;
+    public static final ja2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     /* loaded from: classes6.dex */
-    public class a extends ha2 {
+    public static final class a implements rd4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hz1 c;
-        public final /* synthetic */ String d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Ref.ObjectRef b;
+        public final /* synthetic */ Function1 c;
 
-        public a(ja2 ja2Var, hz1 hz1Var, String str) {
+        public a(String str, Ref.ObjectRef objectRef, Function1 function1) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ja2Var, hz1Var, str};
+                Object[] objArr = {str, objectRef, function1};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,60 +56,95 @@ public abstract class ja2 {
                     return;
                 }
             }
-            this.c = hz1Var;
-            this.d = str;
+            this.a = str;
+            this.b = objectRef;
+            this.c = function1;
         }
 
-        @Override // com.repackage.ha2
-        public void c() {
+        @Override // com.repackage.rd4.a
+        public final void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.isDestroyed()) {
-                    if (ja2.b) {
-                        Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.d)));
-                        return;
-                    }
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                ja2 ja2Var = ja2.d;
+                if (ja2.a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.a);
+                }
+                if (z) {
+                    ja2.d.A(this.a, ((u94) this.b.element).i);
+                    ja2 ja2Var2 = ja2.d;
+                    String str = this.a;
+                    String str2 = ((u94) this.b.element).j;
+                    Intrinsics.checkNotNullExpressionValue(str2, "soPkg.versionName");
+                    ja2Var2.B(str, str2);
+                    ja2 ja2Var3 = ja2.d;
+                    String str3 = this.a;
+                    AbiType abiType = ((u94) this.b.element).q;
+                    Intrinsics.checkNotNullExpressionValue(abiType, "soPkg.abi");
+                    ja2Var3.y(str3, abiType);
+                    ja2.d.z(this.a, true);
+                    this.c.invoke(null);
                     return;
                 }
-                this.c.evaluateJavascript(this.d, null);
-                nt2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+                ja2.d.z(this.a, false);
+                this.c.invoke(null);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends ha2 {
+    public static final class b<MsgType> implements nf3<Exception> {
         public static /* synthetic */ Interceptable $ic;
+        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hz1 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ ja2 e;
 
-        public b(ja2 ja2Var, hz1 hz1Var, String str) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-277788808, "Lcom/repackage/ja2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-277788808, "Lcom/repackage/ja2$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ja2Var, hz1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.e = ja2Var;
-            this.c = hz1Var;
-            this.d = str;
         }
 
-        @Override // com.repackage.ha2
-        public void c() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public final void onCallback(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.l(this.c, this.d);
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                ja2 ja2Var = ja2.d;
+                if (ja2.a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("main updatePmsPkg pmsUpdateSo end with e: ");
+                    sb.append(exc);
+                    sb.append(" trace=");
+                    if (exc == null) {
+                        exc = new Exception();
+                    }
+                    sb.append(Log.getStackTraceString(exc));
+                    Log.i("SoLibManager", sb.toString());
+                }
             }
         }
     }
@@ -118,7 +162,10 @@ public abstract class ja2 {
                 return;
             }
         }
-        b = tg1.a;
+        d = new ja2();
+        a = eh1.a;
+        b = "swan" + File.separator + "libs" + File.separator + "so";
+        c = new LinkedHashMap();
     }
 
     public ja2() {
@@ -135,252 +182,287 @@ public abstract class ja2 {
         }
     }
 
-    public final void b(@NonNull JSONObject jSONObject) {
+    public final void A(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.put("type", this.a);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+            i93.a().putLong(o(str), j);
         }
     }
 
-    public String c(hz1 hz1Var) {
+    public final void B(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            i93.a().putString(p(str), str2);
+        }
+    }
+
+    public final void C(ka2 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (a) {
+                Log.i("SoLibManager", "main updatePmsPkg start args: " + config);
+            }
+            config.e(b.a);
+            ma2 ma2Var = new ma2(new zb4(5), config);
+            if (a) {
+                Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo start requester: " + ma2Var);
+            }
+            c84.o(ma2Var);
+        }
+    }
+
+    public final void f(String libName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, libName) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            c.remove(libName);
+        }
+    }
+
+    public final String g(u94 u94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hz1Var)) == null) ? d("event", hz1Var) : (String) invokeL.objValue;
-    }
-
-    public String d(String str, hz1 hz1Var) {
-        InterceptResult invokeLL;
-        String format;
-        String b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hz1Var)) == null) {
-            if (hz1Var == null || TextUtils.isEmpty(this.a)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, u94Var)) == null) {
+            if ((u94Var != null ? u94Var.q : null) == null) {
+                return "";
             }
-            if (TextUtils.isEmpty(str)) {
-                str = "event";
-            }
-            Locale locale = Locale.getDefault();
-            if (hz1Var.isWebView()) {
-                format = String.format(locale, "var %s = new Event('%s');", str, this.a);
-                b2 = "";
-            } else {
-                format = String.format(locale, "var %s = new Object();", str);
-                b2 = fa2.b(str, "type", this.a);
-            }
-            return format + (b2 + o(str)) + String.format(locale, "%s.dispatchEvent(%s);", fa2.c(hz1Var), str);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public JSEvent e(hz1 hz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hz1Var)) == null) {
-            if (hz1Var == null || TextUtils.isEmpty(this.a)) {
-                return null;
-            }
-            JSEvent jSEvent = new JSEvent(this.a);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                n(jSONObject);
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
-            b(jSONObject);
-            jSEvent.data = jSONObject;
-            return jSEvent;
-        }
-        return (JSEvent) invokeL.objValue;
-    }
-
-    public boolean f(hz1 hz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hz1Var)) == null) ? (hz1Var == null || hz1Var.isWebView() || !(hz1Var instanceof t72)) ? false : true : invokeL.booleanValue;
-    }
-
-    public void g(hz1 hz1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, hz1Var) == null) || hz1Var == null) {
-            return;
-        }
-        nt2.a("postMessage", "dispatchJSEvent start.");
-        if (ia2.b) {
-            r(hz1Var);
-        } else {
-            q(hz1Var);
-        }
-        nt2.a("postMessage", "dispatchJSEvent buildEvent");
-    }
-
-    public void h(hz1 hz1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, hz1Var) == null) || hz1Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-        }
-        JSEvent e = e(hz1Var);
-        if (e == null) {
-            return;
-        }
-        j(hz1Var, e);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-        }
-    }
-
-    public void i(hz1 hz1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, hz1Var) == null) || hz1Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on webView");
-        }
-        String c = c(hz1Var);
-        if (TextUtils.isEmpty(c)) {
-            return;
-        }
-        String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-        k(hz1Var, format);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action on webView: " + format);
-        }
-    }
-
-    public void j(hz1 hz1Var, JSEvent jSEvent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hz1Var, jSEvent) == null) || hz1Var.isDestroyed()) {
-            return;
-        }
-        if (hz1Var instanceof t72) {
-            ((t72) hz1Var).dispatchEvent(jSEvent);
-        }
-        nt2.a("postMessage", "dispatchJSEvent evaluateJavascript");
-    }
-
-    public void k(hz1 hz1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, hz1Var, str) == null) || hz1Var == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        ga2.b().c(new a(this, hz1Var, str), null);
-    }
-
-    public final void l(hz1 hz1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, hz1Var, str) == null) {
-            if (hz1Var.isDestroyed()) {
-                if (b) {
-                    Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
-                    return;
-                }
-                return;
-            }
-            hz1Var.evaluateJavascript(str, null);
-            nt2.a("postMessage", "dispatchJSEvent evaluateJavascript");
-        }
-    }
-
-    public abstract void m(Map<String, Object> map);
-
-    public void n(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            m(hashMap);
-            for (String str : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str)) {
-                    Object obj = hashMap.get(str);
-                    if (p(obj)) {
-                        jSONObject.put(str, obj);
-                    }
-                }
-            }
-        }
-    }
-
-    public String o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            Map<String, Object> hashMap = new HashMap<>();
-            m(hashMap);
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str2)) {
-                    Object obj = hashMap.get(str2);
-                    if (p(obj)) {
-                        if (obj instanceof String) {
-                            obj = JSONObject.quote((String) obj);
-                        }
-                        sb.append(str);
-                        sb.append(".");
-                        sb.append(str2);
-                        sb.append("=");
-                        sb.append(obj);
-                        sb.append(";");
-                    }
-                }
-            }
-            return sb.toString();
+            String str = u94Var.p;
+            Intrinsics.checkNotNullExpressionValue(str, "so.libName");
+            AbiType abiType = u94Var.q;
+            Intrinsics.checkNotNullExpressionValue(abiType, "so.abi");
+            return h(str, abiType, u94Var.i);
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean p(Object obj) {
+    public final String h(String libName, AbiType abi, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{libName, abi, Long.valueOf(j)})) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            Intrinsics.checkNotNullParameter(abi, "abi");
+            if (TextUtils.isEmpty(libName) || j < 1) {
+                return "";
+            }
+            File i = i();
+            File file = new File(i, libName + File.separator + j + File.separator + abi.id);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file.getPath();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final File i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
+            return new File(appContext.getFilesDir(), b);
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public final la2 j(String libName) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (obj instanceof String) {
-                return !TextUtils.isEmpty((String) obj);
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, libName)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            return c.get(libName);
+        }
+        return (la2) invokeL.objValue;
+    }
+
+    public final boolean k(String libName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, libName)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            return l(libName, s(libName));
         }
         return invokeL.booleanValue;
     }
 
-    public final void q(hz1 hz1Var) {
+    public final boolean l(String libName, long j) {
+        InterceptResult invokeLJ;
+        AbiType q;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, hz1Var) == null) {
-            String c = c(hz1Var);
-            if (TextUtils.isEmpty(c)) {
-                return;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, libName, j)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            ha2 a2 = ia2.a(libName);
+            if (a2 != null) {
+                if (a2.f()) {
+                    return true;
+                }
+                long s = s(libName);
+                if (s > 0 && j <= s && (q = q(libName)) != null) {
+                    return AbiType.currentAbi().compat(q);
+                }
             }
-            String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-            if (b) {
-                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format);
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return "swan_so_installed_abi_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return "swan_so_installed_result_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return "swan_so_installed_version_code_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return "swan_so_installed_version_name_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final AbiType q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? AbiType.findById(i93.a().getString(m(str), "")) : (AbiType) invokeL.objValue;
+    }
+
+    public final boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? i93.a().getBoolean(n(str), true) : invokeL.booleanValue;
+    }
+
+    public final long s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? i93.a().getLong(o(str), 0L) : invokeL.longValue;
+    }
+
+    public final la2 t(ma2 updater, String libName) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, updater, libName)) == null) {
+            Intrinsics.checkNotNullParameter(updater, "updater");
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            la2 j = j(libName);
+            if (j == null) {
+                la2 la2Var = new la2(updater, libName);
+                c.put(libName, la2Var);
+                return la2Var;
             }
-            if (hz1Var.isWebView()) {
-                ga2.b().c(new b(this, hz1Var, format), null);
+            return j;
+        }
+        return (la2) invokeLL.objValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            z(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, true);
+        }
+    }
+
+    public final void v(String libName, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048595, this, libName, j) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            SharedPreferences.Editor edit = be4.a().edit();
+            edit.putLong("swan_so_latest_update_time_" + libName, j).apply();
+        }
+    }
+
+    public final boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !r(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v1, types: [T, com.repackage.u94] */
+    public final void x(String libName, Function1<? super nc3, Unit> callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, libName, callback) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            if (a) {
+                Log.i("SoLibManager", "tryInstallUpdatePkg: libName=" + libName);
+            }
+            ha2 a2 = ia2.a(libName);
+            if (a2 == null) {
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update libname=" + libName);
+                }
+                nc3 nc3Var = new nc3();
+                nc3Var.k(16);
+                nc3Var.b(2900);
+                nc3Var.f("not available: so=" + a2);
+                callback.invoke(nc3Var);
+            } else if (a2.f()) {
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + a2);
+                }
+                callback.invoke(null);
             } else {
-                l(hz1Var, format);
+                Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                ?? t = p84.i().t(libName);
+                objectRef.element = t;
+                if (((u94) t) != null && ((u94) t).a() && AbiType.currentAbi().compat(((u94) objectRef.element).q)) {
+                    AbiType q = q(libName);
+                    if (l(libName, ((u94) objectRef.element).i) && q != null && q.compat(((u94) objectRef.element).q)) {
+                        if (a) {
+                            Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + libName + " soPkg=" + ((u94) objectRef.element));
+                        }
+                        callback.invoke(null);
+                        return;
+                    }
+                    a2.a(((u94) objectRef.element).a, new a(libName, objectRef, callback));
+                    return;
+                }
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + libName + " soPkg=" + ((u94) objectRef.element));
+                }
+                nc3 nc3Var2 = new nc3();
+                nc3Var2.k(16);
+                nc3Var2.b(2900);
+                nc3Var2.f("invalid: pkg=" + ((u94) objectRef.element));
+                callback.invoke(nc3Var2);
             }
         }
     }
 
-    public final void r(@NonNull hz1 hz1Var) {
+    public final void y(String str, AbiType abiType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, hz1Var) == null) {
-            if (f(hz1Var)) {
-                h(hz1Var);
-            } else {
-                i(hz1Var);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048598, this, str, abiType) == null) {
+            i93.a().putString(m(str), abiType.id);
+        }
+    }
+
+    public final void z(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048599, this, str, z) == null) {
+            i93.a().putBoolean(n(str), z);
         }
     }
 }

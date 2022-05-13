@@ -35,7 +35,7 @@ public class uk0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, viewGroup, viewType)) == null) {
             if (a == null) {
-                synchronized (wh0.class) {
+                synchronized (zh0.class) {
                     if (a == null) {
                         a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
                     }

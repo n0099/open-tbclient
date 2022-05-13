@@ -1,7 +1,5 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.res.AssetManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,22 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.text.DecimalFormat;
+import java.util.Vector;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class cf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public Vector<Integer> a;
+    public long b;
+    public long c;
+    public Vector<Integer> d;
 
-    public cf0(Context context) {
+    public cf0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,154 +32,130 @@ public class cf0 {
                 return;
             }
         }
-        this.a = context;
+        this.a = new Vector<>();
+        this.c = 0L;
+        this.d = new Vector<>();
     }
 
-    public boolean a(String str, File file) {
-        InterceptResult invokeLL;
+    public String a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
-            boolean b = b(str, file);
-            if (file.isDirectory()) {
-                File file2 = new File(file, ".nomedia");
-                if (!file2.exists()) {
-                    try {
-                        file2.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            Vector<Integer> vector = this.a;
+            if (vector == null || vector.size() == 0) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            float f = 0.0f;
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                Integer num = this.a.get(i);
+                if (num != null) {
+                    f += num.intValue();
+                    jSONArray.put(num);
                 }
             }
-            return b;
+            if (z) {
+                String jSONArray2 = jSONArray.toString();
+                return TextUtils.isEmpty(jSONArray2) ? "" : jSONArray2;
+            }
+            return new DecimalFormat(".0").format(f / size);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeZ.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:80:0x00de A[Catch: IOException -> 0x00da, TRY_LEAVE, TryCatch #0 {IOException -> 0x00da, blocks: (B:76:0x00d6, B:80:0x00de), top: B:88:0x00d6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
-        InputStream open;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) != null) {
-            return invokeLL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Vector<Integer> vector = this.a;
+            if (vector == null || vector.size() == 0) {
+                return 0;
+            }
+            int size = this.a.size();
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                Integer num = this.a.get(i2);
+                if (num != null) {
+                    i += num.intValue();
+                }
+            }
+            float f = (i * 1.0f) / size;
+            if (f == 0.0f) {
+                return 0;
+            }
+            return Math.round(1000.0f / f);
         }
-        AssetManager assets = this.a.getAssets();
-        FileOutputStream fileOutputStream = null;
-        try {
-            String[] list = assets.list(str);
-            if (list.length > 0) {
-                if (!file.isDirectory() && file.exists()) {
-                    file.delete();
-                }
-                if (file.isDirectory() && !file.exists()) {
-                    file.mkdirs();
-                }
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        b(str + File.separator + str2, new File(file, str2));
-                    }
-                }
-                open = null;
-            } else {
-                File parentFile = file.getParentFile();
-                if (parentFile != null && !parentFile.exists()) {
-                    parentFile.mkdirs();
-                }
-                if (file.exists()) {
-                    file.delete();
-                }
-                file.createNewFile();
-                open = assets.open(str);
-                try {
-                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = open.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream2.write(bArr, 0, read);
-                        }
-                        fileOutputStream2.flush();
-                        fileOutputStream = fileOutputStream2;
-                    } catch (Exception e) {
-                        e = e;
-                        fileOutputStream = fileOutputStream2;
-                        Exception exc = e;
-                        inputStream = open;
-                        e = exc;
-                        try {
-                            e.printStackTrace();
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
-                                    return false;
-                                }
-                            }
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                    throw th;
-                                }
-                            }
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileOutputStream = fileOutputStream2;
-                        Throwable th3 = th;
-                        inputStream = open;
-                        th = th3;
-                        if (fileOutputStream != null) {
-                        }
-                        if (inputStream != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                } catch (Throwable th4) {
-                    th = th4;
+        return invokeV.intValue;
+    }
+
+    public String c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            Vector<Integer> vector = this.d;
+            if (vector == null || vector.size() == 0) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            float f = 0.0f;
+            int size = this.d.size();
+            for (int i = 0; i < size; i++) {
+                Integer num = this.d.get(i);
+                if (num != null) {
+                    f += num.intValue();
+                    jSONArray.put(num);
                 }
             }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                    return true;
-                }
+            if (z) {
+                String jSONArray2 = jSONArray.toString();
+                return TextUtils.isEmpty(jSONArray2) ? "" : jSONArray2;
             }
-            if (open != null) {
-                open.close();
-                return true;
+            return new DecimalFormat(".0").format(f / size);
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.b <= 0) {
+                this.b = System.currentTimeMillis();
+                return;
             }
-            return true;
-        } catch (Exception e6) {
-            e = e6;
-            inputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
-            inputStream = null;
+            long currentTimeMillis = System.currentTimeMillis();
+            int i = (int) (currentTimeMillis - this.b);
+            if (i < 0) {
+                return;
+            }
+            this.a.add(Integer.valueOf(i));
+            this.b = currentTimeMillis;
+        }
+    }
+
+    public void e() {
+        int currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.c)) < 0) {
+            return;
+        }
+        this.d.add(Integer.valueOf(currentTimeMillis));
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = System.currentTimeMillis();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = 0L;
+            this.c = 0L;
+            this.a.clear();
+            this.d.clear();
         }
     }
 }

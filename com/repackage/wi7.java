@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u25;
+import com.repackage.k35;
 import com.repackage.vi7;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class wi7 extends u25 {
+public class wi7 extends k35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListModel m;
@@ -47,7 +47,7 @@ public class wi7 extends u25 {
     public vi7.e w;
 
     /* loaded from: classes7.dex */
-    public class a implements u25.a {
+    public class a implements k35.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -72,7 +72,7 @@ public class wi7 extends u25 {
             this.a = context;
         }
 
-        @Override // com.repackage.u25.a
+        @Override // com.repackage.k35.a
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             BubbleView bubbleView;
@@ -133,16 +133,16 @@ public class wi7 extends u25 {
             if (interceptable == null || interceptable.invokeL(1048576, this, bubbleListData) == null) {
                 this.a.n = null;
                 if (bubbleListData == null) {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c17);
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c2d);
                 } else if (bubbleListData.getError_code().equals("0")) {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c17);
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c2d);
                 } else if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
                     UtilHelper.showToast(this.a.o, bubbleListData.getError_msg());
                 } else {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c17);
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c2d);
                 }
-                if (this.a.k() != null) {
-                    this.a.k().onLoadFail();
+                if (this.a.j() != null) {
+                    this.a.j().onLoadFail();
                 }
             }
         }
@@ -152,10 +152,10 @@ public class wi7 extends u25 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bubbleListData) == null) {
                 if (bubbleListData == null) {
-                    this.a.k().onLoadFail();
+                    this.a.j().onLoadFail();
                     return;
                 }
-                this.a.n = bubbleListData.m53clone();
+                this.a.n = bubbleListData.m54clone();
                 if (this.a.m.C() > 0) {
                     List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
                     if (b_info == null || b_info.size() == 0) {
@@ -167,13 +167,13 @@ public class wi7 extends u25 {
                                 break;
                             }
                             this.a.m.I(this.a.m.C());
-                            this.a.m.H(this.a.m.C(), oi.k(this.a.o), oi.i(this.a.o));
+                            this.a.m.H(this.a.m.C(), mi.k(this.a.o), mi.i(this.a.o));
                         }
                     }
                     this.a.m.J(-1);
                 }
                 this.a.Q();
-                this.a.k().b(this.a);
+                this.a.j().b(this.a);
             }
         }
     }
@@ -233,7 +233,7 @@ public class wi7 extends u25 {
                             }
                         }
                     } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f10f8);
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f1113);
                         if (this.a.n != null && this.a.n.getB_info() != null && this.a.n.getB_info().size() > 0) {
                             if (this.a.n.getB_info().get(0).getBcode() == 0) {
                                 this.a.p = 0;
@@ -258,10 +258,10 @@ public class wi7 extends u25 {
                         }
                     }
                     this.a.Q();
-                    this.a.k().b(this.a);
+                    this.a.j().b(this.a);
                     return;
                 }
-                this.a.k().onLoadFail();
+                this.a.j().onLoadFail();
             }
         }
 
@@ -271,17 +271,17 @@ public class wi7 extends u25 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, setBubbleResultData) == null) {
                 if (setBubbleResultData != null) {
                     if (setBubbleResultData.getError_code().equals("0")) {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c17);
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c2d);
                     } else if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
                         UtilHelper.showToast(this.a.o, setBubbleResultData.getError_msg());
                     } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c17);
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c2d);
                     }
                 } else {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c17);
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0c2d);
                 }
-                if (this.a.k() != null) {
-                    this.a.k().onLoadFail();
+                if (this.a.j() != null) {
+                    this.a.j().onLoadFail();
                 }
             }
         }
@@ -482,7 +482,7 @@ public class wi7 extends u25 {
         BubbleListData bubbleListData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i < 0 || i >= f() || (bubbleListData = this.n) == null) {
+            if (i < 0 || i >= c() || (bubbleListData = this.n) == null) {
                 return null;
             }
             return bubbleListData.getB_info().get(i);
@@ -517,28 +517,28 @@ public class wi7 extends u25 {
                 }
             }
             if (this.p != 0 && !TextUtils.isEmpty(this.q)) {
-                d(new i05(2, 12, " "));
+                g(new w05(2, 12, " "));
                 z = true;
             } else {
-                d(new i05(2, 12, null));
+                g(new w05(2, 12, null));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.valueOf(z)));
-            d(new i05(25, -1, this.q));
+            g(new w05(25, -1, this.q));
         }
     }
 
     public final void R(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.m.H(i, oi.k(this.o), oi.i(this.o));
+            this.m.H(i, mi.k(this.o), mi.i(this.o));
             this.m.I(i);
-            if (k() != null) {
-                k().a();
+            if (j() != null) {
+                j().a();
             }
         }
     }
 
-    @Override // com.repackage.u25
+    @Override // com.repackage.k35
     public void a() {
         BubbleListModel bubbleListModel;
         Interceptable interceptable = $ic;
@@ -550,8 +550,8 @@ public class wi7 extends u25 {
         this.m = null;
     }
 
-    @Override // com.repackage.u25
-    public int f() {
+    @Override // com.repackage.k35
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -564,10 +564,10 @@ public class wi7 extends u25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.j05
-    public void onAction(i05 i05Var) {
+    @Override // com.repackage.x05
+    public void onAction(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, i05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, w05Var) == null) {
             if (this.m == null) {
                 Context context = this.o;
                 if (context instanceof TbPageContext) {
@@ -576,19 +576,19 @@ public class wi7 extends u25 {
                     this.m = new BubbleListModel(null);
                 }
             }
-            if (k() != null) {
-                k().a();
+            if (j() != null) {
+                j().a();
             }
-            this.m.G(0, 50, oi.k(this.o), oi.i(this.o));
+            this.m.G(0, 50, mi.k(this.o), mi.i(this.o));
         }
     }
 
-    @Override // com.repackage.u25
+    @Override // com.repackage.k35
     public void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             this.o = context;
-            u25.b bVar = new u25.b();
+            k35.b bVar = new k35.b();
             bVar.a = R.drawable.icon_bubble;
             bVar.b = 0;
             z(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f0));
@@ -611,10 +611,10 @@ public class wi7 extends u25 {
             this.m.F(this.t);
             this.m.D();
             this.m.E();
-            if (k() != null) {
-                k().a();
+            if (j() != null) {
+                j().a();
             }
-            this.m.G(0, 50, oi.k(this.o), oi.i(this.o));
+            this.m.G(0, 50, mi.k(this.o), mi.i(this.o));
         }
     }
 }

@@ -9,19 +9,14 @@ public class NetWorkErr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_ALERT_DELETE_CODE = 1211066;
     public static final int ERROR_BZC_USER_BLOCK = 220012;
-    public static final int ERROR_BZC_USER_MANAGER_NUM = 240104;
     public static final int ERROR_CONTENT_WITH_SENSITIVE_WORD = 220015;
     public static final int ERROR_DELETE_MCN_USER_THREAD = 1211067;
-    public static final int ERROR_FORBID_POST_LIVE = 220012;
-    public static final int ERROR_GET_FLOWER_MORE_LIMIT = 146021;
     public static final int ERROR_IS_REPEAT_FORBIDDEN = 1211068;
     public static final int ERROR_LINK_COUNT_EXCEED_LIMIT = 3300001;
     public static final int ERROR_MUTE_EYONG_LIMIT = 220017;
     public static final int ERROR_NOT_MEMBER = 1990043;
-    public static final int ERROR_NOT_VIP = 1990056;
     public static final int ERROR_NO_USER_NAME = 2260104;
     public static final int ERROR_POST_FREQUENTLY = 220034;
-    public static final int ERROR_REPLY_PRIVACY_MY_ATTENTION = 238009;
     public static final int ERROR_REPLY_PRIVACY_MY_FANS = 238010;
     public static final int ERROR_SHOW_APPLY_MEMBER_DIALOG = 3300003;
     public static final int ERROR_UEG_BIND_MOBILE = 3250017;
@@ -49,7 +44,6 @@ public class NetWorkErr {
     public static final int NETWORK_DATA_TOO_BIG = -11;
     public static final int NETWORK_ERR = -1;
     public static final int NETWORK_HTTP_EXCEPTION = -18;
-    public static final int NETWORK_IGNORE = -2;
     public static final int NETWORK_IO_EXCEPTION = -19;
     public static final int NETWORK_MEMORY_SMALL = -16;
     public static final int NETWORK_NO_DATA_RECEIVED = -17;

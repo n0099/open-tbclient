@@ -1,9 +1,9 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class tq4 extends PostData {
+public class tq4 extends zn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId H0;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String F0;
-    public String G0;
+    public String a;
+    public int b;
+    public List<MetaData> c;
+    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +37,7 @@ public class tq4 extends PostData {
                 return;
             }
         }
-        H0 = BdUniqueId.gen();
+        e = BdUniqueId.gen();
     }
 
     public tq4() {
@@ -47,49 +50,53 @@ public class tq4 extends PostData {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = true;
+        this.c = new ArrayList();
     }
 
-    public String M0() {
+    public List<MetaData> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.F0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public String N0() {
+    public void g(List<User> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
+            return;
+        }
+        int min = Math.min(list.size(), this.d ? 10 : list.size());
+        for (int i = 0; i < min; i++) {
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(list.get(i));
+            this.c.add(metaData);
+        }
+    }
+
+    @Override // com.repackage.zn4
+    public wp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.G0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new wp4() : (wp4) invokeV.objValue;
     }
 
-    public void O0(JSONObject jSONObject) {
+    @Override // com.repackage.zn4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        try {
-            this.F0 = jSONObject.optString("news_link");
-            this.G0 = jSONObject.optString("summary");
-            jSONObject.optInt("position", 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (ThreadData) invokeV.objValue;
     }
 
-    public void P0(TopNews topNews) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, topNews) == null) || topNews == null) {
-            return;
-        }
-        this.F0 = topNews.news_link;
-        this.G0 = topNews.summary;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? H0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 }

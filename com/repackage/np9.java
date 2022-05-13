@@ -1,91 +1,94 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import com.win.opensdk.Q;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
-public class np9 {
+public class np9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static np9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public tp9 d;
+    public ap9 e;
+    public boolean f;
+    public long g;
 
-    public np9() {
+    public np9(String str, String str2, tp9 tp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, tp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.f = false;
+        this.b = str;
+        this.c = str2;
+        this.d = tp9Var;
+        this.e = new ap9(this);
+        this.f = true;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Thread.currentThread().isInterrupted()) {
+            return;
+        }
+        try {
+            URL url = new URL(this.b);
+            HttpURLConnection httpURLConnection = url.toString().startsWith("https://") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
+            httpURLConnection.setConnectTimeout(3000);
+            httpURLConnection.setReadTimeout(3000);
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setRequestProperty("Range", "bytes=" + this.a + "-");
+            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            httpURLConnection.connect();
+            this.g = (long) httpURLConnection.getContentLength();
+            if (Thread.currentThread().isInterrupted()) {
+                return;
+            }
+            if (this.e != null && this.g > 10) {
+                this.e.c(httpURLConnection.getInputStream());
+            } else if (this.d != null) {
+                this.d.a();
+            }
+        } catch (IOException e) {
+            if (!Thread.currentThread().isInterrupted()) {
+                throw e;
             }
         }
     }
 
-    public static np9 a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (np9.class) {
-                    if (a == null) {
-                        a = new np9();
-                    }
-                }
-            }
-            return a;
-        }
-        return (np9) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0064, code lost:
-        if (((r6 / 60) / 60) >= r10.a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (context == null) {
-                throw new RuntimeException("Error:Context is not allowed to be null");
-            }
-            context.getApplicationContext();
-            if (!TextUtils.isEmpty(str)) {
-                mr9.v(context, str);
-            }
-            tr9.b(new kp9(this, context));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                tr9.b(new lr9(context));
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            ys9 c = ys9.c(context);
-            long B = mr9.B(c.a);
-            boolean z = true;
-            if (B > 0) {
-                try {
-                    long time = (new Date().getTime() - B) / 1000;
-                    if (time < 0) {
-                        c.f();
-                    }
-                    z = false;
-                } catch (Exception e) {
-                    e.printStackTrace();
+                a();
+            } catch (Exception unused) {
+                ap9 ap9Var = this.e;
+                if (ap9Var != null) {
+                    ap9Var.d(ap9Var.a(1, new Object[]{Q.b}));
                 }
             }
-            if (z) {
-                c.b = System.currentTimeMillis();
-                tr9.b(new vs9(c));
-            }
-            wp9.E(context);
-            xq9.a(context);
         }
     }
 }

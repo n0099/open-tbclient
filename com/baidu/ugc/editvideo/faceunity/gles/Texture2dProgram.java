@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac9;
+import com.repackage.va9;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
@@ -302,7 +302,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            ac9.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            va9.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -490,7 +490,7 @@ public class Texture2dProgram {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ac9.c("Grafika", "deleting program " + this.mProgramHandle);
+            va9.c("Grafika", "deleting program " + this.mProgramHandle);
             GLES20.glDeleteProgram(this.mProgramHandle);
             this.mProgramHandle = -1;
         }

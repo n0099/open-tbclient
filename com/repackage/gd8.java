@@ -1,39 +1,39 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hd8;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class gd8 extends ld8 {
+public class gd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView i;
-    public TextView j;
-    public TextView k;
+    public hd8 a;
+    public String b;
+    public boolean c;
+    public Context d;
+    public hd8.a e;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements hd8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nc8 a;
-        public final /* synthetic */ gd8 b;
+        public final /* synthetic */ gd8 a;
 
-        public a(gd8 gd8Var, nc8 nc8Var) {
+        public a(gd8 gd8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gd8Var, nc8Var};
+                Object[] objArr = {gd8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,89 +43,148 @@ public class gd8 extends ld8 {
                     return;
                 }
             }
-            this.b = gd8Var;
-            this.a = nc8Var;
+            this.a = gd8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.repackage.hd8.a
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.b.b.getContext();
-                nc8 nc8Var = this.a;
-                String str = nc8Var.d;
-                String str2 = nc8Var.f;
-                AdvertAppInfo advertAppInfo = this.b.d;
-                na8.d(context, str, str2, advertAppInfo != null ? advertAppInfo.h : "", this.a.j);
-                zc8 zc8Var = this.b.c;
-                if (zc8Var != null) {
-                    zc8Var.i(302);
-                    bd8.b().d(this.b.c);
-                }
-                dd7 dd7Var = this.b.e;
-                if (dd7Var != null) {
-                    ed7.h(dd7Var);
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c) {
+                this.a.c = false;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gd8(View view2, String str) {
-        super(view2, str);
+    public gd8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        n();
+        this.b = null;
+        this.c = false;
+        this.e = new a(this);
+        this.d = context;
     }
 
-    @Override // com.repackage.ld8
-    public void c() {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.c();
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0620, 1);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.k, R.drawable.obfuscated_res_0x7f0811cf, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.b)) {
+                return this.b;
+            }
+            String b = id8.b();
+            this.b = b;
+            if (TextUtils.isEmpty(b)) {
+                this.b = id8.c();
+            } else if (!this.b.endsWith(File.separator)) {
+                this.b += File.separator;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                if (file.mkdirs()) {
+                    BdLog.d("folder mkdir success: " + str);
+                } else if (!file.exists()) {
+                    BdLog.d("folder mkdir failed");
+                }
+            }
+            if (file.isDirectory()) {
+                return;
+            }
+            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
         }
     }
 
-    @Override // com.repackage.ld8
-    public void d(nc8 nc8Var) {
+    public final boolean f(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nc8Var) == null) {
-            super.d(nc8Var);
-            this.i.K(nc8Var.c, 10, false);
-            this.j.setText(nc8Var.b);
-            this.k.setText(nc8Var.e);
-            this.b.setOnClickListener(new a(this, nc8Var));
-            c();
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
+            if (this.a == null) {
+                e(str);
+                hd8 hd8Var = new hd8(str, str2, z);
+                this.a = hd8Var;
+                hd8Var.b(this.e);
+                try {
+                    this.a.start();
+                    return true;
+                } catch (IllegalThreadStateException unused) {
+                    return true;
+                } catch (Exception e) {
+                    this.a = null;
+                    BdLog.e(e);
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String c = c();
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            h();
+            if (id8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
+                this.c = true;
+            }
         }
     }
 
-    public final void n() {
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.repackage.hd8 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.repackage.hd8, com.repackage.hd8$a] */
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = (HeadImageView) b(R.id.obfuscated_res_0x7f0922aa);
-            this.i = headImageView;
-            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-            this.i.setDefaultBgResource(R.color.CAM_X0205);
-            this.i.setIsRound(true);
-            this.j = (TextView) b(R.id.obfuscated_res_0x7f09229d);
-            this.k = (TextView) b(R.id.obfuscated_res_0x7f090054);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            hd8 hd8Var = this.a;
+            if (hd8Var != null) {
+                try {
+                    try {
+                        hd8Var.c();
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } finally {
+                    this.a.b(null);
+                    this.a = null;
+                }
+            }
+            this.c = false;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h();
         }
     }
 }

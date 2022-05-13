@@ -25,20 +25,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kk8;
-import com.repackage.s67;
-import com.repackage.t67;
+import com.repackage.g67;
+import com.repackage.h67;
+import com.repackage.hj8;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
 public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s67 a;
+    public final g67 a;
     public final String b;
     public boolean c;
     public long d;
     public boolean e;
-    public t67 f;
+    public h67 f;
     public wa g;
     public HttpMessageListener h;
 
@@ -78,11 +78,11 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                 if (responsedMessage == null) {
                     return;
                 }
-                t67 t67Var = null;
+                h67 h67Var = null;
                 if (responsedMessage instanceof ResponseHttpMajorHistoryMessage) {
-                    t67Var = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
+                    h67Var = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
                 } else if (responsedMessage instanceof ResponseSocketMajorHistoryMessage) {
-                    t67Var = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
+                    h67Var = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
                 }
                 this.a.mErrorCode = responsedMessage.getError();
                 this.a.mErrorString = responsedMessage.getErrorString();
@@ -92,11 +92,11 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                 if (this.a.a == null) {
                     return;
                 }
-                if (this.a.mErrorCode != 0 || t67Var == null) {
+                if (this.a.mErrorCode != 0 || h67Var == null) {
                     this.a.a.onServerError(errorData);
                     return;
                 }
-                this.a.f = t67Var;
+                this.a.f = h67Var;
                 this.a.K();
             }
         }
@@ -144,13 +144,13 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, s67 s67Var, String str) {
+    public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, g67 g67Var, String str) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {tbPageContext, s67Var, str};
+            Object[] objArr = {tbPageContext, g67Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,12 +165,12 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         this.f = null;
         this.g = new a(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
         this.h = new b(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
-        kk8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
-        kk8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
-        kk8.e(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
+        hj8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
+        hj8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
+        hj8.e(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
         registerListener(this.g);
         registerListener(this.h);
-        this.a = s67Var;
+        this.a = g67Var;
         this.b = str;
     }
 
@@ -229,11 +229,11 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            t67 t67Var = this.f;
-            if (t67Var == null) {
+            h67 h67Var = this.f;
+            if (h67Var == null) {
                 return false;
             }
-            return !ListUtils.isEmpty(t67Var.b());
+            return !ListUtils.isEmpty(h67Var.b());
         }
         return invokeV.booleanValue;
     }

@@ -1,128 +1,294 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.newdetail.HotTopicDetailModel;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y45;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.util.Calendar;
 /* loaded from: classes7.dex */
-public class vg5 implements gc1<y45> {
+public class vg5 extends ug5 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public xg5 q;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements mg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ vg5 a;
 
-    /* loaded from: classes7.dex */
-    public static final class b implements y45, HotTopicDetailModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicDetailModel b;
-        @Nullable
-        public y45.a c;
-
-        public b() {
+        public a(vg5 vg5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vg5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = vg5Var;
         }
 
-        @Override // com.repackage.y45
-        public y45 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
-            InterceptResult invokeCommon;
+        @Override // com.repackage.mg5
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
-                HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
-                this.b = hotTopicDetailModel;
-                hotTopicDetailModel.N(j, str);
-                this.b.M(this);
-                return this;
-            }
-            return (y45) invokeCommon.objValue;
-        }
-
-        @Override // com.repackage.y45
-        public void b(int i, pp4 pp4Var, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), pp4Var, Long.valueOf(j)}) == null) {
-                this.b.A(i, pp4Var, j);
-            }
-        }
-
-        @Override // com.repackage.y45
-        public void c(@Nullable y45.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.c = aVar;
-            }
-        }
-
-        @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void netLoadMoreCallback(int i, @Nullable z37 z37Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, z37Var) == null) || this.c == null) {
-                return;
-            }
-            if (z37Var != null) {
-                ArrayList arrayList = new ArrayList();
-                for (xx5 xx5Var : z37Var.a) {
-                    if (xx5Var instanceof xx5) {
-                        ThreadData threadData = xx5Var.getThreadData();
-                        if (!TextUtils.equals(threadData.getTid(), "0")) {
-                            arrayList.add(threadData);
-                        }
-                    }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.e.b.a(xg5.y.parse(this.a.q.o()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
-                this.c.b(arrayList, z37Var.i());
             }
-            this.c.a();
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
         }
     }
 
-    public vg5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vg5(kg5 kg5Var) {
+        super(kg5Var.A);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kg5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = kg5Var;
+        z(kg5Var.A);
+    }
+
+    public final void A(LinearLayout linearLayout) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, linearLayout) == null) {
+            kg5 kg5Var = this.e;
+            xg5 xg5Var = new xg5(linearLayout, kg5Var.d, kg5Var.z, kg5Var.L);
+            this.q = xg5Var;
+            if (this.e.b != null) {
+                xg5Var.G(new a(this));
+            }
+            this.q.C(this.e.k);
+            kg5 kg5Var2 = this.e;
+            int i2 = kg5Var2.h;
+            if (i2 != 0 && (i = kg5Var2.i) != 0 && i2 <= i) {
+                D();
+            }
+            kg5 kg5Var3 = this.e;
+            Calendar calendar = kg5Var3.f;
+            if (calendar != null && kg5Var3.g != null) {
+                if (calendar.getTimeInMillis() <= this.e.g.getTimeInMillis()) {
+                    C();
+                } else {
+                    throw new IllegalArgumentException("startDate can't be later than endDate");
+                }
+            } else {
+                kg5 kg5Var4 = this.e;
+                Calendar calendar2 = kg5Var4.f;
+                if (calendar2 != null) {
+                    if (calendar2.get(1) >= 1900) {
+                        C();
+                    } else {
+                        throw new IllegalArgumentException("The startDate can not as early as 1900");
+                    }
+                } else {
+                    Calendar calendar3 = kg5Var4.g;
+                    if (calendar3 != null) {
+                        if (calendar3.get(1) <= 2100) {
+                            C();
+                        } else {
+                            throw new IllegalArgumentException("The endDate should not be later than 2100");
+                        }
+                    } else {
+                        C();
+                    }
+                }
+            }
+            E();
+            xg5 xg5Var2 = this.q;
+            kg5 kg5Var5 = this.e;
+            xg5Var2.y(kg5Var5.l, kg5Var5.m, kg5Var5.n, kg5Var5.o, kg5Var5.p, kg5Var5.q);
+            xg5 xg5Var3 = this.q;
+            kg5 kg5Var6 = this.e;
+            xg5Var3.N(kg5Var6.r, kg5Var6.s, kg5Var6.t, kg5Var6.u, kg5Var6.v, kg5Var6.w);
+            u(this.e.S);
+            this.q.s(this.e.j);
+            this.q.u(this.e.O);
+            this.q.w(this.e.U);
+            this.q.A(this.e.Q);
+            this.q.M(this.e.M);
+            this.q.K(this.e.N);
+            this.q.p(this.e.T);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.e.a == null) {
+            return;
+        }
+        try {
+            this.e.a.a(xg5.y.parse(this.q.o()), this.m);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            xg5 xg5Var = this.q;
+            kg5 kg5Var = this.e;
+            xg5Var.E(kg5Var.f, kg5Var.g);
+            y();
+        }
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.q.I(this.e.h);
+            this.q.x(this.e.i);
+        }
+    }
+
+    public final void E() {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Calendar calendar = Calendar.getInstance();
+            Calendar calendar2 = this.e.e;
+            if (calendar2 == null) {
+                calendar.setTimeInMillis(System.currentTimeMillis());
+                i = calendar.get(1);
+                i2 = calendar.get(2);
+                i3 = calendar.get(5);
+                i4 = calendar.get(11);
+                i5 = calendar.get(12);
+                i6 = calendar.get(13);
+            } else {
+                i = calendar2.get(1);
+                i2 = this.e.e.get(2);
+                i3 = this.e.e.get(5);
+                i4 = this.e.e.get(11);
+                i5 = this.e.e.get(12);
+                i6 = this.e.e.get(13);
+            }
+            int i7 = i4;
+            int i8 = i3;
+            int i9 = i2;
+            xg5 xg5Var = this.q;
+            xg5Var.D(i, i9, i8, i7, i5, i6);
+        }
+    }
+
+    @Override // com.repackage.ug5
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e.R : invokeV.booleanValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            if (((String) view2.getTag()).equals("submit")) {
+                B();
+            }
+            f();
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            kg5 kg5Var = this.e;
+            if (kg5Var.f != null && kg5Var.g != null) {
+                Calendar calendar = kg5Var.e;
+                if (calendar == null || calendar.getTimeInMillis() < this.e.f.getTimeInMillis() || this.e.e.getTimeInMillis() > this.e.g.getTimeInMillis()) {
+                    kg5 kg5Var2 = this.e;
+                    kg5Var2.e = kg5Var2.f;
+                    return;
+                }
+                return;
+            }
+            kg5 kg5Var3 = this.e;
+            Calendar calendar2 = kg5Var3.f;
+            if (calendar2 != null) {
+                kg5Var3.e = calendar2;
+                return;
+            }
+            Calendar calendar3 = kg5Var3.g;
+            if (calendar3 != null) {
+                kg5Var3.e = calendar3;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gc1
-    /* renamed from: a */
-    public y45 getService() {
-        InterceptResult invokeV;
+    public final void z(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(null) : (y45) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+            s();
+            n();
+            m();
+            lg5 lg5Var = this.e.c;
+            if (lg5Var == null) {
+                LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06de, this.b);
+                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f0921b3);
+                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.obfuscated_res_0x7f091b4a);
+                Button button = (Button) i(R.id.obfuscated_res_0x7f090403);
+                Button button2 = (Button) i(R.id.obfuscated_res_0x7f0903ff);
+                button.setTag("submit");
+                button2.setTag("cancel");
+                button.setOnClickListener(this);
+                button2.setOnClickListener(this);
+                button.setText(TextUtils.isEmpty(this.e.B) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e66) : this.e.B);
+                button2.setText(TextUtils.isEmpty(this.e.C) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e60) : this.e.C);
+                textView.setText(TextUtils.isEmpty(this.e.D) ? "" : this.e.D);
+                button.setTextColor(this.e.E);
+                button2.setTextColor(this.e.F);
+                textView.setTextColor(this.e.G);
+                relativeLayout.setBackgroundColor(this.e.I);
+                button.setTextSize(this.e.J);
+                button2.setTextSize(this.e.J);
+                textView.setTextSize(this.e.K);
+            } else {
+                lg5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
+            }
+            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f09204a);
+            linearLayout.setBackgroundColor(this.e.H);
+            A(linearLayout);
+        }
     }
 }

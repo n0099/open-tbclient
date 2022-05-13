@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo;
-import com.repackage.g35;
-import com.repackage.k35;
-import com.repackage.lu4;
-import com.repackage.oi;
-import com.repackage.u35;
+import com.repackage.b45;
+import com.repackage.co;
+import com.repackage.l45;
+import com.repackage.mi;
+import com.repackage.x35;
+import com.repackage.yu4;
 /* loaded from: classes4.dex */
 public class PreviewVideoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class PreviewVideoView extends FrameLayout {
     public TBSpecificationBtn d;
     public TBSpecificationBtn e;
     public float f;
-    public k35 g;
+    public b45 g;
     public Paint h;
     public Paint i;
     public String j;
@@ -122,7 +122,7 @@ public class PreviewVideoView extends FrameLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements g35 {
+    public class c implements x35 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PreviewVideoView a;
@@ -145,13 +145,13 @@ public class PreviewVideoView extends FrameLayout {
             this.a = previewVideoView;
         }
 
-        @Override // com.repackage.g35
-        public void a(fo foVar, String str, boolean z) {
+        @Override // com.repackage.x35
+        public void a(co coVar, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, foVar, str, z) == null) || this.a.a == null || foVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, coVar, str, z) == null) || this.a.a == null || coVar == null) {
                 return;
             }
-            this.a.b(foVar.r(), foVar.m());
+            this.a.b(coVar.r(), coVar.m());
             this.a.a.invalidate();
         }
     }
@@ -188,9 +188,9 @@ public class PreviewVideoView extends FrameLayout {
                 i3 = 0;
             } else if (i >= i2) {
                 i4 = n;
-                i3 = oi.f(getContext(), R.dimen.tbds569);
+                i3 = mi.f(getContext(), R.dimen.tbds569);
             } else {
-                i4 = oi.f(getContext(), R.dimen.tbds650);
+                i4 = mi.f(getContext(), R.dimen.tbds650);
                 i3 = m;
             }
             if (this.b.getWidth() == i4 && this.b.getHeight() == i3) {
@@ -211,7 +211,7 @@ public class PreviewVideoView extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080812, WebPManager.ResourceStateType.NORMAL));
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL));
             this.h.setColor(SkinManager.getColor(R.color.CAM_X0618));
             this.i.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
@@ -220,41 +220,41 @@ public class PreviewVideoView extends FrameLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            m = oi.f(getContext(), R.dimen.tbds866);
-            n = oi.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            m = mi.f(getContext(), R.dimen.tbds866);
+            n = mi.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             e(context);
-            this.g = new k35();
+            this.g = new b45();
             TbImageView tbImageView = new TbImageView(context);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(this.a, new FrameLayout.LayoutParams(-2, -2));
             this.c = new ImageView(context);
-            int f = oi.f(context, R.dimen.M_H_X001);
-            int f2 = oi.f(context, R.dimen.M_W_X003);
+            int f = mi.f(context, R.dimen.M_H_X001);
+            int f2 = mi.f(context, R.dimen.M_W_X003);
             this.c.setPadding(f2, f, f2, f);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(oi.f(context, R.dimen.tbds94), oi.f(context, R.dimen.tbds94));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(mi.f(context, R.dimen.tbds94), mi.f(context, R.dimen.tbds94));
             layoutParams.gravity = 53;
             addView(this.c, layoutParams);
-            lu4 lu4Var = new lu4();
-            lu4Var.q();
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(oi.f(context, R.dimen.tbds96), oi.f(context, R.dimen.tbds48));
+            yu4 yu4Var = new yu4();
+            yu4Var.q();
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(mi.f(context, R.dimen.tbds96), mi.f(context, R.dimen.tbds48));
             layoutParams2.gravity = 83;
-            layoutParams2.bottomMargin = oi.f(context, R.dimen.M_H_X002);
-            layoutParams2.leftMargin = oi.f(context, R.dimen.M_W_X003);
+            layoutParams2.bottomMargin = mi.f(context, R.dimen.M_H_X002);
+            layoutParams2.leftMargin = mi.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(lu4Var);
-            this.d.setText(context.getString(R.string.obfuscated_res_0x7f0f0513));
+            tBSpecificationBtn.setConfig(yu4Var);
+            this.d.setText(context.getString(R.string.obfuscated_res_0x7f0f0519));
             this.d.setTextSize(R.dimen.T_X10);
             addView(this.d, layoutParams2);
-            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(oi.f(context, R.dimen.tbds96), oi.f(context, R.dimen.tbds48));
+            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(mi.f(context, R.dimen.tbds96), mi.f(context, R.dimen.tbds48));
             layoutParams3.gravity = 85;
-            layoutParams3.bottomMargin = oi.f(context, R.dimen.M_H_X002);
-            layoutParams3.rightMargin = oi.f(context, R.dimen.M_W_X003);
+            layoutParams3.bottomMargin = mi.f(context, R.dimen.M_H_X002);
+            layoutParams3.rightMargin = mi.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(context);
             this.e = tBSpecificationBtn2;
-            tBSpecificationBtn2.setConfig(lu4Var);
-            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0452));
+            tBSpecificationBtn2.setConfig(yu4Var);
+            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f045a));
             this.e.setTextSize(R.dimen.T_X10);
             addView(this.e, layoutParams3);
             this.h = new Paint();
@@ -270,8 +270,8 @@ public class PreviewVideoView extends FrameLayout {
             canvas.save();
             canvas.clipPath(this.k);
             super.dispatchDraw(canvas);
-            canvas.drawRect(0.0f, 0.0f, getWidth(), oi.f(getContext(), R.dimen.tbds5), this.h);
-            canvas.drawRect(0.0f, 0.0f, getWidth() * this.f, oi.f(getContext(), R.dimen.tbds5), this.i);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), mi.f(getContext(), R.dimen.tbds5), this.h);
+            canvas.drawRect(0.0f, 0.0f, getWidth() * this.f, mi.f(getContext(), R.dimen.tbds5), this.i);
             canvas.restore();
         }
     }
@@ -292,11 +292,11 @@ public class PreviewVideoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(this.j);
-            ImageOperation g = u35.g(n, m);
+            ImageOperation g = l45.g(n, m);
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g);
             this.a.setTag(imageFileInfo.toCachedKey(false));
-            fo c2 = this.g.c(imageFileInfo, false);
+            co c2 = this.g.c(imageFileInfo, false);
             if (c2 != null) {
                 b(c2.r(), c2.m());
                 this.a.invalidate();
@@ -326,7 +326,7 @@ public class PreviewVideoView extends FrameLayout {
             super.onSizeChanged(i, i2, i3, i4);
             this.k.reset();
             this.l.set(0.0f, 0.0f, i, i2);
-            this.k.addRoundRect(this.l, oi.f(getContext(), R.dimen.tbds10), oi.f(getContext(), R.dimen.tbds10), Path.Direction.CW);
+            this.k.addRoundRect(this.l, mi.f(getContext(), R.dimen.tbds10), mi.f(getContext(), R.dimen.tbds10), Path.Direction.CW);
         }
     }
 

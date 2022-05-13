@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga7;
+import com.repackage.na7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ga7 msgData;
+    public na7 msgData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgReminderHttpRespMessage(int i) {
@@ -45,17 +45,17 @@ public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0 && jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("message");
                 if (jSONObject != null) {
-                    ga7 ga7Var = new ga7();
-                    ga7Var.f(optJSONObject);
-                    this.msgData = ga7Var;
+                    na7 na7Var = new na7();
+                    na7Var.f(optJSONObject);
+                    this.msgData = na7Var;
                 }
             }
         }
     }
 
-    public ga7 getMsgData() {
+    public na7 getMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgData : (ga7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgData : (na7) invokeV.objValue;
     }
 }

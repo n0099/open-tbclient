@@ -1,134 +1,80 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
-public abstract class z1a<E> extends a2a<E> {
+public class z1a<T> extends cy9<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final long d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final E[] b;
+    public final xx9<T> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755163481, "Lcom/repackage/z1a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755163481, "Lcom/repackage/z1a;");
-                return;
-            }
-        }
-        c = Integer.getInteger("sparse.shift", 0).intValue();
-        int b = z2a.a.b(Object[].class);
-        if (4 == b) {
-            e = c + 2;
-        } else if (8 == b) {
-            e = c + 3;
-        } else {
-            throw new IllegalStateException("Unknown pointer size");
-        }
-        d = z2a.a.a(Object[].class) + (32 << (e - c));
-    }
-
-    public z1a(int i) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public z1a(cy9<? super T> cy9Var) {
+        this(cy9Var, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {cy9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((cy9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.repackage.xx9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.onCompleted();
+        }
+    }
+
+    @Override // com.repackage.xx9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.e.onError(th);
+        }
+    }
+
+    @Override // com.repackage.xx9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.onNext(t);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z1a(cy9<? super T> cy9Var, boolean z) {
+        super(cy9Var, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cy9Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((cy9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int b = c2a.b(i);
-        this.a = b - 1;
-        this.b = (E[]) new Object[(b << c) + 64];
-    }
-
-    public final long a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? b(j, this.a) : invokeJ.longValue;
-    }
-
-    public final long b(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? d + ((j & j2) << e) : invokeCommon.longValue;
-    }
-
-    public final E c(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) ? (E) z2a.a.e(eArr, j) : (E) invokeLJ.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
-            }
-        }
-    }
-
-    public final E d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? e(this.b, j) : (E) invokeJ.objValue;
-    }
-
-    public final E e(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) ? (E) z2a.a.f(eArr, j) : (E) invokeLJ.objValue;
-    }
-
-    public final void f(E[] eArr, long j, E e2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            z2a.a.j(eArr, j, e2);
-        }
-    }
-
-    public final void g(E[] eArr, long j, E e2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            z2a.a.h(eArr, j, e2);
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
+        this.e = new y1a(cy9Var);
     }
 }

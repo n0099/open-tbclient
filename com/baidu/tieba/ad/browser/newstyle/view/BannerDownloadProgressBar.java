@@ -215,7 +215,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             return;
         }
         this.a = i;
-        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f009a) + this.a + "%";
+        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f009c) + this.a + "%";
         if (this.a == this.g) {
             this.f = "";
         }

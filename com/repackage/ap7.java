@@ -31,7 +31,7 @@ public class ap7 implements Object<List<EmotionPackageData>> {
     public to7 c;
     public wo7 d;
     public View e;
-    public g45 f;
+    public x45 f;
     public FrameLayout g;
     public NoDataView h;
     public boolean i;
@@ -54,14 +54,14 @@ public class ap7 implements Object<List<EmotionPackageData>> {
         }
         this.i = false;
         this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02f1, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02e8, (ViewGroup) null, false);
         this.e = inflate;
-        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923af);
+        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ff);
         this.j = noNetworkView;
         noNetworkView.a(this);
-        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091d18);
-        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0908b7);
-        this.d = new wo7(this.e.findViewById(R.id.obfuscated_res_0x7f0908b6), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0541));
+        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091d6f);
+        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0908af);
+        this.d = new wo7(this.e.findViewById(R.id.obfuscated_res_0x7f0908ae), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0547));
         this.b.setDivider(null);
         this.b.setOverScrollMode(2);
         this.b.setVerticalScrollBarEnabled(false);
@@ -157,7 +157,7 @@ public class ap7 implements Object<List<EmotionPackageData>> {
         f();
         this.g.setVisibility(0);
         if (this.f == null) {
-            this.f = new g45(this.a.getPageActivity());
+            this.f = new x45(this.a.getPageActivity());
         }
         this.f.attachView(this.g, true);
         this.f.onChangeSkinType();
@@ -170,7 +170,7 @@ public class ap7 implements Object<List<EmotionPackageData>> {
         }
         f();
         this.g.setVisibility(0);
-        NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070239)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0543)), null, true);
+        NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, mi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070239)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0549)), null, true);
         this.h = b;
         b.setVisibility(0);
         this.h.d(this.a);

@@ -55,21 +55,21 @@ public class ActionBarAppLandscape extends LinearLayout implements d {
     }
 
     private void a() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0473, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091030);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091034);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09102b);
-        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091033);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09102f);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102d);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0467, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09103f);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091043);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09103a);
+        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091042);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09103e);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09103c);
         this.f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
         this.f.setTextColor(-1);
-        this.g = findViewById(R.id.obfuscated_res_0x7f091064);
+        this.g = findViewById(R.id.obfuscated_res_0x7f091073);
     }
 
     private void a(View view2, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.h).a(this.k).a(view2 == this.f).a(view2 == this.g ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
+        com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(this.h).a(this.k).a(view2 == this.f).a(view2 == this.g ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 if (ActionBarAppLandscape.this.j != null) {

@@ -1,78 +1,210 @@
 package com.repackage;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import android.content.pm.PackageInfo;
+import android.content.pm.Signature;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.security.PublicKey;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateFactory;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 /* loaded from: classes6.dex */
-public class mg1 {
+public final class mg1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public mg1(Context context) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+            } catch (Throwable th) {
+                fg1.d(th);
             }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
+            if (packageInfo == null) {
+                return "";
+            }
+            a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
+            return a;
         }
-        this.a = context;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0020  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String a(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Uri parse;
-        Cursor query;
-        StringBuilder sb;
-        String str3;
+    public static String b(PackageInfo packageInfo, String str) {
+        InterceptResult invokeLL;
+        PublicKey publicKey;
+        byte[] encoded;
+        Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-                } else if (i != 2) {
-                    parse = null;
-                    query = this.a.getContentResolver().query(parse, null, null, null, null);
-                    if (query != null) {
-                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                        query.close();
-                    }
-                    return r0;
-                } else {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-                }
-                sb.append(str3);
-                sb.append(str);
-                str2 = sb.toString();
-            } else {
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
-            }
-            parse = Uri.parse(str2);
-            query = this.a.getContentResolver().query(parse, null, null, null, null);
-            if (query != null) {
-            }
-            return r0;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, packageInfo, str)) != null) {
+            return (String) invokeLL.objValue;
         }
-        return (String) invokeIL.objValue;
+        if (packageInfo != null && (signatureArr = packageInfo.signatures) != null && signatureArr.length > 0 && signatureArr[0] != null) {
+            try {
+                publicKey = c(signatureArr[0]);
+            } catch (Throwable th) {
+                fg1.d(th);
+            }
+            if (publicKey == null) {
+                publicKey = d(str);
+            }
+            return (publicKey == null || (encoded = publicKey.getEncoded()) == null) ? "" : jg1.b(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
+        }
+        publicKey = null;
+        if (publicKey == null) {
+        }
+        if (publicKey == null) {
+            return "";
+        }
+    }
+
+    public static PublicKey c(Signature signature) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signature)) == null) {
+            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(signature.toByteArray());
+            Certificate generateCertificate = certificateFactory.generateCertificate(byteArrayInputStream);
+            try {
+                byteArrayInputStream.close();
+            } catch (Throwable th) {
+                fg1.d(th);
+            }
+            return generateCertificate.getPublicKey();
+        }
+        return (PublicKey) invokeL.objValue;
+    }
+
+    public static PublicKey d(String str) {
+        InterceptResult invokeL;
+        JarFile jarFile;
+        int i;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return (PublicKey) invokeL.objValue;
+        }
+        try {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            byte[] bArr = new byte[8192];
+            try {
+                jarFile = new JarFile(str);
+                try {
+                    Enumeration<JarEntry> entries = jarFile.entries();
+                    Certificate[] certificateArr = null;
+                    while (entries.hasMoreElements()) {
+                        JarEntry nextElement = entries.nextElement();
+                        if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
+                            Certificate[] e = e(jarFile, nextElement, bArr);
+                            if (e != null && e.length > 0) {
+                                if (certificateArr == null) {
+                                    certificateArr = e;
+                                } else {
+                                    while (i < certificateArr.length) {
+                                        int i2 = 0;
+                                        while (true) {
+                                            if (i2 >= e.length) {
+                                                z = false;
+                                                break;
+                                            } else if (certificateArr[i] != null && certificateArr[i].equals(e[i2])) {
+                                                z = true;
+                                                break;
+                                            } else {
+                                                i2++;
+                                            }
+                                        }
+                                        i = (z && certificateArr.length == e.length) ? i + 1 : 0;
+                                        jarFile.close();
+                                        jarFile.close();
+                                        return null;
+                                    }
+                                    continue;
+                                }
+                            }
+                            jarFile.close();
+                            jarFile.close();
+                            return null;
+                        }
+                    }
+                    jarFile.close();
+                    if (certificateArr == null || certificateArr.length <= 0) {
+                        return null;
+                    }
+                    return certificateArr[0].getPublicKey();
+                } catch (Throwable th) {
+                    th = th;
+                    if (jarFile != null) {
+                        jarFile.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                jarFile = null;
+            }
+        } catch (Throwable th3) {
+            fg1.d(th3);
+            return null;
+        }
+    }
+
+    public static Certificate[] e(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+        InterceptResult invokeLLL;
+        BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jarFile, jarEntry, bArr)) != null) {
+            return (Certificate[]) invokeLLL.objValue;
+        }
+        try {
+            bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+            while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
+                try {
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        fg1.d(th);
+                        return new Certificate[0];
+                    } finally {
+                        if (bufferedInputStream != null) {
+                            try {
+                                bufferedInputStream.close();
+                            } catch (Throwable th2) {
+                                fg1.d(th2);
+                            }
+                        }
+                    }
+                }
+            }
+            Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : new Certificate[0];
+            try {
+                bufferedInputStream.close();
+            } catch (Throwable th3) {
+                fg1.d(th3);
+            }
+            return certificates;
+        } catch (Throwable th4) {
+            th = th4;
+            bufferedInputStream = null;
+        }
     }
 }

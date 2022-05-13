@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetVipInfo.VipRank;
 import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes6.dex */
-public class oj7 implements uo {
+public class oj7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class oj7 implements uo {
         String str2 = vipUser.portrait;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

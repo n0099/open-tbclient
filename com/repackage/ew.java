@@ -1,74 +1,60 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Map;
-import kotlin.TypeCastException;
-import kotlin.Unit;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.io.CloseableKt;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
 public final class ew {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final Map<String, Object> a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr.length == 0) {
-                return MapsKt__MapsKt.emptyMap();
-            }
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            try {
-                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                Object readObject = objectInputStream.readObject();
-                if (readObject != null) {
-                    Map<String, Object> map = (Map) readObject;
-                    CloseableKt.closeFinally(objectInputStream, null);
-                    CloseableKt.closeFinally(byteArrayInputStream, null);
-                    return map;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.Any>");
-            } catch (Throwable th) {
-                try {
-                    throw th;
-                } catch (Throwable th2) {
-                    CloseableKt.closeFinally(byteArrayInputStream, th);
-                    throw th2;
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964040813, "Lcom/repackage/ew;")) == null) {
+            return;
         }
-        return (Map) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964040813, "Lcom/repackage/ew;");
+        }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final byte[] b(Map<String, ? extends Object> map) {
+    @JvmStatic
+    @JvmOverloads
+    public static final ot a(Class<? extends wt<zq>> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, map)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            objectOutputStream.writeObject(map);
-            Unit unit = Unit.INSTANCE;
-            CloseableKt.closeFinally(objectOutputStream, null);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            Intrinsics.checkExpressionValueIsNotNull(byteArray, "bytesStream.toByteArray()");
-            CloseableKt.closeFinally(byteArrayOutputStream, null);
-            Intrinsics.checkExpressionValueIsNotNull(byteArray, "ByteArrayOutputStream().…m.toByteArray()\n        }");
-            return byteArray;
-        } finally {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) ? new ot(cls, zq.class) : (ot) invokeL.objValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final pt b(Class<? extends eu<dr>> cls, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, cls, z)) == null) ? new pt(cls, dr.class, z) : (pt) invokeLZ.objValue;
+    }
+
+    @JvmStatic
+    public static final ot c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(fw.class) : (ot) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final pt d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b(gw.class, true) : (pt) invokeV.objValue;
     }
 }

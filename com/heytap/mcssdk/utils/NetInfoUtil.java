@@ -8,7 +8,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,7 +142,7 @@ public class NetInfoUtil {
                 e.printStackTrace();
             }
             int networkClassByType = getNetworkClassByType(i);
-            return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+            return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : "3G" : "2G" : "WIFI";
         }
         return (String) invokeL.objValue;
     }
@@ -221,7 +220,7 @@ public class NetInfoUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
-                return getNetType(context).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
+                return getNetType(context).equals("WIFI");
             } catch (Exception e) {
                 LogUtil.e(e);
                 return false;

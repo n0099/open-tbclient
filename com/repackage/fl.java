@@ -1,67 +1,45 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageDownloadCallback;
-import com.baidu.nps.interfa.IPackageGetCallback;
-import com.baidu.nps.interfa.IPackageGetter;
-import com.baidu.nps.pm.IBundleInfo;
+import android.app.Application;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.nps.interfa.IHostAppRuntime;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+@Singleton
 @Service
 /* loaded from: classes6.dex */
-public class fl implements IPackageGetter {
+public class fl implements IHostAppRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964040193, "Lcom/repackage/fl;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964040193, "Lcom/repackage/fl;");
-        }
-    }
 
     public fl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.nps.interfa.IPackageGetter
-    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
+    @Override // com.baidu.nps.interfa.IHostAppRuntime
+    public Application getApplication() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
-            el.e().f().i(iBundleInfo, str, i, iPackageDownloadCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Log.e("TAG", "" + BdBaseApplication.getInst());
+            return BdBaseApplication.getInst();
         }
-    }
-
-    @Override // com.baidu.nps.interfa.IPackageGetter
-    public void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iPackageGetCallback) == null) {
-            el.e().f().k(list, iPackageGetCallback);
-        }
+        return (Application) invokeV.objValue;
     }
 }

@@ -26,33 +26,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.cv8;
-import com.repackage.dv8;
-import com.repackage.ni;
-import com.repackage.pg;
-import com.repackage.xt4;
-import com.repackage.yu8;
-import com.repackage.zu8;
+import com.repackage.au8;
+import com.repackage.ku4;
+import com.repackage.li;
+import com.repackage.ng;
+import com.repackage.nr4;
+import com.repackage.vt8;
+import com.repackage.wt8;
+import com.repackage.zt8;
 /* loaded from: classes4.dex */
-public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements zu8 {
+public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements wt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isComplite;
     public boolean isContinuePlay;
     public boolean isDontDisplaytAgain;
     public ImageView mClose;
-    public yu8 mDialog;
+    public vt8 mDialog;
     public View mErrorContainer;
     public MediaPlayer.OnInfoListener mInfoListener;
     public int mLastPlayPosition;
     public TextView mLoadErrorText;
     public TextView mPlayText;
-    public xt4 mProgressDialog;
+    public ku4 mProgressDialog;
     public ImageView mShare;
     public int mSkinType;
     public Runnable mTimeoutRunnable;
-    public cv8 mVideoEasterEggPresenter;
+    public zt8 mVideoEasterEggPresenter;
     public ScaleVideoView mVideoView;
 
     /* loaded from: classes4.dex */
@@ -89,7 +89,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     }
 
     /* loaded from: classes4.dex */
-    public class b implements cr4.e {
+    public class b implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoEasterEggActivity a;
@@ -112,12 +112,12 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             this.a = videoEasterEggActivity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 if (this.a.mVideoEasterEggPresenter != null) {
-                    this.a.mVideoEasterEggPresenter.c();
+                    this.a.mVideoEasterEggPresenter.d();
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_REPLAY));
                 }
                 this.a.mDialog.dismiss();
@@ -126,7 +126,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     }
 
     /* loaded from: classes4.dex */
-    public class c implements cr4.e {
+    public class c implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoEasterEggActivity a;
@@ -149,12 +149,12 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             this.a = videoEasterEggActivity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 if (this.a.mVideoEasterEggPresenter != null) {
-                    this.a.mVideoEasterEggPresenter.e();
+                    this.a.mVideoEasterEggPresenter.b();
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).param("obj_locate", 2));
                 }
                 this.a.mDialog.dismiss();
@@ -190,7 +190,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.isDontDisplaytAgain) {
-                this.a.mVideoEasterEggPresenter.b();
+                this.a.mVideoEasterEggPresenter.c();
             }
         }
     }
@@ -260,7 +260,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
                 if (i == 3) {
                     this.a.setVideoMask(false);
-                    pg.a().removeCallbacks(this.a.mTimeoutRunnable);
+                    ng.a().removeCallbacks(this.a.mTimeoutRunnable);
                 }
                 return false;
             }
@@ -332,7 +332,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.mVideoEasterEggPresenter == null) {
                 return;
             }
-            this.a.mVideoEasterEggPresenter.e();
+            this.a.mVideoEasterEggPresenter.b();
             this.a.pauseVideo();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).param("obj_locate", 1));
         }
@@ -407,7 +407,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 this.a.isComplite = true;
                 if (this.a.mVideoEasterEggPresenter != null) {
-                    this.a.mVideoEasterEggPresenter.d();
+                    this.a.mVideoEasterEggPresenter.e();
                 }
             }
         }
@@ -525,7 +525,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.mVideoEasterEggPresenter == null) {
                 return;
             }
-            this.a.mVideoEasterEggPresenter.c();
+            this.a.mVideoEasterEggPresenter.d();
         }
     }
 
@@ -550,37 +550,37 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         this.mInfoListener = new f(this);
     }
 
-    private yu8 buildDialog(String str, String str2) {
+    private vt8 buildDialog(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, str, str2)) == null) {
-            yu8 yu8Var = new yu8(this);
-            this.mDialog = yu8Var;
-            yu8Var.e(str2);
-            if (ni.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0512);
+            vt8 vt8Var = new vt8(this);
+            this.mDialog = vt8Var;
+            vt8Var.e(str2);
+            if (li.isEmpty(str)) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0518);
             }
             this.mDialog.f(str);
-            this.mDialog.d(R.string.obfuscated_res_0x7f0f0511, new a(this));
-            this.mDialog.g(R.string.obfuscated_res_0x7f0f050f, new b(this));
-            this.mDialog.h(R.string.obfuscated_res_0x7f0f0510, new c(this));
+            this.mDialog.d(R.string.obfuscated_res_0x7f0f0517, new a(this));
+            this.mDialog.g(R.string.obfuscated_res_0x7f0f0515, new b(this));
+            this.mDialog.h(R.string.obfuscated_res_0x7f0f0516, new c(this));
             this.mDialog.setOnDismissListener(new d(this));
             this.mDialog.create(getPageContext());
             return this.mDialog;
         }
-        return (yu8) invokeLL.objValue;
+        return (vt8) invokeLL.objValue;
     }
 
     private void initErrorContainer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.mErrorContainer = findViewById(R.id.obfuscated_res_0x7f090909);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fa);
+            this.mErrorContainer = findViewById(R.id.obfuscated_res_0x7f090901);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091309);
             this.mLoadErrorText = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0a2f);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09185b);
+            textView.setText(R.string.obfuscated_res_0x7f0f0a35);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0918b3);
             this.mPlayText = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f043b);
+            textView2.setText(R.string.obfuscated_res_0x7f0f0443);
             this.mPlayText.setOnClickListener(new m(this));
             this.mErrorContainer.setVisibility(8);
         }
@@ -589,10 +589,10 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09066c);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090664);
             this.mClose = imageView;
             imageView.setOnClickListener(new g(this));
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ca5);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf0);
             this.mShare = imageView2;
             imageView2.setOnClickListener(new h(this));
         }
@@ -601,9 +601,9 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.mProgressDialog = new xt4(getPageContext());
+            this.mProgressDialog = new ku4(getPageContext());
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0871);
+            setContentView(R.layout.obfuscated_res_0x7f0d0868);
             initNavigationBar();
             initVideoView();
             initErrorContainer();
@@ -614,7 +614,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     private void initVideoView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            ScaleVideoView scaleVideoView = (ScaleVideoView) findViewById(R.id.obfuscated_res_0x7f091be5);
+            ScaleVideoView scaleVideoView = (ScaleVideoView) findViewById(R.id.obfuscated_res_0x7f091c33);
             this.mVideoView = scaleVideoView;
             scaleVideoView.setOnErrorListener(new i(this));
             this.mVideoView.setOnCompletionListener(new j(this));
@@ -640,16 +640,16 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, this, z) == null) {
             if (z) {
-                xt4 xt4Var = this.mProgressDialog;
-                if (xt4Var != null && !xt4Var.c()) {
+                ku4 ku4Var = this.mProgressDialog;
+                if (ku4Var != null && !ku4Var.c()) {
                     this.mProgressDialog.h(true);
                 }
                 this.mVideoView.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
                 return;
             }
-            xt4 xt4Var2 = this.mProgressDialog;
-            if (xt4Var2 != null) {
-                xt4Var2.h(false);
+            ku4 ku4Var2 = this.mProgressDialog;
+            if (ku4Var2 != null) {
+                ku4Var2.h(false);
             }
             this.mVideoView.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
         }
@@ -671,7 +671,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // com.repackage.zu8
+    @Override // com.repackage.wt8
     public void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -698,8 +698,8 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         SkinManager.setViewTextColor(this.mLoadErrorText, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.mPlayText, (int) R.color.CAM_X0101);
         SkinManager.setBackgroundResource(this.mPlayText, R.drawable.continue_play_bg);
-        SkinManager.setImageResource(this.mClose, R.drawable.obfuscated_res_0x7f08071e);
-        SkinManager.setImageResource(this.mShare, R.drawable.obfuscated_res_0x7f080723);
+        SkinManager.setImageResource(this.mClose, R.drawable.obfuscated_res_0x7f080706);
+        SkinManager.setImageResource(this.mShare, R.drawable.obfuscated_res_0x7f08070b);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -708,7 +708,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             UtilHelper.useNavigationBarStyleImmersiveSticky(this, true);
-            this.mVideoEasterEggPresenter = new dv8(getPageContext(), this, getIntent());
+            this.mVideoEasterEggPresenter = new au8(getPageContext(), this, getIntent());
             initUI();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHOW));
         }
@@ -719,9 +719,9 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            cv8 cv8Var = this.mVideoEasterEggPresenter;
-            if (cv8Var != null) {
-                cv8Var.onDestroy();
+            zt8 zt8Var = this.mVideoEasterEggPresenter;
+            if (zt8Var != null) {
+                zt8Var.onDestroy();
             }
         }
     }
@@ -732,9 +732,9 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
             pauseVideo();
-            cv8 cv8Var = this.mVideoEasterEggPresenter;
-            if (cv8Var != null) {
-                cv8Var.onPause();
+            zt8 zt8Var = this.mVideoEasterEggPresenter;
+            if (zt8Var != null) {
+                zt8Var.onPause();
             }
         }
     }
@@ -744,14 +744,14 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            cv8 cv8Var = this.mVideoEasterEggPresenter;
-            if (cv8Var != null) {
-                cv8Var.onResume();
+            zt8 zt8Var = this.mVideoEasterEggPresenter;
+            if (zt8Var != null) {
+                zt8Var.onResume();
             }
         }
     }
 
-    @Override // com.repackage.zu8
+    @Override // com.repackage.wt8
     public void rePlayVideo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
@@ -763,7 +763,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // com.repackage.zu8
+    @Override // com.repackage.wt8
     public void showDialog(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
@@ -774,21 +774,21 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // com.repackage.zu8
+    @Override // com.repackage.wt8
     public void showErrorView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            pg.a().removeCallbacks(this.mTimeoutRunnable);
+            ng.a().removeCallbacks(this.mTimeoutRunnable);
             this.mVideoView.pause();
             this.mProgressDialog.h(false);
             this.mErrorContainer.setVisibility(0);
         }
     }
 
-    @Override // com.repackage.zu8
+    @Override // com.repackage.wt8
     public void startPlayVideo(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || ni.isEmpty(str) || this.mVideoView.isPlaying() || this.isComplite) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || li.isEmpty(str) || this.mVideoView.isPlaying() || this.isComplite) {
             return;
         }
         if (this.isContinuePlay) {
@@ -796,7 +796,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             this.isContinuePlay = false;
         } else {
             this.mVideoView.setVideoURI(Uri.parse(str));
-            pg.a().postDelayed(this.mTimeoutRunnable, 5000L);
+            ng.a().postDelayed(this.mTimeoutRunnable, 5000L);
         }
         this.mVideoView.start();
     }

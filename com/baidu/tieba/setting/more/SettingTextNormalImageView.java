@@ -57,7 +57,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040581, R.attr.obfuscated_res_0x7f040582, R.attr.obfuscated_res_0x7f040583, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f040585, R.attr.obfuscated_res_0x7f040586});
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040586, R.attr.obfuscated_res_0x7f040587, R.attr.obfuscated_res_0x7f040588, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058a, R.attr.obfuscated_res_0x7f04058b});
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -75,11 +75,11 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0766, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e0f);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ab);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d075a, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906cd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f60);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090dff);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a1);
         }
     }
 

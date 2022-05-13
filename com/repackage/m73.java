@@ -1,177 +1,149 @@
 package com.repackage;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gl2;
-import org.json.JSONException;
+import com.repackage.rl2;
+import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m73 extends l73 {
+public final class m73 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanCoreVersion k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
 
-    public m73() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755546424, "Lcom/repackage/m73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755546424, "Lcom/repackage/m73;");
                 return;
             }
         }
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = "";
-        this.q = "";
-        this.r = "";
-        this.s = "";
-        this.t = "";
-        b73.i(this);
-        b73.h(this);
-        b73.f(this);
-        b73.g(this);
+        boolean z = eh1.a;
+        a = 0;
     }
 
-    @Override // com.repackage.l73
-    public JSONObject f() {
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        rl2.a V = t03.J().r().V();
+        String i = z93.i(V.j0(), V.G());
+        if (!jSONObject.has("appid")) {
+            ud3.f(jSONObject, "appid", V.H());
+        }
+        if (!jSONObject.has("swan")) {
+            ud3.f(jSONObject, "swan", i);
+        }
+        if (!jSONObject.has("appversion")) {
+            ud3.f(jSONObject, "appversion", V.v1());
+        }
+        if (!jSONObject.has("swanNativeVersion")) {
+            ud3.f(jSONObject, "swanNativeVersion", fh1.a());
+        }
+        if (!jSONObject.has("thirdversion")) {
+            ud3.f(jSONObject, "thirdversion", V.w1());
+        }
+        if (!t03.J().r().x0() || jSONObject.has("isWebDowngrade")) {
+            return;
+        }
+        ud3.f(jSONObject, "isWebDowngrade", "1");
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String o = me3.o(str);
+            if (TextUtils.isEmpty(o)) {
+                return str;
+            }
+            HashSet hashSet = new HashSet();
+            hashSet.add("bduss");
+            hashSet.add("bduss".toUpperCase());
+            String i = me3.i(o, hashSet);
+            String f = me3.f(str);
+            return f + "?" + i;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                j03 D = wl2.U().D();
-                String i = o93.i(this.k, TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
-                if (D != null && D.X() != null) {
-                    gl2.a X = D.X();
-                    if (TextUtils.isEmpty(this.l)) {
-                        this.l = D.j0();
-                    }
-                    if (TextUtils.isEmpty(this.m)) {
-                        this.m = X.w1();
-                    }
-                    Bundle P = X.P();
-                    if (P != null) {
-                        this.o = P.getString("aiapp_extra_need_download", "");
-                    }
-                    if (TextUtils.isEmpty(this.p)) {
-                        this.p = X.W();
-                    }
-                    this.p = b73.b(this.p);
-                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(X.e0())) {
-                        this.s = X.e0();
-                    }
-                    String b = b73.b(this.s);
-                    this.s = b;
-                    if (b == null) {
-                        this.s = "";
-                    }
-                    if (TextUtils.isEmpty(this.u)) {
-                        this.u = X.V();
-                    }
-                }
-                this.n = SwanAppNetworkUtils.f().type;
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                this.h.put("swan", i);
-                this.h.put("appversion", this.l);
-                this.h.put("thirdversion", this.m);
-                this.h.put("net", this.n);
-                this.h.put("needdown", this.o);
-                this.h.put("scheme", this.p);
-                this.h.put("page", this.s);
-                this.h.put("launchid", this.u);
-                if (!TextUtils.isEmpty(this.t)) {
-                    this.h.put("error_code", this.t);
-                }
-                if (!TextUtils.isEmpty(this.q)) {
-                    this.h.put("canceltime", this.q);
-                }
-                if (!TextUtils.isEmpty(this.r)) {
-                    this.h.put("successtime", this.r);
-                }
-                if (l73.j) {
-                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
-                }
-            } catch (JSONException e) {
-                if (l73.j) {
-                    e.printStackTrace();
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.intValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            a = i;
+        }
+    }
+
+    public static <EvenT extends w73> EvenT e(EvenT event, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
+            if (event != null && !TextUtils.isEmpty(str)) {
+                event.a(str, obj);
             }
-            return super.f();
+            return event;
         }
-        return (JSONObject) invokeV.objValue;
+        return (EvenT) invokeLLL.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public static <EvenT extends w73> EvenT f(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.u : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
+            e(event, "isDownloading", String.valueOf(t03.J().r().E0() ? 1 : 0));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
     }
 
-    public void h(jl2 jl2Var) {
+    public static <EvenT extends w73> EvenT g(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jl2Var) == null) {
-            if (jl2Var == null) {
-                if (l73.j) {
-                    Log.w("SwanAppUBCEvent", "launchinfo is null");
-                    return;
-                }
-                return;
-            }
-            this.f = jl2Var.H();
-            this.c = jl2Var.T();
-            this.o = jl2Var.s0().getString("aiapp_extra_need_download", "");
-            this.p = jl2Var.W();
-            this.s = jl2Var.e0();
-            this.u = jl2Var.V();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
+            e(event, "launchType", c() == 2 ? "2" : "1");
+            return event;
         }
+        return (EvenT) invokeL.objValue;
     }
 
-    public void i(jl2 jl2Var) {
+    public static <EvenT extends w73> EvenT h(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jl2Var) == null) {
-            h(jl2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
+            e(event, "packageState", String.valueOf(t03.J().r().D0()));
+            return event;
         }
+        return (EvenT) invokeL.objValue;
     }
 
-    public void j(jl2 jl2Var) {
+    public static <EvenT extends w73> EvenT i(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jl2Var) == null) {
-            h(jl2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
+            e(event, "coreState", String.valueOf(o72.B0()));
+            return event;
         }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.u = str;
-        }
+        return (EvenT) invokeL.objValue;
     }
 }

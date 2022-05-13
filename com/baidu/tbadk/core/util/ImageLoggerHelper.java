@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.net.URL;
 /* loaded from: classes3.dex */
 public class ImageLoggerHelper {
@@ -83,7 +83,7 @@ public class ImageLoggerHelper {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetCdnIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0 || oi.B()) {
+                if (indexOf <= 0 || mi.B()) {
                     return "";
                 }
                 this.lastGetCdnIpTime = currentTimeMillis;
@@ -103,7 +103,7 @@ public class ImageLoggerHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetTiebaIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                if (oi.B()) {
+                if (mi.B()) {
                     return "";
                 }
                 this.lastGetTiebaIpTime = currentTimeMillis;

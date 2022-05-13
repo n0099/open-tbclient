@@ -1,33 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Bundle;
-import java.util.Map;
+import android.graphics.drawable.Drawable;
+import com.baidu.tieba.video.VideoItemModel;
+import com.repackage.xa8;
 /* loaded from: classes7.dex */
 public interface y98 {
+    void onDestroy();
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        int a(Context context, String[] strArr);
-    }
+    void onPause();
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        int a(Context context, Map<String, String> map);
-    }
+    void onPrimary(boolean z);
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
-    }
+    void onUserVisibleHint(boolean z);
 
-    /* loaded from: classes7.dex */
-    public interface d {
-    }
+    void onViewClick();
 
-    boolean a(String str);
+    void onViewDoubleClick();
 
-    void b(Context context, String[] strArr, boolean z, Bundle bundle);
+    void onViewDragToRight();
 
-    boolean c(Context context, String[] strArr, Bundle bundle);
+    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
+
+    void setPageChangeHandler(xa8.a aVar, int i);
+
+    void updateTiebaData(int i, VideoItemModel videoItemModel);
 }

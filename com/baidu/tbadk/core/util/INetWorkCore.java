@@ -24,8 +24,6 @@ public interface INetWorkCore {
 
     ArrayList<BasicNameValuePair> getPostData();
 
-    String getSeqId();
-
     boolean isCancel();
 
     String postMultiNetData();
@@ -33,8 +31,6 @@ public interface INetWorkCore {
     String postNetData();
 
     void setCancel();
-
-    void setIsBaiduServer(boolean z);
 
     void setPostData(ArrayList<BasicNameValuePair> arrayList);
 }

@@ -1,19 +1,59 @@
 package com.repackage;
 
-import com.baidu.live.business.model.data.LiveHostInfo;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class q90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<p90> a;
+    public String a;
+    public long b;
+    public boolean c;
+    public a d;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public int b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    a aVar = new a();
+                    aVar.a = jSONObject.optInt("enable") == 1;
+                    aVar.b = jSONObject.optInt("max_auto_play_count");
+                    return aVar;
+                }
+                return null;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
 
     public q90() {
         Interceptable interceptable = $ic;
@@ -29,39 +69,45 @@ public class q90 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public void a(JSONObject jSONObject, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optInt("inner_errno");
-        jSONObject.optString("inner_msg");
-        JSONArray optJSONArray = jSONObject.optJSONArray("items");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                if (optJSONObject2 != null) {
-                    p90 p90Var = new p90();
-                    p90Var.a(optJSONObject2);
-                    this.a.add(p90Var);
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, jSONObject, z) == null) {
+            if (jSONObject != null) {
+                this.a = jSONObject.optString("start_live_scheme");
+                this.b = jSONObject.optLong("timeout_refresh_time");
+                this.c = jSONObject.optInt("feed_search_switch") == 1;
+                this.d = a.a(jSONObject.optJSONObject("auto_play"));
+                if (z) {
+                    da0.f("live_feed_page_config_cache_key", jSONObject.toString());
+                }
+            } else if (z) {
+                String b = da0.b("live_feed_page_config_cache_key", "");
+                if (TextUtils.isEmpty(b)) {
+                    return;
+                }
+                try {
+                    JSONObject jSONObject2 = new JSONObject(b);
+                    this.a = jSONObject2.optString("start_live_scheme");
+                    this.b = jSONObject2.optLong("timeout_refresh_time");
+                    this.c = jSONObject2.optInt("feed_search_switch") == 1;
+                    this.d = a.a(jSONObject2.optJSONObject("auto_play"));
+                } catch (JSONException unused) {
+                    da0.g("live_feed_page_config_cache_key");
                 }
             }
         }
-        if (ob0.c(this.a) || (optJSONObject = jSONObject.optJSONObject("more")) == null) {
-            return;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            a aVar = this.d;
+            if (aVar != null) {
+                return aVar.a;
+            }
+            return false;
         }
-        String optString = optJSONObject.optString("scheme");
-        if (ub0.a(optString)) {
-            return;
-        }
-        p90 p90Var2 = new p90();
-        p90Var2.d = optString;
-        p90Var2.a = true;
-        LiveHostInfo liveHostInfo = new LiveHostInfo();
-        liveHostInfo.name = optJSONObject.optString("txt");
-        p90Var2.e = liveHostInfo;
-        this.a.add(p90Var2);
+        return invokeV.booleanValue;
     }
 }

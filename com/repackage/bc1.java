@@ -1,131 +1,69 @@
 package com.repackage;
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public abstract class bc1 {
+public class bc1<T> implements dc1<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, bc1> a;
-    public static final ConcurrentHashMap<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public T a;
+    public ac1<T> b;
+    public ac1<T> c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755831903, "Lcom/repackage/bc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755831903, "Lcom/repackage/bc1;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-        b = new ConcurrentHashMap<>();
-    }
-
-    public static void a(String str, IBinder iBinder, boolean z) {
+    public bc1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, iBinder, z) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                if (a.get(str) == null) {
-                    b bVar = new b(null);
-                    bVar.a = iBinder;
-                    bVar.b = z;
-                    b.put(str, bVar);
-                    return;
-                }
-                throw new IllegalArgumentException();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            throw new SecurityException();
         }
     }
 
-    public static IBinder d(String str) {
-        InterceptResult invokeL;
+    public static bc1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            bc1 bc1Var = a.get(str);
-            if (bc1Var != null) {
-                bc1Var.b();
-                return bc1Var.c();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new bc1() : (bc1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dc1
+    public void a(ac1<T> ac1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ac1Var) == null) {
+            this.b = ac1Var;
+            this.a = null;
+        }
+    }
+
+    @Override // com.repackage.dc1
+    public T get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.a;
+            if (t != null) {
+                return t;
             }
-            b bVar = b.get(str);
-            if (bVar != null) {
-                if (!bVar.b && Binder.getCallingUid() != Process.myUid()) {
-                    throw new SecurityException();
-                }
-                return bVar.a;
+            ac1<T> ac1Var = this.b;
+            if (ac1Var != null) {
+                T t2 = ac1Var.get();
+                this.a = t2;
+                return t2;
+            }
+            ac1<T> ac1Var2 = this.c;
+            if (ac1Var2 != null) {
+                return ac1Var2.get();
             }
             return null;
         }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                return b.remove(str) != null;
-            }
-            throw new SecurityException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && Binder.getCallingUid() != Process.myUid()) {
-            throw new SecurityException();
-        }
-    }
-
-    public abstract IBinder c();
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public IBinder a;
-        public boolean b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = false;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
+        return (T) invokeV.objValue;
     }
 }

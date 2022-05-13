@@ -108,7 +108,7 @@ public class SwiperIndicatorView extends View {
             paint.setStyle(Paint.Style.FILL);
             int indicatorDefaultColor = getIndicatorDefaultColor();
             if (indicatorDefaultColor == Integer.MAX_VALUE) {
-                this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0606d0));
+                this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0606d3));
             } else {
                 this.mPaint.setColor(indicatorDefaultColor);
             }
@@ -207,7 +207,7 @@ public class SwiperIndicatorView extends View {
                     if (i == this.mCurrentIndex) {
                         int indicateSelectedColor = getIndicateSelectedColor();
                         if (indicateSelectedColor == Integer.MAX_VALUE) {
-                            this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606d1));
+                            this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606d4));
                         } else {
                             this.mPaint.setColor(indicateSelectedColor);
                         }
@@ -221,7 +221,7 @@ public class SwiperIndicatorView extends View {
                     } else {
                         int indicatorDefaultColor = getIndicatorDefaultColor();
                         if (indicatorDefaultColor == Integer.MAX_VALUE) {
-                            this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606d0));
+                            this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606d3));
                         } else {
                             this.mPaint.setColor(indicatorDefaultColor);
                         }

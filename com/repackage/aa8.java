@@ -1,27 +1,9 @@
 package com.repackage;
-
-import android.view.View;
 /* loaded from: classes5.dex */
 public interface aa8 {
-    void autoPlay(int i);
+    void onDestroy();
 
-    boolean canPlay();
+    void onPause();
 
-    long getCurrentPosition();
-
-    int getPlayStatus();
-
-    String getPlayUrl();
-
-    View getVideoContainer();
-
-    boolean isPlayStarted();
-
-    boolean isPlaying();
-
-    void release();
-
-    void startPlay();
-
-    void stopPlay();
+    void onResume();
 }

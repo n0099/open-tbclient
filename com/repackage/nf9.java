@@ -1,101 +1,64 @@
 package com.repackage;
 
-import android.os.SystemClock;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.internal.api.Module;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.jl9;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 /* loaded from: classes6.dex */
-public final class nf9 {
+public class nf9 implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ if9 b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(ll9 ll9Var);
-    }
-
-    public static <T extends lf9> T a(Random random, List<T> list, of9<T> of9Var) {
-        InterceptResult invokeLLL;
+    public nf9(if9 if9Var, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, of9Var)) == null) {
-            if (random == null || list == null || list.isEmpty()) {
-                return null;
-            }
-            LogPrinter.v("Start select for class:%s with size:%d", list.iterator().next().getClass().getSimpleName(), Integer.valueOf(list.size()));
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            T t = null;
-            for (int i = 0; i < size; i++) {
-                T t2 = list.get(i);
-                if (of9Var != null) {
-                    if (!of9Var.a(t2)) {
-                        continue;
-                    }
-                    if (t == null && t2.b() != t.b()) {
-                        break;
-                    }
-                    arrayList.add(t2);
-                    t = t2;
-                } else {
-                    if (!t2.a()) {
-                        continue;
-                    }
-                    if (t == null) {
-                    }
-                    arrayList.add(t2);
-                    t = t2;
-                }
-            }
-            if (arrayList.isEmpty()) {
-                LogPrinter.v("No one is selected", new Object[0]);
-                return null;
-            }
-            return (T) arrayList.get(random.nextInt(arrayList.size()));
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static void b(long j, a aVar, Map<String, PidLoaderCreator> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), aVar, map}) == null) {
-            jl9.a aVar2 = jl9.a;
-            aVar2.a = System.currentTimeMillis() - 0;
-            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
-            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
-            aVar.a(new ll9(map));
-        }
-    }
-
-    public static void c(String str, String str2, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map, String str3) {
-        Module module;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, funAdConfig, map, str3) == null) {
-            try {
-                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
-                LogPrinter.d("Module for %s created", str2);
-            } catch (Exception e) {
-                LogPrinter.e(e, "Module for %s not found", str2);
-                module = null;
-            }
-            if (module == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {if9Var, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            PidLoaderCreator init = module.init(funAdConfig, str3);
-            if (init == null) {
-                LogPrinter.e("Module for %s init failed", str);
-            } else {
-                map.put(str, init);
+        }
+        this.b = if9Var;
+        this.a = view2;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.d("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            if (this.a.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
+            this.b.onAdClose();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

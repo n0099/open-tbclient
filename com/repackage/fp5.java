@@ -1,8 +1,6 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,18 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fp5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +28,7 @@ public class fp5 extends BaseCardInfo {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public fp5() {
@@ -54,24 +45,10 @@ public class fp5 extends BaseCardInfo {
         }
     }
 
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("user_id");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString("user_nickname");
-        this.d = jSONObject.optString("portrait");
-        this.e = jSONObject.optString("user_brief");
-        jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
-        this.f = jSONObject.optString("remark");
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

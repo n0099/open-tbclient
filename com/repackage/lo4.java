@@ -1,21 +1,18 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ColorEgg;
+import org.json.JSONObject;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes6.dex */
 public class lo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public int b;
 
     public lo4() {
         Interceptable interceptable = $ic;
@@ -27,44 +24,31 @@ public class lo4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public boolean c(ColorEgg colorEgg) {
-        InterceptResult invokeL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
-            this.b = 0;
-            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
-                return false;
-            }
-            for (String str : colorEgg.holiday_words) {
-                if (!StringUtils.isNull(str)) {
-                    this.a.add(str);
-                }
-            }
-            if (this.a.size() <= 0) {
-                return false;
-            }
-            this.b = colorEgg.style_flag.intValue();
-            return true;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        try {
+            jSONObject.optInt("badge_id", 0);
+            jSONObject.optString("badge_url", "");
+            jSONObject.optString(AlbumActivityConfig.FROM_WEB_VIEW);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void b(Badges badges) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, badges) == null) || badges == null) {
+            return;
+        }
+        badges.badge_id.intValue();
+        String str = badges.badge_url;
+        String str2 = badges.webview;
     }
 }

@@ -1,25 +1,27 @@
 package com.repackage;
 
-import android.net.Uri;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import com.repackage.ba4;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i84 {
+public class i84 implements ba4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Class<?>, h84> a;
-    public ConcurrentHashMap<Class<?>, Uri> b;
+    public final h84 a;
 
-    public i84() {
+    public i84(@Nullable h84 h84Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h84Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,40 +31,56 @@ public class i84 {
                 return;
             }
         }
-        c();
+        this.a = h84Var;
     }
 
-    public <T> h84<T> a(Class<T> cls) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ba4.a
+    public void a(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? this.a.get(cls) : (h84) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+        }
     }
 
-    public <T> Uri b(Class<T> cls) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ba4.a
+    public void b(String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? this.b.get(cls) : (Uri) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
+                    if (optJSONObject2 != null) {
+                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
+                    }
+                }
+                if (this.a != null) {
+                    this.a.a(hashMap);
+                }
+            } catch (Exception e) {
+                h84 h84Var = this.a;
+                if (h84Var != null) {
+                    h84Var.onFail(e);
+                }
+            }
+        }
     }
 
-    public final void c() {
+    @Override // com.repackage.ba4.a
+    public void onFail(Exception exc) {
+        h84 h84Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = new ConcurrentHashMap<>();
-            this.b = new ConcurrentHashMap<>();
-            this.a.put(g94.class, new l84());
-            this.a.put(h94.class, new m84());
-            this.a.put(e94.class, new k84());
-            this.a.put(c94.class, new j84());
-            this.a.put(PMSAppInfo.class, new g84());
-            this.a.put(i94.class, new n84());
-            this.a.put(j94.class, new o84());
-            this.b.put(g94.class, y84.f);
-            this.b.put(h94.class, y84.g);
-            this.b.put(e94.class, y84.d);
-            this.b.put(c94.class, y84.h);
-            this.b.put(PMSAppInfo.class, y84.e);
-            this.b.put(i94.class, y84.i);
-            this.b.put(j94.class, y84.j);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (h84Var = this.a) == null) {
+            return;
+        }
+        h84Var.onFail(exc);
+    }
+
+    @Override // com.repackage.ba4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 }

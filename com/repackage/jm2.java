@@ -1,40 +1,11 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class jm2 implements pb1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jm2 {
+    void a(cn1 cn1Var);
 
-    public jm2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(cn1 cn1Var);
 
-    @Override // com.repackage.pb1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new a92());
-            arrayList.add(new c92());
-            return arrayList;
-        }
-        return invokeV.objValue;
-    }
+    void c(cn1 cn1Var);
+
+    void d(cn1 cn1Var);
 }

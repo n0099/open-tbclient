@@ -1,118 +1,143 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qz2;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dp1 extends cp1 {
+public class dp1 extends zo1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes5.dex */
+    public class a implements nf3<x53<JSONObject>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ dp1 b;
+
+        public a(dp1 dp1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dp1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dp1Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(x53<JSONObject> x53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
+                us1 us1Var = new us1();
+                String z = this.b.z(x53Var);
+                if (TextUtils.isEmpty(z)) {
+                    us1Var.b = 1001;
+                    us1Var.c = "openid is empty";
+                    this.b.d(this.a, us1Var);
+                    return;
+                }
+                us1Var.g("openid", z);
+                us1Var.b = 0;
+                this.b.d(this.a, us1Var);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755759828, "Lcom/repackage/dp1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755759828, "Lcom/repackage/dp1;");
+                return;
+            }
+        }
+        f = eh1.a;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dp1(@NonNull ko1 ko1Var) {
-        super(ko1Var);
+    public dp1(@NonNull vo1 vo1Var) {
+        super(vo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ko1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vo1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ko1) newInitContext.callArgs[0]);
+                super((vo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.repackage.mo1
+    @Override // com.repackage.xo1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "OpenIdApi" : (String) invokeV.objValue;
     }
 
-    public js1 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#hideLoading", false);
-            Context context = getContext();
-            if (!(context instanceof SwanAppActivity)) {
-                return new js1(1001, "context not support");
-            }
-            sz1 swanAppFragmentManager = ((SwanAppActivity) context).getSwanAppFragmentManager();
-            if (swanAppFragmentManager == null) {
-                return new js1(1001, "none fragmentManger");
-            }
-            pz1 m = swanAppFragmentManager.m();
-            if (!(m instanceof qz2.a)) {
-                return new js1(1001, "fragment not support");
-            }
-            if (m.getContext() == null) {
-                return new js1(1001, "fragment has detached");
-            }
-            rz2.c(m);
-            jx1.i("LoadingViewApi", "hide loading success");
-            return js1.f();
-        }
-        return (js1) invokeV.objValue;
-    }
-
-    public js1 y(String str) {
+    public us1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#showLoading", false);
-            if (n()) {
-                jx1.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
-                return new js1(1001, "LoadingViewApi does not supported when app is invisible.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#getOpenId", false);
+            if (f) {
+                Log.d("OpenIdApi", "#getOpenId params = " + str);
             }
-            Pair<js1, JSONObject> s = s(str);
-            js1 js1Var = (js1) s.first;
-            if (js1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                jx1.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
-                String optString = jSONObject.optString("title");
-                if (TextUtils.isEmpty(optString)) {
-                    return new js1(202, "none title");
-                }
-                boolean optBoolean = jSONObject.optBoolean("mask", false);
-                Context context = getContext();
-                if (!(context instanceof SwanAppActivity)) {
-                    return new js1(1001, "context not support");
-                }
-                sz1 swanAppFragmentManager = ((SwanAppActivity) context).getSwanAppFragmentManager();
-                if (swanAppFragmentManager == null) {
-                    return new js1(1001, "none fragment");
-                }
-                pz1 m = swanAppFragmentManager.m();
-                if (!(m instanceof qz2.a)) {
-                    return new js1(1001, "fragment not support");
-                }
-                qz2 floatLayer = ((qz2.a) m).getFloatLayer();
-                if (floatLayer == null) {
-                    return new js1(1001, "can't get floatLayer");
-                }
-                rz2.f(floatLayer, context, optString, optBoolean);
-                jx1.i("LoadingViewApi", "show loading success");
-                return js1.f();
+            Pair<us1, JSONObject> s = s(str);
+            if (!((us1) s.first).isSuccess()) {
+                return (us1) s.first;
             }
-            return js1Var;
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new us1(202, "cb is empty");
+            }
+            b63 f2 = t03.J().y().a().b().f(t03.J());
+            f2.o(new a(this, optString));
+            f2.call();
+            return us1.f();
         }
-        return (js1) invokeL.objValue;
+        return (us1) invokeL.objValue;
+    }
+
+    public final String z(x53<JSONObject> x53Var) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x53Var)) == null) ? (!x53Var.c() || (jSONObject = x53Var.a) == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? "" : optJSONObject.optString("openid") : (String) invokeL.objValue;
     }
 }

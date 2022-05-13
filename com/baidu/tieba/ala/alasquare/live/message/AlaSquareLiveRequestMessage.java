@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jd5;
+import com.repackage.ki;
 import com.repackage.mi;
-import com.repackage.oi;
-import com.repackage.rc5;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
 /* loaded from: classes3.dex */
@@ -53,13 +53,13 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.pn = this.mPn;
-                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
-                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(mi.k(TbadkCoreApplication.getInst()));
+                builder.scr_h = Integer.valueOf(mi.i(TbadkCoreApplication.getInst()));
                 builder.q_type = 0;
-                builder.scr_dip = Integer.valueOf((int) oi.h(TbadkCoreApplication.getInst()));
-                builder.network_type = String.valueOf(mi.K());
+                builder.scr_dip = Integer.valueOf((int) mi.h(TbadkCoreApplication.getInst()));
+                builder.network_type = String.valueOf(ki.K());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    rc5.a(builder, true);
+                    jd5.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

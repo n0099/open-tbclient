@@ -1,54 +1,53 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class n82 implements o82 {
+public class n82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public V8Engine a;
 
-    public n82() {
+    public n82(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v8Engine};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = v8Engine;
     }
 
-    @Override // com.repackage.o82
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-    }
-
-    @Override // com.repackage.o82
-    public void c(r72 r72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r72Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(4, str);
         }
     }
 
-    @Override // com.repackage.o82
-    public void d(r72 r72Var) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r72Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            c(1, str);
+        }
+    }
+
+    public final void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            this.a.onConsoleCallBack(i, str);
         }
     }
 }

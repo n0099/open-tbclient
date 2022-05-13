@@ -245,7 +245,7 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             ViewUtility.setOrientationToUndefined(this);
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04ce);
+                setContentView(R.layout.obfuscated_res_0x7f0d04c3);
                 AndroidBug5497Workaround.assistActivity(this);
                 init();
                 setupViews();

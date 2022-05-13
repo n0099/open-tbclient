@@ -1,88 +1,61 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, nc2> a;
 
-    public mc2() {
+    public static String a() {
+        InterceptResult invokeV;
+        String optString;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            u03 a0 = u03.a0();
+            JSONObject jSONObject = new JSONObject();
+            if (a0 != null) {
+                jSONObject = a0.V().M();
             }
+            return (jSONObject == null || (optString = jSONObject.optString("keyfeed")) == null || (indexOf = optString.indexOf("_")) < 0 || !TextUtils.equals("miniapp", optString.substring(0, indexOf))) ? "" : optString.substring(indexOf + 1);
         }
-        this.a = new HashMap<>();
+        return (String) invokeV.objValue;
     }
 
-    public void a(nc2 nc2Var, String... strArr) {
+    public static Map<String, Object> b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, nc2Var, strArr) == null) || strArr == null || strArr.length == 0) {
-            return;
-        }
-        for (String str : strArr) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.put(str, nc2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put("op_type", str2);
+            String a = a();
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("nid", a);
             }
+            return hashMap;
         }
+        return (Map) invokeLL.objValue;
     }
 
-    public void b() {
+    public static Map<String, Object> c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
+            hashMap.put("op_type", "add");
+            return hashMap;
         }
-    }
-
-    public ArrayList<nc2> c(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            ArrayList<nc2> arrayList = null;
-            if (strArr != null && strArr.length != 0) {
-                for (String str : strArr) {
-                    if (!TextUtils.isEmpty(str)) {
-                        for (String str2 : this.a.keySet()) {
-                            if (str2.startsWith(str) || str.startsWith(str2)) {
-                                if (arrayList == null) {
-                                    arrayList = new ArrayList<>();
-                                }
-                                arrayList.add(this.a.get(str2));
-                            }
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public void d(nc2 nc2Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, nc2Var, strArr) == null) || strArr == null || strArr.length == 0) {
-            return;
-        }
-        for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.a.get(str) == nc2Var) {
-                this.a.remove(str);
-            }
-        }
+        return (Map) invokeLI.objValue;
     }
 }

@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo4;
+import com.repackage.po4;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
 /* loaded from: classes3.dex */
-public class NewGodData extends fo4 implements Serializable {
+public class NewGodData extends po4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mFieldId;
@@ -100,7 +100,7 @@ public class NewGodData extends fo4 implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType == 2 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.fo4
+    @Override // com.repackage.po4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {

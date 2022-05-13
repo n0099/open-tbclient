@@ -5,7 +5,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.um4;
+import com.repackage.fn4;
 /* loaded from: classes3.dex */
 public class FlutterPluginStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +33,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (um4.c().contains("-Flutter")) {
+        if (fn4.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -63,12 +62,13 @@ public class FlutterPluginStatic {
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && customResponsedMessage != null) {
-                        if (customResponsedMessage.getData() instanceof IntentConfig) {
-                            FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                        } else {
-                            FlutterPluginManager.getInstance().init();
-                        }
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+                        return;
+                    }
+                    if (customResponsedMessage.getData() instanceof IntentConfig) {
+                        FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
+                    } else {
+                        FlutterPluginManager.getInstance().init();
                     }
                 }
             });
@@ -105,73 +105,6 @@ public class FlutterPluginStatic {
             });
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            MessageManager.getInstance().registerListener(new CustomMessageListener(2921684) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r7);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Integer.valueOf(r7)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(((Integer) newInitContext.callArgs[0]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.adp.framework.listener.MessageListener
-                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                        return;
-                    }
-                    FlutterPluginManager.getInstance().checkAndRefreshMainTab();
-                }
-            });
-            MessageManager.getInstance().registerListener(new CustomMessageListener(2001384) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r7);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Integer.valueOf(r7)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(((Integer) newInitContext.callArgs[0]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.adp.framework.listener.MessageListener
-                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                        FlutterPluginManager.getInstance().setLastMaintabIndex((Integer) customResponsedMessage.getData());
-                    }
-                }
-            });
         }
     }
 

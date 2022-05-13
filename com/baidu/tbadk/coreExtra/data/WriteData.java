@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.ni;
+import com.repackage.li;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
@@ -282,7 +282,7 @@ public class WriteData extends OrmObject implements Serializable {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (ni.isEmpty(str)) {
+            if (li.isEmpty(str)) {
                 return null;
             }
             try {
@@ -389,7 +389,7 @@ public class WriteData extends OrmObject implements Serializable {
                     int i = 0;
                     while (i < chosedFiles.size()) {
                         ImageFileInfo imageFileInfo = chosedFiles.get(i);
-                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !ni.isEmpty(imageFileInfo.getFilePath())) {
+                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !li.isEmpty(imageFileInfo.getFilePath())) {
                             File file = new File(imageFileInfo.getFilePath());
                             if (file.exists()) {
                                 file.delete();
@@ -1091,7 +1091,7 @@ public class WriteData extends OrmObject implements Serializable {
         List<Object> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
-            if ((this.isRichTextEditorMode || ni.isEmpty(this.mContent)) && ni.isEmpty(this.mTitle)) {
+            if ((this.isRichTextEditorMode || li.isEmpty(this.mContent)) && li.isEmpty(this.mTitle)) {
                 WriteImagesInfo writeImagesInfo = this.writeImagesInfo;
                 if (writeImagesInfo == null || writeImagesInfo.size() <= 0) {
                     if (this.isRichTextEditorMode && (list = this.richContentData) != null) {

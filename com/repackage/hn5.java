@@ -1,40 +1,27 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class hn5 extends fn3 {
+public class hn5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gn5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hn5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.dn3.b
-    public boolean c() {
+    public static synchronized gn5 a() {
         InterceptResult invokeV;
+        gn5 gn5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (hn5.class) {
+                if (a == null) {
+                    a = new gn5();
+                }
+                gn5Var = a;
+            }
+            return gn5Var;
         }
-        return invokeV.booleanValue;
+        return (gn5) invokeV.objValue;
     }
 }

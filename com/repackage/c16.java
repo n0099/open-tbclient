@@ -6,50 +6,73 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class c16 extends w06 {
+public abstract class c16<T> extends x06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<Integer> b;
+    public final boolean b;
+    public final Set<T> c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c16() {
-        super(8);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new LinkedHashSet();
+    public /* synthetic */ c16(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z);
     }
 
-    @Override // com.repackage.w06
-    public boolean b(f06 item, i26 timer, zz5 config) {
+    @Override // com.repackage.x06
+    public boolean b(g06 item, j26 timer, a06 config) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            return (this.b.isEmpty() ^ true) && !this.b.contains(Integer.valueOf(c(item.e())));
+            if (this.d) {
+                boolean contains = this.c.contains(c(item.e()));
+                return this.b ? !contains : contains;
+            }
+            return false;
         }
         return invokeLLL.booleanValue;
     }
 
-    public final int c(g06 g06Var) {
-        InterceptResult invokeL;
+    public abstract T c(h06 h06Var);
+
+    public final Set<T> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g06Var)) == null) ? g06Var.m() & 16777215 : invokeL.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<T> mFilterSet = this.c;
+            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
+            return mFilterSet;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c16(int i, boolean z) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = z;
+        this.c = Collections.synchronizedSet(new LinkedHashSet());
+        this.d = true;
     }
 }

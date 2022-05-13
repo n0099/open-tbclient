@@ -20,10 +20,10 @@ public class u8 {
     public static final u8 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-    public qa1 b;
+    public bb1 b;
     public long c;
     public final Handler d;
-    public final ArrayList<ld1> e;
+    public final ArrayList<wd1> e;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -55,9 +55,9 @@ public class u8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != 1 || ((float) (System.currentTimeMillis() - this.b.c)) >= ab1.i() * 60000.0f) {
+                if (this.a != 1 || ((float) (System.currentTimeMillis() - this.b.c)) >= lb1.i() * 60000.0f) {
                     if (this.b.b == null) {
-                        this.b.b = new qa1();
+                        this.b.b = new bb1();
                     }
                     this.b.b.k();
                     this.b.c = System.currentTimeMillis();
@@ -123,9 +123,9 @@ public class u8 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context b2 = hi0.b();
+            Context b2 = ki0.b();
             if (b2 instanceof Application) {
-                ((Application) b2).registerActivityLifecycleCallbacks(new ua1());
+                ((Application) b2).registerActivityLifecycleCallbacks(new fb1());
             }
         }
     }
@@ -134,7 +134,7 @@ public class u8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = oa1.a().d();
+            JSONObject d = za1.a().d();
             return d == null || d.optBoolean("real_time_query_switch", true);
         }
         return invokeV.booleanValue;

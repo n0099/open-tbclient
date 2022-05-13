@@ -1,86 +1,81 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class za4 extends n94<fb4> {
+public class za4 extends ea4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public c84 d;
-    @Nullable
-    public c84 e;
+    public ua4 a;
+    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public za4(c84 c84Var, nb4 nb4Var, @Nullable c84 c84Var2, @Nullable c84 c84Var3) {
-        super(c84Var, nb4Var);
+    public za4(ua4 ua4Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c84Var, nb4Var, c84Var2, c84Var3};
+            Object[] objArr = {ua4Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((c84) objArr2[0], (nb4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = c84Var2;
-        this.e = c84Var3;
+        this.a = ua4Var;
+        this.b = z;
     }
 
-    @Override // com.repackage.n94
-    public String h() {
+    @Override // com.repackage.ea4
+    public ua4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updatecore" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ua4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: v */
-    public boolean f(fb4 fb4Var) {
+    @Override // com.repackage.ea4
+    public boolean b(ua4 ua4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fb4Var)) == null) ? fb4Var != null : invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: w */
-    public b94 t(fb4 fb4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fb4Var)) == null) {
-            this.a.F();
-            id4.e(this.b.a(), fb4Var.a);
-            c84 c84Var = this.a;
-            if (c84Var == this.d || c84Var == this.e) {
-                c84Var = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ua4Var)) == null) {
+            ua4 ua4Var2 = this.a;
+            if (ua4Var2 == ua4Var) {
+                return true;
             }
-            ub4.c(fb4Var.b, c84Var, this.d, this.e);
-            return null;
+            return ua4Var2.d(ua4Var);
         }
-        return (b94) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: x */
-    public fb4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ea4
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? od4.q(jSONObject) : (fb4) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.b) {
+            return;
+        }
+        if (z) {
+            ua4 ua4Var = this.a;
+            ua4Var.a.b.b = 0L;
+            ua4Var.b(0);
+        }
+        sa4.b().f(this.a);
+    }
+
+    @Override // com.repackage.ea4
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "isAttached=" + this.b + " " + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,62 +1,49 @@
 package com.repackage;
 
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class in extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
+public class in {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public in() {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
             }
+            if (str.contains(".so")) {
+                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                StringBuilder sb = new StringBuilder();
+                sb.append(ai.a() ? "so_64_cache" : "so_cache");
+                sb.append(File.separator);
+                sb.append(split[0]);
+                str2 = sb.toString();
+            } else {
+                str2 = str.contains(".mp3") ? "mp3_cache" : "res_cache";
+            }
+            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    @SafeVarargs
-    /* renamed from: b */
-    public final Boolean doInBackground(List<PackageInfo>... listArr) {
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
-            if (listArr != null && listArr.length != 0) {
-                List<PackageInfo> list = listArr[0];
-                if (list != null && !list.isEmpty()) {
-                    boolean z = true;
-                    for (PackageInfo packageInfo : list) {
-                        if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                            BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
-                            File file = new File(ln.b(packageInfo.name));
-                            if (file.exists() && !file.delete()) {
-                                z = false;
-                            }
-                        }
-                    }
-                    return Boolean.valueOf(z);
-                }
-                return Boolean.TRUE;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
             }
-            return Boolean.TRUE;
+            return a(str) + File.separator + str;
         }
-        return (Boolean) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

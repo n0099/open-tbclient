@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements Parcelable, Comparable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.ss.android.socialbase.downloader.model.c.1
         /* JADX DEBUG: Method merged with bridge method */

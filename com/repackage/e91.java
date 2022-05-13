@@ -1,146 +1,67 @@
 package com.repackage;
 
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e91 {
+public final class e91 {
     public static /* synthetic */ Interceptable $ic;
+    public static e91 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static InetAddress a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65536, null)) != null) {
-            return (InetAddress) invokeV.objValue;
-        }
-        InetAddress inetAddress = null;
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            if (networkInterfaces == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755782892, "Lcom/repackage/e91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            InetAddress inetAddress2 = null;
-            do {
-                try {
-                    if (!networkInterfaces.hasMoreElements()) {
-                        return inetAddress2;
-                    }
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (true) {
-                        if (inetAddresses.hasMoreElements()) {
-                            InetAddress nextElement = inetAddresses.nextElement();
-                            try {
-                                if (!nextElement.isLoopbackAddress() && !nextElement.getHostAddress().contains(":")) {
-                                    inetAddress2 = nextElement;
-                                    continue;
-                                    break;
-                                }
-                                inetAddress2 = null;
-                            } catch (Exception unused) {
-                                return nextElement;
-                            }
-                        }
-                    }
-                } catch (Exception unused2) {
-                    inetAddress = inetAddress2;
-                    return inetAddress;
-                }
-            } while (inetAddress2 == null);
-            return inetAddress2;
-        } catch (Exception unused3) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755782892, "Lcom/repackage/e91;");
+                return;
+            }
+        }
+        b = new e91();
+    }
+
+    public e91() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static String b() {
+    public static e91 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ((WifiManager) p91.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (e91) invokeV.objValue;
     }
 
-    public static String c() {
+    public int b() {
         InterceptResult invokeV;
-        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                d = b();
-            } else {
-                d = d();
-            }
-            if (!f(d)) {
-                d = e();
-            }
-            return !TextUtils.isEmpty(d) ? d.toUpperCase() : d;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            this.a = activity.getTaskId();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                NetworkInterface byName = NetworkInterface.getByName("wlan0");
-                if (byName != null && (hardwareAddress = byName.getHardwareAddress()) != null) {
-                    StringBuilder sb = new StringBuilder();
-                    int length = hardwareAddress.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                    }
-                    if (sb.length() > 0) {
-                        sb.deleteCharAt(sb.length() - 1);
-                    }
-                    return sb.toString();
-                }
-            } catch (Exception unused) {
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                InetAddress a = a();
-                if (a == null || (hardwareAddress = NetworkInterface.getByInetAddress(a).getHardwareAddress()) == null) {
-                    return "";
-                }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hardwareAddress.length; i++) {
-                    if (i != 0) {
-                        sb.append(':');
-                    }
-                    String hexString = Integer.toHexString(hardwareAddress[i] & 255);
-                    if (hexString.length() == 1) {
-                        hexString = 0 + hexString;
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true : invokeL.booleanValue;
     }
 }

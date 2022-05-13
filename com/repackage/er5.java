@@ -1,9 +1,8 @@
 package com.repackage;
 
-import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
@@ -13,105 +12,89 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class er5 {
+public class er5 extends uw5<or5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public TbPageContext c;
-    public sq5 d;
-    public View e;
+    public dr5 i;
+    public dr5 j;
 
-    public er5(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public er5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        int k = oi.k(tbPageContext.getPageActivity());
-        this.a = k;
-        this.b = (int) ((k * 9.0d) / 16.0d);
+        this.i = new dr5(j());
+        this.j = new dr5(j());
+        ViewGroup viewGroup2 = (ViewGroup) k();
+        View view2 = new View(getContext());
+        viewGroup2.addView(this.i.m());
+        viewGroup2.addView(view2, new LinearLayout.LayoutParams(j().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
+        viewGroup2.addView(this.j.m());
     }
 
-    public void a(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
-            return;
-        }
-        viewGroup.removeAllViews();
-        viewGroup.addView(c());
-    }
-
-    public void b(sq5 sq5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sq5Var) == null) {
-            this.d = sq5Var;
-        }
-    }
-
-    public abstract View c();
-
-    public abstract void d();
-
-    public View e() {
+    @Override // com.repackage.uw5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.e = new View(this.c.getPageActivity());
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
-            this.e.setBackgroundDrawable(new ColorDrawable(this.c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
-            return this.e;
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010b : invokeV.intValue;
     }
 
-    public abstract boolean f(sq5 sq5Var);
-
-    public abstract void g(boolean z);
-
-    public void h() {
+    @Override // com.repackage.uw5
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int k = oi.k(this.c.getPageActivity());
-            this.a = k;
-            this.b = (int) ((k * 9.0d) / 16.0d);
-            View view2 = this.e;
-            if (view2 != null) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-                layoutParams.width = this.a;
-                layoutParams.height = this.b;
-                this.e.setLayoutParams(layoutParams);
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.p(tbPageContext, i);
+            this.j.p(tbPageContext, i);
         }
     }
 
-    public abstract void i(int i);
-
-    public abstract void j();
-
-    public void k() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    public void l() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uw5
+    /* renamed from: s */
+    public void l(or5 or5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, or5Var) == null) || or5Var == null) {
+            return;
         }
+        this.i.n(or5Var.a);
+        this.j.n(or5Var.b);
     }
 
-    public abstract void m();
+    public void t(or5 or5Var, int i, long j, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{or5Var, Integer.valueOf(i), Long.valueOf(j), str}) == null) || or5Var == null) {
+            return;
+        }
+        this.i.o(or5Var.a, i, j, str);
+        this.j.o(or5Var.b, i, j, str);
+    }
 
-    public abstract void n();
+    public void u(wr5 wr5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, wr5Var) == null) {
+            this.i.q(wr5Var);
+            this.j.q(wr5Var);
+        }
+    }
 }

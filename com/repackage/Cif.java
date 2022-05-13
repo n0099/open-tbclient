@@ -2,13 +2,16 @@ package com.repackage;
 
 import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.List;
 /* renamed from: com.repackage.if  reason: invalid class name */
 /* loaded from: classes6.dex */
 public interface Cif {
     @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
+    public static final ServiceReference a = new ServiceReference("tbadkcore", "IHttpsExperiment");
 
-    boolean netABTest();
+    List<sf> getHttpsWhileList();
 
-    boolean netBdABTest();
+    boolean isFullHttps();
+
+    boolean isSwitchOn();
 }

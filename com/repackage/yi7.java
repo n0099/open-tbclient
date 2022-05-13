@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.VipUpgrade;
 /* loaded from: classes7.dex */
-public class yi7 implements uo {
+public class yi7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class yi7 implements uo {
         String str6 = vipUpgrade2.expire;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

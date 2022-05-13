@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class FieldBuilder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,7 +35,7 @@ public class FieldBuilder {
 
     public void append(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || ni.isEmpty(str) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || li.isEmpty(str) || obj == null) {
             return;
         }
         try {

@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.pg;
+import com.repackage.mi;
+import com.repackage.ng;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class RecordingAnimView extends View {
@@ -97,7 +97,7 @@ public class RecordingAnimView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();
@@ -109,11 +109,11 @@ public class RecordingAnimView extends View {
             if (this.f) {
                 invalidate();
             }
-            pg.a().removeCallbacks(this.n);
+            ng.a().removeCallbacks(this.n);
             if (this.g) {
                 return;
             }
-            pg.a().postDelayed(this.n, 250L);
+            ng.a().postDelayed(this.n, 250L);
         }
     }
 
@@ -199,7 +199,7 @@ public class RecordingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
-            pg.a().removeCallbacks(this.n);
+            ng.a().removeCallbacks(this.n);
         }
     }
 
@@ -297,7 +297,7 @@ public class RecordingAnimView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();

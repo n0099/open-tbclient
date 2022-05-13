@@ -1,16 +1,11 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class m94 {
     public static /* synthetic */ Interceptable $ic;
@@ -18,118 +13,90 @@ public class m94 {
     public int a;
     public String b;
     public String c;
-    public long d;
-    public JSONObject e;
+    public String d;
+    public String e;
+    public int f;
 
-    public m94() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public m94(int i, String str) {
+        this(i, str, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
     }
 
-    public static m94 a(String str) {
+    public m94 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return b(new JSONObject(str));
-            } catch (JSONException unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.d = str;
+            return this;
         }
         return (m94) invokeL.objValue;
     }
 
-    public static m94 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            m94 m94Var = new m94();
-            m94Var.i(jSONObject.optInt("errno", -1));
-            m94Var.j(jSONObject.optString("errmsg"));
-            m94Var.l(jSONObject.optString("tipmsg"));
-            m94Var.k(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID));
-            m94Var.h(jSONObject.optJSONObject("data"));
-            return m94Var;
-        }
-        return (m94) invokeL.objValue;
-    }
-
-    public JSONObject c() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            this.e = jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "PMSError{errorNo=" + this.a + ", errorMsg='" + this.b + "', httpCode=" + this.f + ", tipMsg='" + this.e + "', errorDetail='" + this.d + "'}";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void i(int i) {
+    public m94(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.d = "";
+        this.a = i;
+        this.b = str;
+        this.e = str2;
     }
 
-    public void j(String str) {
+    public m94(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.c = str;
-        }
+        this.d = "";
+        this.a = i;
+        this.b = str;
+        this.e = str2;
+        this.c = str3;
     }
 }

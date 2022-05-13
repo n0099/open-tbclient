@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zd8;
+import com.repackage.pc8;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SearchRecForumResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zd8 data;
+    public pc8 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchRecForumResponsedMessage() {
@@ -38,7 +38,7 @@ public class SearchRecForumResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                this.data = zd8.a(jSONObject);
+                this.data = pc8.a(jSONObject);
             }
         }
     }

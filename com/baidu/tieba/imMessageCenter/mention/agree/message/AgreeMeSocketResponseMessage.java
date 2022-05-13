@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
-import com.repackage.oa7;
+import com.repackage.mr4;
+import com.repackage.wa7;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.AgreeList;
@@ -19,7 +19,7 @@ import tbclient.Error;
 public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<oa7> datas;
+    public ArrayList<wa7> datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,8 +46,8 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            br4.f();
-            br4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            mr4.f();
+            mr4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 
@@ -75,9 +75,9 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
                 this.hasMore = dataRes.has_more.intValue() == 1;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        oa7 oa7Var = new oa7();
-                        oa7Var.G(agreeList);
-                        this.datas.add(oa7Var);
+                        wa7 wa7Var = new wa7();
+                        wa7Var.G(agreeList);
+                        this.datas.add(wa7Var);
                     }
                 }
             }

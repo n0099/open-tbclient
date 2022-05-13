@@ -18,19 +18,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.re6;
-import com.repackage.us5;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.kg;
+import com.repackage.vs5;
+import com.repackage.wd6;
 import java.net.URL;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements wd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
     public boolean c;
-    public us5 d;
+    public vs5 d;
     public CustomMessageListener e;
     public CustomMessageListener f;
 
@@ -72,11 +72,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
             if (split.length != 2) {
                 return;
             }
-            if ("FrsGameLive".equals(split[0]) && 8 == mg.e(split[1], 0)) {
+            if ("FrsGameLive".equals(split[0]) && 8 == kg.e(split[1], 0)) {
                 if (this.a.d != null) {
                     this.a.d.i();
                 }
-            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == mg.e(split[1], 0) && this.a.d != null) {
+            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == kg.e(split[1], 0) && this.a.d != null) {
                 this.a.d.i();
             }
         }
@@ -115,7 +115,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.a.D0().contains(str) || str.contains(this.a.D0())) {
+                if (this.a.E0().contains(str) || str.contains(this.a.E0())) {
                     this.a.d.l();
                 }
             }
@@ -141,7 +141,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
         this.f = new b(this, 2921023);
     }
 
-    public final String C0(String str) {
+    public final String D0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -161,11 +161,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
         return (String) invokeL.objValue;
     }
 
-    public String D0() {
+    public String E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String q = vt4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            String q = iu4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
             if (q != null) {
                 StringBuilder sb = new StringBuilder(q);
                 if (q.endsWith("?")) {
@@ -182,34 +182,34 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
         return (String) invokeV.objValue;
     }
 
-    public void E0(String str) {
+    public void F0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void F0(String str) {
+    public void G0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    public void G0(boolean z) {
+    public void H0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.a = z;
         }
     }
 
-    @Override // com.repackage.re6
+    @Override // com.repackage.wd6
     public NavigationBar d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.j() : (NavigationBar) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -238,9 +238,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
                 return;
             }
             if (i == 1) {
-                this.d.y(C0(D0()));
+                this.d.y(D0(E0()));
             } else {
-                this.d.y(D0());
+                this.d.y(E0());
             }
             this.d.A(i);
         }
@@ -260,9 +260,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            us5 us5Var = new us5(this.a);
-            this.d = us5Var;
-            return us5Var.B(layoutInflater, viewGroup);
+            vs5 vs5Var = new vs5(this.a);
+            this.d = vs5Var;
+            return vs5Var.B(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
     }
@@ -272,9 +272,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            us5 us5Var = this.d;
-            if (us5Var != null) {
-                us5Var.C();
+            vs5 vs5Var = this.d;
+            if (vs5Var != null) {
+                vs5Var.C();
             }
         }
     }
@@ -294,9 +294,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements re6 
             super.onPrimary();
             if (this.c || StringUtils.isNull(this.d.k().getUrl())) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.d.y(C0(D0()));
+                    this.d.y(D0(E0()));
                 } else {
-                    this.d.y(D0());
+                    this.d.y(E0());
                 }
                 this.c = false;
             }

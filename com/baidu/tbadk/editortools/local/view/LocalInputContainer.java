@@ -34,19 +34,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i05;
-import com.repackage.kz8;
-import com.repackage.lu4;
-import com.repackage.o15;
-import com.repackage.oi;
-import com.repackage.t86;
-import com.repackage.u86;
-import com.repackage.v05;
-import com.repackage.vr4;
-import com.repackage.zw4;
+import com.repackage.c86;
+import com.repackage.d25;
+import com.repackage.d86;
+import com.repackage.gs4;
+import com.repackage.hy8;
+import com.repackage.j15;
+import com.repackage.mi;
+import com.repackage.mx4;
+import com.repackage.w05;
+import com.repackage.yu4;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class LocalInputContainer extends RelativeLayout implements v05 {
+public class LocalInputContainer extends RelativeLayout implements j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -56,7 +56,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
     public TBSpecificationBtn e;
     public EditorTools f;
     public int g;
-    public o15 h;
+    public d25 h;
     public boolean i;
     public c j;
     public CustomMessageListener k;
@@ -151,7 +151,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(o15 o15Var, String str);
+        void a(d25 d25Var, String str);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -175,43 +175,20 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
-    public void b() {
-        SpanGroupEditText spanGroupEditText;
+    public final void c(mx4 mx4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (spanGroupEditText = this.c) != null && spanGroupEditText.getVisibility() == 0) {
-            this.c.setFocusable(true);
-            this.c.setFocusableInTouchMode(true);
-            this.c.requestFocus();
-            oi.L(getContext(), this.c);
-            setVisibility(0);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, mx4Var) == null) && mx4Var.getType() == EmotionGroupType.LOCAL) {
+            d86.b(getContext(), mx4Var, this.c);
         }
     }
 
-    @Override // com.repackage.v05
-    public void d(i05 i05Var) {
-        EditorTools editorTools;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i05Var) == null) || (editorTools = this.f) == null) {
-            return;
-        }
-        editorTools.A(i05Var);
-    }
-
-    public final void f(zw4 zw4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zw4Var) == null) && zw4Var.getType() == EmotionGroupType.LOCAL) {
-            u86.b(getContext(), zw4Var, this.c);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c.getSelectionStart() <= 0 || this.c.getText() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c.getSelectionStart() <= 0 || this.c.getText() == null) {
             return;
         }
         String substring = this.c.getText().toString().substring(0, this.c.getSelectionStart());
-        Matcher matcher = t86.b.matcher(substring);
+        Matcher matcher = c86.b.matcher(substring);
         if (matcher.find()) {
             this.c.getText().delete(this.c.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.c.getSelectionStart()).toString();
             return;
@@ -219,10 +196,43 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         this.c.getText().delete(this.c.getSelectionStart() - 1, this.c.getSelectionStart());
     }
 
+    @Override // com.repackage.j15
+    public void e() {
+        SpanGroupEditText spanGroupEditText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (spanGroupEditText = this.c) != null && spanGroupEditText.getVisibility() == 0) {
+            this.c.setFocusable(true);
+            this.c.setFocusableInTouchMode(true);
+            this.c.requestFocus();
+            mi.L(getContext(), this.c);
+            setVisibility(0);
+        }
+    }
+
+    public void f(d25 d25Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, d25Var) == null) || d25Var == null || d25Var.a() == null) {
+            return;
+        }
+        this.h = d25Var;
+        this.a.K(d25Var.a().c, 25, false);
+        this.b.setText(d25Var.a().b);
+    }
+
+    @Override // com.repackage.j15
+    public void g(w05 w05Var) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, w05Var) == null) || (editorTools = this.f) == null) {
+            return;
+        }
+        editorTools.A(w05Var);
+    }
+
     public String getInputContentDraft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             SpanGroupEditText spanGroupEditText = this.c;
             if (spanGroupEditText == null || spanGroupEditText.getText() == null) {
                 return null;
@@ -232,73 +242,63 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public void h(o15 o15Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, o15Var) == null) || o15Var == null || o15Var.a() == null) {
-            return;
-        }
-        this.h = o15Var;
-        this.a.K(o15Var.a().c, 25, false);
-        this.b.setText(o15Var.a().b);
-    }
-
-    @Override // com.repackage.v05
-    public void hide() {
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            setId(R.id.obfuscated_res_0x7f091323);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        }
+    }
+
+    @Override // com.repackage.j15
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setVisibility(8);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            setId(R.id.obfuscated_res_0x7f091314);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        }
-    }
-
-    @Override // com.repackage.v05
-    public void init() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             ImageView imageView = new ImageView(getContext());
             this.d = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f091316);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds62), oi.f(getContext(), R.dimen.tbds62));
-            layoutParams.addRule(7, R.id.obfuscated_res_0x7f091315);
-            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091315);
-            layoutParams.setMargins(0, 0, oi.f(getContext(), R.dimen.M_W_X006), oi.f(getContext(), R.dimen.M_H_X004));
+            imageView.setId(R.id.obfuscated_res_0x7f091325);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds62), mi.f(getContext(), R.dimen.tbds62));
+            layoutParams.addRule(7, R.id.obfuscated_res_0x7f091324);
+            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091324);
+            layoutParams.setMargins(0, 0, mi.f(getContext(), R.dimen.M_W_X006), mi.f(getContext(), R.dimen.M_H_X004));
             this.d.setLayoutParams(layoutParams);
             addView(this.d);
         }
     }
 
-    public final void k() {
+    @Override // com.repackage.j15
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             SpanGroupEditText spanGroupEditText = new SpanGroupEditText(getContext());
             this.c = spanGroupEditText;
-            spanGroupEditText.setId(R.id.obfuscated_res_0x7f091315);
+            spanGroupEditText.setId(R.id.obfuscated_res_0x7f091324);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(9);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f091319);
-            layoutParams.setMargins(oi.f(getContext(), R.dimen.M_W_X007), oi.f(getContext(), R.dimen.M_H_X004), oi.f(getContext(), R.dimen.tbds216), oi.f(getContext(), R.dimen.M_H_X004));
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f091328);
+            layoutParams.setMargins(mi.f(getContext(), R.dimen.M_W_X007), mi.f(getContext(), R.dimen.M_H_X004), mi.f(getContext(), R.dimen.tbds216), mi.f(getContext(), R.dimen.M_H_X004));
             this.c.setLayoutParams(layoutParams);
-            this.c.setPadding(oi.f(getContext(), R.dimen.M_W_X006), oi.f(getContext(), R.dimen.M_H_X004), oi.f(getContext(), R.dimen.M_W_X019), oi.f(getContext(), R.dimen.M_H_X004));
+            this.c.setPadding(mi.f(getContext(), R.dimen.M_W_X006), mi.f(getContext(), R.dimen.M_H_X004), mi.f(getContext(), R.dimen.M_W_X019), mi.f(getContext(), R.dimen.M_H_X004));
             this.c.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
             this.c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.c.setIncludeFontPadding(false);
@@ -306,8 +306,8 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
             this.c.setMinHeight(getResources().getDimensionPixelSize(R.dimen.M_H_X005));
             this.c.setMaxLines(4);
             this.c.setMinLines(2);
-            this.c.setLineSpacing(oi.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.c.setHint(getResources().getString(R.string.obfuscated_res_0x7f0f0a3d));
+            this.c.setLineSpacing(mi.f(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.c.setHint(getResources().getString(R.string.obfuscated_res_0x7f0f0a43));
             addView(this.c);
         }
     }
@@ -315,7 +315,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.r15
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.h25
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -330,7 +330,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
             SpanGroupEditText spanGroupEditText = this.c;
             if (spanGroupEditText != null) {
                 spanGroupEditText.addTextChangedListener(new a(this));
-                this.c.setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.t15
+                this.c.setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.j25
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -344,7 +344,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
             }
             TBSpecificationBtn tBSpecificationBtn = this.e;
             if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.u15
+                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.g25
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -366,18 +366,18 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.e = tBSpecificationBtn;
-            tBSpecificationBtn.setId(R.id.obfuscated_res_0x7f091317);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds151), oi.f(getContext(), R.dimen.tbds75));
-            layoutParams.setMargins(0, 0, oi.f(getContext(), R.dimen.M_W_X007), 0);
-            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091315);
-            layoutParams.addRule(11, R.id.obfuscated_res_0x7f091315);
+            tBSpecificationBtn.setId(R.id.obfuscated_res_0x7f091326);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds151), mi.f(getContext(), R.dimen.tbds75));
+            layoutParams.setMargins(0, 0, mi.f(getContext(), R.dimen.M_W_X007), 0);
+            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091324);
+            layoutParams.addRule(11, R.id.obfuscated_res_0x7f091324);
             this.e.setLayoutParams(layoutParams);
-            lu4 lu4Var = new lu4();
-            lu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.e.setConfig(lu4Var);
+            yu4 yu4Var = new yu4();
+            yu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.e.setConfig(yu4Var);
             this.e.setEnabled(false);
             this.e.setTextSize(R.dimen.T_X08);
-            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10e7));
+            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1101));
             addView(this.e);
         }
     }
@@ -387,11 +387,11 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             HeadImageView headImageView = new HeadImageView(getContext());
             this.a = headImageView;
-            headImageView.setId(R.id.obfuscated_res_0x7f091319);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds62), oi.f(getContext(), R.dimen.tbds62));
+            headImageView.setId(R.id.obfuscated_res_0x7f091328);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds62), mi.f(getContext(), R.dimen.tbds62));
             layoutParams.addRule(9);
             layoutParams.addRule(10);
-            layoutParams.setMargins(oi.f(getContext(), R.dimen.M_W_X007), oi.f(getContext(), R.dimen.M_W_X007), 0, 0);
+            layoutParams.setMargins(mi.f(getContext(), R.dimen.M_W_X007), mi.f(getContext(), R.dimen.M_W_X007), 0, 0);
             this.a.setLayoutParams(layoutParams);
             this.a.setConrers(15);
             this.a.setIsRound(true);
@@ -399,15 +399,15 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
             addView(this.a);
             TextView textView = new TextView(getContext());
             this.b = textView;
-            textView.setId(R.id.obfuscated_res_0x7f09131a);
+            textView.setId(R.id.obfuscated_res_0x7f091329);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f091319);
-            layoutParams2.addRule(6, R.id.obfuscated_res_0x7f091319);
-            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091319);
-            layoutParams2.setMargins(oi.f(getContext(), R.dimen.M_W_X004), 0, 0, 0);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f091328);
+            layoutParams2.addRule(6, R.id.obfuscated_res_0x7f091328);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091328);
+            layoutParams2.setMargins(mi.f(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams2);
             this.b.setGravity(16);
-            vr4.d(this.b).z(R.dimen.T_X09);
+            gs4.d(this.b).z(R.dimen.T_X09);
             addView(this.b);
         }
     }
@@ -415,33 +415,33 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            i();
+            h();
             n();
-            k();
             j();
+            i();
             m();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.repackage.j05
-    public void onAction(i05 i05Var) {
+    @Override // com.repackage.x05
+    public void onAction(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, i05Var) == null) {
-            int i = i05Var.a;
+        if (interceptable == null || interceptable.invokeL(1048592, this, w05Var) == null) {
+            int i = w05Var.a;
             if (i == 3) {
-                g();
+                d();
             } else if (i != 6) {
                 if (i != 24) {
                     return;
                 }
-                t(i05Var);
+                t(w05Var);
             } else {
                 SpanGroupEditText spanGroupEditText = this.c;
                 if (spanGroupEditText == null) {
                     return;
                 }
-                Object obj = i05Var.c;
+                Object obj = w05Var.c;
                 if (obj == null) {
                     spanGroupEditText.setText((CharSequence) null);
                 } else if (obj instanceof String) {
@@ -449,11 +449,11 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
                     if (TextUtils.isEmpty(str)) {
                         this.c.setText((CharSequence) null);
                     } else {
-                        u86.e(getContext(), str, new u86.g() { // from class: com.repackage.s15
+                        d86.f(getContext(), str, new d86.h() { // from class: com.repackage.i25
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.repackage.u86.g
+                            @Override // com.repackage.d86.h
                             public final void a(SpannableStringBuilder spannableStringBuilder) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -476,21 +476,21 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            vr4.d(this).f(R.color.CAM_X0207);
-            vr4.d(this.b).v(R.color.CAM_X0107);
+            gs4.d(this).f(R.color.CAM_X0207);
+            gs4.d(this.b).v(R.color.CAM_X0107);
             if (i == 0) {
-                kz8.l(this.c, R.drawable.obfuscated_res_0x7f0804b6);
+                hy8.l(this.c, R.drawable.obfuscated_res_0x7f0804af);
             } else {
-                kz8.l(this.c, R.drawable.obfuscated_res_0x7f0804b7);
+                hy8.l(this.c, R.drawable.obfuscated_res_0x7f0804b0);
             }
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(oi.f(getContext(), R.dimen.tbds21)).into(this.c);
-            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f080966, R.drawable.obfuscated_res_0x7f080813, i));
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(mi.f(getContext(), R.dimen.tbds21)).into(this.c);
+            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f08097a, R.drawable.obfuscated_res_0x7f080803, 0, 0, i));
             this.e.k();
         }
     }
@@ -508,18 +508,18 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         if (this.i) {
             this.i = false;
             this.d.setSelected(false);
-            d(new i05(5, 5, null));
-            oi.L(getContext(), this.c);
+            g(new w05(5, 5, null));
+            mi.L(getContext(), this.c);
             return;
         }
         this.i = true;
         this.d.setSelected(true);
-        d(new i05(1, 5, null));
+        g(new w05(1, 5, null));
     }
 
     public /* synthetic */ boolean q(View view2, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            d(new i05(5, -1, null));
+            g(new w05(5, -1, null));
             this.c.requestFocus();
             this.d.setSelected(false);
             this.i = false;
@@ -541,11 +541,11 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
             SpanGroupEditText spanGroupEditText = this.c;
             spanGroupEditText.setSelection(spanGroupEditText.getText().length());
         }
-        d(new i05(5, -1, null));
+        g(new w05(5, -1, null));
         requestFocus();
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, editorTools) == null) {
@@ -560,7 +560,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
@@ -568,13 +568,13 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         }
     }
 
-    public final void t(i05 i05Var) {
+    public final void t(w05 w05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, i05Var) == null) || i05Var == null || (obj = i05Var.c) == null || !(obj instanceof zw4) || ((zw4) obj).getType() == EmotionGroupType.BIG_EMOTION || ((zw4) i05Var.c).getType() == EmotionGroupType.USER_COLLECT) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, w05Var) == null) || w05Var == null || (obj = w05Var.c) == null || !(obj instanceof mx4) || ((mx4) obj).getType() == EmotionGroupType.BIG_EMOTION || ((mx4) w05Var.c).getType() == EmotionGroupType.USER_COLLECT) {
             return;
         }
-        f((zw4) i05Var.c);
+        c((mx4) w05Var.c);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

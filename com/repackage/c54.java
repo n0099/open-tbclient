@@ -1,13 +1,9 @@
 package com.repackage;
 
 import android.content.Context;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDLocation;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,110 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j54;
-import com.repackage.jk2;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class c54 extends u44<vm2> {
+public class c54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static final String c;
+    public static volatile c54 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements j54.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ s54 b;
-        public final /* synthetic */ q44 c;
-        public final /* synthetic */ c54 d;
-
-        public a(c54 c54Var, Context context, s54 s54Var, q44 q44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c54Var, context, s54Var, q44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = c54Var;
-            this.a = context;
-            this.b = s54Var;
-            this.c = q44Var;
-        }
-
-        @Override // com.repackage.j54.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jx1.o("map", "location permission fail");
-            }
-        }
-
-        @Override // com.repackage.j54.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                jx1.o("map", "location permission success");
-                this.d.e(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements jk2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s54 a;
-        public final /* synthetic */ q44 b;
-
-        public b(c54 c54Var, s54 s54Var, q44 q44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c54Var, s54Var, q44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s54Var;
-            this.b = q44Var;
-        }
-
-        @Override // com.repackage.jk2.a
-        public void a(i33 i33Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i33Var) == null) {
-                jx1.i("map", "get location " + i33Var.a().toString());
-                BaiduMap map = this.a.l.getMap();
-                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(i33Var.c, i33Var.b)));
-                map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-                map.setMyLocationEnabled(true);
-                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) i33Var.e).latitude(i33Var.c).longitude(i33Var.b).build());
-                this.b.p(true);
-            }
-        }
-
-        @Override // com.repackage.jk2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                jx1.i("map", "get location error " + i);
-            }
-        }
-    }
+    public Map<an1, b54> a;
 
     static {
         InterceptResult invokeClinit;
@@ -133,7 +35,8 @@ public class c54 extends u44<vm2> {
                 return;
             }
         }
-        boolean z = tg1.a;
+        b = eh1.a;
+        c = c54.class.getSimpleName();
     }
 
     public c54() {
@@ -146,62 +49,211 @@ public class c54 extends u44<vm2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        a54.a();
+        this.a = new HashMap();
     }
 
-    public static c54 f() {
+    public static c54 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new c54() : (c54) invokeV.objValue;
-    }
-
-    @Override // com.repackage.u44
-    public boolean b(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vm2Var, sm2Var, j03Var, jSONObject)) == null) ? g(context, vm2Var, sm2Var, j03Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final void e(Context context, s54 s54Var, q44 q44Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, s54Var, q44Var) == null) {
-            qj2.I().b("gcj02", true, false, new b(this, s54Var, q44Var));
-        }
-    }
-
-    public final boolean g(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, vm2Var, sm2Var, j03Var)) == null) {
-            jx1.i("map", "MoveToLocationAction start");
-            rm1 A = wl2.U().A(vm2Var.c);
-            if (!(A instanceof pm1)) {
-                jx1.c("map", "WebViewManager is null");
-                return false;
-            }
-            q44 c = r44.b().c((pm1) A);
-            s54 d = c.d(vm2Var.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (d == null) {
-                jx1.c("map", "can not find map by id " + vm2Var.b);
-                return false;
-            } else if (!d.k) {
-                jx1.o("map", "can not move to location because showLocation is not set");
-                return false;
-            } else {
-                BDLocation e = c.e();
-                if (e != null && c.g()) {
-                    d.l.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(e.getLatitude(), e.getLongitude())));
-                    d.l.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-                    d.l.getMap().setMyLocationEnabled(true);
-                    d.l.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(e.getRadius()).latitude(e.getLatitude()).longitude(e.getLongitude()).build());
-                    jx1.i("map", "MoveToLocationAction end");
-                    return true;
+                synchronized (c54.class) {
+                    if (d == null) {
+                        d = new c54();
+                    }
                 }
-                j54.b(context, new a(this, context, d, c));
-                return true;
+            }
+            return d;
+        }
+        return (c54) invokeV.objValue;
+    }
+
+    public static void d(an1 an1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, an1Var) == null) {
+            synchronized (c54.class) {
+                if (d != null) {
+                    d.c(an1Var).h();
+                }
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void e(an1 an1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, an1Var) == null) {
+            synchronized (c54.class) {
+                if (d != null) {
+                    d.f(an1Var);
+                } else if (b) {
+                    Log.v(c, "未初始化，无需执行release");
+                }
+            }
+        }
+    }
+
+    public static void h(an1 an1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, an1Var) == null) {
+            synchronized (c54.class) {
+                if (d != null) {
+                    d.c(an1Var).k();
+                }
+            }
+        }
+    }
+
+    public boolean a(Context context, gn2 gn2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, gn2Var)) == null) {
+            ux1.i("map", "map create start");
+            if (oe3.m(gn2Var.c) != null && gn2Var.isValid()) {
+                cn1 A = hm2.U().A(gn2Var.c);
+                if (!(A instanceof an1)) {
+                    ux1.c("map", "WebViewManager is null");
+                    return false;
+                }
+                b54 c2 = c((an1) A);
+                if (c2.d(gn2Var.b) != null) {
+                    ux1.c("map", "map with id " + gn2Var.b + " exist");
+                    return false;
+                }
+                d64 K = d64.K(context, gn2Var);
+                if (K == null) {
+                    ux1.c("map", "map with id " + gn2Var.b + " model is invalid");
+                    return false;
+                }
+                lw1 insert = K.insert();
+                if (!insert.a()) {
+                    ux1.c("map", "map with id " + gn2Var.b + " create fail: " + insert.b);
+                    return false;
+                } else if (c2.insert(K)) {
+                    ux1.i("map", "map with id " + gn2Var.b + " init start");
+                    w54.a(context, K, gn2Var, c2);
+                    ux1.i("map", "map with id " + gn2Var.b + " init end");
+                    ux1.i("map", "map create end");
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            ux1.c("map", "model data is invalid");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public synchronized b54 c(an1 an1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, an1Var)) == null) {
+            synchronized (this) {
+                if (an1Var == null) {
+                    return null;
+                }
+                b54 b54Var = this.a.get(an1Var);
+                if (b54Var == null) {
+                    b54Var = new b54();
+                    this.a.put(an1Var, b54Var);
+                }
+                return b54Var;
+            }
+        }
+        return (b54) invokeL.objValue;
+    }
+
+    public final synchronized void f(an1 an1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, an1Var) == null) {
+            synchronized (this) {
+                if (an1Var == null) {
+                    return;
+                }
+                b54 remove = this.a.remove(an1Var);
+                if (remove != null) {
+                    remove.i();
+                }
+            }
+        }
+    }
+
+    public boolean g(gn2 gn2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gn2Var)) == null) {
+            ux1.i("map", "map remove start");
+            if (oe3.m(gn2Var.c) == null) {
+                ux1.c("map", "webView is null or mapModel is null");
+                return false;
+            }
+            cn1 A = hm2.U().A(gn2Var.c);
+            if (!(A instanceof an1)) {
+                ux1.c("map", "WebViewManager is null");
+                return false;
+            }
+            b54 c2 = c((an1) A);
+            d64 d2 = c2.d(gn2Var.b);
+            if (d2 == null) {
+                ux1.c("map", "remove map with id " + gn2Var.b + " not exist");
+                return false;
+            } else if (c2.j(gn2Var.b)) {
+                ux1.i("map", "map remove end");
+                if (hx1.a(gn2Var) == null) {
+                    nx1.a("map", "remove with a null map component");
+                }
+                lw1 B = d2.B();
+                boolean a = B.a();
+                if (!a) {
+                    String str = c;
+                    ux1.c(str, "map remove fail: " + B.b);
+                }
+                return a;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean update(Context context, gn2 gn2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, gn2Var)) == null) {
+            ux1.i("map", "map update start");
+            if (oe3.m(gn2Var.c) == null) {
+                ux1.c("map", "webView is null or mapModel is null");
+                return false;
+            }
+            cn1 A = hm2.U().A(gn2Var.c);
+            if (A != null && (A instanceof an1)) {
+                b54 c2 = c((an1) A);
+                d64 d2 = c2.d(gn2Var.b);
+                if (d2 == null) {
+                    ux1.c("map", "remove map with id " + gn2Var.b + " not exist");
+                    return false;
+                }
+                d2.F();
+                w54.b(context, d2, gn2Var, c2, true);
+                ux1.i("map", "map update end");
+                if (hx1.a(gn2Var) == null) {
+                    nx1.a("map", "update with a null map component");
+                }
+                lw1 update = d2.update((d64) gn2Var);
+                boolean a = update.a();
+                if (!a) {
+                    String str = c;
+                    ux1.c(str, "map update fail: " + update.b);
+                }
+                return a;
+            }
+            ux1.c("map", "WebViewManager is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

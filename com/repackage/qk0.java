@@ -10,7 +10,7 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class qk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class qk0 {
         return (String) invokeLLLL.objValue;
     }
 
-    public static void b(@Nullable zh0 zh0Var, boolean z, @Nullable Map<String, String> map) {
+    public static void b(@Nullable ci0 ci0Var, boolean z, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{zh0Var, Boolean.valueOf(z), map}) == null) || zh0Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{ci0Var, Boolean.valueOf(z), map}) == null) || ci0Var == null) {
             return;
         }
         if (map == null) {
@@ -45,12 +45,12 @@ public class qk0 {
         }
         vy0.e(map, "status", z ? "0" : "202");
         vy0.e(map, "message", z ? "调用成功" : "");
-        zh0Var.a(z, map);
+        ci0Var.a(z, map);
     }
 
-    public static void c(@Nullable zh0 zh0Var, String str, String str2, String str3, String str4) {
+    public static void c(@Nullable ci0 ci0Var, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, zh0Var, str, str2, str3, str4) == null) || zh0Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, ci0Var, str, str2, str3, str4) == null) || ci0Var == null) {
             return;
         }
         HashMap hashMap = new HashMap();
@@ -60,7 +60,7 @@ public class qk0 {
         uy0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
         uy0.f(jSONObject, "downStatus", str4);
         hashMap.put("data", jSONObject.toString());
-        b(zh0Var, true, hashMap);
+        b(ci0Var, true, hashMap);
     }
 
     public static String d(String str) {

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class FadeProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

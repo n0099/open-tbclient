@@ -151,7 +151,7 @@ public class bc implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo187b() {
+    public String mo188b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(b) : (String) invokeV.objValue;

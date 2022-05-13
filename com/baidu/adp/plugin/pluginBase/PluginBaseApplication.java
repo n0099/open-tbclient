@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.om;
+import com.repackage.lm;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -80,7 +80,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.deleteFile(pluginPackageName + str);
@@ -150,7 +150,7 @@ public class PluginBaseApplication extends Application {
                 return null;
             }
             try {
-                PluginSetting g = om.h().g(getPluginPackageName());
+                PluginSetting g = lm.h().g(getPluginPackageName());
                 if (g == null || !g.isThird) {
                     return cacheDir;
                 }
@@ -187,7 +187,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.getDir(pluginPackageName + str, i);
@@ -203,7 +203,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.getFileStreamPath(pluginPackageName + str);
@@ -223,7 +223,7 @@ public class PluginBaseApplication extends Application {
                 return null;
             }
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g == null || !g.isThird) {
                 return filesDir;
             }
@@ -285,7 +285,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName);
                 if (plugin2 == null) {
@@ -324,7 +324,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.getSharedPreferences(pluginPackageName + str, i);
@@ -347,7 +347,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.openFileInput(pluginPackageName + str);
@@ -363,7 +363,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.openFileOutput(pluginPackageName + str, i);
@@ -379,7 +379,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048601, this, str, i, cursorFactory)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);

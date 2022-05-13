@@ -1,99 +1,95 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.permissionhelper.app.ActivityCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
-import java.util.concurrent.locks.ReentrantLock;
-import kotlin.Unit;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class kx<T> implements jx<T> {
+public class kx {
     public static /* synthetic */ Interceptable $ic;
+    public static kx b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Stack<T> a;
-    public final ReentrantLock b;
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964035016, "Lcom/repackage/kx;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964035016, "Lcom/repackage/kx;");
+                return;
+            }
+        }
+        b = new kx();
+    }
 
     public kx() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Stack<>();
-        this.b = new ReentrantLock(true);
+        this.a = new HashMap();
     }
 
-    @Override // com.repackage.jx
-    public void a(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                this.a.push(t);
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    @Override // com.repackage.jx
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                this.a.clear();
-                Unit unit = Unit.INSTANCE;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    @Override // com.repackage.jx
-    public boolean c() {
+    public static kx b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                return this.a.isEmpty();
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (kx) invokeV.objValue;
     }
 
-    @Override // com.repackage.jx
-    public T a() {
-        InterceptResult invokeV;
+    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ReentrantLock reentrantLock = this.b;
-            reentrantLock.lock();
-            try {
-                if (!c()) {
-                    return this.a.pop();
-                }
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) == null) || this.a == null) {
+            return;
+        }
+        synchronized (kx.class) {
+            if (this.a.containsKey(Integer.valueOf(i))) {
+                this.a.remove(Integer.valueOf(i));
+            }
+            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
+        }
+    }
+
+    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
+            if (map == null || !map.containsKey(Integer.valueOf(i))) {
                 return null;
-            } finally {
-                reentrantLock.unlock();
+            }
+            return this.a.get(Integer.valueOf(i));
+        }
+        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (kx.class) {
+                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
+                    this.a.remove(Integer.valueOf(i));
+                }
             }
         }
-        return (T) invokeV.objValue;
     }
 }

@@ -1,100 +1,58 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class dy5 extends wx5 {
+public class dy5 implements r27 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<r37> a;
+    public int a;
     public String b;
     public String c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755751055, "Lcom/repackage/dy5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755751055, "Lcom/repackage/dy5;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
+    public long d;
+    public boolean e;
 
     public dy5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ArrayList();
     }
 
-    public void e(r37 r37Var) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, r37Var) == null) {
-            this.a.add(r37Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof we5) {
+                we5 we5Var = (we5) obj;
+                return we5Var.d == this.d && we5Var.c.equals(this.c) && we5Var.b.equals(this.b) && we5Var.e == this.e && we5Var.a == this.a;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public String g() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public List<r37> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
+        return (String) invokeV.objValue;
     }
 }

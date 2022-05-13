@@ -26,13 +26,13 @@ public class jo7 extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public List<FaceData> a;
     public Context b;
-    public k35 c;
+    public b45 c;
     public int d;
     public int e;
     public c f;
 
     /* loaded from: classes6.dex */
-    public class a extends hg<fo> {
+    public class a extends fg<co> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -58,19 +58,19 @@ public class jo7 extends BaseAdapter {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
+        @Override // com.repackage.fg
+        public void onLoaded(co coVar, String str, int i) {
             View findViewWithTag;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) || foVar == null || (findViewWithTag = this.a.findViewWithTag(str)) == null || !(findViewWithTag instanceof TbImageView) || str == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) || coVar == null || (findViewWithTag = this.a.findViewWithTag(str)) == null || !(findViewWithTag instanceof TbImageView) || str == null) {
                 return;
             }
-            foVar.h(this.b.a);
+            coVar.h(this.b.a);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements g35 {
+    public class b implements x35 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -93,14 +93,14 @@ public class jo7 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.g35
-        public void a(fo foVar, String str, boolean z) {
+        @Override // com.repackage.x35
+        public void a(co coVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, foVar, str, z) == null) || (tbImageView = (TbImageView) this.a.findViewWithTag(str)) == null || foVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, coVar, str, z) == null) || (tbImageView = (TbImageView) this.a.findViewWithTag(str)) == null || coVar == null) {
                 return;
             }
-            foVar.h(tbImageView);
+            coVar.h(tbImageView);
         }
     }
 
@@ -207,12 +207,12 @@ public class jo7 extends BaseAdapter {
         public final void b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e68);
-                this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090779);
+                this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6f);
+                this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090776);
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
                 layoutParams.width = this.c.d;
                 layoutParams.height = this.c.d;
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0807a4);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f08078e);
                 this.a.setOnClickListener(new a(this));
                 this.b.setOnClickListener(new b(this));
             }
@@ -236,10 +236,10 @@ public class jo7 extends BaseAdapter {
         }
         this.b = BdBaseApplication.getInst().getApp();
         this.a = list;
-        this.c = new k35();
-        int k = oi.k(this.b);
+        this.c = new b45();
+        int k = mi.k(this.b);
         this.e = k;
-        this.d = (k - (oi.f(this.b, R.dimen.obfuscated_res_0x7f070201) * 3)) / 4;
+        this.d = (k - (mi.f(this.b, R.dimen.obfuscated_res_0x7f070201) * 3)) / 4;
     }
 
     public final void c(ImageFileInfo imageFileInfo, ViewGroup viewGroup, d dVar) {
@@ -249,8 +249,8 @@ public class jo7 extends BaseAdapter {
         }
         imageFileInfo.clearPageActions();
         int i = this.d;
-        imageFileInfo.addPageAction(u35.g(i, i));
-        fo c2 = this.c.c(imageFileInfo, false);
+        imageFileInfo.addPageAction(l45.g(i, i));
+        co c2 = this.c.c(imageFileInfo, false);
         dVar.a.setTag(imageFileInfo.toCachedKey(false));
         if (c2 != null) {
             c2.h(dVar.a);
@@ -266,10 +266,10 @@ public class jo7 extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionImageData, viewGroup, dVar) == null) || emotionImageData == null) {
             return;
         }
-        Object k = ig.h().k(emotionImageData.getThumbUrl(), 20, new a(this, viewGroup, dVar), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-        fo foVar = (k == null || !(k instanceof fo)) ? null : (fo) k;
-        if (foVar != null) {
-            foVar.h(dVar.a);
+        Object k = gg.h().k(emotionImageData.getThumbUrl(), 20, new a(this, viewGroup, dVar), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
+        co coVar = (k == null || !(k instanceof co)) ? null : (co) k;
+        if (coVar != null) {
+            coVar.h(dVar.a);
             dVar.a.setTag(null);
         }
         dVar.b.setVisibility(0);
@@ -339,7 +339,7 @@ public class jo7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 dVar = new d(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0500, (ViewGroup) null);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f5, (ViewGroup) null);
                 dVar.b(view3);
                 view3.setTag(dVar);
             } else {

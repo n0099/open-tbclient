@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class q68 extends tw5<j58> {
+/* loaded from: classes6.dex */
+public class q68 extends uw5<j58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -47,20 +47,20 @@ public class q68 extends tw5<j58> {
         }
         View k = k();
         this.i = k;
-        this.j = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f09188d);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09188c);
-        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f09188e);
+        this.j = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f0918e5);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0918e4);
+        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f0918e6);
         this.i.setOnClickListener(this);
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06d1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c9 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
@@ -69,7 +69,7 @@ public class q68 extends tw5<j58> {
         this.a = i;
         SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-        SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0808ba, i);
+        SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0808c7, i);
     }
 
     @Override // android.view.View.OnClickListener
@@ -84,7 +84,7 @@ public class q68 extends tw5<j58> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: s */
     public void l(j58 j58Var) {
         Interceptable interceptable = $ic;

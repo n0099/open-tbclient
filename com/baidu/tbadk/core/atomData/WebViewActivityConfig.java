@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.oi;
+import com.repackage.li;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,6 +38,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_NO_MENU = "tag_nomenu";
     public static final String TAG_NO_SHARE = "tag_noshare";
     public static final String TAG_PAGE_TRANSLUCENT = "tag_page_translucent";
+    public static final String TAG_TEXT_AUTO_SIZE = "tag_text_auto_size";
     public static final String TAG_TITLE = "tag_title";
     public static final String TAG_URL = "tag_url";
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,11 +76,11 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ni.isEmpty(str)) {
+            if (li.isEmpty(str)) {
                 return str;
             }
             if (str.indexOf("_client_version=") < 0) {
-                if (ni.isEmpty(Uri.parse(str).getQuery())) {
+                if (li.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();
@@ -99,7 +100,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                oi.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1551));
+                mi.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f157d));
                 return false;
             }
             return true;
@@ -169,6 +170,14 @@ public class WebViewActivityConfig extends IntentConfig {
             return;
         }
         getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
+    }
+
+    public void setTextAutoSize(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra(TAG_TEXT_AUTO_SIZE, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

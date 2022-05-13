@@ -1,57 +1,210 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pu4;
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class aq8 extends CustomMessageListener {
+public class aq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final wn8 b;
-    public final jo8 c;
+    public BubbleListActivity a;
+    public View b;
+    public NavigationBar c;
+    public MemberRecommendView d;
+    public BdListView e;
+    public qu4 f;
+    public zp8 g;
+    public int h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq8(MainTabActivity mainTabActivity, wn8 wn8Var) {
-        super(2921567);
+    public aq8(BubbleListActivity bubbleListActivity, vp8 vp8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wn8Var};
+            Object[] objArr = {bubbleListActivity, vp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = wn8Var;
-        this.c = mainTabActivity.mLogicController;
+        this.f = null;
+        this.h = 0;
+        this.a = bubbleListActivity;
+        this.h = mi.f(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023f);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0168, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
+        this.c = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c.setTitleText(R.string.obfuscated_res_0x7f0f0342);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fc);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(7);
+        this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091289);
+        qu4 qu4Var = new qu4(this.a.getPageContext());
+        this.f = qu4Var;
+        this.e.setPullRefresh(qu4Var);
+        TextView textView = new TextView(this.a.getActivity());
+        textView.setHeight(mi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0701d5));
+        this.e.addFooterView(textView);
+        zp8 zp8Var = new zp8(this.a.getPageContext(), vp8Var);
+        this.g = zp8Var;
+        this.e.setAdapter((ListAdapter) zp8Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        wn8 wn8Var;
-        jo8 jo8Var;
+    public final List<List<DressItemData>> a(List<DressItemData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (wn8Var = this.b) == null || wn8Var.z() == null || this.b.z().getCurrentTabType() == 22 || (jo8Var = this.c) == null || jo8Var.a() == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i = i + 1 + 1) {
+                ArrayList arrayList2 = new ArrayList();
+                for (int i2 = 0; i2 < 2; i2++) {
+                    int i3 = i + i2;
+                    if (i3 < size) {
+                        arrayList2.add(list.get(i3));
+                    }
+                }
+                arrayList.add(arrayList2);
+            }
+            return arrayList;
         }
-        if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-            this.c.a().f = true;
-        } else {
-            this.c.a().g();
+        return (List) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.d.setVisibility(0);
+            this.e.setVisibility(0);
+            this.b.setVisibility(0);
+        }
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public void d() {
+        zp8 zp8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            w95.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.c;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.e;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (zp8Var = this.g) != null) {
+                zp8Var.notifyDataSetChanged();
+            }
+            qu4 qu4Var = this.f;
+            if (qu4Var != null) {
+                qu4Var.H(TbadkApplication.getInst().getSkinType());
+            }
+            this.d.d();
+        }
+    }
+
+    public final void e(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.e.setVisibility(0);
+                this.g.b(list);
+                this.g.notifyDataSetChanged();
+                return;
+            }
+            this.e.setVisibility(8);
+        }
+    }
+
+    public final boolean f(jq8 jq8Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jq8Var)) == null) {
+            if (jq8Var != null && !StringUtils.isNull(jq8Var.c())) {
+                this.d.setVisibility(0);
+                this.d.e(jq8Var);
+                return true;
+            }
+            this.d.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(BdListView.p pVar, pu4.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
+            this.e.setOnSrollToBottomListener(pVar);
+            this.f.e(gVar);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d.setVisibility(8);
+            this.e.setVisibility(8);
+            this.b.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
+            this.a.setNetRefreshViewTopMargin(this.h);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public void i(jq8 jq8Var, List<DressItemData> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, jq8Var, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                b();
+                f(jq8Var);
+                e(a(list));
+                return;
+            }
+            h();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e.A(0L);
         }
     }
 }

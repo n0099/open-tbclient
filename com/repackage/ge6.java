@@ -1,76 +1,75 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ge6 {
+public class ge6 implements sd6 {
     public static /* synthetic */ Interceptable $ic;
-    public static ge6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755680871, "Lcom/repackage/ge6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755680871, "Lcom/repackage/ge6;");
-                return;
-            }
-        }
-        b = new ge6();
-    }
 
     public ge6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new SparseArray<>();
     }
 
-    public static ge6 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.sd6
+    public eo<? extends br4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (ge6) invokeV.objValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) ? new jh6(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z) : (eo) invokeLLZ.objValue;
     }
 
-    public boolean b(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.sd6
+    public pc6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) ? new wl6(tbPageContext, bdUniqueId, bdUniqueId2) : (pc6) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.sd6
+    public eo<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            if (bdUniqueId == bj8.d) {
+                return new lg6(tbPageContext, bdUniqueId, z);
             }
-            return !TextUtils.isEmpty(this.a.get(i));
+            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
+                return new kh6(tbPageContext, bdUniqueId, bdUniqueId2, z);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
         }
-        return invokeI.booleanValue;
+        return (eo) invokeCommon.objValue;
     }
 
-    public void c(int i) {
+    @Override // com.repackage.sd6
+    public eo<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.put(i, "1");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
+                return new ng6(tbPageContext, bdUniqueId, bdUniqueId2);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
         }
+        return (eo) invokeLLL.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.handler.a.a;
 
 import android.os.Environment;
 import com.baidu.mobstat.Config;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -34,7 +34,7 @@ public class b {
             }
             return;
         }
-        ym9.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        tl9.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
         if (file.length() >= Config.FULL_TRACE_LOG_LIMIT) {
             return;
         }

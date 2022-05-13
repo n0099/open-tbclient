@@ -69,9 +69,9 @@ public class BottomSheetDialog extends AppCompatDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.container == null) {
-                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d021f, null);
+                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0218, null);
                 this.container = frameLayout;
-                BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f09078f));
+                BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f09078c));
                 this.behavior = from;
                 from.addBottomSheetCallback(this.bottomSheetCallback);
                 this.behavior.setHideable(this.cancelable);
@@ -87,7 +87,7 @@ public class BottomSheetDialog extends AppCompatDialog {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             if (i == 0) {
                 TypedValue typedValue = new TypedValue();
-                return context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400e8, typedValue, true) ? typedValue.resourceId : R.style.obfuscated_res_0x7f10022b;
+                return context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400eb, typedValue, true) ? typedValue.resourceId : R.style.obfuscated_res_0x7f10022b;
             }
             return i;
         }
@@ -99,18 +99,18 @@ public class BottomSheetDialog extends AppCompatDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i, view2, layoutParams)) == null) {
             ensureContainerAndBehavior();
-            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0906fb);
+            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0906f9);
             if (i != 0 && view2 == null) {
                 view2 = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
             }
-            FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f09078f);
+            FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f09078c);
             frameLayout.removeAllViews();
             if (layoutParams == null) {
                 frameLayout.addView(view2);
             } else {
                 frameLayout.addView(view2, layoutParams);
             }
-            coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f092120).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
+            coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f09217b).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BottomSheetDialog this$0;

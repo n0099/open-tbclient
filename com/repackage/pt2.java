@@ -1,126 +1,69 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.gl2;
-import com.repackage.o62;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class pt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755398461, "Lcom/repackage/pt2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755398461, "Lcom/repackage/pt2;");
-        }
-    }
-
-    public static void a(String str, @Nullable jq2 jq2Var) {
-        j03 L;
-        gl2.a X;
+    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, jq2Var) == null) || (L = j03.L()) == null || (X = L.X()) == null) {
-            return;
-        }
-        HybridUbcFlow q = ot2.q("route", str);
-        q.D("appid", X.H());
-        q.D("swan", o93.i(X.j0(), X.G()));
-        q.D("net", SwanAppNetworkUtils.f().type);
-        q.D("appversion", X.v1());
-        q.D("thirdversion", X.w1());
-        q.D("mobile", zc3.c());
-        q.D("scheme", X.W());
-        q.D("launchid", X.V());
-        q.E("from", "swan");
-        q.D("web_widget_state", "0");
-        q.A();
-        if (jq2Var != null) {
-            q.E("na_multi_jump_dst_path", jq2Var.a());
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            wq2.j(true);
-            ot2.s("route", str);
-            HybridUbcFlow q = ot2.q("route", str);
-            q.F(new UbcFlowEvent("na_first_receive_action"));
-            q.D("sub_state", "0");
-            a = System.currentTimeMillis();
-        }
-    }
-
-    public static void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
-            oi2.c(i);
-            HybridUbcFlow q = ot2.q("route", str);
-            if (i != 6 && i != 4 && i != 1) {
-                q.I(HybridUbcFlow.SubmitStrategy.ROUTE);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
+            String b = b(unitedSchemeEntity);
+            if (TextUtils.isEmpty(b)) {
+                ux1.i("WxWebViewPayment", "wxPay: url is empty");
+                ux1.k("WxWebViewPayment", "param check error - src" + b);
+                n73.H(false, "wechatH5Action", n73.m(b, "param check error - src"));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else if (!o71.a().b(context)) {
+                m03.g(context, context.getText(R.string.obfuscated_res_0x7f0f01e2)).G();
+                ux1.k("WxWebViewPayment", "Error: wechat not install. " + b);
+                n73.H(false, "wechatH5Action", n73.m(b, "Error: wechat not install. "));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
+                return false;
             } else {
-                q.I(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
+                uq2 d = uq2.d(b, b);
+                ux1.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
+                if (!i02.c3("wxPay", d)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    ux1.k("WxWebViewPayment", "Error: webview fragment not opened.");
+                    return false;
+                }
+                ux1.k("WxWebViewPayment", "Success:open wxPay page success");
+                ux1.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(it2.c(b), 0));
+                return true;
             }
-            q.E("type", Integer.valueOf(i));
-            rz1 H = wl2.U().H();
-            q.E("na_multi_jump_src_path", H != null ? H.l3().a() : "");
         }
+        return invokeLLL.booleanValue;
     }
 
-    public static void d(String str) {
+    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && TextUtils.equals(ot2.q("route", str).h("sub_state"), "1")) {
-            ot2.q("route", str).F(new UbcFlowEvent("na_end_sub_package_download"));
-        }
-    }
-
-    public static void e(o62.e eVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, eVar, str) == null) {
-            ot2.q("route", str).F(new UbcFlowEvent("na_pre_load_slave_ok"));
-            if (eVar == null) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            pm1 pm1Var = eVar.a;
-            if (pm1Var != null) {
-                pm1Var.x(str);
+            try {
+                return new JSONObject(str).optString("src");
+            } catch (JSONException unused) {
+                return null;
             }
-            HybridUbcFlow q = ot2.q("route", str);
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
-            ubcFlowEvent.h(eVar.d);
-            q.F(ubcFlowEvent);
-            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
-            ubcFlowEvent2.h(eVar.e);
-            q.F(ubcFlowEvent2);
         }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            HybridUbcFlow q = ot2.q("route", str);
-            q.F(new UbcFlowEvent("web_widget_first_screen_finish"));
-            q.D("web_widget_state", "1");
-            q.T();
-        }
+        return (String) invokeL.objValue;
     }
 }

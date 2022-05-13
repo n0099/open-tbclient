@@ -1,7 +1,8 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,80 +11,51 @@ public class ls1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-203936950, "Lcom/repackage/ls1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-203936950, "Lcom/repackage/ls1$a;");
+                    return;
+                }
             }
-            int indexOf = str.indexOf("_dev");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
+            int[] iArr = new int[BasePendingOperation.OperationType.values().length];
+            a = iArr;
+            try {
+                iArr[BasePendingOperation.OperationType.OPERATION_TYPE_MAIN_THREAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            int indexOf2 = str.indexOf("_trial");
-            return indexOf2 > 0 ? str.substring(0, indexOf2) : str;
+            try {
+                a[BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static int b(String str) {
+    public static hs1 a(BasePendingOperation.OperationType operationType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, operationType)) == null) {
+            int i = a.a[operationType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return new ms1();
+                }
+                return new ks1();
             }
-            if (str.contains("_dev")) {
-                return 1;
-            }
-            if (str.endsWith("_trial")) {
-                return 3;
-            }
-            return str.contains("_trial") ? 2 : 0;
+            return new js1();
         }
-        return invokeL.intValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            int lastIndexOf = str.lastIndexOf("_dev");
-            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
-                return str.substring(lastIndexOf);
-            }
-            int lastIndexOf2 = str.lastIndexOf("_trial");
-            return (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) ? "" : str.substring(lastIndexOf2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(gl2 gl2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gl2Var)) == null) ? gl2Var != null && gl2Var.getType() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean e(gl2 gl2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gl2Var)) == null) ? gl2Var != null && gl2Var.getType() == 0 : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.contains("_")) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean g(gl2 gl2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, gl2Var)) == null) ? gl2Var != null && gl2Var.getType() == 2 : invokeL.booleanValue;
+        return (hs1) invokeL.objValue;
     }
 }

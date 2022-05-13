@@ -1,119 +1,228 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
-import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UploadDataSink;
+import java.io.IOException;
+import java.net.HttpRetryException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class m29 {
+public final class m29 extends q29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<List<String>> b;
-    public VideoCategoryClassData c;
-    public BdUniqueId d;
+    public final o29 d;
+    public final r29 e;
+    public final ByteBuffer f;
+    public final UploadDataProvider g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
 
-    public m29(BdUniqueId bdUniqueId) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends UploadDataProvider {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m29 a;
+
+        public b(m29 m29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m29Var;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return -1L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
+                if (byteBuffer.remaining() >= this.a.f.remaining()) {
+                    byteBuffer.put(this.a.f);
+                    this.a.f.clear();
+                    uploadDataSink.c(this.a.h);
+                    if (!this.a.h) {
+                        this.a.e.quit();
+                        return;
+                    } else if (this.a.i) {
+                        this.a.e.quit();
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                int limit = this.a.f.limit();
+                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
+                byteBuffer.put(this.a.f);
+                this.a.f.limit(limit);
+                uploadDataSink.c(false);
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void c(UploadDataSink uploadDataSink) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
+                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
+            }
+        }
+
+        public /* synthetic */ b(m29 m29Var, a aVar) {
+            this(m29Var);
+        }
+    }
+
+    public m29(o29 o29Var, int i, r29 r29Var, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {o29Var, Integer.valueOf(i), r29Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new VideoCategoryClassData();
-        this.d = bdUniqueId;
-    }
-
-    public VideoCategoryClassData a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            this.c.setFirstClass(this.a.get(i));
-            this.c.setSecondClass(this.b.get(i).get(i2));
-            this.c.getTags().clear();
-            return this.c;
+        this.g = new b(this, null);
+        this.h = false;
+        this.i = false;
+        this.j = false;
+        if (o29Var == null) {
+            throw null;
         }
-        return (VideoCategoryClassData) invokeII.objValue;
+        if (i > 0) {
+            this.f = ByteBuffer.allocate(i);
+            this.d = o29Var;
+            this.e = r29Var;
+            this.i = z;
+            this.j = z2;
+            return;
+        }
+        throw new IllegalArgumentException("chunkLength should be greater than 0");
     }
 
-    public List<String> b() {
+    @Override // com.repackage.q29, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.close();
+            if (this.h) {
+                return;
+            }
+            this.h = true;
+            this.f.flip();
+            if (this.i) {
+                this.e.b(this.d.getReadTimeout());
+            }
+        }
+    }
+
+    @Override // com.repackage.q29
+    public void e() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.q29
+    public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (UploadDataProvider) invokeV.objValue;
     }
 
-    public List<List<String>> c() {
-        InterceptResult invokeV;
+    @Override // java.io.OutputStream, java.io.Flushable
+    public void flush() throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j && this.f.position() > 0) {
+            q();
+        }
     }
 
-    public ArrayList<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getTags() : (ArrayList) invokeV.objValue;
-    }
-
-    public void e() {
+    @Override // com.repackage.q29
+    public void g() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
-            getSelectClassReqMessage.setTag(this.d);
-            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
         }
     }
 
-    public void f() {
+    public final void p() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
-            getSelectTagReqMessage.setTag(this.d);
-            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
-            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
-            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f.hasRemaining()) {
+            return;
+        }
+        q();
+    }
+
+    public final void q() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            c();
+            this.f.flip();
+            this.e.b(this.d.getReadTimeout());
+            a();
         }
     }
 
-    public void g(List<String> list) {
+    @Override // java.io.OutputStream
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.a.clear();
-            this.a.addAll(list);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            p();
+            this.f.put((byte) i);
         }
     }
 
-    public void h(List<List<String>> list) {
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
-        }
-    }
-
-    public void i(VideoCategoryClassData videoCategoryClassData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
-            this.c = videoCategoryClassData;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
+            c();
+            if (bArr.length - i < i2 || i < 0 || i2 < 0) {
+                throw new IndexOutOfBoundsException();
+            }
+            int i3 = i2;
+            while (i3 > 0) {
+                int min = Math.min(i3, this.f.remaining());
+                this.f.put(bArr, (i + i2) - i3, min);
+                i3 -= min;
+                p();
+            }
         }
     }
 }

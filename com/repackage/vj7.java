@@ -122,8 +122,8 @@ public class vj7 {
             }
         }
         this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        kk8.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        kk8.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
+        hj8.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
+        hj8.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
         MessageManager.getInstance().registerListener(this.e);
     }
 

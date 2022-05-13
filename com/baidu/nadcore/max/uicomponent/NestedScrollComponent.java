@@ -25,18 +25,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an0;
 import com.repackage.bn0;
-import com.repackage.c11;
-import com.repackage.eh0;
 import com.repackage.en0;
-import com.repackage.fi0;
 import com.repackage.fn0;
+import com.repackage.hh0;
 import com.repackage.hn0;
-import com.repackage.ih0;
+import com.repackage.ii0;
 import com.repackage.in0;
-import com.repackage.jh0;
 import com.repackage.kn0;
+import com.repackage.lh0;
+import com.repackage.m11;
+import com.repackage.mh0;
 import com.repackage.no0;
-import com.repackage.qh0;
+import com.repackage.th0;
 import com.repackage.um0;
 import com.repackage.uy0;
 import com.repackage.vm0;
@@ -59,7 +59,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     public no0 e;
     public ValueAnimator f;
     public boolean g;
-    public ih0 h;
+    public lh0 h;
     public final Lazy i;
     public final WebViewContainer.c j;
     public final WebViewContainer.d k;
@@ -461,17 +461,17 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                 t();
             } else if (i != 2) {
             } else {
-                ih0 ih0Var = this.h;
-                Map<String, String> map = ih0Var != null ? ih0Var.c : null;
-                ih0 ih0Var2 = this.h;
-                String a2 = jh0.a("leftslide", map, ih0Var2 != null ? ih0Var2.b : null, "");
+                lh0 lh0Var = this.h;
+                Map<String, String> map = lh0Var != null ? lh0Var.c : null;
+                lh0 lh0Var2 = this.h;
+                String a2 = mh0.a("leftslide", map, lh0Var2 != null ? lh0Var2.b : null, "");
                 if (a2 != null && a2.length() != 0) {
                     z = false;
                 }
                 if (z) {
                     return;
                 }
-                qh0.c(a2, getContext());
+                th0.c(a2, getContext());
                 en0 en0Var = (en0) j().q(en0.class);
                 if (en0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
@@ -495,7 +495,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             if (in0Var == null || (b2 = in0Var.b()) == null || (g2 = b2.g()) == null) {
                 return;
             }
-            eh0.f(g2);
+            hh0.f(g2);
             x().addView(g2, new FrameLayout.LayoutParams(-1, -1));
         }
     }
@@ -545,7 +545,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             x().setMinFlingVelocity(400);
             x().setUpYVelocityRatio(3.5f);
             x().setInterceptFlingListener(new b(this));
-            x().setMinTopMargin(c11.c.a(getContext(), 49.0f));
+            x().setMinTopMargin(m11.c.a(getContext(), 49.0f));
         }
     }
 
@@ -614,7 +614,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                 if (!TextUtils.isEmpty(str)) {
                     this.e = no0.g.a(uy0.c(str));
                 }
-                this.h = ih0.a(hashMap);
+                this.h = lh0.a(hashMap);
             }
         }
     }
@@ -631,7 +631,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(fi0 event) {
+    public void c(ii0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -689,10 +689,10 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
             if (l < (no0Var2 != null ? no0Var2.a() : 0)) {
                 return;
             }
-            ih0 ih0Var = this.h;
-            Map<String, String> map = ih0Var != null ? ih0Var.c : null;
-            ih0 ih0Var2 = this.h;
-            String a2 = jh0.a("postplay", map, ih0Var2 != null ? ih0Var2.b : null, "");
+            lh0 lh0Var = this.h;
+            Map<String, String> map = lh0Var != null ? lh0Var.c : null;
+            lh0 lh0Var2 = this.h;
+            String a2 = mh0.a("postplay", map, lh0Var2 != null ? lh0Var2.b : null, "");
             Intrinsics.checkNotNullExpressionValue(a2, "AreaChargeUtil.area2Cmd(… adAreaInfo?.mCmdMap, \"\")");
             if (TextUtils.isEmpty(a2)) {
                 return;
@@ -701,7 +701,7 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
                 C(false, true, true);
                 return;
             }
-            qh0.c(a2, getContext());
+            th0.c(a2, getContext());
             this.g = true;
         }
     }
@@ -718,9 +718,9 @@ public final class NestedScrollComponent extends AbsComponentPlugin {
     public final void v(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            String d2 = eh0.d(0.6f * f2, "000000");
+            String d2 = hh0.d(0.6f * f2, "000000");
             Intrinsics.checkNotNullExpressionValue(d2, "AdUtil.getOpacityColor(currentOpacity, \"000000\")");
-            x().setBackgroundColor(eh0.e(d2, ((double) f2) > 0.5d ? R.color.obfuscated_res_0x7f060827 : R.color.obfuscated_res_0x7f060826));
+            x().setBackgroundColor(hh0.e(d2, ((double) f2) > 0.5d ? R.color.obfuscated_res_0x7f060830 : R.color.obfuscated_res_0x7f06082f));
         }
     }
 

@@ -161,7 +161,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public int P0() {
+    public int Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -171,21 +171,21 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment R0() {
+    public Fragment S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new VideoAttentionPageFragment(this.a, new a(this), 0, 2) : (Fragment) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment S0() {
+    public Fragment T0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new VideoVerticalPageFragment(this.a, new b(this), 1, 1) : (Fragment) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public void Z0() {
+    public void a1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
@@ -207,7 +207,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             View onCreateView = super.onCreateView(layoutInflater, viewGroup, bundle);
-            V0(onCreateView);
+            W0(onCreateView);
             if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
                 VideoChannelHeaderLayout videoChannelHeaderLayout = this.c;
                 if (videoChannelHeaderLayout != null) {

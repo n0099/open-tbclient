@@ -49,18 +49,18 @@ public class ui7 extends z8<BubbleChooseActivity> {
         }
         BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
         this.f = orignalPage;
-        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0167);
-        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f0911b0);
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0163);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f0911bf);
         this.a = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.setTitleText(R.string.obfuscated_res_0x7f0f0528);
-        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0168, this.f);
-        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0906d2);
-        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090d11);
+        this.a.setTitleText(R.string.obfuscated_res_0x7f0f052e);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0164, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0906cd);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090cfd);
         ti7 ti7Var = new ti7(tbPageContext);
         this.e = ti7Var;
         this.c.setAdapter((ListAdapter) ti7Var);
-        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09045d);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090458);
     }
 
     public ti7 e() {
@@ -69,19 +69,19 @@ public class ui7 extends z8<BubbleChooseActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ti7) invokeV.objValue;
     }
 
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (View) invokeV.objValue;
     }
 
-    public GridView g() {
+    public GridView h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (GridView) invokeV.objValue;
     }
 
-    public BubbleListData.BubbleData h(int i) {
+    public BubbleListData.BubbleData i(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -94,14 +94,14 @@ public class ui7 extends z8<BubbleChooseActivity> {
         return (BubbleListData.BubbleData) invokeI.objValue;
     }
 
-    public void i() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.g.setVisibility(8);
         }
     }
 
-    public void j(List<BubbleListData.BubbleData> list, boolean z) {
+    public void k(List<BubbleListData.BubbleData> list, boolean z) {
         ti7 ti7Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) || (ti7Var = this.e) == null) {
@@ -111,7 +111,7 @@ public class ui7 extends z8<BubbleChooseActivity> {
         this.e.c(list);
     }
 
-    public void k() {
+    public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.g.setVisibility(0);

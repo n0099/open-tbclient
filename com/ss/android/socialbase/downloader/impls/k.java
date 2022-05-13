@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public final SparseArray<DownloadInfo> a = new SparseArray<>();
     public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> b = new SparseArray<>();

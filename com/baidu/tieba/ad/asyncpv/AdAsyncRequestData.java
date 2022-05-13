@@ -16,18 +16,16 @@ import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.recapp.constants.PlaceId;
-import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ci5;
-import com.repackage.jd7;
-import com.repackage.mi;
-import com.repackage.rg5;
-import com.repackage.wb5;
-import com.repackage.xb5;
+import com.repackage.ki;
+import com.repackage.nc5;
+import com.repackage.oc5;
+import com.repackage.pd7;
+import com.repackage.vi5;
 import java.util.Map;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
@@ -93,14 +91,14 @@ public class AdAsyncRequestData extends HttpMessage {
             addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
             addParam("model", Build.MODEL);
             addParam(HttpRequest.CLIENT_TYPE, "2");
-            addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-            addParam("net_type", String.valueOf(mi.I()));
+            addParam("_os_version", Build.VERSION.RELEASE);
+            addParam("net_type", String.valueOf(ki.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             addParam(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
             String sampleId = TbSingleton.getInstance().getSampleId();
             addParam("eid", sampleId == null ? "" : sampleId.replace(SignatureImpl.SEP, ','));
-            addParam("app_transmit_data", xb5.a());
+            addParam("app_transmit_data", oc5.a());
         }
     }
 
@@ -125,15 +123,13 @@ public class AdAsyncRequestData extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (ci5.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(create(AdExtParam.KEY_IADEX, wb5.e()));
+            if (vi5.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(create(AdExtParam.KEY_IADEX, nc5.e()));
                 jSONArray.put(create("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
                 jSONArray.put(create("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
-            if (rg5.h().y()) {
-                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.3"));
-            }
-            if (!jd7.f(map)) {
+            jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.21"));
+            if (!pd7.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }

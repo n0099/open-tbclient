@@ -319,6 +319,6 @@ public class b extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (KsAdWebView) a(R.id.obfuscated_res_0x7f0910bc);
+        this.b = (KsAdWebView) a(R.id.obfuscated_res_0x7f0910cb);
     }
 }

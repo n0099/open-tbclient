@@ -35,7 +35,7 @@ public class m68 {
     public ImageView f;
     public ImageView g;
     public ImageView h;
-    public uw8 i;
+    public rv8 i;
     public UserData j;
     public int k;
     public boolean l;
@@ -150,7 +150,7 @@ public class m68 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.z()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ki.z()) {
                 TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "2"));
                 if (this.a.i != null) {
                     q58 q58Var = new q58();
@@ -261,10 +261,10 @@ public class m68 {
         }
     }
 
-    public void j(uw8 uw8Var) {
+    public void j(rv8 rv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, uw8Var) == null) {
-            this.i = uw8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, rv8Var) == null) {
+            this.i = rv8Var;
         }
     }
 
@@ -293,12 +293,12 @@ public class m68 {
             return;
         }
         if (z) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080622, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080611, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_createchat44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080622, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080611, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_topbar_more44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_createchat44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
@@ -336,16 +336,16 @@ public class m68 {
         }
         this.a = tbPageContext;
         this.l = z;
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091790);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f09178e);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091792);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09178d);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917c6);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0917c4);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c8);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917c3);
         this.f = imageView;
         imageView.setOnClickListener(new a(this));
-        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09178f);
+        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917c5);
         this.g = imageView2;
         imageView2.setOnClickListener(new b(this));
-        ImageView imageView3 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091791);
+        ImageView imageView3 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917c7);
         this.h = imageView3;
         imageView3.setOnClickListener(new c(this));
     }

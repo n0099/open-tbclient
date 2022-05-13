@@ -1,67 +1,126 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes7.dex */
-public final class t81 {
+public class t81 {
     public static /* synthetic */ Interceptable $ic;
-    public static t81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755336988, "Lcom/repackage/t81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        ?? r3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
+                try {
+                    try {
+                        bitmap = BitmapFactory.decodeStream(r3);
+                        u91.a(new Closeable[]{r3});
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        u91.a(new Closeable[]{r3});
+                        return bitmap;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bitmap = r3;
+                    u91.a(new Closeable[]{bitmap});
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                r3 = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                u91.a(new Closeable[]{bitmap});
+                throw th;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755336988, "Lcom/repackage/t81;");
-                return;
-            }
+            return bitmap;
         }
-        b = new t81();
+        return (Bitmap) invokeL.objValue;
     }
 
-    public t81() {
+    public static boolean b(String str, OutputStream outputStream) {
+        InterceptResult invokeLL;
+        Throwable th;
+        BufferedOutputStream bufferedOutputStream;
+        IOException e;
+        BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) != null) {
+            return invokeLL.booleanValue;
         }
-    }
-
-    public static t81 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (t81) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.a = activity.getTaskId();
+        BufferedInputStream bufferedInputStream2 = null;
+        try {
+            bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+            try {
+                bufferedOutputStream = new BufferedOutputStream(outputStream);
+            } catch (IOException e2) {
+                e = e2;
+                bufferedOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedOutputStream = null;
+            }
+        } catch (IOException e3) {
+            e = e3;
+            bufferedOutputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            bufferedOutputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[8192];
+            while (true) {
+                int read = bufferedInputStream.read(bArr);
+                if (read != -1) {
+                    bufferedOutputStream.write(bArr, 0, read);
+                } else {
+                    u91.a(bufferedInputStream, bufferedOutputStream);
+                    return true;
+                }
+            }
+        } catch (IOException e4) {
+            e = e4;
+            bufferedInputStream2 = bufferedInputStream;
+            try {
+                e.printStackTrace();
+                u91.a(bufferedInputStream2, bufferedOutputStream);
+                return false;
+            } catch (Throwable th4) {
+                th = th4;
+                u91.a(bufferedInputStream2, bufferedOutputStream);
+                throw th;
+            }
+        } catch (Throwable th5) {
+            th = th5;
+            bufferedInputStream2 = bufferedInputStream;
+            u91.a(bufferedInputStream2, bufferedOutputStream);
+            throw th;
         }
     }
 }

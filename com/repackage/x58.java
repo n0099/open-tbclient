@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jx5;
+import com.repackage.kx5;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class x58 {
@@ -30,7 +30,7 @@ public class x58 {
     public final CustomMessageListener g;
 
     /* loaded from: classes7.dex */
-    public class a implements jx5.j {
+    public class a implements kx5.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThreadData a;
@@ -55,12 +55,12 @@ public class x58 {
             this.a = threadData;
         }
 
-        @Override // com.repackage.jx5.j
+        @Override // com.repackage.kx5.j
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    oi.M(this.b.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13a0);
+                    mi.M(this.b.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13c5);
                 }
                 this.b.h(z, this.a);
             }
@@ -221,10 +221,10 @@ public class x58 {
             if (i >= this.c.F().size()) {
                 break;
             }
-            uo uoVar = this.c.F().get(i);
-            if (uoVar != null && (e = z58.e(uoVar)) != null && !StringUtils.isNull(e.tid) && e.tid.equals(threadData.tid)) {
+            ro roVar = this.c.F().get(i);
+            if (roVar != null && (e = z58.e(roVar)) != null && !StringUtils.isNull(e.tid) && e.tid.equals(threadData.tid)) {
                 e.isPrivacy = z;
-                xx5 d2 = z58.d(e);
+                yx5 d2 = z58.d(e);
                 if (d2 != null) {
                     this.c.F().set(i, d2);
                     z2 = true;
@@ -246,12 +246,12 @@ public class x58 {
             return;
         }
         boolean z = false;
-        Iterator<uo> it = this.c.F().iterator();
+        Iterator<ro> it = this.c.F().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            uo next = it.next();
+            ro next = it.next();
             if (next != null && (e = z58.e(next)) != null && e.getBaijiahaoData() != null && !StringUtils.isNull(e.getBaijiahaoData().oriUgcNid) && e.getBaijiahaoData().oriUgcNid.equals(str)) {
                 it.remove();
                 z = true;
@@ -271,12 +271,12 @@ public class x58 {
             return;
         }
         boolean z = false;
-        Iterator<uo> it = this.c.F().iterator();
+        Iterator<ro> it = this.c.F().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            uo next = it.next();
+            ro next = it.next();
             if (next != null && (e = z58.e(next)) != null && !StringUtils.isNull(e.tid) && e.tid.equals(str)) {
                 it.remove();
                 z = true;
@@ -300,12 +300,12 @@ public class x58 {
             if (threadData != null && threadData.getBaijiahaoData() != null) {
                 cardPersonDynamicThreadData.G = threadData.getBaijiahaoData().oriUgcNid;
             }
-            jx5 jx5Var = new jx5(this.a);
-            jx5Var.t(this.d == 1);
-            jx5Var.o();
-            jx5Var.s(new a(this, threadData));
-            jx5Var.n(cardPersonDynamicThreadData, false);
-            jx5Var.u();
+            kx5 kx5Var = new kx5(this.a);
+            kx5Var.t(this.d == 1);
+            kx5Var.o();
+            kx5Var.s(new a(this, threadData));
+            kx5Var.n(cardPersonDynamicThreadData, false);
+            kx5Var.u();
         }
     }
 }

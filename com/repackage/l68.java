@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class l68 extends tw5<k58> {
+public class l68 extends uw5<k58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long i;
@@ -84,20 +84,20 @@ public class l68 extends tw5<k58> {
         this.h = 4;
         View k = k();
         this.j = k;
-        this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09056c);
-        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f09056d);
+        this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090569);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f09056a);
         this.l = hTypeListView;
         this.m = new c48(this.b, hTypeListView);
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b0 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || i == this.a) {
@@ -123,14 +123,14 @@ public class l68 extends tw5<k58> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: u */
     public void l(k58 k58Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, k58Var) == null) {
             if (k58Var != null && !ListUtils.isEmpty(k58Var.b)) {
                 this.i = k58Var.a;
-                this.k.setText(R.string.obfuscated_res_0x7f0f14ff);
+                this.k.setText(R.string.obfuscated_res_0x7f0f152a);
                 this.l.setData(v(k58Var.b));
                 this.m.b(this.n);
                 return;
@@ -139,7 +139,7 @@ public class l68 extends tw5<k58> {
         }
     }
 
-    public final List<uo> v(List<uo> list) {
+    public final List<ro> v(List<ro> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
@@ -147,19 +147,19 @@ public class l68 extends tw5<k58> {
             if (count <= 0) {
                 return list;
             }
-            List<uo> arrayList = new ArrayList<>(list);
-            int f = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d1);
-            int f2 = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
+            List<ro> arrayList = new ArrayList<>(list);
+            int f = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d1);
+            int f2 = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
             if (count > 3) {
                 arrayList = arrayList.subList(0, 3);
                 f58 f58Var = new f58();
-                f58Var.a = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023f);
-                f58Var.b = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702bd);
+                f58Var.a = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023f);
+                f58Var.b = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702bd);
                 ListUtils.add(arrayList, f58Var);
             }
-            b18 b18Var = new b18(f2, f);
-            ListUtils.add(arrayList, 0, b18Var);
-            ListUtils.add(arrayList, b18Var);
+            v08 v08Var = new v08(f2, f);
+            ListUtils.add(arrayList, 0, v08Var);
+            ListUtils.add(arrayList, v08Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

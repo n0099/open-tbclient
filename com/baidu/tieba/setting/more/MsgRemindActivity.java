@@ -1,15 +1,10 @@
 package com.baidu.tieba.setting.more;
 
-import android.app.Dialog;
-import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.TimePicker;
-import androidx.core.view.InputDeviceCompat;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,22 +14,19 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.setting.MsgReceiveActivityConfig;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay4;
-import com.repackage.cr4;
-import com.repackage.ne8;
-import com.repackage.on4;
-import com.repackage.pg;
-import com.repackage.qw8;
-import com.repackage.sy4;
-import com.repackage.xf5;
-import com.repackage.yx4;
+import com.repackage.cd8;
+import com.repackage.gz4;
+import com.repackage.mi;
+import com.repackage.my4;
+import com.repackage.oy4;
+import com.repackage.p95;
+import com.repackage.qg5;
+import com.repackage.yn4;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
@@ -43,8 +35,8 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public MsgRemindModel.e callback;
     public MsgRemindModel mModel;
     public MsgRemindModel.e mMsgRemindModelCallback;
-    public ne8 mView;
-    public final xf5 onTimeSelectListener;
+    public cd8 mView;
+    public final qg5 onTimeSelectListener;
 
     /* loaded from: classes4.dex */
     public class a implements MsgRemindModel.e {
@@ -74,44 +66,22 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public void a(int i, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (i == 8) {
+                if (i == 7) {
                     if (z) {
-                        return;
-                    }
-                    if (z2) {
-                        this.a.mView.o().i();
-                        this.a.mView.Z(false);
-                        this.a.mView.e0(false);
-                        return;
-                    }
-                    this.a.mView.o().l();
-                    this.a.mView.Z(true);
-                    this.a.mView.e0(true);
-                } else if (i == 9) {
-                    if (z) {
-                        return;
-                    }
-                    if (z2) {
-                        this.a.mView.H().i();
-                    } else {
-                        this.a.mView.H().l();
-                    }
-                } else if (i == 7) {
-                    if (z) {
-                        yx4.d().S(z2);
+                        my4.d().U(z2);
                     } else if (z2) {
-                        this.a.mView.n().i();
+                        this.a.mView.j().k();
                     } else {
-                        this.a.mView.n().l();
+                        this.a.mView.j().n();
                     }
                 } else if (i == 6) {
                     if (z) {
-                        yx4.d().R(z2);
+                        my4.d().T(z2);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921631));
                     } else if (z2) {
-                        this.a.mView.z().i();
+                        this.a.mView.o().k();
                     } else {
-                        this.a.mView.z().l();
+                        this.a.mView.o().n();
                     }
                 }
             }
@@ -119,7 +89,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     }
 
     /* loaded from: classes4.dex */
-    public class b implements cr4.e {
+    public class b implements qg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindActivity a;
@@ -142,17 +112,20 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             this.a = msgRemindActivity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.qg5
+        public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) || this.a.mView == null) {
+                return;
             }
+            my4.d().W(date.getHours(), date.getMinutes());
+            this.a.mView.H();
+            this.a.mView.G();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements cr4.e {
+    public class c implements MsgRemindModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindActivity a;
@@ -175,296 +148,37 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             this.a = msgRemindActivity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                sy4.c(this.a.getPageContext());
-                cr4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MsgRemindActivity a;
-
-        public d(MsgRemindActivity msgRemindActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msgRemindActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = msgRemindActivity;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                StatisticItem statisticItem = new StatisticItem("c13673");
-                statisticItem.param("obj_source", 8);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements xf5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MsgRemindActivity a;
-
-        public e(MsgRemindActivity msgRemindActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msgRemindActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = msgRemindActivity;
-        }
-
-        @Override // com.repackage.xf5
-        public void a(Date date, View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) || this.a.mView == null) {
-                return;
-            }
-            yx4.d().V(date.getHours(), date.getMinutes());
-            this.a.mView.h0();
-            this.a.mView.f0();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class f implements TimePickerDialog.OnTimeSetListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ MsgRemindActivity b;
-
-        public f(MsgRemindActivity msgRemindActivity, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msgRemindActivity, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = msgRemindActivity;
-            this.a = i;
-        }
-
-        @Override // android.app.TimePickerDialog.OnTimeSetListener
-        public void onTimeSet(TimePicker timePicker, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLII(1048576, this, timePicker, i, i2) == null) || timePicker == null) {
-                return;
-            }
-            timePicker.clearFocus();
-            boolean z = this.a == R.id.obfuscated_res_0x7f09158a;
-            StringBuilder sb = new StringBuilder();
-            sb.append(timePicker.getCurrentHour().intValue() < 10 ? "0" : "");
-            sb.append(timePicker.getCurrentHour());
-            String sb2 = sb.toString();
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append(timePicker.getCurrentMinute().intValue() >= 10 ? "" : "0");
-            sb3.append(timePicker.getCurrentMinute());
-            String str = sb2 + ":" + sb3.toString();
-            if (z) {
-                yx4.d().Q(str);
-            } else {
-                yx4.d().O(str);
-            }
-            this.b.mView.g0();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class g implements MsgRemindModel.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MsgRemindActivity a;
-
-        /* loaded from: classes4.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-            public final /* synthetic */ BdSwitchView b;
-
-            public a(g gVar, boolean z, BdSwitchView bdSwitchView) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {gVar, Boolean.valueOf(z), bdSwitchView};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = z;
-                this.b = bdSwitchView;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.a) {
-                        this.b.l();
-                    } else {
-                        this.b.i();
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-            public final /* synthetic */ BdSwitchView b;
-
-            public b(g gVar, boolean z, BdSwitchView bdSwitchView) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {gVar, Boolean.valueOf(z), bdSwitchView};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = z;
-                this.b = bdSwitchView;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.a) {
-                        this.b.i();
-                    } else {
-                        this.b.l();
-                    }
-                }
-            }
-        }
-
-        public g(MsgRemindActivity msgRemindActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msgRemindActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = msgRemindActivity;
-        }
-
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
         public void a(int i, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (i == 14) {
-                    BdSwitchView r = this.a.mView.r();
-                    if (!z) {
-                        if (r != null) {
-                            pg.a().postDelayed(new b(this, z2, r), 500L);
-                            return;
-                        }
-                        return;
-                    }
-                    if (z2) {
-                        yx4.d().H(300);
-                        this.a.mView.b0(true);
-                    } else {
-                        yx4.d().H(0);
-                        this.a.mView.b0(false);
-                    }
-                    if (r != null) {
-                        pg.a().postDelayed(new a(this, z2, r), 500L);
-                    }
-                } else if (i == 2) {
+                if (i == 2) {
                     if (z) {
-                        yx4.d().F(z2);
+                        my4.d().H(z2);
                     }
-                    this.a.mView.i0();
+                    this.a.mView.I();
                 } else if (i == 3) {
                     if (z) {
-                        yx4.d().J(z2);
+                        my4.d().L(z2);
                     }
-                    this.a.mView.l0();
-                } else if (i == 4) {
-                    if (z) {
-                        yx4.d().E(z2);
-                        if (!z2) {
-                            TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
-                        }
-                    }
-                    this.a.mView.k0();
-                } else if (i == 5) {
-                    if (z) {
-                        yx4.d().G(z2);
-                    }
-                    this.a.mView.j0();
+                    this.a.mView.K();
                 } else if (i == 1) {
                     if (z) {
-                        yx4.d().K(z2);
+                        my4.d().M(z2);
                     }
-                    this.a.mView.m0();
+                    this.a.mView.M();
                 } else if (i == 20) {
                     if (z) {
-                        yx4.d().N(z2);
+                        my4.d().P(z2);
                     }
-                    this.a.mView.n0();
+                    this.a.mView.N();
+                } else if (i == 30) {
+                    if (z) {
+                        my4.d().R(z2);
+                    }
+                    this.a.mView.L();
+                } else if (i == 10) {
+                    this.a.mView.O();
                 }
             }
         }
@@ -484,31 +198,14 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             }
         }
         this.mMsgRemindModelCallback = new a(this);
-        this.onTimeSelectListener = new e(this);
-        this.callback = new g(this);
+        this.onTimeSelectListener = new b(this);
+        this.callback = new c(this);
     }
 
     private void doMsgSwitchStat(BdSwitchView.SwitchState switchState, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, this, switchState, i) == null) {
-            TiebaStatic.log(new StatisticItem("c13889").param("obj_locate", switchState == BdSwitchView.SwitchState.ON ? 1 : 2).param("obj_source", i));
-        }
-    }
-
-    private void showPushPermissionGuide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            cr4 cr4Var = new cr4(this);
-            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0f11);
-            cr4Var.setTitleShowCenter(true);
-            cr4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f10));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0984, new b(this));
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07b4, new c(this));
-            cr4Var.setOnDismissListener(new d(this));
-            cr4Var.create(getPageContext()).show();
-            StatisticItem statisticItem = new StatisticItem("c13674");
-            statisticItem.param("obj_source", 8);
-            TiebaStatic.log(statisticItem);
+            doMsgSwitchStat(switchState, i, "");
         }
     }
 
@@ -516,133 +213,76 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public void OnSwitchStateChange(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
-            if (view2 == this.mView.G()) {
+            if (view2 == this.mView.s()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    yx4.d().U(true);
+                    my4.d().V(true);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 2));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 1));
-                    this.mView.h0();
-                    this.mView.d0(true);
+                    this.mView.H();
+                    this.mView.E(true);
                 } else {
-                    yx4.d().U(false);
+                    my4.d().V(false);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 1));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 0));
-                    this.mView.d0(false);
+                    this.mView.E(false);
                 }
-                doMsgSwitchStat(switchState, 7);
-            } else if (view2 == this.mView.r()) {
-                this.mModel.B(14, switchState == BdSwitchView.SwitchState.ON, this.callback);
-            } else if (view2 == this.mView.y()) {
+                doMsgSwitchStat(switchState, 9, this.mView.t());
+            } else if (view2 == this.mView.n()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    yx4.d().P(true);
-                    this.mView.c0(true);
-                    return;
-                }
-                yx4.d().P(false);
-                this.mView.c0(false);
-            } else if (view2 == this.mView.C()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    yx4.d().L(true);
+                    this.mModel.B(30, true, this.callback);
                 } else {
-                    yx4.d().L(false);
+                    this.mModel.B(30, false, this.callback);
                 }
-            } else if (view2 == this.mView.D()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    yx4.d().M(true);
-                } else {
-                    yx4.d().M(false);
-                }
-            } else if (view2 == this.mView.A()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    yx4.d().I(true);
-                } else {
-                    yx4.d().I(false);
-                }
-            } else if (view2 == this.mView.B()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    yx4.d().T(true);
-                } else {
-                    yx4.d().T(false);
-                }
-            } else if (view2 == this.mView.E()) {
+                doMsgSwitchStat(switchState, 10);
+            } else if (view2 == this.mView.q()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.B(1, true, this.callback);
                 } else {
                     this.mModel.B(1, false, this.callback);
                 }
                 doMsgSwitchStat(switchState, 1);
-            } else if (view2 == this.mView.I()) {
+            } else if (view2 == this.mView.v()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.B(20, true, this.callback);
                 } else {
                     this.mModel.B(20, false, this.callback);
                 }
                 doMsgSwitchStat(switchState, 2);
-            } else if (view2 == this.mView.k()) {
+            } else if (view2 == this.mView.i()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.B(2, true, this.callback);
                 } else {
                     this.mModel.B(2, false, this.callback);
                 }
-                doMsgSwitchStat(switchState, 3);
+                doMsgSwitchStat(switchState, 4);
+            } else if (view2 == this.mView.k()) {
+                if (switchState == BdSwitchView.SwitchState.ON) {
+                    this.mModel.B(10, true, this.callback);
+                } else {
+                    this.mModel.B(10, false, this.callback);
+                }
+                doMsgSwitchStat(switchState, 11);
             } else if (view2 == this.mView.m()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    this.mModel.B(5, true, this.callback);
-                } else {
-                    this.mModel.B(5, false, this.callback);
-                }
-            } else if (view2 == this.mView.p()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    this.mModel.B(4, true, this.callback);
-                } else {
-                    this.mModel.B(4, false, this.callback);
-                }
-            } else if (view2 == this.mView.u()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.B(3, true, this.callback);
                 } else {
                     this.mModel.B(3, false, this.callback);
                 }
-                doMsgSwitchStat(switchState, 4);
-            } else if (view2 == this.mView.o()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    this.mModel.B(8, true, this.mMsgRemindModelCallback);
-                    this.mView.Z(true);
-                    this.mView.e0(true);
-                } else {
-                    this.mModel.B(8, false, this.mMsgRemindModelCallback);
-                    this.mView.Z(false);
-                    this.mView.e0(false);
-                }
-                doMsgSwitchStat(switchState, 5);
-            } else if (view2 == this.mView.H()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    this.mModel.B(9, true, this.mMsgRemindModelCallback);
-                } else {
-                    this.mModel.B(9, false, this.mMsgRemindModelCallback);
-                }
-                doMsgSwitchStat(switchState, 6);
-            } else if (view2 == this.mView.n()) {
+                doMsgSwitchStat(switchState, 3);
+            } else if (view2 == this.mView.j()) {
                 this.mModel.B(7, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
-                doMsgSwitchStat(switchState, 9);
-            } else if (view2 == this.mView.z()) {
+                doMsgSwitchStat(switchState, 7);
+            } else if (view2 == this.mView.o()) {
                 this.mModel.B(6, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
+                doMsgSwitchStat(switchState, 8);
             }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mView.l().performClick();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
             this.mView.onChangeSkinType(i);
         }
@@ -651,30 +291,12 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onClick(view2);
-            if (view2 == this.mView.l()) {
-                ne8 ne8Var = this.mView;
-                if (ne8Var.B) {
-                    finish();
-                } else {
-                    ne8Var.a0(true);
-                }
-            } else if (view2 == this.mView.F()) {
-                ay4.c().l(getPageContext(), this.onTimeSelectListener);
-            } else if (view2 == this.mView.w()) {
-                this.mView.a0(false);
-            } else if (view2 == this.mView.x()) {
-                showDialog(R.id.obfuscated_res_0x7f09158a);
-            } else if (view2 == this.mView.v()) {
-                showDialog(R.id.obfuscated_res_0x7f091584);
-            } else if (view2 == this.mView.s()) {
-                TiebaStatic.log(new StatisticItem("c13286").param("uid", TbadkCoreApplication.getCurrentAccount()));
-                sendMessage(new CustomMessage(2002001, new MsgReceiveActivityConfig(getPageContext().getPageActivity())));
-            } else if (view2 == this.mView.t()) {
-                on4.c().b();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091e19) {
-                showPushPermissionGuide();
+            if (view2 == this.mView.r()) {
+                oy4.c().l(getPageContext(), this.onTimeSelectListener);
+            } else if (view2 == this.mView.l()) {
+                yn4.c().b();
             }
         }
     }
@@ -682,114 +304,69 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            ne8 ne8Var = new ne8(this);
-            this.mView = ne8Var;
-            ne8Var.K(this);
+            cd8 cd8Var = new cd8(this);
+            this.mView = cd8Var;
+            cd8Var.w(this);
             this.mModel = new MsgRemindModel(this);
         }
-    }
-
-    @Override // android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i == R.id.obfuscated_res_0x7f091584 || i == R.id.obfuscated_res_0x7f09158a) {
-                return onCreateDisturbTimeDialog(i);
-            }
-            return null;
-        }
-        return (Dialog) invokeI.objValue;
-    }
-
-    public Dialog onCreateDisturbTimeDialog(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            qw8 qw8Var = new qw8(getActivity(), new f(this, i), 0, 0, true);
-            if (i == R.id.obfuscated_res_0x7f091584) {
-                qw8Var.setTitle(R.string.obfuscated_res_0x7f0f0c31);
-            } else if (i == R.id.obfuscated_res_0x7f09158a) {
-                qw8Var.setTitle(R.string.obfuscated_res_0x7f0f0c34);
-            }
-            qw8Var.setButton(-1, getPageContext().getString(R.string.obfuscated_res_0x7f0f025d), qw8Var);
-            qw8Var.setButton(-2, getPageContext().getString(R.string.obfuscated_res_0x7f0f036e), qw8Var);
-            qw8Var.getWindow().setSoftInputMode(2);
-            return qw8Var;
-        }
-        return (Dialog) invokeI.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            ne8 ne8Var = this.mView;
-            if (ne8Var != null) {
-                ne8Var.W();
-            }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921660));
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
-            if (i != 4) {
-                return super.onKeyDown(i, keyEvent);
-            }
-            ne8 ne8Var = this.mView;
-            if (ne8Var.B) {
-                finish();
-            } else {
-                ne8Var.a0(true);
-            }
-            return true;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, dialog) == null) {
-            if (!(dialog instanceof TimePickerDialog)) {
-                super.onPrepareDialog(i, dialog);
-            } else if (i == R.id.obfuscated_res_0x7f09158a || i == R.id.obfuscated_res_0x7f091584) {
-                if (i == R.id.obfuscated_res_0x7f09158a) {
-                    split = yx4.d().g().split(":");
-                } else {
-                    split = yx4.d().f().split(":");
-                }
-                ((TimePickerDialog) dialog).updateTime(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onNetRefreshButtonClicked();
+            gz4.d(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            ne8 ne8Var = this.mView;
-            if (ne8Var != null) {
-                ne8Var.X();
+            if (!p95.a(this)) {
+                this.mView.F(false);
+                showNetRefreshView(this.mView.u(), getString(R.string.obfuscated_res_0x7f0f15e5), getString(R.string.obfuscated_res_0x7f0f07bd), getString(R.string.obfuscated_res_0x7f0f07bc), true, getNetRefreshListener());
+                setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
+                setNetRefreshViewEmotionMarginTop(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+                return;
             }
+            this.mView.F(true);
+            hideNetRefreshView(this.mView.u());
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStop();
-            yx4.d().D();
+            my4.d().F();
+        }
+    }
+
+    private void doMsgSwitchStat(BdSwitchView.SwitchState switchState, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65539, this, switchState, i, str) == null) {
+            int i2 = switchState == BdSwitchView.SwitchState.ON ? 1 : 2;
+            StatisticItem param = new StatisticItem("c13889").param("obj_locate", 2).param("obj_type", NotificationManagerCompat.from(this).areNotificationsEnabled() ? 1 : 2);
+            StatisticItem param2 = param.param("obj_source", i + "_" + i2);
+            if (i == 9 && !TextUtils.isEmpty(str) && switchState == BdSwitchView.SwitchState.ON) {
+                param2.param("obj_param1", str);
+            }
+            TiebaStatic.log(param2);
         }
     }
 }

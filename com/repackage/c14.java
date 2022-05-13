@@ -1,132 +1,48 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c14 {
+public class c14 extends a14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c14(r13 r13Var) {
+        super(r13Var, "/swanAPI/showShareMenu", "showShareMenu");
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            j14 j14Var = new j14();
-            j14Var.a = str;
-            z04.c().a(new y04(50000, j14Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((r13) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(CallbackHandler callbackHandler, String str) {
+    @Override // com.repackage.a14
+    public boolean k(@NonNull d14 d14Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            j14 j14Var = new j14();
-            j14Var.a = str;
-            z04.c().a(new y04(90000, j14Var));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, d14Var, unitedSchemeEntity, callbackHandler)) == null) {
+            d14Var.d();
+            j(unitedSchemeEntity, callbackHandler);
+            return true;
         }
-    }
-
-    public static void c(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            g14 g14Var = new g14();
-            g14Var.b = str;
-            g14Var.c = i;
-            g14Var.d = z ? 1 : 0;
-            g14Var.a = str2;
-            z04.c().a(new y04(100000, g14Var));
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            j14 j14Var = new j14();
-            j14Var.a = str;
-            z04.c().a(new y04(20000, j14Var));
-        }
-    }
-
-    public static void e(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            j14 j14Var = new j14();
-            j14Var.a = str;
-            z04.c().a(new y04(60000, j14Var));
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            j14 j14Var = new j14();
-            j14Var.a = str;
-            z04.c().a(new y04(10000, j14Var));
-        }
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            j14 j14Var = new j14();
-            j14Var.a = str;
-            z04.c().a(new y04(40000, j14Var));
-        }
-    }
-
-    public static void h(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            g14 g14Var = new g14();
-            g14Var.b = str;
-            g14Var.c = i;
-            g14Var.d = z ? 1 : 0;
-            g14Var.a = str2;
-            z04.c().a(new y04(70000, g14Var));
-        }
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            h14 h14Var = new h14();
-            h14Var.b = str;
-            h14Var.a = str2;
-            z04.c().a(new y04(30000, h14Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            i14 i14Var = new i14();
-            i14Var.b = str;
-            i14Var.c = i;
-            i14Var.a = str2;
-            z04.c().a(new y04(80000, i14Var));
-        }
-    }
-
-    public static void k(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            g14 g14Var = new g14();
-            g14Var.b = str;
-            g14Var.c = i;
-            g14Var.d = z ? 1 : 0;
-            g14Var.a = str2;
-            z04.c().a(new y04(110000, g14Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            j14 j14Var = new j14();
-            j14Var.a = str;
-            z04.c().a(new y04(120000, j14Var));
-        }
+        return invokeLLL.booleanValue;
     }
 }

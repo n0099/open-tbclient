@@ -3,7 +3,6 @@ package com.baidu.webkit.internal.monitor;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,6 +21,7 @@ import com.baidu.webkit.sdk.WebView;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.abtest.ABTestSDK;
+import com.xiaomi.mipush.sdk.Constants;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -158,7 +158,7 @@ public class SessionMonitorEngine implements INoProGuard {
                     String str4 = Build.VERSION.RELEASE;
                     int i = Build.VERSION.SDK_INT;
                     this.mStaticPublicData.put("product", str3);
-                    this.mStaticPublicData.put("brand", str);
+                    this.mStaticPublicData.put(Constants.PHONE_BRAND, str);
                     this.mStaticPublicData.put("model", str2);
                     this.mStaticPublicData.put("version", str4);
                     this.mStaticPublicData.put("sdk", i);
@@ -185,7 +185,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void OnAppEnterForeground() {
         WeakReference<IPrototype> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().OnAppEnterForeground();
@@ -194,7 +194,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void addPageSessionObserver(PageSessionObserver pageSessionObserver) {
         CopyOnWriteArrayList<PageSessionObserver> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pageSessionObserver) == null) || (copyOnWriteArrayList = this.mPageSessionObserverList) == null || pageSessionObserver == null) {
+        if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, pageSessionObserver) == null) || (copyOnWriteArrayList = this.mPageSessionObserverList) == null || pageSessionObserver == null) {
             return;
         }
         copyOnWriteArrayList.add(pageSessionObserver);
@@ -454,30 +454,30 @@ public class SessionMonitorEngine implements INoProGuard {
         if (interceptable == null || interceptable.invokeIL(1048598, this, i, obj) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
             if (aVar.a == null) {
-                aVar.a = new a.C0250a(aVar, (byte) 0);
+                aVar.a = new a.C0249a(aVar, (byte) 0);
             }
             if (i == 9) {
                 aVar.a.a();
                 aVar.a.f = true;
             }
-            a.C0250a c0250a = aVar.a;
-            if (c0250a.f) {
+            a.C0249a c0249a = aVar.a;
+            if (c0249a.f) {
                 switch (i) {
                     case 7:
-                        c0250a.a = ((Boolean) obj).booleanValue();
+                        c0249a.a = ((Boolean) obj).booleanValue();
                         return;
                     case 8:
-                        c0250a.b = ((Boolean) obj).booleanValue();
+                        c0249a.b = ((Boolean) obj).booleanValue();
                         return;
                     case 9:
-                        c0250a.c = ((Long) obj).longValue();
+                        c0249a.c = ((Long) obj).longValue();
                         return;
                     case 10:
-                        c0250a.d = ((Long) obj).longValue();
+                        c0249a.d = ((Long) obj).longValue();
                         aVar.a.f = true;
                         return;
                     case 11:
-                        c0250a.e = ((Boolean) obj).booleanValue();
+                        c0249a.e = ((Boolean) obj).booleanValue();
                         return;
                     default:
                         return;
@@ -488,12 +488,12 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar;
-        a.C0250a c0250a;
+        a.C0249a c0249a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048599, this, str, j) == null) || (c0250a = (aVar = this.sFrameworkBehaviorProvider).a) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048599, this, str, j) == null) || (c0249a = (aVar = this.sFrameworkBehaviorProvider).a) == null) {
             return;
         }
-        aVar.a.g.put(str, Long.valueOf(j + (c0250a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
+        aVar.a.g.put(str, Long.valueOf(j + (c0249a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
     }
 
     public void recordImmediately(String str, String str2) {
@@ -626,17 +626,17 @@ public class SessionMonitorEngine implements INoProGuard {
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
             if (aVar.a == null) {
-                aVar.a = new a.C0250a(aVar, (byte) 0);
+                aVar.a = new a.C0249a(aVar, (byte) 0);
             }
-            a.C0250a c0250a = aVar.a;
-            if (c0250a.c == -1) {
-                c0250a.a();
+            a.C0249a c0249a = aVar.a;
+            if (c0249a.c == -1) {
+                c0249a.a();
             }
-            a.C0250a c0250a2 = aVar.a;
-            if (c0250a2.f) {
+            a.C0249a c0249a2 = aVar.a;
+            if (c0249a2.f) {
                 return;
             }
-            c0250a2.f = true;
+            c0249a2.f = true;
         }
     }
 

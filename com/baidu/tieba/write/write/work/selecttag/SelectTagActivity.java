@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
-import com.repackage.h95;
-import com.repackage.m29;
-import com.repackage.vr4;
+import com.repackage.di8;
+import com.repackage.gs4;
+import com.repackage.h19;
 import com.repackage.wa;
+import com.repackage.y95;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SelectTagActivity extends SuspendedActivity {
@@ -36,7 +36,7 @@ public class SelectTagActivity extends SuspendedActivity {
     public boolean isKeybordVisible;
     public wa mGetSelectTagListener;
     public int mMaxSelectTagNum;
-    public m29 mSelectClassTagsModel;
+    public h19 mSelectClassTagsModel;
     public List<String> mShowSelectTagData;
     public VideoCategoryClassData mVideoCategoryClassData;
     public SelectTagListView selectTagListView;
@@ -49,12 +49,12 @@ public class SelectTagActivity extends SuspendedActivity {
 
         /* renamed from: com.baidu.tieba.write.write.work.selecttag.SelectTagActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0242a implements View.OnClickListener {
+        public class View$OnClickListenerC0241a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0242a(a aVar) {
+            public View$OnClickListenerC0241a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class SelectTagActivity extends SuspendedActivity {
             }
             if (responsedMessage.hasError()) {
                 SelectTagActivity selectTagActivity = this.a;
-                selectTagActivity.showNetRefreshView(selectTagActivity.contentView, null, this.a.getString(R.string.obfuscated_res_0x7f0f0474), null, false, new View$OnClickListenerC0242a(this));
+                selectTagActivity.showNetRefreshView(selectTagActivity.contentView, null, this.a.getString(R.string.obfuscated_res_0x7f0f047c), null, false, new View$OnClickListenerC0241a(this));
                 return;
             }
             if (responsedMessage instanceof GetSelectClassHttpResMessage) {
@@ -192,7 +192,7 @@ public class SelectTagActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public h95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public y95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -203,7 +203,7 @@ public class SelectTagActivity extends SuspendedActivity {
             this.selectTagListView.c.setOnClickListener(new b(this));
             return this.selectTagListView;
         }
-        return (h95) invokeLL.objValue;
+        return (y95) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -225,9 +225,9 @@ public class SelectTagActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.selectTagListView.w()) {
-                vr4.d(this.selectTagListView.c).x(R.color.CAM_X0302);
+                gs4.d(this.selectTagListView.c).x(R.color.CAM_X0302);
             } else {
-                this.selectTagListView.c.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.selectTagListView.c.setTextColor(di8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -239,8 +239,8 @@ public class SelectTagActivity extends SuspendedActivity {
             super.onCreate(bundle);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.mSelectClassTagsModel = new m29(getUniqueId());
-            this.selectTagListView.d = findViewById(R.id.obfuscated_res_0x7f091dd2);
+            this.mSelectClassTagsModel = new h19(getUniqueId());
+            this.selectTagListView.d = findViewById(R.id.obfuscated_res_0x7f091e2b);
             this.selectTagListView.l();
             this.mGetSelectTagListener.getHttpMessageListener().setSelfListener(true);
             this.mGetSelectTagListener.getSocketMessageListener().setSelfListener(true);

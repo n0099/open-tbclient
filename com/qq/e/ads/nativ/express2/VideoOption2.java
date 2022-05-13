@@ -1,7 +1,6 @@
 package com.qq.e.ads.nativ.express2;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ public class VideoOption2 {
                     return;
                 }
             }
-            WIFI = new AutoPlayPolicy(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0);
+            WIFI = new AutoPlayPolicy("WIFI", 0, 0);
             ALWAYS = new AutoPlayPolicy("ALWAYS", 1, 1);
             AutoPlayPolicy autoPlayPolicy = new AutoPlayPolicy("NEVER", 2, 2);
             NEVER = autoPlayPolicy;

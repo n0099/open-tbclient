@@ -10,45 +10,6 @@ public abstract class TbEnum {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class BroadcastType {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String BROADCAST_CREATE_GROUP = "com.baidu.tieba.broadcast.create_group";
-        public static final String BROADCAST_EDIT_GROUP = "com.baidu.tieba.broadcast.edit_group";
-        public static final String BROADCAST_FORUM_CHANGED = "com.baidu.tieba.broadcast.forum_changed";
-        public static final String BROADCAST_JOIN_GROUP = "com.baidu.tieba.broadcast.join_group";
-        public static final String BROADCAST_LEAVE_MSGPAGE = "com.baidu.tieba.broadcast.leave_msgpage";
-        public static final String BROADCAST_LOGINOUT = "com.baidu.tieba.broadcast.loginout";
-        public static final String BROADCAST_LOGIN_SUCC = "com.baidu.tieba.broadcast.login_succ";
-        public static final String BROADCAST_NEWVERSION = "com.baidu.tieba.broadcast.newversion";
-        public static final String BROADCAST_QUIT_APP = "com.baidu.tieba.broadcast.quit_app";
-        public static final String BROADCAST_QUIT_GROUP = "com.baidu.tieba.broadcast.quit_group";
-        public static final String BROADCAST_REFRESHWEBVIEW = "com.baidu.tieba.broadcast.refresh_webview";
-        public static final String BROADCAST_SET_TOP_GROUP = "com.baidu.tieba.broadcast.set_top_group";
-        public static final String BROADCAST_START_APP = "com.baidu.tieba.broadcast.start_app";
-        public static final String BROADCAST_SYNC = "com.baidu.tieba.broadcast.sync";
-        public static final String BROADCAST_UN_SET_TOP_GROUP = "com.baidu.tieba.broadcast.un_set_top_group";
-        public static final String BROADCAST_WEBSOCKET_CLOSE = "com.baidu.adp.socket.close";
-        public static final String BROADCAST_WEBSOCKET_DATA = "com.baidu.adp.socket.data";
-        public static final String BROADCAST_WEBSOCKET_OPDN = "com.baidu.adp.socket.open";
-        public static final String BROADCAST_WEBSOCKET_SEND_DATA = "com.baidu.adp.socket.send_data";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public BroadcastType() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
     public static abstract class ChatInputStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INPUT_DRAFT_KEY = "input_draft";
@@ -260,6 +221,7 @@ public abstract class TbEnum {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_CONTENT_TYPE_ACTIVITY = 6;
         public static final short MSG_CONTENT_TYPE_BIG_EMOTION = 4;
+        public static final short MSG_CONTENT_TYPE_BREAK_ICE = 30;
         public static final short MSG_CONTENT_TYPE_EXTRA = 9;
         public static final short MSG_CONTENT_TYPE_INVITE_2_GROUP = 5;
         public static final short MSG_CONTENT_TYPE_NOTIFY = 10;
@@ -267,10 +229,13 @@ public abstract class TbEnum {
         public static final short MSG_CONTENT_TYPE_PIC = 2;
         public static final short MSG_CONTENT_TYPE_PIC_TEXT = 7;
         public static final short MSG_CONTENT_TYPE_REPLY_CARD = 23;
+        public static final short MSG_CONTENT_TYPE_SHARE_FORUM = 33;
+        public static final short MSG_CONTENT_TYPE_SHARE_THREAD = 32;
         public static final short MSG_CONTENT_TYPE_TEXT = 1;
         public static final short MSG_CONTENT_TYPE_VOICE = 3;
         public static final short MSG_SYSTEM = 11;
         public static final short MSG_TOPIC_UPDATE = 12;
+        public static final short MSG_UEG_ILLEGAL = 31;
         public static final short MSG_UNSHOW_OPERATER_ACCOUNT = 99;
         public static final short MSG_UNSHOW_SYSTEM = 22;
         public transient /* synthetic */ FieldHolder $fh;
@@ -294,6 +259,12 @@ public abstract class TbEnum {
     public static abstract class MsgStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_STATUS_MY_SENDFAIL = 2;
+        public static final short MSG_STATUS_MY_SENDFAIL_ACCOUNT_CANCELLATION = 7;
+        public static final short MSG_STATUS_MY_SENDFAIL_BZC_USER_BLOCK = 8;
+        public static final short MSG_STATUS_MY_SENDFAIL_REFUSED_TO_ACCEPT_FRIEND_MSG = 4;
+        public static final short MSG_STATUS_MY_SENDFAIL_REFUSED_TO_ACCEPT_STRANGER_MSG = 5;
+        public static final short MSG_STATUS_MY_SENDFAIL_REFUSED_TO_ACCEPT_YOUR_MSG = 6;
+        public static final short MSG_STATUS_MY_SENDFAIL_UNKNOW = 9;
         public static final short MSG_STATUS_MY_SENDING = 1;
         public static final short MSG_STATUS_MY_SENDSUCC = 3;
         public static final short MSG_STATUS_MY_UNKNOW = 0;
@@ -413,6 +384,7 @@ public abstract class TbEnum {
         public static final String EVENT_ID_OFFLINE_DEBUG = "503";
         public static final String EVENT_ID_PASSED_FRIEND = "402";
         public static final String EVENT_ID_PLUGIN_CONFIG_SYNC = "502";
+        public static final String EVENT_ID_STRANGER_FIRST_MSG = "415";
         public static final String EVENT_ID_UPLOAD_STAT = "501";
         public static final String KEY_EVENT_ID = "eventId";
         public static final String KEY_EVENT_PARAM = "eventParam";

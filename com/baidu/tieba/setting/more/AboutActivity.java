@@ -21,29 +21,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a9;
-import com.repackage.cc7;
-import com.repackage.fy4;
-import com.repackage.he8;
-import com.repackage.ke8;
-import com.repackage.qe8;
-import com.repackage.re8;
-import com.repackage.ul4;
-import com.repackage.vt4;
+import com.repackage.ad8;
+import com.repackage.fd8;
+import com.repackage.fm4;
+import com.repackage.gd8;
+import com.repackage.iu4;
+import com.repackage.jc7;
+import com.repackage.ty4;
+import com.repackage.xc8;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON;
-    public re8 collectorManager;
+    public gd8 collectorManager;
     public String functionIntroUrl;
     public AboutModel mModel;
-    public he8 mView;
-    public qe8 mVisitPreviewServerDialog;
+    public xc8 mView;
+    public fd8 mVisitPreviewServerDialog;
     public c receiver;
 
     /* loaded from: classes4.dex */
-    public class a implements ke8 {
+    public class a implements ad8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -66,7 +66,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.repackage.ke8
+        @Override // com.repackage.ad8
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -79,13 +79,13 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    vt4.k().u(SettingTextFunctionIntroView.h, true);
-                    ul4.q(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0775), this.a.functionIntroUrl, true, false, false);
+                    iu4.k().u(SettingTextFunctionIntroView.h, true);
+                    fm4.q(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f077e), this.a.functionIntroUrl, true, false, false);
                 } else if (i != 4) {
                     if (i == 5) {
                         if (this.a.mVisitPreviewServerDialog == null) {
                             AboutActivity aboutActivity = this.a;
-                            aboutActivity.mVisitPreviewServerDialog = new qe8(aboutActivity.getActivity());
+                            aboutActivity.mVisitPreviewServerDialog = new fd8(aboutActivity.getActivity());
                             this.a.mVisitPreviewServerDialog.create(this.a.getPageContext());
                         }
                         this.a.mVisitPreviewServerDialog.show();
@@ -178,7 +178,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.this$0.mView == null) {
                 return;
             }
-            this.this$0.mView.v();
+            this.this$0.mView.w();
         }
 
         public /* synthetic */ c(AboutActivity aboutActivity, a aVar) {
@@ -208,7 +208,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void checkUpdata() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            cc7.b().a(true);
+            jc7.b().a(true);
             AboutModel aboutModel = this.mModel;
             if (aboutModel == null) {
                 this.mModel = new AboutModel(this, new b(this));
@@ -216,9 +216,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.mModel.C();
-            he8 he8Var = this.mView;
-            if (he8Var != null) {
-                he8Var.p();
+            xc8 xc8Var = this.mView;
+            if (xc8Var != null) {
+                xc8Var.r();
             }
         }
     }
@@ -227,32 +227,32 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void handlCallBack(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, obj) == null) {
-            he8 he8Var = this.mView;
-            if (he8Var != null) {
-                he8Var.r();
+            xc8 xc8Var = this.mView;
+            if (xc8Var != null) {
+                xc8Var.s();
             }
-            fy4 fy4Var = obj != null ? (fy4) obj : null;
-            if (fy4Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(fy4Var.s());
+            ty4 ty4Var = obj != null ? (ty4) obj : null;
+            if (ty4Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(ty4Var.s());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (fy4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (fy4Var.s().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), fy4Var.s(), fy4Var.j())));
+                if (ty4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (ty4Var.s().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), ty4Var.s(), ty4Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), fy4Var.s(), fy4Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), ty4Var.s(), ty4Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
                 }
-                he8 he8Var2 = this.mView;
-                if (he8Var2 != null) {
-                    he8Var2.v();
+                xc8 xc8Var2 = this.mView;
+                if (xc8Var2 != null) {
+                    xc8Var2.w();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c2d));
         }
     }
 
@@ -289,9 +289,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            he8 he8Var = this.mView;
-            if (he8Var != null) {
-                he8Var.x(i);
+            xc8 xc8Var = this.mView;
+            if (xc8Var != null) {
+                xc8Var.y(i);
             }
         }
     }
@@ -301,10 +301,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.collectorManager = new re8(this);
-            he8 he8Var = new he8(this, new a(this));
-            this.mView = he8Var;
-            he8Var.v();
+            this.collectorManager = new gd8(this);
+            xc8 xc8Var = new xc8(this, new a(this));
+            this.mView = xc8Var;
+            xc8Var.w();
             regReceiver();
         }
     }
@@ -319,17 +319,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            he8 he8Var = this.mView;
-            if (he8Var != null) {
-                he8Var.r();
+            xc8 xc8Var = this.mView;
+            if (xc8Var != null) {
+                xc8Var.s();
             }
-            qe8 qe8Var = this.mVisitPreviewServerDialog;
-            if (qe8Var != null) {
-                qe8Var.dismiss();
+            fd8 fd8Var = this.mVisitPreviewServerDialog;
+            if (fd8Var != null) {
+                fd8Var.dismiss();
             }
-            re8 re8Var = this.collectorManager;
-            if (re8Var != null) {
-                re8Var.i();
+            gd8 gd8Var = this.collectorManager;
+            if (gd8Var != null) {
+                gd8Var.i();
                 this.collectorManager = null;
             }
         }
@@ -342,7 +342,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
                 startCollectLog();
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f1585);
+                showToast(R.string.obfuscated_res_0x7f0f15b1);
             }
         }
     }
@@ -352,9 +352,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            he8 he8Var = this.mView;
-            if (he8Var != null) {
-                he8Var.v();
+            xc8 xc8Var = this.mView;
+            if (xc8Var != null) {
+                xc8Var.w();
             }
         }
     }

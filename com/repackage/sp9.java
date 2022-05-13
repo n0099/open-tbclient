@@ -1,41 +1,38 @@
 package com.repackage;
 
-import android.util.Log;
-import android.view.ViewTreeObserver;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Looper;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class sp9 implements ViewTreeObserver.OnGlobalLayoutListener {
+public class sp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ViewTreeObserver a;
 
-    public sp9(xp9 xp9Var, ViewTreeObserver viewTreeObserver) {
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xp9Var, viewTreeObserver};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            mp9 mp9Var = new mp9(null);
+            try {
+                LocationManager locationManager = (LocationManager) context.getSystemService("location");
+                List<String> providers = locationManager.getProviders(true);
+                String str = providers.contains("network") ? "network" : providers.contains("gps") ? "gps" : null;
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                Location lastKnownLocation = locationManager.getLastKnownLocation(str);
+                if (lastKnownLocation != null) {
+                    mp9Var.onLocationChanged(lastKnownLocation);
+                } else {
+                    locationManager.requestLocationUpdates(str, 1000L, 0.0f, mp9Var, Looper.getMainLooper());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-        this.a = viewTreeObserver;
-    }
-
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onGlobalLayout:" + this.a.isAlive());
         }
     }
 }

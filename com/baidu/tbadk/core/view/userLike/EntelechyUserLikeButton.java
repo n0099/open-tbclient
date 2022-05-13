@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.mv4
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.zv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -58,8 +58,8 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
-            setTextSize(0, oi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
-            setCompoundDrawablePadding(oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e9));
+            setTextSize(0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+            setCompoundDrawablePadding(mi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e9));
             setGravity(5);
             setGravity(16);
         }

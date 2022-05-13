@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
-import com.repackage.hm9;
+import com.repackage.cl9;
 /* loaded from: classes5.dex */
 public enum c extends ArCoreApk.Availability {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +25,7 @@ public enum c extends ArCoreApk.Availability {
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (hm9) objArr2[3]);
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (cl9) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

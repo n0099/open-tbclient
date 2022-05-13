@@ -33,25 +33,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn4;
-import com.repackage.fo;
-import com.repackage.fz;
-import com.repackage.h35;
-import com.repackage.ig;
-import com.repackage.oi;
-import com.repackage.pn4;
-import com.repackage.pq4;
-import com.repackage.tx5;
+import com.repackage.ar4;
+import com.repackage.co;
+import com.repackage.gg;
+import com.repackage.ln4;
+import com.repackage.mi;
+import com.repackage.oy;
+import com.repackage.ux5;
+import com.repackage.y35;
+import com.repackage.zn4;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
+public class InterviewLiveLayout extends FrameLayout implements oy<zn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public tx5<pn4> c;
-    public pn4 d;
+    public ux5<zn4> c;
+    public zn4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -131,7 +131,7 @@ public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
                 }
                 return;
             }
-            oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0e66);
+            mi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0e84);
         }
     }
 
@@ -178,7 +178,7 @@ public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            fo m = h35.k().m(ig.h().g(tbImageView.getUrl(), this.a.b ? 13 : 14));
+            co m = y35.k().m(gg.h().g(tbImageView.getUrl(), this.a.b ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -247,29 +247,29 @@ public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03f1, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e5, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eb5);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ec1);
             this.e = tbImageView;
             tbImageView.s(15);
             this.e.setPlaceHolder(3);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f3e);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f3f);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090f3d);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f4b);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f4c);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090f4a);
             l(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
+    @Override // com.repackage.oy
     /* renamed from: k */
-    public void a(pn4 pn4Var) {
+    public void a(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
-            this.d = pn4Var;
-            if (pn4Var != null && this.e != null) {
-                ThreadData threadData = pn4Var.getThreadData();
-                pq4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zn4Var) == null) {
+            this.d = zn4Var;
+            if (zn4Var != null && this.e != null) {
+                ThreadData threadData = zn4Var.getThreadData();
+                ar4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -277,7 +277,7 @@ public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.f();
-                if (bn4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
+                if (ln4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
                     this.i.clear();
                     this.i.add(taskInfoData.i());
                     setVisibility(0);
@@ -286,7 +286,7 @@ public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
                     this.e.setOnDrawListener(this.n);
                     this.e.K(taskInfoData.i(), this.b ? 13 : 14, false);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
-                    int k = oi.k(getContext()) - oi.f(getContext(), R.dimen.tbds88);
+                    int k = mi.k(getContext()) - mi.f(getContext(), R.dimen.tbds88);
                     layoutParams.width = k;
                     layoutParams.height = (int) ((k * 428.0f) / 760.0f);
                     setLayoutParams(layoutParams);
@@ -326,10 +326,10 @@ public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
         tbImageView.setPageId(bdUniqueId);
     }
 
-    public void setSubClickListener(tx5<pn4> tx5Var) {
+    public void setSubClickListener(ux5<zn4> ux5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tx5Var) == null) {
-            this.c = tx5Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ux5Var) == null) {
+            this.c = ux5Var;
         }
     }
 

@@ -5,5 +5,5 @@ import java.util.List;
 public interface cq7 {
     void loadData();
 
-    void netCallback(int i, List<uo> list);
+    void netCallback(int i, List<ro> list);
 }

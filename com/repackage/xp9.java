@@ -1,104 +1,112 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xp9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final xp9 a;
+    public static ConcurrentHashMap b;
+    public static Context c;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public boolean b;
-    public up9 c;
-    public Info d;
-    public Handler e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755163760, "Lcom/repackage/xp9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755163760, "Lcom/repackage/xp9;");
+                return;
+            }
+        }
+        a = new xp9();
+        b = new ConcurrentHashMap();
+    }
 
     public xp9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = new uo9(this, Looper.getMainLooper());
     }
 
-    public void a(View view2, Info info, up9 up9Var) {
+    public static xp9 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, info, up9Var) == null) {
-            this.a = view2;
-            this.c = up9Var;
-            this.d = info;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            c = context.getApplicationContext();
+            return a;
+        }
+        return (xp9) invokeL.objValue;
+    }
+
+    public long a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            Long l = (Long) b.get(str);
+            if (l == null || l.longValue() <= 0) {
+                try {
+                    String C = hq9.C(c);
+                    if (!TextUtils.isEmpty(C)) {
+                        JSONObject jSONObject = new JSONObject(C);
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            if (TextUtils.equals(str, next)) {
+                                return jSONObject.optLong(next, 0L);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return 0L;
+            }
+            return l.longValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            b.put(str, Long.valueOf(j));
             try {
-                Log.e(MiPushClient.COMMAND_REGISTER, "b111:" + this.b);
-                if (!this.b) {
-                    this.e.sendEmptyMessage(1101);
-                }
-                Log.e(MiPushClient.COMMAND_REGISTER, "b2222");
-                ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-                viewTreeObserver.addOnScrollChangedListener(new yo9(this, up9Var));
-                viewTreeObserver.addOnGlobalFocusChangeListener(new cp9(this, up9Var));
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowFocusChangeListener(new gp9(this));
-                }
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowAttachListener(new jp9(this));
-                }
-                viewTreeObserver.addOnTouchModeChangeListener(new mp9(this));
-                if (Build.VERSION.SDK_INT >= 16) {
-                    viewTreeObserver.addOnDrawListener(new pp9(this, viewTreeObserver));
-                }
-                viewTreeObserver.addOnGlobalLayoutListener(new sp9(this, viewTreeObserver));
+                String C = hq9.C(c);
+                JSONObject jSONObject = !TextUtils.isEmpty(C) ? new JSONObject(C) : new JSONObject();
+                jSONObject.put(str, j);
+                Context context = c;
+                String jSONObject2 = jSONObject.toString();
+                SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
+                edit.putString("key_local_res", jSONObject2);
+                edit.apply();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004f A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean b(View view2) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) != null) {
-            return invokeL.booleanValue;
-        }
-        if (view2 == null || !view2.isShown()) {
-            return false;
-        }
-        Rect rect = new Rect();
-        if (view2.getGlobalVisibleRect(rect) && this.d != null) {
-            if (rect.width() >= this.d.getSper() * view2.getMeasuredWidth()) {
-                if (rect.height() >= this.d.getSper() * view2.getMeasuredHeight()) {
-                    z = false;
-                    return z;
-                }
-            }
-        }
-        z = true;
-        if (z) {
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.kuaishou.weapon.un.w0;
-import com.repackage.mx;
+import com.repackage.vw;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -253,7 +253,7 @@ public final class TaskProcess implements ITaskModelData {
                         size = i;
                     }
                 }
-                this.duplicateIds.add(mx.a.b(str));
+                this.duplicateIds.add(vw.a.b(str));
             } finally {
                 reentrantLock.unlock();
             }
@@ -463,7 +463,7 @@ public final class TaskProcess implements ITaskModelData {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
             try {
-                return this.duplicateIds.contains(mx.a.b(str));
+                return this.duplicateIds.contains(vw.a.b(str));
             } finally {
                 reentrantLock.unlock();
             }

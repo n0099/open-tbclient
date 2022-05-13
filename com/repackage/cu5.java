@@ -1,17 +1,18 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class cu5 extends BaseCardInfo {
+public class cu5 extends po4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public du5 a;
+    public String a;
 
     public cu5() {
         Interceptable interceptable = $ic;
@@ -27,16 +28,18 @@ public abstract class cu5 extends BaseCardInfo {
         }
     }
 
-    public du5 e() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (du5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void g(du5 du5Var) {
+    @Override // com.repackage.po4
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, du5Var) == null) {
-            this.a = du5Var;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        this.a = jSONObject.optString(LoginConstants.QQ_LOGIN, "");
     }
 }

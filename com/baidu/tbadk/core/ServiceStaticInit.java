@@ -66,11 +66,7 @@ public class ServiceStaticInit {
                 case 2005013:
                     TbadkCoreApplication.getInst().startClearTempService();
                     return;
-                case 2005014:
                 default:
-                    return;
-                case 2005015:
-                    TbadkCoreApplication.getInst().startSyncLoginService();
                     return;
             }
         }

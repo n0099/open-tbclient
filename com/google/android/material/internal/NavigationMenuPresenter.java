@@ -580,7 +580,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public NormalViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0225, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d021e, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -607,7 +607,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SeparatorViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0227, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0220, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -633,7 +633,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubheaderViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0228, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0221, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -872,7 +872,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, viewGroup)) == null) {
             if (this.menuView == null) {
-                NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0229, viewGroup, false);
+                NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0222, viewGroup, false);
                 this.menuView = navigationMenuView;
                 navigationMenuView.setAccessibilityDelegateCompat(new NavigationMenuViewAccessibilityDelegate(this, this.menuView));
                 if (this.adapter == null) {
@@ -882,7 +882,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 if (i != -1) {
                     this.menuView.setOverScrollMode(i);
                 }
-                this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0226, (ViewGroup) this.menuView, false);
+                this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d021f, (ViewGroup) this.menuView, false);
                 this.menuView.setAdapter(this.adapter);
             }
             return this.menuView;

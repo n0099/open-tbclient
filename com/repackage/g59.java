@@ -1,95 +1,60 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g59 {
+public final class g59 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755726906, "Lcom/repackage/g59;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755726906, "Lcom/repackage/g59;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g59(Context context) {
+        super(context, "BaiDuAb.db", (SQLiteDatabase.CursorFactory) null, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = y49.m();
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public final void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return false;
-            }
-            NetworkInfo networkInfo = null;
-            try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
-                }
-            }
-            return networkInfo != null && networkInfo.isConnectedOrConnecting();
+        if (interceptable != null && interceptable.invokeL(1048576, this, sQLiteDatabase) != null) {
+            return;
         }
-        return invokeL.booleanValue;
+        int i = 0;
+        while (true) {
+            String[] strArr = h59.a;
+            if (i >= strArr.length) {
+                return;
+            }
+            sQLiteDatabase.execSQL(strArr[i]);
+            i++;
+        }
     }
 
-    public static String b(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
         }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static String c(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return b(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (String) invokeLZ.objValue;
     }
 }

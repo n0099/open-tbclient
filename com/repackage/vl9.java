@@ -1,153 +1,96 @@
 package com.repackage;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class vl9 implements Printer {
+public class vl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static Object a;
+        public static Class<?> b;
+        public static Method c;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ vl9 e;
 
-        public a(vl9 vl9Var, long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vl9Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(76128241, "Lcom/repackage/vl9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(76128241, "Lcom/repackage/vl9$a;");
                     return;
                 }
             }
-            this.e = vl9Var;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                b = cls;
+                a = cls.newInstance();
+                b.getMethod("getUDID", Context.class);
+                c = b.getMethod("getOAID", Context.class);
+                b.getMethod("getVAID", Context.class);
+                b.getMethod("getAAID", Context.class);
+            } catch (Throwable th) {
+                Log.e("XiaomiId", "xiaomi init error", th);
+            }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static String a(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, c) : (String) invokeL.objValue;
+        }
+
+        public static String b(Context context, Method method) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
+                Object obj = a;
+                if (obj == null || method == null) {
+                    return null;
+                }
+                try {
+                    Object invoke = method.invoke(obj, context);
+                    if (invoke != null) {
+                        return (String) invoke;
+                    }
+                    return null;
+                } catch (Exception e) {
+                    Log.e("XiaomiId", "invoke method error", e);
+                    return null;
+                }
             }
+            return (String) invokeLL.objValue;
+        }
+
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b == null || a == null) ? false : true : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
-
-    public vl9(b bVar, long j, boolean z) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? a.a(context.getApplicationContext()) : (String) invokeL.objValue;
     }
 
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j - this.b > this.a : invokeJ.booleanValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            tl9.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (rl9.e().b != null) {
-                rl9.e().b.c();
-            }
-            if (rl9.e().c != null) {
-                rl9.e().c.c();
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (rl9.e().b != null) {
-                rl9.e().b.d();
-            }
-            if (rl9.e().c != null) {
-                rl9.e().c.d();
-            }
-        }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
-                return;
-            }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.c() : invokeV.booleanValue;
     }
 }

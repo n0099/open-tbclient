@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
-import com.repackage.l95;
+import com.repackage.ca5;
+import com.repackage.hj8;
 import com.repackage.wa;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes3.dex */
@@ -120,25 +120,14 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         this.b = 1;
         this.c = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         setUniqueId(BdUniqueId.gen());
+        registerHttpTask();
         z();
-        A();
         registerListener(this.c);
     }
 
-    public final void A() {
+    public void A(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l95 l95Var = new l95(309264);
-            l95Var.setResponsedClass(RecPersonalizeSocketResponse.class);
-            l95Var.g(true);
-            l95Var.setPriority(4);
-            MessageManager.getInstance().registerTask(l95Var);
-        }
-    }
-
-    public void B(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a = bVar;
         }
     }
@@ -147,7 +136,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             cancelMessage();
             return false;
         }
@@ -158,7 +147,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             FeedRecRequest feedRecRequest = new FeedRecRequest();
             int i = this.b;
             this.b = i + 1;
@@ -171,14 +160,25 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void z() {
+    public final void registerHttpTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, kk8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, hj8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ca5 ca5Var = new ca5(309264);
+            ca5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            ca5Var.g(true);
+            ca5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(ca5Var);
         }
     }
 }

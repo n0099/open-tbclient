@@ -45,14 +45,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd6;
-import com.repackage.je6;
-import com.repackage.m45;
-import com.repackage.mq5;
-import com.repackage.n45;
-import com.repackage.o45;
-import com.repackage.qt4;
-import com.repackage.vt4;
+import com.repackage.d55;
+import com.repackage.du4;
+import com.repackage.e55;
+import com.repackage.f55;
+import com.repackage.iu4;
+import com.repackage.lc6;
+import com.repackage.nq5;
+import com.repackage.od6;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.FrsTabInfo;
@@ -122,9 +122,9 @@ public class AlaSquareDelegateStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof je6) {
-                je6 je6Var = (je6) data;
-                je6Var.a(new mq5(je6Var.c(), je6Var.d()));
+            if (data instanceof od6) {
+                od6 od6Var = (od6) data;
+                od6Var.a(new nq5(od6Var.c(), od6Var.d()));
             }
         }
     }
@@ -152,7 +152,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, vt4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, iu4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -179,7 +179,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, vt4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, iu4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -210,7 +210,7 @@ public class AlaSquareDelegateStatic {
                 if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                     String lowerCase = strArr[0].toLowerCase();
                     if (lowerCase.contains(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE)) {
-                        qt4.f(tbPageContext.getPageActivity(), 15, true);
+                        du4.f(tbPageContext.getPageActivity(), 15, true);
                         return 1;
                     }
                     Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/video/square\\?tid=(\\d+)").matcher(lowerCase);
@@ -327,31 +327,31 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            gd6 gd6Var;
+            lc6 lc6Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof gd6) || (gd6Var = (gd6) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gd6Var.e())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof lc6) || (lc6Var = (lc6) customResponsedMessage.getData()) == null || ListUtils.isEmpty(lc6Var.e())) {
                 return;
             }
-            for (FrsTabInfo frsTabInfo : gd6Var.e()) {
+            for (FrsTabInfo frsTabInfo : lc6Var.e()) {
                 if (frsTabInfo.tab_id.intValue() == 1120) {
-                    AlaSquareDelegateStatic.b(gd6Var);
+                    AlaSquareDelegateStatic.b(lc6Var);
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class i extends m45 {
+    public static class i extends d55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gd6 c;
+        public final /* synthetic */ lc6 c;
 
-        public i(gd6 gd6Var) {
+        public i(lc6 lc6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gd6Var};
+                Object[] objArr = {lc6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -361,26 +361,26 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.c = gd6Var;
+            this.c = lc6Var;
         }
 
-        @Override // com.repackage.m45
-        public n45 a() {
+        @Override // com.repackage.d55
+        public e55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LiveTabYYSubFragment U0 = LiveTabYYSubFragment.U0(false, 2);
-                U0.F0(this.c.b(), this.c.c());
-                n45 n45Var = new n45();
-                n45Var.a = U0;
-                n45Var.e = 1120;
-                n45Var.i = n45.l;
-                return n45Var;
+                LiveTabYYSubFragment V0 = LiveTabYYSubFragment.V0(false, 2);
+                V0.G0(this.c.b(), this.c.c());
+                e55 e55Var = new e55();
+                e55Var.a = V0;
+                e55Var.e = 1120;
+                e55Var.i = e55.k;
+                return e55Var;
             }
-            return (n45) invokeV.objValue;
+            return (e55) invokeV.objValue;
         }
 
-        @Override // com.repackage.m45
+        @Override // com.repackage.d55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -390,7 +390,7 @@ public class AlaSquareDelegateStatic {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.m45
+        @Override // com.repackage.d55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -407,7 +407,7 @@ public class AlaSquareDelegateStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a extends m45 {
+        public class a extends d55 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -427,23 +427,23 @@ public class AlaSquareDelegateStatic {
                 }
             }
 
-            @Override // com.repackage.m45
-            public n45 a() {
+            @Override // com.repackage.d55
+            public e55 a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    n45 n45Var = new n45();
-                    n45Var.a = new MainBottomLiveTabFragment();
-                    n45Var.e = 20;
-                    n45Var.b = R.string.obfuscated_res_0x7f0f021c;
-                    n45Var.f = R.raw.lottie_tab_live;
-                    n45Var.i = n45.m;
-                    return n45Var;
+                    e55 e55Var = new e55();
+                    e55Var.a = new MainBottomLiveTabFragment();
+                    e55Var.e = 20;
+                    e55Var.b = R.string.obfuscated_res_0x7f0f021e;
+                    e55Var.f = R.raw.lottie_tab_live;
+                    e55Var.i = e55.l;
+                    return e55Var;
                 }
-                return (n45) invokeV.objValue;
+                return (e55) invokeV.objValue;
             }
 
-            @Override // com.repackage.m45
+            @Override // com.repackage.d55
             public TbFragmentTabIndicator c(Context context) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -455,7 +455,7 @@ public class AlaSquareDelegateStatic {
                 return (TbFragmentTabIndicator) invokeL.objValue;
             }
 
-            @Override // com.repackage.m45
+            @Override // com.repackage.d55
             public boolean d() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -493,7 +493,7 @@ public class AlaSquareDelegateStatic {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((o45) customResponsedMessage.getData()).a(new a(this));
+            ((f55) customResponsedMessage.getData()).a(new a(this));
         }
     }
 
@@ -546,12 +546,12 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void b(gd6 gd6Var) {
+    public static void b(lc6 lc6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, gd6Var) == null) || gd6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, lc6Var) == null) || lc6Var == null) {
             return;
         }
-        gd6Var.a(new i(gd6Var));
+        lc6Var.a(new i(lc6Var));
     }
 
     public static boolean c() {

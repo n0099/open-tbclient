@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
-import com.repackage.br4;
 import com.repackage.lj7;
+import com.repackage.mr4;
 import com.repackage.qe;
 import com.squareup.wire.Wire;
 import tbclient.Error;
@@ -66,8 +66,8 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
         if (getError() == 0) {
             String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-            br4.f();
-            qe<byte[]> e = br4.e("tb_member_center", currentAccount);
+            mr4.f();
+            qe<byte[]> e = mr4.e("tb_member_center", currentAccount);
             if (e == null || bArr == null) {
                 return;
             }

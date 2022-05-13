@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z97;
+import com.repackage.ga7;
 /* loaded from: classes3.dex */
-public class AtMeCacheModel extends CacheModel<z97, AtMessageActivity> {
+public class AtMeCacheModel extends CacheModel<ga7, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtMeCacheModel(TbPageContext<AtMessageActivity> tbPageContext) {
+    public AtMeCacheModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,10 +35,10 @@ public class AtMeCacheModel extends CacheModel<z97, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<z97> J() {
+    public Class<ga7> J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? z97.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ga7.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel

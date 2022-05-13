@@ -29,6 +29,6 @@ public class hi7 implements LiveCustomSettingService {
     public boolean isFreeTrafficMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? at8.c().d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? xr8.c().d() : invokeV.booleanValue;
     }
 }

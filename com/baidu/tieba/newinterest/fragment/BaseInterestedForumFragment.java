@@ -35,20 +35,20 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public int B0() {
+    public int C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void C0() {
+    public void D0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             hideLoadingView(this.e);
         }
     }
 
-    public void D0(String str) {
+    public void E0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             hideLoadingView(this.e);
@@ -56,7 +56,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public void E0(List<op7> list) {
+    public void F0(List<op7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.d = list;

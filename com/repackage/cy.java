@@ -1,113 +1,187 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.util.BdLog;
-import com.baidu.permissionhelper.ApiUtil;
-import com.baidu.permissionhelper.context.ContextCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.CardUserInfoLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cy {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "cy";
+public class cy extends zx<zn4> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CardUserInfoLayout f;
+    public int g;
+    public zn4 h;
+    public b i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964042673, "Lcom/repackage/cy;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964042673, "Lcom/repackage/cy;");
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cy a;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                return ContextCompat.checkPermissionGranted(context, "android.permission.CAMERA");
-            } catch (Throwable th) {
-                BdLog.c(a, th);
-                return !ApiUtil.shouldCheckPermission();
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
-        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, "android.permission.READ_EXTERNAL_STORAGE") != false) goto L17;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            boolean z = false;
-            if (context == null) {
-                return false;
-            }
-            try {
-                boolean checkPermissionGranted = ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-                if (Build.VERSION.SDK_INT >= 16) {
-                    if (!checkPermissionGranted) {
-                    }
-                    z = true;
-                    return z;
+        public a(cy cyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return checkPermissionGranted;
-            } catch (Throwable th) {
-                BdLog.c(a, th);
-                return !ApiUtil.shouldCheckPermission();
+            }
+            this.a = cyVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.i != null) {
+                    this.a.i.a(this.a.h, view2);
+                }
+                if (this.a.d() != null) {
+                    this.a.d().a(view2, this.a.h);
+                }
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean c(Context context, int i) {
-        InterceptResult invokeLI;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(zn4 zn4Var, View view2);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cy(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (context == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            SharedPreferences sharedPreferences = context.getSharedPreferences(a, 0);
-            if (sharedPreferences == null) {
-                return true;
-            }
-            String str = "permission_request_code=" + String.valueOf(i);
-            boolean z = sharedPreferences.getBoolean(str, true);
-            d(context, str);
-            return z;
         }
-        return invokeLI.booleanValue;
+        this.g = 34053;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().c instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().c.getParent() == null) {
+            this.f = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().c;
+        } else {
+            this.f = new CardUserInfoLayout(context);
+        }
+        this.f.setShowFlag(this.g);
+        this.f.setUserAfterClickListener(new a(this));
     }
 
-    public static void d(Context context, String str) {
-        SharedPreferences sharedPreferences;
+    @Override // com.repackage.zx
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || context == null || (sharedPreferences = context.getSharedPreferences(a, 0)) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            int i2 = i | this.g;
+            this.g = i2;
+            u(i2);
+        }
+    }
+
+    @Override // com.repackage.zx
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int i2 = (~i) & this.g;
+            this.g = i2;
+            u(i2);
+        }
+    }
+
+    @Override // com.repackage.zx
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: q */
+    public void a(zn4 zn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, zn4Var) == null) {
+            this.h = zn4Var;
+            this.f.setData(zn4Var.getThreadData());
+        }
+    }
+
+    public void r(boolean z) {
+        CardUserInfoLayout cardUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getAvatar() == null) {
             return;
         }
-        SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putBoolean(str, false);
-        edit.apply();
+        this.f.getAvatar().setClickable(z);
+    }
+
+    public void s(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void t(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            this.f.setPageUniqueId(bdUniqueId);
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.f.setShowFlag(this.g);
+        }
+    }
+
+    public void v(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, tbPageContext) == null) {
+            this.f.setPageContext(tbPageContext);
+        }
+    }
+
+    public void w(boolean z) {
+        CardUserInfoLayout cardUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getUserName() == null) {
+            return;
+        }
+        this.f.getUserName().setClickable(z);
     }
 }

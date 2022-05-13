@@ -1,93 +1,259 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes7.dex */
-public class rz6 extends BaseCardInfo {
+public class rz6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755332989, "Lcom/repackage/rz6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(String str, Object obj, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
+            if (obj instanceof zv6) {
+                StatisticItem statisticItem = new StatisticItem(str);
+                statisticItem.param("obj_type", 2);
+                statisticItem.param("obj_locate", i);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem.param("topic_id", ((zv6) obj).a);
+                statisticItem.param("obj_source", str2);
+                statisticItem.eventStat();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755332989, "Lcom/repackage/rz6;");
-                return;
+            if (obj instanceof SpecialColumnItemData) {
+                SpecialColumnItemData specialColumnItemData = (SpecialColumnItemData) obj;
+                StatisticItem statisticItem2 = new StatisticItem(str);
+                statisticItem2.param("obj_type", 2);
+                statisticItem2.param("obj_locate", i);
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem2.param("tid", specialColumnItemData.threadId);
+                statisticItem2.param("obj_id", specialColumnItemData.liveId);
+                statisticItem2.eventStat();
+            } else if (obj instanceof MetaData) {
+                StatisticItem statisticItem3 = new StatisticItem(str);
+                statisticItem3.param("obj_type", 2);
+                statisticItem3.param("obj_locate", i);
+                statisticItem3.param("uid", ((MetaData) obj).getUserIdLong());
+                statisticItem3.eventStat();
+            } else if (obj instanceof oq4) {
+                StatisticItem statisticItem4 = new StatisticItem(str);
+                statisticItem4.param("obj_type", 2);
+                statisticItem4.param("obj_locate", i);
+                statisticItem4.param("fid", ((oq4) obj).k());
+                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem4.eventStat();
+            } else if (obj instanceof mo4) {
+                mo4 mo4Var = (mo4) obj;
+                StatisticItem statisticItem5 = new StatisticItem(str);
+                statisticItem5.param("obj_type", 2);
+                statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem5.param("obj_locate", i);
+                statisticItem5.param("obj_param1", mo4Var.c());
+                statisticItem5.param("obj_source", str2);
+                d(statisticItem5, mo4Var.c());
+                statisticItem5.eventStat();
+            } else if (obj instanceof Boolean) {
+                StatisticItem statisticItem6 = new StatisticItem(str);
+                statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem6.param("obj_locate", i);
+                statisticItem6.eventStat();
             }
         }
-        e = BdUniqueId.gen();
     }
 
-    public rz6() {
+    public static void b(String str, Object obj, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLIL(65537, null, str, obj, i, str2) == null) {
+            if (obj instanceof SpecialColumnItemData) {
+                SpecialColumnItemData specialColumnItemData = (SpecialColumnItemData) obj;
+                StatisticItem statisticItem = new StatisticItem(str);
+                statisticItem.param("obj_type", 1);
+                statisticItem.param("obj_locate", i);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem.param("tid", specialColumnItemData.threadId);
+                statisticItem.param("obj_id", specialColumnItemData.liveId);
+                nx5.b().a(statisticItem);
+            } else if (obj instanceof MetaData) {
+                StatisticItem statisticItem2 = new StatisticItem(str);
+                statisticItem2.param("obj_type", 1);
+                statisticItem2.param("obj_locate", i);
+                statisticItem2.param("uid", ((MetaData) obj).getUserIdLong());
+                nx5.b().a(statisticItem2);
+            } else if (obj instanceof oq4) {
+                StatisticItem statisticItem3 = new StatisticItem(str);
+                statisticItem3.param("obj_type", 1);
+                statisticItem3.param("obj_locate", i);
+                statisticItem3.param("fid", ((oq4) obj).k());
+                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
+                nx5.b().a(statisticItem3);
+            } else if (obj instanceof mo4) {
+                mo4 mo4Var = (mo4) obj;
+                StatisticItem statisticItem4 = new StatisticItem(str);
+                statisticItem4.param("obj_type", 1);
+                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem4.param("obj_locate", i);
+                statisticItem4.param("obj_param1", mo4Var.c());
+                statisticItem4.param("obj_source", str2);
+                d(statisticItem4, mo4Var.c());
+                nx5.b().a(statisticItem4);
             }
         }
     }
 
-    public void e(LiveAnswer liveAnswer) {
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, liveAnswer) == null) || liveAnswer == null) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", 1);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_source", str2);
+            nx5.b().a(statisticItem);
+        }
+    }
+
+    public static void d(StatisticItem statisticItem, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14472");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            TiebaStatic.log(new StatisticItem("c14521"));
+        }
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14486");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void h(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14490");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("obj_source", i2);
+            statisticItem.param("obj_param1", i3);
+            statisticItem.param("obj_id", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14492");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void j(View view2, zn4 zn4Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65545, null, view2, zn4Var, str) == null) || zn4Var == null || zn4Var.getThreadData() == null) {
             return;
         }
-        this.c = liveAnswer.banner_url;
-        this.a = liveAnswer.banner_high.intValue();
-        this.b = liveAnswer.banner_width.intValue();
-        this.d = liveAnswer.jump_url;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("img_width", this.b);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.c);
-                jSONObject.put("img_height", this.a);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.d);
-                return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return null;
-            }
+        ThreadData threadData = zn4Var.getThreadData();
+        int id = view2.getId();
+        if (view2.getId() == R.id.obfuscated_res_0x7f091fe0 || id == R.id.obfuscated_res_0x7f091ff4) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f0922d3) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f0922f3) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f090a5f || id == R.id.obfuscated_res_0x7f090a37) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f091ff4) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+        } else if (view2 instanceof TbImageView) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f09161e || id == R.id.obfuscated_res_0x7f0906e7) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14479");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            TiebaStatic.log(new StatisticItem("c14520"));
+        }
+    }
+
+    public static void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14485");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void n(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65549, null, i, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14489");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("obj_source", i2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14491");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void p(zn4 zn4Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65551, null, zn4Var, str) == null) || zn4Var == null || zn4Var.getThreadData() == null) {
+            return;
+        }
+        if (zn4Var.getThreadData().isVideoThreadType()) {
+            nx5.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(zn4Var.getThreadData(), str));
+        } else {
+            nx5.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(zn4Var.getThreadData(), str));
+        }
     }
 }

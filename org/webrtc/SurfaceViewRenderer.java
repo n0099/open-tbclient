@@ -184,7 +184,7 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
             if (i3 == 0 || i3 == 180) {
                 i = i2;
             }
-            postOrRun(new Runnable() { // from class: com.repackage.hy9
+            postOrRun(new Runnable() { // from class: com.repackage.cx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

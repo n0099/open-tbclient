@@ -1,10 +1,18 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.mutiprocess.event.AppBackgroundSwitchEvent;
-import com.baidu.tieba.account.AccountRestoreActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,135 +20,117 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class eb7 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Runnable a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String i = "com.repackage.eb7";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                eb7.c("exited5s", false, -1);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends p55<AppBackgroundSwitchEvent> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.i55
-        /* renamed from: a */
-        public boolean onEvent(AppBackgroundSwitchEvent appBackgroundSwitchEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, appBackgroundSwitchEvent)) == null) {
-                if (appBackgroundSwitchEvent.isBackground()) {
-                    pg.a().removeCallbacks(eb7.a);
-                    return true;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public TextView d;
+    public TbRichTextView e;
+    public View f;
+    public TbPageContext g;
+    public int h;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755743305, "Lcom/repackage/eb7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755743305, "Lcom/repackage/eb7;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755743305, "Lcom/repackage/eb7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755743305, "Lcom/repackage/eb7;");
+        }
+    }
+
+    public eb7(TbPageContext tbPageContext, ViewGroup viewGroup, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup, onClickListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new a();
-        o55.f().l(AppBackgroundSwitchEvent.class, new b());
+        this.h = 3;
+        this.g = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0634, viewGroup, false);
+        this.a = inflate;
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fde);
+        this.b = headImageView;
+        headImageView.setIsRound(true);
+        this.b.setOnClickListener(onClickListener);
+        this.b.setPlaceHolder(1);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092265);
+        this.c = textView;
+        textView.setOnClickListener(onClickListener);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d9);
+        TbRichTextView tbRichTextView = (TbRichTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d4);
+        this.e = tbRichTextView;
+        tbRichTextView.setTextSize(tbPageContext.getResources().getDimension(R.dimen.tbfontsize42));
+        tf5 layoutStrategy = this.e.getLayoutStrategy();
+        layoutStrategy.o(tbPageContext.getResources().getDimension(R.dimen.tbds12), 1.0f);
+        this.e.setLayoutStrategy(layoutStrategy);
+        this.e.setClickable(true);
+        this.e.setFocusable(true);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0903cf);
+        b();
     }
 
-    public static void c(@NonNull String str, boolean z, int i) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("value", str);
-                if (i > 0) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("isFirst", z);
-                    jSONObject2.put("viewCount", i);
-                    jSONObject.put("ext", jSONObject2);
-                }
-                uBCManager.onEvent("4651", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public static void d() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c("enter", false, -1);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.h == TbadkCoreApplication.getInst().getSkinType()) {
+            return;
         }
+        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+        this.e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+        this.h = TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public static void e(boolean z, int i) {
+    public void c(ChatMessage chatMessage) {
+        TbRichTextView tbRichTextView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            c(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, z, i);
-            f();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) || chatMessage.getUserInfo() == null) {
+            return;
         }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            pg.a().postDelayed(a, 5000L);
+        this.b.setUserId(chatMessage.getUserInfo().getUserId());
+        this.b.K(chatMessage.getUserInfo().getPortrait(), 12, false);
+        this.d.setText(StringHelper.getFormatTimeShort(chatMessage.getTime() * 1000));
+        if (this.g == null || (tbRichTextView = this.e) == null) {
+            return;
         }
+        g47.e(tbRichTextView, chatMessage, i, 0);
+        if (chatMessage == null || chatMessage.getContent() == null) {
+            return;
+        }
+        String[] split = chatMessage.getContent().split("#");
+        StringBuffer stringBuffer = new StringBuffer();
+        for (String str : split) {
+            stringBuffer.append(str);
+        }
+        this.e.setContentDescription(stringBuffer.toString());
+        this.e.getTextView().setContentDescription(stringBuffer.toString());
     }
 }

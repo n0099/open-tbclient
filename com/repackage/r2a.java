@@ -1,52 +1,57 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes7.dex */
-public abstract class r2a<E> extends o2a<E> {
+public final class r2a implements dy9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long producerIndex;
+    public final SequentialSubscription a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755400848, "Lcom/repackage/r2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755400848, "Lcom/repackage/r2a;");
-                return;
-            }
-        }
-        g = z2a.a(r2a.class, "producerIndex");
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r2a(int i) {
-        super(i);
+    public r2a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        this.a = new SequentialSubscription();
+    }
+
+    public void a(dy9 dy9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dy9Var) == null) {
+            if (dy9Var != null) {
+                this.a.replace(dy9Var);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
+        }
+    }
+
+    @Override // com.repackage.dy9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.dy9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

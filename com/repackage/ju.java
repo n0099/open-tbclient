@@ -1,44 +1,52 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
+import android.util.DisplayMetrics;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ju<D extends BuoyViewData> implements pu<D> {
+public class ju {
     public static /* synthetic */ Interceptable $ic;
+    public static final DisplayMetrics a;
+    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ru<D> a;
 
-    public ju() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964036070, "Lcom/repackage/ju;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964036070, "Lcom/repackage/ju;");
                 return;
             }
         }
-        this.a = new ru<>();
+        DisplayMetrics displayMetrics = js.c.h().getAppContext().getResources().getDisplayMetrics();
+        a = displayMetrics;
+        b = displayMetrics.density;
     }
 
-    public qu<D> a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (qu) invokeV.objValue;
-    }
-
-    public void b(D d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d) == null) {
-            this.a.o(d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int identifier = js.c.h().getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = js.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
+                } catch (Exception unused) {
+                }
+            }
+            return i == 0 ? (int) (b * 25.0f) : i;
         }
+        return invokeV.intValue;
     }
 }

@@ -1,217 +1,60 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.member.PrivateMgrApplyViewHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sb6 extends kd6<tb6, PrivateMgrApplyViewHolder> {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: v */
-    public static final int obfuscated = 2131302639;
+public class sb6 extends eo<yb6, CardViewHolder<dc6>> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wy4 t;
-    public View.OnClickListener u;
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sb6 a;
-
-        public a(sb6 sb6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sb6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sb6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    Object tag = view2.getTag(sb6.obfuscated);
-                    if (tag == null || tag.toString().equals("")) {
-                        return;
-                    }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.a.a), new String[]{tag.toString()});
-                    return;
-                }
-                this.a.q0(TbadkCoreApplication.getCurrentAccountInfo());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755326262, "Lcom/repackage/sb6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755326262, "Lcom/repackage/sb6;");
-        }
-    }
+    public TbPageContext i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sb6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public sb6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = new a(this);
-    }
-
-    @Override // com.repackage.kd6, com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        p0(i, view2, viewGroup, (tb6) obj, (PrivateMgrApplyViewHolder) viewHolder);
-        return view2;
+        this.i = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: o0 */
-    public PrivateMgrApplyViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public CardViewHolder<dc6> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0701, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new dc6(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
-    public void onDestroy() {
-        wy4 wy4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (wy4Var = this.t) == null) {
-            return;
-        }
-        wy4Var.s();
-    }
-
-    public View p0(int i, View view2, ViewGroup viewGroup, tb6 tb6Var, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, yb6 yb6Var, CardViewHolder<dc6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tb6Var, privateMgrApplyViewHolder})) == null) {
-            super.S(i, view2, viewGroup, tb6Var, privateMgrApplyViewHolder);
-            if (tb6Var != null && !tb6Var.f() && privateMgrApplyViewHolder != null) {
-                if (tb6Var.f()) {
-                    privateMgrApplyViewHolder.e.setVisibility(8);
-                    return view2;
-                }
-                boolean z = true;
-                if (privateMgrApplyViewHolder.f != this.n) {
-                    SkinManager.setBackgroundColor(privateMgrApplyViewHolder.d, R.color.CAM_X0204);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.b, R.color.CAM_X0109, 1);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.a, R.color.CAM_X0105, 1);
-                    SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
-                }
-                int a2 = tb6Var.a();
-                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1379);
-                if (a2 == -1) {
-                    int e = tb6Var.e();
-                    String numberUniformFormat = StringHelper.numberUniformFormat(e);
-                    if (e > 0) {
-                        string = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1373), numberUniformFormat);
-                        privateMgrApplyViewHolder.c.setOnClickListener(this.u);
-                        privateMgrApplyViewHolder.b.setText(string);
-                        privateMgrApplyViewHolder.c.setTag(obfuscated, tb6Var.b());
-                        privateMgrApplyViewHolder.c.setEnabled(z);
-                        privateMgrApplyViewHolder.c.setClickable(z);
-                        privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                        privateMgrApplyViewHolder.f = this.n;
-                    }
-                    z = false;
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.u);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, tb6Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.n;
-                } else {
-                    if (a2 == 0) {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1377);
-                    } else if (a2 == 1) {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1375);
-                    } else {
-                        if (a2 == 2) {
-                            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1374);
-                        }
-                        z = false;
-                    }
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.u);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, tb6Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.n;
-                }
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void q0(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            b9<?> a2 = f9.a(this.a);
-            Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
-            if (this.t == null) {
-                this.t = new wy4(pageActivity);
-            }
-            this.t.p();
-            this.t.u(accountData);
-            this.t.z(1);
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yb6Var, cardViewHolder})) == null) ? cardViewHolder.b() : (View) invokeCommon.objValue;
     }
 }

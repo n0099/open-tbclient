@@ -1,7 +1,27 @@
 package com.repackage;
 
-import android.app.Application;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes6.dex */
-public interface im3 {
-    void a(Application application, boolean z, boolean z2);
+public class im3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Inject(force = false)
+    public static jm3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ym5.a() : (jm3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static km3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new sg3() : (km3) invokeV.objValue;
+    }
 }

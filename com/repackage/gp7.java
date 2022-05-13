@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gp7 extends ho<qp7, InterestedForumStyleAForumViewHolder> {
+public class gp7 extends eo<qp7, InterestedForumStyleAForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public yp7 i;
 
     /* loaded from: classes6.dex */
-    public class a implements dp {
+    public class a implements bp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gp7 a;
@@ -53,11 +53,11 @@ public class gp7 extends ho<qp7, InterestedForumStyleAForumViewHolder> {
             this.a = gp7Var;
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof qp7)) {
-                qp7 qp7Var = (qp7) uoVar;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof qp7)) {
+                qp7 qp7Var = (qp7) roVar;
                 qp7Var.u(!qp7Var.k());
                 InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder = (InterestedForumStyleAForumViewHolder) view2.getTag();
                 if (interestedForumStyleAForumViewHolder != null) {
@@ -98,7 +98,7 @@ public class gp7 extends ho<qp7, InterestedForumStyleAForumViewHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, qp7 qp7Var, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
         e0(i, view2, viewGroup, qp7Var, interestedForumStyleAForumViewHolder);
         return view2;
@@ -116,7 +116,7 @@ public class gp7 extends ho<qp7, InterestedForumStyleAForumViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: d0 */
     public InterestedForumStyleAForumViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -124,9 +124,9 @@ public class gp7 extends ho<qp7, InterestedForumStyleAForumViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             if (UbsABTestHelper.isInterestGuideStyleA()) {
-                inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03fd, viewGroup, false);
+                inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f1, viewGroup, false);
             } else {
-                inflate = UbsABTestHelper.isInterestGuideStyleB() ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0400, viewGroup, false) : null;
+                inflate = UbsABTestHelper.isInterestGuideStyleB() ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f4, viewGroup, false) : null;
             }
             return new InterestedForumStyleAForumViewHolder(inflate);
         }
@@ -152,19 +152,19 @@ public class gp7 extends ho<qp7, InterestedForumStyleAForumViewHolder> {
         if (interceptable == null || interceptable.invokeLL(1048581, this, interestedForumStyleAForumViewHolder, qp7Var) == null) {
             interestedForumStyleAForumViewHolder.b.setShowOval(true);
             interestedForumStyleAForumViewHolder.b.setAutoChangeStyle(true);
-            interestedForumStyleAForumViewHolder.b.setStrokeWith(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            interestedForumStyleAForumViewHolder.b.setStrokeWith(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             interestedForumStyleAForumViewHolder.b.setStrokeColorResId(R.color.CAM_X0401);
             interestedForumStyleAForumViewHolder.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             interestedForumStyleAForumViewHolder.b.setPlaceHolder(1);
             interestedForumStyleAForumViewHolder.b.K(qp7Var.a(), 10, false);
-            interestedForumStyleAForumViewHolder.c.setText(qp7Var.f() + this.a.getString(R.string.obfuscated_res_0x7f0f0643));
+            interestedForumStyleAForumViewHolder.c.setText(qp7Var.f() + this.a.getString(R.string.obfuscated_res_0x7f0f064b));
             if (!StringUtils.isNull(qp7Var.i())) {
-                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f091a, qp7Var.i()));
+                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f091e, qp7Var.i()));
             } else {
-                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f091e));
+                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0922));
             }
-            interestedForumStyleAForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0415), StringHelper.numberUniformFormatExtraWithRoundInt(qp7Var.g())));
-            interestedForumStyleAForumViewHolder.f.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06ab), StringHelper.numberUniformFormatExtraWithRoundInt(qp7Var.j())));
+            interestedForumStyleAForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f041b), StringHelper.numberUniformFormatExtraWithRoundInt(qp7Var.g())));
+            interestedForumStyleAForumViewHolder.f.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06b4), StringHelper.numberUniformFormatExtraWithRoundInt(qp7Var.j())));
             i0(interestedForumStyleAForumViewHolder.h, qp7Var.k());
         }
     }
@@ -179,16 +179,16 @@ public class gp7 extends ho<qp7, InterestedForumStyleAForumViewHolder> {
     public final void h0(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAForumViewHolder) == null) {
-            vr4 d = vr4.d(interestedForumStyleAForumViewHolder.c);
+            gs4 d = gs4.d(interestedForumStyleAForumViewHolder.c);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
-            vr4 d2 = vr4.d(interestedForumStyleAForumViewHolder.d);
+            gs4 d2 = gs4.d(interestedForumStyleAForumViewHolder.d);
             d2.v(R.color.CAM_X0109);
             d2.z(R.dimen.T_X09);
-            vr4 d3 = vr4.d(interestedForumStyleAForumViewHolder.e);
+            gs4 d3 = gs4.d(interestedForumStyleAForumViewHolder.e);
             d3.v(R.color.CAM_X0109);
             d3.z(R.dimen.T_X09);
-            vr4 d4 = vr4.d(interestedForumStyleAForumViewHolder.f);
+            gs4 d4 = gs4.d(interestedForumStyleAForumViewHolder.f);
             d4.v(R.color.CAM_X0109);
             d4.z(R.dimen.T_X09);
             TBSelector.setViewBackgroundColorWithPressedState(interestedForumStyleAForumViewHolder.a, R.color.CAM_X0205, R.color.CAM_X0204);

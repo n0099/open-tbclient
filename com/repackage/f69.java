@@ -1,30 +1,76 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class f69 {
+public final class f69 {
     public static /* synthetic */ Interceptable $ic;
+    public static List<WeakReference<ScheduledFuture<?>>> a;
+    public static ExecutorService b;
+    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "process";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755755736, "Lcom/repackage/f69;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755755736, "Lcom/repackage/f69;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        a = new ArrayList();
+        b = Executors.newFixedThreadPool(2);
+        c = Executors.newScheduledThreadPool(2);
+    }
+
+    public static synchronized void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            synchronized (f69.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
+                }
+                c.execute(runnable);
+            }
+        }
+    }
+
+    public static synchronized void b(Runnable runnable, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (f69.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
+                }
+                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            }
+        }
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            ExecutorService executorService = b;
+            if (executorService == null || executorService.isShutdown()) {
+                b = Executors.newFixedThreadPool(2);
+            }
+            b.execute(runnable);
+        }
     }
 }

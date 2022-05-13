@@ -1,169 +1,104 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
+import android.graphics.Color;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gw1 extends i13 {
+public class gw1 extends iw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public String B;
+    public String C;
+    public String t;
+    public int u;
+    public boolean v;
+    public double w;
+    public int x;
+    public int y;
+    public String z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gw1(g13 g13Var) {
-        super(g13Var, "/swanAPI/button");
+    public gw1(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((g13) objArr2[0], (String) objArr2[1]);
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.t = "";
+        this.v = false;
+        this.z = "";
+        this.A = "";
+        this.B = "";
+        this.C = "";
     }
 
-    @Override // com.repackage.i13
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
+    private void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.i13
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j03 j03Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, j03Var)) == null) {
-            if (g23.b) {
-                Log.d("Component-Action-Button", "insert");
-            }
-            hw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                jx1.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            aw1 insert = new fw1(context, q).insert();
-            boolean a = insert.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-            }
-            return a;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        try {
+            this.u = Color.parseColor(jSONObject.optString("color"));
+            this.v = true;
+        } catch (Exception unused) {
+            ux1.o("Component-Model-TextView", "text color occurs exception");
+            this.v = false;
+        }
+        this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
+        this.x = le3.g((float) this.j.optDouble("lineHeight", 0.0d));
+        this.y = le3.g((float) this.j.optDouble("lineSpace", 0.0d));
+        this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+        this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+        this.B = this.j.optString("whiteSpace");
+        this.C = this.j.optString("lineBreak");
     }
 
-    @Override // com.repackage.i13
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j03 j03Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.repackage.iw1, com.repackage.kw1, com.repackage.tq2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, j03Var)) == null) {
-            if (g23.b) {
-                Log.d("Component-Action-Button", "remove");
-            }
-            hw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                jx1.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            fw1 fw1Var = (fw1) ww1.a(q);
-            if (fw1Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                jx1.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            aw1 B = fw1Var.B();
-            boolean a = B.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        super.a(jSONObject);
+        this.t = jSONObject.optString("text");
+        i();
     }
 
-    @Override // com.repackage.i13
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j03 j03Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.repackage.iw1, com.repackage.kw1
+    public void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, j03Var)) == null) {
-            if (g23.b) {
-                Log.d("Component-Action-Button", "update");
-            }
-            hw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                jx1.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            fw1 fw1Var = (fw1) ww1.a(q);
-            if (fw1Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                jx1.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            aw1 update = fw1Var.update((fw1) q);
-            boolean a = update.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.t = jSONObject.optString("text", this.t);
+            i();
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    @Nullable
-    public final hw1 q(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                jx1.c("Component-Action-Button", "params is null");
-                return null;
-            }
-            hw1 hw1Var = new hw1();
-            try {
-                hw1Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jx1.d("Component-Action-Button", "model parse exception:", e);
-            }
-            return hw1Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.t = str;
         }
-        return (hw1) invokeL.objValue;
     }
 }

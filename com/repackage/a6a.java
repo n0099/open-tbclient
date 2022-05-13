@@ -1,23 +1,81 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Gallery;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 /* loaded from: classes5.dex */
-public class a6a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static PaysSettingInfo a = null;
-    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
-    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+public final class a6a extends y5a<BannerConfigItem.BannerInfo> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageLoaderSupplier c;
+
+    /* loaded from: classes5.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+        public final /* synthetic */ a6a b;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(a6a a6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a6aVar;
+        }
+
+        public final ImageView a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ImageView) invokeV.objValue;
+        }
+
+        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
+            ImageView imageView;
+            ImageLoaderSupplier e;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) || (imageView = this.a) == null || (e = this.b.e()) == null) {
+                return;
+            }
+            e.onLoad(context, imageView, new ImageLoaderSupplier.ImageParam(bannerInfo != null ? bannerInfo.imageUrl : null, -1, -1));
+        }
+
+        public final void c(ImageView imageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
+                this.a = imageView;
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,80 +92,93 @@ public class a6a {
         }
     }
 
-    public static String a(String str, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a6a(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str);
-            sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
-            sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
-            sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
-            sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
-            sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
-            sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
-            sb.append("&sdkVersion=4.3.9-bdpay212004-SNAPSHOT");
-            int i = 0;
-            ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
-            if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f10014f) {
-                i = 1;
-            }
-            sb.append("&theme=" + i);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(d, payUIKitConfig);
-            }
-            return d;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(c, payUIKitConfig);
-            }
-            return c;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-                return b;
-            }
-            return a(b, payUIKitConfig);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            if (z) {
-                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-            c = "https://web.yy.com/yy_wallet/wallet.html?";
-            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
         }
+        RLog.debug("PluginCenterBannerAdapter", "constructor");
+    }
+
+    @NonNull
+    public final a d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            a aVar = new a(this);
+            aVar.c((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920e5));
+            ImageView a2 = aVar.a();
+            if (a2 == null) {
+                Intrinsics.throwNpe();
+            }
+            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            view2.setTag(aVar);
+            return aVar;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public final ImageLoaderSupplier e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ImageLoaderSupplier) invokeV.objValue;
+    }
+
+    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) || bannerInfo == null) {
+            return;
+        }
+        Context mContext = this.b;
+        Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
+        aVar.b(bannerInfo, i, mContext);
+    }
+
+    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
+            this.c = imageLoaderSupplier;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d065e, (ViewGroup) null);
+                if (view2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+                aVar = d(view2);
+            } else {
+                Object tag = view2 != null ? view2.getTag() : null;
+                if (tag == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
+                }
+                aVar = (a) tag;
+            }
+            BannerConfigItem.BannerInfo item = getItem(i);
+            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
+            f(item, aVar, i);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

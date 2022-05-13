@@ -1,160 +1,190 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.entelechy.adapter.FrsVideoActivityViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.util.List;
+import tbclient.BawuRoleInfoPub;
+import tbclient.ForumInfo;
+import tbclient.ForumRule;
+import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes6.dex */
-public class gi6 extends kd6<wj8, FrsVideoActivityViewHolder> {
+public class gi6 implements ro {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
+    public ForumInfo a;
+    public String b;
+    public String c;
+    public List<ForumRule> d;
+    public int e;
+    public String f;
+    public boolean g;
+    public String h;
+    public BawuRoleInfoPub i;
+    public String j;
+    public ii6 k;
+    public fi6 l;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wj8 a;
-        public final /* synthetic */ gi6 b;
-
-        public a(gi6 gi6Var, wj8 wj8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755677027, "Lcom/repackage/gi6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gi6Var, wj8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = gi6Var;
-            this.a = wj8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.t));
-                vt4 k = vt4.k();
-                k.x("frs_video_activity_tip" + this.b.t, System.currentTimeMillis());
-                wj8 wj8Var = this.a;
-                if (wj8Var == null || StringUtils.isNull(wj8Var.b)) {
-                    return;
-                }
-                ul4.l(this.b.a, this.a.b);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gi6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755677027, "Lcom/repackage/gi6;");
                 return;
             }
         }
+        m = BdUniqueId.gen();
     }
 
-    public final boolean n0(long j) {
-        InterceptResult invokeJ;
+    public gi6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j == 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - j > 86400000) {
-                return true;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(currentTimeMillis);
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(j);
-            return calendar.get(7) > calendar2.get(7);
         }
-        return invokeJ.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: o0 */
-    public FrsVideoActivityViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d035f, (ViewGroup) null);
-            FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
-            SkinManager.setViewTextColor(frsVideoActivityViewHolder.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(frsVideoActivityViewHolder.c, (int) R.color.CAM_X0301);
-            SkinManager.setImageResource(frsVideoActivityViewHolder.b, R.drawable.icon_news_list_prompt);
-            SkinManager.setImageResource(frsVideoActivityViewHolder.d, R.drawable.icon_index_category_arrow_r);
-            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
-            return frsVideoActivityViewHolder;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public BawuRoleInfoPub e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (BawuRoleInfoPub) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public ForumInfo g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ForumInfo) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public List<ForumRule> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (List) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public fi6 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : (fi6) invokeV.objValue;
+    }
+
+    public void q(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (FrsVideoActivityViewHolder) invokeL.objValue;
+        this.a = dataRes.forum;
+        this.b = dataRes.title;
+        this.c = dataRes.preface;
+        this.d = dataRes.rules;
+        this.e = dataRes.audit_status.intValue();
+        this.f = dataRes.audit_opinion;
+        this.g = dataRes.is_manager.intValue() == 1;
+        Long l = dataRes.forum_rule_id;
+        this.h = dataRes.publish_time;
+        this.i = dataRes.bazhu;
+        this.j = dataRes.cur_time;
+        ii6 ii6Var = new ii6();
+        this.k = ii6Var;
+        ii6Var.a(dataRes);
+        fi6 fi6Var = new fi6();
+        this.l = fi6Var;
+        fi6Var.i(dataRes);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.kd6, com.repackage.ho
-    /* renamed from: p0 */
-    public View S(int i, View view2, ViewGroup viewGroup, wj8 wj8Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
-        InterceptResult invokeCommon;
+    public void r(BawuRoleInfoPub bawuRoleInfoPub) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wj8Var, frsVideoActivityViewHolder})) == null) {
-            if (view2 == null || frsVideoActivityViewHolder == null) {
-                return null;
-            }
-            view2.setOnClickListener(new a(this, wj8Var));
-            frsVideoActivityViewHolder.a.setText(wj8Var != null ? wj8Var.a : "");
-            vt4 k = vt4.k();
-            if (n0(k.m("frs_video_activity_tip" + this.t, 0L))) {
-                frsVideoActivityViewHolder.b.setVisibility(0);
-            } else {
-                frsVideoActivityViewHolder.b.setVisibility(8);
-            }
-            return frsVideoActivityViewHolder.b();
+        if (interceptable == null || interceptable.invokeL(1048589, this, bawuRoleInfoPub) == null) {
+            this.i = bawuRoleInfoPub;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void q0(String str) {
+    public void s(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.t = str;
+        if (interceptable == null || interceptable.invokeL(1048590, this, forumInfo) == null) {
+            this.a = forumInfo;
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.c = str;
         }
     }
 }

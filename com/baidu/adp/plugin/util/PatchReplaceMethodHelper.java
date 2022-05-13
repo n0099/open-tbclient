@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.em;
+import com.repackage.bm;
 import dalvik.system.DexFile;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -108,11 +108,11 @@ public class PatchReplaceMethodHelper {
                         setFieldsFlag(cls);
                     }
                 } catch (IOException e) {
-                    em b = em.b();
+                    bm b = bm.b();
                     b.p("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
                     e.printStackTrace();
                 } catch (ClassNotFoundException e2) {
-                    em b2 = em.b();
+                    bm b2 = bm.b();
                     b2.p("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
                     e2.printStackTrace();
                 }

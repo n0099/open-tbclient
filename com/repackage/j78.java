@@ -38,8 +38,8 @@ public class j78 {
             }
         }
         this.a = viewGroup;
-        this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ed);
-        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ee);
+        this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902e6);
+        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902e7);
         d();
     }
 

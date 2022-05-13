@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.nr4;
 import java.text.MessageFormat;
 /* loaded from: classes6.dex */
 public class kr7 {
@@ -98,15 +98,15 @@ public class kr7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ShareItem shareItem = this.a;
-                shareItem.t = ry4.v(shareItem.t, shareItem.K, UtilHelper.isVideoThread(shareItem.M));
-                di.a(this.a.t);
-                oi.N(this.b.a.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f043f));
+                shareItem.v = fz4.v(shareItem.v, shareItem.M, UtilHelper.isVideoThread(shareItem.O));
+                bi.a(this.a.v);
+                mi.N(this.b.a.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0447));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements cr4.e {
+    public static class c implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nr7 a;
@@ -143,14 +143,14 @@ public class kr7 {
             this.h = str4;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             nr7 nr7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || (nr7Var = this.a) == null || nr7Var.getThreadInfo() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) || (nr7Var = this.a) == null || nr7Var.getThreadInfo() == null) {
                 return;
             }
-            oi.w(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
+            mi.w(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
             Activity pageActivity = this.b.getPageContext().getPageActivity();
             long j = this.d;
             String str = this.e;
@@ -159,12 +159,12 @@ public class kr7 {
             String leaveMsg = this.c.getLeaveMsg();
             nr7 nr7Var2 = this.a;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str, str2, str3, 0, leaveMsg, kr7.c(nr7Var2, nr7Var2.getThreadInfo().excid.longValue(), this.h).toChatMessageContent())));
-            cr4Var.dismiss();
+            nr4Var.dismiss();
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements cr4.e {
+    public static class d implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbChosenActivity a;
@@ -189,18 +189,18 @@ public class kr7 {
             this.b = shareThreadView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                oi.w(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                mi.w(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
+                nr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e implements cr4.e {
+    public static class e implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nr7 a;
@@ -235,14 +235,14 @@ public class kr7 {
             this.g = str2;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             nr7 nr7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || (nr7Var = this.a) == null || nr7Var.getThreadInfo() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) || (nr7Var = this.a) == null || nr7Var.getThreadInfo() == null) {
                 return;
             }
-            oi.w(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
+            mi.w(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
             Activity pageActivity = this.b.getPageContext().getPageActivity();
             long j = this.d;
             String str = this.e;
@@ -250,12 +250,12 @@ public class kr7 {
             String leaveMsg = this.c.getLeaveMsg();
             nr7 nr7Var2 = this.a;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(pageActivity, j, str, j2, "from_share", leaveMsg, kr7.c(nr7Var2, nr7Var2.getThreadInfo().excid.longValue(), this.g).toChatMessageContent())));
-            cr4Var.dismiss();
+            nr4Var.dismiss();
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class f implements cr4.e {
+    public static class f implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbChosenActivity a;
@@ -280,12 +280,12 @@ public class kr7 {
             this.b = shareThreadView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                oi.w(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                mi.w(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
+                nr4Var.dismiss();
             }
         }
     }
@@ -333,16 +333,16 @@ public class kr7 {
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pbChosenActivity, nr7Var, Long.valueOf(j), str, Long.valueOf(j2), str2}) == null) || nr7Var == null || nr7Var.getThreadInfo() == null) {
             return;
         }
-        cr4 cr4Var = new cr4(pbChosenActivity.getPageContext().getPageActivity());
+        nr4 nr4Var = new nr4(pbChosenActivity.getPageContext().getPageActivity());
         ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
         shareThreadView.c(str2, false);
         shareThreadView.setTitle(nr7Var.getThreadInfo().title);
         shareThreadView.setDesc(nr7Var.getThreadInfo()._abstract);
-        cr4Var.setContentView(shareThreadView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f110e, new e(nr7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new f(pbChosenActivity, shareThreadView));
-        cr4Var.setCanceledOnTouchOutside(false);
-        cr4Var.create(pbChosenActivity.getPageContext()).show();
+        nr4Var.setContentView(shareThreadView);
+        nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1129, new e(nr7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
+        nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new f(pbChosenActivity, shareThreadView));
+        nr4Var.setCanceledOnTouchOutside(false);
+        nr4Var.create(pbChosenActivity.getPageContext()).show();
     }
 
     public static void e(PbChosenActivity pbChosenActivity, nr7 nr7Var, long j, String str, String str2, String str3, String str4) {
@@ -350,16 +350,16 @@ public class kr7 {
         if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pbChosenActivity, nr7Var, Long.valueOf(j), str, str2, str3, str4}) == null) || nr7Var == null || nr7Var.getThreadInfo() == null) {
             return;
         }
-        cr4 cr4Var = new cr4(pbChosenActivity.getPageContext().getPageActivity());
+        nr4 nr4Var = new nr4(pbChosenActivity.getPageContext().getPageActivity());
         ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
         shareThreadView.setTitle(nr7Var.getThreadInfo().title);
         shareThreadView.setDesc(nr7Var.getThreadInfo()._abstract);
         shareThreadView.c(str4, false);
-        cr4Var.setContentView(shareThreadView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f110e, new c(nr7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new d(pbChosenActivity, shareThreadView));
-        cr4Var.setCanceledOnTouchOutside(false);
-        cr4Var.create(pbChosenActivity.getPageContext()).show();
+        nr4Var.setContentView(shareThreadView);
+        nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1129, new c(nr7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
+        nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new d(pbChosenActivity, shareThreadView));
+        nr4Var.setCanceledOnTouchOutside(false);
+        nr4Var.create(pbChosenActivity.getPageContext()).show();
     }
 
     public void f(nr7 nr7Var, String str) {
@@ -371,22 +371,22 @@ public class kr7 {
         String str3 = nr7Var.getThreadInfo().title;
         String str4 = nr7Var.getThreadInfo()._abstract;
         Resources resources = this.a.getPageContext().getPageActivity().getResources();
-        String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f1116), str3, str4);
-        resources.getString(R.string.obfuscated_res_0x7f0f03ce, str3);
+        String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f1131), str3, str4);
+        resources.getString(R.string.obfuscated_res_0x7f0f03d3, str3);
         ShareItem shareItem = new ShareItem();
-        shareItem.r = str3;
-        shareItem.s = format;
-        shareItem.t = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + nr7Var.getThreadInfo().excid;
-        shareItem.D = str4;
-        shareItem.C = Long.toString(nr7Var.getThreadInfo().excid.longValue());
-        shareItem.K = Long.toString(nr7Var.getThreadInfo().thread_id.longValue());
+        shareItem.t = str3;
+        shareItem.u = format;
+        shareItem.v = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + nr7Var.getThreadInfo().excid;
+        shareItem.F = str4;
+        shareItem.E = Long.toString(nr7Var.getThreadInfo().excid.longValue());
+        shareItem.M = Long.toString(nr7Var.getThreadInfo().thread_id.longValue());
         shareItem.a = true;
         if (!StringUtils.isNull(str)) {
-            shareItem.v = Uri.parse(str);
+            shareItem.x = Uri.parse(str);
         }
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.a.getPageContext().getPageActivity(), shareItem, true);
         shareDialogConfig.setIsCopyLink(true);
-        shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0661, R.drawable.icon_share_friends_n, new a(this));
+        shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0669, R.drawable.icon_share_friends_n, new a(this));
         shareDialogConfig.setCopyLinkListener(new b(this, shareItem));
         this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }

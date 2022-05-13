@@ -873,7 +873,7 @@ public class c3 extends x0 implements p2 {
     }
 
     @Override // com.repackage.p2
-    public void y() {
+    public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             l();

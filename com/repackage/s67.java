@@ -1,17 +1,22 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
-import com.repackage.cu4;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface s67 extends cu4.g {
-    void loadMore();
+public class s67 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void netCallback(t67 t67Var);
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 1 || i == 5 || i == -1 || i == -9 || i == -2 || i == 8 || i == 7 || i == 6 : invokeI.booleanValue;
+    }
 
-    void netResidueCallback(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData);
-
-    void onServerError(ErrorData errorData);
-
-    void refresh();
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 8 || i == 7 : invokeI.booleanValue;
+    }
 }

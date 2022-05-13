@@ -69,7 +69,7 @@ public class we extends he<String> {
             Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
-                    lg.a(rawQuery);
+                    jg.a(rawQuery);
                     return null;
                 }
                 le<String> leVar = new le<>();
@@ -78,12 +78,12 @@ public class we extends he<String> {
                 leVar.e = rawQuery.getLong(2);
                 leVar.f = rawQuery.getLong(3);
                 leVar.b = rawQuery.getString(4);
-                lg.a(rawQuery);
+                jg.a(rawQuery);
                 return leVar;
             } catch (Throwable th) {
                 th = th;
                 cursor = rawQuery;
-                lg.a(cursor);
+                jg.a(cursor);
                 throw th;
             }
         } catch (Throwable th2) {

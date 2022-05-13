@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.km4;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.vm4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapter {
@@ -33,7 +33,7 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public List<SpecialColumnItemData> b;
-    public km4<SpecialColumnItemData> c;
+    public vm4<SpecialColumnItemData> c;
     public int d;
 
     /* loaded from: classes3.dex */
@@ -70,10 +70,10 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.c.c == null) {
                 return;
             }
-            km4 km4Var = this.c.c;
+            vm4 vm4Var = this.c.c;
             SpecialColumnItemData specialColumnItemData = this.a;
             int i = this.b;
-            km4Var.a(view2, specialColumnItemData, i, i);
+            vm4Var.a(view2, specialColumnItemData, i, i);
         }
     }
 
@@ -108,12 +108,12 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
                 }
             }
             this.g = homePageTabFeedCollegeSecondListAdapter;
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd5);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092345);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3f);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09217d);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090ce9);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0912f1);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fe2);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092395);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f97);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d4);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090cd5);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091300);
         }
 
         public void a(SpecialColumnItemData specialColumnItemData) {
@@ -123,15 +123,15 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
             }
             this.b.setText(specialColumnItemData.title);
             this.c.setConrers(15);
-            this.c.setRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.c.setRadius(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
             this.c.setDrawCorner(true);
             this.c.setPlaceHolder(2);
             this.c.K(specialColumnItemData.image, 10, false);
             this.a.setText(specialColumnItemData.text);
             this.d.setVisibility(0);
-            this.g.d = R.drawable.obfuscated_res_0x7f0805fe;
+            this.g.d = R.drawable.obfuscated_res_0x7f0805ed;
             this.e.setAlpha(0.5f);
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(oi.f(this.g.a, R.dimen.tbds10)).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).into(this.e);
+            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(mi.f(this.g.a, R.dimen.tbds10)).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).into(this.e);
         }
     }
 
@@ -168,14 +168,14 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
                 }
             }
             this.i = homePageTabFeedCollegeSecondListAdapter;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092202);
-            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eeb);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921af);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ae);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092345);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3f);
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090ce9);
-            this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ac5);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225a);
+            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f43);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092206);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092205);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092395);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f97);
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090cd5);
+            this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b13);
         }
 
         public void a(SpecialColumnItemData specialColumnItemData) {
@@ -185,12 +185,12 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
             }
             this.a.setText(specialColumnItemData.title);
             this.e.setConrers(15);
-            this.e.setRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.e.setRadius(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
             this.e.setDrawCorner(true);
             this.e.setPlaceHolder(2);
             this.e.K(specialColumnItemData.image, 10, false);
             this.e.setGifIconSupport(false);
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e34), StringHelper.numberUniformFormatExtra(specialColumnItemData.agree_num)));
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e52), StringHelper.numberUniformFormatExtra(specialColumnItemData.agree_num)));
             this.d.setText(specialColumnItemData.text);
             if (specialColumnItemData.specialType == 2) {
                 this.f.setVisibility(0);
@@ -198,15 +198,15 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
                 this.g.setAlpha(0.5f);
                 this.d.setVisibility(0);
                 this.i.d = R.drawable.ic_icon_pure_video_play12_svg;
-                this.b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e23), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).cornerRadius(oi.f(this.i.a, R.dimen.tbds10)).into(this.g);
+                this.b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e41), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0607, R.color.CAM_X0611).cornerRadius(mi.f(this.i.a, R.dimen.tbds10)).into(this.g);
                 return;
             }
             this.g.setVisibility(8);
             this.f.setVisibility(8);
             this.d.setVisibility(8);
             this.i.d = 0;
-            this.b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e35), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+            this.b.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e53), StringHelper.numberUniformFormatExtra(specialColumnItemData.freq_num)));
         }
     }
 
@@ -287,10 +287,10 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
         return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? (SpecialColumnItemData) ListUtils.getItem(this.b, i) : (SpecialColumnItemData) invokeI.objValue;
     }
 
-    public void i(km4<SpecialColumnItemData> km4Var) {
+    public void i(vm4<SpecialColumnItemData> vm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, km4Var) == null) {
-            this.c = km4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vm4Var) == null) {
+            this.c = vm4Var;
         }
     }
 
@@ -315,10 +315,10 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
             if (i == 1 || i == 2) {
-                return new c(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0498, (ViewGroup) null));
+                return new c(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d048d, (ViewGroup) null));
             }
             if (i == 3 || i == 4) {
-                return new b(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0497, (ViewGroup) null));
+                return new b(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d048c, (ViewGroup) null));
             }
             return null;
         }

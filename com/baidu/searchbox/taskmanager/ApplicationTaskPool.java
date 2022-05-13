@@ -13,9 +13,7 @@ import com.baidu.searchbox.task.async.appcreate.InitFaceTask;
 import com.baidu.searchbox.task.async.appcreate.InitImgLoaderProcTask;
 import com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask;
 import com.baidu.searchbox.task.async.appcreate.InitLocationTask;
-import com.baidu.searchbox.task.async.appcreate.InitMainTabViewTask;
 import com.baidu.searchbox.task.async.appcreate.InitPersonalizePageDataTask;
-import com.baidu.searchbox.task.async.appcreate.InitPersonalizeViewTask;
 import com.baidu.searchbox.task.async.appcreate.InitSDKAsyncTask;
 import com.baidu.searchbox.task.async.appcreate.InitSapiTask;
 import com.baidu.searchbox.task.async.appcreate.InitSwanAppTask;
@@ -25,12 +23,14 @@ import com.baidu.searchbox.task.async.appcreate.PreInitSwanDataTask;
 import com.baidu.searchbox.task.async.appcreate.PreLoadBaiduClass;
 import com.baidu.searchbox.task.async.appcreate.PreLoadTiebaClass;
 import com.baidu.searchbox.task.async.appcreate.WebViewDataDirectorySuffixTask;
+import com.baidu.searchbox.task.async.homeready.ApplicationAsyncTask;
+import com.baidu.searchbox.task.async.homeready.ApplicationIdleTask;
 import com.baidu.searchbox.task.async.homeready.GetYYCloudTask;
 import com.baidu.searchbox.task.async.homeready.InitCookieTask;
 import com.baidu.searchbox.task.async.homeready.InitCyberPlayerTask;
 import com.baidu.searchbox.task.async.homeready.InitFlutterFragmentTask;
 import com.baidu.searchbox.task.async.homeready.InitMaintabFragmentTask;
-import com.baidu.searchbox.task.async.homeready.InitTbCrashTask;
+import com.baidu.searchbox.task.async.homeready.InitSDKIdleTask;
 import com.baidu.searchbox.task.async.homeready.InitUnionIDTask;
 import com.baidu.searchbox.task.async.homeready.LaunchStatTask;
 import com.baidu.searchbox.task.async.homeready.MainTabLoadFinishTask;
@@ -54,27 +54,33 @@ import com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask;
 import com.baidu.searchbox.task.sync.appcreate.InitLokiTask;
 import com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitMutiProcessManagerTask;
-import com.baidu.searchbox.task.sync.appcreate.InitPbNetRequestTask;
 import com.baidu.searchbox.task.sync.appcreate.InitPrologueAdTask;
 import com.baidu.searchbox.task.sync.appcreate.InitSDKTask;
 import com.baidu.searchbox.task.sync.appcreate.InitStatisticTask;
 import com.baidu.searchbox.task.sync.appcreate.InitSwanDataTask;
 import com.baidu.searchbox.task.sync.appcreate.InitUBCTask;
+import com.baidu.searchbox.task.sync.appcreate.InitUaTask;
 import com.baidu.searchbox.task.sync.appcreate.InitVersionTask;
 import com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask;
 import com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask;
 import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
 import com.baidu.searchbox.task.sync.privacy.SyncAccountTask;
+import com.baidu.searchbox.task.view.appcreate.CreatePersonalizeViewTask;
+import com.baidu.searchbox.task.view.appcreate.InitBearAdViewTask;
+import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorView2Task;
+import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorViewTask;
+import com.baidu.searchbox.task.view.appcreate.InitPersonalizeChildViewTask;
+import com.baidu.searchbox.task.view.mainactivity.InitAdCardViewTask;
+import com.baidu.searchbox.task.view.mainactivity.InitHomeTabBarViewTask;
+import com.baidu.searchbox.task.view.mainactivity.InitPersonalizeViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
-import com.baidu.tbadk.switchs.LaunchUpNightSwitch;
+import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ks4;
-import com.repackage.lt7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -108,22 +114,27 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new WebViewDataDirectorySuffixTask());
                 arrayList.add(new InitSyncSwitchTask());
                 arrayList.add(new InitFHTask());
+                if (LaunchUpApplicationSwitch.getIsOn()) {
+                    arrayList.add(new InitMutiProcessManagerTask());
+                }
             } else if (i == 1) {
                 arrayList.add(new InitVersionTask());
                 arrayList.add(new InitGlobalDataTask());
                 arrayList.add(new InitLokiTask());
-                if (!lt7.a().b() || !ks4.a().a) {
-                    arrayList.add(new InitPrologueAdTask());
-                }
+                arrayList.add(new InitPrologueAdTask());
                 arrayList.add(new InitCmdRouterAndStaticTask());
-                arrayList.add(new InitFlutterNpsPluginTask());
-                arrayList.add(new InitMutiProcessManagerTask());
+                if (!LaunchUpApplicationSwitch.getIsOn()) {
+                    arrayList.add(new InitMutiProcessManagerTask());
+                }
                 arrayList.add(new InitMessageManagerTask());
                 arrayList.add(new InitAccountTask());
                 arrayList.add(new InitSDKTask());
                 arrayList.add(new InitStatisticTask());
-                arrayList.add(new InitDiskStatTask());
+                if (!LaunchUpApplicationSwitch.getIsOn()) {
+                    arrayList.add(new InitDiskStatTask());
+                }
                 arrayList.add(new InitUBCTask());
+                arrayList.add(new InitUaTask());
             }
             return arrayList;
         }
@@ -137,8 +148,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             if (i == 2) {
-                arrayList.add(new InitPersonalizeViewTask());
-                arrayList.add(new InitMainTabViewTask());
                 arrayList.add(new InitPersonalizePageDataTask());
                 arrayList.add(new InitSapiTask());
                 arrayList.add(new InitSDKAsyncTask());
@@ -152,15 +161,11 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitAccountChangeTask());
                 arrayList.add(new InitArTask());
                 arrayList.add(new InitAbi64WebViewCompatTask());
-                if (lt7.a().b() && ks4.a().b == 1) {
-                    arrayList.add(new InitPbNetRequestTask());
-                }
+                arrayList.add(new ApplicationAsyncTask());
             } else if (i == 1) {
                 arrayList.add(new InitAppSettingTask());
                 arrayList.add(new InitViewConfigTask());
-                if (!lt7.a().b() || !ks4.a().a) {
-                    arrayList.add(new InitBearTask());
-                }
+                arrayList.add(new InitBearTask());
                 arrayList.add(new InitCertVerifyTask());
                 arrayList.add(new InitLaunchSyncTask());
                 arrayList.add(new InitWebsocketBaseTask());
@@ -172,6 +177,11 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 }
             } else if (i == 3) {
                 arrayList.add(new InitEmotionsTask());
+                arrayList.add(new ApplicationIdleTask());
+                if (LaunchUpApplicationSwitch.getIsOn()) {
+                    arrayList.add(new InitDiskStatTask());
+                }
+                arrayList.add(new InitFlutterNpsPluginTask());
             }
             return arrayList;
         }
@@ -186,40 +196,64 @@ public class ApplicationTaskPool extends BaseTaskPool {
             ArrayList arrayList = new ArrayList();
             if (i == 2) {
                 arrayList.add(new LaunchWithPrivacyTask());
-                if (LaunchUpNightSwitch.getIsOn()) {
-                    arrayList.add(new DeleteApkTask());
-                    if (!DelayInitNightPluginSwitch.isOn()) {
-                        arrayList.add(new NightPluginTask());
-                    }
-                    arrayList.add(new LogoTask());
+                arrayList.add(new DeleteApkTask());
+                if (!DelayInitNightPluginSwitch.isOn()) {
+                    arrayList.add(new NightPluginTask());
                 }
+                arrayList.add(new LogoTask());
             } else if (i == 1) {
                 arrayList.add(new InitSDKWithPrivacyTask());
-                if (LaunchUpNightSwitch.getIsOn()) {
+                if (!LaunchUpApplicationSwitch.getIsOn()) {
                     arrayList.add(new SyncAccountTask());
                 }
             } else if (i == 3) {
-                if (!lt7.a().b() || !ks4.a().a) {
-                    arrayList.add(new MainTabLoadFinishTask());
-                    arrayList.add(new GetYYCloudTask());
-                    arrayList.add(new InitCookieTask());
-                    arrayList.add(new InitMaintabFragmentTask());
-                    arrayList.add(new InitFlutterFragmentTask());
-                    arrayList.add(new InitUnionIDTask());
-                    arrayList.add(new MaintabAsyncInitTask());
-                }
+                arrayList.add(new MainTabLoadFinishTask());
+                arrayList.add(new GetYYCloudTask());
+                arrayList.add(new InitCookieTask());
+                arrayList.add(new InitMaintabFragmentTask());
+                arrayList.add(new InitFlutterFragmentTask());
+                arrayList.add(new InitUnionIDTask());
+                arrayList.add(new MaintabAsyncInitTask());
                 arrayList.add(new LaunchStatTask());
-                arrayList.add(new InitTbCrashTask());
+                arrayList.add(new InitSDKIdleTask());
                 if (DelayInitNightPluginSwitch.isOn()) {
                     arrayList.add(new NightPluginTask());
                 }
-                if (!lt7.a().b() || !ks4.a().a) {
-                    arrayList.add(new InitCyberPlayerTask());
-                    arrayList.add(new InitSwanAppTask());
-                }
+                arrayList.add(new InitCyberPlayerTask());
+                arrayList.add(new InitSwanAppTask());
             }
             return arrayList;
         }
         return (List) invokeI.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List<LaunchTask> viewOnActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new InitHomeTabBarViewTask());
+            arrayList.add(new InitPersonalizeViewTask());
+            arrayList.add(new InitAdCardViewTask());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List<LaunchTask> viewOnAppCreateView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new InitBearAdViewTask());
+            arrayList.add(new InitBottomIndicatorViewTask());
+            arrayList.add(new InitBottomIndicatorView2Task());
+            arrayList.add(new CreatePersonalizeViewTask());
+            arrayList.add(new InitPersonalizeChildViewTask());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

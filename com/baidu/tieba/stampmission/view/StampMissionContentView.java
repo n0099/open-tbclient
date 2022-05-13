@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.oi8;
+import com.repackage.mh8;
+import com.repackage.mi;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StampMissionContentView extends LinearLayout {
@@ -66,7 +66,7 @@ public class StampMissionContentView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = new LinearLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(oi.f(getContext(), R.dimen.tbds61), oi.f(getContext(), R.dimen.M_H_X008), oi.f(getContext(), R.dimen.tbds61), oi.f(getContext(), R.dimen.M_H_X012));
+            layoutParams.setMargins(mi.f(getContext(), R.dimen.tbds61), mi.f(getContext(), R.dimen.M_H_X008), mi.f(getContext(), R.dimen.tbds61), mi.f(getContext(), R.dimen.M_H_X012));
             this.a.setLayoutParams(layoutParams);
             this.a.setOrientation(0);
             addView(this.a);
@@ -91,12 +91,12 @@ public class StampMissionContentView extends LinearLayout {
         }
     }
 
-    public void setData(List<oi8> list, long j, SingleStampView.a aVar) {
+    public void setData(List<mh8> list, long j, SingleStampView.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Long.valueOf(j), aVar}) == null) {
-            for (oi8 oi8Var : list) {
+            for (mh8 mh8Var : list) {
                 SingleStampView singleStampView = new SingleStampView(getContext());
-                singleStampView.setData(oi8Var, aVar);
+                singleStampView.setData(mh8Var, aVar);
                 singleStampView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2, 1.0f));
                 this.a.addView(singleStampView);
             }

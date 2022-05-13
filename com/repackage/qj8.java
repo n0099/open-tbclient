@@ -1,6 +1,7 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.util.SparseIntArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class qj8 implements uo {
+/* loaded from: classes6.dex */
+public class qj8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    public static final int[] c;
+    public static final int[] d;
+    public static final int[] e;
+    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
+    public SparseIntArray a;
+    public final int[] b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,13 +33,18 @@ public class qj8 implements uo {
                 return;
             }
         }
-        f = BdUniqueId.gen();
+        c = new int[]{3, 8, 13};
+        d = new int[]{2, 12};
+        e = new int[]{20};
+        f = new int[]{3, 13, 23};
     }
 
-    public qj8() {
+    public qj8(String str, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,30 +54,66 @@ public class qj8 implements uo {
                 return;
             }
         }
-        this.e = false;
+        this.b = iArr;
+        this.a = new SparseIntArray();
     }
 
-    public static qj8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(int i, int i2) {
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            qj8 qj8Var = new qj8();
-            qj8Var.a = jSONObject.optString("forum_id");
-            qj8Var.c = jSONObject.optString("forum_name");
-            qj8Var.b = jSONObject.optString("avatar");
-            qj8Var.d = jSONObject.optString("slogan");
-            return qj8Var;
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i2 < 0 || (sparseIntArray = this.a) == null) {
+            return;
         }
-        return (qj8) invokeL.objValue;
+        sparseIntArray.append(i2, i);
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public int b(int i) {
+        InterceptResult invokeI;
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && (sparseIntArray = this.a) != null) {
+                return sparseIntArray.get(i, -1);
+            }
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(int i) {
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (sparseIntArray = this.a) == null) {
+            return;
+        }
+        sparseIntArray.delete(i);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(0);
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            SparseIntArray sparseIntArray = this.a;
+            if (sparseIntArray != null) {
+                sparseIntArray.clear();
+                int[] iArr = this.b;
+                if (iArr != null) {
+                    for (int i2 : iArr) {
+                        if (i2 >= 0) {
+                            this.a.append(i2 + i, i2);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

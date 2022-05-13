@@ -1,176 +1,104 @@
 package com.repackage;
 
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.SwanAppLauncherActivity;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hl2;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class hl2<SelfT extends hl2<SelfT>> extends jl2<SelfT> {
+public class hl2 extends fl2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static final class a extends hl2<a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755644477, "Lcom/repackage/hl2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755644477, "Lcom/repackage/hl2;");
+                return;
             }
         }
-
-        @Override // com.repackage.ff3
-        public /* bridge */ /* synthetic */ ff3 a() {
-            i1();
-            return this;
-        }
-
-        public a i1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (a) invokeV.objValue;
-        }
-
-        @Override // com.repackage.hl2, com.repackage.ml2
-        public /* bridge */ /* synthetic */ ml2 update(Bundle bundle) {
-            return super.update(bundle);
-        }
+        b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
     }
 
     public hl2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String d1(String str, int i, JSONObject jSONObject) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, str, i, jSONObject)) == null) ? e1(str, null, i, jSONObject) : (String) invokeLIL.objValue;
-    }
-
-    public static String e1(String str, String str2, int i, JSONObject jSONObject) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, str, str2, i, jSONObject)) == null) {
-            String str3 = i == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
-            Uri.Builder builder = new Uri.Builder();
-            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str);
-            if (!TextUtils.isEmpty(str2)) {
-                builder.appendEncodedPath(str2);
-            } else if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            if (jSONObject != null) {
-                builder.appendQueryParameter("_baiduboxapp", jSONObject.toString());
-            }
-            builder.build();
-            return builder.toString();
-        }
-        return (String) invokeLLIL.objValue;
-    }
-
-    public static hl2 f1(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-            a aVar = new a();
-            aVar.update(bundle);
-            return aVar;
-        }
-        return (hl2) invokeL.objValue;
-    }
-
-    public static Intent g1(Context context, hl2 hl2Var) {
+    @Override // com.repackage.jl2
+    public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, hl2Var)) == null) {
-            if (context == null || hl2Var == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            for (String str3 : b) {
+                if (TextUtils.equals(str3, str2)) {
+                    return true;
+                }
             }
-            Intent intent = new Intent();
-            intent.setAction(SwanAppLauncherActivity.SWAN_APP_LAUNCH_ACTION);
-            intent.setComponent(new ComponentName(context, SwanAppLauncherActivity.class));
-            if (context instanceof Application) {
-                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            intent.putExtras(hl2Var.D());
-            return intent;
+            return false;
         }
-        return (Intent) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static String h1(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, str2, i)) == null) {
-            String str3 = i == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
-            Uri.Builder builder = new Uri.Builder();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str).appendQueryParameter("_baiduboxapp", jSONObject.toString()).build();
-            return builder.toString();
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    @Override // com.repackage.ml2
-    public String toString() {
+    @Override // com.repackage.jl2
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppLaunchParams{appId='" + H() + "', from='" + T() + "', page='" + e0() + "', isDebug=" + n0() + ", extraData=" + P() + ", clickId='" + L() + "', launchScheme='" + W() + "', notInHistory='" + c0() + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StorageApiDescInterceptor" : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ml2
-    public SelfT update(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.repackage.jl2
+    @NonNull
+    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            mx1.h(bundle);
-            return (SelfT) super.update(bundle);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("args");
+            if (optJSONArray != null) {
+                optJSONArray.put(d("cb", EMABTest.TYPE_STRING));
+            }
+            if ("getSystemInfo".equals(str) || "getStorageInfo".equals(str)) {
+                try {
+                    String optString = jSONObject.optString("method");
+                    jSONObject.put("method", optString + "Async");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
         }
-        return (SelfT) invokeL.objValue;
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.jl2
+    public boolean enable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e("swan_storage_async") : invokeV.booleanValue;
     }
 }

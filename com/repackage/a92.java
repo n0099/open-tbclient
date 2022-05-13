@@ -1,15 +1,14 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class a92 extends x82 {
+public class a92 implements k82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,10 +26,17 @@ public class a92 extends x82 {
         }
     }
 
-    @Override // com.repackage.im2
-    public LifecycleProcessType b() {
+    @Override // com.repackage.k82
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LifecycleProcessType.MAIN : (LifecycleProcessType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? tc3.a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.k82
+    public c82 b(String str, z82 z82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z82Var, v8ThreadDelegatePolicy)) == null) ? new g82(str, z82Var, v8ThreadDelegatePolicy) : (c82) invokeLLL.objValue;
     }
 }

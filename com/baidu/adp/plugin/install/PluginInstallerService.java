@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dm;
+import com.repackage.am;
 /* loaded from: classes.dex */
 public class PluginInstallerService extends HighPriorityIntentService {
     public static /* synthetic */ Interceptable $ic = null;
@@ -139,7 +139,7 @@ public class PluginInstallerService extends HighPriorityIntentService {
     public void onHandleIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            dm.o(intent);
+            am.o(intent);
         }
     }
 

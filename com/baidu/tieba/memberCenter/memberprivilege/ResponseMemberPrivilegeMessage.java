@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ek7;
-import com.repackage.en4;
+import com.repackage.on4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
@@ -72,7 +72,7 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }
-            en4.g(currentAccountObj);
+            on4.g(currentAccountObj);
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
         }
     }

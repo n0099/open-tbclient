@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a21;
 import com.repackage.ez0;
 import com.repackage.fz0;
 import com.repackage.lm0;
-import com.repackage.pg0;
-import com.repackage.q11;
-import com.repackage.qg0;
+import com.repackage.sg0;
+import com.repackage.tg0;
 /* loaded from: classes2.dex */
 public abstract class NadInsertingBaseView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pg0 a;
+    public sg0 a;
     public long b;
-    public q11 c;
+    public a21 c;
     public lm0 d;
 
     /* loaded from: classes2.dex */
@@ -128,13 +128,13 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadInsertingBaseView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull pg0 pg0Var) {
+    public NadInsertingBaseView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull sg0 sg0Var) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup, pg0Var};
+            Object[] objArr = {context, viewGroup, sg0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -147,7 +147,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
             }
         }
         setContainer(viewGroup);
-        this.a = pg0Var;
+        this.a = sg0Var;
     }
 
     public abstract void a();
@@ -159,13 +159,13 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel, str, str2) == null) || TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        ez0.b(new ClogBuilder().s(ClogBuilder.LogType.CHECK).n(adBaseModel.f.d).i(str).j(str2));
+        ez0.c(new ClogBuilder().w(ClogBuilder.LogType.CHECK).n(adBaseModel.f.d).i(str).j(str2));
     }
 
     public void d(@NonNull AdBaseModel adBaseModel, @NonNull ClogBuilder.Area area) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, adBaseModel, area) == null) {
-            ez0.b(new ClogBuilder().s(ClogBuilder.LogType.CLICK).n(adBaseModel.f.d).g(area));
+            ez0.c(new ClogBuilder().w(ClogBuilder.LogType.CLICK).n(adBaseModel.f.d).g(area));
             for (MonitorUrl monitorUrl : adBaseModel.e) {
                 if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
                     fz0.b(monitorUrl.clickUrl);
@@ -179,7 +179,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adBaseModel, area, Long.valueOf(j)}) == null) || TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        ez0.b(new ClogBuilder().s(ClogBuilder.LogType.CLOSE).n(adBaseModel.f.d).i(String.valueOf(j)).g(area));
+        ez0.c(new ClogBuilder().w(ClogBuilder.LogType.CLOSE).n(adBaseModel.f.d).i(String.valueOf(j)).g(area));
     }
 
     public void f(@NonNull AdBaseModel adBaseModel) {
@@ -187,7 +187,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, adBaseModel) == null) || adBaseModel.a) {
             return;
         }
-        ez0.b(new ClogBuilder().s(ClogBuilder.LogType.SHOW).n(adBaseModel.f.d));
+        ez0.c(new ClogBuilder().w(ClogBuilder.LogType.SHOW).n(adBaseModel.f.d));
         for (MonitorUrl monitorUrl : adBaseModel.e) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
                 fz0.b(monitorUrl.showUrl);
@@ -224,7 +224,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         }
     }
 
-    public abstract void setData(@NonNull AdBaseModel adBaseModel, @NonNull qg0.c cVar);
+    public abstract void setData(@NonNull AdBaseModel adBaseModel, @NonNull tg0.c cVar);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NadInsertingBaseView(Context context, AttributeSet attributeSet) {

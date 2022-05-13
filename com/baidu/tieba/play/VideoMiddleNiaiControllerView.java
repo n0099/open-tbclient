@@ -72,9 +72,9 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d087b, null);
+            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d0872, null);
             this.o = inflate;
-            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f091733);
+            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f09175b);
             return this.o;
         }
         return (View) invokeL.objValue;
@@ -130,7 +130,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
             } else {
                 r();
             }
-            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081245));
+            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08125b));
             return;
         }
         seekBar.setThumb(null);
@@ -139,7 +139,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         } else {
             r();
         }
-        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081243));
+        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081259));
     }
 
     public void setLoading(boolean z) {

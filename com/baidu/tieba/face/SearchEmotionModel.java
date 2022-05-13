@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.v86;
+import com.repackage.e86;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class SearchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class SearchEmotionModel extends BdBaseModel {
                     return;
                 }
                 if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                    oi.N(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                    mi.N(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
                 }
                 this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
             }
@@ -78,7 +78,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(String str, v86 v86Var);
+        void a(String str, e86 e86Var);
 
         void onFail(int i, String str);
     }

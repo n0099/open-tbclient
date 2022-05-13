@@ -1,151 +1,105 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class os1 extends g23 {
+public class os1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, hs1> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements cf3<Map<String, j53>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ os1 c;
-
-        public a(os1 os1Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755429244, "Lcom/repackage/os1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {os1Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = os1Var;
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
-        /* renamed from: a */
-        public void onCallback(Map<String, j53> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-                if (map != null) {
-                    this.c.l(this.b, this.a, map);
-                } else {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755429244, "Lcom/repackage/os1;");
+                return;
             }
         }
+        b = eh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public os1(g13 g13Var) {
-        super(g13Var, "/swanAPI/getLaunchAppInfo");
+    public os1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new LinkedHashMap();
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    public synchronized void a(BasePendingOperation basePendingOperation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (j03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            synchronized (this) {
+                if (basePendingOperation == null) {
+                    return;
+                }
+                if (b) {
+                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
+                }
+                c(basePendingOperation.getType()).b(basePendingOperation);
             }
-            String optString = jd3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            k(optString, callbackHandler);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void k(String str, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
-            hs2.h(new a(this, callbackHandler, str));
         }
     }
 
-    public final void l(String str, CallbackHandler callbackHandler, Map<String, j53> map) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, map) == null) {
-            j53 j53Var = map.get("scope_open_app");
-            if (j53Var == null) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, hs1> entry : this.a.entrySet()) {
+                    entry.getValue().c();
+                }
+                this.a.clear();
             }
-            boolean z = j53Var.d;
-            int c = ce3.c();
-            long e = ce3.e();
-            List<String> list = j53Var.i;
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (String str2 : list) {
-                    jSONArray.put(str2);
+        }
+    }
+
+    public final hs1 c(BasePendingOperation.OperationType operationType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
+            if (!this.a.containsKey(operationType.name())) {
+                hs1 a = ls1.a(operationType);
+                this.a.put(operationType.name(), a);
+                return a;
+            }
+            return this.a.get(operationType.name());
+        }
+        return (hs1) invokeL.objValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, hs1> entry : this.a.entrySet()) {
+                    entry.getValue().a();
                 }
-                jSONObject.put("launchCount", c);
-                jSONObject.put("visitDuration", e);
-                jSONObject.put("forbidden", z);
-                jSONObject.put("ext", jSONArray);
-                if (g23.b) {
-                    Log.i("GetBehaviorInfoAction", "launchCount:" + c + " visitDuration:" + e + " forbidden:" + z + " ext:" + jSONArray.toString());
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            } catch (JSONException e2) {
-                if (g23.b) {
-                    e2.printStackTrace();
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }

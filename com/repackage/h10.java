@@ -1,5 +1,9 @@
 package com.repackage;
+
+import java.math.BigInteger;
 /* loaded from: classes6.dex */
 public interface h10 {
-    public static final int[] a = {16, 24, 32};
+    BigInteger a();
+
+    BigInteger b();
 }

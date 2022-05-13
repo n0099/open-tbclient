@@ -8,14 +8,13 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i65;
-import com.repackage.ni;
+import com.repackage.li;
+import com.repackage.y65;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +22,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.NewFloorInfo;
+import tbclient.PbContent;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes3.dex */
-public class FeedData implements Serializable, i65 {
+public class FeedData implements Serializable, y65 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -294,9 +294,9 @@ public class FeedData implements Serializable, i65 {
             if (z) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                 this.mOriginalThreadInfo = originalThreadInfo;
-                originalThreadInfo.p(jSONObject.optJSONObject("origin_thread_info"));
+                originalThreadInfo.q(jSONObject.optJSONObject("origin_thread_info"));
             }
-            if (((!ni.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+            if (((!li.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
                 this.isAuthor = optJSONObject.optInt("consent_type") == 2;
                 JSONArray optJSONArray = optJSONObject.optJSONArray("liker_list");
@@ -315,9 +315,23 @@ public class FeedData implements Serializable, i65 {
             this.thread_type = jSONObject.optInt("thread_type");
             this.threadImgUrl = jSONObject.optString("thread_img_url");
             this.isNew = jSONObject.optInt("unread") == 1;
+            this.newReplayInfo = new ArrayList();
             JSONArray optJSONArray2 = jSONObject.optJSONArray("new_floor_info");
-            if (optJSONArray2 != null) {
-                this.newReplayInfo = DataExt.toEntityList(optJSONArray2.toString(), NewFloorInfo.class);
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                NewFloorInfo.Builder builder = new NewFloorInfo.Builder();
+                JSONArray jSONArray = jSONObject2.getJSONArray("content");
+                builder.content = new ArrayList();
+                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                    PbContent.Builder builder2 = new PbContent.Builder();
+                    builder2.text = jSONArray.getJSONObject(i3).optString("text");
+                    builder2.type = Integer.valueOf(jSONArray.getJSONObject(i3).optInt("type"));
+                    builder2.link = jSONArray.getJSONObject(i3).optString("link");
+                    builder2.uid = Long.valueOf(jSONArray.getJSONObject(i3).optLong("uid"));
+                    builder.content.add(builder2.build(true));
+                }
+                builder.is_floor = Integer.valueOf(jSONObject2.getInt("is_floor"));
+                this.newReplayInfo.add(builder.build(true));
             }
             this.isBjh = jSONObject.optInt(ImageViewerConfig.IS_BJH) == 1;
             if (jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME) != null) {
@@ -349,7 +363,7 @@ public class FeedData implements Serializable, i65 {
         this.mPraiseItemType = replyList.item_type;
         this.hideForumName = replyList.hide_fname.intValue();
         this.fromForumId = replyList.v_forum_id.longValue();
-        if (((!ni.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+        if (((!li.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
             this.mPraiseNum = zan.num.intValue();
             this.isAuthor = zan.consent_type.intValue() == 2;
             List<User> list = zan.liker_list;
@@ -372,7 +386,7 @@ public class FeedData implements Serializable, i65 {
         if (z) {
             OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
             this.mOriginalThreadInfo = originalThreadInfo;
-            originalThreadInfo.m(replyList.origin_thread_info);
+            originalThreadInfo.n(replyList.origin_thread_info);
         }
         this.postFrom = replyList.post_from;
         this.threadImgUrl = replyList.thread_img_url;

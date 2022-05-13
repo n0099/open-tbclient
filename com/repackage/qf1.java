@@ -1,94 +1,137 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
-public class qf1 implements ThreadFactory {
+/* loaded from: classes6.dex */
+public class qf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicInteger d;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public String b;
-    public int c;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755382155, "Lcom/repackage/qf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755382155, "Lcom/repackage/qf1;");
-                return;
-            }
-        }
-        d = new AtomicInteger(1);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public qf1() {
-        this(5);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-            if (thread.isDaemon()) {
-                thread.setDaemon(false);
-            }
-            int i = this.c;
-            if (i != 5) {
-                thread.setPriority(i);
-            } else {
-                thread.setPriority(5);
-            }
-            return thread;
-        }
-        return (Thread) invokeL.objValue;
-    }
-
-    public qf1(int i) {
+    public qf1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicInteger(1);
-        this.b = "sso-" + d.getAndIncrement() + "-thread-";
-        this.c = i;
+        this.a = ve1.a;
+    }
+
+    public static synchronized qf1 a(Context context) {
+        InterceptResult invokeL;
+        qf1 qf1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (qf1.class) {
+                qf1Var = new qf1(context);
+            }
+            return qf1Var;
+        }
+        return (qf1) invokeL.objValue;
+    }
+
+    public String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String str3 = te1.b;
+            String str4 = te1.c;
+            String str5 = "";
+            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
+                return "";
+            }
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            StringBuilder sb = new StringBuilder();
+            try {
+                str5 = c(str3, str4, currentTimeMillis);
+            } catch (Throwable th) {
+                fg1.d(th);
+            }
+            sb.append(f());
+            sb.append(str);
+            sb.append("/");
+            sb.append("100");
+            sb.append("/");
+            sb.append(str3);
+            sb.append("/");
+            sb.append(currentTimeMillis);
+            sb.append("/");
+            sb.append(str5);
+            sb.append("?skey=");
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String c(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            try {
+                return jg1.b(str + j + str2);
+            } catch (Throwable th) {
+                fg1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                b = new String(hg1.e(Base64.decode(this.a, 0), "30212102dicudiab".getBytes(IMAudioTransRequest.CHARSET)));
+            } catch (Throwable th) {
+                fg1.d(th);
+            }
+        }
+    }
+
+    public byte[] e(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        byte[] bArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
+            try {
+                bArr2 = ig1.b(str.getBytes(IMAudioTransRequest.CHARSET));
+            } catch (Throwable th) {
+                fg1.d(th);
+                bArr2 = null;
+            }
+            return hg1.f(bArr2, bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                d();
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a36;
-import com.repackage.k36;
-import com.repackage.z26;
+import com.repackage.b36;
+import com.repackage.l36;
 /* loaded from: classes3.dex */
 public class DownloadManagerStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -52,7 +52,7 @@ public class DownloadManagerStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                a36.e().c(customMessage.getData());
+                b36.e().c(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -60,7 +60,7 @@ public class DownloadManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<z26> {
+    public static class b implements CustomMessageTask.CustomRunnable<a36> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,12 +79,12 @@ public class DownloadManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<z26> run(CustomMessage<z26> customMessage) {
+        public CustomResponsedMessage<a36> run(CustomMessage<a36> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                a36.e().g(customMessage.getData());
-                k36.a(customMessage.getData());
+                b36.e().g(customMessage.getData());
+                l36.a(customMessage.getData());
                 return new CustomResponsedMessage<>(2921627, customMessage.getData());
             }
             return (CustomResponsedMessage) invokeL.objValue;

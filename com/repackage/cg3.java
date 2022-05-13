@@ -1,157 +1,129 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import androidx.room.RoomMasterTable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.wz1;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.yz2;
 /* loaded from: classes5.dex */
-public class cg3 {
+public class cg3 implements yz2.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755798206, "Lcom/repackage/cg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ cg3 b;
+
+        public a(cg3 cg3Var, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cg3Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755798206, "Lcom/repackage/cg3;");
+            this.b = cg3Var;
+            this.a = viewGroup;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.a == null) {
+                    this.b.a = new FrameLayout(this.a.getContext());
+                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603c8);
+                }
+                this.a.removeView(this.b.a);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                layoutParams.gravity = 17;
+                this.a.addView(this.b.a, layoutParams);
+            }
+        }
+    }
+
+    public cg3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
+        this.a = null;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.yz2.c
+    public void a(yz2 yz2Var, yz2.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String n = i03.J().r().V().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return str;
-            }
-            try {
-                List<String> c = be3.c(new URI(n).getRawQuery());
-                if (c.size() > 0) {
-                    for (int i = 0; i < c.size(); i++) {
-                        String str2 = c.get(i);
-                        if (!TextUtils.isEmpty(str2)) {
-                            String[] split = str2.split("=");
-                            if (split.length > 1) {
-                                str = be3.a(str, split[0], split[1]);
-                            }
-                        }
-                    }
-                }
-                return str;
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                jx1.i("SwanWebModeUtils", "appendWebUrlQuery: " + e.getMessage());
-                return str;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, yz2Var, bVar) == null) || yz2Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        f(yz2Var);
+        ViewGroup viewGroup = (ViewGroup) yz2Var.findViewById(16908290);
+        if (viewGroup != null) {
+            if (bk2.M().a()) {
+                d(viewGroup, bVar.r);
+            } else {
+                e(viewGroup);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"BDOfflineUrl"})
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public final void d(ViewGroup viewGroup, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (wz1.b.a()) {
-                str = d() + "?appKey=" + i03.J().r().getAppId();
-            }
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String e = e();
-            String valueOf = String.valueOf(bg3.c().g());
-            String a2 = a(str);
-            String c = c();
-            jx1.i("SwanWebModeUtils", "appendWebUrlQuery: launchUrl : " + a2 + " rawPath : " + c);
-            return Uri.parse(a2).buildUpon().path(c).appendQueryParameter("_swebfr", e).appendQueryParameter("_swebcode", valueOf).appendQueryParameter("_swebHost", qj2.n().a()).build().toString();
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) == null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
+            return;
         }
-        return (String) invokeL.objValue;
+        view2.post(new a(this, viewGroup));
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public final void e(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String n = i03.J().r().V().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return "";
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
+            return;
+        }
+        viewGroup.removeView(frameLayout);
+        this.a = null;
+    }
+
+    public final void f(yz2 yz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, yz2Var) == null) {
+            Context context = yz2Var.getContext();
+            if (yz2Var.getContext() instanceof ContextWrapper) {
+                context = ((ContextWrapper) yz2Var.getContext()).getBaseContext();
             }
-            try {
-                return new URI(n).getPath();
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return "";
+            if (context instanceof Activity) {
+                dd3.b((Activity) context, yz2Var);
             }
         }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String string = x83.a().getString("web_mode_host_key", "");
-            return TextUtils.isEmpty(string) ? "http://radar.bcc-szth.baidu.com:8312" : string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? de3.G() ? "41" : RoomMasterTable.DEFAULT_ID : (String) invokeV.objValue;
-    }
-
-    public static boolean f(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String optString = jSONObject.optString("invokeFrom");
-            return !TextUtils.isEmpty(optString) && TextUtils.equals(optString, "swanWeb");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(cc3 cc3Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, cc3Var, i)) == null) {
-            if (i == 6) {
-                return true;
-            }
-            if (cc3Var == null) {
-                return false;
-            }
-            return cc3Var.h() == 1013 || cc3Var.h() == 1015;
-        }
-        return invokeLI.booleanValue;
     }
 }

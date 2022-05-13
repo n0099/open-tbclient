@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi0;
 import com.repackage.hw0;
+import com.repackage.ki0;
 import com.repackage.oq0;
 import com.repackage.sq0;
 import com.repackage.tq0;
@@ -401,11 +401,11 @@ public class ClarityUrlList extends ArrayList<c> {
                     return;
                 }
             }
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0bec);
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0bea);
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0beb);
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0be8);
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0be9);
+            ki0.b().getString(R.string.obfuscated_res_0x7f0f0c00);
+            ki0.b().getString(R.string.obfuscated_res_0x7f0f0bfe);
+            ki0.b().getString(R.string.obfuscated_res_0x7f0f0bff);
+            ki0.b().getString(R.string.obfuscated_res_0x7f0f0bfc);
+            ki0.b().getString(R.string.obfuscated_res_0x7f0f0bfd);
         }
 
         public c(JSONObject jSONObject, int i) {

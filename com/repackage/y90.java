@@ -1,43 +1,54 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import com.baidu.tbadk.core.util.PullViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class y90 {
     public static /* synthetic */ Interceptable $ic;
+    public static y90 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static int a(Context context, float f) {
-        InterceptResult invokeLF;
+    public y90() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
-    }
-
-    public static float b(Resources resources, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, resources, f)) == null) ? (f * resources.getDisplayMetrics().density) + 0.5f : invokeLF.floatValue;
-    }
-
-    public static int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.widthPixels;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeL.intValue;
+        this.a = true;
+        new PorterDuffColorFilter(PullViewHelper.IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     }
 
-    public static int d(Context context, float f) {
-        InterceptResult invokeLF;
+    public static y90 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (y90.class) {
+                if (b == null) {
+                    b = new y90();
+                }
+            }
+            return b;
+        }
+        return (y90) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

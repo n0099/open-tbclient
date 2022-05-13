@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.mi;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes3.dex */
@@ -64,7 +64,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.m = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.m = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.a = view2;
         c(view2);
         f(TbadkCoreApplication.getInst().getSkinType());
@@ -73,24 +73,24 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public final void c(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a7f);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a73);
             this.b = headImageView;
             headImageView.setRadius(R.dimen.tbds47);
             this.b.setConrers(15);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8c);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8a);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a89);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a7a);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a86);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090a7e);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a80);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a7e);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a7d);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6e);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a7a);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090a72);
             this.h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0699));
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a7d);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a1));
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a71);
             this.l = eMTextView;
-            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f069e));
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a84);
-            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
-            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a83);
+            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a6));
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a78);
+            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a79);
+            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a77);
         }
     }
 
@@ -118,17 +118,17 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            vr4 d = vr4.d(this.c);
+            gs4 d = gs4.d(this.c);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0105);
-            vr4 d2 = vr4.d(this.g);
+            gs4 d2 = gs4.d(this.g);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0109);
-            vr4 d3 = vr4.d(this.l);
+            gs4 d3 = gs4.d(this.l);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0107);
-            vr4.d(this.k).v(R.color.CAM_X0105);
-            vr4 d4 = vr4.d(this.j);
+            gs4.d(this.k).v(R.color.CAM_X0105);
+            gs4 d4 = gs4.d(this.j);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);

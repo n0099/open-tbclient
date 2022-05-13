@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.model.ParseError;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +66,7 @@ public final class bo0 {
             this.d = jSONObject2.optString("ext_info");
         }
         this.e = jSONObject2.optString("user_name");
-        this.f = jSONObject2.optString("user_portrait");
+        this.f = jSONObject2.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
         this.g = jSONObject2.optString("title");
         if (jSONObject2.optInt("title_lines", 0) > 0) {
         }

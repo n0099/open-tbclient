@@ -3,22 +3,15 @@ package com.repackage;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryMessage;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class l87 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
+public class l87 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f67 a;
-    public int b;
 
     public l87() {
         Interceptable interceptable = $ic;
@@ -30,62 +23,20 @@ public class l87 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        b(f67.h(), 2001145);
-    }
-
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
-        }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
-    }
-
-    public final void b(f67 f67Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f67Var, i) == null) {
-            this.a = f67Var;
-            this.b = i;
         }
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
+    public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof LoadHistoryMessage)) {
-                if (this.a == null) {
-                    return a(this.b);
-                }
-                LoadHistoryMessage.a data = customMessage.getData();
-                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
-                LinkedList<ChatMessage> g = this.a.g(data.d, data.a, data.b, data.c);
-                if (g == null) {
-                    return a(this.b);
-                }
-                LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-                if (data.a == null) {
-                    aVar.c = true;
-                } else {
-                    aVar.c = false;
-                }
-                aVar.b = g;
-                aVar.a = data.d;
-                try {
-                    loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadHistoryResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            int e = kg.e(customMessage.getData(), 0);
+            if (b67.v().p(String.valueOf(e))) {
+                return new CustomResponsedMessage<>(2001151, String.valueOf(e));
             }
-            return a(this.b);
+            return null;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

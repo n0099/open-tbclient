@@ -22,8 +22,8 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import com.repackage.ky;
-import com.repackage.py;
+import com.repackage.tx;
+import com.repackage.yx;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.DebugKt;
@@ -37,7 +37,7 @@ public class BdWebkitManager implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsWebkitBuiltin;
     public List<IWebkitLoaderListener> mListenerLst;
-    public py mLoader;
+    public yx mLoader;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -134,7 +134,7 @@ public class BdWebkitManager implements INoProGuard {
         }
         this.mIsWebkitBuiltin = true;
         this.mListenerLst = new ArrayList();
-        this.mLoader = new py();
+        this.mLoader = new yx();
     }
 
     private String makeErrorInfo(LoadErrorCode loadErrorCode) {
@@ -201,7 +201,7 @@ public class BdWebkitManager implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) {
             this.mIsWebkitBuiltin = z;
-            py pyVar = this.mLoader;
+            yx yxVar = this.mLoader;
             Context appContext = BdSailorPlatform.getInstance().getAppContext();
             a aVar = mWebkitType;
             if (z && (a.b == aVar || a.c == aVar)) {
@@ -213,29 +213,29 @@ public class BdWebkitManager implements INoProGuard {
                 WebKitFactory.setEmulator(BdZeusUtil.checkEmulator());
                 if (WebKitFactory.isZeusSupported()) {
                     if (a.c == aVar) {
-                        ky kyVar = BdSailorPlatform.getStatic();
-                        kyVar.b("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
+                        tx txVar = BdSailorPlatform.getStatic();
+                        txVar.b("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
                         z2 = WebKitFactory.setEngine(1);
-                        String str3 = py.c;
+                        String str3 = yx.c;
                         Log.d(str3, "zeus version = " + WebKitFactory.getZeusVersionName());
                     } else {
                         z2 = false;
                     }
                     if (z2) {
-                        String str4 = py.c;
+                        String str4 = yx.c;
                         Log.d(str4, "zeus version = " + WebKitFactory.getZeusVersionName());
-                        String str5 = py.c;
+                        String str5 = yx.c;
                         Log.d(str5, "sdk version = " + WebKitFactory.getSdkVersionName());
                         BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                         BdSailorPlatform.getStatic().b("init-webkit", "success");
                         BdSailorPlatform.getStatic().d = true;
                     } else {
                         LoadErrorCode loadErrorCode = WebKitFactory.getLoadErrorCode();
-                        pyVar.a(loadErrorCode);
-                        py.c(loadErrorCode);
+                        yxVar.a(loadErrorCode);
+                        yx.c(loadErrorCode);
                     }
                 } else {
-                    pyVar.a(new LoadErrorCode(99, "not support"));
+                    yxVar.a(new LoadErrorCode(99, "not support"));
                     BdSailorPlatform.getStatic().b("init-webkit", "notSupport");
                 }
                 BdSailorPlatform.getStatic().d = false;
@@ -246,11 +246,11 @@ public class BdWebkitManager implements INoProGuard {
                 WebKitFactory.setApkLibLoadType(z);
                 if (a.c == aVar || a.b == aVar) {
                     WebKitFactory.setEngine(1);
-                    str2 = py.c;
+                    str2 = yx.c;
                     sb = new StringBuilder("zeus version =");
                 } else {
                     WebKitFactory.setEngine(0);
-                    str2 = py.c;
+                    str2 = yx.c;
                     sb = new StringBuilder("zeus version =");
                 }
                 sb.append(WebKitFactory.getZeusVersionName());
@@ -262,8 +262,8 @@ public class BdWebkitManager implements INoProGuard {
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                 } else {
                     LoadErrorCode loadErrorCode2 = WebKitFactory.getLoadErrorCode();
-                    pyVar.a(loadErrorCode2);
-                    py.c(loadErrorCode2);
+                    yxVar.a(loadErrorCode2);
+                    yx.c(loadErrorCode2);
                     BdSailorPlatform.getWebkitManager().onLoadSysSDKSuccess();
                 }
             }
@@ -328,11 +328,11 @@ public class BdWebkitManager implements INoProGuard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                             Log.i(EngineManager.LOG_TAG, "installZeusFromDownload after onLoadSysSDKSuccess");
-                            py pyVar = this.this$0.mLoader;
+                            yx yxVar = this.this$0.mLoader;
                             BdSailorPlatform.getInstance().getAppContext();
                             String str2 = this.val$zeusPath;
                             a unused = BdWebkitManager.mWebkitType;
-                            pyVar.b(str2);
+                            yxVar.b(str2);
                         }
                     }
 
@@ -349,19 +349,19 @@ public class BdWebkitManager implements INoProGuard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
                             Log.i(EngineManager.LOG_TAG, "installZeusFromDownload after onLoadZeusSDKSuccess");
-                            py pyVar = this.this$0.mLoader;
+                            yx yxVar = this.this$0.mLoader;
                             BdSailorPlatform.getInstance().getAppContext();
                             String str2 = this.val$zeusPath;
                             a unused = BdWebkitManager.mWebkitType;
-                            pyVar.b(str2);
+                            yxVar.b(str2);
                         }
                     }
                 });
                 return;
             }
-            py pyVar = this.mLoader;
+            yx yxVar = this.mLoader;
             BdSailorPlatform.getInstance().getAppContext();
-            pyVar.b(str);
+            yxVar.b(str);
         }
     }
 

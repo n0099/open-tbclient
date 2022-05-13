@@ -1,29 +1,27 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface jk2 {
+public class jk2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile ik2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(i33 i33Var);
-
-        void onFailed(int i);
+    public static synchronized ik2 a() {
+        InterceptResult invokeV;
+        ik2 ik2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (jk2.class) {
+                if (a == null) {
+                    a = new ik2();
+                }
+                ik2Var = a;
+            }
+            return ik2Var;
+        }
+        return (ik2) invokeV.objValue;
     }
-
-    void a();
-
-    void b(String str, boolean z, boolean z2, a aVar);
-
-    void c();
-
-    void d();
-
-    void e();
-
-    void f(a aVar);
-
-    double[] g(@NonNull i33 i33Var, @NonNull String str);
-
-    i33 h();
 }

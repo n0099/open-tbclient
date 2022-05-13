@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc1;
+import com.repackage.qc1;
 /* loaded from: classes2.dex */
-public class DeviceScoreConfigFetcher extends fc1<IDeviceScoreConfig> {
+public class DeviceScoreConfigFetcher extends qc1<IDeviceScoreConfig> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class DeviceScoreConfigFetcher extends fc1<IDeviceScoreConfig> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     public IDeviceScoreConfig createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

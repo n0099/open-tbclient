@@ -1,26 +1,31 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class gh0<T> {
+public class gh0 extends b61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
+    public AdBaseModel a;
+    public View b;
+    public View.OnClickListener c;
 
-    public gh0(T t) {
+    public gh0(AdBaseModel adBaseModel, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {adBaseModel, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,86 +35,43 @@ public class gh0<T> {
                 return;
             }
         }
-        this.a = t;
+        this.a = adBaseModel;
+        this.b = view2;
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.b61
+    public void b(@NonNull ho0 ho0Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
-    }
-
-    public byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ((Bitmap) this.a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                return byteArrayOutputStream.toByteArray();
-            } else if (t instanceof File) {
-                return e11.g((File) t);
-            } else {
-                if (t instanceof byte[]) {
-                    return (byte[]) t;
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ho0Var) == null) {
+            Toast.makeText(ki0.b(), "on click : operator btn", 1).show();
+            if (ho0Var.c) {
+                th0.b(ho0Var.a);
+                g(ClogBuilder.LogType.CLICK, NativeConstants.ID_BUTTON, this.a);
+            }
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(this.b);
             }
         }
-        return (byte[]) invokeV.objValue;
     }
 
-    public Class<?> c() {
-        InterceptResult invokeV;
+    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        bo0 bo0Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getClass() : (Class) invokeV.objValue;
-    }
-
-    public boolean d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? (this.a instanceof File) && System.currentTimeMillis() - ((File) this.a).lastModified() > j : invokeJ.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        boolean delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                if (!((Bitmap) t).isRecycled()) {
-                    ((Bitmap) this.a).recycle();
-                }
-            } else if (t instanceof File) {
-                delete = ((File) t).delete();
-                this.a = null;
-                return delete;
-            }
-            delete = true;
-            this.a = null;
-            return delete;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, str, adBaseModel) == null) || adBaseModel == null || (bo0Var = adBaseModel.f) == null || TextUtils.isEmpty(bo0Var.d)) {
+            return;
         }
-        return invokeV.booleanValue;
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.w(logType);
+        clogBuilder.h(str);
+        clogBuilder.n(adBaseModel.f.d);
+        ez0.c(clogBuilder);
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                return ((Bitmap) t).getByteCount();
-            }
-            if (t instanceof File) {
-                return (int) ((File) t).length();
-            }
-            if (t instanceof byte[]) {
-                return ((byte[]) t).length;
-            }
-            return 1;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.c = onClickListener;
         }
-        return invokeV.intValue;
     }
 }

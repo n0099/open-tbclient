@@ -1,43 +1,51 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class oa2 extends ja2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final js1 c;
+public interface oa2 {
+    public static final boolean c0 = eh1.a;
 
-    public oa2(@NonNull String str, @NonNull js1 js1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, js1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.c = js1Var;
+    /* loaded from: classes6.dex */
+    public interface a {
+        String a();
+
+        JSONObject b();
+
+        boolean isValid();
     }
 
-    @Override // com.repackage.ja2
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("status", Integer.valueOf(this.c.b));
-            map.put("data", this.c.d);
-            map.put("message", this.c.c);
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<String, a> a;
+        public boolean b;
+        public int c;
+        public int d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new HashMap();
+            this.b = true;
+            this.c = 0;
+            this.d = 0;
         }
     }
 }

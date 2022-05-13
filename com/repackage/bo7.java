@@ -26,7 +26,7 @@ public class bo7 {
     public NewFaceSyncUploadModel a;
     public NewFaceSyncDownloadModel b;
     public NewFaceGroupDownloadModel c;
-    public u96 d;
+    public z86 d;
     public boolean e;
     public boolean f;
 
@@ -156,7 +156,7 @@ public class bo7 {
                     if (getCloudFaceGroupMessage.getCollectUpdateTime() < bo7.k()) {
                         new UserCollectModel().y();
                     }
-                    s96.s().n();
+                    x86.s().n();
                 } else if (getCloudFaceGroupMessage.getCollectEmotionList() == null) {
                     this.a.f = false;
                 } else {
@@ -323,7 +323,7 @@ public class bo7 {
         this.a = new NewFaceSyncUploadModel();
         this.b = new NewFaceSyncDownloadModel();
         this.c = new NewFaceGroupDownloadModel();
-        this.d = new u96();
+        this.d = new z86();
     }
 
     public static String j() {
@@ -336,7 +336,7 @@ public class bo7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            vt4 k = vt4.k();
+            iu4 k = iu4.k();
             return k.m("face_collect_update_time" + j(), 0L);
         }
         return invokeV.longValue;
@@ -346,7 +346,7 @@ public class bo7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            vt4 k = vt4.k();
+            iu4 k = iu4.k();
             return k.m("face_group_update_time" + j(), 0L);
         }
         return invokeV.longValue;
@@ -371,7 +371,7 @@ public class bo7 {
     public static void s(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65548, null, j) == null) {
-            vt4 k = vt4.k();
+            iu4 k = iu4.k();
             k.x("face_collect_update_time" + j(), j);
         }
     }
@@ -379,7 +379,7 @@ public class bo7 {
     public static void t(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65549, null, j) == null) {
-            vt4 k = vt4.k();
+            iu4 k = iu4.k();
             k.x("face_group_update_time" + j(), j);
         }
     }
@@ -458,7 +458,7 @@ public class bo7 {
     public final void r(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            if (oi.B()) {
+            if (mi.B()) {
                 yn7.b().a(new e(this, list));
             } else {
                 q(list);

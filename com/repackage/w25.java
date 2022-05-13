@@ -1,89 +1,62 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes7.dex */
-public class w25 implements y25 {
+public class w25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
 
-    public w25(Context context) {
+    @TargetApi(16)
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
             }
+            return false;
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909e1);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e3);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909df);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909e2);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06c6);
-        b();
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.y25
-    public void b() {
+    public static boolean b(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f07);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805f7, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(com.kuaishou.weapon.un.w0.A).tlRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) ? (activity.getWindow().getAttributes().flags & 1024) != 0 : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.y25
-    public View getView() {
-        InterceptResult invokeV;
+    @TargetApi(19)
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) ? Build.VERSION.SDK_INT >= 19 && (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.y25
-    public void onClick() {
+    public static boolean d(View view2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == v25.a(view2.getContext())) {
+                return false;
+            }
+            int h = u25.h(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
+                return true;
+            }
+            layoutParams.height = h;
+            view2.requestLayout();
+            return true;
         }
+        return invokeLI.booleanValue;
     }
 }

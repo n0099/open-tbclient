@@ -1,96 +1,86 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.opensource.svgaplayer.proto.AudioEntity;
 /* loaded from: classes5.dex */
-public class dm9 {
+public final class dm9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final dm9 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
+    public final int a;
+    public final int b;
+    public Integer c;
+    public Integer d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755762463, "Lcom/repackage/dm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755762463, "Lcom/repackage/dm9;");
-                return;
-            }
-        }
-        e = new dm9();
-    }
-
-    public dm9() {
+    public dm9(AudioEntity audioEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {audioEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0.0f;
-        this.b = 0.0f;
-        this.c = 0.0f;
-        this.d = 1.0f;
-        b(0.0f, 0.0f, 0.0f, 1.0f);
-    }
-
-    public final float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    public final void b(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = f4;
+        String str = audioEntity.audioKey;
+        Integer num = audioEntity.startFrame;
+        this.a = num != null ? num.intValue() : 0;
+        Integer num2 = audioEntity.endFrame;
+        this.b = num2 != null ? num2.intValue() : 0;
+        Integer num3 = audioEntity.startTime;
+        if (num3 != null) {
+            num3.intValue();
+        }
+        Integer num4 = audioEntity.totalTime;
+        if (num4 != null) {
+            num4.intValue();
         }
     }
 
-    public final float c() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public final float d() {
+    public final Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (Integer) invokeV.objValue;
     }
 
-    public final float e() {
+    public final Integer c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (Integer) invokeV.objValue;
     }
 
-    public String toString() {
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format("[%.3f, %.3f, %.3f, %.3f]", Float.valueOf(this.a), Float.valueOf(this.b), Float.valueOf(this.c), Float.valueOf(this.d)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final void e(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
+            this.d = num;
+        }
+    }
+
+    public final void f(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
+            this.c = num;
+        }
     }
 }

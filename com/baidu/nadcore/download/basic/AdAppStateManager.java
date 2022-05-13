@@ -23,11 +23,10 @@ import com.repackage.al0;
 import com.repackage.dj0;
 import com.repackage.ej0;
 import com.repackage.el0;
-import com.repackage.h11;
-import com.repackage.hi0;
 import com.repackage.hj0;
 import com.repackage.hl0;
-import com.repackage.pk0;
+import com.repackage.ki0;
+import com.repackage.r11;
 import com.repackage.rj0;
 import com.repackage.vy0;
 import java.util.HashMap;
@@ -121,7 +120,7 @@ public class AdAppStateManager extends BroadcastReceiver {
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
             intentFilter.addDataScheme("package");
-            hi0.b().registerReceiver(this, intentFilter);
+            ki0.b().registerReceiver(this, intentFilter);
             registerBackForegroundEvent();
         }
     }
@@ -136,13 +135,13 @@ public class AdAppStateManager extends BroadcastReceiver {
     public boolean isInternalValid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) ? i > 0 && !h11.a(System.currentTimeMillis(), this.mBlockingTime, i) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) ? i > 0 && !r11.a(System.currentTimeMillis(), this.mBlockingTime, i) : invokeI.booleanValue;
     }
 
     private void launch(rj0 rj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, rj0Var) == null) {
-            pk0.e(rj0Var);
+            ej0.c(rj0Var);
             this.mBlockingNotifyData = null;
         }
     }
@@ -175,7 +174,7 @@ public class AdAppStateManager extends BroadcastReceiver {
             rj0Var.c = AdDownloadStatus.INSTALLED;
             rj0Var.q.o = System.currentTimeMillis();
             try {
-                PackageInfo packageInfo = hi0.b().getPackageManager().getPackageInfo(rj0Var.d, 0);
+                PackageInfo packageInfo = ki0.b().getPackageManager().getPackageInfo(rj0Var.d, 0);
                 if (packageInfo != null) {
                     rj0Var.o = packageInfo.versionName;
                     rj0Var.n = packageInfo.versionCode;
@@ -183,11 +182,11 @@ public class AdAppStateManager extends BroadcastReceiver {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            ej0.b().d(AdDownloadAction.INSTALL_FINISH, rj0Var);
+            ej0.b().e(AdDownloadAction.INSTALL_FINISH, rj0Var);
             rj0Var.q.n = 0L;
             launchAfterInstall(rj0Var);
         } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-            ej0.b().d(AdDownloadAction.REMOVE, rj0Var);
+            ej0.b().e(AdDownloadAction.REMOVE, rj0Var);
             if (rj0Var.q.o > 0) {
                 dj0.a().b(rj0Var);
             }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
 /* loaded from: classes4.dex */
 public abstract class StampMission {
     public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public abstract class StampMission {
         this.a = type;
         this.c = i;
         this.d = "key_cur_user_stamp_mission_progress_" + TbadkCoreApplication.getCurrentAccount() + type.name();
-        this.b = vt4.k().l(this.d, 0);
+        this.b = iu4.k().l(this.d, 0);
     }
 
     public int a() {
@@ -142,7 +142,7 @@ public abstract class StampMission {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int l = vt4.k().l(this.d, 0) + 1;
+            int l = iu4.k().l(this.d, 0) + 1;
             this.b = l;
             int i = this.c;
             if (l > i) {
@@ -151,7 +151,7 @@ public abstract class StampMission {
             if (l == i) {
                 return false;
             }
-            vt4.k().w(this.d, this.b);
+            iu4.k().w(this.d, this.b);
             return true;
         }
         return invokeV.booleanValue;
@@ -161,14 +161,14 @@ public abstract class StampMission {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.b = Math.min(i, this.c);
-            vt4.k().w(this.d, this.b);
+            iu4.k().w(this.d, this.b);
         }
     }
 
     public void delete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            vt4.k().D(this.d);
+            iu4.k().D(this.d);
         }
     }
 

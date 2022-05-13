@@ -1,15 +1,13 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qj2;
 /* loaded from: classes6.dex */
-public class h92 {
+public class h92 extends b92 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile h92 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h92() {
@@ -26,35 +24,12 @@ public class h92 {
         }
     }
 
-    public static h92 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.d92
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (h92.class) {
-                    if (a == null) {
-                        a = new h92();
-                    }
-                }
-            }
-            return a;
-        }
-        return (h92) invokeV.objValue;
-    }
-
-    public int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? n92.b(i) : invokeI.intValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jx1.k("SwanRecoveryManager", "RecoverPlatform");
-            p92 p92Var = new p92();
-            p92Var.a = 1;
-            f92.b(p92Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            ux1.l("SwanAppPurger", "删除小程序: " + str, new Exception("deletePkgFile"));
+            qj2.e.e(str);
         }
     }
 }

@@ -1,58 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
+import android.graphics.Bitmap;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.L;
-import com.win.opensdk.PBMediaView;
-import com.win.opensdk.core.Info;
-import com.win.opensdk.views.CircleProgressbar;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class ur9 {
+public class ur9 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public au9 b;
-    public Info c;
-    public View d;
-    public List e;
-    public is9 f;
-    public ht9 g;
-    public long h;
-    public eu9 i;
-    public boolean j;
-    public long k;
-    public float l;
-    public float m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public long v;
-    public int w;
-    public int x;
-    public long y;
+    public final /* synthetic */ cs9 a;
 
-    public ur9(Context context, String str) {
+    public ur9(cs9 cs9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {cs9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,133 +31,44 @@ public class ur9 {
                 return;
             }
         }
-        this.e = Collections.synchronizedList(new ArrayList());
-        this.h = 0L;
-        this.i = new er9(this);
-        this.j = false;
-        this.k = 0L;
-        this.a = context;
-        au9 au9Var = new au9(context, str, L.f);
-        this.b = au9Var;
-        au9Var.g = this.i;
-        this.g = new ht9(context);
+        this.a = cs9Var;
     }
 
-    public static /* synthetic */ void c(ur9 ur9Var, View view2) {
-        if (ur9Var.t <= 0 || ur9Var.u <= 0) {
-            ur9Var.u = view2.getHeight();
-            ur9Var.t = view2.getWidth();
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
         }
     }
 
-    public void a() {
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                f();
-                if (this.b != null) {
-                    this.b.b();
-                    this.b = null;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
+            super.onReceivedError(webView, i, str, str2);
+            WebView webView2 = this.a.b;
+            if (webView2 != null) {
+                webView2.setVisibility(8);
+            }
+            if (str.contains("TIMED_OUT")) {
+                cs9 cs9Var = this.a;
+                if (cs9Var.c != null) {
+                    tq9 a = xq9.a(cs9Var.a);
+                    a.q(new br9(this.a.c), 4);
+                    a.l("desc", str + "&errcode:" + i + "&fileurl:" + str2);
+                    a.m();
                 }
-                if (this.f != null) {
-                    this.f = null;
-                }
-            } catch (Exception unused) {
+                Toast.makeText(this.a.a, (int) R.string.obfuscated_res_0x7f0f158f, 0).show();
             }
         }
-    }
-
-    public void b(View view2, PBMediaView pBMediaView, List list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pBMediaView, list) == null) || view2 == null || list == null || list.size() == 0 || !e()) {
-            return;
-        }
-        this.h = 0L;
-        if (this.d != null) {
-            f();
-        }
-        this.d = view2;
-        try {
-            rr9 rr9Var = new rr9(this);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                View view3 = (View) it.next();
-                if (view3 != null && !(view3 instanceof PBMediaView)) {
-                    if (!this.e.contains(view3)) {
-                        this.e.add(view3);
-                    }
-                    if (!(view3 instanceof CircleProgressbar)) {
-                        view3.setOnClickListener(rr9Var);
-                        view3.setOnTouchListener(rr9Var);
-                    }
-                }
-            }
-        } catch (Exception unused) {
-        }
-        if (pBMediaView != null) {
-            try {
-                if (pBMediaView.getHtmlWebView() != null) {
-                    js9 htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(e() ? this.c.getLoad() : "", this.c);
-                    if (this.c.isNat()) {
-                        htmlWebView.c.setOnTouchListener(new nr9(this));
-                    }
-                    htmlWebView.b = new or9(this);
-                }
-            } catch (Exception unused2) {
-            }
-        }
-        yr9 a = cs9.a(this.a);
-        a.o(new gs9(this.c));
-        a.m();
-        if (this.c != null) {
-            mr9.m(this.a, this.c.getId() + ":" + System.currentTimeMillis(), false);
-        }
-        new xp9().a(view2, this.c, new kr9(this, view2));
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Info info = this.c;
-            return info != null && info.isEffective();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                for (View view2 : this.e) {
-                    if (view2 != null) {
-                        view2.setOnClickListener(null);
-                    }
-                }
-                this.e.clear();
-                if (this.d != null) {
-                    this.d = null;
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public HashMap g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.n));
-            hashMap.put("dy", Integer.valueOf(this.o));
-            hashMap.put("dts", Long.valueOf(this.v));
-            hashMap.put("ux", Integer.valueOf(this.w));
-            hashMap.put("uy", Integer.valueOf(this.x));
-            hashMap.put("uts", Long.valueOf(this.y));
-            wp9.j(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
     }
 }

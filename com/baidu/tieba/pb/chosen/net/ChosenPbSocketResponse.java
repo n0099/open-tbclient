@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.mr4;
 import com.repackage.nr7;
 import com.repackage.qe;
 import com.squareup.wire.Wire;
@@ -112,8 +112,8 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements nr
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            br4.f();
-            qe<byte[]> d = br4.d("tb.pb_normal");
+            mr4.f();
+            qe<byte[]> d = mr4.d("tb.pb_normal");
             d.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
             d.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
         }

@@ -1,83 +1,41 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class j18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ho> a;
-    public TbPageContext b;
-    public HTypeListView c;
-    public h18 d;
-    public g18 e;
-    public f18 f;
+    public ArrayList<ro> a;
 
-    public j18(TbPageContext tbPageContext, HTypeListView hTypeListView) {
+    public j18() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, hTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = tbPageContext;
-        this.c = hTypeListView;
-        a();
     }
 
-    public final void a() {
+    public void a(ArrayList<ro> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new h18(this.b, xz4.d);
-            this.e = new g18(this.b, n18.b);
-            this.f = new f18(this.b.getPageActivity(), b18.d);
-            this.a.add(this.d);
-            this.a.add(this.e);
-            this.a.add(this.f);
-            this.c.a(this.a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
+            this.a = arrayList;
         }
     }
 
-    public void b() {
-        HTypeListView hTypeListView;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hTypeListView = this.c) != null && (hTypeListView.getAdapter() instanceof TypeAdapter)) {
-            ((TypeAdapter) this.c.getAdapter()).notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<uo> list) {
-        HTypeListView hTypeListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (hTypeListView = this.c) == null) {
-            return;
-        }
-        hTypeListView.setData(list);
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.d.b0(onClickListener);
-            this.e.b0(onClickListener);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 }

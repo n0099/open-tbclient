@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.wn4;
+import com.repackage.go4;
+import com.repackage.li;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,7 +46,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient wn4 label;
+    public transient go4 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -160,7 +160,7 @@ public class AlaInfoData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || ni.isEmpty(yyExtData.mSid) || ni.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            return (yyExtData == null || li.isEmpty(yyExtData.mSid) || li.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -320,9 +320,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                wn4 wn4Var = new wn4();
-                this.label = wn4Var;
-                wn4Var.a(optJSONObject);
+                go4 go4Var = new go4();
+                this.label = go4Var;
+                go4Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             if (optJSONArray != null) {

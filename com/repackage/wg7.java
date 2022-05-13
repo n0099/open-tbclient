@@ -34,12 +34,12 @@ public class wg7 implements PayChannelService {
 
         /* renamed from: com.repackage.wg7$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0542a implements ITiebaPayCallback {
+        public class C0543a implements ITiebaPayCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ IPayCallback a;
 
-            public C0542a(a aVar, IPayCallback iPayCallback) {
+            public C0543a(a aVar, IPayCallback iPayCallback) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public class wg7 implements PayChannelService {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return nd5.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
+                return ge5.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -118,7 +118,7 @@ public class wg7 implements PayChannelService {
             }
             this.a.c();
             if (this.a.a != null) {
-                this.a.a.pay(hashMap.remove("channel"), hashMap, new C0542a(this, iPayCallback));
+                this.a.a.pay(hashMap.remove("channel"), hashMap, new C0543a(this, iPayCallback));
             } else if (iPayCallback != null) {
                 iPayCallback.onPayResult(2, null);
             }

@@ -58,18 +58,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c55;
+import com.repackage.ca5;
 import com.repackage.e38;
-import com.repackage.kk8;
+import com.repackage.ge5;
+import com.repackage.hj8;
+import com.repackage.il4;
+import com.repackage.jl4;
+import com.repackage.kg;
+import com.repackage.kl4;
 import com.repackage.l88;
-import com.repackage.l95;
-import com.repackage.mg;
-import com.repackage.nd5;
-import com.repackage.oi;
-import com.repackage.w45;
-import com.repackage.xk4;
-import com.repackage.yk4;
-import com.repackage.zk4;
+import com.repackage.m55;
+import com.repackage.mi;
+import com.repackage.s55;
 /* loaded from: classes3.dex */
 public class PersonExtraStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -135,10 +135,10 @@ public class PersonExtraStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_PERSON_INFO)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), nd5.c(str, "userid="), nd5.c(str, "un="))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), ge5.c(str, "userid="), ge5.c(str, "un="))));
                         return 1;
                     } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.OPEN_PERSON_INFO)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), nd5.c(str, "userid="), nd5.c(str, "un="))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), ge5.c(str, "userid="), ge5.c(str, "un="))));
                         return 0;
                     } else if (strArr[0].startsWith("com.baidu.tieba://unidispatch/usercenter")) {
                         UtilHelper.dealOneScheme(tbPageContext.getPageActivity(), strArr[0]);
@@ -212,9 +212,9 @@ public class PersonExtraStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_PERSON_INFO)) {
-                        String c = nd5.c(str, "userid=");
-                        long g = mg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-                        long g2 = mg.g(c, 0L);
+                        String c = ge5.c(str, "userid=");
+                        long g = kg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                        long g2 = kg.g(c, 0L);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g2, g2 == g, false)));
                         return 1;
                     }
@@ -226,7 +226,7 @@ public class PersonExtraStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements zk4 {
+    public static class e implements kl4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -244,16 +244,16 @@ public class PersonExtraStatic {
             }
         }
 
-        @Override // com.repackage.zk4
+        @Override // com.repackage.kl4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = yk4.a(context);
+                TextView a = jl4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(oi.f(context, R.dimen.obfuscated_res_0x7f070305), 0, oi.f(context, R.dimen.obfuscated_res_0x7f070305), 0);
+                    layoutParams.setMargins(mi.f(context, R.dimen.obfuscated_res_0x7f070305), 0, mi.f(context, R.dimen.obfuscated_res_0x7f070305), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -326,11 +326,11 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
         UrlManager.getInstance().addListener(new b());
         l();
-        l95 l95Var = new l95(107129);
-        l95Var.setResponsedClass(ResponseGetLivableForumList.class);
-        l95Var.h(false);
-        l95Var.setParallel(TiebaIMConfig.getParallel());
-        MessageManager.getInstance().registerTask(l95Var);
+        ca5 ca5Var = new ca5(107129);
+        ca5Var.setResponsedClass(ResponseGetLivableForumList.class);
+        ca5Var.h(false);
+        ca5Var.setParallel(TiebaIMConfig.getParallel());
+        MessageManager.getInstance().registerTask(ca5Var);
         j();
         n();
         m();
@@ -345,7 +345,7 @@ public class PersonExtraStatic {
         h();
         i();
         k();
-        w45.a(c55.b, new e38());
+        m55.a(s55.b, new e38());
     }
 
     public PersonExtraStatic() {
@@ -365,7 +365,7 @@ public class PersonExtraStatic {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            xk4.b().c(7, new e());
+            il4.b().c(7, new e());
         }
     }
 
@@ -391,7 +391,7 @@ public class PersonExtraStatic {
             }
             Intent intent = personInfoActivityConfig.getIntent();
             intent.setClass(context, PersonPolymericActivity.class);
-            intent.putExtra("user_id", mg.g(stringExtra, 0L));
+            intent.putExtra("user_id", kg.g(stringExtra, 0L));
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 intent.putExtra(PersonPolymericActivityConfig.IS_USER_SELF, TbadkCoreApplication.getCurrentAccount().equals(stringExtra));
             } else {
@@ -415,8 +415,8 @@ public class PersonExtraStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            kk8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, kk8.a("c/u/feed/userpost", 303002));
+            hj8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, hj8.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -443,7 +443,7 @@ public class PersonExtraStatic {
     public static void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            kk8.d(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647, TbConfig.PERSON_CENTER_DYNAMIC_TAB_URL, PersonCenterDynamicTabHttpResMessage.class, PersonCenterDynamicTabSocketResMessage.class);
+            hj8.d(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647, TbConfig.PERSON_CENTER_DYNAMIC_TAB_URL, PersonCenterDynamicTabHttpResMessage.class, PersonCenterDynamicTabSocketResMessage.class);
         }
     }
 
@@ -457,8 +457,8 @@ public class PersonExtraStatic {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            kk8.f(309684, RecommendGodSocketResponseMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, kk8.a("c/u/user/getRecommendGodList", 309684));
+            hj8.f(309684, RecommendGodSocketResponseMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, hj8.a("c/u/user/getRecommendGodList", 309684));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecommendGodHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -468,24 +468,24 @@ public class PersonExtraStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            kk8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            kk8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            hj8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            hj8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            kk8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            kk8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            hj8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            hj8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
     public static void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            kk8.h(309408, PersonPolymericSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, kk8.a("c/u/user/personal", 309408));
+            hj8.h(309408, PersonPolymericSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, hj8.a("c/u/user/personal", 309408));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

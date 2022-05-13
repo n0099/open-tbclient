@@ -1,19 +1,18 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.stampmission.mission.StampMission;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rh8 extends jh8 {
+public class rh8 extends StampMission {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sh8 c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public rh8() {
+        super(StampMission.Type.LIKE_THREAD, StampMission.a.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,35 +20,12 @@ public class rh8 extends jh8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((StampMission.Type) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        }
-    }
-
-    @Override // com.repackage.jh8
-    public void d(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("forum_dir")) == null) {
-            return;
-        }
-        sh8 sh8Var = new sh8();
-        sh8Var.a(optJSONObject);
-        i(sh8Var);
-    }
-
-    public sh8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (sh8) invokeV.objValue;
-    }
-
-    public void i(sh8 sh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sh8Var) == null) {
-            this.c = sh8Var;
-            g(null);
         }
     }
 }

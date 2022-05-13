@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.or8;
+import com.repackage.lq8;
+import com.repackage.mi;
 /* loaded from: classes4.dex */
-public class ShareGridLayout extends ViewGroup implements or8 {
+public class ShareGridLayout extends ViewGroup implements lq8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class ShareGridLayout extends ViewGroup implements or8 {
                 return;
             }
         }
-        f = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        f = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,30 +62,37 @@ public class ShareGridLayout extends ViewGroup implements or8 {
                 return;
             }
         }
-        b(context);
+        c(context);
     }
 
-    @Override // com.repackage.or8
-    public void a(int i, @NonNull View view2) {
+    @Override // com.repackage.lq8
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, view2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.lq8
+    public void b(int i, @NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
             addView(view2);
         }
     }
 
-    public final void b(Context context) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.a = context;
-            c(0, oi.k(context) - (f * 2));
+            d(0, mi.k(context) - (f * 2));
         }
     }
 
-    public final void c(int i, int i2) {
+    public final void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             int i3 = i2 - i;
-            if (oi.k(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
+            if (mi.k(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
                 this.d = 5;
             } else {
                 this.d = 4;
@@ -103,19 +110,19 @@ public class ShareGridLayout extends ViewGroup implements or8 {
         }
     }
 
-    @Override // com.repackage.or8
+    @Override // com.repackage.lq8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            c(i, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            d(i, i3);
             int i5 = this.e;
             int childCount = getChildCount();
             int i6 = 0;
@@ -140,7 +147,7 @@ public class ShareGridLayout extends ViewGroup implements or8 {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.b, Integer.MIN_VALUE);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.c, Integer.MIN_VALUE);
             int childCount = getChildCount();
@@ -162,10 +169,10 @@ public class ShareGridLayout extends ViewGroup implements or8 {
         }
     }
 
-    @Override // com.repackage.or8
+    @Override // com.repackage.lq8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             this.b = i;
             this.c = i2;
             requestLayout();
@@ -191,7 +198,7 @@ public class ShareGridLayout extends ViewGroup implements or8 {
                 return;
             }
         }
-        b(context);
+        c(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -213,6 +220,6 @@ public class ShareGridLayout extends ViewGroup implements or8 {
                 return;
             }
         }
-        b(context);
+        c(context);
     }
 }

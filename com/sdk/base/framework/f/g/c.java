@@ -1,6 +1,5 @@
 package com.sdk.base.framework.f.g;
 
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +30,7 @@ public abstract class c {
                 return;
             }
         }
-        a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
+        a = new c("WIFI", 0) { // from class: com.sdk.base.framework.f.g.d
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

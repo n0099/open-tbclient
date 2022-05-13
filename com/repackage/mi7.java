@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mi7 extends fc1<ThirdPartAccountService> {
+public class mi7 extends qc1<ThirdPartAccountService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class mi7 extends fc1<ThirdPartAccountService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
     public ThirdPartAccountService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

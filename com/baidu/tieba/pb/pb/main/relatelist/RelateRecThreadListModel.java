@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.fm4;
-import com.repackage.kk8;
+import com.repackage.hj8;
+import com.repackage.qm4;
 import com.repackage.wa;
 import tbclient.RelateRecThread.DataRes;
 /* loaded from: classes3.dex */
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public fm4 c;
+    public qm4 c;
     public wa d;
 
     /* loaded from: classes3.dex */
@@ -87,7 +87,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
                 }
                 Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f059f);
+                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f05a5);
                 }
                 if (this.a.c != null) {
                     this.a.c.onError(error, errorString);
@@ -129,8 +129,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            kk8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            hj8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            hj8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
@@ -159,10 +159,10 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return invokeCommon.booleanValue;
     }
 
-    public void F(fm4 fm4Var) {
+    public void F(qm4 qm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fm4Var) == null) {
-            this.c = fm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qm4Var) == null) {
+            this.c = qm4Var;
         }
     }
 

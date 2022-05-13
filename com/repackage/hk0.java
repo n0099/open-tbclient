@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface hk0<VIEW extends View> {
-    void c(@NonNull ViewGroup viewGroup);
+    void b(@NonNull ViewGroup viewGroup);
 
     @NonNull
     VIEW getRealView();

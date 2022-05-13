@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class ProgressButton extends View {
@@ -195,7 +195,7 @@ public class ProgressButton extends View {
     public void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400fc, R.attr.obfuscated_res_0x7f0400fd, R.attr.obfuscated_res_0x7f040100, R.attr.obfuscated_res_0x7f040102, R.attr.obfuscated_res_0x7f040103, R.attr.obfuscated_res_0x7f040651, R.attr.obfuscated_res_0x7f040652});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ff, R.attr.obfuscated_res_0x7f040100, R.attr.obfuscated_res_0x7f040103, R.attr.obfuscated_res_0x7f040105, R.attr.obfuscated_res_0x7f040106, R.attr.obfuscated_res_0x7f040659, R.attr.obfuscated_res_0x7f04065a});
             this.k = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
             this.l = obtainStyledAttributes.getString(3);
             int i = obtainStyledAttributes.getInt(2, 0);
@@ -212,7 +212,7 @@ public class ProgressButton extends View {
             this.g = obtainStyledAttributes.getColor(6, SkinManager.getColor(this.h));
             this.d = obtainStyledAttributes.getFloat(0, 0.2f);
             obtainStyledAttributes.recycle();
-            this.n = oi.f(getContext(), R.dimen.L_X02);
+            this.n = mi.f(getContext(), R.dimen.L_X02);
             Paint paint = new Paint(1);
             this.i = paint;
             paint.setColor(this.b);

@@ -1,71 +1,80 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
-import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
-import com.baidu.mapapi.search.route.PlanNode;
-import com.baidu.mapapi.search.route.RoutePlanSearch;
+import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class g64 {
     public static /* synthetic */ Interceptable $ic;
-    public static g64 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RoutePlanSearch a;
+    public PoiInfo a;
+    public boolean b;
+    public boolean c;
 
-    public g64() {
+    public g64(PoiInfo poiInfo, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        if (poiInfo == null) {
+            this.a = new PoiInfo();
+        }
+        this.a = poiInfo;
+        this.b = z;
+        this.c = z2;
     }
 
-    public static g64 b() {
-        InterceptResult invokeV;
+    public static List<g64> a(List<PoiInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (g64.class) {
-                    if (b == null) {
-                        b = new g64();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                for (PoiInfo poiInfo : list) {
+                    if (poiInfo.location != null) {
+                        arrayList.add(new g64(poiInfo));
                     }
                 }
+                return arrayList;
             }
-            return b;
+            return new ArrayList();
         }
-        return (g64) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public void a() {
-        RoutePlanSearch routePlanSearch;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public g64(PoiInfo poiInfo) {
+        this(poiInfo, false, false);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (routePlanSearch = this.a) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        routePlanSearch.destroy();
-    }
-
-    public void c(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng, latLng2, onGetRoutePlanResultListener) == null) || latLng == null || latLng2 == null || onGetRoutePlanResultListener == null) {
-            return;
-        }
-        RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
-        this.a = newInstance;
-        newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
-        PlanNode withLocation = PlanNode.withLocation(latLng);
-        this.a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
     }
 }

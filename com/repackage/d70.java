@@ -1,49 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.webkit.WebSettings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import com.repackage.c70;
 /* loaded from: classes5.dex */
-public class d70 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile d70 c = null;
-    public static int d = 1;
+public class d70 extends c70 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OkHttpClient a;
-    public Context b;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a extends c70.b<a, d70> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e70 a;
-        public final /* synthetic */ byte[] b;
-        public final /* synthetic */ f70 c;
-        public final /* synthetic */ d70 d;
 
-        public a(d70 d70Var, e70 e70Var, byte[] bArr, f70 f70Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d70Var, e70Var, bArr, f70Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,155 +31,54 @@ public class d70 {
                     return;
                 }
             }
-            this.d = d70Var;
-            this.a = e70Var;
-            this.b = bArr;
-            this.c = f70Var;
+            this.a.d(new t60());
+            this.a.a(new b70());
         }
 
-        @Override // java.lang.Runnable
-        public final void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.c70.b
+        /* renamed from: c */
+        public d70 b(r60 r60Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.e(this.a.b(), this.a.a(), this.b, this.a.d(), this.a.c(), this.c);
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r60Var)) == null) ? new d70(r60Var) : (d70) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755814636, "Lcom/repackage/d70;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755814636, "Lcom/repackage/d70;");
-        }
-    }
-
-    public d70(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d70(r60 r60Var) {
+        super(r60Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {r60Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r60) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).build();
-        this.b = context;
     }
 
-    public static d70 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (c == null) {
-                synchronized (d70.class) {
-                    if (c == null) {
-                        c = new d70(context);
-                    }
-                }
-            }
-            return c;
-        }
-        return (d70) invokeL.objValue;
-    }
-
-    public static Headers c(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            try {
-                Headers.Builder builder = new Headers.Builder();
-                if (map != null && map.size() > 0) {
-                    for (String str : map.keySet()) {
-                        String str2 = str.toString();
-                        builder.add(str2, map.get(str2));
-                    }
-                }
-                return builder.build();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Headers) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0024  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final String b() {
+    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
+    public String getEngineName() {
         InterceptResult invokeV;
-        String defaultUserAgent;
-        int length;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                try {
-                    defaultUserAgent = WebSettings.getDefaultUserAgent(this.b);
-                } catch (Exception unused) {
-                }
-                StringBuffer stringBuffer = new StringBuffer();
-                length = defaultUserAgent.length();
-                for (i = 0; i < length; i++) {
-                    char charAt = defaultUserAgent.charAt(i);
-                    if (charAt <= 31 || charAt >= 127) {
-                        stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                    } else {
-                        stringBuffer.append(charAt);
-                    }
-                }
-                l70.a("HttpExecutor", "getUserAgent:" + stringBuffer.toString());
-                return stringBuffer.toString();
-            }
-            defaultUserAgent = System.getProperty("http.agent");
-            StringBuffer stringBuffer2 = new StringBuffer();
-            length = defaultUserAgent.length();
-            while (i < length) {
-            }
-            l70.a("HttpExecutor", "getUserAgent:" + stringBuffer2.toString());
-            return stringBuffer2.toString();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? EngineName.URLCONNECTION : (String) invokeV.objValue;
     }
 
-    public final void e(String str, String str2, byte[] bArr, Map<String, String> map, String str3, f70 f70Var) {
-        Request.Builder addHeader;
+    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
+    public boolean isAvailable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, bArr, map, str3, f70Var}) == null) {
-            try {
-                if ("POST".equals(str)) {
-                    if (TextUtils.isEmpty(str3)) {
-                        str3 = "application/x-www-form-urlencoded";
-                    }
-                    addHeader = new Request.Builder().url(str2).headers(c(map)).removeHeader("User-Agent").addHeader("User-Agent", b()).post(RequestBody.create(MediaType.parse(str3), bArr));
-                } else {
-                    addHeader = new Request.Builder().url(str2).headers(c(map)).removeHeader("User-Agent").addHeader("User-Agent", b());
-                }
-                Response execute = this.a.newCall(addHeader.build()).execute();
-                byte[] bytes = execute.body().bytes();
-                l70.c("HttpExecutor", "requestUrl:" + str2 + "\nrequest method: " + str + "\nrequest contentType: " + str3 + "\nresponse : " + new String(bytes));
-                f70Var.a(execute.code(), bytes);
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (f70Var != null) {
-                    f70Var.b(d, "Http Unknown exception".getBytes());
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

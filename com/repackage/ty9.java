@@ -1,39 +1,61 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.Nullable;
-import org.webrtc.EglBase;
-import org.webrtc.EglBase10;
-import org.webrtc.EglBase14;
-/* compiled from: EglBase.java */
+import rx.internal.operators.OnSubscribeAmb$Selection;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class ty9 {
+public final class ty9<T> extends cy9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final cy9<? super T> e;
+    public final OnSubscribeAmb$Selection<T> f;
+    public boolean g;
 
-    public static EglBase a() {
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c(null, EglBase.CONFIG_PLAIN) : (EglBase) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.g) {
+                return true;
+            }
+            if (this.f.get() == this) {
+                this.g = true;
+                return true;
+            } else if (this.f.compareAndSet(null, this)) {
+                this.f.unsubscribeOthers(this);
+                this.g = true;
+                return true;
+            } else {
+                this.f.unsubscribeLosers();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 
-    public static EglBase b(EglBase.Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.xx9
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? c(context, EglBase.CONFIG_PLAIN) : (EglBase) invokeL.objValue;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
+            this.e.onCompleted();
+        }
     }
 
-    public static EglBase c(@Nullable EglBase.Context context, int[] iArr) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.xx9
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, iArr)) == null) ? (EglBase14.isEGL14Supported() && (context == null || (context instanceof EglBase14.Context))) ? new EglBase14((EglBase14.Context) context, iArr) : new EglBase10((EglBase10.Context) context, iArr) : (EglBase) invokeLL.objValue;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
+            this.e.onError(th);
+        }
     }
 
-    public static EglBase d(int[] iArr) {
-        InterceptResult invokeL;
+    @Override // com.repackage.xx9
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) ? new EglBase10(null, iArr) : (EglBase) invokeL.objValue;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
+            this.e.onNext(t);
+        }
     }
 }

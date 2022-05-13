@@ -1,152 +1,179 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes6.dex */
-public class ja0 implements na0 {
+public abstract class ja0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ja0 a;
+    public static final ja0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public e90 a;
-    public final int b;
-    public boolean c;
+
+    /* loaded from: classes6.dex */
+    public static class a extends ja0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.ja0
+        public float a(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? f : invokeF.floatValue;
+        }
+
+        @Override // com.repackage.ja0
+        public float b(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? f : invokeF.floatValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends ja0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Interpolator c;
+        public final Interpolator d;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public b() {
+            this(0.8f);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    this(((Float) newInitContext.callArgs[0]).floatValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.ja0
+        public float a(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? this.c.getInterpolation(f) : invokeF.floatValue;
+        }
+
+        @Override // com.repackage.ja0
+        public float b(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? this.d.getInterpolation(f) : invokeF.floatValue;
+        }
+
+        @Override // com.repackage.ja0
+        public float c(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) ? 1.0f / ((1.0f - a(f)) + b(f)) : invokeF.floatValue;
+        }
+
+        public b(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Float.valueOf(f)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.c = new AccelerateInterpolator(f);
+            this.d = new DecelerateInterpolator(f);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755595528, "Lcom/repackage/ja0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755595528, "Lcom/repackage/ja0;");
+                return;
+            }
+        }
+        a = new b();
+        b = new a();
+    }
 
     public ja0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = mb0.a().b();
     }
 
-    @Override // com.repackage.na0
-    public void a(String str) {
-        e90 e90Var;
+    public static ja0 d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.O(str);
-    }
-
-    @Override // com.repackage.la0
-    public void b() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.P();
-    }
-
-    @Override // com.repackage.la0
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.la0
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.la0
-    public void e() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.T();
-    }
-
-    @Override // com.repackage.na0
-    public void f() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.K();
-    }
-
-    @Override // com.repackage.la0
-    public void g() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.U();
-    }
-
-    @Override // com.repackage.oa0
-    public void h() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.Q();
-    }
-
-    @Override // com.repackage.na0
-    public View i(FragmentActivity fragmentActivity, Fragment fragment, String str, String str2, String str3, String str4, boolean z) {
-        InterceptResult invokeCommon;
-        FragmentManager supportFragmentManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{fragmentActivity, fragment, str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
-            j("onCreateView hostType:   page: " + str);
-            if (this.a == null) {
-                int i = this.b;
-                if (fragment != null) {
-                    supportFragmentManager = fragment.getChildFragmentManager();
-                } else {
-                    supportFragmentManager = fragmentActivity.getSupportFragmentManager();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return a;
                 }
-                this.a = new e90(fragmentActivity, i, supportFragmentManager, str, str2, this.c, str3, str4, z);
-                j90.s(fragmentActivity, "", "zhibopindao");
+                return b;
             }
-            return this.a.z();
+            return a;
         }
-        return (View) invokeCommon.objValue;
+        return (ja0) invokeI.objValue;
     }
 
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            LiveFeedPageSdk.m("LiveFeedPageViewImpl " + str + GlideException.IndentedAppendable.INDENT + this.a);
-        }
-    }
+    public abstract float a(float f);
 
-    @Override // com.repackage.na0
-    public void onUserVisibleHint(boolean z) {
-        e90 e90Var;
+    public abstract float b(float f);
+
+    public float c(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (e90Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+            return 1.0f;
         }
-        e90Var.V(z);
+        return invokeF.floatValue;
     }
 }

@@ -112,7 +112,7 @@ public class c extends com.kwad.sdk.core.e.b {
     }
 
     public void a(View view2, boolean z, int i, final boolean z2) {
-        if ((com.kwad.sdk.core.config.b.ak() || z) && com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(view2)).a(this.a).a(this.d).a(z).a(i).a(new a.b() { // from class: com.kwad.sdk.d.kwai.c.1
+        if ((com.kwad.sdk.core.config.b.ak() || z) && com.kwad.sdk.core.download.a.a.a(new a.C0295a(bb.a(view2)).a(this.a).a(this.d).a(z).a(i).a(new a.b() { // from class: com.kwad.sdk.d.kwai.c.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 c.this.a(z2);

@@ -1,32 +1,103 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.sportspage.notification.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
+import java.util.Calendar;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class fo6 implements ho6 {
+public class fo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
+    public TbPageContext a;
+    public CustomMessageListener b;
 
-    public fo6() {
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(fo6 fo6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fo6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fo6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                try {
+                    JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
+                    String optString = jSONObject.optString("gameId");
+                    String optString2 = jSONObject.optString("gameName");
+                    String optString3 = jSONObject.optString("gameTime");
+                    String optString4 = jSONObject.optString("gameType");
+                    String q = iu4.k().q("key_match_id_list_" + optString4, "");
+                    String str2 = "match_id_" + optString4 + "_" + optString;
+                    if (TextUtils.isEmpty(q)) {
+                        str = str2;
+                    } else {
+                        str = "," + str2;
+                    }
+                    if (TextUtils.isEmpty(q) || !q.contains(str2)) {
+                        iu4.k().y("key_match_id_list_" + optString4, q + str);
+                    }
+                    Intent intent = new Intent(this.a.a.getPageActivity(), AlarmReceiver.class);
+                    intent.putExtra("KEY_MATCH_NAME", optString2);
+                    intent.putExtra("KEY_MATCH_TYPE", optString4);
+                    intent.putExtra("KEY_MATCH_ID", optString);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(this.a.a.getPageActivity(), 0, intent, 0);
+                    Calendar calendar = Calendar.getInstance();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    calendar.setTimeInMillis(currentTimeMillis);
+                    long g = (kg.g(optString3, 0L) * 1000) - currentTimeMillis;
+                    if (g > 0) {
+                        calendar.add(14, (int) g);
+                    }
+                    ((AlarmManager) this.a.a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public fo6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,98 +107,9 @@ public abstract class fo6 implements ho6 {
                 return;
             }
         }
-        gj8.b();
-    }
-
-    @Override // com.repackage.ho6, com.repackage.po6
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ho6
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
-
-    @Override // com.repackage.ho6
-    public void e(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.repackage.ho6
-    public void f(@NonNull FrsFragment frsFragment, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, frsFragment, view2) == null) && this.c == null) {
-            this.a = frsFragment;
-            this.b = view2.getContext();
-            this.c = view2;
-            o();
-        }
-    }
-
-    @Override // com.repackage.po6
-    public void g(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.ho6
-    @NonNull
-    public mo6 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.w0().f0() : (mo6) invokeV.objValue;
-    }
-
-    @Override // com.repackage.po6
-    public void j(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.repackage.po6
-    public void k(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.po6
-    public void l(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.ho6
-    public int n(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void o();
-
-    @Override // com.repackage.po6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
+        a aVar = new a(this, 2921404);
+        this.b = aVar;
+        this.a = tbPageContext;
+        tbPageContext.registerListener(aVar);
     }
 }

@@ -68,10 +68,10 @@ public class xk0 implements dl0, Runnable {
     public <T extends bl0> void a(gl0 gl0Var, el0<T> el0Var, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, gl0Var, el0Var, t) == null) {
-            if (si0.a()) {
+            if (vi0.a()) {
                 this.a.offer(new fl0.b<>(gl0Var, el0Var, t));
                 if (this.b.compareAndSet(false, true)) {
-                    b01.c(this, "BackgroundDeliver", 3);
+                    c01.c(this, "BackgroundDeliver", 3);
                     return;
                 }
                 return;

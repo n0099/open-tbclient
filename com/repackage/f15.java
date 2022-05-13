@@ -2,28 +2,29 @@ package com.repackage;
 
 import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.MoreDeskView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f15 extends u05 {
+public class f15 extends i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f15(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0522), 10, i);
+    public f15(Context context) {
+        super(context, null, 2, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -31,12 +32,44 @@ public class f15 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080969;
-        this.e = R.drawable.obfuscated_res_0x7f08096a;
-        this.f = R.drawable.obfuscated_res_0x7f0808d5;
-        this.g = false;
-        this.h = true;
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ade);
+        this.d = R.drawable.obfuscated_res_0x7f080983;
+        this.e = R.drawable.obfuscated_res_0x7f080803;
         this.i = false;
-        this.n = new int[]{14};
+        this.j = true;
+        this.m = new MoreDeskView(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f15(Context context, boolean z) {
+        super(context, null, 2, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ade);
+        this.d = R.drawable.obfuscated_res_0x7f080983;
+        this.e = R.drawable.obfuscated_res_0x7f080803;
+        this.i = false;
+        this.j = true;
+        this.m = new MoreDeskView(context, !z);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

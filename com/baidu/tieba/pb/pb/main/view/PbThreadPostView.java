@@ -50,9 +50,9 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091727);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091728);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091726);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09174f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091750);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09174e);
         }
     }
 
@@ -64,7 +64,7 @@ public class PbThreadPostView extends LinearLayout {
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a0, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0691, (ViewGroup) this, true);
             a();
         }
     }

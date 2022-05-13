@@ -1,26 +1,56 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e63 {
+public class e63 extends f63<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
-    public final boolean c;
+    public final Activity m;
+    public final String n;
+    public final String o;
+    public boolean p;
+    public int q;
 
-    public e63(boolean z, boolean z2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755785713, "Lcom/repackage/e63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755785713, "Lcom/repackage/e63;");
+                return;
+            }
+        }
+        r = eh1.a;
+    }
+
+    public e63(Activity activity, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,58 +60,114 @@ public class e63 {
                 return;
             }
         }
-        this.a = true;
-        this.b = z;
-        this.c = z2;
+        this.m = activity;
+        this.n = str;
+        this.o = str2;
+        this.p = z;
     }
 
-    public static e63 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) ? new e63(z) : (e63) invokeZ.objValue;
-    }
-
-    public static e63 d(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? new e63(z, z2) : (e63) invokeCommon.objValue;
-    }
-
-    public static e63 e() {
+    @Override // com.repackage.f63
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new e63(true, true) : (e63) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? q53.b() && !Q() : invokeV.booleanValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.f63
+    public void K() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.a && this.b) ? false : true : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a ? this.b && this.c : this.c : invokeV.booleanValue;
-    }
-
-    public e63(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.q++;
         }
-        this.a = false;
-        this.b = true;
-        this.c = z;
+    }
+
+    public JSONObject P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                u03 M = M();
+                jSONObject.put("ma_id", M.N());
+                jSONObject.put("scope", this.n);
+                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject.put("host_key_hash", s53.g());
+                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, M.N());
+                if (M.X() != null && M.X().T() != null) {
+                    jSONObject.put("scene", M.X().T());
+                }
+                if (this.p) {
+                    jSONObject.put("action_type", "1");
+                }
+                String l = bk2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject.put("host_api_key", l);
+                }
+                if (!TextUtils.isEmpty(this.o)) {
+                    jSONObject.put("provider_appkey", this.o);
+                }
+            } catch (JSONException e) {
+                if (r) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public boolean Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.q >= A() : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.r53
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: R */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            JSONObject c = s53.c(jSONObject);
+            int optInt = c.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    s53.m(c);
+                    s53.t("MaOpenDataRequest", c.toString());
+                }
+                if (r) {
+                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
+                }
+            }
+            return c;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.repackage.r53
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            v("data", P().toString());
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.f63
+    public HttpRequest w(f63 f63Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, f63Var)) == null) ? bk2.o().u(this.m, f63Var.B()) : (HttpRequest) invokeL.objValue;
+    }
+
+    @Override // com.repackage.f63
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? SwanInterfaceType.OPEN_DATA : (SwanInterfaceType) invokeV.objValue;
     }
 }

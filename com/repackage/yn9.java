@@ -1,115 +1,97 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ao9;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.ProtoAdapter;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public final class yn9<E extends ao9> extends ProtoAdapter<E> {
+public final class yn9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<E> a;
-    public Method b;
+    public final /* synthetic */ byte[] a;
+    public final /* synthetic */ String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yn9(Class<E> cls) {
-        super(FieldEncoding.VARINT, cls);
+    public yn9(byte[] bArr, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {bArr, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
+        this.a = bArr;
+        this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: a */
-    public E decode(wn9 wn9Var) throws IOException {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wn9Var)) == null) {
-            int l = wn9Var.l();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            byte[] bArr = this.a;
+            String str = this.b;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            File file = new File(str);
+            String substring = str.substring(0, str.lastIndexOf("/"));
+            if (!file.exists()) {
+                new File(substring).mkdir();
+            }
+            FileOutputStream fileOutputStream2 = null;
             try {
-                E e = (E) d().invoke(null, Integer.valueOf(l));
-                if (e != null) {
-                    return e;
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(file);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
                 }
-                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw new AssertionError(e2);
-            }
-        }
-        return (E) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public void encode(xn9 xn9Var, E e) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xn9Var, e) == null) {
-            xn9Var.q(e.getValue());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public int encodedSize(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) ? xn9.i(e.getValue()) : invokeL.intValue;
-    }
-
-    public final Method d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.b;
-            if (method != null) {
-                return method;
+            } catch (Throwable th) {
+                th = th;
             }
             try {
-                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
-                this.b = method2;
-                return method2;
-            } catch (NoSuchMethodException e) {
-                throw new AssertionError(e);
+                byte[] bArr2 = new byte[1024];
+                while (true) {
+                    int read = byteArrayInputStream.read(bArr2);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr2, 0, read);
+                }
+                fileOutputStream.flush();
+                fileOutputStream.close();
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
-        return (Method) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof yn9) && ((yn9) obj).a == this.a : invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 }

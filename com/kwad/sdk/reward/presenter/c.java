@@ -20,7 +20,7 @@ public class c extends com.kwad.sdk.reward.g {
             if (com.kwad.sdk.core.response.a.a.aI(this.b)) {
                 final com.kwad.sdk.reward.kwai.c cVar = new com.kwad.sdk.reward.kwai.c();
                 a((Presenter) cVar);
-                a(new com.kwad.sdk.reward.presenter.platdetail.actionbar.d((ViewGroup) ((ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f091109)).inflate(), new g.a() { // from class: com.kwad.sdk.reward.presenter.c.1
+                a(new com.kwad.sdk.reward.presenter.platdetail.actionbar.d((ViewGroup) ((ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f091118)).inflate(), new g.a() { // from class: com.kwad.sdk.reward.presenter.c.1
                     @Override // com.kwad.sdk.reward.d.g.a
                     public void a() {
                         cVar.e();
@@ -31,9 +31,9 @@ public class c extends com.kwad.sdk.reward.g {
             return;
         }
         boolean aA = com.kwad.sdk.core.response.a.a.aA(this.b);
-        ViewStub viewStub = (ViewStub) viewGroup.findViewById(aA ? R.id.obfuscated_res_0x7f0910fe : R.id.obfuscated_res_0x7f0910eb);
+        ViewStub viewStub = (ViewStub) viewGroup.findViewById(aA ? R.id.obfuscated_res_0x7f09110d : R.id.obfuscated_res_0x7f0910fa);
         if (viewStub == null) {
-            inflate = viewGroup.findViewById(aA ? R.id.obfuscated_res_0x7f0910fc : R.id.obfuscated_res_0x7f091101);
+            inflate = viewGroup.findViewById(aA ? R.id.obfuscated_res_0x7f09110b : R.id.obfuscated_res_0x7f091110);
         } else {
             inflate = viewStub.inflate();
         }

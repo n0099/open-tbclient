@@ -1,201 +1,89 @@
 package com.repackage;
 
-import android.content.pm.Signature;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.util.Util;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.pms.IPmsContext;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.statistic.StatisticCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateEncodingException;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public final class wm {
+public class wm implements IPmsContext {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static WeakReference<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964023825, "Lcom/repackage/wm;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964023825, "Lcom/repackage/wm;");
-                return;
+    public wm() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new Object();
     }
 
-    public static Signature[] a(String str, Util.a aVar) throws CertificateEncodingException, IOException {
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public boolean checkChannelAllow(String str, String str2) {
         InterceptResult invokeLL;
-        WeakReference<byte[]> weakReference;
-        byte[] bArr;
-        Certificate[] b2;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, aVar)) == null) {
-            if (TextUtils.isEmpty(str) || aVar == null) {
-                return null;
-            }
-            synchronized (a) {
-                weakReference = b;
-                if (weakReference != null) {
-                    b = null;
-                    bArr = weakReference.get();
-                } else {
-                    bArr = null;
-                }
-                if (bArr == null) {
-                    bArr = new byte[8192];
-                    weakReference = new WeakReference<>(bArr);
-                }
-            }
-            try {
-                JarFile jarFile = new JarFile(str);
-                aVar.c = 1;
-                Enumeration<JarEntry> entries = jarFile.entries();
-                Certificate[] certificateArr = null;
-                loop0: while (true) {
-                    if (entries.hasMoreElements()) {
-                        JarEntry nextElement = entries.nextElement();
-                        if (!nextElement.isDirectory()) {
-                            String name = nextElement.getName();
-                            if (!name.startsWith("META-INF/")) {
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("jarFile_");
-                                sb.append(jarFile.getName());
-                                sb.append("-JarEntry_");
-                                sb.append(name);
-                                aVar.b = sb.toString();
-                                aVar.c = 2;
-                                try {
-                                    b2 = b(jarFile, nextElement, bArr, aVar);
-                                } catch (Exception e) {
-                                    sb.append("-Exception_");
-                                    sb.append(e.toString());
-                                    aVar.b = sb.toString();
-                                    b2 = b(jarFile, nextElement, bArr, aVar);
-                                }
-                                aVar.c = 5;
-                                if (b2 == null) {
-                                    aVar.c = 6;
-                                    BdLog.e("Package " + str + " has no certificates at entry " + nextElement.getName() + "; ignoring!");
-                                    jarFile.close();
-                                    return null;
-                                } else if (certificateArr == null) {
-                                    certificateArr = b2;
-                                } else {
-                                    for (int i = 0; i < certificateArr.length; i++) {
-                                        int i2 = 0;
-                                        while (true) {
-                                            if (i2 >= b2.length) {
-                                                z = false;
-                                                break;
-                                            } else if (certificateArr[i] != null && certificateArr[i].equals(b2[i2])) {
-                                                z = true;
-                                                break;
-                                            } else {
-                                                i2++;
-                                            }
-                                        }
-                                        if (!z || certificateArr.length != b2.length) {
-                                            break loop0;
-                                        }
-                                    }
-                                    continue;
-                                }
-                            }
-                        }
-                    } else {
-                        aVar.c = 8;
-                        jarFile.close();
-                        synchronized (a) {
-                            b = weakReference;
-                        }
-                        aVar.c = 9;
-                        if (certificateArr != null && certificateArr.length > 0) {
-                            int length = certificateArr.length;
-                            Signature[] signatureArr = new Signature[certificateArr.length];
-                            for (int i3 = 0; i3 < length; i3++) {
-                                signatureArr[i3] = new Signature(certificateArr[i3].getEncoded());
-                            }
-                            return signatureArr;
-                        }
-                        BdLog.e("Package " + str + " has no certificates; ignoring!");
-                        return null;
-                    }
-                }
-                aVar.c = 7;
-                jarFile.close();
-                return null;
-            } catch (IOException e2) {
-                BdLog.e("Exception reading " + str + "----" + e2.getMessage());
-                throw e2;
-            } catch (RuntimeException e3) {
-                BdLog.e("Exception reading " + str + "----" + e3.getMessage());
-                throw e3;
-            } catch (CertificateEncodingException e4) {
-                BdLog.e("Exception reading " + str + "----" + e4.getMessage());
-                throw e4;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return true;
         }
-        return (Signature[]) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr, Util.a aVar) throws IOException {
-        InterceptResult invokeLLLL;
-        BufferedInputStream bufferedInputStream;
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public List<RequestParams.Channel> getLongConnectParams() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, jarFile, jarEntry, bArr, aVar)) == null) {
-            BufferedInputStream bufferedInputStream2 = null;
-            try {
-                try {
-                    bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException e) {
-                e = e;
-            } catch (RuntimeException e2) {
-                e = e2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Collections.emptyList() : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? getRegisterParams(str, "aps") : (RequestParams) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public StatisticCallback getStatisticCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new ym() : (StatisticCallback) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(str);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "aps";
             }
-            try {
-                aVar.c = 3;
-                while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
-                }
-                aVar.c = 4;
-                Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
-                lg.c(bufferedInputStream);
-                return certificates;
-            } catch (IOException e3) {
-                e = e3;
-                BdLog.e("Exception reading " + jarEntry.getName() + " in " + jarFile.getName() + "----" + e.getMessage());
-                throw e;
-            } catch (RuntimeException e4) {
-                e = e4;
-                BdLog.e("Exception reading " + jarEntry.getName() + " in " + jarFile.getName() + "----" + e.getMessage());
-                throw e;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedInputStream2 = bufferedInputStream;
-                lg.c(bufferedInputStream2);
-                throw th;
+            requestParams.setRunNode(str2);
+            if ("0".equals(str)) {
+                requestParams.addChannel(bl.e().d());
+                requestParams.addChannel(new tn());
+                requestParams.addChannel(new dn());
             }
+            return requestParams;
         }
-        return (Certificate[]) invokeLLLL.objValue;
+        return (RequestParams) invokeLL.objValue;
     }
 }

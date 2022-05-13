@@ -1,51 +1,71 @@
 package com.repackage;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class vk9 extends BaseAdRipper {
+public class vk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vk9(Ssp.Pid pid) {
-        super(pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755228147, "Lcom/repackage/vk9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755228147, "Lcom/repackage/vk9;");
                 return;
             }
         }
+        b = new Object();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a != null) {
+                return a;
+            }
+            synchronized (b) {
+                if (a != null) {
+                    return a;
+                }
+                a = b(mk9.getContext().provideContext());
+                return a;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            Object findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", obj);
-            if (findField == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
                 return null;
             }
-            return ak9.a((AdInfo) findField);
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
         }
-        return (RippedAd) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

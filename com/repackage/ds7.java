@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ds7 implements uo {
+public class ds7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,19 +66,19 @@ public class ds7 implements uo {
         this.h = forumData.isLike() == 1;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
     }
 
-    public ds7(nq4 nq4Var) {
+    public ds7(yq4 yq4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nq4Var};
+            Object[] objArr = {yq4Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -89,14 +89,14 @@ public class ds7 implements uo {
             }
         }
         this.e = false;
-        if (nq4Var == null) {
+        if (yq4Var == null) {
             return;
         }
-        this.a = nq4Var.b;
-        this.b = nq4Var.c;
-        this.c = nq4Var.h;
-        this.d = nq4Var.i;
-        this.f = nq4Var.a;
-        this.h = nq4Var.getIsLike();
+        this.a = yq4Var.b;
+        this.b = yq4Var.c;
+        this.c = yq4Var.h;
+        this.d = yq4Var.i;
+        this.f = yq4Var.a;
+        this.h = yq4Var.getIsLike();
     }
 }

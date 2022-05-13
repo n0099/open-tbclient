@@ -1,38 +1,46 @@
 package com.repackage;
 
-import android.util.Log;
-import android.view.ViewTreeObserver;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes6.dex */
-public class mp9 implements ViewTreeObserver.OnTouchModeChangeListener {
+public class mp9 implements LocationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mp9(xp9 xp9Var) {
+    public /* synthetic */ mp9(kp9 kp9Var) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xp9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
+            pp9.c.a = location.getLatitude();
+            pp9.c.b = location.getLongitude();
         }
     }
 
-    @Override // android.view.ViewTreeObserver.OnTouchModeChangeListener
-    public void onTouchModeChanged(boolean z) {
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onTouchModeChanged:" + z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
         }
     }
 }

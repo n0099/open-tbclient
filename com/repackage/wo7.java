@@ -37,10 +37,10 @@ public class wo7 extends bp7 {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090887);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09087f);
         this.b = textView;
         textView.setText(str);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090888);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090880);
         c();
     }
 
@@ -71,7 +71,7 @@ public class wo7 extends bp7 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = oi.i(TbadkCoreApplication.getInst());
+            int i = mi.i(TbadkCoreApplication.getInst());
             int dimensionPixelSize = i <= 0 ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200) : (int) (i * 0.11d);
             ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {

@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fz;
-import com.repackage.pn4;
-import com.repackage.tx5;
+import com.repackage.oy;
+import com.repackage.ux5;
+import com.repackage.zn4;
 /* loaded from: classes.dex */
-public class ShareSmartAppLayout extends LinearLayout implements fz<pn4> {
+public class ShareSmartAppLayout extends LinearLayout implements oy<zn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppletsCellView a;
-    public tx5<pn4> b;
+    public ux5<zn4> b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShareSmartAppLayout(Context context) {
@@ -49,22 +49,22 @@ public class ShareSmartAppLayout extends LinearLayout implements fz<pn4> {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d076d, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0765, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (AppletsCellView) findViewById(R.id.obfuscated_res_0x7f090542);
+            this.a = (AppletsCellView) findViewById(R.id.obfuscated_res_0x7f09053f);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
+    @Override // com.repackage.oy
     /* renamed from: c */
-    public void a(pn4 pn4Var) {
+    public void a(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
-            if (pn4Var != null && pn4Var.getThreadData() != null && pn4Var.getThreadData().getSmartApp() != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zn4Var) == null) {
+            if (zn4Var != null && zn4Var.getThreadData() != null && zn4Var.getThreadData().getSmartApp() != null) {
                 setVisibility(0);
-                ThreadData threadData = pn4Var.getThreadData();
+                ThreadData threadData = zn4Var.getThreadData();
                 this.a.setData(threadData.getSmartApp());
                 this.a.setForumId(String.valueOf(threadData.getFid()));
                 this.a.setFrom("frs_card");
@@ -74,10 +74,10 @@ public class ShareSmartAppLayout extends LinearLayout implements fz<pn4> {
         }
     }
 
-    public tx5<pn4> getSubClickListener() {
+    public ux5<zn4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (tx5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (ux5) invokeV.objValue;
     }
 
     public void setFromCDN(boolean z) {
@@ -86,10 +86,10 @@ public class ShareSmartAppLayout extends LinearLayout implements fz<pn4> {
         }
     }
 
-    public void setSubClickListener(tx5<pn4> tx5Var) {
+    public void setSubClickListener(ux5<zn4> ux5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tx5Var) == null) {
-            this.b = tx5Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ux5Var) == null) {
+            this.b = ux5Var;
         }
     }
 

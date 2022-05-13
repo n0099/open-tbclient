@@ -1,25 +1,23 @@
 package com.repackage;
 
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-import com.win.opensdk.downloader.WDownLoadService;
 /* loaded from: classes5.dex */
-public class br9 implements Runnable {
+public class br9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Info a;
-    public final /* synthetic */ WDownLoadService b;
+    public String a;
+    public Info b;
 
-    public br9(WDownLoadService wDownLoadService, Info info) {
+    public br9(Info info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wDownLoadService, info};
+            Object[] objArr = {info};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,17 +27,9 @@ public class br9 implements Runnable {
                 return;
             }
         }
-        this.b = wDownLoadService;
-        this.a = info;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Info info = this.a;
-            WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1565), this.b.getString(R.string.obfuscated_res_0x7f0f1565), 100);
+        this.b = info;
+        if (info != null) {
+            this.a = info.getPid();
         }
     }
 }

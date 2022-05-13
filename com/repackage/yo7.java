@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vd5;
+import com.repackage.oe5;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class yo7 implements Object<List<EmotionPackageData>> {
@@ -32,7 +32,7 @@ public class yo7 implements Object<List<EmotionPackageData>> {
     public View c;
     public so7 d;
     public wo7 e;
-    public g45 f;
+    public x45 f;
     public FrameLayout g;
     public boolean h;
     public qo7 i;
@@ -40,7 +40,7 @@ public class yo7 implements Object<List<EmotionPackageData>> {
     public NoNetworkView k;
 
     /* loaded from: classes7.dex */
-    public class a implements vd5.i {
+    public class a implements oe5.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yo7 a;
@@ -63,7 +63,7 @@ public class yo7 implements Object<List<EmotionPackageData>> {
             this.a = yo7Var;
         }
 
-        @Override // com.repackage.vd5.i
+        @Override // com.repackage.oe5.i
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -162,12 +162,12 @@ public class yo7 implements Object<List<EmotionPackageData>> {
         }
         this.h = false;
         this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02e8, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02df, (ViewGroup) null, false);
         this.c = inflate;
-        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091490);
-        this.k = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0923af);
-        this.e = new wo7(this.c.findViewById(R.id.obfuscated_res_0x7f0908ac), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0540));
-        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f09148f);
+        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914aa);
+        this.k = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0923ff);
+        this.e = new wo7(this.c.findViewById(R.id.obfuscated_res_0x7f0908a4), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0546));
+        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f0914a9);
         this.b = simpleDragSortListView;
         simpleDragSortListView.setDivider(null);
         this.b.setOverScrollMode(2);
@@ -242,7 +242,7 @@ public class yo7 implements Object<List<EmotionPackageData>> {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pg.a().post(new c(this));
+            ng.a().post(new c(this));
         }
     }
 
@@ -281,9 +281,9 @@ public class yo7 implements Object<List<EmotionPackageData>> {
         }
         i();
         this.g.setVisibility(0);
-        g45 g45Var = new g45(this.a.getPageActivity());
-        this.f = g45Var;
-        g45Var.attachView(this.g, true);
+        x45 x45Var = new x45(this.a.getPageActivity());
+        this.f = x45Var;
+        x45Var.attachView(this.g, true);
         this.f.onChangeSkinType();
     }
 
@@ -294,7 +294,7 @@ public class yo7 implements Object<List<EmotionPackageData>> {
         }
         i();
         this.g.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070239)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0543)), null, true);
+        NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, mi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070239)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0549)), null, true);
         this.j = b2;
         b2.setVisibility(0);
         this.j.d(this.a);
@@ -304,7 +304,7 @@ public class yo7 implements Object<List<EmotionPackageData>> {
     public void update(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            pg.a().post(new b(this, list));
+            ng.a().post(new b(this, list));
         }
     }
 }

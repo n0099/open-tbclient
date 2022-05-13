@@ -63,23 +63,17 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? super.getDialogOperationItems(i, true) : (String[]) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public abstract boolean initData(Bundle bundle);
-
     public void initParam(Bundle bundle) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             this.mListModel.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
             onInitParam(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public abstract void initView();
-
     public void onInitParam(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             UserData userData = (UserData) intent.getSerializableExtra("user");
             saveToUserData(userData);
             ((CommonPersonalMsglistModel) this.mListModel).setUser(userData);
@@ -98,9 +92,9 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             super.onItemViewClick(view2, i, i2, j);
-            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && a97.q(msg) && content != null) {
+            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && a97.u(msg) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {
@@ -124,29 +118,21 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.mListModel).getUser()));
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void refreshHeadIcon() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.refreshHeadIcon();
-        }
-    }
-
     public void saveToUserData(UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, userData) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
         }
     }
 
     public void initParam() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Intent intent = getIntent();
             boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
             MsglistModel msglistModel = this.mListModel;
@@ -160,7 +146,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     public void onInitParam(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) || bundle == null || bundle.getString("user") == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) || bundle == null || bundle.getString("user") == null) {
             return;
         }
         UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);

@@ -43,9 +43,9 @@ public class ElevationOverlayProvider {
                 return;
             }
         }
-        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040214, false);
-        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040213, 0);
-        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04016e, 0);
+        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040217, false);
+        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040216, 0);
+        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040171, 0);
         this.displayDensity = context.getResources().getDisplayMetrics().density;
     }
 

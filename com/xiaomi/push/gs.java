@@ -73,21 +73,21 @@ public class gs implements av.b.a {
         if (!this.f435a || this.a == 11) {
             return;
         }
-        ex m403a = gx.m401a().m403a();
+        ex m404a = gx.m402a().m404a();
         int i = gu.a[this.f434a.ordinal()];
         if (i != 1) {
             if (i == 3) {
                 ewVar = ew.H;
             }
-            if (m403a != null) {
-                m403a.b(this.f431a.m359a());
-                m403a.d(this.f433a.f895b);
-                m403a.f329b = 1;
+            if (m404a != null) {
+                m404a.b(this.f431a.m360a());
+                m404a.d(this.f433a.f895b);
+                m404a.f329b = 1;
                 try {
-                    m403a.a((byte) Integer.parseInt(this.f433a.g));
+                    m404a.a((byte) Integer.parseInt(this.f433a.g));
                 } catch (NumberFormatException unused) {
                 }
-                gx.m401a().a(m403a);
+                gx.m402a().a(m404a);
                 return;
             }
             return;
@@ -100,16 +100,16 @@ public class gs implements av.b.a {
         } else {
             try {
                 gv.a c = gv.c(gx.a().a());
-                m403a.f326a = c.a.a();
-                m403a.c(c.f436a);
+                m404a.f326a = c.a.a();
+                m404a.c(c.f436a);
             } catch (NullPointerException unused2) {
-                m403a = null;
+                m404a = null;
             }
-            if (m403a != null) {
+            if (m404a != null) {
             }
         }
-        m403a.f326a = ewVar.a();
-        if (m403a != null) {
+        m404a.f326a = ewVar.a();
+        if (m404a != null) {
         }
     }
 
@@ -117,7 +117,7 @@ public class gs implements av.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f433a.a(this);
-            this.f431a = this.f432a.m598a();
+            this.f431a = this.f432a.m599a();
         }
     }
 

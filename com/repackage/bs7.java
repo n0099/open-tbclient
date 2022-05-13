@@ -26,7 +26,6 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardHListViewData;
-import com.baidu.tieba.recapp.constants.Cmatch;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.usermute.MuteUser;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,16 +60,16 @@ import tbclient.User;
 public class bs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uv7 A;
+    public tv7 A;
     public List<MuteUser> B;
-    public tp4 C;
+    public eq4 C;
     public List<ThreadData> D;
     public AlaLiveInfoCoreData E;
-    public ArrayList<cl8> F;
-    public cl8 G;
+    public ArrayList<zj8> F;
+    public zj8 G;
     public TwzhiboAnti H;
-    public List<nq4> I;
-    public List<nq4> J;
+    public List<yq4> I;
+    public List<yq4> J;
     public us7 K;
     public PostData L;
     public fs7 M;
@@ -80,9 +79,9 @@ public class bs7 {
     public String Q;
     public List<RecommendTopicData.RecommendTopicListData> R;
     public HashSet<String> S;
-    public List<go4> T;
+    public List<qo4> T;
     public int U;
-    public a08 V;
+    public xz7 V;
     public PostData W;
     public boolean X;
     public PostData Y;
@@ -92,11 +91,11 @@ public class bs7 {
     public String b;
     public int b0;
     public CardHListViewData c;
-    public List<cl8> c0;
+    public List<zj8> c0;
     public int d;
-    public iv7 d0;
+    public hv7 d0;
     public int e;
-    public kv7 e0;
+    public jv7 e0;
     public List<PbSortType> f;
     public String f0;
     public int g;
@@ -110,29 +109,28 @@ public class bs7 {
     public boolean k;
     public boolean k0;
     public wr7 l;
-    public boolean l0;
+    public int l0;
     public boolean m;
-    public int m0;
+    public boolean m0;
     public ForumData n;
     public boolean n0;
-    public nq4 o;
+    public yq4 o;
     public boolean o0;
     public ThreadData p;
-    public boolean p0;
+    public xw4 p0;
     public ArrayList<PostData> q;
-    public kw4 q0;
+    public int q0;
     public HashMap<String, MetaData> r;
-    public int r0;
-    public pp4 s;
-    public List<uo> s0;
+    public List<ro> r0;
+    public aq4 s;
+    public boolean s0;
     public AntiData t;
-    public boolean t0;
-    public nz4 u;
+    public b05 u;
     public int v;
     public int w;
     public int x;
     public String y;
-    public sp4 z;
+    public dq4 z;
 
     public bs7() {
         Interceptable interceptable = $ic;
@@ -160,31 +158,30 @@ public class bs7 {
         this.Z = 0;
         this.b0 = 0;
         this.c0 = new ArrayList();
-        this.l0 = false;
-        this.m0 = 0;
-        this.r0 = 0;
-        this.t0 = false;
+        this.l0 = 0;
+        this.q0 = 0;
+        this.s0 = false;
         this.n = new ForumData();
-        this.o = new nq4();
+        this.o = new yq4();
         this.p = new ThreadData();
         this.q = new ArrayList<>();
         this.r = new HashMap<>();
-        this.s = new pp4();
+        this.s = new aq4();
         this.t = new AntiData();
-        this.u = new nz4();
+        this.u = new b05();
         this.v = 0;
         this.w = 0;
         this.a = new UserData();
         this.B = new ArrayList();
-        this.z = new sp4();
-        this.C = new tp4();
-        this.A = new uv7();
+        this.z = new dq4();
+        this.C = new eq4();
+        this.A = new tv7();
         this.H = new TwzhiboAnti();
         this.K = new us7();
-        this.d0 = new iv7();
+        this.d0 = new hv7();
         this.R = new ArrayList();
         this.S = new HashSet<>();
-        this.q0 = new kw4();
+        this.p0 = new xw4();
     }
 
     public fs7 A() {
@@ -202,17 +199,17 @@ public class bs7 {
         }
     }
 
-    public iv7 B() {
+    public hv7 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            iv7 iv7Var = this.d0;
-            if (iv7Var == null || !iv7Var.isValid()) {
+            hv7 hv7Var = this.d0;
+            if (hv7Var == null || !hv7Var.isValid()) {
                 return null;
             }
             return this.d0;
         }
-        return (iv7) invokeV.objValue;
+        return (hv7) invokeV.objValue;
     }
 
     public void B0(PostData postData) {
@@ -222,17 +219,17 @@ public class bs7 {
         }
     }
 
-    public kv7 C() {
+    public jv7 C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            kv7 kv7Var = this.e0;
-            if (kv7Var == null || !kv7Var.isValid()) {
+            jv7 jv7Var = this.e0;
+            if (jv7Var == null || !jv7Var.isValid()) {
                 return null;
             }
             return this.e0;
         }
-        return (kv7) invokeV.objValue;
+        return (jv7) invokeV.objValue;
     }
 
     public void C0(boolean z) {
@@ -248,10 +245,10 @@ public class bs7 {
         }
     }
 
-    public uv7 D() {
+    public tv7 D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.A : (uv7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.A : (tv7) invokeV.objValue;
     }
 
     public void D0(int i) {
@@ -261,10 +258,10 @@ public class bs7 {
         }
     }
 
-    public tp4 E() {
+    public eq4 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.C : (tp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.C : (eq4) invokeV.objValue;
     }
 
     public void E0(String str) {
@@ -282,41 +279,41 @@ public class bs7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.q : (ArrayList) invokeV.objValue;
     }
 
-    public void F0(pp4 pp4Var, int i) {
+    public void F0(aq4 aq4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, pp4Var, i) == null) {
-            this.s.k(pp4Var.a());
-            this.s.p(pp4Var.g());
-            this.s.q(pp4Var.h());
-            this.s.o(pp4Var.e());
-            this.s.n(pp4Var.d());
+        if (interceptable == null || interceptable.invokeLI(1048587, this, aq4Var, i) == null) {
+            this.s.k(aq4Var.a());
+            this.s.p(aq4Var.g());
+            this.s.q(aq4Var.h());
+            this.s.o(aq4Var.e());
+            this.s.n(aq4Var.d());
             if (i == 0) {
-                this.s = pp4Var;
+                this.s = aq4Var;
             } else if (i == 1) {
-                this.s.l(pp4Var.b());
+                this.s.l(aq4Var.b());
             } else if (i == 2) {
-                this.s.m(pp4Var.c());
+                this.s.m(aq4Var.c());
             }
         }
     }
 
-    public a08 G() {
+    public xz7 G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.V : (a08) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.V : (xz7) invokeV.objValue;
     }
 
-    public void G0(cl8 cl8Var) {
+    public void G0(zj8 zj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, cl8Var) == null) {
-            this.G = cl8Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, zj8Var) == null) {
+            this.G = zj8Var;
         }
     }
 
     public int H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.l0 : invokeV.intValue;
     }
 
     public void H0(ps7 ps7Var) {
@@ -335,7 +332,7 @@ public class bs7 {
     public void I0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.m0 = i;
+            this.l0 = i;
         }
     }
 
@@ -380,10 +377,10 @@ public class bs7 {
         return invokeV.intValue;
     }
 
-    public void L0(List<uo> list) {
+    public void L0(List<ro> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, list) == null) {
-            this.s0 = list;
+            this.r0 = list;
         }
     }
 
@@ -412,40 +409,40 @@ public class bs7 {
             String str = "";
             if (q0()) {
                 int size = this.q.size() <= 30 ? this.q.size() : 30;
-                if (O() != null && O().getAuthor() != null && !ni.isEmpty(O().getAuthor().getUserId())) {
+                if (O() != null && O().getAuthor() != null && !li.isEmpty(O().getAuthor().getUserId())) {
                     String userId = O().getAuthor().getUserId();
                     PostData i = i();
-                    if (i != null && i.s() != null && !ni.isEmpty(i.s().getUserId())) {
+                    if (i != null && i.s() != null && !li.isEmpty(i.s().getUserId())) {
                         r2 = StringHelper.equals(userId, i.s().getUserId()) ? i.z() : null;
-                        if (ni.isEmpty("")) {
+                        if (li.isEmpty("")) {
                             str = i.V();
                         }
                     }
-                    if (ni.isEmpty(str) && ni.isEmpty(r2)) {
+                    if (li.isEmpty(str) && li.isEmpty(r2)) {
                         for (int i2 = 0; i2 < size; i2++) {
                             PostData postData = (PostData) ListUtils.getItem(this.q, i2);
-                            if (postData != null && postData.s() != null && !ni.isEmpty(postData.s().getUserId()) && StringHelper.equals(userId, postData.s().getUserId())) {
-                                if (ni.isEmpty(r2)) {
+                            if (postData != null && postData.s() != null && !li.isEmpty(postData.s().getUserId()) && StringHelper.equals(userId, postData.s().getUserId())) {
+                                if (li.isEmpty(r2)) {
                                     r2 = postData.z();
                                 }
-                                if (ni.isEmpty(str)) {
+                                if (li.isEmpty(str)) {
                                     str = postData.V();
                                 }
-                                if (!ni.isEmpty(r2) && !ni.isEmpty(str)) {
+                                if (!li.isEmpty(r2) && !li.isEmpty(str)) {
                                     break;
                                 }
                             }
                         }
                     }
-                    if (z && ni.isEmpty(r2)) {
+                    if (z && li.isEmpty(r2)) {
                         r2 = "https://tb5.bdstatic.com/yunying/tieba_logo.jpg";
                     }
                     ThreadData threadData = this.p;
                     if (threadData != null && threadData.getAnchorInfoData() != null && this.p.getAnchorInfoData().getGroup_id() != 0) {
-                        str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e3c) + "] " + str;
+                        str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e5a) + "] " + str;
                     }
                     ThreadData threadData2 = this.p;
-                    if (threadData2 != null && threadData2.getThreadVideoInfo() != null && !ni.isEmpty(this.p.getThreadVideoInfo().thumbnail_url)) {
+                    if (threadData2 != null && threadData2.getThreadVideoInfo() != null && !li.isEmpty(this.p.getThreadVideoInfo().thumbnail_url)) {
                         r2 = this.p.getThreadVideoInfo().thumbnail_url;
                     }
                     ThreadData threadData3 = this.p;
@@ -507,10 +504,10 @@ public class bs7 {
         return (String) invokeV.objValue;
     }
 
-    public List<uo> R() {
+    public List<ro> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.s0 : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.r0 : (List) invokeV.objValue;
     }
 
     public ps7 S() {
@@ -549,16 +546,16 @@ public class bs7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public List<cl8> Y() {
+    public List<zj8> Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.c0 : (List) invokeV.objValue;
     }
 
-    public kw4 Z() {
+    public xw4 Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.q0 : (kw4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.p0 : (xw4) invokeV.objValue;
     }
 
     public void a() {
@@ -573,8 +570,8 @@ public class bs7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            pp4 pp4Var = this.s;
-            return pp4Var != null && pp4Var.b() == 1;
+            aq4 aq4Var = this.s;
+            return aq4Var != null && aq4Var.b() == 1;
         }
         return invokeV.booleanValue;
     }
@@ -583,7 +580,7 @@ public class bs7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             if (this.G.getAdvertAppInfo() != null) {
-                this.G.getAdvertAppInfo().i = null;
+                this.G.getAdvertAppInfo().h = null;
             }
             this.G = null;
         }
@@ -735,7 +732,7 @@ public class bs7 {
         this.D = ListUtils.subList(this.D, 0, 15);
     }
 
-    public ArrayList<cl8> e() {
+    public ArrayList<zj8> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.F : (ArrayList) invokeV.objValue;
@@ -744,10 +741,10 @@ public class bs7 {
     public boolean e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.t0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.s0 : invokeV.booleanValue;
     }
 
-    public List<go4> f() {
+    public List<qo4> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.T : (List) invokeV.objValue;
@@ -779,10 +776,10 @@ public class bs7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? O() != null && O().isUgcThreadType() : invokeV.booleanValue;
     }
 
-    public nq4 h() {
+    public yq4 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.o : (nq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.o : (yq4) invokeV.objValue;
     }
 
     public boolean h0() {
@@ -831,7 +828,7 @@ public class bs7 {
     public boolean k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.n0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.m0 : invokeV.booleanValue;
     }
 
     public ForumData l() {
@@ -843,7 +840,7 @@ public class bs7 {
     public boolean l0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.p0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.o0 : invokeV.booleanValue;
     }
 
     public String m() {
@@ -879,7 +876,7 @@ public class bs7 {
     public boolean n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.o0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.n0 : invokeV.booleanValue;
     }
 
     public ForumRuleStatus o() {
@@ -894,7 +891,7 @@ public class bs7 {
         return (interceptable == null || (invokeZ = interceptable.invokeZ(1048645, this, z)) == null) ? (this.x == 2 && z) || this.x == 1 : invokeZ.booleanValue;
     }
 
-    public List<nq4> p() {
+    public List<yq4> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.J : (List) invokeV.objValue;
@@ -955,7 +952,7 @@ public class bs7 {
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.r0 == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.q0 == 1 : invokeV.booleanValue;
     }
 
     public final void t0(@NonNull DataRes dataRes) {
@@ -982,17 +979,10 @@ public class bs7 {
     public final void u0(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048657, this, dataRes) == null) {
-            cl8 cl8Var = new cl8();
-            cl8Var.G0 = true;
-            App app = dataRes.banner_list.pb_banner_ad;
-            App c = ma8.q().c(app, Cmatch.PB_BANNER);
-            if (c != null && !this.l0 && !n98.j(c, dataRes.banner_list)) {
-                cl8Var.O0 = true;
-                this.l0 = true;
-                app = c;
-            }
-            cl8Var.R0(app);
-            this.G = cl8Var;
+            zj8 zj8Var = new zj8();
+            zj8Var.G0 = true;
+            zj8Var.R0(dataRes.banner_list.pb_banner_ad);
+            this.G = zj8Var;
         }
     }
 
@@ -1011,11 +1001,11 @@ public class bs7 {
                 return;
             }
             for (App app : list) {
-                cl8 cl8Var = new cl8();
-                cl8Var.M0 = r0();
-                cl8Var.R0(app);
-                if (!this.c0.contains(cl8Var)) {
-                    this.c0.add(cl8Var);
+                zj8 zj8Var = new zj8();
+                zj8Var.M0 = r0();
+                zj8Var.R0(app);
+                if (!this.c0.contains(zj8Var)) {
+                    this.c0.add(zj8Var);
                 }
             }
         }
@@ -1033,20 +1023,20 @@ public class bs7 {
         if (!(interceptable == null || interceptable.invokeL(1048661, this, floatingIcon) == null) || floatingIcon == null || (floatingIconItem = floatingIcon.pbpage) == null) {
             return;
         }
-        kw4 kw4Var = this.q0;
-        kw4Var.b = floatingIconItem.icon_url;
-        kw4Var.c = floatingIconItem.fold_lottie;
-        kw4Var.d = floatingIconItem.unfold_lottie;
-        kw4Var.e = floatingIconItem.float_type;
-        kw4Var.f = floatingIconItem.fold_name;
-        kw4Var.g = floatingIconItem.unfold_name;
-        kw4Var.a = floatingIconItem.url;
-        kw4Var.j = floatingIconItem.scheme;
-        kw4Var.k = floatingIconItem.package_name;
-        kw4Var.l = floatingIconItem.deeplink;
-        kw4Var.h = floatingIconItem.view_statistics_url;
-        kw4Var.i = floatingIconItem.click_statistics_url;
-        kw4Var.r = floatingIconItem.display_ad_icon;
+        xw4 xw4Var = this.p0;
+        xw4Var.b = floatingIconItem.icon_url;
+        xw4Var.c = floatingIconItem.fold_lottie;
+        xw4Var.d = floatingIconItem.unfold_lottie;
+        xw4Var.e = floatingIconItem.float_type;
+        xw4Var.f = floatingIconItem.fold_name;
+        xw4Var.g = floatingIconItem.unfold_name;
+        xw4Var.a = floatingIconItem.url;
+        xw4Var.j = floatingIconItem.scheme;
+        xw4Var.k = floatingIconItem.package_name;
+        xw4Var.l = floatingIconItem.deeplink;
+        xw4Var.h = floatingIconItem.view_statistics_url;
+        xw4Var.i = floatingIconItem.click_statistics_url;
+        xw4Var.r = floatingIconItem.display_ad_icon;
     }
 
     @NonNull
@@ -1062,7 +1052,7 @@ public class bs7 {
             return;
         }
         try {
-            tc8.e().h(dataRes.asp_shown_info);
+            rb8.e().h(dataRes.asp_shown_info);
             List<User> list = dataRes.user_list;
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
@@ -1122,7 +1112,7 @@ public class bs7 {
             }
             this.s.j(dataRes.page);
             if (dataRes.page != null && dataRes.page.has_more.intValue() == 0) {
-                this.t0 = true;
+                this.s0 = true;
             }
             this.t.parserProtobuf(dataRes.anti);
             this.u.c(dataRes.location);
@@ -1140,36 +1130,29 @@ public class bs7 {
                 }
             }
             this.p.setReply_num(this.p.getReply_num() > 0 ? this.p.getReply_num() - 1 : 0);
-            List<AdvertAppInfo> h = ma8.q().h();
-            if (h != null) {
-                h.clear();
+            List<AdvertAppInfo> f = ja8.l().f();
+            if (f != null) {
+                f.clear();
             }
             String str = null;
             this.G = null;
-            this.l0 = false;
             if (dataRes.banner_list != null) {
                 List<App> list2 = dataRes.banner_list.app;
                 u0(dataRes);
                 for (App app : list2) {
-                    cl8 cl8Var = new cl8();
-                    cl8Var.M0 = r0();
-                    App c = ma8.q().c(app, r0() ? Cmatch.VIDEO_PB_COMMENT : Cmatch.PB_COMMENT);
-                    if (c != null && !this.l0 && !n98.j(c, dataRes.banner_list)) {
-                        cl8Var.O0 = true;
-                        this.l0 = true;
-                        app = c;
-                    }
-                    cl8Var.R0(app);
-                    if (!this.F.contains(cl8Var)) {
-                        this.F.add(cl8Var);
-                        if (h != null) {
-                            h.add(cl8Var.getAdvertAppInfo());
+                    zj8 zj8Var = new zj8();
+                    zj8Var.M0 = r0();
+                    zj8Var.R0(app);
+                    if (!this.F.contains(zj8Var)) {
+                        this.F.add(zj8Var);
+                        if (f != null) {
+                            f.add(zj8Var.getAdvertAppInfo());
                         }
                     }
                 }
                 v0(dataRes);
             }
-            ma8.q().g();
+            ja8.l().e();
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
                 currentAccountObj.setIsSelectTail(this.a.getIsSelectTail());
@@ -1192,9 +1175,9 @@ public class bs7 {
                     this.I = new ArrayList();
                 }
                 for (SimpleForum simpleForum : dataRes.repost_recommend_forum_list) {
-                    nq4 nq4Var = new nq4();
-                    nq4Var.j(simpleForum);
-                    this.I.add(nq4Var);
+                    yq4 yq4Var = new yq4();
+                    yq4Var.j(simpleForum);
+                    this.I.add(yq4Var);
                 }
             }
             if (ListUtils.getCount(dataRes.from_forum_list) > 0) {
@@ -1203,9 +1186,9 @@ public class bs7 {
                 }
                 for (SimpleForum simpleForum2 : dataRes.from_forum_list) {
                     if (simpleForum2 != null) {
-                        nq4 nq4Var2 = new nq4();
-                        nq4Var2.j(simpleForum2);
-                        this.J.add(nq4Var2);
+                        yq4 yq4Var2 = new yq4();
+                        yq4Var2.j(simpleForum2);
+                        this.J.add(yq4Var2);
                     }
                 }
             }
@@ -1222,10 +1205,10 @@ public class bs7 {
                 int i3 = 1;
                 for (ThreadInfo threadInfo : dataRes.bjh_recommend) {
                     if (threadInfo != null && !p0(threadInfo) && !f0(threadInfo)) {
-                        go4 go4Var = new go4();
-                        go4Var.m(i3);
-                        go4Var.parserProtobuf(threadInfo);
-                        this.T.add(go4Var);
+                        qo4 qo4Var = new qo4();
+                        qo4Var.m(i3);
+                        qo4Var.parserProtobuf(threadInfo);
+                        this.T.add(qo4Var);
                         i3++;
                     }
                 }
@@ -1235,14 +1218,14 @@ public class bs7 {
             }
             if (dataRes.recom_ala_info != null && dataRes.recom_ala_info.live_status.intValue() == 1 && dataRes.recom_ala_info.pb_display_type.intValue() == 2) {
                 if (this.V == null) {
-                    a08 a08Var = new a08();
-                    this.V = a08Var;
-                    a08Var.r(dataRes.recom_ala_info);
+                    xz7 xz7Var = new xz7();
+                    this.V = xz7Var;
+                    xz7Var.r(dataRes.recom_ala_info);
                 }
             } else if (this.V == null && dataRes.promotion != null) {
-                a08 a08Var2 = new a08();
-                this.V = a08Var2;
-                a08Var2.s(dataRes.promotion);
+                xz7 xz7Var2 = new xz7();
+                this.V = xz7Var2;
+                xz7Var2.s(dataRes.promotion);
             }
             if (dataRes.business_promot_info != null) {
                 this.i = dataRes.business_promot_info.is_promot.longValue() == 1;
@@ -1263,9 +1246,9 @@ public class bs7 {
             if (this.d0.o != null) {
                 this.d0.o.o(Q());
             }
-            kv7 kv7Var = new kv7();
-            this.e0 = kv7Var;
-            kv7Var.b(this.r);
+            jv7 jv7Var = new jv7();
+            this.e0 = jv7Var;
+            jv7Var.b(this.r);
             this.e0.a(dataRes.recom_ala_info);
             if (this.e0.m != null) {
                 this.e0.m.o(Q());
@@ -1282,22 +1265,22 @@ public class bs7 {
                 this.i0 = dataRes.forum_rule;
             }
             this.k0 = dataRes.is_black_white.intValue() == 1;
-            this.n0 = dataRes.is_official_forum.intValue() == 1;
-            this.o0 = dataRes.show_adsense.intValue() == 1;
-            this.p0 = dataRes.is_purchase.intValue() == 1;
+            this.m0 = dataRes.is_official_forum.intValue() == 1;
+            this.n0 = dataRes.show_adsense.intValue() == 1;
+            this.o0 = dataRes.is_purchase.intValue() == 1;
             FloatingIcon floatingIcon = dataRes.floating_icon;
             w0(dataRes.floating_icon);
-            this.r0 = dataRes.has_fold_comment.intValue();
+            this.q0 = dataRes.has_fold_comment.intValue();
             dataRes.fold_comment_num.longValue();
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public pp4 y() {
+    public aq4 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.s : (pp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.s : (aq4) invokeV.objValue;
     }
 
     public void y0(int i) {
@@ -1307,16 +1290,16 @@ public class bs7 {
         }
     }
 
-    public cl8 z() {
+    public zj8 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.G : (cl8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.G : (zj8) invokeV.objValue;
     }
 
-    public void z0(nq4 nq4Var) {
+    public void z0(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048667, this, nq4Var) == null) {
-            this.o = nq4Var;
+        if (interceptable == null || interceptable.invokeL(1048667, this, yq4Var) == null) {
+            this.o = yq4Var;
         }
     }
 }

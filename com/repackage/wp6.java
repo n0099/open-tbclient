@@ -1,25 +1,118 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.os.Handler;
+import android.view.View;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wp6 {
+public class wp6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
     public boolean b;
-    public boolean c;
+    public TbPageContext c;
+    public View d;
+    public PopupWindow e;
+    public Handler f;
+    public Runnable g;
 
-    public wp6(String str) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wp6 a;
+
+        /* renamed from: com.repackage.wp6$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0545a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0545a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.e == null) {
+                    return;
+                }
+                this.a.a.j();
+            }
+        }
+
+        public a(wp6 wp6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wp6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wp6Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null || this.a.d == null) {
+                return;
+            }
+            Activity pageActivity = this.a.c.getPageActivity();
+            int f = mi.f(pageActivity, R.dimen.obfuscated_res_0x7f070258);
+            wp6 wp6Var = this.a;
+            View h = wp6Var.h(pageActivity, wp6Var.a);
+            int[] iArr = new int[2];
+            this.a.d.getLocationInWindow(iArr);
+            int f2 = mi.f(pageActivity, R.dimen.obfuscated_res_0x7f070207);
+            int f3 = (iArr[1] - f) + mi.f(pageActivity, R.dimen.obfuscated_res_0x7f0701be);
+            this.a.e = new PopupWindow(h, -2, f);
+            this.a.e.showAtLocation(this.a.d, 53, f2, f3);
+            this.a.f.postDelayed(new RunnableC0545a(this), 3000L);
+        }
+    }
+
+    public wp6(TbPageContext tbPageContext, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,80 +122,79 @@ public class wp6 {
                 return;
             }
         }
-        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
-            this.a = str.substring(0, 1).contains("1");
-            this.b = str.substring(2, 3).contains("1");
-            if (str.length() >= 5) {
-                this.c = str.substring(4, 5).contains("1");
-                return;
-            }
+        this.a = R.string.obfuscated_res_0x7f0f02b0;
+        this.f = new Handler();
+        this.g = new a(this);
+        this.c = tbPageContext;
+        this.b = z;
+    }
+
+    public final View h(Activity activity, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, activity, i)) == null) {
+            TextView textView = new TextView(activity);
+            int f = mi.f(activity, R.dimen.obfuscated_res_0x7f0701d5);
+            textView.setPadding(f, 0 - activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e), f, 0);
+            textView.setHeight(activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07026f));
+            textView.setGravity(17);
+            textView.setTextSize(0, mi.f(activity, R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setText(i);
+            textView.setOnClickListener(this);
+            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f0802ed);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            textView.setOnClickListener(this);
+            return textView;
+        }
+        return (View) invokeLI.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.removeCallbacksAndMessages(null);
+            j();
+        }
+    }
+
+    public void j() {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.e) == null) {
             return;
         }
-        this.a = false;
-        this.b = true;
+        popupWindow.dismiss();
+        this.e = null;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void k(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.b ? 1 : 0), Integer.valueOf(this.c ? 1 : 0)) : (String) invokeV.objValue;
-    }
-
-    public wp6(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (this.c == null || view2 == null || StringUtils.isNull(currentAccount)) {
                 return;
             }
+            this.d = view2;
+            if (this.b) {
+                this.a = R.string.obfuscated_res_0x7f0f02b0;
+                String str = currentAccount + "frs_god_new_post_tip_count";
+                int l = iu4.k().l(str, 0);
+                if (l >= 3) {
+                    this.b = false;
+                    return;
+                }
+                iu4.k().w(str, l + 1);
+                this.b = false;
+                this.f.postDelayed(this.g, 500L);
+            }
         }
-        this.a = z;
-        this.b = z2;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            j();
+        }
     }
 }

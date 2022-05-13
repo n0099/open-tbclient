@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.at8;
-import com.repackage.ni;
+import com.repackage.li;
+import com.repackage.xr8;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class TbLiveCyberView extends CyberVideoView {
@@ -138,7 +138,7 @@ public class TbLiveCyberView extends CyberVideoView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ni.isEmpty(str) && at8.c().d()) {
+            if (!li.isEmpty(str) && xr8.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -164,7 +164,7 @@ public class TbLiveCyberView extends CyberVideoView {
             }
             new WeakReference(TbadkCoreApplication.getInst());
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.repackage.on5
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.repackage.qn5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,7 +200,7 @@ public class TbLiveCyberView extends CyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || ni.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || li.isEmpty(str)) {
             return;
         }
         this.J = str;

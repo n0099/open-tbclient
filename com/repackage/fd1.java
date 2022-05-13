@@ -1,35 +1,374 @@
 package com.repackage;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.LruCache;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sdk.container.filedownloader.MaterialLoader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.id1;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class fd1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile fd1 g = null;
+    public static int h = 30000000;
+    public static int i = 50000000;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public int b;
-    public fd1 c;
+    public final LruCache<String, hd1<?>> a;
+    public final id1 b;
+    public final id1 c;
+    public final Map<String, id1> d;
+    public final String e;
+    public final String f;
 
-    public fd1(Bitmap bitmap, int i) {
+    /* loaded from: classes6.dex */
+    public class a implements d<Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(fd1 fd1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Throwable added to exception handler: 'OutOfMemoryError', keep only Throwable */
+        @Override // com.repackage.fd1.d
+        /* renamed from: c */
+        public Bitmap b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+                if (bArr == null) {
+                    return null;
+                }
+                try {
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                    options.inPurgeable = true;
+                    options.inInputShareable = true;
+                    return BitmapFactory.decodeStream(new ByteArrayInputStream(bArr), null, options);
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return (Bitmap) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.fd1.d
+        /* renamed from: d */
+        public <D> Bitmap a(D d) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
+                if (d instanceof Bitmap) {
+                    return (Bitmap) d;
+                }
+                return null;
+            }
+            return (Bitmap) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements id1.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ c b;
+        public final /* synthetic */ id1 c;
+
+        public b(fd1 fd1Var, String str, c cVar, id1 id1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd1Var, str, cVar, id1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = cVar;
+            this.c = id1Var;
+        }
+
+        @Override // com.repackage.id1.e
+        public void a(String str, hd1<File> hd1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, hd1Var) == null) {
+            }
+        }
+
+        @Override // com.repackage.id1.e
+        public void b(String str, hd1<File> hd1Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hd1Var) == null) && this.a.equals(str)) {
+                this.b.a();
+                this.c.q(this);
+            }
+        }
+
+        @Override // com.repackage.id1.e
+        public void c(String str, hd1<File> hd1Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hd1Var) == null) && this.a.equals(str)) {
+                this.b.b();
+                this.c.q(this);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a();
+
+        void b();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d<T> {
+        <D> T a(D d);
+
+        T b(byte[] bArr);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755711778, "Lcom/repackage/fd1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755711778, "Lcom/repackage/fd1;");
+        }
+    }
+
+    public fd1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = bitmap;
-        this.b = i;
+        this.a = new LruCache<>(6);
+        String d2 = y11.d(context);
+        this.e = d2 + "img_download/";
+        this.f = d2 + "video_download/";
+        this.b = id1.o(this.e, h);
+        this.c = id1.o(this.f, i);
+        this.d = new ConcurrentHashMap();
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? Pattern.compile("[^a-zA-Z0-9]").matcher(str).replaceAll("").trim() : (String) invokeL.objValue;
+    }
+
+    public static fd1 e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (g == null) {
+                synchronized (fd1.class) {
+                    if (g == null && context != null) {
+                        g = new fd1(context.getApplicationContext());
+                    }
+                }
+            }
+            return g;
+        }
+        return (fd1) invokeL.objValue;
+    }
+
+    public final String b(String str, id1 id1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, id1Var)) == null) {
+            String a2 = a(str);
+            return id1Var.k() + a2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final id1 c(MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, materialCacheType)) == null) {
+            if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
+                return this.c;
+            }
+            return this.b;
+        }
+        return (id1) invokeL.objValue;
+    }
+
+    public String d(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) {
+            String a2 = a(str);
+            if (f(str, materialCacheType)) {
+                return c(materialCacheType).k() + a2;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public boolean f(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, materialCacheType)) == null) {
+            boolean z = g(a(str), materialCacheType) != null;
+            id1 c2 = c(materialCacheType);
+            return (z || c2.e) ? z : new File(b(str, c2)).exists();
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public hd1<?> g(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        hd1<?> i2;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, materialCacheType)) == null) ? (materialCacheType != MaterialLoader.MaterialCacheType.PICTURE || (i2 = i(str)) == null) ? h(str, materialCacheType) : i2 : (hd1) invokeLL.objValue;
+    }
+
+    public final hd1<File> h(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, materialCacheType)) == null) ? c(materialCacheType).j(str) : (hd1) invokeLL.objValue;
+    }
+
+    public final hd1<?> i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.a.get(str) : (hd1) invokeL.objValue;
+    }
+
+    public Bitmap j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? (Bitmap) k(str, MaterialLoader.MaterialCacheType.PICTURE, new a(this)) : (Bitmap) invokeL.objValue;
+    }
+
+    public final <T> T k(String str, MaterialLoader.MaterialCacheType materialCacheType, d<T> dVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, materialCacheType, dVar)) == null) {
+            hd1<?> g2 = g(a(str), materialCacheType);
+            if (g2 != null) {
+                if (File.class.equals(g2.c())) {
+                    return dVar.b(g2.b());
+                }
+                if (Byte.TYPE.equals(g2.c())) {
+                    return null;
+                }
+                return dVar.a(g2.a());
+            }
+            if (!c(materialCacheType).e) {
+                File file = new File(b(str, c(materialCacheType)));
+                if (file.exists()) {
+                    return dVar.b(new hd1(file).b());
+                }
+            }
+            return null;
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public void l(String str, Bitmap bitmap, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, bitmap, z) == null) {
+            m(str, new hd1<>(bitmap), this.b, z, null);
+        }
+    }
+
+    public final void m(String str, hd1<?> hd1Var, id1 id1Var, boolean z, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, hd1Var, id1Var, Boolean.valueOf(z), cVar}) == null) {
+            try {
+                String a2 = a(str);
+                if (z) {
+                    this.a.put(a2, hd1Var);
+                }
+                File file = new File(id1Var.k() + a2);
+                if (cVar != null) {
+                    id1Var.f(new b(this, a2, cVar, id1Var));
+                }
+                id1Var.u(hd1Var.b(), new hd1<>(file));
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public void n(String str, byte[] bArr, MaterialLoader.MaterialCacheType materialCacheType, boolean z, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, bArr, materialCacheType, Boolean.valueOf(z), cVar}) == null) {
+            hd1<?> hd1Var = new hd1<>(bArr);
+            id1 id1Var = this.b;
+            if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
+                id1Var = this.c;
+            }
+            m(str, hd1Var, id1Var, z, cVar);
+        }
+    }
+
+    public void o(String str, byte[] bArr, String str2, int i2, boolean z, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, bArr, str2, Integer.valueOf(i2), Boolean.valueOf(z), cVar}) == null) {
+            hd1<?> hd1Var = new hd1<>(bArr);
+            id1 id1Var = this.d.get(str2);
+            if (id1Var == null) {
+                id1Var = id1.o(str2, i2);
+                this.d.put(str2, id1Var);
+            } else if (id1Var.l() != i2) {
+                id1Var.trimToSize(i2);
+            }
+            m(str, hd1Var, id1Var, z, cVar);
+        }
     }
 }

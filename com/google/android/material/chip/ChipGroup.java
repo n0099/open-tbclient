@@ -655,7 +655,7 @@ public class ChipGroup extends FlowLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ChipGroup(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040130);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040133);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -724,7 +724,7 @@ public class ChipGroup extends FlowLayout {
         this.passThroughListener = new PassThroughHierarchyChangeListener(this, null);
         this.checkedId = -1;
         this.protectFromCheckedChange = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04057f, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f04059e}, i, obfuscated_res_0x7f100359, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f04012a, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f0405a3, R.attr.obfuscated_res_0x7f0405a4}, i, obfuscated_res_0x7f100359, new int[0]);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         setChipSpacingHorizontal(obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset));
         setChipSpacingVertical(obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset));

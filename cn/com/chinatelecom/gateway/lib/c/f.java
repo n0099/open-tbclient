@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -116,7 +115,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int h = h(context);
-            return h != -101 ? (h == -1 || h == 0) ? StringUtil.NULL_STRING : h != 1 ? h != 2 ? h != 3 ? Integer.toString(h) : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+            return h != -101 ? (h == -1 || h == 0) ? StringUtil.NULL_STRING : h != 1 ? h != 2 ? h != 3 ? Integer.toString(h) : "4G" : "3G" : "2G" : "WIFI";
         }
         return (String) invokeL.objValue;
     }
@@ -126,7 +125,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             String e = e(context);
-            return (e != null && e.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) && d(context)) ? "BOTH" : e;
+            return (e != null && e.equals("WIFI") && d(context)) ? "BOTH" : e;
         }
         return (String) invokeL.objValue;
     }
@@ -146,7 +145,7 @@ public class f {
                 if (f.equals("4G")) {
                     return "12";
                 }
-                if (f.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+                if (f.equals("WIFI")) {
                     return "13";
                 }
                 if (f.equals("BOTH")) {

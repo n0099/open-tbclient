@@ -1,35 +1,45 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ThreadInfo;
+import com.repackage.kz;
+import com.repackage.vz;
 /* loaded from: classes5.dex */
-public class e07 {
+public class e07 extends eo<br4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public BdUniqueId i;
+    public String j;
+    public TbPageContext<?> k;
+    public xo l;
+    public ux5<ThreadData> m;
 
     /* loaded from: classes5.dex */
-    public static class a extends ad5<Object> {
+    public class a extends ux5<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ThreadInfo a;
+        public final /* synthetic */ e07 b;
 
-        public a(ThreadInfo threadInfo) {
+        public a(e07 e07Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {threadInfo};
+                Object[] objArr = {e07Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,118 +49,131 @@ public class e07 {
                     return;
                 }
             }
-            this.a = threadInfo;
+            this.b = e07Var;
         }
 
-        @Override // com.repackage.ad5
-        public Object doInBackground() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ux5
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String[] split = vt4.k().q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
-                if (split.length != 2) {
-                    return null;
-                }
-                String str = split[0];
-                long g = mg.g(split[1], 0L);
-                if (g != 0 && !StringUtils.isNull(str)) {
-                    vt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g);
-                }
-                return null;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                nx5.b().d(true);
+                rz6.j(view2, threadData, this.b.j);
             }
-            return invokeV.objValue;
         }
     }
 
-    public e07() {
+    /* loaded from: classes5.dex */
+    public class b implements bp {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e07 a;
+
+        public b(e07 e07Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e07Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e07Var;
+        }
+
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof br4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((br4) roVar).s;
+                threadData.objType = 1;
+                if (this.a.m != null) {
+                    this.a.m.a(threadCardViewHolder.b(), threadData);
+                }
+                ThreadCardUtils.jumpToPB((zn4) threadData, view2.getContext(), 0, false);
+                threadCardViewHolder.c().o(new vz.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e07(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void d(long j, int i, List<ThreadInfo> list, List<uo> list2) {
-        ThreadInfo threadInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), list, list2}) == null) || j != b || ListUtils.isEmpty(list) || ListUtils.isEmpty(list2)) {
-            return;
-        }
-        if (i == 0) {
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                if (list2.get(i2) instanceof d07) {
-                    list2.remove(i2);
-                    return;
-                }
-            }
-            return;
-        }
-        int i3 = i + 1;
-        if (ListUtils.getCount(list) <= i3 || (threadInfo = list.get(i3)) == null || threadInfo.tid.longValue() == 0) {
-            return;
-        }
-        b = threadInfo.tid.longValue();
-        dd5.b(new a(threadInfo), null);
-    }
-
-    public void a(List<uo> list) {
-        xx5 xx5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && TbadkCoreApplication.isLogin()) {
-            if (this.a == null) {
-                vt4 k = vt4.k();
-                this.a = k.q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
-            }
-            if (StringUtils.isNull(this.a)) {
                 return;
             }
-            String[] split = this.a.split(",");
-            if (split.length != 2) {
-                return;
-            }
-            String str = split[0];
-            long g = mg.g(split[1], 0L);
-            if (g == 0 || StringUtils.isNull(str) || ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (int i = 0; i < list.size(); i++) {
-                if ((list.get(i) instanceof xx5) && (xx5Var = (xx5) list.get(i)) != null && !StringUtils.isNull(xx5Var.g) && xx5Var.g.equals(str)) {
-                    d07 d07Var = new d07();
-                    d07Var.a = g;
-                    d07Var.b = false;
-                    list.add(i, d07Var);
-                    return;
-                }
-            }
         }
+        this.m = new a(this);
+        this.k = tbPageContext;
+        this.i = bdUniqueId2;
+        this.j = str;
     }
 
-    public void b(ThreadInfo threadInfo) {
-        Long l;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: b0 */
+    public ThreadCardViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) || !sz6.a || threadInfo == null || threadInfo == null || (l = threadInfo.tid) == null || l.longValue() == 0) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kz.b bVar = new kz.b(this.k.getPageActivity(), false);
+            bVar.h(new jy(this.k.getPageActivity()));
+            kz k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.l);
+            k.r(2);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.k(this.i);
+            V(new b(this));
+            return threadCardViewHolder;
         }
-        this.a = null;
-        b = threadInfo.tid.longValue();
-        vt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public void c(boolean z, List<ThreadInfo> list) {
-        ThreadInfo threadInfo;
-        Long l;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: c0 */
+    public View S(int i, View view2, ViewGroup viewGroup, br4 br4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) || !TbadkCoreApplication.isLogin() || ListUtils.isEmpty(list) || !z || (threadInfo = (ThreadInfo) ListUtils.getItem(list, 0)) == null || (l = threadInfo.tid) == null || l.longValue() == 0) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, br4Var, threadCardViewHolder})) == null) {
+            if (br4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = br4Var.s) == null) {
+                return null;
+            }
+            threadData.statFloor = C(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(br4Var.s);
+            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.c().p(this.m);
+            rz6.p(br4Var, this.j);
+            return threadCardViewHolder.b();
         }
-        this.a = null;
-        b = threadInfo.tid.longValue();
-        vt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        return (View) invokeCommon.objValue;
+    }
+
+    public void d0(xo xoVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xoVar) == null) {
+            this.l = xoVar;
+        }
     }
 }

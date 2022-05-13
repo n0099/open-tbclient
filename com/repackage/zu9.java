@@ -1,42 +1,54 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zu9 implements View.OnClickListener {
+public final class zu9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ iq9 a;
 
-    public zu9(iq9 iq9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iq9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755099373, "Lcom/repackage/zu9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755099373, "Lcom/repackage/zu9;");
                 return;
             }
         }
-        this.a = iq9Var;
+        a = new byte[1024];
+        b = new int[1024];
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            iq9 iq9Var = this.a;
-            if (iq9Var.e != null) {
-                iq9Var.f = true;
-                this.a.e.a();
+        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(a, 0, bArr, i + i3, min);
+                i3 += min;
+            }
+        }
+    }
+
+    public static void b(int[] iArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(b, 0, iArr, i + i3, min);
+                i3 += min;
             }
         }
     }

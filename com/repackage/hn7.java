@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hn7 extends ho<xn7, a> {
+public class hn7 extends eo<xn7, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,7 +98,7 @@ public class hn7 extends ho<xn7, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
     public a M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -106,18 +106,18 @@ public class hn7 extends ho<xn7, a> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
             linearLayout.setOrientation(1);
-            linearLayout.setPadding(oi.f(viewGroup.getContext(), R.dimen.tbds44), 0, oi.f(viewGroup.getContext(), R.dimen.tbds44), oi.f(viewGroup.getContext(), R.dimen.tbds12));
+            linearLayout.setPadding(mi.f(viewGroup.getContext(), R.dimen.tbds44), 0, mi.f(viewGroup.getContext(), R.dimen.tbds44), mi.f(viewGroup.getContext(), R.dimen.tbds12));
             linearLayout.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
             View view2 = new View(viewGroup.getContext());
-            linearLayout.addView(view2, new LinearLayout.LayoutParams(-1, oi.f(viewGroup.getContext(), R.dimen.tbds1)));
+            linearLayout.addView(view2, new LinearLayout.LayoutParams(-1, mi.f(viewGroup.getContext(), R.dimen.tbds1)));
             TextView textView = new TextView(viewGroup.getContext());
             textView.setTextColor(viewGroup.getContext().getResources().getColor(R.color.CAM_X0105));
-            textView.setTextSize(0, oi.f(viewGroup.getContext(), R.dimen.tbds47));
+            textView.setTextSize(0, mi.f(viewGroup.getContext(), R.dimen.tbds47));
             textView.setTypeface(Typeface.DEFAULT_BOLD);
             textView.setIncludeFontPadding(false);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
-            textView.setPadding(0, oi.f(viewGroup.getContext(), R.dimen.tbds48), 0, 0);
+            textView.setPadding(0, mi.f(viewGroup.getContext(), R.dimen.tbds48), 0, 0);
             linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
             a aVar = new a(linearLayout, textView, view2);
             aVar.d(TbadkCoreApplication.getInst().getSkinType());
@@ -127,7 +127,7 @@ public class hn7 extends ho<xn7, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
     public View S(int i, View view2, ViewGroup viewGroup, xn7 xn7Var, a aVar) {
         InterceptResult invokeCommon;

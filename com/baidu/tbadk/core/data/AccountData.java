@@ -90,7 +90,7 @@ public class AccountData implements Serializable {
             if (!TextUtils.isEmpty(this.mAccount)) {
                 return this.mAccount;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f006a);
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f006c);
         }
         return (String) invokeV.objValue;
     }

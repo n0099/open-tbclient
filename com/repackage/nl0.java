@@ -30,12 +30,12 @@ public class nl0 {
 
         /* renamed from: com.repackage.nl0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0480a extends BroadcastReceiver {
+        public class C0474a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0480a(a aVar) {
+            public C0474a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,10 +56,10 @@ public class nl0 {
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && NetUtil.a(hi0.b())) {
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && NetUtil.a(ki0.b())) {
                     ml0.c().b();
                     try {
-                        hi0.b().unregisterReceiver(this);
+                        ki0.b().unregisterReceiver(this);
                     } catch (Exception unused) {
                     }
                     this.this$1.a.d = null;
@@ -91,12 +91,12 @@ public class nl0 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) || this.a.e == null || this.a.e.i() || aDConfigError == null || TextUtils.isEmpty(aDConfigError.reason)) {
                 return;
             }
-            if (!NetUtil.a(hi0.b())) {
+            if (!NetUtil.a(ki0.b())) {
                 if (this.a.d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.d = new C0480a(this);
-                    hi0.b().registerReceiver(this.a.d, intentFilter);
+                    this.a.d = new C0474a(this);
+                    ki0.b().registerReceiver(this.a.d, intentFilter);
                     return;
                 }
                 return;
@@ -140,7 +140,7 @@ public class nl0 {
             kl0 kl0Var = new kl0(this.a, this.b, this.c);
             this.e = kl0Var;
             kl0Var.l(new a(this));
-            b01.c(this.e, "adc_async_request", 0);
+            c01.c(this.e, "adc_async_request", 0);
         }
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.mi;
-import com.repackage.o86;
+import com.repackage.ki;
+import com.repackage.x76;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o86 a;
+    public x76 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
@@ -131,13 +131,13 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, o86 o86Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, x76 x76Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, o86Var};
+            Object[] objArr = {tbPageContext, x76Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,7 +150,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = o86Var;
+        this.a = x76Var;
         A();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);
@@ -190,8 +190,8 @@ public class SelectMusicModel extends BdBaseModel {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!mi.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4d);
+            if (!ki.z()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c64);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

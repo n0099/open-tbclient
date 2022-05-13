@@ -28,8 +28,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s08;
 import com.repackage.s48;
-import com.repackage.y08;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Profile.NicknameInfo;
@@ -49,7 +49,7 @@ public class t48 extends r48 implements v58 {
     public final q48 k;
     public final BlackListModel l;
     public x48 m;
-    public qz5 n;
+    public rz5 n;
     public PersonPolymericEventController o;
     public u48 p;
     public int q;
@@ -128,7 +128,7 @@ public class t48 extends r48 implements v58 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements y08.c {
+    public class c implements s08.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t48 a;
@@ -151,7 +151,7 @@ public class t48 extends r48 implements v58 {
             this.a = t48Var;
         }
 
-        @Override // com.repackage.y08.c
+        @Override // com.repackage.s08.c
         public void a(int i, String str, ImageUploadResult imageUploadResult) {
             ImageUploadResult.PicDetailedInfo picDetailedInfo;
             Interceptable interceptable = $ic;
@@ -223,11 +223,11 @@ public class t48 extends r48 implements v58 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TbadkCoreApplication.isLogin() && this.a) {
                 this.i.B();
-            } else if (mi.A()) {
+            } else if (ki.A()) {
                 this.j.K(this.g, this.h);
             } else {
                 this.i.n();
-                oi.N(this.d.getContext(), this.d.getString(R.string.obfuscated_res_0x7f0f0473));
+                mi.N(this.d.getContext(), this.d.getString(R.string.obfuscated_res_0x7f0f047b));
                 ArrayList arrayList = new ArrayList();
                 g58 g58Var = new g58();
                 g58Var.a = this.a;
@@ -247,7 +247,7 @@ public class t48 extends r48 implements v58 {
             if (y48Var != null && y48Var.j() != null && !StringUtils.isNull(this.h)) {
                 this.g = y48Var.j().getUserIdLong();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.g)));
-                this.a = this.g == mg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                this.a = this.g == kg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
             }
             this.i.n();
             u48 u48Var = this.p;
@@ -280,7 +280,7 @@ public class t48 extends r48 implements v58 {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            new y08().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new c(this));
+            new s08().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new c(this));
         }
     }
 
@@ -288,10 +288,10 @@ public class t48 extends r48 implements v58 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, postWriteCallBackData)) == null) {
-            if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || ni.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+            if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || li.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
                 return false;
             }
-            if (vt4.k().h(vt4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            if (iu4.k().h(iu4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.b).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
@@ -311,7 +311,7 @@ public class t48 extends r48 implements v58 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (!TbadkCoreApplication.isLogin() && this.a) {
                 this.i.B();
-            } else if (mi.A()) {
+            } else if (ki.A()) {
                 n38.d().m(System.currentTimeMillis());
                 this.i.x(false, -1);
                 this.i.C(true);
@@ -320,7 +320,7 @@ public class t48 extends r48 implements v58 {
             } else {
                 this.i.n();
                 this.i.t(8);
-                this.i.y(this.c.getString(R.string.obfuscated_res_0x7f0f0c17), true);
+                this.i.y(this.c.getString(R.string.obfuscated_res_0x7f0f0c2d), true);
             }
         }
     }
@@ -346,13 +346,13 @@ public class t48 extends r48 implements v58 {
         return (v48) invokeV.objValue;
     }
 
-    public y48 p(boolean z) {
+    public y48 q(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
             if (z) {
                 this.r = z;
-                if (mi.A()) {
+                if (ki.A()) {
                     this.j.K(this.g, this.h);
                 }
             }
@@ -367,7 +367,7 @@ public class t48 extends r48 implements v58 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (PersonPolymericModel) invokeV.objValue;
     }
 
-    public List<uo> s() {
+    public List<ro> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -428,7 +428,7 @@ public class t48 extends r48 implements v58 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, postWriteCallBackData) == null) {
             if (this.n == null) {
-                this.n = new qz5(this.b.getPageContext(), (NavigationBarCoverTip) this.b.findViewById(R.id.obfuscated_res_0x7f091521));
+                this.n = new rz5(this.b.getPageContext(), (NavigationBarCoverTip) this.b.findViewById(R.id.obfuscated_res_0x7f09153f));
             }
             this.n.l(postWriteCallBackData);
         }

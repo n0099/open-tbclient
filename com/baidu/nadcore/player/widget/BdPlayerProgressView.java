@@ -242,7 +242,7 @@ public class BdPlayerProgressView extends View {
         this.i = wx0.a(this, 15.0f);
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040470, R.attr.obfuscated_res_0x7f040471, R.attr.obfuscated_res_0x7f040472, R.attr.obfuscated_res_0x7f040473});
+            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040475, R.attr.obfuscated_res_0x7f040476, R.attr.obfuscated_res_0x7f040477, R.attr.obfuscated_res_0x7f040478});
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);

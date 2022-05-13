@@ -1,114 +1,55 @@
 package com.repackage;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.o.d;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gg1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class gg1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public com.baidu.sso.o.d b;
-    public ServiceConnection c;
-    public fg1 d;
 
-    /* loaded from: classes6.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gg1 a;
-
-        public a(gg1 gg1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gg1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gg1Var;
-        }
-
-        @Override // android.content.ServiceConnection
-        public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                synchronized (this) {
-                    this.a.b = d.a.a(iBinder);
-                    fg1 fg1Var = this.a.d;
-                }
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                gg1 gg1Var = this.a;
-                gg1Var.b = null;
-                fg1 fg1Var = gg1Var.d;
-            }
-        }
-    }
-
-    public gg1(Context context) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.a = context;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                if (this.b != null) {
-                    return ((d.a.C0152a) this.b).a();
-                }
-                return null;
-            } catch (Throwable unused) {
-                return null;
+            } catch (Throwable th) {
+                fg1.d(th);
             }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            a = ue1.f(context).J();
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void b() {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new a(this);
-            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-            intent.setPackage("com.huawei.hwid");
-            this.a.bindService(intent, this.c, 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                xe1 xe1Var = new xe1(context);
+                String c = xe1Var.c();
+                if (!TextUtils.isEmpty(c)) {
+                    return new String(dg1.b("30212102dicudiab".getBytes(), Base64.decode(c, 10), true), "UTF-8");
+                }
+                String a2 = xe1Var.a();
+                if (TextUtils.isEmpty(a2)) {
+                    return "";
+                }
+                xe1Var.b(new String(Base64.encode(dg1.a("30212102dicudiab".getBytes(), a2.getBytes("UTF-8")), 10), "UTF-8"));
+                return a2;
+            } catch (Throwable th) {
+                fg1.d(th);
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 }

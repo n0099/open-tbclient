@@ -5,11 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.np6;
+import com.repackage.oo6;
 import java.util.Collection;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class TabData extends LinkedList<np6> {
+public class TabData extends LinkedList<oo6> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_TAB_LOCATE_1 = 1;
     public static final int TYPE_TAB_LOCATE_2 = 2;
@@ -42,8 +42,8 @@ public class TabData extends LinkedList<np6> {
                 LinkedList linkedList = (LinkedList) collection;
                 int size = size();
                 for (int i = 0; i < size; i++) {
-                    np6 np6Var = get(i);
-                    if (np6Var == null || !np6Var.equals(linkedList.get(i))) {
+                    oo6 oo6Var = get(i);
+                    if (oo6Var == null || !oo6Var.equals(linkedList.get(i))) {
                         return false;
                     }
                 }

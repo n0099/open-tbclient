@@ -43,7 +43,7 @@ public class MemberPayFragment extends BaseFragment {
         this.g = null;
     }
 
-    public void B0(Boolean bool) {
+    public void C0(Boolean bool) {
         yj7 yj7Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || (yj7Var = this.f) == null) {
@@ -52,7 +52,7 @@ public class MemberPayFragment extends BaseFragment {
         yj7Var.q(bool.booleanValue());
     }
 
-    public void C0(ck7 ck7Var) {
+    public void D0(ck7 ck7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ck7Var) == null) {
             this.g = ck7Var;
@@ -108,7 +108,7 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d053f, viewGroup, false);
+            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0533, viewGroup, false);
             yj7 yj7Var = new yj7(getPageContext(), this.h, this.a, this.b, this.c, this.d, this.e);
             this.f = yj7Var;
             yj7Var.s(this.g);

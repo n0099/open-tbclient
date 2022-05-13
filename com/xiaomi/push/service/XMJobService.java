@@ -72,7 +72,7 @@ public class XMJobService extends Service {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                     JobParameters jobParameters = (JobParameters) message.obj;
-                    com.xiaomi.channel.commonutils.logger.b.m108a("Job finished " + jobParameters.getJobId());
+                    com.xiaomi.channel.commonutils.logger.b.m109a("Job finished " + jobParameters.getJobId());
                     this.a.jobFinished(jobParameters, false);
                     if (jobParameters.getJobId() == 1) {
                         er.a(false);
@@ -106,7 +106,7 @@ public class XMJobService extends Service {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("Job started " + jobParameters.getJobId());
+                com.xiaomi.channel.commonutils.logger.b.m109a("Job started " + jobParameters.getJobId());
                 Intent intent = new Intent(this, XMPushService.class);
                 intent.setAction("com.xiaomi.push.timer");
                 intent.setPackage(getPackageName());
@@ -126,7 +126,7 @@ public class XMJobService extends Service {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("Job stop " + jobParameters.getJobId());
+                com.xiaomi.channel.commonutils.logger.b.m109a("Job stop " + jobParameters.getJobId());
                 return false;
             }
             return invokeL.booleanValue;

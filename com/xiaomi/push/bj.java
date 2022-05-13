@@ -78,7 +78,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m218a(String str) {
+    public static byte[] m219a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
@@ -220,6 +220,6 @@ public class bj {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m218a(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m219a(str)) : (String) invokeL.objValue;
     }
 }

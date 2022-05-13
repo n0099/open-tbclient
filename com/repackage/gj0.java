@@ -104,23 +104,23 @@ public class gj0 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void b(vh0 vh0Var, zh0 zh0Var) {
+    public void b(yh0 yh0Var, ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vh0Var, zh0Var) == null) {
-            String str = (String) vy0.b(vh0Var.d(), "params");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yh0Var, ci0Var) == null) {
+            String str = (String) vy0.b(yh0Var.d(), "params");
             if (TextUtils.isEmpty(str)) {
                 return;
             }
             JSONObject c = uy0.c(str);
             String optString = c.optString("type", "");
-            String e = vh0Var.e();
+            String e = yh0Var.e();
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            Context b = hi0.b();
+            Context b = ki0.b();
             char c2 = 0;
             if (!NetUtil.a(b) && (TextUtils.equals(optString, "startdownload") || TextUtils.equals(optString, "resumedownload"))) {
-                Toast.makeText(b, b.getString(R.string.obfuscated_res_0x7f0f0b7b), 0).show();
+                Toast.makeText(b, b.getString(R.string.obfuscated_res_0x7f0f0b8f), 0).show();
                 return;
             }
             switch (optString.hashCode()) {
@@ -195,34 +195,34 @@ public class gj0 {
             }
             switch (c2) {
                 case 0:
-                    c(c, zh0Var);
+                    c(c, ci0Var);
                     return;
                 case 1:
-                    i(c, zh0Var);
+                    i(c, ci0Var);
                     return;
                 case 2:
-                    g(c, zh0Var);
+                    g(c, ci0Var);
                     return;
                 case 3:
-                    h(c, zh0Var);
+                    h(c, ci0Var);
                     return;
                 case 4:
-                    d(c, zh0Var);
+                    d(c, ci0Var);
                     return;
                 case 5:
-                    e(c, zh0Var);
+                    e(c, ci0Var);
                     return;
                 case 6:
-                    f(e, c, zh0Var);
+                    f(e, c, ci0Var);
                     return;
                 case 7:
-                    j(c, zh0Var);
+                    j(c, ci0Var);
                     return;
                 case '\b':
-                    m(c, zh0Var);
+                    m(c, ci0Var);
                     return;
                 case '\t':
-                    n(c, zh0Var);
+                    n(c, ci0Var);
                     return;
                 default:
                     return;
@@ -230,9 +230,9 @@ public class gj0 {
         }
     }
 
-    public final void c(JSONObject jSONObject, zh0 zh0Var) {
+    public final void c(JSONObject jSONObject, ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, zh0Var) == null) || jSONObject == null || zh0Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, ci0Var) == null) || jSONObject == null || ci0Var == null) {
             return;
         }
         String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
@@ -250,28 +250,28 @@ public class gj0 {
                     String optString5 = optJSONObject.optString(FontsContractCompat.Columns.FILE_ID, "");
                     ak0 l = l(optString4, optString5, optJSONObject.optString("packageName", ""), optJSONObject.optString("ext_info", ""), optString3, optString2);
                     if (l != null) {
-                        String y = l.y();
-                        Uri uri = l.x().k;
-                        jSONArray.put(uy0.c(qk0.a(y, l.x().i + "", uri == null ? "" : uri.toString(), optString5)));
+                        String u = l.u();
+                        Uri uri = l.t().k;
+                        jSONArray.put(uy0.c(qk0.a(u, l.t().i + "", uri == null ? "" : uri.toString(), optString5)));
                     }
                 }
             }
             if (jSONArray.length() <= 0) {
-                qk0.b(zh0Var, true, hashMap);
+                qk0.b(ci0Var, true, hashMap);
                 return;
             }
             JSONObject jSONObject2 = new JSONObject();
             uy0.f(jSONObject2, "result", jSONArray);
             hashMap.put("data", jSONObject2.toString());
-            qk0.b(zh0Var, true, hashMap);
+            qk0.b(ci0Var, true, hashMap);
         } else if (!TextUtils.isEmpty(optString)) {
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
         }
     }
 
-    public final void d(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void d(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("url", "");
@@ -287,18 +287,18 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
             ak0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
             if (l != null) {
-                l.g();
-                qk0.c(zh0Var, optString3, optString2, optString4, "1");
+                l.c();
+                qk0.c(ci0Var, optString3, optString2, optString4, "1");
             }
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
             return;
         }
-        qk0.b(zh0Var, false, hashMap);
+        qk0.b(ci0Var, false, hashMap);
     }
 
-    public final void e(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void e(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
@@ -312,19 +312,19 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
             ak0 l = l("", optString2, optString4, optString3, optString6, optString5);
             if (l != null) {
-                l.z();
-                qk0.b(zh0Var, true, hashMap);
+                l.v();
+                qk0.b(ci0Var, true, hashMap);
                 return;
             }
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
             return;
         }
-        qk0.b(zh0Var, false, hashMap);
+        qk0.b(ci0Var, false, hashMap);
     }
 
-    public final void f(String str, JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void f(String str, JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK, "");
@@ -338,20 +338,20 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
             ak0 l = l("", optString2, optString4, optString3, optString6, optString5);
             if (l != null) {
-                l.x();
-                l.z();
-                qk0.b(zh0Var, true, hashMap);
+                l.t();
+                l.v();
+                qk0.b(ci0Var, true, hashMap);
                 return;
             }
-            qk0.b(zh0Var, pk0.g(optString4), hashMap);
+            qk0.b(ci0Var, pk0.f(optString4), hashMap);
             return;
         }
-        qk0.b(zh0Var, false, hashMap);
+        qk0.b(ci0Var, false, hashMap);
     }
 
-    public final void g(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void g(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("url", "");
@@ -367,20 +367,20 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
             ak0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
             if (l != null) {
-                l.x();
-                l.z();
-                qk0.c(zh0Var, optString3, optString2, optString4, "2");
+                l.t();
+                l.v();
+                qk0.c(ci0Var, optString3, optString2, optString4, "2");
                 return;
             }
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
             return;
         }
-        qk0.b(zh0Var, false, null);
+        qk0.b(ci0Var, false, null);
     }
 
-    public final void h(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void h(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("url", "");
@@ -396,21 +396,21 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
             ak0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
             if (l != null) {
-                l.x();
-                l.z();
-                qk0.c(zh0Var, optString3, optString2, optString4, "1");
+                l.t();
+                l.v();
+                qk0.c(ci0Var, optString3, optString2, optString4, "1");
                 return;
             }
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
             return;
         }
-        qk0.b(zh0Var, false, hashMap);
+        qk0.b(ci0Var, false, hashMap);
     }
 
-    public final void i(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void i(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Uri uri;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("url", "");
@@ -426,24 +426,24 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString8) && !TextUtils.isEmpty(optString7)) {
             ak0 l = l(optString, optString3, optString6, optString5, optString8, optString7);
             if (l != null) {
-                rj0 x = l.x();
-                l.z();
-                if (x != null && (uri = x.k) != null) {
+                rj0 t = l.t();
+                l.v();
+                if (t != null && (uri = t.k) != null) {
                     optString4 = uri.toString();
                 }
                 hashMap.put("data", qk0.a("0", "0", optString4, optString3));
-                qk0.b(zh0Var, true, hashMap);
+                qk0.b(ci0Var, true, hashMap);
                 return;
             }
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
             return;
         }
-        qk0.b(zh0Var, false, hashMap);
+        qk0.b(ci0Var, false, hashMap);
     }
 
-    public final void j(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void j(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK);
@@ -457,8 +457,8 @@ public class gj0 {
         }
         uy0.f(jSONObject2, "result", str);
         hashMap.put("data", jSONObject2.toString());
-        if (zh0Var != null) {
-            zh0Var.a(true, hashMap);
+        if (ci0Var != null) {
+            ci0Var.a(true, hashMap);
         }
     }
 
@@ -507,9 +507,9 @@ public class gj0 {
         return (ak0) invokeCommon.objValue;
     }
 
-    public final void m(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void m(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048587, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("url");
@@ -526,19 +526,19 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
             ak0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
             if (l != null) {
-                l.B(optString3, optString2, optString7, optString6);
-                qk0.b(zh0Var, true, hashMap);
+                l.x(optString3, optString2, optString7, optString6);
+                qk0.b(ci0Var, true, hashMap);
                 return;
             }
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
             return;
         }
-        qk0.b(zh0Var, false, hashMap);
+        qk0.b(ci0Var, false, hashMap);
     }
 
-    public final void n(JSONObject jSONObject, @Nullable zh0 zh0Var) {
+    public final void n(JSONObject jSONObject, @Nullable ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, jSONObject, zh0Var) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, jSONObject, ci0Var) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("url");
@@ -555,13 +555,13 @@ public class gj0 {
         if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
             ak0 l = l(optString, optString4, optString8, optString5, optString7, optString6);
             if (l != null) {
-                l.C(optString3, optString2, optString7, optString6);
-                qk0.b(zh0Var, true, hashMap);
+                l.y(optString3, optString2, optString7, optString6);
+                qk0.b(ci0Var, true, hashMap);
                 return;
             }
-            qk0.b(zh0Var, false, hashMap);
+            qk0.b(ci0Var, false, hashMap);
             return;
         }
-        qk0.b(zh0Var, false, hashMap);
+        qk0.b(ci0Var, false, hashMap);
     }
 }

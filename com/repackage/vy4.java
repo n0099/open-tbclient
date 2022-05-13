@@ -1,250 +1,154 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView;
-import com.baidu.tbadk.coreExtra.view.FloorImageTextViewNew;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
-import com.baidu.tieba.R;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class vy4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static Map<String, String> b;
+    public static boolean c;
+    public static boolean d;
+    public static int e;
+    public static int f;
+    public static boolean g;
+    public static String h;
+    public static Map<String, String> i;
+    public static int j;
+    public static int k;
+    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageViewerBottomLayout b;
-    public AbsFloorImageTextView c;
-    public LinearLayout d;
-    public boolean e;
-    public final ImageViewerBottomLayout.a f;
 
-    /* loaded from: classes7.dex */
-    public class a implements ImageViewerBottomLayout.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vy4 a;
-
-        public a(vy4 vy4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vy4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vy4Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755214848, "Lcom/repackage/vy4;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
-        public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, imageViewerBottomLayout, z) == null) {
-                this.a.e = z;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(this.a.e)));
-                this.a.q(z);
-            }
-        }
-    }
-
-    public vy4(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, relativeLayout};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.e = true;
-        this.f = new a(this);
-        this.a = context;
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.d = linearLayout;
-        linearLayout.setOrientation(1);
-        this.d.setVisibility(8);
-        SkinManager.setBackgroundColorToTransparent(this.d, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.addRule(12);
-        relativeLayout.addView(this.d, layoutParams);
-        d();
-        e();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755214848, "Lcom/repackage/vy4;");
+        }
     }
 
-    public int c() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout == null || this.c == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!c) {
+                return iu4.k().l("video_report_config_upload_number", 5);
             }
-            return imageViewerBottomLayout.getHeight() + AbsFloorImageTextView.i;
+            return f;
         }
         return invokeV.intValue;
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            FloorImageTextViewNew floorImageTextViewNew = new FloorImageTextViewNew(this.a);
-            this.c = floorImageTextViewNew;
-            this.d.addView(floorImageTextViewNew, layoutParams);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.r);
-            ImageViewerBottomLayout imageViewerBottomLayout = new ImageViewerBottomLayout(this.a);
-            this.b = imageViewerBottomLayout;
-            this.d.addView(imageViewerBottomLayout, layoutParams);
-            this.b.setExpandButtonListener(this.f);
-        }
-    }
-
-    public boolean f() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!c) {
+                return iu4.k().l("video_report_config_upload_type", 0);
+            }
+            return e;
+        }
+        return invokeV.intValue;
     }
 
-    public boolean g() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h(this.d) : invokeV.booleanValue;
-    }
-
-    public final boolean h(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) ? view2 != null && view2.getVisibility() == 0 : invokeL.booleanValue;
-    }
-
-    public void i(ImageUrlData imageUrlData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, imageUrlData) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.f(imageUrlData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!c) {
+                return iu4.k().h("video_report_config_switch", true);
             }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.d(imageUrlData);
-            }
+            return d;
         }
+        return invokeV.booleanValue;
     }
 
-    public void j(ImageViewerBottomLayout.b bVar) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public static void d(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (imageViewerBottomLayout = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        imageViewerBottomLayout.setOnDownloadImageListener(bVar);
-    }
-
-    public void k(View.OnClickListener onClickListener) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || (imageViewerBottomLayout = this.b) == null) {
+        c = true;
+        d = jSONObject.optInt("switch", 1) != 0;
+        iu4.k().u("video_report_config_switch", d);
+        e = jSONObject.optInt("upload_type", 0);
+        iu4.k().w("video_report_config_upload_type", e);
+        f = jSONObject.optInt("upload_number", 5);
+        iu4.k().w("video_report_config_upload_number", f);
+        j = jSONObject.optInt("prepare_max_wait_time", 10000);
+        iu4.k().w("video_report_prepare_max_wait_time", j);
+        k = jSONObject.optInt("prepare_max_loading_time", 3000);
+        iu4.k().w("video_report_prepare_max_loading_time", k);
+        l = jSONObject.optInt("is_open_prepare_time", 0) == 1;
+        iu4.k().u("video_report_is_open_prepare_time", l);
+        g = jSONObject.optInt("moov_check", 0) != 0;
+        iu4.k().u("video_report_config_moov_check", g);
+        String optString = jSONObject.optString("android_debug_type");
+        h = optString;
+        if (!StringUtils.isNull(optString)) {
+            iu4.k().y("video_report_config_debug_type", h);
+            e(h);
+        }
+        String optString2 = jSONObject.optString("step_cache_strategy");
+        a = optString2;
+        if (StringUtils.isNull(optString2)) {
             return;
         }
-        imageViewerBottomLayout.setOnReplyClickListener(onClickListener);
+        iu4.k().y("video_report_config_step_cache_strategy", a);
+        f(a);
     }
 
-    public void l(ImageViewerBottomLayout.c cVar) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) || (imageViewerBottomLayout = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        imageViewerBottomLayout.setOnShareImageListener(cVar);
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.setUserId(str);
-            }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.setUserId(str);
-            }
+        if (i == null) {
+            i = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
+            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
+            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 
-    public void n(int i) {
-        LinearLayout linearLayout;
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (linearLayout = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        linearLayout.clearAnimation();
-        this.d.setVisibility(i);
-    }
-
-    public void o(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            if (i == 0) {
-                fs8.c(this.d, i2);
-            } else {
-                fs8.a(this.d, i2);
-            }
+        if (b == null) {
+            b = new HashMap();
         }
-    }
-
-    public void p(boolean z) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (imageViewerBottomLayout = this.b) == null) {
-            return;
-        }
-        imageViewerBottomLayout.setYoungterCoverSomeView(z);
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.e(z);
-            }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.e(!z);
-            }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
+            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
+            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
+            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
+            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 }

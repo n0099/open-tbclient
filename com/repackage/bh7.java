@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bh7 extends fc1<FollowStatusService> {
+public class bh7 extends qc1<FollowStatusService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class bh7 extends fc1<FollowStatusService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
     public FollowStatusService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

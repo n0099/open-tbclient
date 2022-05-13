@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.c11;
+import com.repackage.m11;
 /* loaded from: classes6.dex */
 public class ky0 {
     public static /* synthetic */ Interceptable $ic;
@@ -37,14 +37,14 @@ public class ky0 {
         }
         a = wp0.f();
         b = -1;
-        c = b21.a(15.0f);
+        c = l21.a(15.0f);
     }
 
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String c2 = l11.c();
+            String c2 = v11.c();
             if (TextUtils.equals(c2, "EMUI") && b(context)) {
                 return 1;
             }
@@ -143,18 +143,18 @@ public class ky0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             if (a) {
-                zi0.e("VideoNotchUtils", "isNotch start");
+                cj0.e("VideoNotchUtils", "isNotch start");
             }
             if (b == -1) {
                 if (Build.VERSION.SDK_INT < 24) {
                     b = 0;
                 } else if (b == -1) {
                     b = a(context);
-                    zi0.e("VideoNotchUtils", "isNotch from getNotchState");
+                    cj0.e("VideoNotchUtils", "isNotch from getNotchState");
                 }
             }
             if (a) {
-                zi0.e("VideoNotchUtils", "isNotch end");
+                cj0.e("VideoNotchUtils", "isNotch end");
             }
             return b == 1;
         }
@@ -172,7 +172,7 @@ public class ky0 {
 
     public static void i(@NonNull rv0 rv0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, rv0Var) == null) && g(hi0.b())) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, rv0Var) == null) && g(ki0.b())) {
             h(rv0Var);
         }
     }
@@ -193,8 +193,8 @@ public class ky0 {
 
     public static void k(@NonNull rv0 rv0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, rv0Var) == null) && g(hi0.b())) {
-            j(rv0Var, c11.c.g(), c11.c.g());
+        if ((interceptable == null || interceptable.invokeL(65547, null, rv0Var) == null) && g(ki0.b())) {
+            j(rv0Var, m11.c.g(), m11.c.g());
         }
     }
 }

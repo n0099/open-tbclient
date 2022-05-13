@@ -1,109 +1,172 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.yz2;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ey2 {
+public class ey2 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755721357, "Lcom/repackage/ey2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements wx2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
+
+        public a(ey2 ey2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ey2Var, callbackHandler, unitedSchemeEntity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755721357, "Lcom/repackage/ey2;");
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
+        }
+
+        @Override // com.repackage.wx2
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.c);
+                } else {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.wx2
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(ey2 ey2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ey2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ey2(r13 r13Var) {
+        super(r13Var, "/swanAPI/community/openReplyEditor");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
     }
 
-    public static JSONObject a(List<String> list, float f) {
-        InterceptResult invokeLF;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
-            if (a) {
-                Log.d("PublisherCompress", "start compress");
-            }
-            ArrayList arrayList = new ArrayList();
-            j03 L = j03.L();
-            if (L == null) {
-                return null;
-            }
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    File file = new File(str);
-                    File k = hd3.k(file.getName());
-                    if (hd3.b(file, k, (int) (100.0f * f))) {
-                        arrayList.add(k);
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (u03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+                return false;
+            } else if (u03Var.m0()) {
+                if (r23.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject d = ud3.d(unitedSchemeEntity.getParam("params"));
+                String optString = d.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                a aVar = new a(this, callbackHandler, unitedSchemeEntity, optString);
+                ReplyEditorParams fromJson = ReplyEditorParams.fromJson(d);
+                if (fromJson == null) {
+                    j(context);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params info");
+                    return false;
+                }
+                ay2.c().e(u03Var, fromJson, aVar);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            return b(arrayList, L);
         }
-        return (JSONObject) invokeLF.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static JSONObject b(ArrayList<File> arrayList, j03 j03Var) {
-        InterceptResult invokeLL;
-        String J;
+    public final void j(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, j03Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            boolean v0 = j03Var.v0();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                Iterator<File> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    File next = it.next();
-                    if (next != null) {
-                        if (v0) {
-                            J = tc2.Z(next.getAbsolutePath());
-                        } else {
-                            J = r73.J(next.getAbsolutePath(), j03Var.b);
-                        }
-                        if (a) {
-                            Log.d("PublisherCompress", "isSwanGame: " + v0 + "; path: " + J);
-                        }
-                        jSONArray.put(J);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", J);
-                        jSONObject2.put("size", next.length());
-                        jSONArray2.put(jSONObject2);
-                    }
-                }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("PublisherCompress", "wrapParams failed");
-                    e.printStackTrace();
-                }
-            }
-            if (a) {
-                Log.e("PublisherCompress", jSONObject.toString());
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            yz2.a aVar = new yz2.a(context);
+            aVar.m(false);
+            aVar.U(R.string.obfuscated_res_0x7f0f12d9);
+            aVar.v(R.string.obfuscated_res_0x7f0f12dd);
+            aVar.O(R.string.obfuscated_res_0x7f0f0112, new b(this));
+            aVar.X();
         }
-        return (JSONObject) invokeLL.objValue;
     }
 }

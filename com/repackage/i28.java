@@ -1,6 +1,8 @@
 package com.repackage;
 
+import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,10 +12,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i28 extends BaseCardInfo implements uo {
+public class i28 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId a;
+    public static BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public String e;
+    public boolean f;
+    public String g;
+    public UserData h;
+    public k28 i;
+    public Bundle j;
+    public int k;
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +41,7 @@ public class i28 extends BaseCardInfo implements uo {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        l = BdUniqueId.gen();
     }
 
     public i28() {
@@ -45,10 +58,10 @@ public class i28 extends BaseCardInfo implements uo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
     }
 }

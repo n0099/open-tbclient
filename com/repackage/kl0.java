@@ -78,8 +78,8 @@ public class kl0 implements Runnable {
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         this.a.a = true;
-                        jl0.d().c();
-                        jl0.d().e(str);
+                        jl0.c().b();
+                        jl0.c().d(str);
                         return;
                     } catch (ADConfigError e) {
                         this.a.e = e;
@@ -155,15 +155,15 @@ public class kl0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            oi0 a2 = hi0.a();
+            ri0 a2 = ki0.a();
             uy0.f(jSONObject, "cuid", a2.b());
             uy0.f(jSONObject, "baiduid", a2.g());
             uy0.f(jSONObject, "product", a2.u());
             uy0.f(jSONObject, "bundle_id", a2.packageName());
-            uy0.f(jSONObject, AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.3");
+            uy0.f(jSONObject, AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.21");
             uy0.f(jSONObject, "ot", "2");
             uy0.f(jSONObject, SearchJsBridge.COOKIE_OV, a2.c());
-            uy0.f(jSONObject, "ua", hi0.e());
+            uy0.f(jSONObject, "ua", ki0.e());
             uy0.f(jSONObject, "ver", a2.q());
             uy0.f(jSONObject, "sid", a2.d());
             uy0.f(jSONObject, HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
@@ -178,11 +178,11 @@ public class kl0 implements Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pp0 f = pp0.f(s11.a(g().toString().getBytes()));
+            pp0 f = pp0.f(c21.a(g().toString().getBytes()));
             qp0 qp0Var = new qp0();
             qp0Var.a("Content-Encoding", "gzip");
             qp0Var.a("Content-Type", "application/json");
-            qp0Var.k("https://afdconf.baidu.com/afd/platform?" + hi0.a().e());
+            qp0Var.k("https://afdconf.baidu.com/afd/platform?" + ki0.a().e());
             qp0Var.g(this.b * 1000);
             qp0Var.i(this.b * 1000);
             qp0Var.j(this.b * 1000);

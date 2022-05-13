@@ -1,190 +1,107 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes6.dex */
-public class l4a {
+public class l4a implements IPayCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final boolean c;
-    public final int d;
-    public final int e;
-    public final boolean f;
-    public final float g;
+    public int a;
+    public int b;
+    public IPayCallback<CurrencyChargeMessage> c;
+    public Activity d;
+    public Dialog e;
+    public IYYPayWayView f;
+    public u3a g;
+    public v4a h;
+    public IYYPayWayView.b i;
+    public s3a j;
 
-    public l4a(Activity activity) {
+    public l4a(int i, int i2, IPayCallback<CurrencyChargeMessage> iPayCallback, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, u3a u3aVar, v4a v4aVar, IYYPayWayView.b bVar, s3a s3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), iPayCallback, activity, dialog, iYYPayWayView, u3aVar, v4aVar, bVar, s3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Resources resources = activity.getResources();
-        this.f = resources.getConfiguration().orientation == 1;
-        this.g = h(activity);
-        this.a = c(resources, SapiSystemBarTintManager.SystemBarConfig.g);
-        this.b = b(activity);
-        this.d = e(activity);
-        this.e = g(activity);
-        this.c = this.d > 0;
+        RLog.info("PayInternalCallback", "create PayInternalCallback appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = iPayCallback;
+        this.d = activity;
+        this.e = dialog;
+        this.f = iYYPayWayView;
+        this.g = u3aVar;
+        this.h = v4aVar;
+        this.i = bVar;
+        this.j = s3aVar;
     }
 
-    @TargetApi(14)
-    public static boolean j(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+    public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 17) {
-                defaultDisplay.getRealMetrics(displayMetrics);
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onFail code:" + i + " failReason:" + str);
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onFail(i, str, payCallBackBean);
             }
-            int i = displayMetrics.heightPixels;
-            int i2 = displayMetrics.widthPixels;
-            DisplayMetrics displayMetrics2 = new DisplayMetrics();
-            defaultDisplay.getMetrics(displayMetrics2);
-            return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
+            this.j.b(i, str, payCallBackBean);
+            z4a.b(this.a, this.b, i, str);
+            this.g.o(i, str, this.d, this.e, this.f, this.i);
         }
-        return invokeL.booleanValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+    public void onPayStart() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @TargetApi(14)
-    public final int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                TypedValue typedValue = new TypedValue();
-                context.getTheme().resolveAttribute(16843499, typedValue, true);
-                return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int c(Resources resources, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, resources, str)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                int parseInt = Integer.parseInt(cls.getField(str).get(cls.newInstance()).toString());
-                if (parseInt > 0) {
-                    return resources.getDimensionPixelSize(parseInt);
-                }
-                return 0;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onPayStart");
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStart();
             }
         }
-        return invokeLL.intValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+    public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    @TargetApi(14)
-    public final int e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
-                return 0;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onPayStatus code " + purchaseStatus.getCode() + " msg: " + purchaseStatus.getMessage());
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
             }
-            return c(resources, this.f ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
+            this.g.l(this.d, this.e, this.f, purchaseStatus);
         }
-        return invokeL.intValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+    public void onSuccess(Object obj, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    @TargetApi(14)
-    public final int g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
-                return 0;
-            }
-            return c(resources, SapiSystemBarTintManager.SystemBarConfig.j);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onSuccess");
+            this.g.f(this.d, this.h, this.e, this.f);
         }
-        return invokeL.intValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public final float h(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 16) {
-                activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
-            } else {
-                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            }
-            float f = displayMetrics.density;
-            return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
-        }
-        return invokeL.floatValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g >= 600.0f || this.f : invokeV.booleanValue;
     }
 }

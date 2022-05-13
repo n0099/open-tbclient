@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ut4;
+import com.repackage.hu4;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,9 +96,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = ut4.k.length;
+                int length = hu4.k.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(ut4.k[i])) {
+                    if (str.equals(hu4.k[i])) {
                         return true;
                     }
                 }

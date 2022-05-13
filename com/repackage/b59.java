@@ -1,36 +1,80 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.baidu.ubs.analytics.SampleResult;
+import com.repackage.d59;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class b59 {
+public class b59 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b59() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755875861, "Lcom/repackage/b59;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755875861, "Lcom/repackage/b59;");
         }
     }
 
-    public abstract void a();
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return d59.a.a.f(str);
+            }
+            return SampleResult.OTHERE;
+        }
+        return (SampleResult) invokeL.objValue;
+    }
 
-    public abstract String b() throws IOException;
+    public static void b(c59 c59Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, c59Var) == null) || c59Var == null) {
+            return;
+        }
+        x59.b(c59Var);
+    }
 
-    public abstract int c();
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && a && str != null) {
+            a69.a(str, str2, str3, map);
+        }
+    }
 
-    public abstract String d();
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            v59.a().b(str);
+        }
+    }
 
-    public abstract boolean e();
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            v59.a().c(str);
+        }
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
+        }
+    }
 }

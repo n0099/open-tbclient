@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h68 extends tw5<f58> {
+public class h68 extends uw5<f58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView i;
@@ -41,18 +41,18 @@ public class h68 extends tw5<f58> {
         }
         View k = k();
         this.j = k;
-        this.i = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f0905e0);
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f09144a);
+        this.i = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f0905d9);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091461);
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ae : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a9 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
@@ -71,7 +71,7 @@ public class h68 extends tw5<f58> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: s */
     public void l(f58 f58Var) {
         Interceptable interceptable = $ic;

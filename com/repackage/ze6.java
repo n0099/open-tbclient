@@ -1,22 +1,24 @@
 package com.repackage;
 
+import android.view.View;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ze6 {
+public class ze6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public boolean d;
+    public final /* synthetic */ AcceleratorFragment a;
 
-    public ze6() {
+    public ze6(AcceleratorFragment acceleratorFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {acceleratorFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,6 +28,18 @@ public class ze6 {
                 return;
             }
         }
-        this.d = false;
+        this.a = acceleratorFragment;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.a.c != null && this.a.c.getItemData() != null) {
+                TbSingleton.getInstance().removeAcceleratorServer(String.valueOf(this.a.c.getItemData().itemId));
+            }
+            this.a.o1();
+            this.a.getActivity().finish();
+        }
     }
 }

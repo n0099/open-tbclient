@@ -1,13 +1,11 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,119 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes7.dex */
 public class t93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ int b;
-
-        public a(long j, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    n93.c().a(this.a, this.b);
-                } catch (Exception e) {
-                    if (t93.a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-        }
-
-        public static b a(int i, String str) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-                b bVar = new b();
-                bVar.a = i;
-                bVar.b = str;
-                return bVar;
-            }
-            return (b) invokeIL.objValue;
-        }
-
-        public static b b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(1, str) : (b) invokeL.objValue;
-        }
-
-        public static b d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(0, "") : (b) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 0 : invokeV.booleanValue;
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "RemoteCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
-            }
-            return (String) invokeV.objValue;
-        }
-    }
+    public s93 a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -142,144 +36,235 @@ public class t93 {
                 return;
             }
         }
-        a = tg1.a;
+        c = eh1.a;
     }
 
-    public static void b(int i) {
+    public t93() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            l("0", 0L, i);
-        }
-    }
-
-    public static b c(e94 e94Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, e94Var, i)) == null) {
-            jx1.k("RemoteSwanCoreControl", "doRemoteUpdate start. framework: " + e94Var);
-            if (e94Var == null) {
-                return b.b("framework is null.");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            long j = e94Var.i;
-            if (j == 0) {
-                return b.b("invalid version code : " + e94Var.j);
-            } else if (!wd3.a(new File(e94Var.a), e94Var.m)) {
-                return b.b("sign failed.");
-            } else {
-                String path = h(j, i).getPath();
-                if (!mg4.U(e94Var.a, path)) {
-                    return b.b("unzip bundle failed.");
-                }
-                if (i == 0) {
-                    boolean B = mg4.B(e94Var.a, path);
-                    if (a) {
-                        Log.d("RemoteSwanCoreControl", "isZipFileMatchUnzipResult:" + B + ",path:" + path);
-                    }
-                    if (!B) {
-                        o93.m(1, i, j);
-                        mg4.M(path);
-                        if (!mg4.U(e94Var.a, path)) {
-                            return b.b("unzip bundle failed.");
+        }
+        this.a = null;
+    }
+
+    public synchronized void a(p93 p93Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, p93Var) == null) {
+            synchronized (this) {
+                if (p93Var != null) {
+                    if (!TextUtils.isEmpty(p93Var.a) && !TextUtils.isEmpty(p93Var.c) && !TextUtils.isEmpty(p93Var.b)) {
+                        if (p93Var.e == -1) {
+                            return;
                         }
+                        SQLiteDatabase f = f();
+                        if (f == null) {
+                            return;
+                        }
+                        if (c) {
+                            Log.d("SwanCookieDatabase", "addCookie cookie=" + p93Var.toString());
+                        }
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("domain", p93Var.a);
+                        contentValues.put("path", p93Var.b);
+                        contentValues.put("name", p93Var.c);
+                        contentValues.put("value", p93Var.d);
+                        contentValues.put("expires", Long.valueOf(p93Var.e));
+                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(p93Var.f));
+                        f.insert("cookies", null, contentValues);
                     }
                 }
-                if (a) {
-                    String b2 = og4.b(new File(e94Var.a), false);
-                    if (!TextUtils.isEmpty(b2)) {
-                        x83.a().putString(n93.d(i), b2);
+            }
+        }
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                if (c) {
+                    Log.d("SwanCookieDatabase", "clearExpiredCookies");
+                }
+                f.delete("cookies", "expires <= ?", new String[]{Long.toString(System.currentTimeMillis())});
+            }
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    return;
+                }
+                try {
+                    if (c) {
+                        Log.d("SwanCookieDatabase", "close");
+                    }
+                    this.a.close();
+                    this.a = null;
+                    this.b = true;
+                } catch (Exception e) {
+                    ux1.k("SwanCookieDatabase", "close fail:" + Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public synchronized void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                if (c) {
+                    Log.d("SwanCookieDatabase", "deleteCookies domain=" + str + ";path=" + str2 + ";name=" + str3);
+                }
+                f.delete("cookies", "(domain == ?) AND (path == ?) AND (name == ?)", new String[]{str, str2, str3});
+            }
+        }
+    }
+
+    public synchronized ArrayList<p93> e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c) {
+                    Log.d("SwanCookieDatabase", "getCookiesForDomain baseDomain=" + str);
+                }
+                ArrayList<p93> arrayList = new ArrayList<>();
+                if (TextUtils.isEmpty(str)) {
+                    return arrayList;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return arrayList;
+                }
+                Cursor query = f.query("cookies", new String[]{"_id", "domain", "path", "name", "value", "expires", ClientCookie.SECURE_ATTR}, "(domain GLOB '*' || ?)", new String[]{str}, null, null, null);
+                if (query == null) {
+                    return arrayList;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                if (query.moveToFirst()) {
+                    int columnIndex = query.getColumnIndex("domain");
+                    int columnIndex2 = query.getColumnIndex("path");
+                    int columnIndex3 = query.getColumnIndex("name");
+                    int columnIndex4 = query.getColumnIndex("value");
+                    int columnIndex5 = query.getColumnIndex("expires");
+                    int columnIndex6 = query.getColumnIndex(ClientCookie.SECURE_ATTR);
+                    do {
+                        p93 p93Var = new p93();
+                        p93Var.a = query.getString(columnIndex);
+                        p93Var.b = query.getString(columnIndex2);
+                        p93Var.c = query.getString(columnIndex3);
+                        p93Var.d = query.getString(columnIndex4);
+                        if (query.isNull(columnIndex5)) {
+                            p93Var.e = -1L;
+                        } else {
+                            p93Var.e = query.getLong(columnIndex5);
+                        }
+                        p93Var.f = query.getShort(columnIndex6) != 0;
+                        p93Var.i = 1;
+                        if (p93Var.e > currentTimeMillis) {
+                            arrayList.add(p93Var);
+                            if (c) {
+                                Log.d("SwanCookieDatabase", "getCookiesForDomain cookie=" + p93Var.toString());
+                            }
+                        }
+                    } while (query.moveToNext());
+                    wo2.a(query);
+                    return arrayList;
+                }
+                wo2.a(query);
+                return arrayList;
+            }
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final SQLiteDatabase f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b) {
+                return null;
+            }
+            s93 s93Var = this.a;
+            if (s93Var != null) {
+                return s93Var.getWritableDatabase();
+            }
+            String appId = t03.J().getAppId();
+            if (!t03.J().D()) {
+                ux1.k("SwanCookieDatabase", "getSQLiteDatabase currentAppId =" + appId);
+                return null;
+            }
+            String t = c83.t(t03.J().r());
+            ux1.k("SwanCookieDatabase", "initDbHelper name =" + t);
+            s93 s93Var2 = new s93(bk2.c(), t);
+            this.a = s93Var2;
+            return s93Var2.getWritableDatabase();
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public synchronized void g(Runnable runnable) {
+        String str;
+        String stackTraceString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                try {
+                    f.beginTransaction();
+                    runnable.run();
+                    f.setTransactionSuccessful();
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e);
+                        ux1.k(str, stackTraceString);
+                    }
+                } catch (Exception e2) {
+                    ux1.k("SwanCookieDatabase", Log.getStackTraceString(e2));
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e3) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e3);
+                        ux1.k(str, stackTraceString);
                     }
                 }
-                if (ProcessUtils.isMainProcess()) {
-                    o93.b(g(i), k(e(i), j));
-                }
-                l(e94Var.j, e94Var.i, i);
-                jx1.k("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + j);
-                return b.d();
             }
         }
-        return (b) invokeLI.objValue;
     }
 
-    public static SwanCoreVersion d(int i) {
-        InterceptResult invokeI;
+    public synchronized void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-            swanCoreVersion.swanCoreType = 1;
-            swanCoreVersion.swanCoreVersionCode = e(i);
-            swanCoreVersion.swanCoreVersionName = f(i);
-            swanCoreVersion.swanCorePath = h(swanCoreVersion.swanCoreVersionCode, i).getPath();
-            return swanCoreVersion;
-        }
-        return (SwanCoreVersion) invokeI.objValue;
-    }
-
-    public static long e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? x83.a().getLong(i(i), 0L) : invokeI.longValue;
-    }
-
-    public static String f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? x83.a().getString(j(i), "") : (String) invokeI.objValue;
-    }
-
-    public static File g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? new File(o93.d(i), "remote") : (File) invokeI.objValue;
-    }
-
-    public static File h(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? new File(g(i), String.valueOf(j)) : (File) invokeCommon.objValue;
-    }
-
-    public static String i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_key" : "aiapps_cur_remote_ver_key" : (String) invokeI.objValue;
-    }
-
-    public static String j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_name_key" : "aiapps_cur_remote_ver_name_key" : (String) invokeI.objValue;
-    }
-
-    public static ArrayList<Long> k(long j, long j2) {
-        InterceptResult invokeCommon;
-        SwanCoreVersion swanCoreVersion;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            ArrayList<Long> arrayList = new ArrayList<>();
-            if (j != 0) {
-                arrayList.add(Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                f();
             }
-            arrayList.add(Long.valueOf(j2));
-            for (ix2 ix2Var : kx2.k().q()) {
-                SwanAppCores n = ix2Var.n();
-                if (ix2Var.S() && n != null && (swanCoreVersion = n.getSwanCoreVersion()) != null && !arrayList.contains(Long.valueOf(swanCoreVersion.swanCoreVersionCode))) {
-                    arrayList.add(Long.valueOf(swanCoreVersion.swanCoreVersionCode));
-                }
-            }
-            if (a) {
-                Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public static void l(String str, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            x83.a().putString(j(i), str);
-            x83.a().putLong(i(i), j);
-            dd3.k(new a(j, i), "cacheSwanCoreInfo");
         }
     }
 }

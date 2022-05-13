@@ -1,120 +1,158 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.sharewrite.ForumPrefixResponsedMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sf8 {
+public class sf8 implements of8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
-    public BaseActivity b;
+    @NonNull
+    public final BaseFragmentActivity a;
+    @NonNull
+    public final ViewGroup b;
+    public int c;
+    public boolean d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public long h;
 
-    /* loaded from: classes7.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sf8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(sf8 sf8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sf8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sf8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || this.a.a == null) {
-                return;
-            }
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
-                this.a.a.onFailure();
-                return;
-            }
-            int statusCode = httpResponsedMessage.getStatusCode();
-            int error = httpResponsedMessage.getError();
-            if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ForumPrefixResponsedMessage)) {
-                ForumPrefixResponsedMessage forumPrefixResponsedMessage = (ForumPrefixResponsedMessage) httpResponsedMessage;
-                this.a.a.a(forumPrefixResponsedMessage.isHasPostpre(), forumPrefixResponsedMessage.getData());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z, PostPrefixData postPrefixData);
-
-        void onFailure();
-    }
-
-    public sf8(BaseActivity baseActivity, b bVar) {
+    public sf8(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, bVar};
+            Object[] objArr = {baseFragmentActivity, viewGroup, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = baseActivity;
-        this.a = bVar;
-        c();
+        this.c = -1;
+        this.d = true;
+        this.e = 0;
+        this.f = false;
+        this.g = false;
+        this.b = viewGroup;
+        this.c = i;
+        this.h = System.currentTimeMillis();
+        this.a = baseFragmentActivity;
     }
 
-    public void b(String str) {
+    @Override // com.repackage.of8
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.b == null) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
-        httpMessage.addParam("fname", str);
-        this.b.sendMessage(httpMessage);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
-    public void c() {
+    @Override // com.repackage.of8
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.d = z;
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/f/forum/getprefix");
-        tbHttpMessageTask.setResponsedClass(ForumPrefixResponsedMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        this.b.registerListener(new a(this, CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD));
+    }
+
+    @Override // com.repackage.of8
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // com.repackage.of8
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = true;
+        }
+    }
+
+    @Override // com.repackage.of8
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.of8
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f = true;
+        }
+    }
+
+    @Override // com.repackage.of8
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.of8
+    @NonNull
+    public BaseFragmentActivity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (BaseFragmentActivity) invokeV.objValue;
+    }
+
+    @Override // com.repackage.of8
+    public int getAdSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    @Override // com.repackage.of8
+    @NonNull
+    public ViewGroup getRootView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
+    }
+
+    @Override // com.repackage.of8
+    public BdUniqueId getUniqueId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.getUniqueId() : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.repackage.of8
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    @Override // com.repackage.of8
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? qf8.a(this.a.getIntent()) : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.of8
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h : invokeV.longValue;
     }
 }

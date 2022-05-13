@@ -1,61 +1,57 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.OnSubscribeAmb$Selection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.zx9;
 /* loaded from: classes7.dex */
-public final class yz9<T> extends hz9<T> {
+public class yz9 implements jy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hz9<? super T> e;
-    public final OnSubscribeAmb$Selection<T> f;
-    public boolean g;
+    public final jy9 a;
+    public final zx9.a b;
+    public final long c;
 
-    public final boolean g() {
-        InterceptResult invokeV;
+    public yz9(jy9 jy9Var, zx9.a aVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.g) {
-                return true;
-            }
-            if (this.f.get() == this) {
-                this.g = true;
-                return true;
-            } else if (this.f.compareAndSet(null, this)) {
-                this.f.unsubscribeOthers(this);
-                this.g = true;
-                return true;
-            } else {
-                this.f.unsubscribeLosers();
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jy9Var, aVar, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.booleanValue;
+        this.a = jy9Var;
+        this.b = aVar;
+        this.c = j;
     }
 
-    @Override // com.repackage.cz9
-    public void onCompleted() {
+    @Override // com.repackage.jy9
+    public void call() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
-            this.e.onCompleted();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isUnsubscribed()) {
+            return;
         }
-    }
-
-    @Override // com.repackage.cz9
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
-            this.e.onError(th);
+        long a = this.c - this.b.a();
+        if (a > 0) {
+            try {
+                Thread.sleep(a);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                iy9.c(e);
+                throw null;
+            }
         }
-    }
-
-    @Override // com.repackage.cz9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
-            this.e.onNext(t);
+        if (this.b.isUnsubscribed()) {
+            return;
         }
+        this.a.call();
     }
 }

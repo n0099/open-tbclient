@@ -1,28 +1,16 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class pc2 {
+public class pc2 extends uw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    @V8JavascriptField
-    public long lastAccessedTime;
-    @V8JavascriptField
-    public long lastModifiedTime;
-    @V8JavascriptField
-    public long mode;
-    @V8JavascriptField
-    public long size;
 
     public pc2() {
         Interceptable interceptable = $ic;
@@ -38,33 +26,11 @@ public class pc2 {
         }
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public void a(boolean z) {
+    @Override // com.repackage.uw2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
         }
-    }
-
-    @SuppressLint({"KotlinPropertyAccess"})
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @JavascriptInterface
-    public boolean isDirectory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    @JavascriptInterface
-    public boolean isFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
     }
 }

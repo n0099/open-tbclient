@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n45;
+import com.repackage.e55;
 /* loaded from: classes3.dex */
 public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -43,14 +43,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    private void createAndAddTabSpec(n45 n45Var, FragmentTabIndicator fragmentTabIndicator, String str) {
+    private void createAndAddTabSpec(e55 e55Var, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, this, n45Var, fragmentTabIndicator, str) == null) || n45Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65537, this, e55Var, fragmentTabIndicator, str) == null) || e55Var == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.c = n45Var.a;
-        fragmentTabIndicator.setText(n45Var.b);
+        bVar.c = e55Var.a;
+        fragmentTabIndicator.setText(e55Var.b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
@@ -78,37 +78,37 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     private FragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) ? (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null) : (FragmentTabIndicator) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) ? (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null) : (FragmentTabIndicator) invokeL.objValue;
     }
 
     private void initTabs() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091a14);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091a66);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.expenditureFragment = sigleRecordsFragment;
-            sigleRecordsFragment.S0(1);
-            n45 n45Var = new n45();
-            n45Var.a = this.expenditureFragment;
-            n45Var.b = R.string.obfuscated_res_0x7f0f05c4;
-            createAndAddTabSpec(n45Var, getTabIndicator(getPageContext().getPageActivity()), null);
+            sigleRecordsFragment.T0(1);
+            e55 e55Var = new e55();
+            e55Var.a = this.expenditureFragment;
+            e55Var.b = R.string.obfuscated_res_0x7f0f05ca;
+            createAndAddTabSpec(e55Var, getTabIndicator(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.incomeFragment = sigleRecordsFragment2;
-            sigleRecordsFragment2.S0(2);
-            n45 n45Var2 = new n45();
-            n45Var2.a = this.incomeFragment;
-            n45Var2.b = R.string.obfuscated_res_0x7f0f08cc;
-            createAndAddTabSpec(n45Var2, getTabIndicator(getPageContext().getPageActivity()), null);
+            sigleRecordsFragment2.T0(2);
+            e55 e55Var2 = new e55();
+            e55Var2.a = this.incomeFragment;
+            e55Var2.b = R.string.obfuscated_res_0x7f0f08d0;
+            createAndAddTabSpec(e55Var2, getTabIndicator(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.rechargeFragment = sigleRecordsFragment3;
-            sigleRecordsFragment3.S0(3);
-            n45 n45Var3 = new n45();
-            n45Var3.a = this.rechargeFragment;
-            n45Var3.b = R.string.obfuscated_res_0x7f0f0f3b;
-            createAndAddTabSpec(n45Var3, getTabIndicator(getPageContext().getPageActivity()), null);
+            sigleRecordsFragment3.T0(3);
+            e55 e55Var3 = new e55();
+            e55Var3.a = this.rechargeFragment;
+            e55Var3.b = R.string.obfuscated_res_0x7f0f0f58;
+            createAndAddTabSpec(e55Var3, getTabIndicator(getPageContext().getPageActivity()), null);
             this.mTabHost.n(3);
             this.mTabHost.setCurrentTab(getIndexByType(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }
@@ -130,11 +130,11 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0203);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
+            setContentView(R.layout.obfuscated_res_0x7f0d01fc);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091534);
             this.mNavigationbar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationbar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f042f));
+            this.mNavigationbar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0436));
             initTabs();
         }
     }

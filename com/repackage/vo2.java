@@ -1,137 +1,254 @@
 package com.repackage;
 
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class vo2 {
+public class vo2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler a;
-    public UnitedSchemeEntity b;
+    public ArrayList<uo2> a;
+    public ArrayList<MediaModel> b;
+    public String c;
+    public Handler d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755224520, "Lcom/repackage/vo2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755224520, "Lcom/repackage/vo2;");
-                return;
-            }
-        }
-        c = tg1.a;
-    }
-
-    public vo2(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public vo2(String str, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {callbackHandler, unitedSchemeEntity, str, str2, str3, str4, str5, str6, str7};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = callbackHandler;
-        this.b = unitedSchemeEntity;
-        d = str;
-        e = str2;
-        f = str3;
-        g = str4;
-        h = str5;
-        i = str6;
-        j = str7;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = str;
+        this.d = handler;
     }
 
-    public static vo2 a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, vo2 vo2Var) {
-        InterceptResult invokeLLLL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, callbackHandler, unitedSchemeEntity, str, vo2Var)) == null) {
-            if (str == null) {
-                return vo2Var;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.c, "video")) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+            } catch (Exception e) {
+                if (jo2.a) {
+                    e.printStackTrace();
+                }
+            }
+            if (cursor == null) {
+                return;
+            }
+            while (cursor.moveToNext()) {
+                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                File file = new File(string);
+                if (file.exists() && (jo2.d || !ko2.d(string))) {
+                    ImageModel imageModel = new ImageModel(string);
+                    imageModel.setAddDate(j);
+                    imageModel.setSize(j2);
+                    d(file, imageModel);
+                }
+            }
+        } finally {
+            xg4.d(null);
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00e3 */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x009f, code lost:
+        if (r11 != null) goto L30;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0, types: [com.repackage.vo2, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() {
+        Throwable th;
+        Cursor cursor;
+        Exception e;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Throwable th2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ?? r1 = "Image";
+            if (TextUtils.equals(this.c, "Image")) {
+                return;
             }
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("onStart");
-                String optString2 = jSONObject.optString(MissionEvent.MESSAGE_PAUSE);
-                String optString3 = jSONObject.optString("onResume");
-                String optString4 = jSONObject.optString(MissionEvent.MESSAGE_STOP);
-                String optString5 = jSONObject.optString("onError");
-                String optString6 = jSONObject.optString("onInterruptionBegin");
-                String optString7 = jSONObject.optString("onInterruptionEnd");
-                if (callbackHandler != null && unitedSchemeEntity != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5)) {
-                    return new vo2(callbackHandler, unitedSchemeEntity, optString, optString2, optString3, optString4, optString5, optString6, optString7);
+                try {
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+                } catch (Throwable th3) {
+                    th = th3;
+                    xg4.d(r1);
+                    throw th;
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (Exception e2) {
+                cursor = null;
+                e = e2;
+            } catch (Throwable th4) {
+                r1 = 0;
+                th = th4;
+                xg4.d(r1);
+                throw th;
             }
-            return vo2Var;
+            if (cursor == null) {
+                xg4.d(cursor);
+                return;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
+                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
+                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
+                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
+                    if (i <= 0 || i2 <= 0) {
+                        try {
+                            mediaMetadataRetriever = new MediaMetadataRetriever();
+                            try {
+                                try {
+                                    mediaMetadataRetriever.setDataSource(string);
+                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
+                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
+                                    i = Integer.parseInt(extractMetadata);
+                                    i2 = Integer.parseInt(extractMetadata2);
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    if (jo2.a) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Throwable th5) {
+                                th2 = th5;
+                                if (mediaMetadataRetriever != null) {
+                                    mediaMetadataRetriever.release();
+                                }
+                                throw th2;
+                            }
+                        } catch (Exception e4) {
+                            e = e4;
+                            mediaMetadataRetriever = null;
+                        } catch (Throwable th6) {
+                            mediaMetadataRetriever = null;
+                            th2 = th6;
+                        }
+                        mediaMetadataRetriever.release();
+                    }
+                    File file = new File(string);
+                    if (file.exists()) {
+                        VideoModel videoModel = new VideoModel(string);
+                        videoModel.setAddDate(j);
+                        videoModel.setDuration(j2);
+                        videoModel.setSize(j3);
+                        videoModel.setWidth(i);
+                        videoModel.setHeight(i2);
+                        d(file, videoModel);
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    if (jo2.a) {
+                        e.printStackTrace();
+                    }
+                    xg4.d(cursor);
+                }
+            }
+            xg4.d(cursor);
         }
-        return (vo2) invokeLLLL.objValue;
     }
 
-    public void b(String str) {
+    public final void c(ArrayList<uo2> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(str, null);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            Iterator<uo2> it = arrayList.iterator();
+            while (it.hasNext()) {
+                uo2 next = it.next();
+                next.i(new File(next.b()).lastModified());
+            }
+            Collections.sort(arrayList);
         }
     }
 
-    public void c(String str, JSONObject jSONObject) {
+    public final void d(File file, MediaModel mediaModel) {
+        String name;
+        String path;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        UnitedSchemeUtility.safeCallback(this.a, this.b, wrapCallbackParams.toString(), str);
-        if (c) {
-            Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
+        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
+            if (file.getParentFile() != null) {
+                name = file.getParentFile().getName();
+                path = file.getParent();
+            } else {
+                name = file.getName();
+                path = file.getPath();
+            }
+            uo2 uo2Var = new uo2();
+            uo2Var.h(name);
+            uo2Var.g(path);
+            int indexOf = this.a.indexOf(uo2Var);
+            if (indexOf >= 0) {
+                this.a.get(indexOf).a(mediaModel);
+            } else {
+                uo2Var.a(mediaModel);
+                this.a.add(uo2Var);
+            }
+            this.b.add(mediaModel);
         }
     }
 
-    public void d(int i2, String str) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            b();
+            c(this.a);
+            uo2 uo2Var = new uo2();
+            uo2Var.h(ko2.b(AppRuntime.getAppContext(), this.c));
+            uo2Var.d = this.b;
+            this.a.add(0, uo2Var);
+            Iterator<uo2> it = this.a.iterator();
+            while (it.hasNext()) {
+                Collections.sort(it.next().f());
+            }
+            Handler handler = this.d;
+            if (handler != null) {
+                Message obtainMessage = handler.obtainMessage(0);
+                obtainMessage.obj = this.a;
+                this.d.sendMessage(obtainMessage);
+            }
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(i2));
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_MSG, str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        c(h, jSONObject);
     }
 }

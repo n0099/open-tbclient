@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f09;
+import com.repackage.bz8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f09 mCheckResponseData;
+    public bz8 mCheckResponseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CheckResponse() {
@@ -45,9 +45,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            f09 f09Var = new f09();
-            this.mCheckResponseData = f09Var;
-            f09Var.a = jSONObject.optString("tbopen_app_key");
+            bz8 bz8Var = new bz8();
+            this.mCheckResponseData = bz8Var;
+            bz8Var.a = jSONObject.optString("tbopen_app_key");
             this.mCheckResponseData.c = jSONObject.optString("tbopen_app_name");
             this.mCheckResponseData.d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
@@ -57,9 +57,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public f09 getCheckResponseData() {
+    public bz8 getCheckResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCheckResponseData : (f09) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCheckResponseData : (bz8) invokeV.objValue;
     }
 }

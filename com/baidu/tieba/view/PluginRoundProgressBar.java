@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes4.dex */
 public class PluginRoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -235,11 +235,11 @@ public class PluginRoundProgressBar extends View {
         }
         this.a = new Paint();
         this.k = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040546, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f04054a, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054c, R.attr.obfuscated_res_0x7f04054d, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f04054f, R.attr.obfuscated_res_0x7f0405d0, R.attr.obfuscated_res_0x7f040659});
-        this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f0608e8));
-        this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.obfuscated_res_0x7f060446));
-        this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.obfuscated_res_0x7f0608c9));
-        this.e = obtainStyledAttributes.getDimension(6, oi.d(getContext(), 11.0f));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054d, R.attr.obfuscated_res_0x7f04054f, R.attr.obfuscated_res_0x7f040550, R.attr.obfuscated_res_0x7f040551, R.attr.obfuscated_res_0x7f040552, R.attr.obfuscated_res_0x7f040553, R.attr.obfuscated_res_0x7f040554, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f040661});
+        this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f0608f1));
+        this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.obfuscated_res_0x7f060449));
+        this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.obfuscated_res_0x7f0608d2));
+        this.e = obtainStyledAttributes.getDimension(6, mi.d(getContext(), 11.0f));
         this.f = obtainStyledAttributes.getDimension(7, 7.0f);
         this.g = obtainStyledAttributes.getInteger(1, 100);
         this.i = obtainStyledAttributes.getBoolean(5, true);

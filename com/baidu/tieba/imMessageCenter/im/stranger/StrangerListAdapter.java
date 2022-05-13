@@ -2,19 +2,21 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j57;
-import com.repackage.yx4;
+import com.repackage.my4;
+import com.repackage.t47;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
-public class StrangerListAdapter extends j57 {
+public class StrangerListAdapter extends t47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,10 +38,11 @@ public class StrangerListAdapter extends j57 {
                 return;
             }
         }
+        this.d = true;
     }
 
-    @Override // com.repackage.j57
-    public boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.t47
+    public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterShowItemData)) == null) {
@@ -48,8 +51,8 @@ public class StrangerListAdapter extends j57 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.j57
-    public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.t47
+    public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterShowItemData)) == null) {
@@ -58,12 +61,12 @@ public class StrangerListAdapter extends j57 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.j57
-    public void g(j57.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.t47
+    public void h(t47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.b.setDrawBorder(true);
-            aVar.b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            aVar.b.setIsRound(true);
+            UtilHelper.showHeadImageViewBigVForStranger(aVar.b, imMessageCenterShowItemData);
             String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
@@ -75,14 +78,25 @@ public class StrangerListAdapter extends j57 {
         }
     }
 
-    @Override // com.repackage.j57
-    public BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
+    @Override // com.repackage.t47
+    public void j(t47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
+            if (imMessageCenterShowItemData != null) {
+                imMessageCenterShowItemData.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1201));
+            }
+            super.j(aVar, imMessageCenterShowItemData);
+        }
+    }
+
+    @Override // com.repackage.t47
+    public BasicNameValuePair t(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, imMessageCenterShowItemData, i, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!yx4.d().r()) {
+            if (!my4.d().t()) {
                 str = "";
                 i = 0;
             }

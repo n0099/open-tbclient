@@ -1,176 +1,135 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
+import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class jy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static jy2 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Activity> a;
 
-    /* loaded from: classes6.dex */
-    public static class a extends ImageSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context, Bitmap bitmap) {
-            super(context, bitmap);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755572402, "Lcom/repackage/jy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755572402, "Lcom/repackage/jy2;");
+                return;
             }
         }
+        b = eh1.a;
+    }
 
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
+    public jy2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 8;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends ImageSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context, Bitmap bitmap) {
-            super(context, bitmap);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static jy2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (jy2.class) {
+                    if (c == null) {
+                        c = new jy2();
+                    }
                 }
             }
+            return c;
         }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 3;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
-        }
+        return (jy2) invokeV.objValue;
     }
 
-    public static int a(String str) {
+    public final View a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            int length = str.length();
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            int i = 0;
-            int i2 = 0;
-            while (matcher.find()) {
-                i += matcher.group().length();
-                i2++;
-            }
-            return (length - i) + i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
+            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07013a)));
+            emojiBagLayout.setEmotionList(hy2.c().b());
+            return emojiBagLayout;
         }
-        return invokeL.intValue;
+        return (View) invokeL.objValue;
+    }
+
+    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
+            IllegalArgumentException illegalArgumentException = !(viewGroup instanceof SPSwitchPanelLinearLayout) ? new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout") : null;
+            if (!(view2 instanceof EditText)) {
+                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
+            }
+            if (illegalArgumentException != null) {
+                if (b) {
+                    throw illegalArgumentException;
+                }
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                return false;
+            } else {
+                if (b) {
+                    Log.d("EmojiPanelManager", "start loading emoji " + str);
+                }
+                this.a = new WeakReference<>(activity);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                    File v = qj2.v(str2, str3, false, null, null);
+                    hy2.c().f(v.getAbsolutePath() + File.separator + str);
+                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f09086c);
+                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09086b);
+                    if (imageView != null) {
+                        imageView.setImageBitmap(hy2.c().d());
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(a(activity.getApplicationContext()));
+                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
+                    EditText editText = (EditText) view2;
+                    if (this.a.get() != null) {
+                        gy2.g(this.a.get().getApplicationContext()).f(editText);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 }

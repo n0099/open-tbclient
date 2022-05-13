@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu4;
-import com.repackage.dr8;
-import com.repackage.mr8;
-import com.repackage.y75;
-import com.repackage.yq8;
+import com.repackage.aq8;
+import com.repackage.jq8;
+import com.repackage.p85;
+import com.repackage.pu4;
+import com.repackage.vp8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListModel.c mCallback;
-    public yq8 mItemController;
+    public vp8 mItemController;
     public BubbleListModel mModel;
-    public final cu4.g mOnPullRefreshListener;
+    public final pu4.g mOnPullRefreshListener;
     public BdListView.p mScrollToBottomListener;
-    public dr8 mView;
+    public aq8 mView;
 
     /* loaded from: classes4.dex */
     public class a implements BubbleListModel.c {
@@ -53,14 +53,14 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
-        public void a(int i, String str, mr8 mr8Var, List<DressItemData> list) {
+        public void a(int i, String str, jq8 jq8Var, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, mr8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, jq8Var, list}) == null) {
                 this.a.mView.j();
                 BubbleListActivity bubbleListActivity = this.a;
                 bubbleListActivity.hideLoadingView(bubbleListActivity.mView.c());
                 if (i == 0) {
-                    this.a.mView.i(mr8Var, list, this.a.mModel.N());
+                    this.a.mView.i(jq8Var, list, this.a.mModel.N());
                     return;
                 }
                 this.a.showToast(str);
@@ -104,7 +104,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements cu4.g {
+    public class c implements pu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleListActivity a;
@@ -127,7 +127,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             this.a = bubbleListActivity;
         }
 
-        @Override // com.repackage.cu4.g
+        @Override // com.repackage.pu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.mModel == null) {
@@ -155,7 +155,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         this.mOnPullRefreshListener = new c(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,17 +163,17 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public y75 getPageStayDurationItem() {
+    public p85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            y75 pageStayDurationItem = super.getPageStayDurationItem();
+            p85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (y75) invokeV.objValue;
+        return (p85) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -181,9 +181,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            dr8 dr8Var = this.mView;
-            if (dr8Var != null) {
-                dr8Var.d();
+            aq8 aq8Var = this.mView;
+            if (aq8Var != null) {
+                aq8Var.d();
             }
         }
     }
@@ -196,11 +196,11 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             BubbleListModel bubbleListModel = new BubbleListModel(this);
             this.mModel = bubbleListModel;
             bubbleListModel.P(this.mCallback);
-            yq8 yq8Var = new yq8(getPageContext());
-            this.mItemController = yq8Var;
-            dr8 dr8Var = new dr8(this, yq8Var);
-            this.mView = dr8Var;
-            dr8Var.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
+            vp8 vp8Var = new vp8(getPageContext());
+            this.mItemController = vp8Var;
+            aq8 aq8Var = new aq8(this, vp8Var);
+            this.mView = aq8Var;
+            aq8Var.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
             showLoadingView(this.mView.c());
             this.mModel.loadData();
         }
@@ -216,12 +216,12 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        dr8 dr8Var;
+        aq8 aq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (dr8Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (aq8Var = this.mView) == null) {
             return;
         }
-        showLoadingView(dr8Var.c());
+        showLoadingView(aq8Var.c());
         this.mModel.loadData();
     }
 }

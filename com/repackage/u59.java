@@ -1,18 +1,93 @@
 package com.repackage;
 
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Stack;
 /* loaded from: classes7.dex */
-public class u59 {
+public final class u59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public sb1<o59> a;
+    public Stack<WeakReference<Activity>> a;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final u59 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-3294565, "Lcom/repackage/u59$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-3294565, "Lcom/repackage/u59$a;");
+                    return;
+                }
+            }
+            a = new u59((byte) 0);
+        }
+    }
+
+    public /* synthetic */ u59(byte b) {
+        this();
+    }
+
+    public final Stack<WeakReference<Activity>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Stack) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.a.size(); i++) {
+                Activity activity = this.a.get(i).get();
+                if (activity != null) {
+                    sb.append(activity.getClass().getSimpleName());
+                    sb.append("->");
+                }
+            }
+            return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "没有路径了";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c(WeakReference<Activity> weakReference) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
+            this.a.add(weakReference);
+        }
+    }
+
+    public final void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (this.a != null) {
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (this.a.get(i).get() == activity) {
+                        Stack<WeakReference<Activity>> stack = this.a;
+                        stack.remove(stack.get(i));
+                    }
+                }
+            }
+            b();
+        }
+    }
 
     public u59() {
         Interceptable interceptable = $ic;
@@ -27,21 +102,6 @@ public class u59 {
                 return;
             }
         }
-        b();
-    }
-
-    public o59 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() : (o59) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qb1 b = qb1.b();
-            this.a = b;
-            b.a(new p59());
-        }
+        this.a = new Stack<>();
     }
 }

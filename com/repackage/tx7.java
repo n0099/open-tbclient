@@ -1,34 +1,38 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RelateRecThread.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public class tx7 extends nx7 {
+public class tx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public wz g;
-    public ItemCardView h;
-    public ThreadData i;
-    public pn4 j;
-    public i00 k;
+    public final List<ro> a;
+    public final RelateRecThreadListModel b;
+    public fw7 c;
+    public PbModel d;
+    public boolean e;
+    public List<ro> f;
+    public final qm4 g;
 
     /* loaded from: classes7.dex */
-    public class a extends pn4 {
+    public class a implements qm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tx7 a;
@@ -51,213 +55,127 @@ public class tx7 extends nx7 {
             this.a = tx7Var;
         }
 
-        @Override // com.repackage.pn4
-        public lp4 getNegFeedBackData() {
-            InterceptResult invokeV;
+        @Override // com.repackage.qm4
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (lp4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.pn4
-        public ThreadData getThreadData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.i : (ThreadData) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-        public BdUniqueId getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (BdUniqueId) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tx7 a;
-
-        public b(tx7 tx7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tx7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tx7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            tx7 tx7Var;
-            qy.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (tx7Var = this.a).c) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.c == null || this.a.c.T0() == null) {
                 return;
             }
-            aVar.a(tx7Var.j);
+            this.a.c.T0().M();
+        }
+
+        @Override // com.repackage.qm4
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                if (this.a.d != null && (obj instanceof DataRes)) {
+                    DataRes dataRes = (DataRes) obj;
+                    bs7 P1 = this.a.d.P1();
+                    String first_class = P1.l() != null ? P1.l().getFirst_class() : "";
+                    List<ThreadInfo> list = dataRes.recom_thread_info;
+                    if (ListUtils.isEmpty(list)) {
+                        if (this.a.c == null || this.a.c.T0() == null) {
+                            return;
+                        }
+                        this.a.c.T0().u(P1.t());
+                        this.a.c.T0().M();
+                        if (P1.t()) {
+                            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
+                            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                            statisticItem.param("fid", P1.m());
+                            statisticItem.param("fname", P1.n());
+                            statisticItem.param("tid", P1.Q());
+                            TiebaStatic.log(statisticItem);
+                            return;
+                        }
+                        return;
+                    }
+                    List<ro> b = ux7.b(list, first_class, this.a.d.O1());
+                    this.a.a.addAll(b);
+                    P1.L0(this.a.a);
+                    this.a.f.addAll(b);
+                    Integer num = dataRes.rec_type;
+                    P1.I0(num == null ? 0 : num.intValue());
+                }
+                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
+                    this.a.c.I3();
+                }
+                if (this.a.c.T0() == null || !this.a.c.T0().n() || ListUtils.isEmpty(this.a.a)) {
+                    return;
+                }
+                this.a.c.T0().k();
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tx7(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public tx7(gz7 gz7Var, BdUniqueId bdUniqueId, fw7 fw7Var, PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {gz7Var, bdUniqueId, fw7Var, pbModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
+        this.f = new ArrayList();
+        this.g = new a(this);
+        this.c = fw7Var;
+        this.d = pbModel;
+        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(gz7Var.getPageContext(), bdUniqueId);
+        this.b = relateRecThreadListModel;
+        relateRecThreadListModel.F(this.g);
     }
 
-    @Override // com.repackage.nx7
-    public View a() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setClipChildren(false);
-                this.f.setClipToPadding(false);
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-                this.f.setOrientation(1);
-                this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            PbModel pbModel = this.d;
+            if (pbModel == null || TextUtils.isEmpty(pbModel.h2()) || this.d.P1() == null) {
+                return false;
             }
-            this.f.removeAllViews();
-            if (this.g == null) {
-                wz wzVar = new wz(this.a);
-                this.g = wzVar;
-                wzVar.n(Boolean.TRUE);
+            if (this.e) {
+                return true;
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            this.f.addView(this.g.g(), layoutParams);
-            if (this.k == null) {
-                i00 i00Var = new i00(this.a.getPageActivity());
-                this.k = i00Var;
-                i00Var.w("pb");
+            if (this.d.P1().a0()) {
+                return false;
             }
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.tbds_30);
-            this.f.addView(this.k.g(), layoutParams2);
-            if (this.h == null) {
-                this.h = new ItemCardView(this.a.getPageActivity());
+            String forumId = this.d.getForumId();
+            if (TextUtils.isEmpty(forumId) && this.d.P1().l() != null) {
+                forumId = this.d.P1().l().getId();
             }
-            this.h.setBackGroundColor(R.color.CAM_X0205);
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams3.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams3.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams3.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams3.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.h, layoutParams3);
-            return this.f;
+            long g = kg.g(forumId, 0L);
+            long g2 = kg.g(this.d.h2(), 0L);
+            int c2 = this.d.c2();
+            String b2 = this.d.b2();
+            if (!this.e) {
+                this.e = true;
+            }
+            return this.b.E(g, g2, 1, c2, b2);
         }
-        return (View) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.nx7
-    public void b(TbPageContext tbPageContext, int i) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
-            return;
-        }
-        this.e = i;
-        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-        wz wzVar = this.g;
-        if (wzVar != null) {
-            wzVar.onChangeSkinType(tbPageContext, i);
-        }
-        ItemCardView itemCardView = this.h;
-        if (itemCardView != null) {
-            itemCardView.G();
-        }
-        i00 i00Var = this.k;
-        if (i00Var != null) {
-            i00Var.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+            this.b.onDestroy();
         }
     }
 
-    @Override // com.repackage.nx7
-    public void c(OriginalThreadInfo originalThreadInfo) {
+    public void f(fw7 fw7Var, PbModel pbModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.d = originalThreadInfo;
-            this.i = originalThreadInfo == null ? null : originalThreadInfo.a();
-            a aVar = new a(this);
-            this.j = aVar;
-            i00 i00Var = this.k;
-            if (i00Var != null) {
-                i00Var.a(aVar);
-            }
-            ItemCardView itemCardView = this.h;
-            if (itemCardView != null && originalThreadInfo != null) {
-                itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
-            }
-            wz wzVar = this.g;
-            if (wzVar != null) {
-                wzVar.a(this.j);
-            }
-        }
-    }
-
-    @Override // com.repackage.nx7
-    public void d(qy.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
-            i00 i00Var = this.k;
-            if (i00Var != null) {
-                i00Var.x(aVar);
-            }
-            wz wzVar = this.g;
-            if (wzVar != null) {
-                wzVar.w(aVar);
-            }
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setOnClickListener(new b(this));
-            }
-        }
-    }
-
-    @Override // com.repackage.nx7
-    public void e(tx5 tx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tx5Var) == null) {
-            super.e(tx5Var);
-            i00 i00Var = this.k;
-            if (i00Var != null) {
-                i00Var.l(this.b);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fw7Var, pbModel) == null) {
+            this.c = fw7Var;
+            this.d = pbModel;
         }
     }
 }

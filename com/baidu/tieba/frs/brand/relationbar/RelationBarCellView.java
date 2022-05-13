@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import tbclient.OriForumInfo;
 /* loaded from: classes3.dex */
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
@@ -61,17 +61,17 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0308, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090adb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090adc);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090ada);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ff, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ac9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090aca);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090ac8);
             this.b.setDefaultResource(17170445);
             this.b.setDefaultBgResource(R.color.CAM_X0205);
             this.b.setBorderColor(0);
-            this.b.setRadius(oi.f(getContext(), R.dimen.tbds20));
+            this.b.setRadius(mi.f(getContext(), R.dimen.tbds20));
             this.b.setConrers(5);
-            this.e = oi.f(context, R.dimen.tbds471);
-            this.f = oi.f(context, R.dimen.tbds164);
+            this.e = mi.f(context, R.dimen.tbds471);
+            this.f = mi.f(context, R.dimen.tbds164);
             setOnClickListener(this);
             b();
         }
@@ -118,7 +118,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             this.g = oriForumInfo;
             this.b.K(oriForumInfo.ori_avatar, 10, false);
             this.c.setText(oriForumInfo.ori_fname);
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06b8), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06c1), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
         }
     }
 

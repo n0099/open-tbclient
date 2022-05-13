@@ -1,51 +1,53 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class t11 implements u11 {
+public final class t11 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public t11() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755343715, "Lcom/repackage/t11;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755343715, "Lcom/repackage/t11;");
+                return;
             }
         }
+        b = ki0.b().getApplicationInfo().processName;
+        String a2 = h11.a();
+        a = a2;
+        c = a(a2);
     }
 
-    public static t11 a() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.equals(str, b)) {
+                return true;
+            }
+            return str.startsWith(b) && !str.contains(":");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new t11() : (t11) invokeV.objValue;
-    }
-
-    @Override // com.repackage.u11
-    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
-    public void load(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            System.load(str);
-        }
-    }
-
-    @Override // com.repackage.u11
-    public void loadLibrary(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            System.loadLibrary(str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : invokeV.booleanValue;
     }
 }

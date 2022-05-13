@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.js5;
-import com.repackage.tw5;
+import com.repackage.ks5;
+import com.repackage.uw5;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends tw5<js5> {
+public class AlaFrsLiveListGatherRecommendTitleView extends uw5<ks5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -71,20 +71,20 @@ public class AlaFrsLiveListGatherRecommendTitleView extends tw5<js5> {
         }
         this.m = 3;
         View k = k();
-        this.i = k.findViewById(R.id.obfuscated_res_0x7f090b11);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b10);
-        this.k = k.findViewById(R.id.obfuscated_res_0x7f090b12);
+        this.i = k.findViewById(R.id.obfuscated_res_0x7f090aff);
+        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090afe);
+        this.k = k.findViewById(R.id.obfuscated_res_0x7f090b00);
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f9 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f5 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.m == i) {
@@ -104,11 +104,11 @@ public class AlaFrsLiveListGatherRecommendTitleView extends tw5<js5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: s */
-    public void l(js5 js5Var) {
+    public void l(ks5 ks5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, js5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, ks5Var) == null) {
             m(this.l, TbadkCoreApplication.getInst().getSkinType());
         }
     }

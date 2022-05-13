@@ -1,61 +1,40 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.Toast;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.Coder;
-import java.security.Key;
-import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-import javax.crypto.spec.IvParameterSpec;
 /* loaded from: classes7.dex */
-public class qp9 {
+public class qp9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlgorithmParameterSpec a;
-    public Key b;
+    public final /* synthetic */ tp9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755372297, "Lcom/repackage/qp9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755372297, "Lcom/repackage/qp9;");
-        }
-    }
-
-    public qp9(String str, String str2) {
+    public qp9(tp9 tp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tp9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        try {
-            this.a = new IvParameterSpec(str2.getBytes(IMAudioTransRequest.CHARSET));
-            this.b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
-        } catch (Exception e) {
-            throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e);
+        this.a = tp9Var;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Toast.makeText(this.a.b.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f1590, 0).show();
         }
     }
 }

@@ -2,42 +2,39 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.repackage.j43;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public class m23 extends n23 {
+public class m23 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements cc2 {
+    public class a implements j43.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j03 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ m23 e;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
 
-        public a(m23 m23Var, j03 j03Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+        public a(m23 m23Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m23Var, j03Var, callbackHandler, unitedSchemeEntity, str};
+                Object[] objArr = {m23Var, callbackHandler, unitedSchemeEntity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,83 +44,44 @@ public class m23 extends n23 {
                     return;
                 }
             }
-            this.e = m23Var;
-            this.a = j03Var;
-            this.b = callbackHandler;
-            this.c = unitedSchemeEntity;
-            this.d = str;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
         }
 
-        @Override // com.repackage.cc2
-        public void a() {
+        @Override // com.repackage.j43.e
+        public void b(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.e.d) {
-                    b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e4);
-                    f.l(2);
-                    f.G();
-                }
-                this.e.n(this.c, this.b, this.d);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ux1.i("PreloadSubPackage", "preload subPackage success");
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.c);
             }
         }
 
-        @Override // com.repackage.cc2
-        public void b(boolean z) {
+        @Override // com.repackage.j43.e
+        public void c(int i, nc3 nc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (this.e.d && !z) {
-                    b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f0152);
-                    f.l(2);
-                    f.G();
-                }
-                this.e.n(this.c, this.b, this.d);
-            }
-        }
-
-        @Override // com.repackage.cc2
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("success", "1");
-                } catch (JSONException e) {
-                    if (tg1.a) {
-                        e.printStackTrace();
-                    }
-                }
-                if (this.e.d) {
-                    n23.m("1", "btn", "success");
-                    h72.t();
-                    if (zp2.k(this.a.x())) {
-                        zp2.p("addmyswan", de3.n().e());
-                    } else {
-                        Context applicationContext = this.a.getApplicationContext();
-                        b03 g = b03.g(applicationContext, qj2.l0().f(applicationContext));
-                        g.l(2);
-                        g.q(2);
-                        g.G();
-                    }
-                }
-                UnitedSchemeUtility.safeCallback(this.b, this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.d);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, nc3Var) == null) {
+                ux1.c("PreloadSubPackage", "preload subPackage failed");
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.c);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m23(g13 g13Var) {
-        super(g13Var, "/swanAPI/addFavor");
+    public m23(r13 r13Var) {
+        super(r13Var, "/swanAPI/preloadSubPackage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((g13) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -131,51 +89,52 @@ public class m23 extends n23 {
         }
     }
 
-    @Override // com.repackage.n23
-    public boolean j(j03 j03Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, j03Var, unitedSchemeEntity)) == null) {
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (u03Var == null) {
+                ux1.c("PreloadSubPackage", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
-            try {
-                String N = this.d ? j03Var.N() : new JSONObject(param).optString("appid");
-                this.c = N;
-                return !TextUtils.isEmpty(N);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                ux1.c("PreloadSubPackage", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.n23
-    public void k(j03 j03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j03Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            PMSAppInfo u = e84.i().u(this.c);
-            if (u != null && !TextUtils.isEmpty(u.appId)) {
-                if (this.d) {
-                    n23.m("1", "btn", "invoke");
-                } else {
-                    n23.m("1", RetrieveTaskManager.KEY, "invoke");
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                ux1.c("PreloadSubPackage", "none cb");
+                if (r23.b) {
+                    Log.d("SwanAppAction", "preload subPackage cb is empty");
                 }
-                SwanFavorDataManager.h().b(this.c, new a(this, j03Var, callbackHandler, unitedSchemeEntity, str));
-                return;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            n(unitedSchemeEntity, callbackHandler, str);
+            String optString2 = optParamsAsJo.optString("root");
+            if (TextUtils.isEmpty(optString2)) {
+                ux1.c("PreloadSubPackage", "subPackage root is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (u03Var.u0(optString2) && u03Var.t0(optString2)) {
+                ux1.i("PreloadSubPackage", "subPackage have existed");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
+                return false;
+            } else {
+                String Q = u03Var.Q(optString2);
+                if (TextUtils.isEmpty(Q)) {
+                    ux1.i("PreloadSubPackage", "subPackage cannot find aps key");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                j43.l(u03Var.b, u03Var.j0(), "1", optString2, Q, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
         }
-    }
-
-    @Override // com.repackage.n23
-    public void l(j03 j03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        yk1 l0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, j03Var, unitedSchemeEntity, callbackHandler, str) == null) && this.d && (l0 = qj2.l0()) != null) {
-            l0.g(j03Var);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

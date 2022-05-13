@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xf8;
+import com.repackage.me8;
 import java.util.HashMap;
 @Autowired
 /* loaded from: classes2.dex */
@@ -40,7 +40,7 @@ public class DataProcessors {
     private ICloudControlRegister getCloudControlRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? xf8.a() : (ICloudControlRegister) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? me8.a() : (ICloudControlRegister) invokeV.objValue;
     }
 
     public void addProcessor(String str, ICloudControlProcessor iCloudControlProcessor) {

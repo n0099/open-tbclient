@@ -252,7 +252,7 @@ public class BdPlayerProgressView extends View {
         this.DEFAULT_HEIGHT = BdPlayerUtils.dp2px(this, 15.0f);
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c1, R.attr.obfuscated_res_0x7f0400c2, R.attr.obfuscated_res_0x7f0400c3, R.attr.obfuscated_res_0x7f0400c4});
+            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c3, R.attr.obfuscated_res_0x7f0400c4, R.attr.obfuscated_res_0x7f0400c5, R.attr.obfuscated_res_0x7f0400c6});
             this.mTextSize = typedArray.getDimension(3, 15.0f);
             this.mTextColor = typedArray.getColor(1, -1);
             this.mGravity = typedArray.getInt(0, 1);

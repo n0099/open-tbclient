@@ -23,7 +23,7 @@ import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class RoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int h = 2131100693;
+    public static final int h = 2131100696;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
     public Shape b;

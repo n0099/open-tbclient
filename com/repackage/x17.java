@@ -1,44 +1,77 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class x17 {
+public class x17 extends uw5<v17> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public View i;
+    public v17 j;
 
-    public x17() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x17(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.i = k().findViewById(R.id.obfuscated_res_0x7f09058b);
+    }
+
+    @Override // com.repackage.uw5
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bd : invokeV.intValue;
+    }
+
+    @Override // com.repackage.uw5
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
         }
     }
 
-    public static x17 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            x17 x17Var = new x17();
-            x17Var.a = jSONObject.optString("content");
-            x17Var.b = jSONObject.optString("tid");
-            return x17Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return (x17) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uw5
+    /* renamed from: s */
+    public void l(v17 v17Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, v17Var) == null) || v17Var == null) {
+            return;
+        }
+        this.j = v17Var;
+        SkinManager.setBackgroundColor(this.i, v17Var.b);
+        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
+        layoutParams.height = mi.f(this.c, v17Var.a);
+        this.i.setLayoutParams(layoutParams);
     }
 }

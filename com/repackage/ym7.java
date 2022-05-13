@@ -14,12 +14,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ym7 implements uo {
+public class ym7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List<pz4> b;
+    public List<d05> b;
     public boolean c;
 
     static {
@@ -62,15 +62,15 @@ public class ym7 implements uo {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.b = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                pz4 pz4Var = new pz4();
-                pz4Var.a(optJSONArray.optJSONObject(i));
-                this.b.add(pz4Var);
+                d05 d05Var = new d05();
+                d05Var.a(optJSONArray.optJSONObject(i));
+                this.b.add(d05Var);
             }
         }
         this.c = jSONObject.optInt("has_more", 0) == 1;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

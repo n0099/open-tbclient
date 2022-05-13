@@ -1,130 +1,173 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 /* loaded from: classes7.dex */
 public class rc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
-            b(obj, z, false);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static rc5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-46819185, "Lcom/repackage/rc5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-46819185, "Lcom/repackage/rc5$b;");
+                    return;
+                }
+            }
+            a = new rc5(null);
         }
     }
 
-    public static void b(Object obj, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(obj, z, z2, false);
-        }
+    public /* synthetic */ rc5(a aVar) {
+        this();
     }
 
-    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+    public static rc5 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || obj == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (rc5) invokeV.objValue;
+    }
+
+    public final String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr == null) {
+                return "";
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            int length = bArr.length;
+            for (int i = 0; i < length; i++) {
+                stringBuffer.append(String.format("%02X:", Byte.valueOf(bArr[i])));
+            }
+            if (stringBuffer.length() > 0) {
+                stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+            }
+            return stringBuffer.toString();
         }
-        try {
-            Field field = obj.getClass().getField("common");
-            int i = 1;
-            if (!field.isAccessible()) {
-                field.setAccessible(true);
+        return (String) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.BRAND : (String) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 17)
+    public final DisplayMetrics c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (context == null) {
+                return displayMetrics;
             }
-            CommonReq.Builder builder = new CommonReq.Builder();
-            builder._client_type = 2;
-            builder._client_version = TbConfig.getVersion();
-            builder._client_id = TbadkCoreApplication.getClientId();
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                builder.subapp_type = TbConfig.getSubappType();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
+            return displayMetrics;
+        }
+        return (DisplayMetrics) invokeL.objValue;
+    }
+
+    @NonNull
+    public String e(Context context) {
+        InterceptResult invokeL;
+        byte[] hardwareAddress;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (context == null) {
+                return "";
             }
-            if (!TbadkCoreApplication.getInst().isOfficial()) {
-                builder.apid = TbConfig.SW_APID;
+            try {
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-            builder.from = TbadkCoreApplication.getFrom();
-            builder.cuid = TbadkCoreApplication.getInst().getCuid();
-            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
-            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-            builder._timestamp = Long.valueOf(System.currentTimeMillis());
-            builder.model = Build.MODEL;
-            builder._os_version = Build.VERSION.RELEASE;
-            builder.brand = Build.BRAND;
-            builder.user_agent = nd5.b();
-            if (z) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = m55.b();
-                    if (!StringUtils.isNull(m55.e())) {
-                        builder.stoken = m55.e();
-                    }
-                } else {
-                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                    if (currentAccountInfo != null) {
-                        builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a = gn4.a(currentAccountInfo);
-                        if (!StringUtils.isNull(a)) {
-                            builder.stoken = a;
-                        }
-                    }
+            if (Build.VERSION.SDK_INT < 23) {
+                WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
+                return (connectionInfo == null || connectionInfo.getMacAddress() == null) ? "" : connectionInfo.getMacAddress();
+            }
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {
+                NetworkInterface nextElement = networkInterfaces.nextElement();
+                if ("wlan0".equalsIgnoreCase(nextElement.getName()) && (hardwareAddress = nextElement.getHardwareAddress()) != null && hardwareAddress.length != 0) {
+                    return a(hardwareAddress);
                 }
             }
-            if (z2) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = m55.f();
-                } else {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
-            }
-            if (z3) {
-                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-            }
-            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-            builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (vt4.k().l("android_safe_sdk_open", 0) == 1) {
-                builder.z_id = TbadkCoreApplication.getInst().getZid();
-            }
-            builder.net_type = Integer.valueOf(mi.I());
-            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            builder.sample_id = TbSingleton.getInstance().getSampleId();
-            builder.is_teenager = 0;
-            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
-            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
-            builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
-            builder.q_type = Integer.valueOf(bn4.c().e());
-            builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(oi.h(TbadkCoreApplication.getInst()));
-            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-            builder.event_day = TbSingleton.getInstance().getData();
-            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                i = 2;
-            }
-            builder.cmode = Integer.valueOf(i);
-            builder.start_type = Integer.valueOf(js4.f);
-            builder.start_scheme = js4.e();
-            builder.extra = vt4.k().q("key_sync_extra_field", "");
-            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
-            field.set(obj, builder.build(false));
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                th.printStackTrace();
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @RequiresApi(api = 17)
+    public String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? String.valueOf(c(context).heightPixels) : (String) invokeL.objValue;
+    }
+
+    @RequiresApi(api = 17)
+    public String g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? String.valueOf(c(context).widthPixels) : (String) invokeL.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Build.DEVICE : (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Build.MODEL : (String) invokeV.objValue;
+    }
+
+    public rc5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

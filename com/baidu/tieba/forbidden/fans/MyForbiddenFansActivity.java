@@ -28,10 +28,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.pa6;
-import com.repackage.qa6;
-import com.repackage.sa6;
+import com.repackage.mi;
+import com.repackage.u96;
+import com.repackage.v96;
+import com.repackage.x96;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MyForbiddenFansActivity extends BaseActivity {
@@ -41,20 +41,20 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public NavigationBarCoverTip mCoverTipNaviBar;
     public BdRecyclerView mListView;
     public PbListView mLoadMoreView;
-    public qa6 mModel;
+    public v96 mModel;
     public NavigationBar mNavigationBar;
-    public qa6.b mNetDataCallBack;
+    public v96.b mNetDataCallBack;
     public NoDataView mNoDataView;
     public View.OnClickListener mPersonClick;
     public View.OnClickListener mRemoveAllClick;
-    public sa6 mRemoveController;
+    public x96 mRemoveController;
     public View.OnClickListener mRemoveSingleClick;
     public TextView mRemoveView;
     public TextView mResultTipView;
     public LinearLayout mRootView;
 
     /* loaded from: classes3.dex */
-    public class a implements qa6.b {
+    public class a implements v96.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyForbiddenFansActivity a;
@@ -77,8 +77,8 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.a = myForbiddenFansActivity;
         }
 
-        @Override // com.repackage.qa6.b
-        public void a(int i, String str, ArrayList<pa6> arrayList) {
+        @Override // com.repackage.v96.b
+        public void a(int i, String str, ArrayList<u96> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, arrayList) == null) {
                 if (this.a.isProgressBarShown()) {
@@ -128,7 +128,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (oi.C()) {
+                if (mi.C()) {
                     if (view2 == this.a.mRemoveView) {
                         TiebaStatic.log(new StatisticItem("c13104").param("obj_locate", 2));
                         this.a.mRemoveController.e();
@@ -137,7 +137,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                     return;
                 }
                 MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c17));
+                myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c2d));
             }
         }
     }
@@ -170,12 +170,12 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!oi.C()) {
+                if (!mi.C()) {
                     MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c17));
-                } else if (view2.getTag() instanceof pa6) {
+                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c2d));
+                } else if (view2.getTag() instanceof u96) {
                     TiebaStatic.log(new StatisticItem("c13105"));
-                    this.a.mRemoveController.f(((pa6) view2.getTag()).a);
+                    this.a.mRemoveController.f(((u96) view2.getTag()).a);
                 }
             }
         }
@@ -208,9 +208,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof pa6)) {
-                pa6 pa6Var = (pa6) view2.getTag();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getActivity(), String.valueOf(pa6Var.a), pa6Var.b)));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof u96)) {
+                u96 u96Var = (u96) view2.getTag();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getActivity(), String.valueOf(u96Var.a), u96Var.b)));
             }
         }
     }
@@ -252,7 +252,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements sa6.e {
+    public class f implements x96.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyForbiddenFansActivity a;
@@ -275,16 +275,16 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.a = myForbiddenFansActivity;
         }
 
-        @Override // com.repackage.sa6.e
+        @Override // com.repackage.x96.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                myForbiddenFansActivity.showLoadingDialog(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0f81));
+                myForbiddenFansActivity.showLoadingDialog(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0f99));
             }
         }
 
-        @Override // com.repackage.sa6.e
+        @Override // com.repackage.x96.e
         public void b(int i, String str, boolean z, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
@@ -310,9 +310,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
                     if (this.a.mResultTipView == null) {
                         this.a.mResultTipView = new TextView(this.a.getActivity());
                         this.a.mResultTipView.setGravity(19);
-                        this.a.mResultTipView.setPadding(oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
-                        this.a.mResultTipView.setLayoutParams(new ViewGroup.LayoutParams(-1, oi.f(this.a.getActivity(), R.dimen.tbds112)));
-                        this.a.mResultTipView.setTextSize(0, oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070331));
+                        this.a.mResultTipView.setPadding(mi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
+                        this.a.mResultTipView.setLayoutParams(new ViewGroup.LayoutParams(-1, mi.f(this.a.getActivity(), R.dimen.tbds112)));
+                        this.a.mResultTipView.setTextSize(0, mi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070331));
                         this.a.mResultTipView.setTextColor(this.a.getResources().getColor(R.color.CAM_X0101));
                     }
                     this.a.mResultTipView.setText(str);
@@ -341,7 +341,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                         }
                         return;
                     }
-                    oi.N(this.a.getActivity(), str);
+                    mi.N(this.a.getActivity(), str);
                 }
             }
         }
@@ -384,9 +384,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             if (this.mNoDataView == null) {
-                NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(getActivity(), R.dimen.obfuscated_res_0x7f07023f)), null, null);
+                NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, mi.f(getActivity(), R.dimen.obfuscated_res_0x7f07023f)), null, null);
                 this.mNoDataView = a2;
-                a2.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c39));
+                a2.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c4f));
                 this.mNoDataView.setSubTitleTextColor(R.color.CAM_X0106);
                 this.mNoDataView.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
@@ -397,18 +397,18 @@ public class MyForbiddenFansActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateLoadMoreView(ArrayList<pa6> arrayList) {
+    public void updateLoadMoreView(ArrayList<u96> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65550, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
             return;
         }
         this.mListView.setNextPage(this.mLoadMoreView);
         if (this.mModel.f()) {
-            this.mLoadMoreView.C(getString(R.string.obfuscated_res_0x7f0f0da9));
+            this.mLoadMoreView.C(getString(R.string.obfuscated_res_0x7f0f0dc3));
             this.mLoadMoreView.f();
             return;
         }
-        this.mLoadMoreView.C(getString(R.string.obfuscated_res_0x7f0f0c46));
+        this.mLoadMoreView.C(getString(R.string.obfuscated_res_0x7f0f0c5d));
         this.mLoadMoreView.f();
     }
 
@@ -436,17 +436,17 @@ public class MyForbiddenFansActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02a6);
-            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d7);
-            this.mModel = new qa6();
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f8);
+            setContentView(R.layout.obfuscated_res_0x7f0d029e);
+            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
+            this.mModel = new v96();
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091517);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f063a));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0642));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.showBottomLine();
-            this.mRemoveView = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0f7b));
-            this.mCoverTipNaviBar = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f0914f7);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09127f);
+            this.mRemoveView = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0f93));
+            this.mCoverTipNaviBar = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f091516);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09128e);
             this.mListView = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             this.mListView.setOnSrollToBottomListener(new e(this));
@@ -458,13 +458,13 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.mLoadMoreView.E(SkinManager.getColor(R.color.CAM_X0107));
             this.mLoadMoreView.G(R.dimen.tbfontsize33);
             this.mLoadMoreView.A(R.color.CAM_X0110);
-            this.mLoadMoreView.t(oi.f(getActivity(), R.dimen.tbds182));
+            this.mLoadMoreView.t(mi.f(getActivity(), R.dimen.tbds182));
             this.mLoadMoreView.s();
             MyForbiddenFansListAdapter myForbiddenFansListAdapter = new MyForbiddenFansListAdapter(this);
             this.mAdapter = myForbiddenFansListAdapter;
             this.mListView.setAdapter(myForbiddenFansListAdapter);
             this.mModel.j(this.mNetDataCallBack);
-            this.mRemoveController = new sa6(getPageContext(), getUniqueId());
+            this.mRemoveController = new x96(getPageContext(), getUniqueId());
             this.mRemoveView.setOnClickListener(this.mRemoveAllClick);
             this.mAdapter.l(this.mPersonClick);
             this.mAdapter.m(this.mRemoveSingleClick);

@@ -25,7 +25,7 @@ public class l88 {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, kk8.a("c/u/feed/userpost", 303002));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, hj8.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -42,7 +42,7 @@ public class l88 {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            kk8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            hj8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
         }
     }
 }

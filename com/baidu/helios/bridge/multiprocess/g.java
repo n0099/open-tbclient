@@ -20,26 +20,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o30;
-import com.repackage.s30;
-import com.repackage.w50;
-/* loaded from: classes2.dex */
-public class g extends o30 implements IBinder.DeathRecipient {
+import com.repackage.b30;
+import com.repackage.f50;
+import com.repackage.x20;
+/* loaded from: classes.dex */
+public class g extends x20 implements IBinder.DeathRecipient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ContentProviderClient c;
     public e d;
-    public s30 e;
+    public b30 e;
     public String f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o30.c d;
+        public final /* synthetic */ x20.c d;
         public final /* synthetic */ g e;
 
-        public a(g gVar, o30.c cVar) {
+        public a(g gVar, x20.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,12 +75,12 @@ public class g extends o30 implements IBinder.DeathRecipient {
         }
     }
 
-    public g(s30 s30Var, String str) {
+    public g(b30 b30Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s30Var, str};
+            Object[] objArr = {b30Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,11 +90,11 @@ public class g extends o30 implements IBinder.DeathRecipient {
                 return;
             }
         }
-        this.e = s30Var;
+        this.e = b30Var;
         this.f = str;
     }
 
-    public static Bundle k(o30.d dVar) {
+    public static Bundle k(x20.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) {
@@ -106,10 +106,10 @@ public class g extends o30 implements IBinder.DeathRecipient {
         return (Bundle) invokeL.objValue;
     }
 
-    public static o30.d l(Bundle bundle) {
+    public static x20.d l(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new o30.d(bundle.getInt("errcode"), bundle.getString("id"), null) : (o30.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new x20.d(bundle.getInt("errcode"), bundle.getString("id"), null) : (x20.d) invokeL.objValue;
     }
 
     public static void n(Bundle bundle, IBinder iBinder) {
@@ -141,8 +141,8 @@ public class g extends o30 implements IBinder.DeathRecipient {
         return (IBinder) invokeL.objValue;
     }
 
-    @Override // com.repackage.o30
-    public void a(String str, Bundle bundle, o30.c<String> cVar) {
+    @Override // com.repackage.x20
+    public void a(String str, Bundle bundle, x20.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             try {
@@ -161,7 +161,7 @@ public class g extends o30 implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.repackage.o30
+    @Override // com.repackage.x20
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -174,7 +174,7 @@ public class g extends o30 implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.repackage.o30
+    @Override // com.repackage.x20
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -188,16 +188,16 @@ public class g extends o30 implements IBinder.DeathRecipient {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.o30
-    public void f(o30.b bVar) {
+    @Override // com.repackage.x20
+    public void f(x20.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.d = m(this.a.c);
         }
     }
 
-    @Override // com.repackage.o30
-    public o30.d g(String str, Bundle bundle) {
+    @Override // com.repackage.x20
+    public x20.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bundle)) == null) {
@@ -208,9 +208,9 @@ public class g extends o30 implements IBinder.DeathRecipient {
                 }
             } catch (RemoteException unused) {
             }
-            return o30.d.a(-1, null);
+            return x20.d.a(-1, null);
         }
-        return (o30.d) invokeLL.objValue;
+        return (x20.d) invokeLL.objValue;
     }
 
     public final Bundle h(ContentProviderClient contentProviderClient, Uri uri) {
@@ -225,15 +225,15 @@ public class g extends o30 implements IBinder.DeathRecipient {
             cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.d), null, null, null, null);
             try {
                 Bundle extras = cursor.getExtras();
-                w50.a(cursor);
+                f50.a(cursor);
                 return extras;
             } catch (Exception unused) {
-                w50.a(cursor);
+                f50.a(cursor);
                 return null;
             } catch (Throwable th) {
                 th = th;
                 cursor2 = cursor;
-                w50.a(cursor2);
+                f50.a(cursor2);
                 throw th;
             }
         } catch (Exception unused2) {

@@ -18,22 +18,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.bm;
-import com.repackage.um;
+import com.repackage.rm;
+import com.repackage.yl;
 /* loaded from: classes.dex */
 public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a implements bm {
+    public class a implements yl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0005a implements um {
+        public class C0005a implements rm {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Plugin a;
@@ -58,7 +58,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
                 this.a = plugin2;
             }
 
-            @Override // com.repackage.um
+            @Override // com.repackage.rm
             public void a(Plugin.c cVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
@@ -88,7 +88,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             this.a = loadingActivity;
         }
 
-        @Override // com.repackage.bm
+        @Override // com.repackage.yl
         public void a(String str) {
             Plugin plugin2;
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             plugin2.asyncInit(str, new C0005a(this, plugin2));
         }
 
-        @Override // com.repackage.bm
+        @Override // com.repackage.yl
         public void b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {

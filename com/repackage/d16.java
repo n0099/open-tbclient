@@ -6,16 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class d16 extends b16<Integer> {
+public final class d16 extends x06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<Integer> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d16() {
-        super(1, false, 2, null);
+        super(8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,25 +25,31 @@ public final class d16 extends b16<Integer> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new LinkedHashSet();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.b16
-    /* renamed from: e */
-    public Integer c(g06 data) {
+    @Override // com.repackage.x06
+    public boolean b(g06 item, j26 timer, a06 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return (this.b.isEmpty() ^ true) && !this.b.contains(Integer.valueOf(c(item.e())));
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final int c(h06 h06Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            return Integer.valueOf(data.j());
-        }
-        return (Integer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h06Var)) == null) ? h06Var.m() & 16777215 : invokeL.intValue;
     }
 }

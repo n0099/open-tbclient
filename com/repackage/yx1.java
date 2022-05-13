@@ -1,97 +1,55 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Environment;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.qj2;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class yx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public JSONArray b;
-    public String c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755126529, "Lcom/repackage/yx1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755126529, "Lcom/repackage/yx1;");
-                return;
-            }
-        }
-        e = tg1.a;
-    }
-
-    public yx1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static yx1 b(JSONObject jSONObject) {
+    public static qj2.g a(rl2 rl2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            yx1 yx1Var = new yx1();
-            try {
-                yx1Var.b = jSONObject.getJSONArray("host");
-                yx1Var.a = jSONObject.getString("appKey");
-                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                yx1Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                yx1Var.d = Uri.decode(jSONObject.optString("url"));
-                return yx1Var;
-            } catch (JSONException unused) {
-                if (e) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rl2Var)) == null) {
+            File file = new File(Environment.getExternalStorageDirectory() + "/" + zx1.d());
+            qj2.M(file, b(), rl2Var);
+            xg4.j(file);
+            qj2.g gVar = new qj2.g();
+            File file2 = new File(b(), "app.json");
+            SwanAppConfigData c = SwanAppConfigData.c(xg4.E(file2), b());
+            gVar.a = b().getPath() + File.separator;
+            gVar.b = c;
+            ux1.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        return (yx1) invokeL.objValue;
+        return (qj2.g) invokeL.objValue;
     }
 
-    public String a(int i) {
-        InterceptResult invokeI;
+    public static File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            JSONArray jSONArray = this.b;
-            if (jSONArray == null) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            String optString = jSONArray.optString(i);
-            if (TextUtils.isEmpty(optString)) {
-                return "";
-            }
-            return "http://" + optString + ":" + this.c;
+            return file;
         }
-        return (String) invokeI.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,50 +1,59 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class r81 {
     public static /* synthetic */ Interceptable $ic;
+    public static r81 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public s81 a;
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
+    public r81(s81 s81Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 >= i2 && i7 / i5 >= i) {
-                    i5 *= 2;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s81Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i5;
         }
-        return invokeLII.intValue;
+        this.a = s81Var;
     }
 
-    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
-        InterceptResult invokeLII;
+    public static r81 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
-            int a = a(options, i, i2);
-            options.inSampleSize = a;
-            options.inJustDecodeBounds = false;
-            if (a <= 1) {
-                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (r81) invokeV.objValue;
+    }
+
+    public static void c(s81 s81Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, s81Var) == null) && b == null) {
+            synchronized (r81.class) {
+                if (b == null) {
+                    b = new r81(s81Var);
+                }
             }
-            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-        return (Bitmap) invokeLII.objValue;
+    }
+
+    public void a(ImageView imageView, String str) {
+        s81 s81Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) || (s81Var = this.a) == null) {
+            return;
+        }
+        s81Var.a(imageView, str);
     }
 }

@@ -26,13 +26,13 @@ import com.repackage.b9;
 import com.repackage.c9;
 import com.repackage.d9;
 import com.repackage.e9;
-import com.repackage.ig;
-import com.repackage.oi;
+import com.repackage.gg;
+import com.repackage.mi;
+import com.repackage.tk;
+import com.repackage.vo;
 import com.repackage.w8;
 import com.repackage.wa;
-import com.repackage.wk;
 import com.repackage.x8;
-import com.repackage.xo;
 /* loaded from: classes.dex */
 public abstract class BdBaseActivity<T> extends Activity implements View.OnClickListener, c9<T>, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, e9, Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
@@ -101,8 +101,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if (!(interceptable == null || interceptable.invokeL(65537, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2 instanceof wk) {
-            ((wk) view2).refresh();
+        if (view2 instanceof tk) {
+            ((tk) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -178,7 +178,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             w8.b(this);
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            x8.f().n(getPageContext().getPageActivity());
+            x8.g().o(getPageContext().getPageActivity());
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -190,19 +190,19 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            ig.h().b(this.mId);
-            x8.f().l(getPageContext().getPageActivity());
+            gg.h().b(this.mId);
+            x8.g().m(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
 
-    public xo onGetPreLoadListView() {
+    public vo onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (xo) invokeV.objValue;
+        return (vo) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -237,15 +237,15 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            ig.h().e(this.mId);
+            gg.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
 
     @Override // com.repackage.e9
-    public void onPreLoad(xo xoVar) {
+    public void onPreLoad(vo voVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, xoVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, voVar) == null) {
         }
     }
 
@@ -276,7 +276,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            xo onGetPreLoadListView = onGetPreLoadListView();
+            vo onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -357,7 +357,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            oi.N(getApplicationContext(), str);
+            mi.N(getApplicationContext(), str);
         }
     }
 

@@ -1,5 +1,7 @@
 package com.repackage;
 
+import android.graphics.drawable.Drawable;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,15 +11,15 @@ public class ag5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static Drawable a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i != 80) {
-                return -1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                return SkinManager.getDrawable(R.drawable.icon_xiangqing_n);
             }
-            return z ? R.anim.obfuscated_res_0x7f0100c5 : R.anim.obfuscated_res_0x7f0100c6;
+            return SkinManager.getDrawable(R.drawable.icon_xiangqing_n);
         }
-        return invokeCommon.intValue;
+        return (Drawable) invokeI.objValue;
     }
 }

@@ -1,59 +1,40 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class ev9 implements up9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ qo9 b;
+public interface ev9 {
+    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
 
-    public ev9(qo9 qo9Var, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qo9Var, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = qo9Var;
-        this.a = view2;
-    }
+    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
 
-    @Override // com.repackage.up9
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        new Handler(Looper.getMainLooper()).postDelayed(new av9(this), this.b.c.getSpet());
-    }
+    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
 
-    @Override // com.repackage.up9
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
+    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
 
-    @Override // com.repackage.up9
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketError(WebSocket webSocket, Exception exc);
+
+    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, sv9 sv9Var, zv9 zv9Var) throws InvalidDataException;
+
+    aw9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, sv9 sv9Var) throws InvalidDataException;
+
+    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, sv9 sv9Var) throws InvalidDataException;
+
+    void onWebsocketMessage(WebSocket webSocket, String str);
+
+    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
+
+    void onWebsocketOpen(WebSocket webSocket, xv9 xv9Var);
+
+    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
+
+    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
+
+    void onWriteDemand(WebSocket webSocket);
 }

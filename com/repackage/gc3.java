@@ -1,9 +1,23 @@
 package com.repackage;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.LinearLayout;
+import androidx.annotation.AnyThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.tabbar.view.SwanAppBottomTabIconView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,30 +25,78 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
+import com.repackage.qj2;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
 /* loaded from: classes6.dex */
-public final class gc3 implements dc3, fc3 {
+public class gc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<ec3<?>, Set<b>> l;
+    public View a;
+    public LinearLayout b;
+    public int c;
+    public c02 d;
+    public SwanAppConfigData.n e;
+    public ArrayList<SwanAppBottomTabIconView> f;
+    public List<SwanAppConfigData.o> g;
+    public String h;
+    public String i;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ Set b;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ gc3 b;
 
-        public a(gc3 gc3Var, Set set, Set set2) {
+        public a(gc3 gc3Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gc3Var, set, set2};
+                Object[] objArr = {gc3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gc3Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.g(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppBottomTabIconView a;
+        public final /* synthetic */ Bitmap b;
+        public final /* synthetic */ gc3 c;
+
+        public b(gc3 gc3Var, SwanAppBottomTabIconView swanAppBottomTabIconView, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc3Var, swanAppBottomTabIconView, bitmap};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,195 +106,622 @@ public final class gc3 implements dc3, fc3 {
                     return;
                 }
             }
-            this.a = set;
-            this.b = set2;
+            this.c = gc3Var;
+            this.a = swanAppBottomTabIconView;
+            this.b = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (b bVar : this.a) {
-                    bVar.onCallback(this.b);
+                this.a.setIconView(this.b);
+                if (this.c.h == null) {
+                    this.a.setTextColor(this.c.e.a);
+                } else {
+                    this.a.setTextColor(SwanAppConfigData.t(this.c.h));
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface b extends cf3<Set<ec3<?>>> {
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final gc3 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppBottomTabIconView a;
+        public final /* synthetic */ Bitmap b;
+        public final /* synthetic */ gc3 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-361799397, "Lcom/repackage/gc3$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-361799397, "Lcom/repackage/gc3$c;");
+        public c(gc3 gc3Var, SwanAppBottomTabIconView swanAppBottomTabIconView, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc3Var, swanAppBottomTabIconView, bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new gc3();
+            this.c = gc3Var;
+            this.a = swanAppBottomTabIconView;
+            this.b = bitmap;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.setIconView(this.b);
+                if (this.c.i == null) {
+                    this.a.setTextColor(this.c.e.b);
+                } else {
+                    this.a.setTextColor(SwanAppConfigData.t(this.c.i));
+                }
+            }
         }
     }
 
-    public gc3() {
+    /* loaded from: classes6.dex */
+    public class d implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gc3 a;
+
+        public d(gc3 gc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gc3Var;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.a.b.setVisibility(8);
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppBottomTabIconView a;
+        public final /* synthetic */ String b;
+
+        public e(gc3 gc3Var, SwanAppBottomTabIconView swanAppBottomTabIconView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc3Var, swanAppBottomTabIconView, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppBottomTabIconView;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.setTextView(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppBottomTabIconView a;
+
+        public f(gc3 gc3Var, SwanAppBottomTabIconView swanAppBottomTabIconView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc3Var, swanAppBottomTabIconView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppBottomTabIconView;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.setRedDotVisibleState(false);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755682886, "Lcom/repackage/gc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755682886, "Lcom/repackage/gc3;");
+                return;
+            }
+        }
+        j = eh1.a;
+    }
+
+    public gc3(c02 c02Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c02Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = new HashMap();
+        this.c = 0;
+        this.d = c02Var;
     }
 
-    public static gc3 a() {
+    public final boolean A(SwanAppBottomTabIconView swanAppBottomTabIconView, SwanAppConfigData.o oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, swanAppBottomTabIconView, oVar)) == null) {
+            rl2 n = n();
+            if (n == null) {
+                return false;
+            }
+            String l = tw2.l(n);
+            if (TextUtils.isEmpty(l)) {
+                l = qj2.e.i(n.H(), n.v1()).getPath();
+            }
+            String str = l + File.separator + oVar.b;
+            if (xg4.v(str)) {
+                swanAppBottomTabIconView.setmIsSelect(false);
+                oe3.e0(new b(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public final boolean C(SwanAppBottomTabIconView swanAppBottomTabIconView, SwanAppConfigData.o oVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, swanAppBottomTabIconView, oVar)) == null) {
+            rl2 n = n();
+            if (n == null) {
+                return false;
+            }
+            String l = tw2.l(n);
+            if (TextUtils.isEmpty(l)) {
+                l = qj2.e.i(n.H(), n.v1()).getPath();
+            }
+            String str = l + File.separator + oVar.c;
+            if (xg4.v(str)) {
+                swanAppBottomTabIconView.setmIsSelect(true);
+                oe3.e0(new c(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void D(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void E(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            for (int i = 0; i < this.g.size(); i++) {
+                if (this.g.get(i).a.equals(str)) {
+                    u(i);
+                    this.c = i;
+                    return;
+                }
+            }
+        }
+    }
+
+    public void f(View view2, Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, view2, context, str) == null) && this.d.d2()) {
+            SwanAppConfigData s = hm2.U().s();
+            if (s == null) {
+                if (j) {
+                    Log.e("bottomBarViewController", "configData is null." + Log.getStackTraceString(new Exception()));
+                    return;
+                }
+                return;
+            }
+            SwanAppConfigData.n nVar = s.f;
+            this.e = nVar;
+            List<SwanAppConfigData.o> list = nVar.e;
+            this.g = list;
+            int size = list.size();
+            this.f = new ArrayList<>(size);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f0903bc);
+            y(this.e.c);
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09016e);
+            this.b = linearLayout;
+            linearLayout.setVisibility(0);
+            this.b.setBackgroundColor(this.e.d);
+            boolean z = false;
+            for (int i = 0; i < size; i++) {
+                SwanAppBottomTabIconView swanAppBottomTabIconView = new SwanAppBottomTabIconView(context);
+                SwanAppConfigData.o oVar = this.g.get(i);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, size);
+                layoutParams.gravity = 1;
+                if (TextUtils.equals(oVar.a, !TextUtils.isEmpty(str) ? str : hm2.U().g()) && !z) {
+                    C(swanAppBottomTabIconView, oVar);
+                    this.c = i;
+                    z = true;
+                } else {
+                    A(swanAppBottomTabIconView, oVar);
+                }
+                swanAppBottomTabIconView.setTextView(oVar.d);
+                swanAppBottomTabIconView.setOnClickListener(new a(this, i));
+                this.f.add(swanAppBottomTabIconView);
+                this.b.addView(swanAppBottomTabIconView, layoutParams);
+            }
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            String uuid = UUID.randomUUID().toString();
+            au2.b(uuid);
+            u(i);
+            v(i);
+            if (this.c == i) {
+                return;
+            }
+            this.c = i;
+            this.d.pause();
+            uq2 d2 = uq2.d(this.g.get(i).a, hm2.U().z());
+            d2.e = "5";
+            d2.f = uuid;
+            i73.g(d2);
+            this.d.k3(d2, uuid);
+            c02.T3("switchTab");
+            this.d.resume();
+        }
+    }
+
+    public boolean h(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, str, str2, str3, str4)) == null) {
+            if (this.a == null || this.b == null) {
+                return false;
+            }
+            y(SwanAppConfigData.t(str4));
+            z(str3);
+            B(str);
+            D(str2);
+            Iterator<SwanAppBottomTabIconView> it = this.f.iterator();
+            while (it.hasNext()) {
+                SwanAppBottomTabIconView next = it.next();
+                if (next.a()) {
+                    next.setTextColor(SwanAppConfigData.t(str2));
+                } else {
+                    next.setTextColor(SwanAppConfigData.t(str));
+                }
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (q(i)) {
+                this.f.get(i).setBadgeVisibleState(false);
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            View view2 = this.a;
+            if (view2 == null || this.b == null) {
+                return false;
+            }
+            view2.setVisibility(8);
+            if (z) {
+                l();
+                return true;
+            }
+            this.b.setVisibility(8);
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @AnyThread
+    public boolean k(int i) {
+        InterceptResult invokeI;
+        SwanAppBottomTabIconView swanAppBottomTabIconView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (q(i) && (swanAppBottomTabIconView = this.f.get(i)) != null) {
+                oe3.e0(new f(this, swanAppBottomTabIconView));
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.b, AnimationProperty.TRANSLATE_Y, 0.0f, bk2.c().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700fc));
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new DecelerateInterpolator());
+            ofFloat.addListener(new d(this));
+            ofFloat.start();
+        }
+    }
+
+    public LinearLayout m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a : (gc3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b : (LinearLayout) invokeV.objValue;
     }
 
-    public final <T> boolean b(T... tArr) {
-        InterceptResult invokeL;
+    public final rl2 n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tArr)) == null) ? tArr == null || tArr.length < 1 : invokeL.booleanValue;
-    }
-
-    public gc3 c(Set<ec3<?>> set) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set)) == null) {
-            if (set.isEmpty()) {
-                return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            u03 L = u03.L();
+            if (L != null) {
+                return L.X();
             }
-            HashSet hashSet = new HashSet();
-            synchronized (this.l) {
-                for (ec3<?> ec3Var : set) {
-                    hashSet.addAll(i(ec3Var));
-                }
-            }
-            d(hashSet, set);
-            return this;
+            return null;
         }
-        return (gc3) invokeL.objValue;
+        return (rl2) invokeV.objValue;
     }
 
-    public final gc3 d(Set<b> set, Set<ec3<?>> set2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, set2)) == null) {
-            bu2.j().i(new a(this, set, set2));
-            return this;
-        }
-        return (gc3) invokeLL.objValue;
-    }
-
-    public gc3 e(ec3<?>... ec3VarArr) {
+    public int o(String str) {
         InterceptResult invokeL;
+        List<SwanAppConfigData.o> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ec3VarArr)) == null) {
-            c(Sets.newHashSet(ec3VarArr));
-            return this;
-        }
-        return (gc3) invokeL.objValue;
-    }
-
-    public gc3 f(cc3 cc3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cc3Var)) == null) {
-            String cc3Var2 = cc3Var == null ? "" : cc3Var.toString();
-            if (dc3.a) {
-                Log.i("Tracer-ErrCode", cc3Var2);
-            }
-            jx1.c("Tracer-ErrCode", cc3Var2);
-            return this;
-        }
-        return (gc3) invokeL.objValue;
-    }
-
-    public gc3 g(b bVar, ec3<?>... ec3VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bVar, ec3VarArr)) == null) {
-            if (bVar != null) {
-                synchronized (this.l) {
-                    Set<ec3<?>> keySet = b(ec3VarArr) ? this.l.keySet() : Sets.newHashSet(ec3VarArr);
-                    for (ec3<?> ec3Var : keySet) {
-                        if (ec3Var != null) {
-                            i(ec3Var).add(bVar);
-                        }
-                    }
-                    d(Sets.newHashSet(bVar), keySet);
-                }
-            }
-            return this;
-        }
-        return (gc3) invokeLL.objValue;
-    }
-
-    public gc3 h(ec3<?>... ec3VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ec3VarArr)) == null) {
-            synchronized (this.l) {
-                for (ec3<?> ec3Var : ec3VarArr) {
-                    if (!this.l.containsKey(ec3Var)) {
-                        this.l.put(ec3Var, new HashSet());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (list = this.g) != null && list.size() != 0) {
+                for (int i = 0; i < this.g.size(); i++) {
+                    SwanAppConfigData.o oVar = this.g.get(i);
+                    if (oVar != null && TextUtils.equals(oVar.a, str)) {
+                        return i;
                     }
                 }
             }
-            return this;
+            return -1;
         }
-        return (gc3) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public final Set<b> i(@NonNull ec3<?> ec3Var) {
-        InterceptResult invokeL;
+    public boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ec3Var)) == null) {
-            Set<b> set = this.l.get(ec3Var);
-            if (set == null) {
-                HashSet hashSet = new HashSet();
-                this.l.put(ec3Var, hashSet);
-                return hashSet;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            LinearLayout linearLayout = this.b;
+            return linearLayout != null && linearLayout.getVisibility() == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            ArrayList<SwanAppBottomTabIconView> arrayList = this.f;
+            return arrayList != null && i < arrayList.size() && i >= 0;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean r(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
+            View view2 = this.a;
+            if (view2 == null || this.b == null) {
+                return false;
             }
-            return set;
+            view2.setVisibility(0);
+            this.b.setVisibility(0);
+            t(z);
+            return true;
         }
-        return (Set) invokeL.objValue;
+        return invokeZ.booleanValue;
     }
 
-    public gc3 j(b bVar, ec3<?>... ec3VarArr) {
-        InterceptResult invokeLL;
+    public boolean s(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, ec3VarArr)) == null) {
-            if (bVar != null) {
-                synchronized (this.l) {
-                    for (ec3<?> ec3Var : b(ec3VarArr) ? this.l.keySet() : Sets.newHashSet(ec3VarArr)) {
-                        if (ec3Var != null) {
-                            i(ec3Var).remove(bVar);
-                        }
-                    }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            if (q(i)) {
+                this.f.get(i).setRedDotVisibleState(true);
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.b, AnimationProperty.TRANSLATE_Y, bk2.c().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700fc), 0.0f);
+            ofFloat.setDuration(z ? 240L : 0L);
+            ofFloat.start();
+        }
+    }
+
+    public final void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            A(this.f.get(this.c), this.g.get(this.c));
+            C(this.f.get(i), this.g.get(i));
+        }
+    }
+
+    public final void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            HashMap hashMap = new HashMap();
+            SwanAppConfigData.o oVar = this.g.get(i);
+            String v3 = this.d.v3(uq2.d(oVar.a, hm2.U().z()).a);
+            hashMap.put("index", String.valueOf(i));
+            hashMap.put("pagePath", oVar.a);
+            hashMap.put("text", oVar.d);
+            hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, v3);
+            hm2.U().u(new va2("onTabItemTap", hashMap));
+        }
+    }
+
+    public boolean w(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, str)) == null) {
+            if (q(i)) {
+                SwanAppBottomTabIconView swanAppBottomTabIconView = this.f.get(i);
+                swanAppBottomTabIconView.setBadgeVisibleState(true);
+                swanAppBottomTabIconView.setBadgeText(str);
+                return true;
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public boolean x(int i, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
+            if (q(i)) {
+                SwanAppBottomTabIconView swanAppBottomTabIconView = this.f.get(i);
+                oe3.e0(new e(this, swanAppBottomTabIconView, str));
+                if (!TextUtils.isEmpty(str2)) {
+                    this.g.get(i).b = str2;
                 }
+                if (!TextUtils.isEmpty(str3)) {
+                    this.g.get(i).c = str3;
+                }
+                if (swanAppBottomTabIconView.a()) {
+                    return C(swanAppBottomTabIconView, this.g.get(i));
+                }
+                return A(swanAppBottomTabIconView, this.g.get(i));
             }
-            return this;
+            return false;
         }
-        return (gc3) invokeLL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public final void y(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048600, this, i) == null) || AppRuntime.getAppContext() == null) {
+            return;
+        }
+        if (-1 == i) {
+            this.a.setVisibility(0);
+            this.a.setBackgroundColor(-1);
+        } else if (-16777216 == i) {
+            this.a.setVisibility(0);
+            this.a.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603df));
+        } else {
+            this.a.setVisibility(0);
+            this.a.setBackgroundColor(-1);
+        }
+    }
+
+    public final void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.b.setBackgroundColor(SwanAppConfigData.t(str));
+        }
     }
 }

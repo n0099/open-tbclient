@@ -1,17 +1,21 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ha4 {
+public class ha4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static ha4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public x94 a;
+    public final List<T> a;
 
     public ha4() {
         Interceptable interceptable = $ic;
@@ -26,90 +30,78 @@ public class ha4 {
                 return;
             }
         }
-        this.a = new x94();
+        this.a = new ArrayList();
     }
 
-    public static ha4 b() {
+    public synchronized T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ha4 ha4Var = b;
-            if (ha4Var != null) {
-                return ha4Var;
-            }
-            synchronized (ha4.class) {
-                if (b == null) {
-                    b = new ha4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
                 }
+                T t = this.a.get(0);
+                this.a.remove(0);
+                return t;
             }
-            return b;
         }
-        return (ha4) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public t94 a(ja4 ja4Var) {
+    public synchronized T d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                return this.a.get(0);
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public T e(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ja4Var)) == null) {
-            if (ja4Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null) {
+                for (int size = this.a.size() - 1; size >= 0; size--) {
+                    if (t.equals(this.a.get(size))) {
+                        return this.a.get(size);
+                    }
+                }
                 return null;
             }
-            return new oa4(ja4Var, false);
+            return null;
         }
-        return (t94) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean e;
+    @NonNull
+    public Iterator<T> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                e = this.a.e(str);
-            }
-            return e;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.iterator() : (Iterator) invokeV.objValue;
     }
 
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        boolean f;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(",Queue Size:" + this.a.size());
             synchronized (this) {
-                f = this.a.f(str);
+                int i = 0;
+                for (T t : this.a) {
+                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
+                    i++;
+                }
             }
-            return f;
+            return sb.toString();
         }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void e(fa4 fa4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fa4Var) == null) {
-            synchronized (this) {
-                this.a.c(fa4Var);
-            }
-        }
-    }
-
-    public synchronized <T> void f(ja4<T> ja4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ja4Var) == null) {
-            synchronized (this) {
-                ja4Var.s(false);
-                this.a.h(ja4Var);
-            }
-        }
-    }
-
-    public synchronized void g(fa4 fa4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fa4Var) == null) {
-            synchronized (this) {
-                this.a.i(fa4Var);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

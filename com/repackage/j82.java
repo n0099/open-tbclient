@@ -1,46 +1,35 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class j82 {
+public final class j82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpManager a;
+    public int a;
     public String b;
     public String c;
-    public h82 d;
 
     /* loaded from: classes6.dex */
-    public class a implements Callback {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j82 a;
+    }
 
-        public a(j82 j82Var) {
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public j82 a;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,195 +39,72 @@ public class j82 {
                     return;
                 }
             }
-            this.a = j82Var;
+            this.a = new j82(null);
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        public j82 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (j82.e) {
-                    Log.e("ImageDownloader", this.a.b + " load failed");
-                    iOException.printStackTrace();
-                }
-                if (this.a.d != null) {
-                    this.a.d.fail(-1, this.a.b);
-                }
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (j82) invokeV.objValue;
         }
 
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            FileOutputStream fileOutputStream;
-            File file;
-            InputStream byteStream;
-            String c;
+        public b b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (TextUtils.isEmpty(this.a.c)) {
-                    if (tg1.a) {
-                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口未实现，直接返回");
-                        return;
-                    }
-                    return;
-                }
-                byte[] bArr = new byte[2048];
-                InputStream inputStream = null;
-                try {
-                    byteStream = response.body().byteStream();
-                    try {
-                        try {
-                            c = rj2.f().c(this.a.b);
-                        } catch (Throwable th) {
-                            th = th;
-                            fileOutputStream = null;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        file = null;
-                        fileOutputStream = null;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = null;
-                }
-                if (TextUtils.isEmpty(c)) {
-                    if (tg1.a) {
-                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口convertSrc()未实现，直接返回");
-                    }
-                    mg4.d(byteStream);
-                    mg4.d(null);
-                    mg4.d(response);
-                    return;
-                }
-                String str = this.a.c + c.substring(0, c.lastIndexOf("/"));
-                File file2 = new File(str);
-                if (!file2.exists() || !file2.isDirectory()) {
-                    file2.mkdirs();
-                }
-                String substring = c.substring(c.lastIndexOf("/") + 1);
-                file = new File(str, substring + ".bddownload");
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                    while (true) {
-                        try {
-                            int read = byteStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                        } catch (Exception e3) {
-                            e = e3;
-                            inputStream = byteStream;
-                            try {
-                                if (j82.e) {
-                                    Log.e("ImageDownloader", this.a.b + " load failed", e);
-                                }
-                                if (file != null) {
-                                    file.delete();
-                                }
-                                if (this.a.d != null) {
-                                    this.a.d.fail(-1, this.a.b);
-                                }
-                                mg4.d(inputStream);
-                                mg4.d(fileOutputStream);
-                                mg4.d(response);
-                            } catch (Throwable th3) {
-                                th = th3;
-                                mg4.d(inputStream);
-                                mg4.d(fileOutputStream);
-                                mg4.d(response);
-                                throw th;
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            inputStream = byteStream;
-                            mg4.d(inputStream);
-                            mg4.d(fileOutputStream);
-                            mg4.d(response);
-                            throw th;
-                        }
-                    }
-                    fileOutputStream.flush();
-                    File file3 = new File(str, substring);
-                    if (file3.exists() && !file3.isDirectory()) {
-                        file3.delete();
-                    }
-                    String absolutePath = file3.getAbsolutePath();
-                    if (file.renameTo(file3)) {
-                        if (j82.e) {
-                            Log.e("ImageDownloader", this.a.b + " load rename success path = " + absolutePath);
-                        }
-                        if (this.a.d != null) {
-                            this.a.d.a(this.a.b, absolutePath);
-                        }
-                    } else {
-                        if (j82.e) {
-                            Log.e("ImageDownloader", this.a.b + " load rename error path = " + absolutePath);
-                        }
-                        file.delete();
-                        if (this.a.d != null) {
-                            this.a.d.fail(-1, absolutePath);
-                        }
-                    }
-                    mg4.d(byteStream);
-                } catch (Exception e4) {
-                    e = e4;
-                    fileOutputStream = null;
-                }
-                mg4.d(fileOutputStream);
-                mg4.d(response);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a.b = str;
+                return this;
             }
+            return (b) invokeL.objValue;
+        }
+
+        public b c(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.a.a = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755634867, "Lcom/repackage/j82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755634867, "Lcom/repackage/j82;");
-                return;
-            }
-        }
-        e = tg1.a;
+    public /* synthetic */ j82(a aVar) {
+        this();
     }
 
-    public j82(HttpManager httpManager, String str, String str2, h82 h82Var) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "V8EngineModel{mType=" + this.a + ", mID='" + this.b + "', mViewMode=" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public j82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {httpManager, str, str2, h82Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.b = "";
-        this.c = "";
-        this.a = httpManager;
-        this.c = str;
-        this.b = str2;
-        this.d = h82Var;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rj2.l().call(this.a, new Request.Builder().url(this.b).build(), new a(this));
         }
     }
 }

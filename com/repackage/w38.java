@@ -24,16 +24,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
+public class w38 extends eo<CardPersonDynamicThreadData, CardViewHolder<lx5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
     public boolean j;
-    public dg<ConstrainImageLayout> k;
-    public dg<TbImageView> l;
+    public bg<ConstrainImageLayout> k;
+    public bg<TbImageView> l;
 
     /* loaded from: classes7.dex */
-    public class a extends tx5<CardPersonDynamicThreadData> {
+    public class a extends ux5<CardPersonDynamicThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w38 b;
@@ -57,7 +57,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tx5
+        @Override // com.repackage.ux5
         /* renamed from: d */
         public void a(View view2, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements eg<ConstrainImageLayout> {
+    public class b implements cg<ConstrainImageLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w38 a;
@@ -93,7 +93,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             e(constrainImageLayout2);
@@ -102,7 +102,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             h(constrainImageLayout2);
@@ -116,7 +116,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: f */
         public void b(ConstrainImageLayout constrainImageLayout) {
             Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: g */
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
@@ -142,7 +142,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements eg<TbImageView> {
+    public class c implements cg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w38 a;
@@ -167,7 +167,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -176,7 +176,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -190,7 +190,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -247,45 +247,45 @@ public class w38 extends ho<CardPersonDynamicThreadData, CardViewHolder<kx5>> {
                 return;
             }
         }
-        this.k = new dg<>(new b(this), 6, 0);
-        this.l = new dg<>(new c(this), 12, 0);
+        this.k = new bg<>(new b(this), 6, 0);
+        this.l = new bg<>(new c(this), 12, 0);
         this.i = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: b0 */
-    public CardViewHolder<kx5> M(ViewGroup viewGroup) {
+    public CardViewHolder<lx5> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            kx5 kx5Var = new kx5(this.i);
-            kx5Var.Q(this.k);
-            kx5Var.P(this.l);
-            kx5Var.h = 4;
-            ThreadViewAndCommentInfoLayout threadViewAndCommentInfoLayout = kx5Var.j;
+            lx5 lx5Var = new lx5(this.i);
+            lx5Var.Q(this.k);
+            lx5Var.P(this.l);
+            lx5Var.h = 4;
+            ThreadViewAndCommentInfoLayout threadViewAndCommentInfoLayout = lx5Var.j;
             if (threadViewAndCommentInfoLayout != null) {
                 threadViewAndCommentInfoLayout.i = 4;
             }
-            ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = kx5Var.Q;
+            ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = lx5Var.Q;
             if (threadCardBottomOpSegmentLayout != null) {
                 threadCardBottomOpSegmentLayout.Q = 4;
             }
-            OriginalThreadCardView originalThreadCardView = kx5Var.N;
+            OriginalThreadCardView originalThreadCardView = lx5Var.N;
             if (originalThreadCardView != null) {
                 originalThreadCardView.setUsePlaceHolder(false);
-                kx5Var.N.m = 4;
+                lx5Var.N.m = 4;
             }
-            kx5Var.n(new a(this));
-            return new CardViewHolder<>(kx5Var);
+            lx5Var.n(new a(this));
+            return new CardViewHolder<>(lx5Var);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<kx5> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<lx5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cardPersonDynamicThreadData, cardViewHolder})) == null) {

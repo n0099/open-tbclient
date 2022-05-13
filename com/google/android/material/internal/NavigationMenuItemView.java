@@ -139,7 +139,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             return;
         }
         if (this.actionArea == null) {
-            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090791)).inflate();
+            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09078e)).inflate();
         }
         this.actionArea.removeAllViews();
         this.actionArea.addView(view2);
@@ -263,7 +263,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
                 drawable.setBounds(0, 0, i, i);
             } else if (this.needsEmptyIcon) {
                 if (this.emptyDrawable == null) {
-                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e27, getContext().getTheme());
+                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e41, getContext().getTheme());
                     this.emptyDrawable = drawable2;
                     if (drawable2 != null) {
                         int i2 = this.iconSize;
@@ -428,9 +428,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             }
         };
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d022a, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0223, (ViewGroup) this, true);
         setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070210));
-        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090792);
+        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f09078f);
         this.textView = checkedTextView;
         checkedTextView.setDuplicateParentStateEnabled(true);
         ViewCompat.setAccessibilityDelegate(this.textView, this.accessibilityDelegate);

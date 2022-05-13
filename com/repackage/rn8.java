@@ -1,32 +1,159 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rn8 {
+public class rn8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final tm8 b;
 
-    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
-            sn8.b(mainTabScheduleStrategy);
+    /* loaded from: classes7.dex */
+    public class a extends sd5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(rn8 rn8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rn8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sd5
+        /* renamed from: a */
+        public String doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UtilHelper.getClipBoardContent() : (String) invokeV.objValue;
         }
     }
 
-    public static void b(Runnable runnable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
-            sn8.f(new xn8(runnable, i));
+    /* loaded from: classes7.dex */
+    public class b implements zc5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rn8 a;
+
+        public b(rn8 rn8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rn8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rn8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.zc5
+        /* renamed from: a */
+        public void onReturnDataInUI(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null) {
+                return;
+            }
+            this.a.a.mBdTokenController.p(str);
         }
     }
 
-    public static void c(View view2, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+        super(2005016);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
-            sn8.f(new zn8(view2, i));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, tm8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = mainTabActivity;
+        this.b = tm8Var;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String tempString = TbSingleton.getInstance().getTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
+            if (TextUtils.isEmpty(tempString)) {
+                return;
+            }
+            iu4.k().D("user_interest_info");
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
+            httpMessage.addParam("interestList", tempString);
+            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+            MessageManager.getInstance().sendMessage(httpMessage);
+            TbSingleton.getInstance().removeTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            this.a.isAccountStatChanged = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            iu4.k().D("key_feedback_tip");
+            iu4.k().D("key_feedback_tip_show");
+            iu4.k().D("key_feedback_tip_tab_show");
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
+            if (this.a.mBdTokenController != null) {
+                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                    vd5.b(new a(this), new b(this));
+                } else {
+                    this.a.mBdTokenController.p(UtilHelper.getClipBoardContent());
+                }
+            }
+            tm8 tm8Var = this.b;
+            if (tm8Var != null) {
+                tm8Var.B();
+            }
+            this.a.clearConcernCacheWhenVersionUpdate();
+            b();
+            w55.b().a();
         }
     }
 }

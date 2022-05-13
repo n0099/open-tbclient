@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zh7 extends fc1<ILivePlayerService> {
+public class zh7 extends qc1<ILivePlayerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class zh7 extends fc1<ILivePlayerService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
     public ILivePlayerService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

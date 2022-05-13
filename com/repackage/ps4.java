@@ -1,36 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.Message;
+import android.view.ViewGroup;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.constant.WBConstants;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ps4 implements ts4 {
+public class ps4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xs4 a;
-    public final HashMap<String, Method> b;
+    public int a;
+    public int b;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.repackage.ps4 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public ps4(xs4 xs4Var) {
+    public ps4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xs4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,151 +27,29 @@ public abstract class ps4 implements ts4 {
                 return;
             }
         }
-        this.a = xs4Var;
-        this.b = new HashMap<>();
-        b(getClass());
-        if (this.b.isEmpty()) {
-            throw new IllegalStateException("No native methods found!");
+        this.a = -2;
+        this.b = -1;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
     }
 
-    @Override // com.repackage.ts4
-    public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
-        Object invoke;
+    public void b(ViewPager viewPager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
-            Method method = this.b.get(str);
-            if (method != null) {
-                at4 at4Var = (at4) method.getAnnotation(at4.class);
-                String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
-                try {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (!at4Var.isAsync()) {
-                        if (parameterTypes.length == 2) {
-                            invoke = method.invoke(this, optString, jSONObject);
-                        } else if (parameterTypes.length == 1) {
-                            invoke = method.invoke(this, jSONObject);
-                        } else if (parameterTypes.length == 0) {
-                            qs4.a("native method " + getClass().getSimpleName() + ":" + at4Var.value() + " ignored all parameters.");
-                            invoke = method.invoke(this, new Object[0]);
-                        } else {
-                            e(str, jSONObject2, "500", "parameters too much!");
-                            return;
-                        }
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, (JSONObject) invoke);
-                        return;
-                    } else if (parameterTypes.length == 2) {
-                        method.invoke(this, optString, jSONObject);
-                        return;
-                    } else if (parameterTypes.length == 1) {
-                        method.invoke(this, jSONObject);
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, null);
-                        return;
-                    } else if (parameterTypes.length == 0) {
-                        qs4.a("native method " + getClass().getSimpleName() + ":" + at4Var.value() + " ignored all parameters.");
-                        method.invoke(this, new Object[0]);
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, null);
-                        return;
-                    } else {
-                        e(str, jSONObject2, "500", "parameters too much!");
-                        return;
-                    }
-                } catch (IllegalAccessException e) {
-                    qs4.a("native method call error:" + e.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT, "IllegalAccessException:" + e.getMessage());
-                    return;
-                } catch (InvocationTargetException e2) {
-                    qs4.a("native method call error:" + e2.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC, "InvocationTargetException:" + e2.getMessage());
-                    return;
-                } catch (Exception e3) {
-                    qs4.a("native method call error:" + e3.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG, "Native call exception:" + e3.getMessage());
-                    return;
-                }
-            }
-            e(str, jSONObject2, "403", "method " + str + " not exists");
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager) == null) || viewPager == null) {
+            return;
         }
-    }
-
-    public final void b(Class<? extends ps4> cls) {
-        Method[] declaredMethods;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls) == null) {
-            for (Method method : cls.getDeclaredMethods()) {
-                at4 at4Var = (at4) method.getAnnotation(at4.class);
-                if (at4Var != null) {
-                    String value = at4Var.value();
-                    String str = TextUtils.isEmpty(value) ? null : value;
-                    if (at4Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
-                        throw new IllegalArgumentException("Method with async flag should return void.");
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = method.getName();
-                    }
-                    method.setAccessible(true);
-                    this.b.put(str, method);
-                }
-            }
-            Class<? super Object> superclass = cls.getSuperclass();
-            if (superclass == null || superclass == cls) {
-                return;
-            }
-            b(superclass);
+        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(this.b, this.a);
+        } else {
+            layoutParams.height = this.a;
+            layoutParams.width = this.b;
         }
-    }
-
-    public void c(Message<?> message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            ms4.a(message);
-        }
-    }
-
-    public void d(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
-            if (TextUtils.isEmpty(str)) {
-                qs4.a("sendResponseToJS got empty callbackId.");
-                return;
-            }
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("errNo", "0");
-            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "success");
-            if (jSONObject != null) {
-                hashMap.put("data", jSONObject);
-            }
-            this.a.c(ys4.k(str, hashMap));
-        }
-    }
-
-    public final void e(String str, JSONObject jSONObject, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, jSONObject, str2, str3) == null) {
-            String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
-            if (TextUtils.isEmpty(optString)) {
-                qs4.a("method " + str + " not found!");
-                return;
-            }
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("errNo", str2);
-            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str3);
-            this.a.c(ys4.k(optString, hashMap));
-        }
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+        viewPager.setLayoutParams(layoutParams);
     }
 }

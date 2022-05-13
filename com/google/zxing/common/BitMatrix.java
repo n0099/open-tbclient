@@ -431,7 +431,7 @@ public final class BitMatrix implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitMatrix m104clone() {
+    public BitMatrix m105clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new BitMatrix(this.width, this.height, this.rowSize, (int[]) this.bits.clone()) : (BitMatrix) invokeV.objValue;

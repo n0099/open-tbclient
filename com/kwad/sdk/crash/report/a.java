@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
 public abstract class a implements c {
-    public ArrayList<C0318a> a = new ArrayList<>();
+    public ArrayList<C0317a> a = new ArrayList<>();
 
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0318a {
+    public static class C0317a {
         public ExceptionMessage a;
         public int b;
 
-        public C0318a(ExceptionMessage exceptionMessage, int i) {
+        public C0317a(ExceptionMessage exceptionMessage, int i) {
             this.a = exceptionMessage;
             this.b = i;
         }
@@ -24,9 +24,9 @@ public abstract class a implements c {
             return;
         }
         try {
-            Iterator<C0318a> it = this.a.iterator();
+            Iterator<C0317a> it = this.a.iterator();
             while (it.hasNext()) {
-                C0318a next = it.next();
+                C0317a next = it.next();
                 b(next.a, next.b);
                 it.remove();
             }
@@ -48,7 +48,7 @@ public abstract class a implements c {
             b(exceptionMessage, i);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
-            this.a.add(new C0318a(exceptionMessage, i));
+            this.a.add(new C0317a(exceptionMessage, i));
         }
     }
 

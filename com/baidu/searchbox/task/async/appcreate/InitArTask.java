@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c05;
-import com.repackage.fe0;
+import com.repackage.ie0;
+import com.repackage.q05;
 /* loaded from: classes2.dex */
 public class InitArTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -34,10 +34,10 @@ public class InitArTask extends LaunchTask {
     public static void initAR(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            fe0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
-            fe0.j(context);
-            fe0.u(false);
-            c05.a();
+            ie0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
+            ie0.j(context);
+            ie0.u(false);
+            q05.a();
         }
     }
 

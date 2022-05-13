@@ -1,92 +1,49 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.fragment.app.Fragment;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tieba.R;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class ao8 {
+public class ao8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public final MainTabActivity a;
+    public final gn8 b;
 
-    public ao8(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ao8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+        super(2921543);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {mainTabActivity, tm8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerStickyMode(2921453);
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.mLogicController;
     }
 
-    public void a(Intent intent, wn8 wn8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        gn8 gn8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, intent, wn8Var) == null) || intent == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (gn8Var = this.b) == null || gn8Var.j() == null) {
             return;
         }
-        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f04bd);
-            zp4 zp4Var = new zp4();
-            Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
-            int i = 1;
-            if (matcher.find()) {
-                zp4Var.c = matcher.group(1);
-            }
-            if (stringExtra.equals(string)) {
-                zp4Var.a = 1;
-            } else {
-                zp4Var.a = 2;
-                zp4Var.b = stringExtra;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, zp4Var));
-            if (stringExtra.equals(string)) {
-                intent.putExtra("sub_locate_type", 1);
-                i = 2;
-            } else {
-                intent.putExtra("sub_locate_type", stringExtra);
-            }
-            if (wn8Var != null && wn8Var.z() != null) {
-                wn8Var.z().setCurrentTabByType(i);
-                FragmentTabHost.b j = wn8Var.z().j(i);
-                if (j != null) {
-                    Fragment fragment = j.c;
-                    if (fragment instanceof xm4) {
-                        ((xm4) fragment).r0(intent);
-                    }
-                }
-            }
-        }
-        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
-        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-    }
-
-    public boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) ? intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) == 1 : invokeL.booleanValue;
+        this.b.j().a();
     }
 }

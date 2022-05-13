@@ -1,22 +1,7 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
-import android.content.res.ColorStateList;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.content.res.XmlResourceParser;
-import android.graphics.Movie;
-import android.graphics.drawable.Drawable;
-import android.os.Environment;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,17 +9,89 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.InputStream;
-import java.util.HashMap;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes7.dex */
-public class vx extends Resources {
+public class vx {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, hy<String, Integer>> d;
+    public static final /* synthetic */ boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Resources a;
-    public String b;
-    public Resources c;
+
+    /* loaded from: classes7.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public byte[] a;
+        public int b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final byte[] j;
+        public static final /* synthetic */ boolean k;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final byte[] c;
+        public int d;
+        public int e;
+        public final boolean f;
+        public final boolean g;
+        public final boolean h;
+        public final byte[] i;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1936867707, "Lcom/repackage/vx$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1936867707, "Lcom/repackage/vx$b;");
+                    return;
+                }
+            }
+            k = !vx.class.desiredAssertionStatus();
+            j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.f = false;
+            this.g = false;
+            this.h = false;
+            this.i = j;
+            this.c = new byte[2];
+            this.d = 0;
+            this.e = 0 != 0 ? 19 : -1;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,562 +106,263 @@ public class vx extends Resources {
                 return;
             }
         }
-        String str = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
-        d = new HashMap<>();
+        a = !vx.class.desiredAssertionStatus();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vx(Resources resources, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
-        super(assetManager, displayMetrics, configuration);
+    public vx() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {resources, assetManager, displayMetrics, configuration};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((AssetManager) objArr2[0], (DisplayMetrics) objArr2[1], (Configuration) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = resources;
-        new HashMap();
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0109, code lost:
+        if (r2.h == false) goto L40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
+        r5[r11] = 13;
+        r11 = r11 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0110, code lost:
+        r5[r11] = 10;
+        r11 = r11 + 1;
+        r13 = r12;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0205 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x0216 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x01f6  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x0110 -> B:41:0x00bd). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        byte b2;
+        byte b3;
+        byte b4;
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (!TextUtils.isEmpty(this.b) && !this.b.equals("com.baidu.browser.theme.default")) {
-                try {
-                    String resourceEntryName = this.c.getResourceEntryName(i);
-                    String resourceTypeName = this.c.getResourceTypeName(i);
-                    hy<String, Integer> hyVar = d.get(resourceTypeName);
-                    if (hyVar == null) {
-                        hyVar = new hy<>(100);
-                        d.put(resourceTypeName, hyVar);
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        int length = bArr.length;
+        b bVar = new b();
+        int i6 = (length / 3) * 4;
+        int i7 = 1;
+        if (!bVar.f) {
+            int i8 = length % 3;
+            if (i8 == 1) {
+                i6 += 2;
+            } else if (i8 == 2) {
+                i6 += 3;
+            }
+        } else if (length % 3 > 0) {
+            i6 += 4;
+        }
+        if (bVar.g && length > 0) {
+            i6 += (((length - 1) / 57) + 1) * (bVar.h ? 2 : 1);
+        }
+        byte[] bArr2 = new byte[i6];
+        bVar.a = bArr2;
+        byte[] bArr3 = bVar.i;
+        int i9 = bVar.e;
+        int i10 = length + 0;
+        int i11 = bVar.d;
+        if (i11 != 1) {
+            if (i11 == 2 && i10 > 0) {
+                byte[] bArr4 = bVar.c;
+                i = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[0] & 255);
+                bVar.d = 0;
+                i2 = 1;
+            }
+            i = -1;
+            i2 = 0;
+        } else {
+            if (2 <= i10) {
+                i = ((bVar.c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
+                bVar.d = 0;
+                i2 = 2;
+            }
+            i = -1;
+            i2 = 0;
+        }
+        if (i != -1) {
+            bArr2[0] = bArr3[(i >> 18) & 63];
+            bArr2[1] = bArr3[(i >> 12) & 63];
+            bArr2[2] = bArr3[(i >> 6) & 63];
+            bArr2[3] = bArr3[i & 63];
+            i9--;
+            if (i9 == 0) {
+                if (bVar.h) {
+                    i5 = 5;
+                    bArr2[4] = 13;
+                } else {
+                    i5 = 4;
+                }
+                i3 = i5 + 1;
+                bArr2[i5] = 10;
+                i9 = 19;
+            } else {
+                i3 = 4;
+            }
+        } else {
+            i3 = 0;
+        }
+        while (true) {
+            int i12 = i2 + 3;
+            if (i12 > i10) {
+                int i13 = bVar.d;
+                if (i2 - i13 == i10 - 1) {
+                    if (i13 > 0) {
+                        b4 = bVar.c[0];
+                    } else {
+                        b4 = bArr[i2];
+                        i2++;
+                        i7 = 0;
                     }
-                    Integer c = hyVar.c(resourceEntryName);
-                    if (c == null) {
-                        c = Integer.valueOf(this.a.getIdentifier(resourceEntryName, resourceTypeName, this.b));
-                        if (c.intValue() != 0) {
-                            hyVar.d(resourceEntryName, c);
+                    int i14 = (b4 & 255) << 4;
+                    bVar.d -= i7;
+                    int i15 = i3 + 1;
+                    bArr2[i3] = bArr3[(i14 >> 6) & 63];
+                    int i16 = i15 + 1;
+                    bArr2[i15] = bArr3[i14 & 63];
+                    if (bVar.f) {
+                        int i17 = i16 + 1;
+                        bArr2[i16] = BaseNCodec.PAD_DEFAULT;
+                        i16 = i17 + 1;
+                        bArr2[i17] = BaseNCodec.PAD_DEFAULT;
+                    }
+                    if (!bVar.g) {
+                        i3 = i16;
+                        if (b.k) {
                         }
+                        if (b.k) {
+                        }
+                        bVar.b = i3;
+                        bVar.e = i9;
+                        if (a) {
+                        }
+                        return bVar.a;
                     }
-                    return c.intValue();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    if (bVar.h) {
+                        bArr2[i16] = 13;
+                        i16++;
+                    }
+                    i4 = i16 + 1;
+                    bArr2[i16] = 10;
+                    i3 = i4;
+                    if (!b.k || bVar.d == 0) {
+                        if (!b.k || i2 == i10) {
+                            bVar.b = i3;
+                            bVar.e = i9;
+                            if (!a || i3 == i6) {
+                                return bVar.a;
+                            }
+                            throw new AssertionError();
+                        }
+                        throw new AssertionError();
+                    }
+                    throw new AssertionError();
+                } else if (i2 - i13 != i10 - 2) {
+                    if (bVar.g && i3 > 0 && i9 != 19) {
+                        if (bVar.h) {
+                            bArr2[i3] = 13;
+                            i3++;
+                        }
+                        i4 = i3 + 1;
+                        bArr2[i3] = 10;
+                        i3 = i4;
+                    }
+                    if (b.k) {
+                    }
+                    if (b.k) {
+                    }
+                    bVar.b = i3;
+                    bVar.e = i9;
+                    if (a) {
+                    }
+                    return bVar.a;
+                } else {
+                    if (i13 > 1) {
+                        b2 = bVar.c[0];
+                    } else {
+                        byte b5 = bArr[i2];
+                        i2++;
+                        b2 = b5;
+                        i7 = 0;
+                    }
+                    int i18 = (b2 & 255) << 10;
+                    if (bVar.d > 0) {
+                        b3 = bVar.c[i7];
+                        i7++;
+                    } else {
+                        b3 = bArr[i2];
+                        i2++;
+                    }
+                    int i19 = ((b3 & 255) << 2) | i18;
+                    bVar.d -= i7;
+                    int i20 = i3 + 1;
+                    bArr2[i3] = bArr3[(i19 >> 12) & 63];
+                    int i21 = i20 + 1;
+                    bArr2[i20] = bArr3[(i19 >> 6) & 63];
+                    int i22 = i21 + 1;
+                    bArr2[i21] = bArr3[i19 & 63];
+                    if (bVar.f) {
+                        bArr2[i22] = BaseNCodec.PAD_DEFAULT;
+                        i22++;
+                    }
+                    if (!bVar.g) {
+                        i3 = i22;
+                        if (b.k) {
+                        }
+                        if (b.k) {
+                        }
+                        bVar.b = i3;
+                        bVar.e = i9;
+                        if (a) {
+                        }
+                        return bVar.a;
+                    }
+                    if (bVar.h) {
+                        bArr2[i22] = 13;
+                        i22++;
+                    }
+                    i4 = i22 + 1;
+                    bArr2[i22] = 10;
+                    i3 = i4;
+                    if (b.k) {
+                    }
+                    if (b.k) {
+                    }
+                    bVar.b = i3;
+                    bVar.e = i9;
+                    if (a) {
+                    }
+                    return bVar.a;
                 }
             }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public XmlResourceParser getAnimation(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getAnimation(a);
+            int i23 = ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2] & 255) << 16) | (bArr[i2 + 2] & 255);
+            bArr2[i3] = bArr3[(i23 >> 18) & 63];
+            bArr2[i3 + 1] = bArr3[(i23 >> 12) & 63];
+            bArr2[i3 + 2] = bArr3[(i23 >> 6) & 63];
+            bArr2[i3 + 3] = bArr3[i23 & 63];
+            i3 += 4;
+            i9--;
+            if (i9 == 0) {
+                break;
             }
-            return this.c.getAnimation(i);
+            i2 = i12;
         }
-        return (XmlResourceParser) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public boolean getBoolean(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.c.getBoolean(i) : invokeI.booleanValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getColor(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? getColor(i, null) : invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? getColorStateList(i, null) : (ColorStateList) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public Configuration getConfiguration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c.getConfiguration() : (Configuration) invokeV.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public float getDimension(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDimension(a);
-            }
-            return this.c.getDimension(i);
-        }
-        return invokeI.floatValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getDimensionPixelOffset(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDimensionPixelOffset(a);
-            }
-            return this.c.getDimensionPixelOffset(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getDimensionPixelSize(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDimensionPixelSize(a);
-            }
-            return this.c.getDimensionPixelSize(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public Drawable getDrawable(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDrawable(a);
-            }
-            return this.c.getDrawable(i);
-        }
-        return (Drawable) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    @TargetApi(15)
-    public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i, i2)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDrawableForDensity(a, i2);
-            }
-            return this.c.getDrawableForDensity(i, i2);
-        }
-        return (Drawable) invokeII.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public float getFraction(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048590, this, i, i2, i3)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getFraction(a, i2, i3);
-            }
-            return this.c.getFraction(i, i2, i3);
-        }
-        return invokeIII.floatValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int[] getIntArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getIntArray(a);
-            }
-            return this.c.getIntArray(i);
-        }
-        return (int[]) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getInteger(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getInteger(a);
-            }
-            return this.c.getInteger(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public XmlResourceParser getLayout(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getLayout(a);
-            }
-            return this.c.getLayout(i);
-        }
-        return (XmlResourceParser) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public Movie getMovie(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getMovie(a);
-            }
-            return this.c.getMovie(i);
-        }
-        return (Movie) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getQuantityString(int i, int i2) throws Resources.NotFoundException {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getQuantityString(a, i2);
-            }
-            return this.c.getQuantityString(i, i2);
-        }
-        return (String) invokeII.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence getQuantityText(int i, int i2) throws Resources.NotFoundException {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i, i2)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getQuantityText(a, i2);
-            }
-            return this.c.getQuantityText(i, i2);
-        }
-        return (CharSequence) invokeII.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourceEntryName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? this.c.getResourceEntryName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourceName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) ? this.c.getResourceName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourcePackageName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) ? this.c.getResourcePackageName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourceTypeName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) ? this.c.getResourceTypeName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getString(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getString(a);
-            }
-            return this.c.getString(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String[] getStringArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getStringArray(a);
-            }
-            return this.c.getStringArray(i);
-        }
-        return (String[]) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence getText(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getText(a);
-            }
-            return this.c.getText(i);
-        }
-        return (CharSequence) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence[] getTextArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getTextArray(a);
-            }
-            return this.c.getTextArray(i);
-        }
-        return (CharSequence[]) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public void getValue(int i, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i), typedValue, Boolean.valueOf(z)}) == null) {
-            int a = a(i);
-            if (a != 0) {
-                this.a.getValue(a, typedValue, z);
-            } else {
-                this.c.getValue(i, typedValue, z);
-            }
-        }
-    }
-
-    @Override // android.content.res.Resources
-    @TargetApi(15)
-    public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), typedValue, Boolean.valueOf(z)}) == null) {
-            int a = a(i);
-            if (a != 0) {
-                this.a.getValueForDensity(a, i2, typedValue, z);
-            } else {
-                this.c.getValueForDensity(i, i2, typedValue, z);
-            }
-        }
-    }
-
-    @Override // android.content.res.Resources
-    public XmlResourceParser getXml(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) ? this.c.getXml(i) : (XmlResourceParser) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public TypedArray obtainAttributes(AttributeSet attributeSet, int[] iArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, attributeSet, iArr)) == null) ? this.c.obtainAttributes(attributeSet, iArr) : (TypedArray) invokeLL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public TypedArray obtainTypedArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) ? this.c.obtainTypedArray(i) : (TypedArray) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public InputStream openRawResource(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) {
-            int a = a(i);
-            if (a != 0 && (resources = this.a) != null) {
-                try {
-                    InputStream openRawResource = resources.openRawResource(a);
-                    if (openRawResource != null) {
-                        return openRawResource;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return this.c.openRawResource(i);
-        }
-        return (InputStream) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public AssetFileDescriptor openRawResourceFd(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) {
-            int a = a(i);
-            if (a != 0 && (resources = this.a) != null) {
-                try {
-                    AssetFileDescriptor openRawResourceFd = resources.openRawResourceFd(a);
-                    if (openRawResourceFd != null) {
-                        return openRawResourceFd;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return this.c.openRawResourceFd(i);
-        }
-        return (AssetFileDescriptor) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getColor(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, theme)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getColor(a);
-            }
-            return this.c.getColor(i);
-        }
-        return invokeIL.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public ColorStateList getColorStateList(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, theme)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getColorStateList(a);
-            }
-            return this.c.getColorStateList(i);
-        }
-        return (ColorStateList) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    @TargetApi(21)
-    public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, theme)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDrawable(a, null);
-            }
-            return this.c.getDrawable(i, theme);
-        }
-        return (Drawable) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getQuantityString(int i, int i2, Object... objArr) throws Resources.NotFoundException {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i, i2, objArr)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getQuantityString(a, i2, objArr);
-            }
-            return this.c.getQuantityString(i, i2, objArr);
-        }
-        return (String) invokeIIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getString(int i, Object... objArr) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, objArr)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getString(a, objArr);
-            }
-            return this.c.getString(i, objArr);
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence getText(int i, CharSequence charSequence) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i, charSequence)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getText(a, charSequence);
-            }
-            return this.c.getText(i, charSequence);
-        }
-        return (CharSequence) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public void getValue(String str, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048609, this, str, typedValue, z) == null) {
-            this.c.getValue(str, typedValue, z);
-        }
-    }
-
-    @Override // android.content.res.Resources
-    public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i, typedValue)) == null) {
-            int a = a(i);
-            if (a != 0 && (resources = this.a) != null) {
-                try {
-                    InputStream openRawResource = resources.openRawResource(a, typedValue);
-                    if (openRawResource != null) {
-                        return openRawResource;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return this.c.openRawResource(i, typedValue);
-        }
-        return (InputStream) invokeIL.objValue;
     }
 }

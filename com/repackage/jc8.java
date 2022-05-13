@@ -1,12 +1,10 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes6.dex */
 public class jc8 {
     public static /* synthetic */ Interceptable $ic;
@@ -14,6 +12,23 @@ public class jc8 {
     public String a;
     public String b;
     public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
     public jc8() {
         Interceptable interceptable = $ic;
@@ -25,20 +40,43 @@ public class jc8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.k = "";
+    }
+
+    public static void a(jc8 jc8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, jc8Var) == null) {
+            jc8Var.i = 0;
+            jc8Var.g = 4;
+            jc8Var.h = 4;
+            jc8Var.l = System.currentTimeMillis();
+            jc8Var.n = true;
         }
     }
 
-    public static jc8 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public jc8(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            jc8 jc8Var = new jc8();
-            jc8Var.a = jSONObject.optString("lottie");
-            jc8Var.b = jSONObject.optString("text");
-            jc8Var.c = jSONObject.optString("cmd");
-            return jc8Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (jc8) invokeL.objValue;
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
     }
 }

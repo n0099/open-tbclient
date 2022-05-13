@@ -212,7 +212,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07df), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07e7), false);
                 finish();
             }
         } catch (JSONException e) {
@@ -232,7 +232,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07e0), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07e8), false);
                 finish();
             }
         } catch (JSONException e) {
@@ -328,7 +328,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), msg3.getUserInfo().getUserId(), msg3.getUserInfo().getUserName(), null, AddFriendActivityConfig.TYPE_IM_GROUP)));
             } else if (i != 4) {
-                if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i2)) != null && a97.q(msg2) && content != null) {
+                if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i2)) != null && a97.u(msg2) && content != null) {
                     JSONObject jSONObject = null;
                     try {
                         try {
@@ -346,17 +346,17 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                         sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 3, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                     }
                 }
-            } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i2)) != null && a97.s(msg)) {
-                String f = a97.f(msg.getContent(), true);
-                String f2 = a97.f(msg.getContent(), false);
-                if (f == null) {
+            } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i2)) != null && a97.w(msg)) {
+                String h = a97.h(msg.getContent(), true);
+                String h2 = a97.h(msg.getContent(), false);
+                if (h == null) {
                     return;
                 }
                 MsglistModel msglistModel2 = this.mListModel;
                 if (!(msglistModel2 instanceof CommonGroupMsglistModel) || ((CommonGroupMsglistModel) msglistModel2).getGroup() == null) {
                     return;
                 }
-                sendMessage(new CustomMessage(2002001, new GroupMsgImageActivityConfig(getPageContext().getContext(), f, ((CommonGroupMsglistModel) this.mListModel).getGroup().getGroupId(), false, String.valueOf(msg.getMsgId()), f2)));
+                sendMessage(new CustomMessage(2002001, new GroupMsgImageActivityConfig(getPageContext().getContext(), h, ((CommonGroupMsglistModel) this.mListModel).getGroup().getGroupId(), false, String.valueOf(msg.getMsgId()), h2)));
             }
         }
     }

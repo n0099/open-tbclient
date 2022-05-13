@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab3;
-import com.repackage.bb3;
-import com.repackage.cb3;
+import com.repackage.lb3;
+import com.repackage.mb3;
+import com.repackage.nb3;
 /* loaded from: classes2.dex */
 public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ab3 mConnectListener;
-    public bb3 mConnectSuccessListener;
+    public lb3 mConnectListener;
+    public mb3 mConnectSuccessListener;
     public boolean mIsRegistered;
     public boolean mIsWifiDisconnected;
-    public cb3 mScanListener;
+    public nb3 mScanListener;
     public WifiManager mWifiManager;
 
     public SwanWifiBroadcastReceiver(WifiManager wifiManager) {
@@ -51,7 +51,7 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         char c;
-        ab3 ab3Var;
+        lb3 lb3Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent.getAction() == null) {
             return;
@@ -75,15 +75,15 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
             c = 65535;
         }
         if (c == 0) {
-            cb3 cb3Var = this.mScanListener;
-            if (cb3Var != null) {
-                cb3Var.a(this.mWifiManager.getScanResults());
+            nb3 nb3Var = this.mScanListener;
+            if (nb3Var != null) {
+                nb3Var.a(this.mWifiManager.getScanResults());
             }
         } else if (c == 1) {
-            if (intent.getIntExtra("supplicantError", -1) != 1 || (ab3Var = this.mConnectListener) == null) {
+            if (intent.getIntExtra("supplicantError", -1) != 1 || (lb3Var = this.mConnectListener) == null) {
                 return;
             }
-            ab3Var.onError(1);
+            lb3Var.onError(1);
         } else if (c != 2) {
         } else {
             Parcelable parcelableExtra = intent.getParcelableExtra("networkInfo");
@@ -92,13 +92,13 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
                 if (!this.mIsWifiDisconnected) {
                     return;
                 }
-                ab3 ab3Var2 = this.mConnectListener;
-                if (ab3Var2 != null) {
-                    ab3Var2.a(wifiInfo);
+                lb3 lb3Var2 = this.mConnectListener;
+                if (lb3Var2 != null) {
+                    lb3Var2.a(wifiInfo);
                 }
-                bb3 bb3Var = this.mConnectSuccessListener;
-                if (bb3Var != null && this.mIsWifiDisconnected) {
-                    bb3Var.a(wifiInfo);
+                mb3 mb3Var = this.mConnectSuccessListener;
+                if (mb3Var != null && this.mIsWifiDisconnected) {
+                    mb3Var.a(wifiInfo);
                 }
                 this.mIsWifiDisconnected = false;
             }
@@ -127,24 +127,24 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    public void setConnectListener(ab3 ab3Var) {
+    public void setConnectListener(lb3 lb3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ab3Var) == null) {
-            this.mConnectListener = ab3Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lb3Var) == null) {
+            this.mConnectListener = lb3Var;
         }
     }
 
-    public void setConnectSuccessListener(bb3 bb3Var) {
+    public void setConnectSuccessListener(mb3 mb3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bb3Var) == null) {
-            this.mConnectSuccessListener = bb3Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mb3Var) == null) {
+            this.mConnectSuccessListener = mb3Var;
         }
     }
 
-    public void setScanListener(cb3 cb3Var) {
+    public void setScanListener(nb3 nb3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cb3Var) == null) {
-            this.mScanListener = cb3Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nb3Var) == null) {
+            this.mScanListener = nb3Var;
         }
     }
 

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ao7;
-import com.repackage.pg;
+import com.repackage.ng;
 import com.repackage.uo7;
 import com.repackage.yn7;
 import java.lang.ref.WeakReference;
@@ -119,7 +119,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     }
                 }
                 SingleThreadEmotionModel singleThreadEmotionModel = this.a;
-                pg.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
+                ng.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
             }
         }
     }

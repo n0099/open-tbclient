@@ -1,27 +1,24 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.business.model.data.LiveTabEntity;
+import com.baidu.live.business.model.data.LiveHostInfo;
+import com.baidu.live.business.model.data.LiveStatInfo;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public boolean a;
     public String b;
-    public List<LiveTabEntity> c;
-    public boolean d;
-    public long e;
-    public int f;
+    public String c;
+    public String d;
+    public LiveHostInfo e;
+    public LiveStatInfo f;
+    public boolean g;
 
     public s90() {
         Interceptable interceptable = $ic;
@@ -33,63 +30,36 @@ public class s90 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.g = true;
     }
 
-    public final void a(JSONArray jSONArray) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.c = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                LiveTabEntity liveTabEntity = new LiveTabEntity();
-                liveTabEntity.parserJson(optJSONObject);
-                this.c.add(liveTabEntity);
-            }
+        this.a = false;
+        jSONObject.optString("feed_id");
+        this.b = jSONObject.optString("nid");
+        this.c = jSONObject.optString("room_id");
+        jSONObject.optString("title");
+        jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
+        this.d = jSONObject.optString("cmd");
+        JSONObject optJSONObject = jSONObject.optJSONObject("host");
+        if (optJSONObject != null) {
+            LiveHostInfo liveHostInfo = new LiveHostInfo();
+            this.e = liveHostInfo;
+            liveHostInfo.parserJson(optJSONObject);
         }
-    }
-
-    public void b(JSONObject jSONObject, boolean z, int i) {
-        List<LiveTabEntity> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (jSONObject != null) {
-                this.a = jSONObject.optInt("inner_errno");
-                this.b = jSONObject.optString("inner_msg");
-                JSONArray optJSONArray = jSONObject.optJSONArray("items");
-                a(optJSONArray);
-                if (z && optJSONArray != null && (list = this.c) != null && !list.isEmpty()) {
-                    aa0.e("live_feed_page_tab_cache_time", System.currentTimeMillis());
-                    aa0.f("live_feed_page_tab_cache_key", optJSONArray.toString());
-                }
-            }
-            if (z) {
-                List<LiveTabEntity> list2 = this.c;
-                if (list2 == null || list2.isEmpty()) {
-                    this.f = 2;
-                    String b = aa0.b("live_feed_page_tab_cache_key", "");
-                    if (TextUtils.isEmpty(b)) {
-                        return;
-                    }
-                    try {
-                        a(new JSONArray(b));
-                        this.d = true;
-                        if (i == -101) {
-                            this.f = 1;
-                        } else if (this.a != 0) {
-                            this.f = 3;
-                        }
-                        this.e = aa0.c("live_feed_page_tab_cache_time", 0L);
-                    } catch (JSONException unused) {
-                        aa0.g("live_feed_page_tab_cache_key");
-                        aa0.g("live_feed_page_tab_cache_time");
-                    }
-                }
-            }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("stat");
+        if (optJSONObject2 != null) {
+            LiveStatInfo liveStatInfo = new LiveStatInfo();
+            this.f = liveStatInfo;
+            liveStatInfo.parserJson(optJSONObject2);
         }
     }
 }

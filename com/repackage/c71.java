@@ -1,16 +1,54 @@
 package com.repackage;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes5.dex */
-public class c71 {
+public class c71 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public CountDownLatch b;
 
-    public static void a(boolean z, String str, Object... objArr) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c71(Context context, CountDownLatch countDownLatch) {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
-            throw new IllegalArgumentException(String.format(str, objArr));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, countDownLatch};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.b = countDownLatch;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            p61.a().c();
+            try {
+                new WebView(this.a);
+            } catch (Exception unused) {
+            }
+            this.b.countDown();
         }
     }
 }

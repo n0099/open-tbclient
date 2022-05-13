@@ -8,11 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class eu1 extends pt1 {
+public class eu1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
 
     public eu1() {
         Interceptable interceptable = $ic;
@@ -27,28 +32,29 @@ public class eu1 extends pt1 {
                 return;
             }
         }
-        this.a = Integer.MAX_VALUE;
-        this.b = Integer.MAX_VALUE;
+        this.g = false;
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
-        int i;
-        int i2;
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) || (i = this.a) == Integer.MAX_VALUE || (i2 = this.b) == Integer.MAX_VALUE) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) && this.g) {
+            bu1Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
         }
-        qt1Var.f.lineTo(i, i2);
     }
 
-    @Override // com.repackage.pt1
+    @Override // com.repackage.au1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 5) {
             return;
         }
-        this.a = ae3.g((float) jSONArray.optDouble(0));
-        this.b = ae3.g((float) jSONArray.optDouble(1));
+        this.a = le3.g((float) jSONArray.optDouble(0));
+        this.b = le3.g((float) jSONArray.optDouble(1));
+        this.c = le3.g((float) jSONArray.optDouble(2));
+        this.d = le3.g((float) jSONArray.optDouble(3));
+        this.e = le3.g((float) jSONArray.optDouble(4));
+        this.f = le3.g((float) jSONArray.optDouble(5));
+        this.g = true;
     }
 }

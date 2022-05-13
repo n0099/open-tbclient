@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -61,7 +61,7 @@ public class UrlSchemaJumpHelper {
     public static void ensureBlackList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
-            String q = vt4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
+            String q = iu4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
             if (TextUtils.isEmpty(q)) {
                 return;
             }
@@ -131,10 +131,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                vt4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                iu4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            vt4.k().D(KEY_APP_JUMP_BLACK_LIST);
+            iu4.k().D(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

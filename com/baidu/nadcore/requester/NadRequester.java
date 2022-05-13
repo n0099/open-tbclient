@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi0;
+import com.repackage.ki0;
 import com.repackage.sy0;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -157,7 +157,7 @@ public class NadRequester {
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, requestParameters, bVar) == null) {
-            if (hi0.a().v()) {
+            if (ki0.a().v()) {
                 a.a(requestParameters, bVar);
             } else {
                 bVar.a(new Error("Blocked by client"));

@@ -23,16 +23,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i05;
-import com.repackage.kz8;
-import com.repackage.t86;
-import com.repackage.u86;
-import com.repackage.v05;
-import com.repackage.zw4;
+import com.repackage.c86;
+import com.repackage.d86;
+import com.repackage.hy8;
+import com.repackage.j15;
+import com.repackage.mx4;
+import com.repackage.w05;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class InputView extends EditText implements v05 {
+public class InputView extends EditText implements j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -73,7 +73,7 @@ public class InputView extends EditText implements v05 {
                 return;
             }
             InputView inputView = this.a;
-            inputView.d(new i05(4, -1, inputView.getText().toString()));
+            inputView.g(new w05(4, -1, inputView.getText().toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -128,7 +128,7 @@ public class InputView extends EditText implements v05 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.d(new i05(5, -1, null));
+                    this.a.g(new w05(5, -1, null));
                     this.a.requestFocus();
                 }
                 return false;
@@ -138,7 +138,7 @@ public class InputView extends EditText implements v05 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements u86.g {
+    public class c implements d86.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -161,14 +161,14 @@ public class InputView extends EditText implements v05 {
             this.a = inputView;
         }
 
-        @Override // com.repackage.u86.g
+        @Override // com.repackage.d86.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.setText(spannableStringBuilder);
                 InputView inputView = this.a;
                 inputView.setSelection(inputView.getText().length());
-                this.a.d(new i05(5, -1, null));
+                this.a.g(new w05(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -197,51 +197,31 @@ public class InputView extends EditText implements v05 {
         this.d = true;
         this.e = true;
         this.f = -1;
-        setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070258));
-        setMaxLines(4);
+        setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.tbds104));
+        setMaxLines(5);
         if (z) {
-            setHint(context.getString(R.string.obfuscated_res_0x7f0f1073));
+            setHint(context.getString(R.string.obfuscated_res_0x7f0f08ab));
         }
-        setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
-        setTextColor(getResources().getColor(R.color.CAM_X0106));
-        setHintTextColor(getResources().getColor(R.color.CAM_X0110));
-        setBackgroundResource(R.color.common_color_10022);
-        kz8.l(this, R.drawable.obfuscated_res_0x7f0804b6);
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-        setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+        hy8.l(this, R.drawable.obfuscated_res_0x7f0804af);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
         addTextChangedListener(new a(this));
         setOnTouchListener(new b(this));
     }
 
-    @Override // com.repackage.v05
-    public void b() {
+    @Override // com.repackage.j15
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(0);
         }
     }
 
-    @Override // com.repackage.v05
-    public void d(i05 i05Var) {
-        EditorTools editorTools;
+    public final void f(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i05Var) == null) || (editorTools = this.a) == null) {
-            return;
-        }
-        editorTools.A(i05Var);
-    }
-
-    @Override // com.repackage.v05
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final void h(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) || arrayList == null || arrayList.size() == 0) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -254,82 +234,99 @@ public class InputView extends EditText implements v05 {
         getText().insert(getSelectionStart(), sb2);
     }
 
-    @Override // com.repackage.v05
-    public void hide() {
+    @Override // com.repackage.j15
+    public void g(w05 w05Var) {
+        EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setVisibility(8);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w05Var) == null) || (editorTools = this.a) == null) {
+            return;
         }
+        editorTools.A(w05Var);
     }
 
-    public final void i(String str) {
+    @Override // com.repackage.j15
+    public int getToolId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || StringUtils.isNull(str)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
-    @Override // com.repackage.v05
-    public void init() {
+    @Override // com.repackage.j15
+    public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setVisibility(8);
         }
     }
 
-    public final void j(i05 i05Var) {
+    public final void i(w05 w05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, i05Var) == null) || i05Var == null || (obj = i05Var.c) == null || !(obj instanceof zw4)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, w05Var) == null) || w05Var == null || (obj = w05Var.c) == null || !(obj instanceof mx4)) {
             return;
         }
-        zw4 zw4Var = (zw4) obj;
-        if (zw4Var.getType() == EmotionGroupType.NET_SUG) {
-            l(zw4Var);
+        mx4 mx4Var = (mx4) obj;
+        if (mx4Var.getType() == EmotionGroupType.NET_SUG) {
+            l(mx4Var);
         } else {
-            k(zw4Var);
+            j(mx4Var);
         }
     }
 
-    public final void k(zw4 zw4Var) {
+    @Override // com.repackage.j15
+    public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zw4Var) == null) {
-            if (!this.c || zw4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    public final void j(mx4 mx4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mx4Var) == null) {
+            if (!this.c || mx4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = getText().toString();
-                if (this.d && t86.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1403);
+                if (this.d && c86.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f142b);
                 } else {
-                    u86.b(getContext(), zw4Var, this);
+                    d86.b(getContext(), mx4Var, this);
                 }
             }
         }
     }
 
-    public final void l(zw4 zw4Var) {
+    public final void l(mx4 mx4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, zw4Var) == null) || zw4Var == null || TextUtils.isEmpty(zw4Var.c()) || TextUtils.isEmpty(zw4Var.f())) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, mx4Var) == null) || mx4Var == null || TextUtils.isEmpty(mx4Var.d()) || TextUtils.isEmpty(mx4Var.g())) {
             return;
         }
         String obj = getText().toString();
-        if (this.d && t86.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1403);
+        if (this.d && c86.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f142b);
         } else {
-            u86.c(getContext(), zw4Var, this);
+            d86.c(getContext(), mx4Var, this);
         }
     }
 
-    @Override // com.repackage.j05
-    public void onAction(i05 i05Var) {
+    @Override // com.repackage.x05
+    public void onAction(w05 w05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, i05Var) == null) || i05Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, w05Var) == null) || w05Var == null) {
             return;
         }
-        int i = i05Var.a;
+        int i = w05Var.a;
         if (i == 3) {
             if (getSelectionStart() > 0) {
                 String substring = getText().toString().substring(0, getSelectionStart());
-                Matcher matcher = t86.b.matcher(substring);
+                Matcher matcher = c86.b.matcher(substring);
                 if (matcher.find()) {
                     getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                 } else {
@@ -337,49 +334,48 @@ public class InputView extends EditText implements v05 {
                 }
             }
         } else if (i == 6) {
-            Object obj2 = i05Var.c;
+            Object obj2 = w05Var.c;
             if (obj2 == null) {
                 setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     setText((CharSequence) null);
                 } else {
-                    u86.e(getContext(), (String) i05Var.c, new c(this));
+                    d86.f(getContext(), (String) w05Var.c, new c(this));
                 }
             }
         } else if (i == 9) {
-            if (((Boolean) i05Var.c).booleanValue()) {
+            if (((Boolean) w05Var.c).booleanValue()) {
                 setText((CharSequence) null);
             }
         } else if (i == 17) {
-            Object obj3 = i05Var.c;
+            Object obj3 = w05Var.c;
             if (obj3 == null || !(obj3 instanceof ArrayList)) {
                 return;
             }
-            h((ArrayList) obj3);
+            f((ArrayList) obj3);
         } else if (i == 24) {
-            j(i05Var);
-        } else if (i == 44 && (obj = i05Var.c) != null && (obj instanceof String)) {
-            i((String) obj);
+            i(w05Var);
+        } else if (i == 44 && (obj = w05Var.c) != null && (obj instanceof String)) {
+            h((String) obj);
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                kz8.l(this, R.drawable.obfuscated_res_0x7f0804b6);
-                setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
-                return;
+                hy8.l(this, R.drawable.obfuscated_res_0x7f0804af);
+            } else {
+                hy8.l(this, R.drawable.obfuscated_res_0x7f0804b0);
             }
-            kz8.l(this, R.drawable.obfuscated_res_0x7f0804b7);
-            setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0110));
+            setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, editorTools) == null) {
@@ -401,7 +397,7 @@ public class InputView extends EditText implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {

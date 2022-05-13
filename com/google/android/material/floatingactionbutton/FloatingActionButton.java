@@ -324,7 +324,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c6});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c8});
             this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
         }
@@ -1408,7 +1408,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040291);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040294);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1495,7 +1495,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         this.shadowPadding = new Rect();
         this.touchArea = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040250, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f04026f, R.attr.obfuscated_res_0x7f0402c3, R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f04045e, R.attr.obfuscated_res_0x7f0404e3, R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f040594, R.attr.obfuscated_res_0x7f0406ae}, i, obfuscated_res_0x7f100327, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040271, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f0402c8, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f040463, R.attr.obfuscated_res_0x7f0404e8, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f04059a, R.attr.obfuscated_res_0x7f0406b6}, i, obfuscated_res_0x7f100327, new int[0]);
         this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1);
         this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(2, -1), null);
         this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 12);

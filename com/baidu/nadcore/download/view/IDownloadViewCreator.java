@@ -108,11 +108,11 @@ public interface IDownloadViewCreator {
                 int i = b.a[viewType.ordinal()];
                 if (i == 1) {
                     DefaultDownloadViewLP defaultDownloadViewLP = new DefaultDownloadViewLP(viewGroup.getContext());
-                    defaultDownloadViewLP.c(viewGroup);
+                    defaultDownloadViewLP.b(viewGroup);
                     return defaultDownloadViewLP;
                 } else if (i == 2 || i == 3) {
                     AdProgressButton adProgressButton = new AdProgressButton(viewGroup.getContext());
-                    adProgressButton.c(viewGroup);
+                    adProgressButton.b(viewGroup);
                     return adProgressButton;
                 } else {
                     return null;

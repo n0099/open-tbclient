@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vr4;
+import com.repackage.gs4;
 /* loaded from: classes3.dex */
 public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -52,21 +52,21 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091adf);
-        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb0);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09219a);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09219c);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0911d3);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fcf);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092195);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09219b);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092196);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092199);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0911d2);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fce);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092198);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092197);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092194);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091b2d);
+        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebb);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f2);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f4);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0911e2);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdc);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ed);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f3);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ee);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f1);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0911e1);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdb);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f0);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ef);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ec);
         c();
     }
 
@@ -76,31 +76,31 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             this.c.setConrers(15);
             this.c.setIsRound(true);
             this.c.setPlaceHolder(3);
-            vr4 d = vr4.d(this.d);
+            gs4 d = gs4.d(this.d);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X06);
-            vr4 d2 = vr4.d(this.g);
+            gs4 d2 = gs4.d(this.g);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X10);
-            vr4 d3 = vr4.d(this.h);
+            gs4 d3 = gs4.d(this.h);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X10);
-            vr4 d4 = vr4.d(this.i);
+            gs4 d4 = gs4.d(this.i);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X10);
-            vr4 d5 = vr4.d(this.o);
+            gs4 d5 = gs4.d(this.o);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X10);
-            vr4 d6 = vr4.d(this.p);
+            gs4 d6 = gs4.d(this.p);
             d6.z(R.string.F_X01);
             d6.z(R.dimen.T_X10);
-            vr4 d7 = vr4.d(this.m);
+            gs4 d7 = gs4.d(this.m);
             d7.A(R.string.F_X01);
             d7.z(R.dimen.T_X08);
-            vr4 d8 = vr4.d(this.j);
+            gs4 d8 = gs4.d(this.j);
             d8.A(R.string.F_X01);
             d8.z(R.dimen.T_X10);
-            vr4 d9 = vr4.d(this.n);
+            gs4 d9 = gs4.d(this.n);
             d9.A(R.string.F_X01);
             d9.z(R.dimen.T_X08);
         }

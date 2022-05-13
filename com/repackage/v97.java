@@ -1,86 +1,52 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class v97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public int h;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public static a a(String str) {
+    public static String a(UserData userData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
+            if (userData == null) {
+                return "";
             }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    optJSONObject.optString("title");
-                    aVar.b = optJSONObject.optString("content");
-                    aVar.c = optJSONObject.optString("quote_content");
-                    aVar.d = optJSONObject.optString("fname");
-                    aVar.e = optJSONObject.optString("thread_id");
-                    aVar.f = optJSONObject.optString("post_id");
-                    aVar.h = optJSONObject.optInt("type");
-                    aVar.g = optJSONObject.optString("title");
-                    optJSONObject.optInt("thread_type");
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
-                    if (optJSONObject2 != null) {
-                        optJSONObject2.optString("id");
-                        optJSONObject2.optString("portrait");
-                        optJSONObject2.optInt("gender");
+            if (UtilHelper.isFllowByPriorty(userData)) {
+                if (userData.getAuthType() == 1) {
+                    if (userData.isOfficial()) {
+                        return "";
                     }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
-                    if (optJSONObject3 != null) {
-                        optJSONObject3.optString("id");
-                        aVar.a = optJSONObject3.optInt("gender");
+                } else if (userData.getAuthType() == 2) {
+                    if (userData.isOriginal()) {
+                        return userData.getCreatorInfo().authDesc;
                     }
+                } else if (userData.getAuthType() == 3) {
+                    if (userData.isNewGod()) {
+                        return userData.getNewGodData().getFieldName() + ce5.c(userData.isVideoGod());
+                    }
+                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
+                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
                 }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
             }
+            if (TextUtils.isEmpty("") && userData.isOfficial()) {
+                return "";
+            }
+            if (TextUtils.isEmpty("") && userData.isOriginal()) {
+                return userData.getCreatorInfo().authDesc;
+            }
+            if (!TextUtils.isEmpty("") || !userData.isNewGod()) {
+                return (TextUtils.isEmpty("") && userData.showBazhuGrade()) ? StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE) : "";
+            }
+            return userData.getNewGodData().getFieldName() + ce5.c(userData.isVideoGod());
         }
-        return (a) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

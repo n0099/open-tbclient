@@ -1,76 +1,88 @@
 package com.repackage;
 
-import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ds5 {
+public class ds5 extends eo<xs5, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public final List<ho> b;
-    public BdTypeMultiColumnListView c;
-    public es5 d;
-    public hs5 e;
+    public TbPageContext<?> i;
+    public tn5 j;
+    public String k;
 
-    public ds5(b9 b9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ds5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, bdTypeMultiColumnListView};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = b9Var;
-        this.c = bdTypeMultiColumnListView;
-        a();
+        this.i = tbPageContext;
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new es5((TbPageContext) this.a, ks5.b);
-            this.e = new hs5((TbPageContext) this.a, ks5.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.c.addAdapters(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.i);
+            alaGameFrsGameLiveDoubleView.u(this.k);
+            return new AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder(alaGameFrsGameLiveDoubleView);
         }
+        return (AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder) invokeL.objValue;
     }
 
-    public void b(sn5 sn5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, xs5 xs5Var, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sn5Var) == null) {
-            es5 es5Var = this.d;
-            if (es5Var != null) {
-                es5Var.b0(sn5Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xs5Var, alaGameFrsGameLiveDoubleViewHolder})) == null) {
+            alaGameFrsGameLiveDoubleViewHolder.a.l(xs5Var);
+            alaGameFrsGameLiveDoubleViewHolder.a.v(this.j);
+            sn5.b().a(new StatisticItem("c12115").param("obj_id", xs5Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(xs5Var.a.getThreadAlaInfo().appId) ? xs5Var.a.getThreadAlaInfo().appId : ""));
+            ThreadData threadData = xs5Var.b;
+            if (threadData != null) {
+                sn5.b().a(new StatisticItem("c12115").param("obj_id", xs5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(threadData.getThreadAlaInfo().appId) ? "" : xs5Var.b.getThreadAlaInfo().appId));
             }
-            hs5 hs5Var = this.e;
-            if (hs5Var != null) {
-                hs5Var.b0(sn5Var);
-            }
+            return alaGameFrsGameLiveDoubleViewHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void c(List<uo> list) {
-        BdTypeMultiColumnListView bdTypeMultiColumnListView;
+    public void b0(tn5 tn5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tn5Var) == null) {
+            this.j = tn5Var;
         }
-        bdTypeMultiColumnListView.setData(list);
     }
 }

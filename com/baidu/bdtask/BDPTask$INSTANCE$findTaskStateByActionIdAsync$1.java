@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br;
+import com.repackage.kq;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -16,17 +16,17 @@ import kotlin.jvm.internal.Lambda;
 public final class BDPTask$INSTANCE$findTaskStateByActionIdAsync$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actionId;
-    public final /* synthetic */ br $callback;
+    public final /* synthetic */ kq $callback;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$findTaskStateByActionIdAsync$1(String str, br brVar) {
+    public BDPTask$INSTANCE$findTaskStateByActionIdAsync$1(String str, kq kqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, brVar};
+            Object[] objArr = {str, kqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$findTaskStateByActionIdAsync$1 extends Lambd
             }
         }
         this.$actionId = str;
-        this.$callback = brVar;
+        this.$callback = kqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

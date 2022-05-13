@@ -41,7 +41,7 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
     public int mMaxHeaderViewType;
     public boolean mSmoothNotifyChange;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class HeaderFooterViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

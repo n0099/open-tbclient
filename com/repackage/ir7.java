@@ -112,7 +112,7 @@ public class ir7 {
                 super.onPostExecute(forbidResultData);
                 b bVar = this.j.get();
                 if (bVar != null) {
-                    if (forbidResultData.error_code == 0 && ni.isEmpty(forbidResultData.error_msg)) {
+                    if (forbidResultData.error_code == 0 && li.isEmpty(forbidResultData.error_msg)) {
                         bVar.a(forbidResultData);
                     } else {
                         bVar.b(forbidResultData);

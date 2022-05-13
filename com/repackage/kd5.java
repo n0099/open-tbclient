@@ -1,108 +1,153 @@
 package com.repackage;
 
-import android.content.Context;
-import android.media.AudioManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class kd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final byte[] b;
+    public static kd5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CustomMessageListener a;
+
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kd5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kd5 kd5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kd5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kd5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                this.a.d();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755562699, "Lcom/repackage/kd5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755562699, "Lcom/repackage/kd5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755562699, "Lcom/repackage/kd5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        b = new byte[1];
+    }
+
+    public kd5() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755562699, "Lcom/repackage/kd5;");
-        }
-    }
-
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i == 3 || i == 4) {
-                return mi.H();
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (i != 5) {
-                int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-                if ((autoPlaySwitch == 3 || !mi.H()) && (autoPlaySwitch != 2 || !mi.x())) {
-                    return false;
-                }
-            } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !mi.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
-                return false;
-            }
-            return true;
         }
-        return invokeI.booleanValue;
+        ki.r();
     }
 
-    public static boolean b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) ? a(i) : invokeIL.booleanValue;
-    }
-
-    public static boolean c() {
+    public static kd5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (b) {
+                    if (c == null) {
+                        c = new kd5();
+                    }
+                }
+            }
+            return c;
+        }
+        return (kd5) invokeV.objValue;
     }
 
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? (context instanceof IVideoNeedPreload) && ((IVideoNeedPreload) context).videoNeedPreload() && UbsABTestHelper.isLiveAutoPlay() : invokeL.booleanValue;
-    }
-
-    public static boolean e() {
+    public final CustomMessageListener c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (mi.H() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (mi.x() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this, 2000994) : (CustomMessageListener) invokeV.objValue;
     }
 
-    public static boolean f(WeakReference<Context> weakReference, boolean z) {
-        InterceptResult invokeLZ;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, weakReference, z)) == null) {
-            if (weakReference == null || weakReference.get() == null) {
-                return false;
-            }
-            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-            if (z) {
-                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
-                    return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                boolean z = ki.z();
+                if (z) {
+                    if (ki.H()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(true);
+                        rb8.e().f();
+                    } else if (ki.x()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(false);
+                    }
                 }
-            } else if (audioManager.abandonAudioFocus(null) != 1) {
-                return false;
+                NoNetworkView.setIsHasNetwork(z);
+                CompatibleUtile.dealWebView(null);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
             }
-            return true;
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static void g(WeakReference<Context> weakReference) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, weakReference) == null) || weakReference == null || weakReference.get() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.a == null) {
+                    this.a = c();
+                    MessageManager.getInstance().registerListener(this.a);
+                }
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e.getMessage());
+            }
         }
-        a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
     }
 }

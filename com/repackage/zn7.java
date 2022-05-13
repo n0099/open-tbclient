@@ -31,7 +31,7 @@ public class zn7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements d05 {
+    public static class a implements r05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ do7 a;
@@ -116,7 +116,7 @@ public class zn7 {
             this.c = eo7Var;
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || this.a == null) {
@@ -129,7 +129,7 @@ public class zn7 {
             this.a.onFail(str2);
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
@@ -137,7 +137,7 @@ public class zn7 {
             }
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class zn7 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public void onFileUpdateProgress(DownloadData downloadData) {
             do7 do7Var;
             Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public class zn7 {
             do7Var.onProgress(downloadData.getProcess());
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -185,20 +185,20 @@ public class zn7 {
         }
     }
 
-    public static void d(eo7 eo7Var, String str, d05 d05Var) {
+    public static void d(eo7 eo7Var, String str, r05 r05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, eo7Var, str, d05Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65539, null, eo7Var, str, r05Var) == null) {
             if (eo7Var == null || TextUtils.isEmpty(eo7Var.d)) {
-                if (d05Var != null) {
-                    d05Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
+                if (r05Var != null) {
+                    r05Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
                     return;
                 }
                 return;
             }
             String str2 = eo7Var.a + ".zip";
-            DownloadData downloadData = new DownloadData(eo7Var.a, str2, Uri.encode(eo7Var.d, "-![.:/,%?&=]"), d05Var);
+            DownloadData downloadData = new DownloadData(eo7Var.a, str2, Uri.encode(eo7Var.d, "-![.:/,%?&=]"), r05Var);
             downloadData.setPath(str + str2);
-            e05.k().l(downloadData);
+            s05.k().l(downloadData);
         }
     }
 
@@ -275,25 +275,25 @@ public class zn7 {
                         } else {
                             zipInputStream2.close();
                             FileHelper.deleteFile(new File(str));
-                            pi.e(zipInputStream2);
+                            ni.e(zipInputStream2);
                             return true;
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        pi.e(zipInputStream);
+                        ni.e(zipInputStream);
                         return false;
                     } catch (IOException e2) {
                         e = e2;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        pi.e(zipInputStream);
+                        ni.e(zipInputStream);
                         return false;
                     } catch (Throwable th) {
                         th = th;
                         zipInputStream = zipInputStream2;
-                        pi.e(zipInputStream);
+                        ni.e(zipInputStream);
                         throw th;
                     }
                 }

@@ -4,9 +4,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t65;
+import com.repackage.j75;
 /* loaded from: classes3.dex */
-public final class ViewEventCenter extends t65 {
+public final class ViewEventCenter extends j75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

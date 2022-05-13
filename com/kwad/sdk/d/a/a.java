@@ -123,7 +123,7 @@ public class a extends FrameLayout {
     }
 
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0440;
+        return R.layout.obfuscated_res_0x7f0d0434;
     }
 
     @Override // android.view.ViewGroup, android.view.View

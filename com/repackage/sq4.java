@@ -1,21 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes7.dex */
 public class sq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
+    public String c;
+    public String d;
+    public int e;
 
     public sq4() {
         Interceptable interceptable = $ic;
@@ -30,43 +31,52 @@ public class sq4 {
                 return;
             }
         }
-        this.a = 0;
+        this.a = "";
         this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = -1;
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("is_lpost", 0);
-            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
-            this.b = jSONObject.optString("link", "");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void d(Topic topic) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, topic) == null) || topic == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, schoolRecomUserInfo) == null) || schoolRecomUserInfo == null) {
             return;
         }
-        this.a = topic.is_lpost.intValue();
-        topic.topic_type.intValue();
-        this.b = topic.link;
+        this.a = StringUtils.string(schoolRecomUserInfo.uid);
+        this.b = schoolRecomUserInfo.uname;
+        this.c = schoolRecomUserInfo.portrait;
+        this.d = schoolRecomUserInfo.institute;
+        this.e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

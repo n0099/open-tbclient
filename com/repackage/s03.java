@@ -1,15 +1,20 @@
 package com.repackage;
 
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u03;
 /* loaded from: classes7.dex */
-public abstract class s03 {
+public class s03 extends t03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u03.a a;
+    public final u03 l;
 
     public s03() {
         Interceptable interceptable = $ic;
@@ -21,7 +26,142 @@ public abstract class s03 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.l = new u03(this, "");
+    }
+
+    @Override // com.repackage.x03
+    public boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.x03
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.t03
+    public ba4 H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (ba4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.t03
+    public e33 I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (e33) invokeV.objValue;
+    }
+
+    @Override // com.repackage.t03
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.x03
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.x03
+    public void m(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.x03
+    public SwanAppCores n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (SwanAppCores) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public String o(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) ? "" : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public u03 r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : (u03) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public void s(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, swanAppActivity) == null) {
+        }
+    }
+
+    @Override // com.repackage.x03
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.x03
+    public void u(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
+        }
+    }
+
+    @Override // com.repackage.x03
+    public SwanAppActivity x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (SwanAppActivity) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public px2 z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (px2) invokeV.objValue;
     }
 }

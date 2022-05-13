@@ -1,16 +1,17 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.DimenRes;
 /* loaded from: classes5.dex */
-public class bk5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bk5 {
+    void a();
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? Math.round(i / 1000.0f) : invokeI.intValue;
-    }
+    void b();
+
+    void setButtonText(String str, int i);
+
+    void setButtonTextColor(int i);
+
+    void setButtonTextSize(@DimenRes int i);
+
+    void setInitText(String str);
 }

@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TiebaActiveService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVE_FAIL = 1;
@@ -35,7 +35,7 @@ public class TiebaActiveService extends BdBaseService {
     public int mHaveRetry;
     public Runnable mRunnable;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class TiebaActiveService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e) {
-                    vt4.k().w("active", 1);
+                    iu4.k().w("active", 1);
                     BdLog.e(e.getMessage());
                     return null;
                 }
@@ -149,11 +149,11 @@ public class TiebaActiveService extends BdBaseService {
                         this.b.mHandler.removeCallbacks(this.b.mRunnable);
                         this.b.mHandler.postDelayed(this.b.mRunnable, 60000L);
                     } else {
-                        vt4.k().w("active", 1);
+                        iu4.k().w("active", 1);
                         this.b.stopSelf();
                     }
                 }
-                vt4.k().w("active", 2);
+                iu4.k().w("active", 2);
                 this.b.stopSelf();
             }
         }
@@ -191,7 +191,7 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? vt4.k().q("channel_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? iu4.k().q("channel_id", null) : (String) invokeV.objValue;
     }
 
     private String getChannelyFile() {
@@ -267,7 +267,7 @@ public class TiebaActiveService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65547, this, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        vt4.k().y("channel_id", str);
+        iu4.k().y("channel_id", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -313,7 +313,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (isActived() && vt4.k().l("active", 2) != 1) {
+            if (isActived() && iu4.k().l("active", 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();

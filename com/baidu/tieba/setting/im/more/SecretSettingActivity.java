@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -14,6 +15,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -28,6 +30,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.ForbiddenForumActivityConfig;
 import com.baidu.tieba.setting.PrivacyPermissionActivityConfig;
 import com.baidu.tieba.setting.UserMuteListActivityConfig;
+import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,15 +38,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ee8;
-import com.repackage.ge8;
-import com.repackage.gr4;
-import com.repackage.pr4;
-import com.repackage.vt4;
+import com.repackage.as4;
+import com.repackage.iu4;
+import com.repackage.rr4;
+import com.repackage.uc8;
 import com.repackage.wa;
+import com.repackage.wc8;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
+public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POSITION_FRIEND_ONLY_TAG = "friendOnly";
     public static final String POSITION_HIDE_ALL_TAG = "hideAll";
@@ -53,14 +56,16 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     public static final String POSITION_SHOW_ALL_TAG = "showAll";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean loadSuccess;
-    public ge8.b mCallback;
-    public gr4 mDialog;
-    public ArrayList<pr4> mMyBar;
+    public wc8.b mCallback;
+    public rr4 mDialog;
+    public MsgRemindModel mModel;
+    public MsgRemindModel.e mMsgRemindModelCallback;
+    public ArrayList<as4> mMyBar;
     public wa mNetMessageListener;
     public HttpMessageListener mSetPrivateHttpListener;
-    public ee8 mSetting;
+    public uc8 mSetting;
     public CustomMessageListener mThreadPrivacyStatusUpdateListener;
-    public ge8 mView;
+    public wc8 mView;
     public CustomMessageListener markUpdateListener;
     public int optionBarSelected;
     public int optionBazhuShowInside;
@@ -71,8 +76,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     public int optionThreadReplySelected;
     public int optionThreadReplyShowMyself;
 
-    /* loaded from: classes4.dex */
-    public class a implements ge8.b {
+    /* loaded from: classes3.dex */
+    public class a implements wc8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SecretSettingActivity a;
@@ -95,16 +100,16 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             this.a = secretSettingActivity;
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SecretSettingActivity secretSettingActivity = this.a;
-                secretSettingActivity.showResetSettingDialog("reply", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ec9));
+                secretSettingActivity.showResetSettingDialog("reply", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ee7));
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -112,16 +117,16 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 SecretSettingActivity secretSettingActivity = this.a;
-                secretSettingActivity.showResetSettingDialog("live", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0240));
+                secretSettingActivity.showResetSettingDialog("live", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0242));
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -132,17 +137,17 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 SecretSettingActivity secretSettingActivity = this.a;
-                secretSettingActivity.showResetSettingDialog("group", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ec5));
+                secretSettingActivity.showResetSettingDialog("group", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ee3));
                 TiebaStatic.log("c10652");
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -150,17 +155,17 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 SecretSettingActivity secretSettingActivity = this.a;
-                secretSettingActivity.showResetSettingDialog("like", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b20));
+                secretSettingActivity.showResetSettingDialog("like", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b31));
                 TiebaStatic.log("c12514");
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -168,7 +173,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -176,15 +181,15 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void j() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{vt4.k().q("sync_ad_privacy_url", "")}, false);
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{iu4.k().q("sync_ad_privacy_url", "")}, false);
             }
         }
 
-        @Override // com.repackage.ge8.b
+        @Override // com.repackage.wc8.b
         public void onBackPressed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -193,7 +198,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,6 +229,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String errorString;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
@@ -236,19 +242,23 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     BdTopToast bdTopToast = new BdTopToast(this.a);
                     bdTopToast.i(true);
-                    bdTopToast.h(this.a.getString(R.string.obfuscated_res_0x7f0f0314));
+                    bdTopToast.h(this.a.getString(R.string.obfuscated_res_0x7f0f0319));
                     bdTopToast.j((ViewGroup) this.a.findViewById(16908290));
                     if (TextUtils.equals("location", operation)) {
                         return;
                     }
                     this.a.mSetting.n(operation, type);
-                    this.a.mView.w(operation, type);
+                    this.a.mView.B(operation, type);
                     return;
                 }
-                String string = StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : httpResponsedMessage.getErrorString();
+                if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
+                } else {
+                    errorString = httpResponsedMessage.getErrorString();
+                }
                 BdTopToast bdTopToast2 = new BdTopToast(this.a);
                 bdTopToast2.i(false);
-                bdTopToast2.h(string);
+                bdTopToast2.h(errorString);
                 bdTopToast2.j((ViewGroup) this.a.findViewById(16908290));
                 SecretSettingActivity secretSettingActivity = this.a;
                 secretSettingActivity.updateSelectedOption(secretSettingActivity.mSetting);
@@ -256,7 +266,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,6 +296,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
 
         @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
+            String errorString;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.hideProgressBar();
@@ -294,7 +305,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                 }
                 this.a.loadSuccess = true;
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    ee8 privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    uc8 privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                         privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
@@ -303,19 +314,24 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     }
                     this.a.mSetting.l(privacyData);
                     this.a.mSetting.m();
-                    this.a.mView.u(true);
-                    this.a.mView.x(this.a.mSetting);
+                    this.a.mView.z(true);
+                    this.a.mView.C(this.a.mSetting);
                     SecretSettingActivity secretSettingActivity = this.a;
                     secretSettingActivity.updateSelectedOption(secretSettingActivity.mSetting);
                     TbadkCoreApplication.getInst().setLocationShared(this.a.mSetting.j());
                     return;
                 }
-                this.a.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responsedMessage.getErrorString());
+                if (StringUtils.isNull(responsedMessage.getErrorString())) {
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
+                } else {
+                    errorString = responsedMessage.getErrorString();
+                }
+                this.a.showToast(errorString);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,18 +364,18 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                vt4 k = vt4.k();
+                iu4 k = iu4.k();
                 int l = k.l(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-                vt4 k2 = vt4.k();
+                iu4 k2 = iu4.k();
                 int l2 = k2.l(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
                 this.a.optionBazhuShowInside = l;
                 this.a.optionBazhuShowOutside = l2;
-                this.a.mView.v(l, l2);
+                this.a.mView.A(l, l2);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -390,7 +406,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 this.b.showProgressBar();
-                String b = ((pr4) this.b.mMyBar.get(i)).b();
+                String b = ((as4) this.b.mMyBar.get(i)).b();
                 int i2 = 7;
                 if (SecretSettingActivity.POSITION_SHOW_ALL_TAG.equals(b)) {
                     this.b.sendSetPrivacyMessage(this.a, 1);
@@ -428,7 +444,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -461,7 +477,58 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 this.a.mSetting.y(((Integer) customResponsedMessage.getData()).intValue());
-                this.a.mView.x(this.a.mSetting);
+                this.a.mView.C(this.a.mSetting);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g implements MsgRemindModel.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SecretSettingActivity a;
+
+        public g(SecretSettingActivity secretSettingActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {secretSettingActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = secretSettingActivity;
+        }
+
+        @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
+        public void a(int i, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                if (i != 8) {
+                    if (i != 9 || z) {
+                        return;
+                    }
+                    if (z2) {
+                        this.a.mView.t().k();
+                    } else {
+                        this.a.mView.t().n();
+                    }
+                } else if (z) {
+                } else {
+                    if (z2) {
+                        this.a.mView.s().k();
+                        this.a.mView.y(false);
+                        return;
+                    }
+                    this.a.mView.s().n();
+                    this.a.mView.y(true);
+                }
             }
         }
     }
@@ -485,53 +552,61 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         this.mNetMessageListener = new c(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
         this.markUpdateListener = new d(this, 2921499);
         this.mThreadPrivacyStatusUpdateListener = new f(this, 2921065);
+        this.mMsgRemindModelCallback = new g(this);
     }
 
-    private ArrayList<pr4> createLiveRichDialogList(int i) {
+    private ArrayList<as4> createLiveRichDialogList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, this, i)) == null) {
-            ArrayList<pr4> arrayList = new ArrayList<>();
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08d7), "", i == 1, POSITION_SHOW_ALL_TAG));
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08d9), "", i == 3, POSITION_HIDE_ALL_TAG));
+            ArrayList<as4> arrayList = new ArrayList<>();
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08db), "", i == 1, POSITION_SHOW_ALL_TAG));
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08dd), "", i == 3, POSITION_HIDE_ALL_TAG));
             return arrayList;
         }
         return (ArrayList) invokeI.objValue;
     }
 
-    private ArrayList<pr4> createRichDialogList(int i) {
+    private ArrayList<as4> createRichDialogList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65557, this, i)) == null) {
-            ArrayList<pr4> arrayList = new ArrayList<>();
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08d7), "", i == 1, POSITION_SHOW_ALL_TAG));
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08d8), "", i == 2, POSITION_FRIEND_ONLY_TAG));
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08d9), "", i == 3, POSITION_HIDE_ALL_TAG));
+            ArrayList<as4> arrayList = new ArrayList<>();
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08db), "", i == 1, POSITION_SHOW_ALL_TAG));
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08dc), "", i == 2, POSITION_FRIEND_ONLY_TAG));
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08dd), "", i == 3, POSITION_HIDE_ALL_TAG));
             return arrayList;
         }
         return (ArrayList) invokeI.objValue;
     }
 
-    private ArrayList<pr4> createThreadReplyList(int i, int i2) {
+    private ArrayList<as4> createThreadReplyList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65558, this, i, i2)) == null) {
-            ArrayList<pr4> arrayList = new ArrayList<>();
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0267), "", i == 1, POSITION_SHOW_ALL_TAG));
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b25), "", i == 5, POSITION_REPLY_FANS_TAG));
-            arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b21), "", i == 6, POSITION_REPLY_ATTENTIONS_TAG));
+            ArrayList<as4> arrayList = new ArrayList<>();
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0269), "", i == 1, POSITION_SHOW_ALL_TAG));
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b36), "", i == 5, POSITION_REPLY_FANS_TAG));
+            arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b32), "", i == 6, POSITION_REPLY_ATTENTIONS_TAG));
             if (i2 == 1) {
-                arrayList.add(new pr4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b3c), "", i == 7, POSITION_MYSELF_ONLY_TAG));
+                arrayList.add(new as4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b50), "", i == 7, POSITION_MYSELF_ONLY_TAG));
             }
             return arrayList;
         }
         return (ArrayList) invokeII.objValue;
     }
 
+    private void doMsgSwitchStat(BdSwitchView.SwitchState switchState, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65559, this, switchState, i) == null) {
+            doMsgSwitchStat(switchState, i, "");
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void goToBlackListActivity() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(getPageContext().getPageActivity(), "UserBlacklistPage", null)));
         }
     }
@@ -539,7 +614,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void goToUserMuteListActivity() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             sendMessage(new CustomMessage(2016302, new UserMuteListActivityConfig(getPageContext().getPageActivity())));
         }
     }
@@ -547,7 +622,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void sendSetPrivacyMessage(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65561, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65563, this, str, i) == null) {
             sendMessage(new PrivacySettingMessage(str, i));
         }
     }
@@ -555,7 +630,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void showResetSettingDialog(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65562, this, str, str2) == null) && this.loadSuccess) {
+        if ((interceptable == null || interceptable.invokeLL(65564, this, str, str2) == null) && this.loadSuccess) {
             if ("group".equals(str)) {
                 this.mMyBar = createRichDialogList(this.optionGroupSelected);
             } else if ("post".equals(str)) {
@@ -567,46 +642,70 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             } else if ("reply".equals(str)) {
                 this.mMyBar = createThreadReplyList(this.optionThreadReplySelected, this.optionThreadReplyShowMyself);
             }
-            gr4 gr4Var = this.mDialog;
-            if (gr4Var != null) {
-                gr4Var.d();
+            rr4 rr4Var = this.mDialog;
+            if (rr4Var != null) {
+                rr4Var.d();
             }
-            gr4 gr4Var2 = new gr4(getPageContext());
-            this.mDialog = gr4Var2;
-            gr4Var2.m(str2);
-            gr4 gr4Var3 = this.mDialog;
-            gr4Var3.k(this.mMyBar, new e(this, str));
-            gr4Var3.m(str2);
-            gr4 gr4Var4 = this.mDialog;
-            gr4Var4.c();
-            gr4Var4.n();
+            rr4 rr4Var2 = new rr4(getPageContext());
+            this.mDialog = rr4Var2;
+            rr4Var2.m(str2);
+            rr4 rr4Var3 = this.mDialog;
+            rr4Var3.k(this.mMyBar, new e(this, str));
+            rr4Var3.m(str2);
+            rr4 rr4Var4 = this.mDialog;
+            rr4Var4.c();
+            rr4Var4.n();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateSelectedOption(ee8 ee8Var) {
+    public void updateSelectedOption(uc8 uc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, this, ee8Var) == null) {
-            this.optionBarSelected = ee8Var.c();
-            this.optionForumSelected = ee8Var.i();
-            this.optionGroupSelected = ee8Var.d();
-            this.optionLiveSelected = ee8Var.e();
-            this.optionThreadReplySelected = ee8Var.g();
-            this.optionThreadReplyShowMyself = ee8Var.h();
-            this.optionBazhuShowInside = ee8Var.a();
-            this.optionBazhuShowOutside = ee8Var.b();
+        if (interceptable == null || interceptable.invokeL(65565, this, uc8Var) == null) {
+            this.optionBarSelected = uc8Var.c();
+            this.optionForumSelected = uc8Var.i();
+            this.optionGroupSelected = uc8Var.d();
+            this.optionLiveSelected = uc8Var.e();
+            this.optionThreadReplySelected = uc8Var.g();
+            this.optionThreadReplyShowMyself = uc8Var.h();
+            this.optionBazhuShowInside = uc8Var.a();
+            this.optionBazhuShowOutside = uc8Var.b();
+        }
+    }
+
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+    public void OnSwitchStateChange(View view2, BdSwitchView.SwitchState switchState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
+            if (view2 == this.mView.s()) {
+                if (switchState == BdSwitchView.SwitchState.ON) {
+                    this.mModel.B(8, true, this.mMsgRemindModelCallback);
+                    this.mView.y(true);
+                } else {
+                    this.mModel.B(8, false, this.mMsgRemindModelCallback);
+                    this.mView.y(false);
+                }
+                doMsgSwitchStat(switchState, 5);
+            } else if (view2 == this.mView.t()) {
+                if (switchState == BdSwitchView.SwitchState.ON) {
+                    this.mModel.B(9, true, this.mMsgRemindModelCallback);
+                } else {
+                    this.mModel.B(9, false, this.mMsgRemindModelCallback);
+                }
+                doMsgSwitchStat(switchState, 6);
+            }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
             this.mView.onChangeSkinType(i);
-            gr4 gr4Var = this.mDialog;
-            if (gr4Var != null) {
-                gr4Var.g();
+            rr4 rr4Var = this.mDialog;
+            if (rr4Var != null) {
+                rr4Var.g();
             }
         }
     }
@@ -614,17 +713,18 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new ge8(this);
-            this.mSetting = new ee8();
-            this.mView.t(this.mCallback);
+            this.mView = new wc8(this);
+            this.mSetting = new uc8();
+            this.mView.x(this.mCallback);
+            this.mModel = new MsgRemindModel(this);
             if (this.mSetting.k()) {
-                this.mView.u(true);
-                this.mView.x(this.mSetting);
+                this.mView.z(true);
+                this.mView.C(this.mSetting);
                 updateSelectedOption(this.mSetting);
             } else {
-                this.mView.u(false);
+                this.mView.z(false);
             }
             registerListener(this.mNetMessageListener);
             registerListener(this.mSetPrivateHttpListener);
@@ -637,11 +737,11 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            gr4 gr4Var = this.mDialog;
-            if (gr4Var != null) {
-                gr4Var.d();
+            rr4 rr4Var = this.mDialog;
+            if (rr4Var != null) {
+                rr4Var.d();
             }
         }
     }
@@ -649,9 +749,22 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResourceRecycle();
-            this.mView.s();
+            this.mView.w();
+        }
+    }
+
+    private void doMsgSwitchStat(BdSwitchView.SwitchState switchState, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65560, this, switchState, i, str) == null) {
+            int i2 = switchState == BdSwitchView.SwitchState.ON ? 1 : 2;
+            StatisticItem param = new StatisticItem("c13889").param("obj_locate", 2).param("obj_type", NotificationManagerCompat.from(this).areNotificationsEnabled() ? 1 : 2);
+            StatisticItem param2 = param.param("obj_source", i + "_" + i2);
+            if (i == 9 && !TextUtils.isEmpty(str)) {
+                param2.param("obj_param1", str);
+            }
+            TiebaStatic.log(param2);
         }
     }
 }

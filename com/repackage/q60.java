@@ -1,273 +1,230 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Callback;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.CookieJarImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class q60 {
+import java.io.IOException;
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
+public final class q60 implements Call {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public Set<String> c;
-    public String d;
-    public Context e;
-    public int f;
+    public final r60 a;
+    public final Request b;
+    public final boolean c;
+    public boolean d;
+    public l60 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755428314, "Lcom/repackage/q60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public final class a extends o60 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Callback b;
+        public final /* synthetic */ q60 c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q60 q60Var, Callback callback) {
+            super("BaiduNetwork %s", q60Var.d());
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q60Var, callback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Object[]) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755428314, "Lcom/repackage/q60;");
-                return;
+            this.c = q60Var;
+            this.b = callback;
+        }
+
+        @Override // com.repackage.o60
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    try {
+                        this.b.onResponse(this.c, this.c.b());
+                    } catch (IOException e) {
+                        this.b.onFailure(this.c, e);
+                    }
+                } finally {
+                    this.c.a.p().d(this);
+                }
             }
         }
-        g = new byte[]{77, 73, 78, 71};
+
+        public q60 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (q60) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.b.url().host() : (String) invokeV.objValue;
+        }
     }
 
-    public q60() {
+    public q60(Request request, r60 r60Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {request, r60Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static boolean e(String str, Context context, JSONObject jSONObject, Set<String> set) throws JSONException, PackageManager.NameNotFoundException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, context, jSONObject, set)) == null) {
-            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-            int length = jSONArray.length();
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = jSONArray.getString(i);
-            }
-            String[] h = h(context.getPackageManager().getPackageInfo(str, 64).signatures);
-            if (h != null && h.length > 0) {
-                Collections.addAll(set, h);
-            }
-            return g(strArr, h);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static boolean g(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
-            }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String[] h(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = z50.c(signatureArr[i].toByteArray());
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public Set<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (Set) invokeV.objValue;
-    }
-
-    public final void b(Bundle bundle, t50 t50Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, t50Var) == null) {
-            try {
-                if (t50Var == null) {
-                    this.f |= 16;
-                    return;
-                }
-                String string = bundle.getString("helios_data");
-                if (TextUtils.isEmpty(string)) {
-                    this.f |= 1;
-                    return;
-                }
-                String string2 = bundle.getString("helios_sf");
-                if (TextUtils.isEmpty(string2)) {
-                    this.f |= 2;
-                    return;
-                }
-                byte[] decode = Base64.decode(string.getBytes(IMAudioTransRequest.CHARSET), 1);
-                for (int i = 0; i < decode.length; i++) {
-                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
-                }
-                JSONObject jSONObject = new JSONObject(new String(decode));
-                if (f(jSONObject)) {
-                    HashSet hashSet = new HashSet();
-                    this.c = hashSet;
-                    if (!e(this.d, this.e, jSONObject, hashSet)) {
-                        this.f |= 4;
-                    } else if (!Arrays.equals(a60.a(Base64.decode(string2, 0), t50Var), z50.b(decode))) {
-                        this.f |= 8;
-                    } else {
-                        this.a = jSONObject.getLong("priority");
-                        this.b = true;
-                    }
-                }
-            } catch (Exception e) {
-                this.f |= 256;
-                Log.getStackTraceString(e);
-            }
-        }
-    }
-
-    public void c(t50 t50Var, boolean z) {
-        PackageInfo packageInfo;
-        ActivityInfo[] activityInfoArr;
-        ActivityInfo activityInfo;
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, t50Var, z) == null) {
-            PackageManager packageManager = this.e.getPackageManager();
-            try {
-                packageInfo = packageManager.getPackageInfo(this.d, 2);
-            } catch (PackageManager.NameNotFoundException unused) {
-                packageInfo = null;
-            }
-            if (packageInfo == null || (activityInfoArr = packageInfo.receivers) == null || activityInfoArr.length <= 0) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            for (ActivityInfo activityInfo2 : activityInfoArr) {
-                if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
-                    try {
-                        activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
-                    } catch (PackageManager.NameNotFoundException unused2) {
-                        activityInfo = null;
-                    }
-                    if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
-                        b(bundle, t50Var);
-                    }
-                }
-            }
         }
+        this.b = request;
+        this.c = z;
+        this.a = r60Var;
+        v60 v60Var = r60Var.m;
+        this.e = new l60(r60Var);
     }
 
-    public void d(String str, Context context) {
+    public static q60 c(Request request, r60 r60Var, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
-            this.d = str;
-            this.e = context;
-        }
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, request, r60Var, z)) == null) ? new q60(request, r60Var, z) : (q60) invokeLLZ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0041, code lost:
-        if (r10.equals(r9.d) == false) goto L15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
-        if (r0.startsWith(r10) != false) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean f(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            y50 y50Var = new y50();
-            y50Var.b(jSONObject.optLong("flags"));
-            String optString = jSONObject.optString("package", "");
-            long a = y50Var.a(7L);
-            if (!optString.equals("") || a == 4) {
-                if (a != 0) {
-                    if (a == 1) {
-                        String str = this.d;
-                        if (str != null) {
-                        }
-                        i = this.f | 32;
-                        this.f = i;
-                        return false;
-                    } else if (a == 2) {
-                        try {
-                            if (!Pattern.compile(optString).matcher(this.d).matches()) {
-                                this.f |= 32;
-                                return false;
-                            }
-                        } catch (Exception unused) {
-                            i = this.f | 128;
-                        }
-                    } else if (a == 4) {
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            i = this.f | 64;
-            this.f = i;
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long i() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    /* renamed from: a */
+    public q60 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c(this.b, this.a, this.c) : (q60) invokeV.objValue;
     }
 
-    public boolean j() {
+    public Response b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a.s());
+            arrayList.add(new y60(new CookieJarImpl(this.b.getCookieManager()), this.a));
+            arrayList.add(this.e);
+            arrayList.addAll(this.a.t());
+            arrayList.add(new z60());
+            return new a70(arrayList, null, 0, this.b, this).a(this.b);
+        }
+        return (Response) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.url().redact() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void enqueue(Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
+                }
+            }
+            this.a.p().a(new a(this, callback));
+        }
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Response execute() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
+                }
+            }
+            try {
+                try {
+                    this.a.p().b(this);
+                    Response b = b();
+                    if (b != null) {
+                        return b;
+                    }
+                    throw new IOException("Canceled");
+                } catch (IOException e) {
+                    throw e;
+                } catch (Exception e2) {
+                    if (TextUtils.isEmpty(e2.getMessage())) {
+                        throw new IOException("unknown exception", e2);
+                    }
+                    throw new IOException(e2);
+                }
+            } finally {
+                this.a.p().e(this);
+            }
+        }
+        return (Response) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e.d() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public synchronized boolean isExecuted() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Request request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : (Request) invokeV.objValue;
     }
 }

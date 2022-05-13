@@ -1,13 +1,16 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class cw implements xt {
+public class cw implements dw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,25 +28,20 @@ public final class cw implements xt {
         }
     }
 
-    @Override // com.repackage.xt
-    public void a(String str, String str2) {
+    @Override // com.repackage.dw
+    @CallSuper
+    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
+        nt b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            com.baidu.bdtask.service.cache.storage.c.i.a().d(str2, str);
-        }
-    }
-
-    @Override // com.repackage.xt
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object b = com.baidu.bdtask.service.cache.storage.c.i.a().b(str);
-            if (!(b instanceof String)) {
-                b = null;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
+            if (view2.getParent() != null) {
+                view2.setVisibility(8);
             }
-            return (String) b;
+            hv v = BDPTask.m.v();
+            if (v == null || (b = v.b()) == null) {
+                return;
+            }
+            b.a(taskBuoyViewData.getScheme(), 3);
         }
-        return (String) invokeL.objValue;
     }
 }

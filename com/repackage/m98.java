@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ww8;
+import com.repackage.tv8;
 import com.ss.android.download.api.constant.BaseConstants;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,10 +27,10 @@ public class m98 {
     public static m98 c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public c18 b;
+    public w08 b;
 
     /* loaded from: classes6.dex */
-    public class a implements ww8.g {
+    public class a implements tv8.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -55,7 +55,7 @@ public class m98 {
             this.a = tbPageContext;
         }
 
-        @Override // com.repackage.ww8.g
+        @Override // com.repackage.tv8.g
         public void onClick(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.b.b == null) {
@@ -70,7 +70,7 @@ public class m98 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ww8.e {
+    public class b implements tv8.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -95,7 +95,7 @@ public class m98 {
             this.a = tbPageContext;
         }
 
-        @Override // com.repackage.ww8.e
+        @Override // com.repackage.tv8.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b == null) {
@@ -114,7 +114,7 @@ public class m98 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements ww8.d {
+    public class c implements tv8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m98 a;
@@ -137,7 +137,7 @@ public class m98 {
             this.a = m98Var;
         }
 
-        @Override // com.repackage.ww8.d
+        @Override // com.repackage.tv8.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
@@ -210,11 +210,11 @@ public class m98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String version = TbConfig.getVersion();
-            if (version.equals(vt4.k().q("key_rate_version", ""))) {
+            if (version.equals(iu4.k().q("key_rate_version", ""))) {
                 return;
             }
-            vt4.k().y("key_rate_version", version);
-            vt4.k().x("key_rate_version_time", new Date().getTime());
+            iu4.k().y("key_rate_version", version);
+            iu4.k().x("key_rate_version_time", new Date().getTime());
         }
     }
 
@@ -223,16 +223,16 @@ public class m98 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) || tbPageContext == null || TbConfig.getVersionType() == 2) {
             return;
         }
-        if (Long.valueOf(new Date().getTime()).longValue() - vt4.k().m("key_rate_version_time", 0L) < 86400000) {
+        if (Long.valueOf(new Date().getTime()).longValue() - iu4.k().m("key_rate_version_time", 0L) < 86400000) {
             return;
         }
         String version = TbConfig.getVersion();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        vt4 k = vt4.k();
+        iu4 k = iu4.k();
         if (k.h("key_rate_same_version_is_score" + version + currentAccount, false)) {
             return;
         }
-        vt4 k2 = vt4.k();
+        iu4 k2 = iu4.k();
         k2.u("key_rate_same_version_is_score" + version + currentAccount, true);
         n(tbPageContext);
     }
@@ -243,29 +243,29 @@ public class m98 {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        vt4 k = vt4.k();
+        iu4 k = iu4.k();
         int l = k.l("key_rate_like_count" + currentAccount, 0) + 1;
         if (l < 3) {
             if (l == 1) {
                 Long valueOf = Long.valueOf(new Date().getTime());
-                vt4 k2 = vt4.k();
+                iu4 k2 = iu4.k();
                 k2.x("key_rate_first_like_time" + currentAccount, valueOf.longValue());
-                vt4 k3 = vt4.k();
+                iu4 k3 = iu4.k();
                 k3.w("key_rate_like_count" + currentAccount, l);
                 return;
             }
-            vt4 k4 = vt4.k();
+            iu4 k4 = iu4.k();
             k4.w("key_rate_like_count" + currentAccount, l);
             return;
         }
-        vt4 k5 = vt4.k();
+        iu4 k5 = iu4.k();
         if (Long.valueOf(new Date().getTime()).longValue() - k5.m("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
-            vt4 k6 = vt4.k();
+            iu4 k6 = iu4.k();
             k6.w("key_rate_like_count" + currentAccount, 0);
             k(tbPageContext);
             return;
         }
-        vt4 k7 = vt4.k();
+        iu4 k7 = iu4.k();
         k7.w("key_rate_like_count" + currentAccount, 0);
     }
 
@@ -282,58 +282,58 @@ public class m98 {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) || tbPageContext == null) {
             return;
         }
-        ww8 ww8Var = new ww8(tbPageContext.getContext());
-        ww8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f0963));
-        ww8Var.n(8);
-        ww8Var.r(0);
-        int f = oi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070308);
-        int f2 = oi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070249);
-        int f3 = oi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070290);
-        ww8Var.w(R.dimen.obfuscated_res_0x7f0701f9);
-        ww8Var.v(0, f, 0, f3);
-        ww8Var.p(0, 0, 0, f2);
-        ww8Var.o(true);
-        ww8Var.u(new a(this, tbPageContext));
-        c18 c18Var = new c18(tbPageContext.getContext(), ww8Var.j());
-        this.b = c18Var;
-        c18Var.a(0.7f);
-        rg.j(this.b, tbPageContext);
+        tv8 tv8Var = new tv8(tbPageContext.getContext());
+        tv8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f0967));
+        tv8Var.n(8);
+        tv8Var.r(0);
+        int f = mi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070308);
+        int f2 = mi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070249);
+        int f3 = mi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070290);
+        tv8Var.w(R.dimen.obfuscated_res_0x7f0701f9);
+        tv8Var.v(0, f, 0, f3);
+        tv8Var.p(0, 0, 0, f2);
+        tv8Var.o(true);
+        tv8Var.u(new a(this, tbPageContext));
+        w08 w08Var = new w08(tbPageContext.getContext(), tv8Var.j());
+        this.b = w08Var;
+        w08Var.a(0.7f);
+        pg.j(this.b, tbPageContext);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
     }
 
     public void o(TbPageContext tbPageContext) {
-        ww8.c cVar;
+        tv8.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) || tbPageContext == null) {
             return;
         }
-        ww8 ww8Var = new ww8(tbPageContext.getContext());
+        tv8 tv8Var = new tv8(tbPageContext.getContext());
         int i = this.a;
         if (i != 1 && i != 2) {
-            ww8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07ae));
-            cVar = new ww8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07ac), ww8Var);
+            tv8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07b7));
+            cVar = new tv8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07b5), tv8Var);
         } else {
-            ww8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f081e));
-            cVar = new ww8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07a9), ww8Var);
+            tv8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f0826));
+            cVar = new tv8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07b2), tv8Var);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
-        ww8Var.q(this.a);
-        ww8Var.r(0);
-        ww8Var.n(0);
-        ww8Var.o(false);
-        oi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702c1);
-        int f = oi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070207);
-        oi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702d8);
-        ww8Var.v(0, oi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070276), 0, 0);
-        ww8Var.p(0, f, 0, f);
+        tv8Var.q(this.a);
+        tv8Var.r(0);
+        tv8Var.n(0);
+        tv8Var.o(false);
+        mi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702c1);
+        int f = mi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070207);
+        mi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702d8);
+        tv8Var.v(0, mi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070276), 0, 0);
+        tv8Var.p(0, f, 0, f);
         cVar.h(new b(this, tbPageContext));
-        ww8Var.t(new c(this));
-        ww8Var.s(arrayList);
-        c18 c18Var = new c18(tbPageContext.getContext(), ww8Var.j());
-        this.b = c18Var;
-        c18Var.a(0.7f);
-        rg.j(this.b, tbPageContext);
+        tv8Var.t(new c(this));
+        tv8Var.s(arrayList);
+        w08 w08Var = new w08(tbPageContext.getContext(), tv8Var.j());
+        this.b = w08Var;
+        w08Var.a(0.7f);
+        pg.j(this.b, tbPageContext);
         int i2 = this.a;
         if (i2 != 1 && i2 != 2) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));

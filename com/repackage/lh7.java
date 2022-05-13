@@ -29,7 +29,7 @@ public class lh7 implements ExtLiveLogService {
     public void onLivePluginEvent(String str, Map<String, ?> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) {
-            ye7.b(map);
+            bf7.b(map);
         }
     }
 }

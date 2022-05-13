@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ie7;
-import com.repackage.nk4;
-import com.repackage.oc7;
-import com.repackage.ok4;
-import com.repackage.pc7;
-import com.repackage.qc7;
-import com.repackage.rc7;
-import com.repackage.sc7;
-import com.repackage.tc7;
+import com.repackage.ad7;
+import com.repackage.dd7;
+import com.repackage.ed7;
+import com.repackage.me7;
+import com.repackage.vc7;
 import com.repackage.wc7;
+import com.repackage.xc7;
 import com.repackage.yc7;
+import com.repackage.yk4;
+import com.repackage.zc7;
+import com.repackage.zk4;
 /* loaded from: classes3.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        ie7.a.set(new oc7());
+        me7.a.set(new vc7());
         TbConfig.setLegoLibVersion("3.0.0");
-        wc7.h().g(yc7.f());
+        dd7.h().g(ed7.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        qc7.a().b(new tc7());
-        pc7.a().b(new rc7());
-        pc7.a().b(new sc7());
-        ok4.a.set(qc7.a());
-        nk4.a.set(pc7.a());
+        xc7.a().b(new ad7());
+        wc7.a().b(new yc7());
+        wc7.a().b(new zc7());
+        zk4.a.set(xc7.a());
+        yk4.a.set(wc7.a());
     }
 
     public LegoListActivityStatic() {

@@ -48,7 +48,7 @@ public class up7 {
         }
     }
 
-    public void a(int i, pp7 pp7Var, int i2, List<uo> list, BdTypeRecyclerView bdTypeRecyclerView) {
+    public void a(int i, pp7 pp7Var, int i2, List<ro> list, BdTypeRecyclerView bdTypeRecyclerView) {
         List<np7> list2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), pp7Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) || pp7Var == null || (list2 = pp7Var.a) == null || ListUtils.isEmpty(list2)) {
@@ -104,7 +104,7 @@ public class up7 {
         }
     }
 
-    public List<uo> b(List<np7> list) {
+    public List<ro> b(List<np7> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -153,22 +153,22 @@ public class up7 {
         return (List) invokeL.objValue;
     }
 
-    public final void c(int i, List<Long> list, List<uo> list2) {
+    public final void c(int i, List<Long> list, List<ro> list2) {
         qp7 qp7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
-            for (uo uoVar : list2) {
-                if ((uoVar instanceof qp7) && (qp7Var = (qp7) uoVar) != null && qp7Var.b() == i) {
+            for (ro roVar : list2) {
+                if ((roVar instanceof qp7) && (qp7Var = (qp7) roVar) != null && qp7Var.b() == i) {
                     list.add(Long.valueOf(qp7Var.e()));
                 }
             }
         }
     }
 
-    public final void d(uo uoVar) {
+    public final void d(ro roVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, uoVar) == null) && (uoVar instanceof rp7)) {
-            ((rp7) uoVar).i(false);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, roVar) == null) && (roVar instanceof rp7)) {
+            ((rp7) roVar).i(false);
         }
     }
 }

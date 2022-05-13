@@ -1,88 +1,25 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.List;
+import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ng9 extends zg9<TTNativeExpressAd> {
+public class ng9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdSlot a;
-        public final /* synthetic */ ng9 b;
-
-        public a(ng9 ng9Var, FunAdSlot funAdSlot) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ng9Var, funAdSlot};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ng9Var;
-            this.a = funAdSlot;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
-        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
-                if (list != null && !list.isEmpty()) {
-                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    ng9 ng9Var = this.b;
-                    this.a.getSid();
-                    ng9Var.getClass();
-                    tTNativeExpressAd.setExpressInteractionListener(new qg9(ng9Var, tTNativeExpressAd));
-                    tTNativeExpressAd.render();
-                    return;
-                }
-                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
-                this.b.onError(0, "NoFill");
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ng9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,8 +29,7 @@ public class ng9 extends zg9<TTNativeExpressAd> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -101,52 +37,43 @@ public class ng9 extends zg9<TTNativeExpressAd> {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        TTNativeExpressAd tTNativeExpressAd;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Field declaredField;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (tTNativeExpressAd = (TTNativeExpressAd) obj) == null) {
-            return;
-        }
-        tTNativeExpressAd.destroy();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            if (this.i == null) {
-                this.i = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            try {
+                if (obj instanceof NativeUnifiedADDataAdapter) {
+                    NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter = (NativeUnifiedADDataAdapter) obj;
+                    Field declaredField2 = nativeUnifiedADDataAdapter.getClass().getDeclaredField("a");
+                    declaredField2.setAccessible(true);
+                    Object obj2 = declaredField2.get(nativeUnifiedADDataAdapter);
+                    if (obj2 == null) {
+                        return null;
+                    }
+                    Field declaredField3 = obj2.getClass().getDeclaredField("d");
+                    declaredField3.setAccessible(true);
+                    Object obj3 = declaredField3.get(obj2);
+                    if (obj3 == null || (declaredField = obj3.getClass().getSuperclass().getDeclaredField("L")) == null) {
+                        return null;
+                    }
+                    declaredField.setAccessible(true);
+                    Object obj4 = declaredField.get(obj3);
+                    if (obj4 instanceof JSONObject) {
+                        return sg9.a((JSONObject) obj4);
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
-            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
-            onLoadStart(funAdSlot);
-            this.i.loadBannerExpressAd(build, new a(this, funAdSlot));
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
-            onShowStart();
-            tTNativeExpressAd.setSlideIntervalTime(this.mPid.interval);
-            View expressAdView = tTNativeExpressAd.getExpressAdView();
-            if (expressAdView.getParent() != null) {
-                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
-            }
-            tTNativeExpressAd.setDislikeCallback(activity, new sg9(this, expressAdView));
-            tTNativeExpressAd.setDownloadListener(new rg9(null));
-            viewGroup.removeAllViews();
-            viewGroup.addView(expressAdView);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

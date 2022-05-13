@@ -1,23 +1,11 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface lv4 {
-    int getFansNum();
+    void a(int i, float f);
 
-    boolean getIsLike();
+    void b(int i, float f);
 
-    int getLikeStatus();
+    void c(int i, float f);
 
-    String getPortrait();
-
-    String getUserId();
-
-    boolean isGod();
-
-    void setFansNum(int i);
-
-    void setIsFromNetWork(boolean z);
-
-    void setIsLike(boolean z);
-
-    void setLikeStatus(int i);
+    void d(int i, float f);
 }

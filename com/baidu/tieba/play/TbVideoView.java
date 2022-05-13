@@ -42,20 +42,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.am7;
-import com.repackage.at8;
+import com.repackage.de5;
 import com.repackage.dm7;
 import com.repackage.g78;
 import com.repackage.k78;
-import com.repackage.kd5;
 import com.repackage.l78;
+import com.repackage.li;
 import com.repackage.m78;
 import com.repackage.n78;
-import com.repackage.ni;
 import com.repackage.p78;
 import com.repackage.q78;
 import com.repackage.r78;
-import com.repackage.ui;
+import com.repackage.si;
 import com.repackage.x68;
+import com.repackage.xr8;
 import com.repackage.y68;
 import com.repackage.z68;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
@@ -469,7 +469,7 @@ public class TbVideoView extends FrameLayout implements y68 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!ni.isEmpty(str) && at8.c().d()) {
+            if (!li.isEmpty(str) && xr8.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -812,7 +812,6 @@ public class TbVideoView extends FrameLayout implements y68 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.y68
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -826,7 +825,6 @@ public class TbVideoView extends FrameLayout implements y68 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? O(this.B) : (OnStatusChangedListener.VideoStatus) invokeV.objValue;
     }
 
-    @Override // com.repackage.y68
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -960,7 +958,7 @@ public class TbVideoView extends FrameLayout implements y68 {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            kd5.f(this.f, false);
+            de5.f(this.f, false);
             if (isPlaying() && J()) {
                 l78.d().update(this.b, getCurrentPositionSync());
             }
@@ -1107,7 +1105,7 @@ public class TbVideoView extends FrameLayout implements y68 {
     public void setStageType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
-            if (ni.isEmpty(str)) {
+            if (li.isEmpty(str)) {
                 str = "-1";
             }
             HashMap hashMap = new HashMap();
@@ -1148,7 +1146,7 @@ public class TbVideoView extends FrameLayout implements y68 {
     @Override // com.repackage.y68
     public void setVideoPath(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048636, this, str, str2) == null) || ni.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048636, this, str, str2) == null) || li.isEmpty(str)) {
             return;
         }
         this.n = str2;
@@ -1199,9 +1197,9 @@ public class TbVideoView extends FrameLayout implements y68 {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
-            PlayerSpeedTracker.beginTrack(ui.c(this.m.getVideoUrl()));
+            PlayerSpeedTracker.beginTrack(si.c(this.m.getVideoUrl()));
             if (!this.g) {
-                kd5.f(this.f, true);
+                de5.f(this.f, true);
                 setVolume(1.0f, 1.0f);
             } else {
                 setVolume(0.0f, 0.0f);
@@ -1246,7 +1244,7 @@ public class TbVideoView extends FrameLayout implements y68 {
                 return;
             }
             if (this.b != null && isPlaying()) {
-                kd5.f(this.f, false);
+                de5.f(this.f, false);
             }
             this.c = false;
             if (isPlaying() && J()) {
@@ -1279,7 +1277,7 @@ public class TbVideoView extends FrameLayout implements y68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
             if (this.b != null && isPlaying()) {
-                kd5.f(this.f, false);
+                de5.f(this.f, false);
             }
             this.c = false;
             if (isPlaying() && J()) {
@@ -1362,11 +1360,11 @@ public class TbVideoView extends FrameLayout implements y68 {
     @Override // com.repackage.y68
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048635, this, str) == null) || ni.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048635, this, str) == null) || li.isEmpty(str)) {
             return;
         }
         L();
-        if (UbsABTestHelper.isVideoSetUrlAgainABTest() || !ni.isEquals(this.b, str) || this.m.getStatus() == PlayerStatus.STOP) {
+        if (UbsABTestHelper.isVideoSetUrlAgainABTest() || !li.isEquals(this.b, str) || this.m.getStatus() == PlayerStatus.STOP) {
             this.b = str;
             String D = D(str);
             dm7 dm7Var = E;
@@ -1387,7 +1385,7 @@ public class TbVideoView extends FrameLayout implements y68 {
             if (am7Var != null) {
                 am7Var.j();
             }
-            String c2 = ui.c(D);
+            String c2 = si.c(D);
             k78 k78Var = this.u;
             if (k78Var != null) {
                 k78Var.a = "";

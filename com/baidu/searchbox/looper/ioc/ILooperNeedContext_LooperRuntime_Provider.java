@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gg8;
-import com.repackage.pb1;
+import com.repackage.ac1;
+import com.repackage.ve8;
 /* loaded from: classes2.dex */
-public class ILooperNeedContext_LooperRuntime_Provider implements pb1 {
+public class ILooperNeedContext_LooperRuntime_Provider implements ac1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class ILooperNeedContext_LooperRuntime_Provider implements pb1 {
         }
     }
 
-    @Override // com.repackage.pb1
+    @Override // com.repackage.ac1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new gg8() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ve8() : invokeV.objValue;
     }
 }

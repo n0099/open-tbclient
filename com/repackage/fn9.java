@@ -1,30 +1,15 @@
 package com.repackage;
 
-import android.graphics.BitmapFactory;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Bitmap;
 /* loaded from: classes6.dex */
-public final class fn9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BitmapFactory.Options a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fn9 {
+    void a(int i, String str, String str2);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755701920, "Lcom/repackage/fn9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755701920, "Lcom/repackage/fn9;");
-                return;
-            }
-        }
-        a = new BitmapFactory.Options();
-    }
+    void a(String str);
+
+    void a(String str, Bitmap bitmap);
+
+    void a(String str, String str2, String str3, long j, String str4, String str5);
+
+    void b(String str);
 }

@@ -1,136 +1,159 @@
 package com.repackage;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.net.Uri;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ri4 extends Dialog implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b9 b;
-    public float c;
-    public ViewGroup d;
-    public RoundRelativeLayout e;
-    public View f;
-    public ImageView g;
-    public ImageView h;
-    public Drawable i;
+public interface ri4 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ri4(b9 b9Var) {
-        super(b9Var.getPageActivity(), 16973835);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a implements ri4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ri4 a;
+
+        public a(ri4 delegation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {delegation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(delegation, "delegation");
+            this.a = delegation;
+        }
+
+        @Override // com.repackage.ri4
+        public String a(String url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.a(url);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.repackage.ri4
+        public WebResourceResponse b(Uri url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.b(url);
+            }
+            return (WebResourceResponse) invokeL.objValue;
+        }
+
+        @Override // com.repackage.ri4
+        public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
+                Intrinsics.checkNotNullParameter(transform, "transform");
+                return (Target) this.a.c(webResourceResponse, transform);
+            }
+            return (Target) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Inject
+        public dc1<ri4> a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            b();
+        }
+
+        public final dc1<ri4> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                dc1<ri4> dc1Var = this.a;
+                if (dc1Var == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("impl");
+                }
+                return dc1Var;
+            }
+            return (dc1) invokeV.objValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                bc1 b = bc1.b();
+                this.a = b;
+                b.a(new si4());
             }
         }
-        this.c = 0.33f;
-        this.b = b9Var;
-        this.a = b9Var.getPageActivity();
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rg.b(this, this.b);
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static class c extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public void b(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
-            this.i = drawable;
-        }
-    }
-
-    public void c(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            this.f = viewGroup;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (isShowing()) {
-                rg.b(this, this.b);
+        /* JADX WARN: Illegal instructions before constructor call */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public c(b ioc) {
+            super(r7);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ioc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((ri4) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            rg.j(this, this.b);
+            Intrinsics.checkNotNullParameter(ioc, "ioc");
+            ri4 ri4Var = ioc.a().get();
+            Intrinsics.checkNotNullExpressionValue(ri4Var, "ioc.impl.get()");
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e9f) {
-            a();
-        }
-    }
+    String a(String str);
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.obfuscated_res_0x7f0d0231);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            attributes.height = defaultDisplay.getHeight();
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.c);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(0);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09057b);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ae8);
-            this.e = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(mg.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
-            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.height = -1;
-                layoutParams.width = -1;
-            } else {
-                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            }
-            this.e.addView(this.f, layoutParams);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9c);
-            this.g = imageView;
-            imageView.setImageDrawable(this.i);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9f);
-            this.h = imageView2;
-            imageView2.setOnClickListener(this);
-        }
-    }
+    WebResourceResponse b(Uri uri);
+
+    <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> function1);
 }

@@ -53,20 +53,20 @@ public class wj7 {
             }
         }
         this.i = memberTaskCenterActivity;
-        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0543);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091ade);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923af);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
+        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0537);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091b2c);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923ff);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923fd);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab2);
-        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0913de);
-        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0544, (ViewGroup) null);
+        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab9);
+        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0913f3);
+        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0538, (ViewGroup) null);
         BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
-        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090150);
+        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090146);
         this.g = tbImageView;
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09073e);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09073b);
         this.g.setOnClickListener(onClickListener);
         uj7 uj7Var = new uj7(memberTaskCenterActivity);
         this.e = uj7Var;
@@ -112,7 +112,7 @@ public class wj7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
             this.g.K(str, 10, false);
-            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f046a), String.valueOf(j)));
+            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0472), String.valueOf(j)));
             this.e.c(list);
             this.e.notifyDataSetChanged();
         }

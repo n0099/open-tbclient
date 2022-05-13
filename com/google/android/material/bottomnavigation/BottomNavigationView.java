@@ -249,7 +249,7 @@ public class BottomNavigationView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             View view2 = new View(context);
-            view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606d9));
+            view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606dc));
             view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ff)));
             addView(view2);
         }
@@ -623,7 +623,7 @@ public class BottomNavigationView extends FrameLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BottomNavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400e6);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400e9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -673,7 +673,7 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040315, R.attr.obfuscated_res_0x7f040318, R.attr.obfuscated_res_0x7f04031a, R.attr.obfuscated_res_0x7f04031b, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f04032b, R.attr.obfuscated_res_0x7f04032c, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f040467}, i, R.style.obfuscated_res_0x7f100324, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f04031f, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f04032f, R.attr.obfuscated_res_0x7f040330, R.attr.obfuscated_res_0x7f0403bd, R.attr.obfuscated_res_0x7f04046c}, i, R.style.obfuscated_res_0x7f100324, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {

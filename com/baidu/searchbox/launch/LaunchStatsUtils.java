@@ -136,7 +136,7 @@ public class LaunchStatsUtils {
                 sLaunchTypeDetail += "_skin";
             }
             if (z3 && i != 2) {
-                sLaunchTypeDetail += "_ad";
+                sLaunchTypeDetail += "_" + AD;
             }
             if (DEBUG) {
                 Log.d(TAG, "isLaunchFromLauncher: " + z + " hasSkin " + z2 + " hasAd " + z3);

@@ -1,140 +1,46 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ra2;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class vv3 extends va2<dw3, ew3> {
+public class vv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile vv3 e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends ra2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.ra2.a
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755217762, "Lcom/repackage/vv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755217762, "Lcom/repackage/vv3;");
-                return;
-            }
-        }
-        d = tg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vv3() {
-        super(new dw3(), new ew3());
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((vb2) objArr[0], (yb2) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File b = b();
+            if (b.exists()) {
+                xg4.j(b);
             }
         }
     }
 
-    public static vv3 i() {
+    public static File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? jx3.e("aigames_debug_dashboard") : (File) invokeV.objValue;
+    }
+
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (vv3.class) {
-                    if (e == null) {
-                        e = new vv3();
-                    }
-                }
+            File b = b();
+            if (!b.exists()) {
+                b.mkdirs();
             }
-            return e;
+            return new File(b, "debugDashboard.zip");
         }
-        return (vv3) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.repackage.va2
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return xv3.b().getPath();
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.repackage.va2
-    @Nullable
-    public ExtensionCore c() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return d();
-            }
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
-            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (d) {
-                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
-                return extensionCore;
-            }
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "meter.js" : (String) invokeV.objValue;
     }
 }

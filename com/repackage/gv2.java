@@ -1,111 +1,148 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public class gv2 implements cf3<HybridUbcFlow> {
+public class gv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755664658, "Lcom/repackage/gv2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755664658, "Lcom/repackage/gv2;");
-                return;
-            }
-        }
-        a = new ArrayList(5);
-    }
+    public boolean a;
+    public boolean b;
 
     public gv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.cf3
-    /* renamed from: a */
-    public void onCallback(@NonNull HybridUbcFlow hybridUbcFlow) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-            dv2.g().d(false);
-            String h = hybridUbcFlow.h("launchid");
-            if (!TextUtils.isEmpty(h)) {
-                synchronized (a) {
-                    if (!a.contains(h)) {
-                        a.add(h);
-                        c(h, hybridUbcFlow);
-                    }
-                }
-            }
-            String str = (String) hybridUbcFlow.k("routeId");
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (a) {
-                if (!a.contains(str)) {
-                    a.add(str);
-                    b(str, hybridUbcFlow);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = true;
         }
     }
 
-    public final void b(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
+    public final ViewGroup b() {
+        InterceptResult invokeV;
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hybridUbcFlow) == null) {
-            d(hybridUbcFlow);
-            UbcFlowEvent g = hybridUbcFlow.g("na_first_meaningful_paint");
-            HybridUbcFlow e = ot2.e("route", str);
-            if (e == null || g == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (u03.a0() == null || u03.a0().x() == null || (viewGroup = (ViewGroup) u03.a0().x().findViewById(16908290)) == null) {
+                return null;
             }
-            e.F(g);
-            e.B();
+            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091de8);
+            if (viewGroup2 != null) {
+                return viewGroup2;
+            }
+            ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(u03.a0().x()).inflate(R.layout.obfuscated_res_0x7f0d07bd, viewGroup);
+            this.b = true;
+            return viewGroup3;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            d();
         }
     }
 
-    public final void c(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
+    public final void d() {
+        u03 a0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hybridUbcFlow) == null) {
-            d(hybridUbcFlow);
-        }
-    }
-
-    public final void d(@NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, hybridUbcFlow) == null) || hybridUbcFlow.g("na_first_meaningful_paint") == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (a0 = u03.a0()) == null || a0.x() == null) {
             return;
         }
-        d72.U().U0(new qa2((String) hybridUbcFlow.k(PrefetchEvent.EVENT_DATA_WEBVIEW_ID), (String) hybridUbcFlow.k(PrefetchEvent.EVENT_KEY_PAGE_URL)));
+        ViewGroup viewGroup = (ViewGroup) a0.x().findViewById(R.id.obfuscated_res_0x7f091de8);
+        if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
+        }
+        this.b = false;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            c();
+            k();
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f09097e, j, "#80ff0000", "FCP");
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f09099c, j, "#80ff0000", "FIP");
+        }
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f0909e4, j, "#8000ff00", "FMP");
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090bf6, j, "#80ff0000", "FTP");
+        }
+    }
+
+    public final void j(int i, long j, String str, String str2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) || this.a || (b = b()) == null) {
+            return;
+        }
+        TextView textView = (TextView) b.findViewById(i);
+        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
+        textView.setBackgroundColor(Color.parseColor(str));
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b) {
+            return;
+        }
+        b();
+    }
+
+    public void l(long j, long j2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.a || (b = b()) == null) {
+            return;
+        }
+        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091e25)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

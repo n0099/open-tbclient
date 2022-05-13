@@ -54,7 +54,7 @@ public class BdExpandImageView extends ImageView {
         this.d = new Rect();
         this.e = new Rect();
         setScaleType(ImageView.ScaleType.MATRIX);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c5, R.attr.obfuscated_res_0x7f04025c});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c7, R.attr.obfuscated_res_0x7f04025f});
         this.a = obtainStyledAttributes.getDimensionPixelSize(1, 0) / 2.0f;
         this.b = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         obtainStyledAttributes.recycle();

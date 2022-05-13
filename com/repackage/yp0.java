@@ -159,7 +159,7 @@ public abstract class yp0 extends kq0 {
     public void G1(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && BdNetUtils.c()) {
-            String a = z11.a().a(str);
+            String a = j21.a().a(str);
             if (TextUtils.isEmpty(a) || TextUtils.equals(a, this.a.b)) {
                 return;
             }

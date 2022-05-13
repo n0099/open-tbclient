@@ -18,7 +18,7 @@ public class v88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-            return !StringUtils.isNull(systemProperty) && mg.e(systemProperty.replace("V", ""), 0) >= 9;
+            return !StringUtils.isNull(systemProperty) && kg.e(systemProperty.replace("V", ""), 0) >= 9;
         }
         return invokeV.booleanValue;
     }

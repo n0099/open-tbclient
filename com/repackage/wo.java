@@ -1,16 +1,9 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes7.dex */
-public interface wo<V extends ViewGroup> {
-    int getContentViewsCount();
+public interface wo<T> extends so<T> {
+    int b(int i, int i2);
 
-    int getFooterViewsCount();
-
-    int getHeaderViewsCount();
-
-    V getListView();
-
-    boolean removeHeaderView(View view2);
+    eo<ro, TypeAdapter.ViewHolder> c(ro roVar);
 }

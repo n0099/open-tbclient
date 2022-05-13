@@ -1,37 +1,11 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Bitmap;
 /* loaded from: classes7.dex */
-public class wr9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wr9 {
+    void a(int i);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755191629, "Lcom/repackage/wr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755191629, "Lcom/repackage/wr9;");
-                return;
-            }
-        }
-        a = new Handler(Looper.getMainLooper());
-    }
+    void a(Bitmap bitmap);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Looper.getMainLooper().equals(Looper.myLooper()) : invokeV.booleanValue;
-    }
+    void a(com.win.opensdk.k0 k0Var);
 }

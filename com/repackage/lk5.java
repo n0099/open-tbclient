@@ -60,7 +60,7 @@ public class lk5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (view2 == this.a.b) {
-                    String charSequence2String = ni.charSequence2String(this.a.a.getText(), null);
+                    String charSequence2String = li.charSequence2String(this.a.a.getText(), null);
                     if (StringUtils.isNULL(charSequence2String)) {
                         return;
                     }
@@ -68,7 +68,7 @@ public class lk5 {
                         this.a.i(charSequence2String.trim());
                         this.a.b.setClickable(false);
                     } else if (charSequence2String.length() > 0) {
-                        this.a.g.showToast(R.string.obfuscated_res_0x7f0f08dd);
+                        this.a.g.showToast(R.string.obfuscated_res_0x7f0f08e1);
                     }
                 } else if (view2 == this.a.c) {
                     this.a.k("");
@@ -151,9 +151,9 @@ public class lk5 {
         this.h = new a(this);
         this.g = tbPageContext;
         this.f = tbPageContext.getPageActivity();
-        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091552);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091556);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091551);
+        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09156f);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091573);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09156e);
         this.b.setOnClickListener(this.h);
         this.c.setOnClickListener(this.h);
         b bVar = new b(this);
@@ -174,7 +174,7 @@ public class lk5 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            oi.w(this.f, this.a);
+            mi.w(this.f, this.a);
         }
     }
 

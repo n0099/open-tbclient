@@ -1,104 +1,71 @@
 package com.repackage;
 
-import android.content.pm.Signature;
-import android.util.Base64;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class ll {
+public class ll {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, ol> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964034427, "Lcom/repackage/ll;")) == null) {
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964034427, "Lcom/repackage/ll;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964034427, "Lcom/repackage/ll;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, new kl());
+    }
+
+    public static void a(String str, int i) {
+        ol olVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) || (olVar = a.get(str)) == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964034427, "Lcom/repackage/ll;");
-        }
+        olVar.b(i);
     }
 
-    public static byte[] a(Signature[] signatureArr) {
-        InterceptResult invokeL;
+    public static void b(String str, int i, long j) {
+        ol olVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signatureArr)) == null) {
-            if (signatureArr != null) {
-                int i = 0;
-                for (Signature signature : signatureArr) {
-                    i += signature.toByteArray().length;
-                }
-                byte[] bArr = new byte[i];
-                int i2 = 0;
-                for (Signature signature2 : signatureArr) {
-                    byte[] byteArray = signature2.toByteArray();
-                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
-                    i2 += byteArray.length;
-                }
-                return bArr;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) || (olVar = a.get(str)) == null) {
+            return;
         }
-        return (byte[]) invokeL.objValue;
+        olVar.c(i, j);
     }
 
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        NoSuchAlgorithmException e;
-        String str;
-        byte[] digest;
+    public static void c(String str, int i, int i2) {
+        ol olVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (bArr != null) {
-                try {
-                    digest = MessageDigest.getInstance("MD5").digest(bArr);
-                } catch (NoSuchAlgorithmException e2) {
-                    e = e2;
-                    str = null;
-                }
-                if (digest != null) {
-                    str = Base64.encodeToString(digest, 0);
-                    if (str != null) {
-                        try {
-                            str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
-                        } catch (NoSuchAlgorithmException e3) {
-                            e = e3;
-                            if (BdLog.isDebugMode()) {
-                                e.printStackTrace();
-                            }
-                            return str;
-                        }
-                    }
-                    return str;
-                }
-                return null;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) || (olVar = a.get(str)) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        olVar.d(i, i2);
     }
 
-    public static String c(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        byte[] a;
+    public static void d(String str, int i, int i2) {
+        ol olVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, signatureArr)) == null) {
-            if (signatureArr == null || (a = a(signatureArr)) == null) {
-                return null;
-            }
-            return b(a);
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) || (olVar = a.get(str)) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        olVar.e(i, i2);
     }
 }

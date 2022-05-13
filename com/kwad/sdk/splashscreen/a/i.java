@@ -73,7 +73,7 @@ public class i extends Presenter implements com.kwad.sdk.splashscreen.f {
         }
         boolean z2 = aVar != null;
         boolean z3 = i == 1;
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(this.b.e.getContext()).a(this.b.d).a(this.b.g).a(z3).a(i).a(aVar).c(z2).a(new a.b() { // from class: com.kwad.sdk.splashscreen.a.i.6
+        com.kwad.sdk.core.download.a.a.a(new a.C0295a(this.b.e.getContext()).a(this.b.d).a(this.b.g).a(z3).a(i).a(aVar).c(z2).a(new a.b() { // from class: com.kwad.sdk.splashscreen.a.i.6
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 String d;
@@ -174,8 +174,8 @@ public class i extends Presenter implements com.kwad.sdk.splashscreen.f {
         super.a();
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.b = gVar;
-        this.c = (KsAdWebView) gVar.e.findViewById(R.id.obfuscated_res_0x7f091147);
-        this.g = (ViewStub) this.b.e.findViewById(R.id.obfuscated_res_0x7f091139);
+        this.c = (KsAdWebView) gVar.e.findViewById(R.id.obfuscated_res_0x7f091156);
+        this.g = (ViewStub) this.b.e.findViewById(R.id.obfuscated_res_0x7f091148);
         this.i = com.kwad.sdk.core.response.a.d.j(this.b.d);
         com.kwad.sdk.splashscreen.c.a aVar = new com.kwad.sdk.splashscreen.c.a(this.g, this.c, com.kwad.sdk.core.response.a.c.g(this.b.d), this.b.g);
         this.f = aVar;

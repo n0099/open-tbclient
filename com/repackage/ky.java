@@ -1,83 +1,144 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.ForumGoodsEnterLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ky {
+public class ky extends gy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ly a;
-    public JSONObject b;
-    public JSONObject c;
-    public boolean d;
+    public zn4 h;
+    public ForumGoodsEnterLayout i;
+    public int j;
+    public final View.OnClickListener k;
 
-    public ky() {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky a;
+
+        public a(ky kyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kyVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
+                return;
+            }
+            this.a.d().a(view2, this.a.h);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ky(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.k = new a(this);
+        int f = mi.f(context, R.dimen.M_H_X003);
+        int f2 = mi.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
+        r(f);
+        q(f2);
+        ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
+        this.i = forumGoodsEnterLayout;
+        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
+    }
+
+    @Override // com.repackage.zx
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.d(tbPageContext, i);
         }
     }
 
-    public final void a() {
+    public void t() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
-            return;
-        }
-        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
-        this.c = null;
-    }
-
-    public final void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            try {
-                if (this.b == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.b = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.b.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("staticWebkitInit JSON error");
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int f = mi.f(this.b, R.dimen.M_H_X003);
+            r(f);
+            q(0);
+            w(this.i, f, 0);
         }
     }
 
-    public final void c(String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: u */
+    public void a(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            try {
-                if (this.c == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.c = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.c.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("mWebkitDownloadStatics JSON error");
+        if (interceptable == null || interceptable.invokeL(1048580, this, zn4Var) == null) {
+            this.h = zn4Var;
+            this.i.setSourceForPb(this.a.i());
+            this.i.setFrstype(this.j);
+            this.i.setData(zn4Var);
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void w(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048582, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin == i && marginLayoutParams.bottomMargin == i2) {
+                return;
             }
+            marginLayoutParams.topMargin = i;
+            marginLayoutParams.bottomMargin = i2;
+            view2.setLayoutParams(marginLayoutParams);
         }
     }
 }

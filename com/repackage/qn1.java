@@ -1,7 +1,7 @@
 package com.repackage;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-/* loaded from: classes7.dex */
-public class qn1 extends RequestBody {
+/* loaded from: classes6.dex */
+public class qn1 extends SwanAppSimpleH5Widget {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,117 +27,33 @@ public class qn1 extends RequestBody {
                 return;
             }
         }
-        b = tg1.a;
+        boolean z = eh1.a;
     }
 
-    public qn1(File file) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qn1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = file;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            str2 = "image/jpeg";
-            if (str != null) {
-                try {
-                    try {
-                        try {
-                            try {
-                                mediaMetadataRetriever.setDataSource(str);
-                                String extractMetadata = mediaMetadataRetriever.extractMetadata(12);
-                                str2 = extractMetadata != null ? extractMetadata : "image/jpeg";
-                                try {
-                                    mediaMetadataRetriever.release();
-                                } catch (Exception e) {
-                                    if (b) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                if (b) {
-                                    e2.printStackTrace();
-                                }
-                                return "image/jpeg";
-                            }
-                        } catch (Exception e3) {
-                            if (b) {
-                                e3.printStackTrace();
-                            }
-                            return "image/jpeg";
-                        }
-                    } catch (Exception e4) {
-                        if (b) {
-                            e4.printStackTrace();
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (IllegalStateException unused2) {
-                    mediaMetadataRetriever.release();
-                } catch (RuntimeException unused3) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (Throwable th) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e5) {
-                        if (b) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.cn1
+    public String e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.length() : invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(a(this.a.getPath())) : (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
-            try {
-                source = Okio.source(this.a);
-                while (source.read(bufferedSink.buffer(), 2048L) != -1) {
-                    bufferedSink.flush();
-                }
-            } finally {
-                mg4.d(source);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ai_apps_ad_landing" : (String) invokeV.objValue;
     }
 }

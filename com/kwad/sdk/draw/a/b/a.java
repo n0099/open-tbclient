@@ -51,6 +51,6 @@ public class a extends com.kwad.sdk.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (DrawVideoTailFrame) a(R.id.obfuscated_res_0x7f091177);
+        this.b = (DrawVideoTailFrame) a(R.id.obfuscated_res_0x7f091186);
     }
 }

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qw4;
+import com.repackage.dx4;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
@@ -41,7 +41,7 @@ public class tq7 {
     public AtomicBoolean c;
 
     /* loaded from: classes7.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<qw4> {
+    public static class a implements CustomMessageTask.CustomRunnable<dx4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,12 +60,12 @@ public class tq7 {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<qw4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<dx4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    qw4 data = customMessage.getData();
+                    dx4 data = customMessage.getData();
                     String e = data.e();
                     if (data.getType() == 0 && TextUtils.isEmpty(e)) {
                         if (data.f() != null) {
@@ -73,7 +73,7 @@ public class tq7 {
                         }
                         return null;
                     } else if (data.getType() == 4) {
-                        oi.N(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
+                        mi.N(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
                         if (data.f() != null) {
                             data.f().b(null);
                         }
@@ -91,21 +91,21 @@ public class tq7 {
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(qw4.c cVar);
+        void a(dx4.c cVar);
     }
 
     /* loaded from: classes7.dex */
     public static class c implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public qw4 a;
+        public dx4 a;
 
-        public c(qw4 qw4Var) {
+        public c(dx4 dx4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qw4Var};
+                Object[] objArr = {dx4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,14 +115,14 @@ public class tq7 {
                     return;
                 }
             }
-            this.a = qw4Var;
+            this.a = dx4Var;
         }
 
         @Override // com.repackage.tq7.b
-        public void a(qw4.c cVar) {
-            qw4 qw4Var;
+        public void a(dx4.c cVar) {
+            dx4 dx4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (qw4Var = this.a) == null || qw4Var.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (dx4Var = this.a) == null || dx4Var.f() == null) {
                 return;
             }
             this.a.f().b(cVar);
@@ -178,12 +178,12 @@ public class tq7 {
         }
     }
 
-    public void a(qw4.c cVar) {
+    public void a(dx4.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (this.a != null) {
                 if (cVar == null) {
-                    cVar = new qw4.c(false);
+                    cVar = new dx4.c(false);
                 }
                 this.a.a(cVar);
             }
@@ -195,14 +195,14 @@ public class tq7 {
     public void b(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-            a(new qw4.a(z, str));
+            a(new dx4.a(z, str));
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            a(new qw4.c(z));
+            a(new dx4.c(z));
         }
     }
 
@@ -210,14 +210,14 @@ public class tq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) {
             uq7.i().k(null);
-            a(new qw4.b(z, str));
+            a(new dx4.b(z, str));
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            a(new qw4.c(false));
+            a(new dx4.c(false));
             if (z) {
                 p();
             }
@@ -260,22 +260,22 @@ public class tq7 {
         return invokeV.booleanValue;
     }
 
-    public final void i(qw4 qw4Var, b bVar) {
+    public final void i(dx4 dx4Var, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, qw4Var, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, dx4Var, bVar) == null) {
             q(bVar);
             SapiAccount session = SapiAccountManager.getInstance().getSession();
-            if (qw4Var != null && session != null) {
-                if (qw4Var.getType() == 0) {
-                    j(qw4Var.e());
+            if (dx4Var != null && session != null) {
+                if (dx4Var.getType() == 0) {
+                    j(dx4Var.e());
                     return;
-                } else if (qw4Var.getType() == 1) {
+                } else if (dx4Var.getType() == 1) {
                     l(session.bduss);
                     return;
-                } else if (qw4Var.getType() == 2) {
+                } else if (dx4Var.getType() == 2) {
                     k(session.bduss);
                     return;
-                } else if (qw4Var.getType() == 3) {
+                } else if (dx4Var.getType() == 3) {
                     m();
                     return;
                 } else {
@@ -333,16 +333,16 @@ public class tq7 {
     }
 
     public final void p() {
-        dw4 b2;
+        qw4 b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
-                currentAccountObj = en4.e();
+                currentAccountObj = on4.e();
             }
             if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                en4.c(currentAccountObj.getID());
-                if (ReloginManager.g().i() && !TextUtils.isEmpty(currentAccountObj.getID()) && (b2 = cw4.b()) != null) {
+                on4.c(currentAccountObj.getID());
+                if (ReloginManager.g().i() && !TextUtils.isEmpty(currentAccountObj.getID()) && (b2 = pw4.b()) != null) {
                     b2.c(currentAccountObj);
                 }
                 ReloginManager.g().f(null);
@@ -360,19 +360,19 @@ public class tq7 {
         }
     }
 
-    public void r(qw4 qw4Var, b bVar) {
+    public void r(dx4 dx4Var, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, qw4Var, bVar) == null) && this.c.compareAndSet(false, true)) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, dx4Var, bVar) == null) && this.c.compareAndSet(false, true)) {
             if (this.b.compareAndSet(false, true)) {
                 try {
-                    i(qw4Var, bVar);
+                    i(dx4Var, bVar);
                 } catch (Exception e) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
                     this.b.set(false);
                 }
             } else if (!h()) {
                 try {
-                    i(qw4Var, bVar);
+                    i(dx4Var, bVar);
                 } catch (Exception unused) {
                     this.b.set(false);
                 }

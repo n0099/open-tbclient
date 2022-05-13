@@ -1,196 +1,326 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import com.repackage.m52;
+import com.repackage.p52;
+import java.io.File;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class k52 implements l52 {
+public class k52 extends i52 implements d52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<n52> a;
-    public boolean b;
+    public a52 b;
+    public x42 c;
+    public File d;
+    public b e;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ k52 d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-289794612, "Lcom/repackage/k52$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-289794612, "Lcom/repackage/k52$a;");
+        public a(k52 k52Var, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k52Var, str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[RecordType.values().length];
-            a = iArr;
-            try {
-                iArr[RecordType.APP_ID.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RecordType.APP_VERSION.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
+            this.d = k52Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.e.onError(this.a, this.b, this.c);
             }
         }
     }
 
-    public k52() {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onError(String str, int i, String str2);
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements m52.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public x42 a;
+        public String b;
+
+        /* loaded from: classes6.dex */
+        public class a implements y42 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ File a;
+
+            public a(c cVar, File file) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, file};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = file;
+            }
+
+            @Override // com.repackage.y42
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    xg4.L(this.a);
+                }
+            }
+        }
+
+        public c(k52 k52Var, x42 x42Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k52Var, x42Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x42Var;
+            this.b = str;
+        }
+
+        @Override // com.repackage.m52.a
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                try {
+                    this.a.a(this.b, file, new a(this, file));
+                } catch (Exception e) {
+                    if (d52.a) {
+                        Log.d("HybridIntercept", Log.getStackTraceString(e));
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.m52.a
+        public void b(File file) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && d52.a) {
+                Log.e("HybridIntercept", "writer file fail, file = " + file);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k52(@NonNull Context context, x42 x42Var) {
+        super(context, x42Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, x42Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (x42) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
-    }
-
-    public void a(String str, UbcFlowEvent ubcFlowEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, ubcFlowEvent) == null) && b(str)) {
-            ot2.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
+        this.b = z42.a().f();
+        this.d = new File(z42.a().b(), "image_temp");
+        this.c = x42Var;
+        if (x42Var == null) {
+            h(context);
         }
     }
 
-    public final boolean b(String str) {
+    @Override // com.repackage.p52
+    public WebResourceResponse a(@NonNull p52.a aVar) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!i(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
+            }
+            String f = f(d);
+            InputStream inputStream = null;
+            x42 x42Var = this.c;
+            if (x42Var != null && !x42Var.isClosed()) {
+                inputStream = this.c.get(f);
+            }
+            if (inputStream != null) {
+                if (d52.a) {
+                    Log.d("HybridIntercept", "adopt cached image, url = " + f);
+                }
+                return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
+            }
+            j52 a2 = n52.a(f, g(aVar));
+            if (a2 != null && (i = a2.a) >= 400 && this.e != null) {
+                d(f, i, a2.b);
+            }
+            WebResourceResponse c2 = c(a2);
+            if (c2 != null && c2.getData() != null) {
+                c2.setData(new o52(c2.getData(), new m52(new File(this.d, z42.a().d().a(f)), new c(this, this.c, f))));
+            }
+            if (d52.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("download image, response = ");
+                sb.append(c2 != null);
+                sb.append(" ; url = ");
+                sb.append(f);
+                Log.e("HybridIntercept", sb.toString());
+            }
+            return c2;
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final WebResourceResponse c(j52 j52Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
-    }
-
-    public final void c(HybridUbcFlow hybridUbcFlow, n52 n52Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, n52Var) == null) || hybridUbcFlow == null || n52Var == null) {
-            return;
-        }
-        switch (a.a[n52Var.a.ordinal()]) {
-            case 1:
-                hybridUbcFlow.D("app_id", n52Var.b);
-                return;
-            case 2:
-                hybridUbcFlow.D("app_version", n52Var.b);
-                return;
-            case 3:
-                hybridUbcFlow.E("type", n52Var.c ? "hot" : "cold");
-                return;
-            case 4:
-                hybridUbcFlow.E("source", n52Var.b);
-                return;
-            case 5:
-                hybridUbcFlow.D("msg", n52Var.b);
-                return;
-            case 6:
-                synchronized (this.a) {
-                    this.a.add(n52Var);
-                }
-                return;
-            default:
-                return;
-        }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) && b(str)) {
-            ot2.q(PrefetchEvent.MODULE, str).E("value", z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0);
-        }
-    }
-
-    public void e(String str, n52 n52Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, n52Var) == null) && b(str)) {
-            c(ot2.q(PrefetchEvent.MODULE, str), n52Var);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && b(str)) {
-            ot2.s(PrefetchEvent.MODULE, str);
-            ot2.q(PrefetchEvent.MODULE, str);
-        }
-    }
-
-    public final void g(HybridUbcFlow hybridUbcFlow) {
-        List<n52> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) || hybridUbcFlow == null || (list = this.a) == null || list.size() <= 0) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONArray jSONArray = new JSONArray();
-        synchronized (this.a) {
-            try {
-                for (n52 n52Var : this.a) {
-                    String str = n52Var.b;
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("url", str);
-                    jSONObject2.put("link", n52Var.c ? "1" : "0");
-                    jSONArray.put(jSONObject2);
-                }
-                jSONObject.put("links", jSONArray);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j52Var)) == null) {
+            if (j52Var == null) {
+                return null;
             }
-            this.a.clear();
+            String str = j52Var.e;
+            if (str != null && str.toLowerCase().contains("html")) {
+                j52Var.e = SapiWebView.DATA_MIME_TYPE;
+                j52Var.d = "UTF-8";
+            }
+            if (bd3.f()) {
+                return new WebResourceResponse(j52Var.e, j52Var.d, j52Var.a, j52Var.b, j52Var.c, j52Var.f);
+            }
+            return new WebResourceResponse(j52Var.e, "UTF-8", j52Var.f);
         }
-        if (jSONObject.length() > 0) {
-            hybridUbcFlow.D("prelink", jSONObject.toString());
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
+            oe3.q().post(new a(this, str, i, str2));
         }
     }
 
-    public void h(String str) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
-            this.b = true;
-            HybridUbcFlow q = ot2.q(PrefetchEvent.MODULE, str);
-            g(q);
-            q.A();
-            ot2.s(PrefetchEvent.MODULE, str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "image" : (String) invokeV.objValue;
+    }
+
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith("intercept") && str.length() > 9) {
+                str = str.substring(9);
+            }
+            if (d52.a) {
+                Log.d("HybridIntercept", "remote request url = " + str);
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
+    }
+
+    public Map<String, String> g(@NonNull p52.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            Map<String, String> requestHeaders = aVar.getRequestHeaders();
+            if (requestHeaders == null) {
+                requestHeaders = new HashMap<>();
+            }
+            String f = q93.l().f(f(aVar.d()), requestHeaders.get("Cookie"));
+            if (!TextUtils.isEmpty(f)) {
+                requestHeaders.put("Cookie", f);
+                if (d52.a) {
+                    Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f);
+                }
+            }
+            return requestHeaders;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            File b2 = z42.a().b();
+            String e = e();
+            if (!TextUtils.isEmpty(e)) {
+                b2 = new File(b2, e);
+            }
+            if (d52.a) {
+                Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
+            }
+            xg4.l(b2);
+            this.c = bk2.U().b(context, b2, z42.a().g());
+        }
+    }
+
+    public boolean i(@NonNull p52.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> requestHeaders;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
+            if (aVar.c()) {
+                return this.b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

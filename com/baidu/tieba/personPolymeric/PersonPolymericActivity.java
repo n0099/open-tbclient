@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
+import com.repackage.li;
 import com.repackage.x8;
 /* loaded from: classes3.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.j {
@@ -67,7 +67,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,10 +125,10 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06ca);
+            setContentView(R.layout.obfuscated_res_0x7f0d06c2);
             this.mFragment = new PersonPolymericFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090aaa, this.mFragment).commit();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !x8.f().h("MainTabActivity")) {
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090a98, this.mFragment).commit();
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !x8.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -142,7 +142,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            if (ni.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+            if (li.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 return;
             }
             TbadkCoreApplication.getInst().setTaskId("");

@@ -1,341 +1,238 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b60;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.SecureRandom;
+import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.MGF1ParameterSpec;
+import java.util.Locale;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource;
 /* loaded from: classes7.dex */
-public class v40 implements o40 {
+public final class v40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public int a;
+    public String b;
+    public x40 c;
+    public byte[] d;
+    public int e;
+    public c50 f;
+    public String g;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public b60.a b;
-        public boolean c;
-        public boolean d;
-        public boolean e;
-        public long f;
-        public JSONObject g;
-        public JSONObject h;
-        public long i;
-
-        public a(v40 v40Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v40Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (context == null) {
-                throw new NullPointerException("context should not be null");
-            }
-            this.b = new b60(context.getApplicationContext()).d().f("cloud").f("cstore");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755281281, "Lcom/repackage/v40;")) == null) {
+            return;
         }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.g = jSONObject;
-                h();
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public final boolean b(JSONObject jSONObject, JSONObject jSONObject2) {
-            InterceptResult invokeLL;
-            JSONArray jSONArray;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, jSONObject2)) == null) {
-                JSONArray jSONArray2 = null;
-                try {
-                    jSONArray = t40.a(jSONObject.optJSONArray("sids"), "pkg");
-                    try {
-                        jSONArray2 = t40.a(jSONObject2.optJSONArray("sids"), "pkg");
-                    } catch (Exception unused) {
-                    }
-                } catch (Exception unused2) {
-                    jSONArray = null;
-                }
-                return v40.c(jSONArray, jSONArray2) || t40.c(jSONObject, jSONObject2, "oid") || t40.c(jSONObject, jSONObject2, "gaid") || t40.c(jSONObject, jSONObject2, "iid") || t40.c(jSONObject, jSONObject2, "adrid") || t40.c(jSONObject, jSONObject2, "aid");
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                this.h = jSONObject;
-            }
-        }
-
-        public final synchronized boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                synchronized (this) {
-                    JSONObject jSONObject = this.g;
-                    if (jSONObject == null) {
-                        return true;
-                    }
-                    JSONObject jSONObject2 = this.h;
-                    if (jSONObject2 != null) {
-                        return b(jSONObject, jSONObject2);
-                    }
-                    throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final long e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                JSONObject jSONObject = this.g;
-                if (jSONObject == null) {
-                    return 0L;
-                }
-                return jSONObject.optLong("ctime", 0L);
-            }
-            return invokeV.longValue;
-        }
-
-        public final boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.i) / 1000 > this.f : invokeV.booleanValue;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
-            if (d() != false) goto L21;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public synchronized boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                synchronized (this) {
-                    i();
-                    l();
-                    boolean h = l30.e(this.a).h();
-                    boolean z = false;
-                    if (this.c && h) {
-                        if (this.g == null) {
-                            return true;
-                        }
-                        if (!f()) {
-                        }
-                        z = true;
-                        return z;
-                    }
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                try {
-                    this.b.i("cs.dat", this.g.toString(), true);
-                    return true;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final synchronized void i() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                synchronized (this) {
-                    if (this.d) {
-                        this.d = !j();
-                    }
-                    if (this.e) {
-                        this.e = !k();
-                    }
-                }
-            }
-        }
-
-        public final boolean j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("isOn", this.c);
-                    this.b.i("ci.dat", jSONObject.toString(), true);
-                    return true;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final boolean k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("TIME_OUT", this.f);
-                    this.b.i("ct.dat", jSONObject.toString(), true);
-                    return true;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final void l() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-                m();
-                o();
-                n();
-            }
-        }
-
-        public final void m() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-                try {
-                    this.g = u40.a(this.b.g("cs.dat", true));
-                    this.i = e();
-                } catch (Exception unused) {
-                    this.i = 0L;
-                }
-            }
-        }
-
-        public final void n() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-                try {
-                    JSONObject a = u40.a(this.b.g("ci.dat", true));
-                    if (a == null) {
-                        this.c = true;
-                    } else {
-                        this.c = a.optBoolean("isOn", true);
-                    }
-                } catch (Exception unused) {
-                    this.c = true;
-                }
-            }
-        }
-
-        public final void o() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-                try {
-                    JSONObject a = u40.a(this.b.g("ct.dat", true));
-                    if (a == null) {
-                        this.f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
-                    } else {
-                        this.f = a.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
-                    }
-                } catch (Exception unused) {
-                    this.f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755281281, "Lcom/repackage/v40;");
         }
     }
 
-    public v40(Context context) {
+    public v40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (context == null) {
-            throw new NullPointerException("context should not be null");
-        }
-        if (this.a == null) {
-            this.a = new a(this, context.getApplicationContext());
+        this.g = "SHA-1";
+        this.b = "PKCS1Padding";
+    }
+
+    public void a(int i, c50 c50Var, SecureRandom secureRandom) throws InvalidKeyException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, c50Var, secureRandom) == null) {
+            try {
+                b(i, c50Var, secureRandom, null);
+            } catch (InvalidAlgorithmParameterException e) {
+                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
+                invalidKeyException.initCause(e);
+                throw invalidKeyException;
+            }
         }
     }
 
-    public static boolean c(JSONArray jSONArray, JSONArray jSONArray2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00c8  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(int i, c50 c50Var, SecureRandom secureRandom, AlgorithmParameterSpec algorithmParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        boolean z;
+        OAEPParameterSpec oAEPParameterSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONArray, jSONArray2)) == null) {
-            int length = jSONArray == null ? 0 : jSONArray.length();
-            if (length != (jSONArray2 == null ? 0 : jSONArray2.length())) {
-                return true;
-            }
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                JSONObject optJSONObject2 = jSONArray2.optJSONObject(i);
-                if (t40.c(optJSONObject, optJSONObject2, "pkg") || t40.c(optJSONObject, optJSONObject2, "aid") || t40.b(optJSONObject, optJSONObject2, "priority")) {
-                    return true;
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), c50Var, secureRandom, algorithmParameterSpec}) != null) {
+            return;
+        }
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        throw new InvalidKeyException("Unknown mode: " + i);
+                    }
                 }
             }
-            return false;
+            z = false;
+            if (c50Var instanceof c50) {
+                throw new InvalidKeyException("only support helios key");
+            }
+            this.a = z ? 1 : 4;
+            this.f = c50Var;
+            int a = u40.a(c50Var.b());
+            this.e = 0;
+            String str = this.b;
+            if (str == "NoPadding") {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
+                }
+                this.c = x40.b(3, a, secureRandom);
+                this.d = new byte[a];
+                return;
+            } else if (str == "PKCS1Padding") {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
+                }
+                x40 b = x40.b(this.a > 2 ? 1 : 2, a, secureRandom);
+                this.c = b;
+                if (z) {
+                    this.d = new byte[b.a()];
+                    return;
+                } else {
+                    this.d = new byte[a];
+                    return;
+                }
+            } else {
+                int i2 = this.a;
+                if (i2 == 3 || i2 == 4) {
+                    throw new InvalidKeyException("OAEP cannot be used to sign or verify signatures");
+                }
+                if (algorithmParameterSpec == null) {
+                    oAEPParameterSpec = new OAEPParameterSpec(this.g, "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
+                } else if (!(algorithmParameterSpec instanceof OAEPParameterSpec)) {
+                    throw new InvalidAlgorithmParameterException("Wrong Parameters for OAEP Padding");
+                } else {
+                    oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
+                }
+                x40 c = x40.c(4, a, secureRandom, oAEPParameterSpec);
+                this.c = c;
+                if (z) {
+                    this.d = new byte[c.a()];
+                    return;
+                } else {
+                    this.d = new byte[a];
+                    return;
+                }
+            }
         }
-        return invokeLL.booleanValue;
+        z = true;
+        if (c50Var instanceof c50) {
+        }
     }
 
-    @Override // com.repackage.o40
-    public o40 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            this.a.c(jSONObject);
-            return this;
-        }
-        return (o40) invokeL.objValue;
-    }
-
-    @Override // com.repackage.o40
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            this.a.a(jSONObject);
-        }
-    }
-
-    @Override // com.repackage.o40
-    public boolean b() {
+    public final byte[] c() throws BadPaddingException, IllegalBlockSizeException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.g() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.e;
+            byte[] bArr = this.d;
+            if (i > bArr.length) {
+                throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
+            }
+            try {
+                int i2 = this.a;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 == 4) {
+                                return this.c.h(u40.e(u40.d(bArr, 0, i), this.f));
+                            }
+                            throw new AssertionError("Internal error");
+                        }
+                        throw new UnsupportedOperationException("only verify supported");
+                    }
+                    throw new UnsupportedOperationException("only verify supported");
+                }
+                return u40.e(this.c.g(bArr, 0, i), this.f);
+            } finally {
+                this.e = 0;
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public byte[] d(byte[] bArr, int i, int i2) throws BadPaddingException, IllegalBlockSizeException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            f(bArr, i, i2);
+            return c();
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public void e(String str) throws NoSuchPaddingException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            String str2 = "NoPadding";
+            if (!str.equalsIgnoreCase("NoPadding")) {
+                str2 = "PKCS1Padding";
+                if (!str.equalsIgnoreCase("PKCS1Padding")) {
+                    String lowerCase = str.toLowerCase(Locale.ENGLISH);
+                    if (lowerCase.equals("oaeppadding")) {
+                        this.b = "OAEP";
+                        return;
+                    } else if (!lowerCase.startsWith("oaepwith") || !lowerCase.endsWith("andmgf1padding")) {
+                        throw new NoSuchPaddingException("Padding " + str + " not supported");
+                    } else {
+                        this.b = "OAEP";
+                        this.g = str.substring(8, str.length() - 14);
+                        throw new NoSuchPaddingException("MessageDigest not available for " + str);
+                    }
+                }
+            }
+            this.b = str2;
+        }
+    }
+
+    public final void f(byte[] bArr, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) || i2 == 0 || bArr == null) {
+            return;
+        }
+        int i4 = this.e;
+        int i5 = i4 + i2;
+        byte[] bArr2 = this.d;
+        if (i5 > bArr2.length) {
+            i3 = bArr2.length + 1;
+        } else {
+            System.arraycopy(bArr, i, bArr2, i4, i2);
+            i3 = this.e + i2;
+        }
+        this.e = i3;
     }
 }

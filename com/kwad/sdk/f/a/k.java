@@ -56,6 +56,6 @@ public class k extends com.kwad.sdk.f.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ProgressBar) a(R.id.obfuscated_res_0x7f091174);
+        this.b = (ProgressBar) a(R.id.obfuscated_res_0x7f091183);
     }
 }

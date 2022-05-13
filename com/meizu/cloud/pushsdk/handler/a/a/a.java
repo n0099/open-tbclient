@@ -8,7 +8,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.g;
 import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.io.File;
 /* loaded from: classes5.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
@@ -32,7 +32,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(g gVar, c cVar) {
         String message;
-        ym9.c();
+        tl9.c();
         String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + "_" + gVar.d().b().d() + ".zip";
         File file = null;
         try {
@@ -42,7 +42,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
             file = file2;
         } catch (Exception e) {
             message = e.getMessage();
-            ym9.b("AbstractMessageHandler", "zip error message " + message);
+            tl9.b("AbstractMessageHandler", "zip error message " + message);
         }
         if (file != null && file.length() / 1024 > gVar.a()) {
             message = "the upload file exceeds the max size";
@@ -51,19 +51,19 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         }
         com.meizu.cloud.pushsdk.b.a.c<String> a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
         if (a == null || !a.b()) {
-            ym9.d("AbstractMessageHandler", "upload error code " + a.c() + a.a());
+            tl9.d("AbstractMessageHandler", "upload error code " + a.c() + a.a());
             return;
         }
         if (file != null) {
             file.delete();
         }
-        ym9.b("AbstractMessageHandler", "upload success " + a.a());
+        tl9.b("AbstractMessageHandler", "upload success " + a.a());
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         int i;
-        ym9.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
+        tl9.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);

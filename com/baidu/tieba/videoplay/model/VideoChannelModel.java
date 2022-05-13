@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
+import com.repackage.ki;
 import com.repackage.mi;
-import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -140,8 +140,8 @@ public class VideoChannelModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (!mi.z()) {
-                oi.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
+            if (!ki.z()) {
+                mi.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -206,10 +206,10 @@ public class VideoChannelModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED);
-            httpMessage.addParam("scr_w", oi.k(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_h", oi.i(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_dip", Float.valueOf(oi.h(TbadkCoreApplication.getInst())));
-            httpMessage.addParam("new_net_type", mi.I());
+            httpMessage.addParam("scr_w", mi.k(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_h", mi.i(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_dip", Float.valueOf(mi.h(TbadkCoreApplication.getInst())));
+            httpMessage.addParam("new_net_type", ki.I());
             httpMessage.addParam("load_type", i);
             return httpMessage;
         }

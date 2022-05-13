@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
+import com.repackage.mn4;
 /* loaded from: classes6.dex */
 public abstract class iq7 {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public abstract class iq7 {
     public kq7 e;
     public String f;
     public View.OnClickListener g;
-    public final cn4.a h;
+    public final mn4.a h;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -114,7 +114,7 @@ public abstract class iq7 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.b.closeLoadingDialog();
                 BaseActivity baseActivity = this.b.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f1395), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f13b9), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
 
@@ -130,7 +130,7 @@ public abstract class iq7 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements cn4.a {
+    public class c implements mn4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ iq7 a;
@@ -153,7 +153,7 @@ public abstract class iq7 {
             this.a = iq7Var;
         }
 
-        @Override // com.repackage.cn4.a
+        @Override // com.repackage.mn4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
@@ -162,7 +162,7 @@ public abstract class iq7 {
             }
         }
 
-        @Override // com.repackage.cn4.a
+        @Override // com.repackage.mn4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -170,7 +170,7 @@ public abstract class iq7 {
             }
         }
 
-        @Override // com.repackage.cn4.a
+        @Override // com.repackage.mn4.a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -208,8 +208,8 @@ public abstract class iq7 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                en4.g(this.a);
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                on4.g(this.a);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
@@ -259,7 +259,7 @@ public abstract class iq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
             h(accountData);
-            kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(this.b.getIntent());
             c(-1);
         }
@@ -275,7 +275,7 @@ public abstract class iq7 {
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.d = cn4.b().a(session.username, session.bduss, "", null, this.h);
+                this.d = mn4.b().a(session.username, session.bduss, "", null, this.h);
                 return;
             }
             this.b.closeLoadingDialog();
@@ -293,10 +293,10 @@ public abstract class iq7 {
     public final void h(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            sg.a().c(new d(this, accountData));
-            kt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            qg.a().c(new d(this, accountData));
+            xt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, this.a.getPageActivity());
-            ul4.f(TbadkCoreApplication.getInst());
+            fm4.f(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
@@ -321,7 +321,7 @@ public abstract class iq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.b.getLoadingDialog() == null || !this.b.getLoadingDialog().c()) {
-                this.b.showLoadingDialog(this.a.getString(R.string.obfuscated_res_0x7f0f0fff));
+                this.b.showLoadingDialog(this.a.getString(R.string.obfuscated_res_0x7f0f1017));
                 if (this.b.getLoadingDialog() != null) {
                     this.b.getLoadingDialog().f(false);
                     this.b.getLoadingDialog().g(false);
@@ -340,19 +340,19 @@ public abstract class iq7 {
     public void n(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090416) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090412) {
                 this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090440) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09043b) {
                 this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091982) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919da) {
                 g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09243a) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09248a) {
                 o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09243d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09248d) {
                 p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924aa) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924ff) {
                 q();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091444) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09145b) {
                 d();
             }
         }

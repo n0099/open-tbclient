@@ -1,22 +1,67 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud0;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public abstract class wd0 implements ud0 {
+public final class wd0 {
     public static /* synthetic */ Interceptable $ic;
+    public static wd0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ud0.d a;
-    public ud0.a b;
-    public ud0.e c;
-    public ud0.b d;
-    public ud0.c e;
+    public ExecutorService a;
+
+    /* loaded from: classes7.dex */
+    public static class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+        public final String b;
+        public int c;
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new AtomicInteger(1);
+            this.c = 5;
+            this.b = str + "-";
+            this.c = i;
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+                if (thread.isDaemon()) {
+                    thread.setDaemon(true);
+                }
+                thread.setPriority(this.c);
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
 
     public wd0() {
         Interceptable interceptable = $ic;
@@ -28,100 +73,33 @@ public abstract class wd0 implements ud0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
+        this.a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
     }
 
-    public void a() {
+    public static synchronized wd0 b() {
+        InterceptResult invokeV;
+        wd0 wd0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (wd0.class) {
+                if (b == null) {
+                    b = new wd0();
+                }
+                wd0Var = b;
+            }
+            return wd0Var;
         }
+        return (wd0) invokeV.objValue;
     }
 
-    public final boolean a(int i, int i2) {
-        InterceptResult invokeII;
+    public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            ud0.b bVar = this.d;
-            return bVar != null && bVar.d(this, i, i2);
-        }
-        return invokeII.booleanValue;
-    }
-
-    public final boolean a(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-            ud0.c cVar = this.e;
-            return cVar != null && cVar.e(this, i, i2, obj);
-        }
-        return invokeIIL.booleanValue;
-    }
-
-    public final void b() {
-        ud0.d dVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.a) == null) {
-            return;
-        }
-        dVar.c(this);
-    }
-
-    public final void c() {
-        ud0.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.b) == null) {
-            return;
-        }
-        aVar.b(this);
-    }
-
-    public final void d() {
-        ud0.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.c) == null) {
-            return;
-        }
-        eVar.a(this);
-    }
-
-    public final void setOnCompletionListener(ud0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public final void setOnErrorListener(ud0.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public final void setOnInfoListener(ud0.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    public final void setOnPreparedListener(ud0.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
-            this.a = dVar;
-        }
-    }
-
-    public final void setOnTerminalListener(ud0.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
-            this.c = eVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

@@ -2,19 +2,21 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
-/* loaded from: classes7.dex */
-public class qk8 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes6.dex */
+public abstract class qk8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
+    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ok8> a;
-    public ArrayList<pk8> b;
+    public HashMap<String, List<rk8>> mAsyncCallBackMethodList;
+    public HashSet<String> mNotificationNameList;
 
     public qk8() {
         Interceptable interceptable = $ic;
@@ -26,33 +28,37 @@ public class qk8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
     }
 
-    public void a(ActPost actPost) {
+    public sk8 addObserver(String str, sk8 sk8Var, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, actPost) == null) || actPost == null) {
-            return;
-        }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                ok8 ok8Var = new ok8();
-                ok8Var.g(actHot);
-                this.a.add(ok8Var);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, sk8Var, z)) == null) {
+            if (sk8Var == null) {
+                sk8Var = new sk8();
             }
-        }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                pk8 pk8Var = new pk8();
-                pk8Var.a(linkInfo);
-                this.b.add(pk8Var);
+            if (this.mNotificationNameList.contains(str)) {
+                sk8Var.n(false);
+                sk8Var.s(true);
+                List<rk8> list = this.mAsyncCallBackMethodList.get(str);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                rk8 rk8Var = new rk8();
+                rk8Var.e(sk8Var.c());
+                rk8Var.d(z);
+                rk8Var.f(sk8Var.e());
+                list.add(rk8Var);
+                this.mAsyncCallBackMethodList.put(str, list);
             }
+            return sk8Var;
         }
+        return (sk8) invokeLLZ.objValue;
     }
+
+    public abstract sk8 dispatch(uk8 uk8Var, sk8 sk8Var);
+
+    public abstract List<sk8> processNotification(String str, HashMap hashMap);
 }

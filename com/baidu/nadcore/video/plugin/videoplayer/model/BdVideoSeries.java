@@ -403,7 +403,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public String getClarityTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? wp0.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b54) : this.mClarityTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? wp0.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b68) : this.mClarityTitle : (String) invokeV.objValue;
     }
 
     public long getCreateTime() {

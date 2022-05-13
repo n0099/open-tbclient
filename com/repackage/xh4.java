@@ -1,218 +1,319 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.widget.MediaTipStateLayer;
+import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fh2;
+import com.repackage.re2;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class xh4 {
+public class xh4 implements fh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
-    public final boolean c;
-    public final boolean d;
-    public final boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public boolean c;
-        public boolean d;
-        public boolean e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.b = true;
-            this.c = true;
-            this.d = true;
-            this.e = true;
-        }
-
-        public xh4 f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new xh4(this, null) : (xh4) invokeV.objValue;
-        }
-
-        public b g(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.c = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b h(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.d = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b i(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.b = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b j(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.e = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b k(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.a = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-    }
-
-    public /* synthetic */ xh4(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c() && this.b : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() && f() && this.c && !this.h && !this.a : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g && this.i : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f()) {
-                if (c() && this.e && !this.h) {
-                    return true;
-                }
-            } else if (c() && this.e) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c() && !f() && this.d && !this.a : invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void j(MediaTipStateLayer.TipState tipState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tipState) == null) {
-            this.i = tipState == MediaTipStateLayer.TipState.NORMAL;
-        }
-    }
-
-    public xh4(b bVar) {
+    public xh4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = false;
-        this.a = bVar.a;
-        this.b = bVar.b;
-        this.d = bVar.d;
-        this.e = bVar.e;
-        this.c = bVar.c;
+    }
+
+    @Override // com.repackage.re2
+    public void A(@NonNull re2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void D(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void F(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void J(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void K(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void V(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void Y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void Z(@NonNull fh2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
+        }
+    }
+
+    @Override // com.repackage.gh2
+    public RtcStatus a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? RtcStatus.UNKNOWN : (RtcStatus) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fh2
+    public void a0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.re2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fh2
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void d0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void e0(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void exitRoom() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public ArrayList<jh2> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? new ArrayList<>() : (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fh2
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void i0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+        }
+    }
+
+    @Override // com.repackage.re2
+    @Nullable
+    public String k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fh2
+    public void l0(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void m0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.gh2
+    public void onRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void p(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    @Override // com.repackage.gh2
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.fh2
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void setCameraFace(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void u(ih2 ih2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, ih2Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public ArrayList<hh2> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? new ArrayList<>() : (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fh2
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fh2
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+        }
     }
 }

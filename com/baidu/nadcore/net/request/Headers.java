@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bg0;
 import com.repackage.ty0;
-import com.repackage.yf0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -78,7 +78,7 @@ public final class Headers {
                     b(str, str2);
                     return this;
                 } catch (Exception e) {
-                    if (yf0.a) {
+                    if (bg0.a) {
                         throw new IllegalStateException(e);
                     }
                     return this;

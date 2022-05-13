@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.vn4;
-import com.repackage.vr4;
+import com.repackage.fo4;
+import com.repackage.gs4;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -120,69 +120,69 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             }
             view2.setVisibility(0);
             this.j.setVisibility(0);
-            this.j.setText(this.C.getString(R.string.obfuscated_res_0x7f0f1153));
+            this.j.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116f));
         }
     }
 
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f8e);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091fe7);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
             findViewById.setLayoutParams(layoutParams);
-            int f = oi.f(getContext(), R.dimen.tbds68);
-            int f2 = oi.f(getContext(), R.dimen.T_X09);
-            int f3 = oi.f(getContext(), R.dimen.tbds15);
-            int f4 = oi.f(getContext(), R.dimen.tbds10);
-            this.v0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cba);
+            int f = mi.f(getContext(), R.dimen.tbds68);
+            int f2 = mi.f(getContext(), R.dimen.T_X09);
+            int f3 = mi.f(getContext(), R.dimen.tbds15);
+            int f4 = mi.f(getContext(), R.dimen.tbds10);
+            this.v0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d0b);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
             layoutParams2.weight = S() ? 0.2f : 0.25f;
             this.v0.setLayoutParams(layoutParams2);
             this.v0.setOrientation(1);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cbb);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0c);
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(f, f);
             layoutParams3.topMargin = f3;
             imageView.setLayoutParams(layoutParams3);
             imageView.setImageResource(R.drawable.icon_share_wechat_n);
-            this.r0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091cb9);
+            this.r0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d0a);
             LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams4.topMargin = f4;
             this.r0.setLayoutParams(layoutParams4);
             float f5 = f2;
             this.r0.setTextSize(0, f5);
-            this.r0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f1153));
-            this.u0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091983);
+            this.r0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116f));
+            this.u0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0919db);
             LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, -1);
             layoutParams5.weight = S() ? 0.2f : 0.25f;
             this.u0.setLayoutParams(layoutParams5);
             this.u0.setOrientation(1);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091984);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919dc);
             LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(f, f);
             layoutParams6.topMargin = f3;
             imageView2.setLayoutParams(layoutParams6);
             imageView2.setImageResource(R.drawable.icon_share_qq_n);
-            this.s0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091985);
+            this.s0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0919dd);
             LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams7.topMargin = f4;
             this.s0.setLayoutParams(layoutParams7);
             this.s0.setTextSize(0, f5);
-            this.s0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f112e));
+            this.s0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f114a));
             if (S()) {
                 this.I = true;
                 setNeedAddReplyIcon(true);
-                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f99);
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ff4);
                 LinearLayout.LayoutParams layoutParams8 = new LinearLayout.LayoutParams(0, -1);
                 layoutParams8.weight = 0.2f;
                 linearLayout.setLayoutParams(layoutParams8);
                 linearLayout.setOrientation(1);
-                ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f9b);
+                ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ff6);
                 RelativeLayout.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(f, f);
-                layoutParams9.topMargin = oi.f(getContext(), R.dimen.tbds25);
+                layoutParams9.topMargin = mi.f(getContext(), R.dimen.tbds25);
                 layoutParams9.addRule(13, -1);
                 imageView3.setLayoutParams(layoutParams9);
-                WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f0808f2, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-                this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9c);
+                WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f080900, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+                this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091ff7);
                 this.q0.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
                 this.q0.setTextSize(0, f5);
             } else {
@@ -191,15 +191,15 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             }
             if (S()) {
                 setCollectVisible(true);
-                LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090682);
+                LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09067d);
                 LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(0, -1);
                 layoutParams10.weight = 0.2f;
                 linearLayout2.setLayoutParams(layoutParams10);
                 linearLayout2.setOrientation(1);
                 LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(f, f);
                 layoutParams11.topMargin = f3;
-                ((ImageView) findViewById(R.id.obfuscated_res_0x7f090683)).setLayoutParams(layoutParams11);
-                this.t0 = (TextView) findViewById(R.id.obfuscated_res_0x7f090684);
+                ((ImageView) findViewById(R.id.obfuscated_res_0x7f09067e)).setLayoutParams(layoutParams11);
+                this.t0 = (TextView) findViewById(R.id.obfuscated_res_0x7f09067f);
                 LinearLayout.LayoutParams layoutParams12 = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams12.topMargin = f4;
                 this.t0.setLayoutParams(layoutParams12);
@@ -207,9 +207,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             } else {
                 setCollectVisible(false);
             }
-            AgreeView agreeView = (AgreeView) findViewById(R.id.obfuscated_res_0x7f091541);
+            AgreeView agreeView = (AgreeView) findViewById(R.id.obfuscated_res_0x7f09155e);
             LinearLayout.LayoutParams layoutParams13 = new LinearLayout.LayoutParams(0, -1);
-            layoutParams13.topMargin = oi.f(getContext(), R.dimen.tbds18);
+            layoutParams13.topMargin = mi.f(getContext(), R.dimen.tbds18);
             layoutParams2.weight = S() ? 0.2f : 0.25f;
             agreeView.setLayoutParams(layoutParams13);
             agreeView.s();
@@ -223,11 +223,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || this.B == null || TextUtils.isEmpty(str) || !str.equals(this.B.getTid())) {
             return;
         }
-        vn4 vn4Var = new vn4();
-        vn4Var.b = 4;
-        vn4Var.d = 2;
-        vn4Var.j = str2;
-        this.e.setStatisticData(vn4Var);
+        fo4 fo4Var = new fo4();
+        fo4Var.b = 4;
+        fo4Var.d = 2;
+        fo4Var.j = str2;
+        this.e.setStatisticData(fo4Var);
         this.e.H();
     }
 
@@ -278,19 +278,19 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onChangeSkinType();
             if (S()) {
-                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807c6, null);
-                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807c5, null);
+                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807af, null);
+                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807ae, null);
             } else {
-                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807c8, null);
-                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807c7, null);
+                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807b1, null);
+                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807b0, null);
             }
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080934, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080948, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                vr4 d = vr4.d(eMTextView);
+                gs4 d = gs4.d(eMTextView);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0107);
-                SkinManager.setBackgroundShapeDrawable(this.h, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
+                SkinManager.setBackgroundShapeDrawable(this.h, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
             }
             SkinManager.setViewTextColor(this.r0, (int) R.drawable.selector_comment_and_prise_item_text_color);
             SkinManager.setViewTextColor(this.s0, (int) R.drawable.selector_comment_and_prise_item_text_color);

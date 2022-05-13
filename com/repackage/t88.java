@@ -70,8 +70,8 @@ public class t88 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d06f4);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091c36);
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d06ec);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091c83);
             this.b = findViewById;
             this.c = new n88(this.a, findViewById);
             this.d = new p88(this.a, this.b);
@@ -91,7 +91,7 @@ public class t88 {
             this.c.j(i);
             this.d.j(i);
             this.e.g(i);
-            f95.a(this.a.getPageContext(), this.b);
+            w95.a(this.a.getPageContext(), this.b);
         }
     }
 

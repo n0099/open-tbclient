@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ei8;
+import com.repackage.ch8;
 /* loaded from: classes3.dex */
 public class StampShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ei8 mStampShareData;
+    public ch8 mStampShareData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, ei8 ei8Var) {
+    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, ch8 ch8Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), ei8Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), ch8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,12 +33,12 @@ public class StampShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mStampShareData = ei8Var;
+        this.mStampShareData = ch8Var;
     }
 
-    public ei8 getStampShareData() {
+    public ch8 getStampShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStampShareData : (ei8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStampShareData : (ch8) invokeV.objValue;
     }
 }

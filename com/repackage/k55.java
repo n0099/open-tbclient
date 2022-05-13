@@ -1,9 +1,11 @@
 package com.repackage;
+
+import java.util.List;
+import tbclient.VideoRedIcon.RedIcon;
+import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes6.dex */
 public interface k55 {
-    void a(h55 h55Var);
+    List<RedIcon> getDataList();
 
-    void b(j55 j55Var);
-
-    void startService();
+    VideoRedIconResIdl getResData();
 }

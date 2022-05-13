@@ -1,59 +1,128 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import android.view.View;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class x47 {
+public class x47 extends z8<OfficialBarHistoryActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseActivity a;
+    public View b;
+    public BdListView c;
+    public NavigationBar d;
+    public OfficialBarHistoryAdapter e;
+    public View f;
+    public NoDataView g;
 
-    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x47(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) ? (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, b77.p().m()) : (ImMessageCenterPojo) invokeL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((b9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = baseActivity;
+        g();
     }
 
-    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        InterceptResult invokeLL;
+    public void e(List<ResponseHistoryMessage.a> list) {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
-            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
-            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
-            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
-            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
-            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
-            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
-            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
-            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
-            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
-            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
-            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
-            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                    if (!c87.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
-                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
-                    } else {
-                        b87.a().c(true);
-                    }
-                }
-            }
-            if (imMessageCenterPojo2.getUnread_count() <= 0) {
-                imMessageCenterPojo2.setUnread_count(1);
-                b87.a().c(false);
-            }
-            return imMessageCenterPojo2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.size() <= 0 || (noDataView = this.g) == null) {
+            return;
         }
-        return (ImMessageCenterPojo) invokeLL.objValue;
+        noDataView.setVisibility(8);
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = View.inflate(this.a.getPageContext().getContext(), R.layout.obfuscated_res_0x7f0d062a, null);
+            this.a.getPageContext().getPageActivity().setContentView(this.b);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.d = navigationBar;
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0cc9);
+            this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09030f);
+            BaseActivity baseActivity = this.a;
+            OfficialBarHistoryAdapter officialBarHistoryAdapter = new OfficialBarHistoryAdapter(baseActivity, baseActivity.getPageContext().getContext());
+            this.e = officialBarHistoryAdapter;
+            this.c.setAdapter((ListAdapter) officialBarHistoryAdapter);
+            View inflate = View.inflate(this.a.getPageContext().getContext(), R.layout.obfuscated_res_0x7f0d062b, null);
+            this.f = inflate;
+            this.c.addHeaderView(inflate);
+            this.c.addFooterView(this.f);
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e.getCount() != 0 && this.c.getLastVisiblePosition() - this.c.getHeaderViewsCount() < this.e.getCount() - 1 : invokeV.booleanValue;
+    }
+
+    public void i(List<ResponseHistoryMessage.a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.e.c(list);
+            e(list);
+        }
+    }
+
+    public void j(BdListView.p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pVar) == null) {
+            this.c.setOnSrollToBottomListener(pVar);
+        }
+    }
+
+    public void k(List<ResponseHistoryMessage.a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            if (list == null || list.size() == 0) {
+                if (this.g == null) {
+                    this.g = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c45), null);
+                }
+                this.g.f(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+                this.g.setVisibility(0);
+            }
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a.getLayoutMode().k(i == 1);
+            this.a.getLayoutMode().j(this.b);
+            this.d.onChangeSkinType(this.a.getPageContext(), i);
+        }
     }
 }

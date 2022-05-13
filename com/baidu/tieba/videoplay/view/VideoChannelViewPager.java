@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng5;
-import com.repackage.oi;
+import com.repackage.gh5;
+import com.repackage.mi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -28,7 +28,7 @@ public class VideoChannelViewPager extends ViewPager {
     public int c;
     public boolean d;
     public boolean e;
-    public ng5.b f;
+    public gh5.b f;
     public List<String> g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,7 +57,7 @@ public class VideoChannelViewPager extends ViewPager {
     public void a(MotionEvent motionEvent) {
         float f;
         float f2;
-        ng5.b bVar;
+        gh5.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && this.e && this.d) {
             int action = motionEvent.getAction();
@@ -111,7 +111,7 @@ public class VideoChannelViewPager extends ViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.d = ((float) getHeight()) - motionEvent.getY() > ((float) (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() + oi.f(getContext(), R.dimen.tbds50)));
+                this.d = ((float) getHeight()) - motionEvent.getY() > ((float) (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() + mi.f(getContext(), R.dimen.tbds50)));
             }
             a(motionEvent);
             return super.dispatchTouchEvent(motionEvent);
@@ -145,7 +145,7 @@ public class VideoChannelViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
-    public void setListener(ng5.b bVar) {
+    public void setListener(gh5.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.f = bVar;

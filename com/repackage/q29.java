@@ -1,89 +1,76 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public class q29 {
+public abstract class q29 extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageView b;
-    public EMTextView c;
-    public View d;
+    public IOException a;
+    public boolean b;
+    public boolean c;
 
-    public q29(Context context) {
+    public q29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
-        c();
     }
 
-    public void a() {
+    public void a() throws IOException {
+        IOException iOException;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.d == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iOException = this.a) != null) {
+            throw iOException;
         }
-        vr4 d = vr4.d(this.c);
-        d.w(R.dimen.M_T_X001);
-        d.z(R.dimen.T_X05);
     }
 
-    public View b() {
-        InterceptResult invokeV;
+    public void c() throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.c) {
+                if (this.b) {
+                    throw new IOException("Stream has been closed.");
+                }
+                return;
+            }
+            a();
+            throw new IOException("Writing after request completed.");
+        }
     }
 
-    public final void c() {
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d6, (ViewGroup) null);
-            this.d = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f76);
-            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f090fa6);
-            a();
+            this.b = true;
         }
     }
 
-    public void d(int i) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (imageView = this.b) == null) {
-            return;
-        }
-        imageView.setImageDrawable(WebPManager.getMaskDrawable(i, false));
-    }
+    public abstract void e() throws IOException;
 
-    public void e(String str) {
-        EMTextView eMTextView;
+    public abstract UploadDataProvider f();
+
+    public abstract void g() throws IOException;
+
+    public void h(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (eMTextView = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+            this.a = iOException;
+            this.c = true;
         }
-        eMTextView.setText(str);
     }
 }

@@ -1,144 +1,36 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
-import com.repackage.d80;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.repackage.u80;
 /* loaded from: classes7.dex */
-public class s80 extends p80 {
+public abstract class s80 implements u80.b, u80.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d80.d b;
+    public Context a;
 
-    public s80(Context context) {
+    public s80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = null;
-        this.a = context;
     }
 
-    public void a(d80.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.b = dVar;
-        }
-    }
-
-    @Override // com.repackage.r80.b
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Host", IMHttpDnsUrlRequest.HTTP_DNS_HOST);
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.repackage.r80.b
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? IMHttpDnsUrlRequest.HTTP_DNS_URL : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.r80.b
-    public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.p80, com.repackage.r80.b
+    @Override // com.repackage.u80.b
     public String getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.r80.b
-    public byte[] getRequestParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ("type=ipv4,ipv6&dn=" + h80.S(this.a).x).getBytes();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.repackage.r80.d
-    public void onFailure(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            y80.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
-            d80.f(true);
-            d80.c(this.a).b(h80.S(this.a).x, this.b);
-        }
-    }
-
-    @Override // com.repackage.r80.d
-    public void onSuccess(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
-            String str = new String(bArr);
-            y80.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + h80.S(this.a).x + " is " + str);
-            try {
-                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(h80.S(this.a).x);
-                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
-                int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
-                int length2 = optJSONArray == null ? 0 : optJSONArray.length();
-                if (length2 + length > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    if (optJSONArray != null && length2 > 0) {
-                        arrayList.add(optJSONArray.getString(0));
-                    }
-                    if (optJSONArray2 != null && length > 0) {
-                        arrayList.add(optJSONArray2.getString(0));
-                    }
-                    d80.j(arrayList);
-                    if (this.b == null || d80.c.size() <= 0) {
-                        return;
-                    }
-                    this.b.a(0, "ok", d80.c.get(0));
-                    if (d80.c.size() > 1) {
-                        d80.d++;
-                        return;
-                    }
-                    return;
-                }
-                y80.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
-                d80.f(true);
-                d80.c(this.a).b(h80.S(this.a).x, this.b);
-            } catch (Exception e) {
-                y80.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
-                d80.f(true);
-                d80.c(this.a).b(h80.S(this.a).x, this.b);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 }

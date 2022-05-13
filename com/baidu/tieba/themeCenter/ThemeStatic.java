@@ -38,9 +38,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
-import com.repackage.mg;
-import com.repackage.vt4;
+import com.repackage.hj8;
+import com.repackage.iu4;
+import com.repackage.kg;
 /* loaded from: classes4.dex */
 public class ThemeStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), mg.g(substring.substring(0, indexOf), 0L))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), kg.g(substring.substring(0, indexOf), 0L))));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(tbPageContext.getPageActivity())));
@@ -122,8 +122,8 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        int e = mg.e(substring.substring(0, indexOf), 0);
-                        vt4 k = vt4.k();
+                        int e = kg.e(substring.substring(0, indexOf), 0);
+                        iu4 k = iu4.k();
                         StringBuilder sb = new StringBuilder();
                         sb.append("current_used_personal_background_");
                         sb.append(TbadkCoreApplication.getCurrentAccount());
@@ -274,8 +274,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        kk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        kk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        hj8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        hj8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

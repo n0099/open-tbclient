@@ -1,19 +1,25 @@
 package com.repackage;
+
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes6.dex */
 public interface n89 {
-    int availableBytes();
+    void a(DownloadException downloadException);
 
-    void close();
+    void b(DownloadException downloadException);
 
-    void flush();
+    void onConnectCanceled();
 
-    byte[] getOutPutBytes();
+    void onConnected(long j, long j2, boolean z);
 
-    void init(int i, int i2);
+    void onConnecting();
 
-    boolean putBytes(byte[] bArr, int i);
+    void onDownloadCanceled();
 
-    int receiveBytes(byte[] bArr, int i);
+    void onDownloadCompleted(String str);
 
-    void setSpeed(float f);
+    void onDownloadPaused();
+
+    void onDownloadProgress(long j, long j2, int i);
+
+    void onStarted();
 }

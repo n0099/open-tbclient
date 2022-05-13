@@ -16,7 +16,6 @@ import com.baidu.sapi2.stat.OneKeyLoginStat;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -162,7 +161,7 @@ public class SapiStatUtil {
             if (str4.contains("G")) {
                 str5 = "data";
             } else {
-                str5 = CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equals(str4) ? "wifi" : "unknown";
+                str5 = "WIFI".equals(str4) ? "wifi" : "unknown";
             }
             hashMap.put("scene", str3);
             hashMap.put("netType", str5);

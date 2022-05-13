@@ -1,72 +1,86 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vp8 extends CustomMessageListener {
+public class vp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final jo8 b;
+    public TbPageContext<?> a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vp8(MainTabActivity mainTabActivity) {
-        super(2921636);
+    public vp8(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.mLogicController;
+        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        jo8 jo8Var;
+    public final boolean a(DressItemData dressItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) ? TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1 : invokeL.booleanValue;
+    }
+
+    public void b(DressItemData dressItemData, boolean z) {
+        String string;
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) == null) || dressItemData == null) {
             return;
         }
-        if (MainTabActivity.syncHasFinish && (jo8Var = this.b) != null && jo8Var.i() != null) {
-            this.b.i().b();
+        boolean a = fp8.a(dressItemData);
+        if (!a) {
+            a = a(dressItemData);
         }
-        jo8 jo8Var2 = this.b;
-        if (jo8Var2 != null && jo8Var2.a() != null && this.b.a().f) {
-            this.b.a().g();
-        }
-        jo8 jo8Var3 = this.b;
-        if (jo8Var3 != null && jo8Var3.a() != null && this.b.a().g) {
-            this.b.a().f();
-        }
-        jo8 jo8Var4 = this.b;
-        if (jo8Var4 != null && jo8Var4.d() != null) {
-            this.b.d().b();
-        }
-        if (ls4.a().f()) {
-            ls4.a().g(this.a.getClass().getName());
-            ls4.a().l(false);
-        }
-        if (ls4.a().e()) {
-            ls4.a().b();
-            ls4.a().h(this.a.getClass().getName());
-            ls4.a().k(false);
+        if (a) {
+            this.b = dressItemData.getPropsId();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
+            httpMessage.setExtra(Integer.valueOf(this.b));
+            httpMessage.addParam("bcode", String.valueOf(this.b));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        } else if (dressItemData.getFreeUserLevel() == 100) {
+            if (dressItemData.getActivityFinish() == 0) {
+                fp8.b(this.a, 5, dressItemData.getActivityUrl());
+            }
+        } else {
+            if (dressItemData.getFreeUserLevel() == 101) {
+                str = this.a.getString(R.string.obfuscated_res_0x7f0f02f9);
+                i = 9;
+            } else {
+                if (dressItemData.getFreeUserLevel() > 1) {
+                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f02ff), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                } else {
+                    string = this.a.getString(R.string.obfuscated_res_0x7f0f02fb);
+                }
+                str = string;
+                i = 0;
+            }
+            fp8.d(this.a, 5, str, i, z ? MemberPayStatistic.REFER_PAGE_POST_BUBBLE : MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
         }
     }
 }

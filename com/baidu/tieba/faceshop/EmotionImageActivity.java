@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo;
-import com.repackage.jc5;
-import com.repackage.z86;
+import com.repackage.ad5;
+import com.repackage.co;
+import com.repackage.i86;
 /* loaded from: classes3.dex */
 public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -162,42 +162,42 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         FrameLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091534);
             this.mNavigationBar = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0545));
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f054b));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.mGifVew = (GifView) findViewById(R.id.obfuscated_res_0x7f090cc9);
+            this.mGifVew = (GifView) findViewById(R.id.obfuscated_res_0x7f090cb5);
             if (this.width != 0 && this.height != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.width, this.height, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.adviceWidth, this.adviceHeight, 17);
             }
             this.mGifVew.setLayoutParams(layoutParams);
-            boolean f = jc5.f();
+            boolean c = ad5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.sharpText;
             gifInfo.mGid = this.pid;
             gifInfo.mGifHeight = this.height;
             gifInfo.mGifWidth = this.width;
-            if (f) {
+            if (c) {
                 gifInfo.mDynamicUrl = this.gifUrl;
             } else {
                 gifInfo.mStaticUrl = this.staticUrl;
             }
-            this.mGifVew.g0(gifInfo);
-            this.mIcon = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09088e);
+            this.mGifVew.i0(gifInfo);
+            this.mIcon = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090886);
             if (!TextUtils.isEmpty(this.iconUrl)) {
                 this.mIcon.K(this.iconUrl, 10, false);
             } else {
-                Bitmap f2 = z86.f(this.pid, "panel.png");
-                if (f2 != null) {
-                    new fo(f2, false).h(this.mIcon);
+                Bitmap f = i86.f(this.pid, "panel.png");
+                if (f != null) {
+                    new co(f, false).h(this.mIcon);
                 }
             }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b1);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a9);
             this.mPName = textView;
             textView.setText(this.pname);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09087e);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090876);
             this.mDetail = textView2;
             textView2.setOnClickListener(new b(this));
         }
@@ -209,7 +209,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
             getLayoutMode().k(i == 1);
-            getLayoutMode().j(findViewById(R.id.obfuscated_res_0x7f09088f));
+            getLayoutMode().j(findViewById(R.id.obfuscated_res_0x7f090887));
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
@@ -219,7 +219,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0255);
+            setContentView(R.layout.obfuscated_res_0x7f0d024e);
             initData(bundle);
             initUI();
         }

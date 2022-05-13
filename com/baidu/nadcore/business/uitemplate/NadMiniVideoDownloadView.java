@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
 import com.repackage.hk0;
+import com.repackage.m11;
 import com.repackage.rj0;
 /* loaded from: classes2.dex */
 public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements hk0<NadMiniVideoDownloadView> {
@@ -109,11 +109,11 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
             }
         }
         this.k = -1;
-        f();
+        g();
     }
 
     @Override // com.repackage.hk0
-    public void c(@NonNull ViewGroup viewGroup) {
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
@@ -124,7 +124,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
     }
 
     @DrawableRes
-    public int e(@NonNull rj0 rj0Var) {
+    public int f(@NonNull rj0 rj0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rj0Var)) == null) {
@@ -136,61 +136,41 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
                             if (i != 6) {
                                 return -1;
                             }
-                            return R.drawable.obfuscated_res_0x7f080dc5;
+                            return R.drawable.obfuscated_res_0x7f080ddf;
                         }
-                        return R.drawable.obfuscated_res_0x7f080dc7;
+                        return R.drawable.obfuscated_res_0x7f080de1;
                     }
-                    return R.drawable.obfuscated_res_0x7f080dc6;
+                    return R.drawable.obfuscated_res_0x7f080de0;
                 }
-                return R.drawable.obfuscated_res_0x7f080dc8;
+                return R.drawable.obfuscated_res_0x7f080de2;
             }
-            return R.drawable.obfuscated_res_0x7f080dc5;
+            return R.drawable.obfuscated_res_0x7f080ddf;
         }
         return invokeL.intValue;
     }
 
-    public final void f() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) this, true);
-            this.h = (NadRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f09141e);
-            this.i = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09141d);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09141f);
-            this.g = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f09141c);
-            g();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.setMax(100);
-            this.g.setMax(100);
-            this.g.setText("");
-            int i = this.k;
-            if (i >= 0) {
-                this.g.setForeground(i);
-            } else {
-                this.g.setForeground(getResources().getColor(R.color.obfuscated_res_0x7f06082e));
-            }
-            this.h.setRoundWidth(c11.c.a(getContext(), 1.0f));
-            this.h.setCircleColor(getResources().getColor(R.color.obfuscated_res_0x7f06082d));
-            this.h.setCircleProgressColor(getResources().getColor(R.color.obfuscated_res_0x7f06082d));
-            this.j.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06082d));
-            this.g.setBackgroundDrawable(null);
+            this.h = (NadRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091435);
+            this.i = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091434);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091436);
+            this.g = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f091433);
+            h();
         }
     }
 
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d05c1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d05b4 : invokeV.intValue;
     }
 
     public int getMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h.getMax() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h.getMax() : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -199,7 +179,27 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
     public NadMiniVideoDownloadView getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (NadMiniVideoDownloadView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (NadMiniVideoDownloadView) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.h.setMax(100);
+            this.g.setMax(100);
+            this.g.setText("");
+            int i = this.k;
+            if (i >= 0) {
+                this.g.setForeground(i);
+            } else {
+                this.g.setForeground(getResources().getColor(R.color.obfuscated_res_0x7f060837));
+            }
+            this.h.setRoundWidth(m11.c.a(getContext(), 1.0f));
+            this.h.setCircleColor(getResources().getColor(R.color.obfuscated_res_0x7f060836));
+            this.h.setCircleProgressColor(getResources().getColor(R.color.obfuscated_res_0x7f060836));
+            this.j.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060836));
+            this.g.setBackgroundDrawable(null);
+        }
     }
 
     @Override // android.view.View
@@ -275,7 +275,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.i.setVisibility(0);
-            this.i.g(str);
+            this.i.n(str);
             this.h.setVisibility(8);
         }
     }
@@ -343,7 +343,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
                 this.m = "已下载 : " + this.m;
                 setProgress((int) (rj0Var.i * 100.0f));
             } else {
-                setStateImageRes(e(rj0Var));
+                setStateImageRes(f(rj0Var));
             }
             setText(this.m);
             postInvalidate();
@@ -370,7 +370,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
             }
         }
         this.k = -1;
-        f();
+        g();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -393,6 +393,6 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
             }
         }
         this.k = -1;
-        f();
+        g();
     }
 }

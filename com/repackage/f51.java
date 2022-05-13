@@ -1,26 +1,30 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.view.ViewTreeObserver;
+import android.util.Log;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.StringHelper;
+import androidx.annotation.ColorInt;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f51 implements ViewTreeObserver.OnGlobalLayoutListener {
+public class f51 extends d51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public int b;
+    @ColorInt
+    public int p;
+    public CharSequence q;
+    public int r;
+    public float s;
 
-    public f51(TextView textView) {
+    public f51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,43 +34,92 @@ public class f51 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        int maxLines = textView.getMaxLines();
-        this.b = maxLines;
-        if (maxLines <= 0) {
-            this.b = 1;
-        }
-        this.a = textView;
-        textView.setMaxLines(this.b + 1);
-        this.a.setSingleLine(false);
+        this.p = -1;
+        this.r = -1;
+        this.s = -1.0f;
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        CharSequence text;
+    public int B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = "";
-            if (this.a.getLineCount() > this.b) {
-                try {
-                    text = this.a.getText().subSequence(0, this.a.getLayout().getLineEnd(this.b - 1) - 2);
-                    str = StringHelper.STRING_MORE;
-                } catch (Exception e) {
-                    zi0.d("CustomLinkByEllipsize", "", e);
-                    text = this.a.getText();
-                }
-                TextUtils.TruncateAt ellipsize = this.a.getEllipsize();
-                if (ellipsize == TextUtils.TruncateAt.START) {
-                    this.a.setText(str);
-                    this.a.append(text);
-                } else if (ellipsize == TextUtils.TruncateAt.MIDDLE) {
-                    this.a.setText(text.subSequence(0, text.length() / 2));
-                    this.a.append(str);
-                    this.a.append(text.subSequence(text.length() / 2, text.length()));
-                } else {
-                    this.a.setText(text);
-                    this.a.append(str);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.p;
+            return i != -1 ? i : g41.a().getResources().getColor(R.color.obfuscated_res_0x7f06031a);
+        }
+        return invokeV.intValue;
+    }
+
+    public void C(CharSequence charSequence, int i, int i2, float f) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) || (textView = this.e) == null) {
+            return;
+        }
+        if (charSequence != null) {
+            textView.setText(charSequence);
+        }
+        this.e.setTextColor(i);
+        if (i2 < 0 || f <= 0.0f) {
+            return;
+        }
+        this.e.setTextSize(i2, f);
+    }
+
+    public void D(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
+            if (TextUtils.isEmpty(charSequence)) {
+                Log.d("BubbleTextManager", "str is empty !!!, will show nothing !!!");
             }
+            this.q = charSequence;
+        }
+    }
+
+    public void E(@ColorInt int i, @ColorInt int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.p = i;
+        }
+    }
+
+    @Override // com.repackage.d51
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0594 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.d51
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (super.g()) {
+                int B = B();
+                TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09045c);
+                this.e = textView;
+                textView.setTextColor(B);
+                this.e.setVisibility(0);
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.d51
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.q) && super.h() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.d51
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.n();
+            this.q = null;
         }
     }
 }

@@ -1,88 +1,100 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class v02 extends HandlerThread implements u02<t02> {
+public class v02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755285063, "Lcom/repackage/v02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements SwanAppNetworkUtils.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755285063, "Lcom/repackage/v02;");
-                return;
-            }
+            this.a = str;
         }
-        boolean z = tg1.a;
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v02() {
-        super("EventDispatcherImpl");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                v02.b(this.a, i);
             }
         }
-        c();
     }
 
-    @Override // com.repackage.u02
-    public void a(@NonNull Handler handler) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            this.a = handler;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            SwanAppNetworkUtils.b(new a(str));
         }
     }
 
-    @Override // com.repackage.u02
-    public void b(t02 t02Var) {
-        Handler handler;
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t02Var) == null) || t02Var == null || (handler = this.a) == null) {
-            return;
-        }
-        this.a.sendMessageDelayed(Message.obtain(handler, t02Var.a, t02Var), t02Var.c);
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            start();
+        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
+            c(str, i != 1 ? i != 2 ? i != 3 ? "unknown" : "offline" : "bad" : FrsActivityConfig.GOOD);
         }
     }
 
-    @Override // android.os.HandlerThread, com.repackage.u02
-    public Looper getLooper() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? super.getLooper() : (Looper) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            d(str, str2, null);
+        }
+    }
+
+    public static void d(String str, String str2, @Nullable String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            e(str, str2, str3, 0, 0, 0, 0L);
+        }
+    }
+
+    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+            w73 w73Var = new w73();
+            w73Var.a = "swan";
+            w73Var.b = str;
+            w73Var.a("appid", t03.J().getAppId());
+            w73Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
+            if (!TextUtils.isEmpty(str3)) {
+                w73Var.a("request", str3);
+                w73Var.a("request_total", String.valueOf(i));
+                w73Var.a("request_fail", String.valueOf(i2));
+                w73Var.a("request_slow", String.valueOf(i3));
+                w73Var.a("error_duration", String.valueOf(j));
+            }
+            w73Var.a("jserror", z02.d().c() ? "1" : "0");
+            w73Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, u02.b() ? "1" : "0");
+            n73.x("1619", w73Var);
+        }
     }
 }

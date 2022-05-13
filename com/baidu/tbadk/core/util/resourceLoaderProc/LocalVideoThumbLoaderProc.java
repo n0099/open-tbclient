@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo;
-import com.repackage.gg;
-import com.repackage.h35;
-import com.repackage.jg;
+import com.repackage.co;
+import com.repackage.eg;
+import com.repackage.hg;
+import com.repackage.y35;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class LocalVideoThumbLoaderProc implements jg<fo> {
+public class LocalVideoThumbLoaderProc implements hg<co> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,34 +34,34 @@ public class LocalVideoThumbLoaderProc implements jg<fo> {
         }
     }
 
-    public fo createVideoThumbnail(String str, int i, int i2) {
+    public co createVideoThumbnail(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             try {
                 if (new File(str).exists()) {
-                    return new fo(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i, i2), false, str);
+                    return new co(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i, i2), false, str);
                 }
                 return null;
-            } catch (OutOfMemoryError unused) {
+            } catch (Throwable unused) {
                 return null;
             }
         }
-        return (fo) invokeLII.objValue;
+        return (co) invokeLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public fo m50decodeToResource(byte[] bArr, Object... objArr) {
+    public co m50decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, objArr)) == null) {
             return null;
         }
-        return (fo) invokeLL.objValue;
+        return (co) invokeLL.objValue;
     }
 
-    @Override // com.repackage.jg
+    @Override // com.repackage.hg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class LocalVideoThumbLoaderProc implements jg<fo> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.repackage.jg
+    @Override // com.repackage.hg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,17 +83,17 @@ public class LocalVideoThumbLoaderProc implements jg<fo> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.jg
-    public fo getFromRemote(String str, String str2, int i, int i2, gg ggVar, Object... objArr) {
+    @Override // com.repackage.hg
+    public co getFromRemote(String str, String str2, int i, int i2, eg egVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ggVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), egVar, objArr})) == null) {
             return null;
         }
-        return (fo) invokeCommon.objValue;
+        return (co) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.jg
+    @Override // com.repackage.hg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,47 +118,47 @@ public class LocalVideoThumbLoaderProc implements jg<fo> {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.jg
+    @Override // com.repackage.hg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof fo)) {
-            fo foVar = (fo) obj;
-            if (foVar.u()) {
-                foVar.A(i);
-                foVar.z(i2);
-                h35.k().d(toCacheKey(str), foVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof co)) {
+            co coVar = (co) obj;
+            if (coVar.u()) {
+                coVar.A(i);
+                coVar.z(i2);
+                y35.k().d(toCacheKey(str), coVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.jg
-    public fo getFromLocal(String str, String str2, int i, int i2, gg ggVar, Object... objArr) {
+    @Override // com.repackage.hg
+    public co getFromLocal(String str, String str2, int i, int i2, eg egVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ggVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), egVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return createVideoThumbnail(str, i, i2);
         }
-        return (fo) invokeCommon.objValue;
+        return (co) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.jg
-    public fo getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.repackage.hg
+    public co getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            fo checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), h35.k().m(toCacheKey(str)), i, i2);
+            co checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), y35.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
             return checkIsValidPicMemoryCache;
         }
-        return (fo) invokeCommon.objValue;
+        return (co) invokeCommon.objValue;
     }
 }

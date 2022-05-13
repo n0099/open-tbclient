@@ -1,33 +1,29 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p59 implements pb1 {
+public final class p59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public p59() {
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                if (!w59.i() || z59.f(context) == 1) {
+                    return q59.c(q59.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
+                }
+                return false;
             }
+            return false;
         }
-    }
-
-    @Override // com.repackage.pb1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c59() : invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

@@ -68,7 +68,7 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.ho
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.eo
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -81,9 +81,9 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgPhotoLiveCardVew c = msgViewHolder.c();
-            c.U(this.i, chatMessage, viewGroup);
-            c.u(this.j);
-            c.w(i);
+            c.Y(this.i, chatMessage, viewGroup);
+            c.w(this.j);
+            c.y(i);
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             return view2;
@@ -92,14 +92,14 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: l0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.i);
-            return new a(this, msgPhotoLiveCardVew.f(), msgPhotoLiveCardVew);
+            return new a(this, msgPhotoLiveCardVew.g(), msgPhotoLiveCardVew);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

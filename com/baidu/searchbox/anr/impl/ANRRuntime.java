@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb1;
-import com.repackage.tb1;
+import com.repackage.cc1;
+import com.repackage.ec1;
 /* loaded from: classes2.dex */
 public class ANRRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static ANRRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public tb1<IANRRegister> mIANRMonitorList;
+    public ec1<IANRRegister> mIANRMonitorList;
 
     public ANRRuntime() {
         Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class ANRRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            tb1<IANRRegister> tb1Var = this.mIANRMonitorList;
-            if (tb1Var == null || tb1Var.getList() == null) {
+            ec1<IANRRegister> ec1Var = this.mIANRMonitorList;
+            if (ec1Var == null || ec1Var.getList() == null) {
                 return false;
             }
             for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
@@ -76,16 +76,16 @@ public class ANRRuntime {
         return invokeV.booleanValue;
     }
 
-    public tb1<IANRRegister> getIANRUploadList() {
+    public ec1<IANRRegister> getIANRUploadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIANRMonitorList : (tb1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIANRMonitorList : (ec1) invokeV.objValue;
     }
 
     public void initmIANRMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rb1 b = rb1.b();
+            cc1 b = cc1.b();
             this.mIANRMonitorList = b;
             b.a(new IANRRegister_ANRRuntime_ListProvider());
         }

@@ -1,129 +1,81 @@
 package com.repackage;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class aa0 {
+public class aa0 extends z90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean x;
+    public boolean y;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends ba0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes5.dex */
-        public static final class a {
-            public static /* synthetic */ Interceptable $ic;
-            public static final b a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(770226694, "Lcom/repackage/aa0$b$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(770226694, "Lcom/repackage/aa0$b$a;");
-                        return;
-                    }
-                }
-                a = new b(LiveFeedPageSdk.f().a(), "live_feed_page_sp", null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa0(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.y = false;
+    }
 
-        public /* synthetic */ b(Context context, String str, a aVar) {
-            this(context, str);
+    @Override // com.repackage.z90, com.repackage.w90
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.g(z);
         }
+    }
 
-        public static b h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (b) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context, String str) {
-            super(context, str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    @Override // com.repackage.z90, com.repackage.w90
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.l(z);
+            if (this.x) {
+                return;
             }
+            u(0);
         }
     }
 
-    public static boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.repackage.z90, com.repackage.w90
+    public void m() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, str, z)) == null) ? b.h().getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? b.h().getString(str, str2) : (String) invokeLL.objValue;
-    }
-
-    public static long c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) ? b.h().getLong(str, j) : invokeLJ.longValue;
-    }
-
-    public static void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
-            b.h().d(str, z);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.m();
         }
     }
 
-    public static void e(String str, long j) {
+    @Override // com.repackage.z90
+    public void u(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
-            b.h().e(str, j);
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            b.h().f(str, str2);
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            b.h().g(str);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.u(i);
+            LinearLayout linearLayout = this.e;
+            if (linearLayout == null) {
+                return;
+            }
+            this.x = false;
+            if (this.y) {
+                linearLayout.setBackgroundColor(0);
+            }
         }
     }
 }

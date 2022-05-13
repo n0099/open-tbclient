@@ -1,191 +1,124 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l36;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class gl6 {
+public class gl6 extends zx<nl6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BdUniqueId b;
-    public boolean c;
-    public m36 d;
-    public boolean e;
-    public VelocityTracker f;
-    public l36.b g;
+    public View f;
+    public EMTextView g;
+    public ArrayList<sl6> h;
 
-    /* loaded from: classes6.dex */
-    public class a implements l36.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gl6 a;
-
-        public a(gl6 gl6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gl6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gl6Var;
-        }
-
-        @Override // com.repackage.l36.b
-        public void a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2)) {
-                this.a.e(true);
-            }
-        }
-
-        @Override // com.repackage.l36.b
-        public void b(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && e(i2)) {
-                this.a.e(false);
-            }
-        }
-
-        @Override // com.repackage.l36.b
-        public void c(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            }
-        }
-
-        @Override // com.repackage.l36.b
-        public void d(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            }
-        }
-
-        public final boolean e(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) ? Math.abs(f) >= 10.0f : invokeF.booleanValue;
-        }
-    }
-
-    public gl6(Context context, BdUniqueId bdUniqueId, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gl6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.g = new a(this);
-        this.a = context;
-        this.b = bdUniqueId;
-        this.e = z;
-        if (z) {
-            m36 m36Var = new m36(context);
-            this.d = m36Var;
-            m36Var.d(this.g);
-        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
-        if (r5 != 3) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(View view2, MotionEvent motionEvent) {
-        m36 m36Var;
+    @Override // com.repackage.zx
+    public View g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.f == null) {
-                this.f = VelocityTracker.obtain();
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a3, (ViewGroup) null, true);
+                this.f = inflate;
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f6f);
             }
-            this.f.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 1) {
-                if (action == 2) {
-                    this.f.computeCurrentVelocity(1000);
-                    if (Math.abs(this.f.getXVelocity()) > Math.abs(this.f.getYVelocity())) {
-                        this.e = false;
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: o */
+    public void a(nl6 nl6Var) {
+        boolean z;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nl6Var) == null) && nl6Var != null && nl6Var.g()) {
+            ArrayList<sl6> e = nl6Var.e();
+            if (ListUtils.getCount(e) != ListUtils.getCount(this.h)) {
+                if (ListUtils.getCount(this.h) > 0) {
+                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
+                }
+                z = true;
+            } else {
+                z = false;
+            }
+            if (e != null) {
+                for (int i = 0; i < e.size(); i++) {
+                    if (z) {
+                        childAt = new CardItemDetailListItemLayout(this.b);
+                        ((ViewGroup) this.f).addView(childAt, -1, -2);
                     } else {
-                        this.e = true;
+                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
+                    }
+                    if (childAt instanceof CardItemDetailListItemLayout) {
+                        ((CardItemDetailListItemLayout) childAt).setData(e.get(i));
                     }
                 }
-                if (this.e || (m36Var = this.d) == null) {
+            }
+            ViewGroup viewGroup = (ViewGroup) this.f;
+            int childCount = viewGroup.getChildCount() - 1;
+            while (true) {
+                if (childCount <= 0) {
+                    break;
                 }
-                m36Var.c(motionEvent);
-                return;
+                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
+                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
+                    break;
+                }
+                childCount--;
             }
-            c();
-            if (this.e) {
-            }
+            this.h = e;
         }
     }
 
-    public final void c() {
-        VelocityTracker velocityTracker;
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f) == null) {
-            return;
-        }
-        velocityTracker.clear();
-        this.f.recycle();
-        this.f = null;
-    }
-
-    public final void d(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                CustomMessage customMessage = new CustomMessage(2001617);
-                customMessage.setTag(this.b);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
-                customResponsedMessage.setOrginalMessage(customMessage);
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                return;
-            }
-            CustomMessage customMessage2 = new CustomMessage(2001618);
-            customMessage2.setTag(this.b);
-            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
-            customResponsedMessage2.setOrginalMessage(customMessage2);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-            if (this.e) {
-                d(!z, true);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            gs4 d = gs4.d(this.f);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            gs4 d2 = gs4.d(this.g);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
+                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
+                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
+                }
             }
         }
     }

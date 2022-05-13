@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ol5;
 import com.repackage.pl5;
+import com.repackage.ql5;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -72,12 +72,12 @@ public class SplashStaticHttpRequest extends HttpMessage {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("params", pl5.a(context, adInfo));
+                jSONObject.put("params", ql5.a(context, adInfo));
             } catch (JSONException e) {
                 BdLog.e(e.getMessage());
             }
             splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, ol5.b());
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, pl5.b());
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
             MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);
@@ -104,12 +104,12 @@ public class SplashStaticHttpRequest extends HttpMessage {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("params", pl5.a(context, adInfo));
+                jSONObject.put("params", ql5.a(context, adInfo));
             } catch (JSONException e) {
                 BdLog.e(e.getMessage());
             }
             splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, ol5.c());
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, pl5.c());
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
             MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);

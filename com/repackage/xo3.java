@@ -1,15 +1,22 @@
 package com.repackage;
+
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.repackage.oo3;
 /* loaded from: classes7.dex */
 public interface xo3 {
-    void onCompletion();
+    void a(DownloadInfo downloadInfo);
 
-    boolean onError();
+    void b(DownloadInfo downloadInfo);
 
-    void onPause();
+    void c(DownloadInfo downloadInfo);
 
-    void onPrepared();
+    void d(DownloadInfo downloadInfo);
 
-    void onResume();
+    void destroy();
 
-    void onStart();
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull oo3.d<Boolean> dVar);
+
+    DownloadInfo g(String str);
 }

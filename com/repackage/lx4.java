@@ -1,21 +1,23 @@
 package com.repackage;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Hashtable;
+import java.util.Iterator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lx4 extends fo4 {
+public class lx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
+    public Hashtable<String, String> a;
+    public Hashtable<String, String> b;
 
     public lx4() {
         Interceptable interceptable = $ic;
@@ -30,41 +32,66 @@ public class lx4 extends fo4 {
                 return;
             }
         }
-        this.a = Long.MAX_VALUE;
-        this.b = 0L;
-        this.c = null;
+        this.a = new Hashtable<>();
+        this.b = new Hashtable<>();
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void a(Hashtable hashtable, JSONArray jSONArray) {
+        int length;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hashtable, jSONArray) == null) || (length = jSONArray.length()) <= 0) {
+            return;
+        }
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                try {
+                    hashtable.put(next, optJSONObject.get(next));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public boolean b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            String str2 = null;
+            if (i == 1) {
+                str2 = this.b.get(str);
+            } else if (i == 2) {
+                str2 = this.a.get(str);
+            }
+            if (StringUtils.isNull(str2)) {
+                return true;
+            }
+            return str2.equals("3");
+        }
+        return invokeIL.booleanValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    @Override // com.repackage.fo4
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            this.a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, Long.MAX_VALUE);
-            this.b = jSONObject.optLong("end_time", 0L);
-            this.c = jSONObject.optString("dest_url", "");
+            JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
+            BdLog.e("consumepath is:" + jSONObject.toString());
+            a(this.a, optJSONArray);
+            a(this.b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.a.toString());
+            BdLog.e("pay mPayCashierType:" + this.b.toString());
         } catch (Exception e) {
-            BdLog.detailException(e);
+            e.printStackTrace();
         }
     }
 }

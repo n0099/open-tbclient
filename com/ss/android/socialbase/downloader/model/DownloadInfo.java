@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadInfo implements Parcelable {
     public static final Parcelable.Creator<DownloadInfo> CREATOR = new Parcelable.Creator<DownloadInfo>() { // from class: com.ss.android.socialbase.downloader.model.DownloadInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,7 +155,7 @@ public class DownloadInfo implements Parcelable {
     public long ttnetProtectTimeout;
     public String url;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public String A;
         public String B;

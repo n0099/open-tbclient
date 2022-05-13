@@ -147,7 +147,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403f8, R.attr.obfuscated_res_0x7f0403f9, R.attr.obfuscated_res_0x7f0403fa, R.attr.obfuscated_res_0x7f0403fb, R.attr.obfuscated_res_0x7f0403fc, R.attr.obfuscated_res_0x7f0403fd});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403fc, R.attr.obfuscated_res_0x7f0403fd, R.attr.obfuscated_res_0x7f0403fe, R.attr.obfuscated_res_0x7f0403ff, R.attr.obfuscated_res_0x7f040400, R.attr.obfuscated_res_0x7f040401});
         this.e = obtainStyledAttributes.getBoolean(0, true);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(4, dimensionPixelOffset);

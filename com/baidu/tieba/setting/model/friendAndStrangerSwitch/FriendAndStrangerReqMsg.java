@@ -13,22 +13,27 @@ public class FriendAndStrangerReqMsg extends HttpMessage {
     public static final int MASK_STRANGER = 1;
     public static final String MASK_TYPE = "maskType";
     public static final int NO_MASK = 0;
+    public static final String PUSH_TYPE = "pushType";
+    public static final int PUSH_TYPE_CLOSE = 2;
+    public static final int PUSH_TYPE_NO = 0;
+    public static final int PUSH_TYPE_OPEN = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int mMaskType;
+    public int mPushType;
     public int mRequestType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FriendAndStrangerReqMsg(int i, int i2) {
+    public FriendAndStrangerReqMsg(int i, int i2, int i3) {
         super(CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,8 +42,14 @@ public class FriendAndStrangerReqMsg extends HttpMessage {
         }
         this.mMaskType = 0;
         this.mRequestType = 0;
-        this.mMaskType = i;
+        this.mPushType = 0;
         this.mRequestType = i2;
+        if (i3 != 0) {
+            this.mPushType = i3;
+            addParam(PUSH_TYPE, i3);
+            return;
+        }
+        this.mMaskType = i;
         addParam("maskType", i);
     }
 }

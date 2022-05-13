@@ -8,12 +8,13 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lk4;
+import com.repackage.wk4;
 /* loaded from: classes2.dex */
 public class InitSDKTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +68,7 @@ public class InitSDKTask extends LaunchTask {
     private void initTBTaskSDK() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            lk4.f().g(TbadkCoreApplication.getInst());
+            wk4.f().g(TbadkCoreApplication.getInst());
         }
     }
 
@@ -77,8 +78,13 @@ public class InitSDKTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             initCountStats();
             initGrowthSdk();
-            initRuka();
+            if (!LaunchUpApplicationSwitch.getIsOn()) {
+                initRuka();
+            }
             initTBTaskSDK();
+            if (LaunchUpApplicationSwitch.getIsOn()) {
+                return;
+            }
             initRTCLoadManager();
         }
     }

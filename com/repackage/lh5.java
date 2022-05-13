@@ -1,7 +1,6 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,63 +10,49 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TbPageContext b;
-    public gh5 c;
 
-    public lh5(TbPageContext tbPageContext, int i) {
+    public lh5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = tbPageContext;
-        this.a = i;
+    }
+
+    public static void b(zw4 zw4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, zw4Var) == null) || zw4Var == null) {
+            return;
+        }
+        if (zw4Var.b != 0) {
+            iu4.k().y("app_entrance_nologin", zw4Var.b + "");
+        }
+        if (zw4Var.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+            return;
+        }
+        iu4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), zw4Var.a + "");
     }
 
     public int a() {
         InterceptResult invokeV;
+        String q;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public TbPageContext b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (TbPageContext) invokeV.objValue;
-    }
-
-    public gh5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (gh5) invokeV.objValue;
-    }
-
-    public lh5(gh5 gh5Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gh5Var, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                q = iu4.k().q("app_entrance_nologin", "");
+            } else {
+                iu4 k = iu4.k();
+                q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
+            int e = kg.e(q, 0);
+            return (e != 1 && e == 2) ? 1 : 2;
         }
-        this.c = gh5Var;
-        this.a = i;
+        return invokeV.intValue;
     }
 }

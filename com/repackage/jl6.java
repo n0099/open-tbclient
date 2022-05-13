@@ -1,82 +1,64 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jl6 extends m45 {
+public class jl6 extends zx<ql6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CardItemRecentUpdateLayout f;
 
-    public jl6(FrsFragment frsFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jl6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b().a = frsFragment;
+        this.f = new CardItemRecentUpdateLayout(context);
     }
 
-    @Override // com.repackage.m45
-    public n45 a() {
+    @Override // com.repackage.zx
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n45 n45Var = new n45();
-            n45Var.e = 1;
-            n45Var.b = R.string.obfuscated_res_0x7f0f03cf;
-            n45Var.i = n45.l;
-            return n45Var;
-        }
-        return (n45) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.m45
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: o */
+    public void a(ql6 ql6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ql6Var) == null) {
+            this.f.setData(ql6Var.e());
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.m45
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(je6 je6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, je6Var) == null) && je6Var != null && je6Var.h(1)) {
-            je6Var.a(this);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

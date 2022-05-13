@@ -123,7 +123,7 @@ public class n78 {
             Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
             intent.putExtra("pcdn", true);
             TbadkCoreApplication.getInst().getContext().startService(intent);
-            pg.a().postDelayed(new a(this), 3000L);
+            ng.a().postDelayed(new a(this), 3000L);
         }
     }
 }

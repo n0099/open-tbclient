@@ -1,11 +1,10 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,95 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr2;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class wq2 {
+public abstract class wq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile String b;
-    public static volatile boolean c;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        /* renamed from: com.repackage.wq2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0545a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ Bitmap b;
-            public final /* synthetic */ Rect c;
-
-            public RunnableC0545a(a aVar, int i, Bitmap bitmap, Rect rect) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), bitmap, rect};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = i;
-                this.b = bitmap;
-                this.c = rect;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    dr2 a = dr2.a.a("simple_parser");
-                    a.c(this.a);
-                    if (a.a(this.b, this.c)) {
-                        return;
-                    }
-                    wq2.h();
-                }
-            }
-        }
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            SwanAppActivity activity;
-            sz1 swanAppFragmentManager;
-            rz1 o;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = wl2.U().getActivity()) == null || activity.isFinishing() || activity.isDestroyed() || (swanAppFragmentManager = activity.getSwanAppFragmentManager()) == null || (o = swanAppFragmentManager.o()) == null) {
-                return;
-            }
-            Bitmap p = ae3.p();
-            dd3.f().execute(new RunnableC0545a(this, sq2.d(o), p, sq2.b(p, o, wl2.U().B(this.a))), "SwanNAArrivalCheck");
-        }
-    }
+    public final LruCache<String, JSONObject> a;
+    public final LruCache<String, JSONObject> b;
 
     static {
         InterceptResult invokeClinit;
@@ -116,148 +34,159 @@ public final class wq2 {
                 return;
             }
         }
-        a = tg1.a;
-        b = "";
-        c = true;
+        c = eh1.a;
     }
 
-    public static void b(String str) {
+    public wq2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            de3.a0(new a(str));
-        }
-    }
-
-    public static void c() {
-        sz1 V;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "start handle arrival report");
-            }
-            if (t63.f() || (V = wl2.U().V()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            rz1 o = V.o();
-            an1 an1Var = null;
-            if (o != null) {
-                pm1 n3 = o.n3();
-                if (n3 == null) {
-                    return;
-                }
-                sm1 m = n3.m();
-                if (m != null) {
-                    an1Var = m.P();
-                } else {
-                    an1Var = n3.P();
-                }
-            }
-            if (an1Var == null || an1Var.b <= 0) {
-                return;
-            }
-            t63.a(an1Var);
         }
+        this.a = new LruCache<>(5);
+        this.b = new LruCache<>(5);
     }
 
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || t63.h()) {
-            return;
-        }
-        rz1 H = wl2.U().H();
-        if (H == null) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "NAArrival：top fragment is null");
-            }
-        } else if (!f(H)) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "start na report");
-            }
-            h();
-        } else {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "start check for na arrival");
-            }
-            b(H.s3());
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            b = str;
-        }
-    }
-
-    public static boolean f(rz1 rz1Var) {
+    public final JSONObject a(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rz1Var)) == null) {
-            if (rz1Var == null) {
-                return false;
-            }
-            boolean equals = TextUtils.equals(b, rz1Var.s3());
-            if (a) {
-                Log.d("SwanArrivalMonitor", "FirstPage: " + equals);
-            }
-            return equals;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c : invokeV.booleanValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            t63.o(j03.L() != null ? j03.L().X() : null);
-        }
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "on swan page change, isFromRoute : " + z);
-            }
-            if (z && t63.j()) {
-                if (a) {
-                    Log.d("SwanArrivalMonitor", "end handle swan page change");
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfo is null");
                 }
-                return;
+                return null;
             }
-            if (z) {
-                c = false;
+            String str = pMSAppInfo.appId;
+            String valueOf = String.valueOf(pMSAppInfo.appSign);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
+                String e = e(str, valueOf);
+                JSONObject jSONObject = this.a.get(e);
+                if (jSONObject == null) {
+                    jSONObject = zd4.p(xq2.a(pMSAppInfo));
+                    this.a.put(e, jSONObject);
+                }
+                if (c) {
+                    Log.d("SwanAppExtInfo", "appId - " + str + " app info' ext - " + jSONObject.toString());
+                }
+                return jSONObject;
             }
-            if (!z) {
-                d();
+            if (c) {
+                Log.e("SwanAppExtInfo", "appId or app sign is empty");
             }
-            t63.G();
-            c();
-            j03 L = j03.L();
-            if (L == null || z) {
-                return;
-            }
-            t63.q(L.X());
+            return null;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static void k() {
+    public final JSONObject b(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            b = "";
-            c = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
+            JSONObject a = a(pMSAppInfo);
+            if (a == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfoExt is null");
+                }
+                return null;
+            }
+            JSONObject optJSONObject = a.optJSONObject("client");
+            if (optJSONObject == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "clientInfo is null");
+                }
+                return null;
+            }
+            if (c) {
+                Log.d("SwanAppExtInfo", "clientInfo - " + optJSONObject);
+            }
+            return optJSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final String c(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
+            JSONObject a = a(pMSAppInfo);
+            if (a == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfoExt is null");
+                }
+                return null;
+            }
+            String optString = a.optString("webview_whitelist_switch");
+            if (TextUtils.isEmpty(optString)) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "webview whitelist switch is empty");
+                }
+                return null;
+            }
+            if (c) {
+                Log.d("SwanAppExtInfo", "webview whitelist switch - " + optString);
+            }
+            return optString;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final JSONObject d(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfo is null");
+                }
+                return null;
+            }
+            String str = pMSAppInfo.appId;
+            String valueOf = String.valueOf(pMSAppInfo.versionCode);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
+                String e = e(str, valueOf);
+                JSONObject jSONObject = this.b.get(e);
+                if (jSONObject == null) {
+                    jSONObject = zd4.p(yq2.f(pMSAppInfo));
+                    this.a.put(e, jSONObject);
+                }
+                if (c) {
+                    Log.d("SwanAppExtInfo", "appId - " + str + " pkg info' ext - " + jSONObject.toString());
+                }
+                return jSONObject;
+            }
+            if (c) {
+                Log.e("SwanAppExtInfo", "appId or version code is empty");
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            return str + "_" + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (c) {
+                Log.d("SwanAppExtInfo", "release cache");
+            }
+            this.a.evictAll();
+            this.b.evictAll();
         }
     }
 }

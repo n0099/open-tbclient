@@ -40,7 +40,7 @@ public class qy0 implements sy0 {
     public static final byte[] c;
     public static final Map<String, String> d;
     public static final JSONArray e;
-    public static final ni0 f;
+    public static final qi0 f;
     public static String g;
     public transient /* synthetic */ FieldHolder $fh;
     public final yy0 b;
@@ -157,7 +157,7 @@ public class qy0 implements sy0 {
         c = new byte[]{48, -127, -97, 48, 13, 6, 9, 42, -122, 72, -122, -9, 13, 1, 1, 1, 5, 0, 3, -127, -115, 0, 48, -127, -119, 2, -127, -127, 0, -69, 118, 15, 43, -102, -34, -94, -8, -78, 1, 17, -80, 84, 56, 79, 40, -89, 68, 50, 105, -35, 111, -70, 68, -68, -64, 62, 111, -66, -108, 77, 21, 106, 69, -34, 94, -1, 18, -100, -75, 7, 48, -59, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 50, -58, -124, 23, -97, -14, 100, 67, 115, -70, 4, 2, Cea608Decoder.CTRL_END_OF_CAPTION, -36, Constants.GZIP_CAST_TYPE, 80, 6, -88, 116, -38, -121, -4, -61, -13, -32, 106, 7, 85, -39, 111, 53, 0, -35, Base64.INTERNAL_PADDING, 33, 106, -125, -59, 100, -42, -32, 15, -108, 33, -14, 67, 124, 57, -83, -91, -86, -67, -57, 19, 90, -113, -41, 69, -25, 70, 70, 111, -41, -47, 76, -85, 118, -52, 110, -56, -28, 9, 75, 2, 43, -35, 15, 58, 31, 126, 8, 27, -82, -107, 2, 3, 1, 0, 1};
         d = new HashMap();
         e = new JSONArray();
-        f = hi0.a();
+        f = ki0.a();
         g = null;
         d("is_https", "1");
         d(SearchJsBridge.COOKIE_MOD, f.j());
@@ -173,13 +173,13 @@ public class qy0 implements sy0 {
         d(TiebaStatic.Params.BDID, f.g());
         d("encrypted_imei", g());
         d(HttpRequest.ANDROID_ID, f.a());
-        e.put(f(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.3"));
+        e.put(f(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.21"));
         e.put(f("os_br", Build.BRAND));
         e.put(f("os_mafa", Build.MANUFACTURER));
         e.put(f("mac", f.t()));
         e.put(f("oaid_v", f.h()));
         try {
-            e.put(f("encoded_ua_new", URLEncoder.encode(hi0.e(), IMAudioTransRequest.CHARSET)));
+            e.put(f("encoded_ua_new", URLEncoder.encode(ki0.e(), IMAudioTransRequest.CHARSET)));
         } catch (UnsupportedEncodingException unused) {
         }
     }
@@ -244,7 +244,7 @@ public class qy0 implements sy0 {
                 if (TextUtils.isEmpty(p)) {
                     g = "";
                 } else {
-                    byte[] a2 = k11.a(p.getBytes(), k11.b(c));
+                    byte[] a2 = u11.a(p.getBytes(), u11.b(c));
                     if (a2 != null) {
                         g = new String(android.util.Base64.encode(a2, 2));
                     } else {
@@ -270,7 +270,7 @@ public class qy0 implements sy0 {
             for (int i = 0; i < e.length(); i++) {
                 jSONArray.put(e.opt(i));
             }
-            jSONArray.put(f(AdExtParam.KEY_IADEX, mg0.e()));
+            jSONArray.put(f(AdExtParam.KEY_IADEX, pg0.e()));
             NadRequester.Error error = TextUtils.isEmpty(requestParameters.a) ? new NadRequester.Error("missing placeId") : null;
             if (requestParameters.j == RequestParameters.SlotType.REWARD) {
                 if (TextUtils.isEmpty(requestParameters.h)) {
@@ -300,7 +300,7 @@ public class qy0 implements sy0 {
             c(e2, "ext", jSONArray.toString());
             c(e2, "eid", f.d());
             b(e2, requestParameters.k);
-            qp0Var.a("User-Agent", hi0.e());
+            qp0Var.a("User-Agent", ki0.e());
             qp0Var.f(e2);
             b2.a().a(qp0Var, new a(this, requestParameters, bVar));
         }
@@ -337,7 +337,7 @@ public class qy0 implements sy0 {
             sb3.append("_ts");
             String sb4 = sb3.toString();
             long currentTimeMillis = System.currentTimeMillis();
-            int i = b11.c(this.b.getLong(sb4, 0L), currentTimeMillis) ? this.b.getInt(sb2, 1) : 1;
+            int i = l11.c(this.b.getLong(sb4, 0L), currentTimeMillis) ? this.b.getInt(sb2, 1) : 1;
             this.b.h(sb4, currentTimeMillis);
             this.b.g(sb2, i + 1);
             c(pp0Var, "fc", String.valueOf(i));

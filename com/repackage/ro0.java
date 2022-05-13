@@ -11,7 +11,7 @@ public class ro0 {
     public static void a(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, application) == null) {
-            yb1.b(application);
+            jc1.b(application);
         }
     }
 }

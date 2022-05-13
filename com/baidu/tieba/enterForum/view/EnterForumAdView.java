@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bj8;
-import com.repackage.dj8;
-import com.repackage.n46;
+import com.repackage.ai8;
+import com.repackage.fm4;
+import com.repackage.i75;
 import com.repackage.o46;
-import com.repackage.s65;
-import com.repackage.ul4;
+import com.repackage.p46;
+import com.repackage.yh8;
 /* loaded from: classes3.dex */
 public class EnterForumAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class EnterForumAdView extends FrameLayout {
     public int i;
     public boolean j;
     public boolean k;
-    public n46 l;
+    public o46 l;
     public c m;
 
     /* loaded from: classes3.dex */
@@ -153,8 +153,8 @@ public class EnterForumAdView extends FrameLayout {
     }
 
     public static final void c(BdUniqueId bdUniqueId, Context context) {
-        n46 D;
-        StatisticItem j;
+        o46 D;
+        StatisticItem i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65541, null, bdUniqueId, context) == null) || (D = EnterForumDelegateStatic.e.D()) == null) {
             return;
@@ -164,12 +164,12 @@ public class EnterForumAdView extends FrameLayout {
             return;
         }
         if (context != null) {
-            ul4.m(context, str);
+            fm4.m(context, str);
         }
-        if (bdUniqueId == null || (j = bj8.j(true, "a025", "common_click", 3, 1, true, String.valueOf(D.b), String.valueOf(D.b), 5)) == null) {
+        if (bdUniqueId == null || (i = yh8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(D.b), String.valueOf(D.b), 5)) == null) {
             return;
         }
-        dj8.g().c(bdUniqueId, j);
+        ai8.g().c(bdUniqueId, i);
     }
 
     public final void d(Context context) {
@@ -177,9 +177,9 @@ public class EnterForumAdView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setClipChildren(true);
             this.d = new ColorDrawable(1241513984);
-            this.a = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804cd);
-            this.b = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804cb);
-            this.c = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804cc);
+            this.a = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804c6);
+            this.b = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804c4);
+            this.c = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804c5);
             setOnClickListener(new a(this));
         }
     }
@@ -224,45 +224,45 @@ public class EnterForumAdView extends FrameLayout {
     }
 
     public final void g() {
-        StatisticItem j;
+        StatisticItem i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.f == null) {
-                TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908e3);
+                TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908db);
                 this.f = tbImageView;
                 tbImageView.setPlaceHolder(3);
                 this.f.setEvent(new b(this));
             }
-            n46 D = EnterForumDelegateStatic.e.D();
+            o46 D = EnterForumDelegateStatic.e.D();
             if (D != null && D.a()) {
                 this.e = true;
                 this.f.K(D.c, 38, false);
                 invalidate();
                 if (this.g != null) {
-                    o46 o46Var = new o46();
-                    o46Var.a = true;
-                    o46Var.b = getBottom();
-                    o46Var.c = this.i;
-                    s65 s65Var = new s65(16, null, null, null);
-                    s65Var.h(o46Var);
-                    this.g.dispatchMvcEvent(s65Var);
+                    p46 p46Var = new p46();
+                    p46Var.a = true;
+                    p46Var.b = getBottom();
+                    p46Var.c = this.i;
+                    i75 i75Var = new i75(16, null, null, null);
+                    i75Var.h(p46Var);
+                    this.g.dispatchMvcEvent(i75Var);
                 }
                 setVisibility(0);
-                if (this.l != D && (j = bj8.j(false, "a025", "common_exp", 0, 1, true, String.valueOf(D.b), String.valueOf(D.b), 5)) != null) {
-                    dj8 g = dj8.g();
+                if (this.l != D && (i = yh8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(D.b), String.valueOf(D.b), 5)) != null) {
+                    ai8 g = ai8.g();
                     BdUniqueId bdUniqueId = this.h;
-                    g.d(bdUniqueId, bj8.a("" + D.b), j);
-                    dj8.g().h(this.h, false);
+                    g.d(bdUniqueId, yh8.a("" + D.b), i);
+                    ai8.g().h(this.h, false);
                 }
             } else {
                 if (this.g != null) {
-                    o46 o46Var2 = new o46();
-                    o46Var2.a = false;
-                    o46Var2.b = getBottom();
-                    o46Var2.c = this.i;
-                    s65 s65Var2 = new s65(16, null, null, null);
-                    s65Var2.h(o46Var2);
-                    this.g.dispatchMvcEvent(s65Var2);
+                    p46 p46Var2 = new p46();
+                    p46Var2.a = false;
+                    p46Var2.b = getBottom();
+                    p46Var2.c = this.i;
+                    i75 i75Var2 = new i75(16, null, null, null);
+                    i75Var2.h(p46Var2);
+                    this.g.dispatchMvcEvent(i75Var2);
                 }
                 setVisibility(8);
             }
@@ -286,13 +286,13 @@ public class EnterForumAdView extends FrameLayout {
             if (!z || EnterForumDelegateStatic.e.D() == null || this.g == null) {
                 return;
             }
-            o46 o46Var = new o46();
-            o46Var.a = true;
-            o46Var.b = i4;
-            o46Var.c = this.i;
-            s65 s65Var = new s65(16, null, null, null);
-            s65Var.h(o46Var);
-            this.g.dispatchMvcEvent(s65Var);
+            p46 p46Var = new p46();
+            p46Var.a = true;
+            p46Var.b = i4;
+            p46Var.c = this.i;
+            i75 i75Var = new i75(16, null, null, null);
+            i75Var.h(p46Var);
+            this.g.dispatchMvcEvent(i75Var);
         }
     }
 

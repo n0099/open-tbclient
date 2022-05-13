@@ -20,7 +20,7 @@ public final class a implements XmlResourceParser {
     public boolean b;
     public f c;
     public int[] d;
-    public C0258a e;
+    public C0257a e;
     public boolean f;
     public int g;
     public int h;
@@ -45,7 +45,7 @@ public final class a implements XmlResourceParser {
             }
         }
         this.b = false;
-        this.e = new C0258a();
+        this.e = new C0257a();
         a();
     }
 
@@ -94,9 +94,9 @@ public final class a implements XmlResourceParser {
             this.a = null;
             this.c = null;
             this.d = null;
-            C0258a c0258a = this.e;
-            c0258a.b = 0;
-            c0258a.c = 0;
+            C0257a c0257a = this.e;
+            c0257a.b = 0;
+            c0257a.c = 0;
             a();
         }
     }
@@ -384,16 +384,16 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i)) == null) {
-            C0258a c0258a = this.e;
+            C0257a c0257a = this.e;
             int i2 = 0;
-            if (c0258a.b != 0 && i >= 0) {
-                int i3 = c0258a.c;
+            if (c0257a.b != 0 && i >= 0) {
+                int i3 = c0257a.c;
                 if (i > i3) {
                     i = i3;
                 }
                 int i4 = 0;
                 while (i != 0) {
-                    int i5 = c0258a.a[i4];
+                    int i5 = c0257a.a[i4];
                     i2 += i5;
                     i4 += (i5 * 2) + 2;
                     i--;
@@ -740,23 +740,23 @@ public final class a implements XmlResourceParser {
                 while (true) {
                     if (this.f) {
                         this.f = false;
-                        C0258a c0258a = this.e;
-                        int i6 = c0258a.b;
+                        C0257a c0257a = this.e;
+                        int i6 = c0257a.b;
                         if (i6 != 0) {
                             int i7 = i6 - 1;
-                            int i8 = c0258a.a[i7] * 2;
+                            int i8 = c0257a.a[i7] * 2;
                             if ((i7 - 1) - i8 != 0) {
-                                c0258a.b = i6 - (i8 + 2);
-                                c0258a.c--;
+                                c0257a.b = i6 - (i8 + 2);
+                                c0257a.c--;
                             }
                         }
                     }
                     int i9 = 3;
                     if (i5 == 3) {
-                        C0258a c0258a2 = this.e;
-                        if (c0258a2.c == 1) {
-                            int i10 = c0258a2.b;
-                            if ((i10 == 0 ? 0 : c0258a2.a[i10 - 1]) == 0) {
+                        C0257a c0257a2 = this.e;
+                        if (c0257a2.c == 1) {
+                            int i10 = c0257a2.b;
+                            if ((i10 == 0 ? 0 : c0257a2.a[i10 - 1]) == 0) {
                                 this.g = 1;
                                 return;
                             }
@@ -818,32 +818,32 @@ public final class a implements XmlResourceParser {
                         } else if (a2 == 1048832) {
                             int a6 = this.a.a();
                             int a7 = this.a.a();
-                            C0258a c0258a3 = this.e;
-                            if (c0258a3.c == 0) {
-                                c0258a3.a();
+                            C0257a c0257a3 = this.e;
+                            if (c0257a3.c == 0) {
+                                c0257a3.a();
                             }
-                            c0258a3.b();
-                            int i11 = c0258a3.b;
+                            c0257a3.b();
+                            int i11 = c0257a3.b;
                             int i12 = i11 - 1;
-                            int[] iArr3 = c0258a3.a;
+                            int[] iArr3 = c0257a3.a;
                             int i13 = iArr3[i12];
                             int i14 = i13 + 1;
                             iArr3[(i12 - 1) - (i13 * 2)] = i14;
                             iArr3[i12] = a6;
                             iArr3[i12 + 1] = a7;
                             iArr3[i12 + 2] = i14;
-                            c0258a3.b = i11 + 2;
+                            c0257a3.b = i11 + 2;
                         } else {
                             this.a.c();
                             this.a.c();
-                            C0258a c0258a4 = this.e;
-                            int i15 = c0258a4.b;
-                            if (i15 != 0 && (i2 = (iArr = c0258a4.a)[i15 - 1]) != 0) {
+                            C0257a c0257a4 = this.e;
+                            int i15 = c0257a4.b;
+                            if (i15 != 0 && (i2 = (iArr = c0257a4.a)[i15 - 1]) != 0) {
                                 int i16 = i2 - 1;
                                 int i17 = i - 2;
                                 iArr[i17] = i16;
                                 iArr[i17 - ((i16 * 2) + 1)] = i16;
-                                c0258a4.b = i15 - 2;
+                                c0257a4.b = i15 - 2;
                             }
                         }
                     }
@@ -902,14 +902,14 @@ public final class a implements XmlResourceParser {
 
     /* renamed from: com.bytedance.pangle.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0258a {
+    public static final class C0257a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int[] a;
         public int b;
         public int c;
 
-        public C0258a() {
+        public C0257a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

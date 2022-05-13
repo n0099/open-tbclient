@@ -1,161 +1,30 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fe0;
-import com.repackage.ff0;
-import com.repackage.ve0;
+import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
+import java.util.Objects;
 /* loaded from: classes7.dex */
 public class te0 {
     public static /* synthetic */ Interceptable $ic;
-    public static te0 b;
-    public static bf0 c;
+    public static te0 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
-
-    /* loaded from: classes7.dex */
-    public class a extends ve0.c<ne0> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fe0.a a;
-
-        public a(te0 te0Var, fe0.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {te0Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ve0.c
-        /* renamed from: e */
-        public void a(ne0 ne0Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, ne0Var, str) == null) {
-                if (fe0.m()) {
-                    te0.c("loadSDK onCompleted filePath: " + str);
-                }
-                super.a(ne0Var, str);
-                fe0.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onResult(true, str);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ve0.c
-        /* renamed from: f */
-        public void b(ne0 ne0Var, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, ne0Var, exc) == null) {
-                if (fe0.m()) {
-                    te0.c("loadSDK onFailed failed: " + exc);
-                }
-                super.b(ne0Var, exc);
-                fe0.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onResult(false, exc == null ? "unkown" : exc.getMessage());
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ve0.c
-        /* renamed from: g */
-        public void c(ne0 ne0Var, long j, long j2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{ne0Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-                super.c(ne0Var, j, j2, i);
-                fe0.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onProgress((int) j2, i);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ff0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fe0.a a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ File c;
-
-        public b(te0 te0Var, fe0.a aVar, String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {te0Var, aVar, str, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = str;
-            this.c = file;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x0068, code lost:
-            if (r1 == false) goto L22;
-         */
-        @Override // com.repackage.ff0.a
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void a(int i, ff0 ff0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, ff0Var) == null) {
-                boolean z = false;
-                boolean z2 = i == 2;
-                if (fe0.m()) {
-                    te0.c("onLoadAssets " + z2 + ", state " + i);
-                }
-                if (this.a != null) {
-                    String str = z2 ? null : this.b;
-                    if (this.c != null) {
-                        fe0.s(new ge0(this.c.getAbsolutePath()));
-                    }
-                    if (z2) {
-                        boolean k0 = ee0.k0();
-                        if (fe0.m()) {
-                            te0.c("loadAssets ARControllerProxy.loadSoFile " + k0);
-                        }
-                    }
-                    z = z2;
-                    this.a.onResult(z, str);
-                }
-            }
-        }
-    }
+    public File a;
+    public File b;
+    public File c;
+    public File d;
+    public File e;
+    public File f;
+    public File g;
 
     public te0() {
         Interceptable interceptable = $ic;
@@ -171,155 +40,120 @@ public class te0 {
         }
     }
 
-    public static synchronized void b() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (te0.class) {
-                if (b == null) {
-                    b = new te0();
+                if (h == null) {
+                    h = new te0();
                 }
             }
         }
     }
 
-    public static void c(String str) {
+    public static File b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            Log.e("DuAr_SDKLoader", "ar->" + str);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                return d().f;
+            }
+            return d().e;
         }
+        return (File) invokeZ.objValue;
     }
 
-    public static te0 e() {
+    public static te0 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (h == null) {
+                a();
             }
-            return b;
+            return h;
         }
         return (te0) invokeV.objValue;
     }
 
-    public final bf0 d() {
+    public static File e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            File file = new File(context.getFilesDir(), FileUtils.DIR_DUAR);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d().g : (File) invokeV.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public File c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                return ((Context) Objects.requireNonNull(context)).getExternalFilesDir(FileUtils.DIR_DUAR);
+            }
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public File g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (File) invokeV.objValue;
+    }
+
+    public File h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (File) invokeV.objValue;
+    }
+
+    public void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            this.a = e(context);
+            File c = c(context);
+            this.b = c;
             if (c == null) {
-                bf0 k = bf0.k();
-                fe0.g();
-                k.m(fe0.getContext(), "arsource", new File(ge0.a()));
-                c = k;
+                this.b = this.a;
             }
-            return c;
-        }
-        return (bf0) invokeV.objValue;
-    }
-
-    public File f() {
-        InterceptResult invokeV;
-        File l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean z = fe0.o() && g();
-            if (z) {
-                l = qe0.d().h();
-            } else {
-                l = ne0.j(fe0.e()).l();
-            }
-            if (fe0.m()) {
-                c("sdkPath useLocal " + z + ", SDKPath " + l);
-            }
-            return l;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = Boolean.FALSE;
-                try {
-                    String[] list = fe0.getContext().getAssets().list("arsource");
-                    this.a = Boolean.valueOf(list != null && list.length > 0);
-                    if (fe0.m()) {
-                        if (list == null) {
-                            str = StringUtil.NULL_STRING;
-                        } else {
-                            str = "" + list.length;
-                        }
-                        c("hasAssetsResource: " + str);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+            if (this.b != null) {
+                this.c = new File(this.b, "sdk");
+                File file = new File(this.c, "arsource");
+                this.d = file;
+                if (!file.exists()) {
+                    this.d.mkdirs();
                 }
             }
-            return this.a.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        boolean q;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean z = fe0.o() && g();
-            if (z) {
-                q = d().o();
-            } else {
-                q = ne0.j("live").q();
-            }
-            if (fe0.m()) {
-                c("isLocal " + z + ", isSDKLoaded " + q);
-            }
-            return q;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(Context context, String str, File file, fe0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, file, aVar) == null) {
-            String str2 = "loadAssets context=" + context + ", assetPath=" + str + ", SDcardFile=" + file;
-            if (fe0.m()) {
-                c(str2);
-            }
-            if ((context == null || TextUtils.isEmpty(str) || file == null || TextUtils.isEmpty(file.getAbsolutePath())) && aVar != null) {
-                aVar.onResult(false, str2);
-            }
-            d().r(context, str, file, new b(this, aVar, str2, file));
-        }
-    }
-
-    public void j(fe0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            if (fe0.m()) {
-                c("loadAssets hasAssetsResource=" + g());
-            }
-            if (fe0.g() == null) {
-                c("DuArResConfig null when loadAssets");
-            } else if (TextUtils.isEmpty(ge0.a())) {
-                c("DuArResConfig data empty when loadAssets");
-            } else {
-                i(fe0.getContext(), "arsource", new File(ge0.a()), aVar);
-            }
-        }
-    }
-
-    public void k(fe0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            if (fe0.o() && g()) {
-                j(aVar);
-            } else if (fe0.c() == null) {
-                c("loadSDK with Downlader==null");
-            } else {
-                ne0.j(fe0.e()).u(fe0.getContext(), new a(this, aVar));
+            if (this.a != null) {
+                new File(this.a, "sdk");
+                File file2 = new File(this.a, "sdklibs/armeabi-v7a");
+                this.e = file2;
+                if (!file2.exists()) {
+                    this.e.mkdirs();
+                }
+                File file3 = new File(this.a, "sdklibs/arm64-v8a");
+                this.f = file3;
+                if (!file3.exists()) {
+                    this.f.mkdirs();
+                }
+                File file4 = new File(this.a, "sdklibs/armeabi-v7a-2");
+                this.g = file4;
+                if (file4.exists()) {
+                    return;
+                }
+                this.g.mkdirs();
             }
         }
     }

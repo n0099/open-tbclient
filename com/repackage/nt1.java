@@ -1,45 +1,33 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Calendar;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class nt1 extends gt1 {
+public class nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a implements Camera.AutoFocusCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lv1 a;
-        public final /* synthetic */ CanvasView b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ j03 e;
-        public final /* synthetic */ CallbackHandler f;
+        public final /* synthetic */ String a;
 
-        public a(nt1 nt1Var, lv1 lv1Var, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, j03 j03Var, CallbackHandler callbackHandler) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nt1Var, lv1Var, canvasView, str, unitedSchemeEntity, j03Var, callbackHandler};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,120 +37,77 @@ public class nt1 extends gt1 {
                     return;
                 }
             }
-            this.a = lv1Var;
-            this.b = canvasView;
-            this.c = str;
-            this.d = unitedSchemeEntity;
-            this.e = j03Var;
-            this.f = callbackHandler;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.hardware.Camera.AutoFocusCallback
+        public void onAutoFocus(boolean z, Camera camera) {
+            Camera.Parameters parameters;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i = this.a.i(this.b, this.c);
-                HashMap<String, String> params = this.d.getParams();
-                if (params == null || params.isEmpty()) {
-                    return;
-                }
-                String str = params.get("params");
-                String str2 = null;
-                JSONObject jSONObject = new JSONObject();
-                if (str != null) {
-                    try {
-                        str2 = new JSONObject(str).optString("cb");
-                        jSONObject.putOpt("tempFilePath", r73.J(this.c, this.e.b));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.f.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, i ? 0 : 1001).toString());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nt1(g13 g13Var) {
-        super(g13Var, "/swanAPI/canvas/toTempFilePath");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g13) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) || camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
+            parameters.setFocusMode(this.a);
+            camera.setParameters(parameters);
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
-        String str;
-        rz1 H;
+    public static Rect a(float f, float f2, float f3, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            lv1 m = m(unitedSchemeEntity);
-            if (m == null) {
-                jx1.c("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
-                unitedSchemeEntity.result = l(201);
-                return false;
-            }
-            String x = r73.x(j03Var.b);
-            if (TextUtils.isEmpty(x)) {
-                jx1.c("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-                unitedSchemeEntity.result = l(201);
-                return false;
-            }
-            String str2 = x + File.separator + Calendar.getInstance().getTimeInMillis();
-            if (m.h()) {
-                str = str2 + ".jpg";
-            } else {
-                str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
-            }
-            String str3 = str;
-            if (TextUtils.isEmpty(m.c) && (H = wl2.U().H()) != null) {
-                m.c = H.s3();
-            }
-            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
-                CanvasView a2 = kw1.a(m);
-                if (a2 == null) {
-                    jx1.c("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
-                    unitedSchemeEntity.result = l(201);
-                    return false;
-                }
-                dd3.k(new a(this, m, a2, str3, unitedSchemeEntity, j03Var, callbackHandler), "tempFilePath");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-            jx1.c("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.c + " ; canvas id = " + m.b);
-            unitedSchemeEntity.result = l(201);
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
+            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
+            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
+            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
+            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
         }
-        return invokeLLLL.booleanValue;
+        return (Rect) invokeCommon.objValue;
     }
 
-    public lv1 m(UnitedSchemeEntity unitedSchemeEntity) {
+    public static int b(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
+    public static String c(Camera.Parameters parameters) {
         InterceptResult invokeL;
+        List<String> supportedFocusModes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
+            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
+                if (supportedFocusModes.contains("macro")) {
+                    return "macro";
+                }
+                if (supportedFocusModes.contains("continuous-picture")) {
+                    return "continuous-picture";
+                }
             }
-            return new lv1(str);
+            return "auto";
         }
-        return (lv1) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) || motionEvent == null || camera == null) {
+            return;
+        }
+        Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
+        camera.cancelAutoFocus();
+        Camera.Parameters parameters = camera.getParameters();
+        if (parameters == null) {
+            return;
+        }
+        if (parameters.getMaxNumFocusAreas() > 0) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new Camera.Area(a2, 800));
+            parameters.setFocusAreas(arrayList);
+        }
+        String focusMode = parameters.getFocusMode();
+        parameters.setFocusMode(c(parameters));
+        camera.setParameters(parameters);
+        camera.autoFocus(new a(focusMode));
     }
 }

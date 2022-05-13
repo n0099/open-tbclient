@@ -1,25 +1,51 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.editortools.BLauncher;
-import com.baidu.tbadk.editortools.DLauncher;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class o05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static p05 a(Context context, u05 u05Var, int i) {
-        InterceptResult invokeLLI;
+    public static void a(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, u05Var, i)) == null) {
-            if (i != 1) {
-                return new DLauncher(context, u05Var);
-            }
-            return new BLauncher(context, u05Var);
+        if (!(interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
+            return;
         }
-        return (p05) invokeLLI.objValue;
+        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+        bdTopToast.i(false);
+        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f096d));
+        bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
+    }
+
+    public static void b(DownloadData downloadData) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+        bdTopToast.i(false);
+        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f096f));
+        bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
+    }
+
+    public static void c(DownloadData downloadData) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+        bdTopToast.i(true);
+        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f0974));
+        bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
     }
 }

@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kk8;
-/* loaded from: classes4.dex */
+import com.repackage.hj8;
+/* loaded from: classes3.dex */
 public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,8 +61,8 @@ public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kk8.h(309420, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
-            kk8.c(309420, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
+            hj8.h(309420, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
+            hj8.c(309420, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
         }
     }
 

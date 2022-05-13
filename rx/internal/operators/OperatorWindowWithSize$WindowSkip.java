@@ -5,28 +5,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
-import com.repackage.dz9;
-import com.repackage.hz9;
-import com.repackage.oz9;
-import com.repackage.u3a;
-import com.repackage.wz9;
+import com.repackage.cy9;
+import com.repackage.jy9;
+import com.repackage.o2a;
+import com.repackage.ry9;
+import com.repackage.wx9;
+import com.repackage.yx9;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes8.dex */
-public final class OperatorWindowWithSize$WindowSkip<T> extends hz9<T> implements oz9 {
+public final class OperatorWindowWithSize$WindowSkip<T> extends cy9<T> implements jy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hz9<? super bz9<T>> e;
+    public final cy9<? super wx9<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
     public int i;
-    public u3a<T, T> j;
+    public o2a<T, T> j;
 
     /* loaded from: classes8.dex */
-    public final class WindowSkipProducer extends AtomicBoolean implements dz9 {
+    public final class WindowSkipProducer extends AtomicBoolean implements yx9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends hz9<T> implement
             this.this$0 = operatorWindowWithSize$WindowSkip;
         }
 
-        @Override // com.repackage.dz9
+        @Override // com.repackage.yx9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -60,16 +60,16 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends hz9<T> implement
                 } else if (i != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.e(wz9.c(j, operatorWindowWithSize$WindowSkip.g));
+                        operatorWindowWithSize$WindowSkip.e(ry9.c(j, operatorWindowWithSize$WindowSkip.g));
                     } else {
-                        operatorWindowWithSize$WindowSkip.e(wz9.a(wz9.c(j, operatorWindowWithSize$WindowSkip.f), wz9.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
+                        operatorWindowWithSize$WindowSkip.e(ry9.a(ry9.c(j, operatorWindowWithSize$WindowSkip.f), ry9.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
                     }
                 }
             }
         }
     }
 
-    @Override // com.repackage.oz9
+    @Override // com.repackage.jy9
     public void call() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h.decrementAndGet() == 0) {
@@ -77,33 +77,33 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends hz9<T> implement
         }
     }
 
-    @Override // com.repackage.cz9
+    @Override // com.repackage.xx9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            u3a<T, T> u3aVar = this.j;
-            if (u3aVar != null) {
+            o2a<T, T> o2aVar = this.j;
+            if (o2aVar != null) {
                 this.j = null;
-                u3aVar.onCompleted();
+                o2aVar.onCompleted();
             }
             this.e.onCompleted();
         }
     }
 
-    @Override // com.repackage.cz9
+    @Override // com.repackage.xx9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            u3a<T, T> u3aVar = this.j;
-            if (u3aVar != null) {
+            o2a<T, T> o2aVar = this.j;
+            if (o2aVar != null) {
                 this.j = null;
-                u3aVar.onError(th);
+                o2aVar.onError(th);
             }
             this.e.onError(th);
         }
     }
 
-    @Override // com.repackage.cz9
+    @Override // com.repackage.xx9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -111,7 +111,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends hz9<T> implement
             UnicastSubject unicastSubject = this.j;
             if (i == 0) {
                 this.h.getAndIncrement();
-                unicastSubject = UnicastSubject.F(this.f, this);
+                unicastSubject = UnicastSubject.D(this.f, this);
                 this.j = unicastSubject;
                 this.e.onNext(unicastSubject);
             }

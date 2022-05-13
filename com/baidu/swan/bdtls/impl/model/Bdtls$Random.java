@@ -20,7 +20,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.mj3;
+import com.repackage.xj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -147,7 +147,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (mj3) null);
+                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (xj3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$Random.gMTUnixTime_ = this.b;
@@ -333,7 +333,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         bdtls$Random.initFields();
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, mj3 mj3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, xj3 xj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -462,7 +462,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, mj3 mj3Var) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, xj3 xj3Var) {
         this(builder);
     }
 

@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
 import com.repackage.lo0;
+import com.repackage.m11;
 import com.repackage.rn0;
 /* loaded from: classes2.dex */
 public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
@@ -49,7 +49,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, lo0 lo0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, lo0Var) == null) {
-            layoutInflater.inflate((lo0Var == null || lo0Var.a(AdBaseModel.STYLE.BIG_IMAGE) == 0) ? R.layout.obfuscated_res_0x7f0d05ad : lo0Var.a(AdBaseModel.STYLE.BIG_IMAGE), this);
+            layoutInflater.inflate((lo0Var == null || lo0Var.a(AdBaseModel.STYLE.BIG_IMAGE) == 0) ? R.layout.obfuscated_res_0x7f0d05a0 : lo0Var.a(AdBaseModel.STYLE.BIG_IMAGE), this);
         }
     }
 
@@ -57,7 +57,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914ba);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914d8);
         }
     }
 
@@ -69,7 +69,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
                 setVisibility(8);
                 return;
             }
-            p();
+            q();
             AdImageView adImageView = this.m;
             if (adImageView != null) {
                 adImageView.setVisibility(0);
@@ -85,18 +85,18 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
             setMaxTitleLine(2);
             AdImageView adImageView = this.m;
             if (adImageView != null) {
-                adImageView.g(rn0Var.r.a);
+                adImageView.n(rn0Var.r.a);
             }
         }
     }
 
-    public final void p() {
+    public final void q() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.m == null) {
             return;
         }
         Resources resources = getContext().getResources();
-        int e = c11.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
+        int e = m11.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
         layoutParams.width = e;
         layoutParams.height = Math.round((e / resources.getInteger(R.integer.obfuscated_res_0x7f0a001f)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a001e));

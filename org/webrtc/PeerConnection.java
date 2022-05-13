@@ -5,7 +5,6 @@ import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +64,7 @@ public class PeerConnection {
             }
             UNKNOWN = new AdapterType(RomUtils.UNKNOWN, 0);
             ETHERNET = new AdapterType("ETHERNET", 1);
-            WIFI = new AdapterType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 2);
+            WIFI = new AdapterType("WIFI", 2);
             CELLULAR = new AdapterType("CELLULAR", 3);
             VPN = new AdapterType("VPN", 4);
             AdapterType adapterType = new AdapterType("LOOPBACK", 5);

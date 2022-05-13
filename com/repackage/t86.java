@@ -1,123 +1,219 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t86 {
+public class t86 extends p15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755336833, "Lcom/repackage/t86;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a extends fg<co> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ t86 b;
+
+        public a(t86 t86Var, b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t86Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755336833, "Lcom/repackage/t86;");
+            this.b = t86Var;
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.fg
+        public void onLoaded(co coVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) {
+                super.onLoaded((a) coVar, str, i);
+                if (coVar != null) {
+                    this.b.q(coVar);
+                    this.b.r(coVar);
+                    if (this.b.t()) {
+                        this.a.a(this.b);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(t86 t86Var);
+    }
+
+    public t86(f86 f86Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f86Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-        b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+        this.e = f86Var.getGroupId();
+        s(1);
+        p(4);
     }
 
-    public static int a(CharSequence charSequence) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
+    @Override // com.repackage.p15
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            int i = 0;
-            if (charSequence != null && charSequence.length() != 0) {
-                Matcher matcher = a.matcher(charSequence);
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                        i++;
-                    }
-                }
-                Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(charSequence);
-                while (matcher2.find()) {
-                    String[] split = matcher2.group().split(",");
-                    if (split != null && split.length == 5) {
-                        i++;
-                    }
-                }
-                Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(charSequence);
-                while (matcher3.find()) {
-                    String[] split2 = matcher3.group().split(",");
-                    if (split2 != null && split2.length == 6) {
-                        i++;
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
         }
-        return invokeL.intValue;
+        return (String) invokeI.objValue;
     }
 
-    public static int b(CharSequence charSequence) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
+    @Override // com.repackage.p15
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
-            int i = 0;
-            if (charSequence != null && charSequence.length() != 0) {
-                Matcher matcher = a.matcher(charSequence);
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                        i++;
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
     }
 
-    public static String c(String str) {
+    @Override // com.repackage.p15
+    public co e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (co) invokeV.objValue;
+    }
+
+    @Override // com.repackage.p15
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.p15
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.p15
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.SINGLE_FORUM : (EmotionGroupType) invokeV.objValue;
+    }
+
+    @Override // com.repackage.p15
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.p15
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.p15
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.p15
+    public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String replaceAll = str.replaceAll(i35.f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-            Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
-            StringBuilder sb = new StringBuilder(replaceAll);
-            int i = 0;
-            while (matcher.find()) {
-                String[] split = matcher.group().split(",");
-                if (split != null && split.length == 6) {
-                    StringBuilder sb2 = new StringBuilder();
-                    int start = matcher.start() - i;
-                    int end = matcher.end() - i;
-                    for (int i2 = 0; i2 < split.length; i2++) {
-                        if (i2 != 1) {
-                            sb2.append(split[i2]);
-                            if (i2 < split.length - 1) {
-                                sb2.append(",");
-                            }
-                        }
-                    }
-                    i += (end - start) - sb2.toString().length();
-                    if (start >= 0 && end <= sb.length()) {
-                        sb.replace(start, end, sb2.toString());
-                    }
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.p15
+    public co n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return null;
+        }
+        return (co) invokeL.objValue;
+    }
+
+    @Override // com.repackage.p15
+    public co o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return null;
+        }
+        return (co) invokeL.objValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? d() != null : invokeV.booleanValue;
+    }
+
+    public boolean u(f86 f86Var, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, f86Var, bVar)) == null) {
+            if (f86Var instanceof SingleBarEmotionRecommendData) {
+                gg.h().m(((SingleBarEmotionRecommendData) f86Var).cover, 10, new a(this, bVar), null);
+                if (t()) {
+                    bVar.a(this);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

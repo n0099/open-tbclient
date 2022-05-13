@@ -50,7 +50,7 @@ public class PersonFriendActivity extends BasePersonInfoActivity {
     public String getCommonTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e28) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
@@ -70,28 +70,28 @@ public class PersonFriendActivity extends BasePersonInfoActivity {
     public String getNavigationBarTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0f) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e2d) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String getNoCommonTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f040d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0413) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String getNoPersonalTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e2b) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String getPersonalTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e2c) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity

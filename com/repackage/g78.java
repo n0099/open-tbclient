@@ -151,7 +151,7 @@ public class g78 extends UniversalPlayer implements x68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             BaseKernelLayer playerKernelLayer = getPlayerKernelLayer();
-            return ni.isEquals(str, playerKernelLayer != null ? playerKernelLayer.getVideoUrl() : null) && PlayerStatus.isActiveStatus(playerKernelLayer.getStatus());
+            return li.isEquals(str, playerKernelLayer != null ? playerKernelLayer.getVideoUrl() : null) && PlayerStatus.isActiveStatus(playerKernelLayer.getStatus());
         }
         return invokeL.booleanValue;
     }

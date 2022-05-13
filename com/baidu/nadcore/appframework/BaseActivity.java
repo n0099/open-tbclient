@@ -29,15 +29,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ag0;
-import com.repackage.c11;
-import com.repackage.d41;
-import com.repackage.e41;
+import com.repackage.dg0;
 import com.repackage.hm0;
-import com.repackage.n11;
-import com.repackage.si0;
-import com.repackage.t01;
+import com.repackage.m11;
+import com.repackage.o41;
+import com.repackage.p41;
 import com.repackage.ty0;
+import com.repackage.u01;
+import com.repackage.vi0;
+import com.repackage.x11;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class BaseActivity extends FragmentActivity {
     public final Object tagObject;
 
     /* loaded from: classes2.dex */
-    public class a implements d41 {
+    public class a implements o41 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivity a;
@@ -102,7 +102,7 @@ public class BaseActivity extends FragmentActivity {
             this.a = baseActivity;
         }
 
-        @Override // com.repackage.d41
+        @Override // com.repackage.o41
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -150,7 +150,7 @@ public class BaseActivity extends FragmentActivity {
                 }
                 if (!this.c.mSlideCancelActivityTransparent && !this.c.mForceActivityTransparent && this.a) {
                     this.a = false;
-                    e41.c(this.c, null);
+                    p41.c(this.c, null);
                 }
                 this.c.setPreDecorPosition(0.0f);
             }
@@ -193,7 +193,7 @@ public class BaseActivity extends FragmentActivity {
                 }
                 if (!this.c.mSlideCancelActivityTransparent && !this.c.mForceActivityTransparent && !this.a) {
                     this.a = true;
-                    e41.d(this.c, null);
+                    p41.d(this.c, null);
                 }
                 float f3 = this.b >> 2;
                 this.c.setPreDecorPosition((f * f3) - f3);
@@ -306,7 +306,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.mEnableTaskRootSlide || !isTaskRoot()) {
                 z = z2;
             }
-            int e = c11.c.e(this);
+            int e = m11.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.mSlideHelper = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -348,7 +348,7 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             String stringExtra = (getIntent() == null || !getIntent().hasExtra(KEY_WINDOWS_ANIMATING_NEED_DRAW)) ? "0" : getIntent().getStringExtra(KEY_WINDOWS_ANIMATING_NEED_DRAW);
             if ((this.mEnableDrawDuringWindowsAnimating || TextUtils.equals("1", stringExtra)) && findViewById(16908290) != null) {
-                si0.b(new c(this));
+                vi0.b(new c(this));
             }
         }
     }
@@ -447,7 +447,7 @@ public class BaseActivity extends FragmentActivity {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (c11.b.d()) {
+            if (m11.b.d()) {
                 return super.checkSelfPermission(str);
             }
             return 0;
@@ -577,10 +577,10 @@ public class BaseActivity extends FragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
-            int d2 = n11.d(this);
+            int d2 = x11.d(this);
             super.onCreate(bundle);
-            n11.a(this, d2);
-            if (ag0.a(this)) {
+            x11.a(this, d2);
+            if (dg0.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
@@ -624,9 +624,9 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             super.onMultiWindowModeChanged(z);
             if (z && !sHasMultiWindowShow) {
-                t01.a().c(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b41, 1);
+                u01.a().c(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b55, 1);
                 setHasMultiWindowShow(true);
-            } else if (z || c11.a()) {
+            } else if (z || m11.a()) {
             } else {
                 setHasMultiWindowShow(false);
             }
@@ -730,7 +730,7 @@ public class BaseActivity extends FragmentActivity {
     @SuppressLint({"NewApi"})
     public void requestPermission(String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048608, this, strArr, i) == null) && c11.b.d()) {
+        if ((interceptable == null || interceptable.invokeLI(1048608, this, strArr, i) == null) && m11.b.d()) {
             super.requestPermissions(strArr, i);
         }
     }
@@ -773,7 +773,7 @@ public class BaseActivity extends FragmentActivity {
     public void setCurrentActivityNoTransparent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            e41.c(this, new a(this));
+            p41.c(this, new a(this));
         }
     }
 
@@ -843,7 +843,7 @@ public class BaseActivity extends FragmentActivity {
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) ? c11.b.d() && super.shouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) ? m11.b.d() && super.shouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
     }
 
     public void setEnableSliding(boolean z, SlideInterceptor slideInterceptor) {

@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class zm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pz4> a;
+    public List<d05> a;
     public boolean b;
 
     public zm7() {
@@ -38,9 +38,9 @@ public class zm7 {
         if (optJSONArray != null && optJSONArray.length() != 0) {
             this.a = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                pz4 pz4Var = new pz4();
-                pz4Var.a(optJSONArray.optJSONObject(i));
-                this.a.add(pz4Var);
+                d05 d05Var = new d05();
+                d05Var.a(optJSONArray.optJSONObject(i));
+                this.a.add(d05Var);
             }
         }
         this.b = jSONObject.optInt("has_more", 0) == 1;

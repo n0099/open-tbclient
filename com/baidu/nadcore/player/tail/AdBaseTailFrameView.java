@@ -26,8 +26,8 @@ import com.repackage.ez0;
 import com.repackage.fz0;
 import com.repackage.ko0;
 import com.repackage.mz0;
-import com.repackage.qh0;
 import com.repackage.rj0;
+import com.repackage.th0;
 import com.repackage.tn0;
 /* loaded from: classes2.dex */
 public abstract class AdBaseTailFrameView extends FrameLayout {
@@ -74,7 +74,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.g.p();
+                this.a.g.l();
             }
         }
     }
@@ -182,16 +182,16 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
             return;
         }
         String str2 = ko0Var.c;
-        if (R.id.obfuscated_res_0x7f090105 == view2.getId() && !TextUtils.isEmpty(ko0Var.d) && !"__BTN_SCHEME__".equals(ko0Var.d)) {
+        if (R.id.obfuscated_res_0x7f0900fb == view2.getId() && !TextUtils.isEmpty(ko0Var.d) && !"__BTN_SCHEME__".equals(ko0Var.d)) {
             str2 = ko0Var.d;
         }
-        qh0.c(str2, getContext());
+        th0.c(str2, getContext());
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f090103) {
+        if (id == R.id.obfuscated_res_0x7f0900f9) {
             str = ClogBuilder.Area.ICON.type;
-        } else if (id == R.id.obfuscated_res_0x7f090107) {
+        } else if (id == R.id.obfuscated_res_0x7f0900fd) {
             str = ClogBuilder.Area.NAME.type;
-        } else if (id == R.id.obfuscated_res_0x7f090105) {
+        } else if (id == R.id.obfuscated_res_0x7f0900fb) {
             str = ClogBuilder.Area.BUTTON.type;
         } else {
             str = ClogBuilder.Area.HOTAREA.type;
@@ -216,15 +216,15 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(f(), this);
-            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090108);
-            this.b = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090103);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090107);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090105);
+            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0900fe);
+            this.b = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0900f9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fb);
             this.d = textView;
             mz0.b(textView, Font.F_F_X02);
-            this.e = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f090106);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090104);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0922eb);
+            this.e = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f0900fc);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fa);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092340);
             g();
         }
     }
@@ -245,8 +245,8 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         d dVar = this.h;
         if (dVar == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.s(ClogBuilder.LogType.FREE_SHOW).q(ClogBuilder.Page.AD_TAIL).n(ko0Var.l);
-            ez0.b(clogBuilder);
+            clogBuilder.w(ClogBuilder.LogType.FREE_SHOW).s(ClogBuilder.Page.AD_TAIL).n(ko0Var.l);
+            ez0.c(clogBuilder);
             return;
         }
         dVar.a(ClogBuilder.LogType.FREE_SHOW.type, "");
@@ -260,8 +260,8 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         d dVar = this.h;
         if (dVar == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.t(str).q(ClogBuilder.Page.AD_TAIL).h(str2).n(ko0Var.l);
-            ez0.b(clogBuilder);
+            clogBuilder.x(str).s(ClogBuilder.Page.AD_TAIL).h(str2).n(ko0Var.l);
+            ez0.c(clogBuilder);
             return;
         }
         dVar.a(str, str2);
@@ -287,7 +287,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                 }
                 if (!TextUtils.isEmpty(ko0Var.b)) {
                     this.b.setVisibility(0);
-                    this.b.g(ko0Var.b);
+                    this.b.n(ko0Var.b);
                 } else {
                     this.b.setVisibility(8);
                 }
@@ -306,7 +306,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                         if (!TextUtils.isEmpty(ko0Var.e)) {
                             this.e.setText(ko0Var.e);
                         } else {
-                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b4f));
+                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b63));
                         }
                         rj0 c2 = rj0.c(ko0Var.m, ko0Var.l, ko0Var.d);
                         c2.e = TextUtils.isEmpty(c2.d);
@@ -325,7 +325,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                     if (!TextUtils.isEmpty(ko0Var.e)) {
                         this.d.setText(ko0Var.e);
                     } else {
-                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b40));
+                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b54));
                     }
                 }
                 b bVar = new b(this, h, ko0Var);

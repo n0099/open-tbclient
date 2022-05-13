@@ -16,33 +16,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c07;
-import com.repackage.d07;
-import com.repackage.dp;
-import com.repackage.ho;
-import com.repackage.mx5;
-import com.repackage.uo;
+import com.repackage.bp;
+import com.repackage.cz6;
+import com.repackage.dz6;
+import com.repackage.eo;
+import com.repackage.nx5;
+import com.repackage.ro;
 /* loaded from: classes3.dex */
-public class ReadProgessDelegetAdapter extends ho<d07, ViewHolder> {
+public class ReadProgessDelegetAdapter extends eo<dz6, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> i;
-    public dp j;
+    public bp j;
 
     /* loaded from: classes3.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c07 a;
+        public cz6 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(c07 c07Var) {
-            super(c07Var.k());
+        public ViewHolder(cz6 cz6Var) {
+            super(cz6Var.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c07Var};
+                Object[] objArr = {cz6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,12 +53,12 @@ public class ReadProgessDelegetAdapter extends ho<d07, ViewHolder> {
                     return;
                 }
             }
-            this.a = c07Var;
+            this.a = cz6Var;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a implements dp {
+    public class a implements bp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,10 +78,10 @@ public class ReadProgessDelegetAdapter extends ho<d07, ViewHolder> {
             }
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 TiebaStatic.log(new StatisticItem("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
             }
@@ -114,23 +114,23 @@ public class ReadProgessDelegetAdapter extends ho<d07, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ViewHolder(new c07(this.i, viewGroup)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ViewHolder(new cz6(this.i, viewGroup)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, d07 d07Var, ViewHolder viewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, dz6 dz6Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d07Var, viewHolder})) == null) {
-            mx5.b().a(new StatisticItem("c11272"));
-            viewHolder.a.l(d07Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dz6Var, viewHolder})) == null) {
+            nx5.b().a(new StatisticItem("c11272"));
+            viewHolder.a.l(dz6Var);
             return viewHolder.b();
         }
         return (View) invokeCommon.objValue;

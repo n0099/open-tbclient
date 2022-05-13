@@ -59,11 +59,11 @@ public class rr0 extends pr0 {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             super.C(z);
             if (z) {
-                this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df8));
+                this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e12));
                 return;
             }
             J(false);
-            this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df5));
+            this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e0f));
         }
     }
 
@@ -159,13 +159,13 @@ public class rr0 extends pr0 {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             this.j = layoutParams;
             layoutParams.gravity = 80;
-            ViewGroup viewGroup = (ViewGroup) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d05d6, null);
+            ViewGroup viewGroup = (ViewGroup) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d05c9, null);
             this.e = viewGroup;
-            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090345);
-            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f0911b6);
+            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f09033e);
+            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f0911c5);
             this.f = bdLayerSeekBar;
             bdLayerSeekBar.setSeekBarHolderListener(this);
-            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090937);
+            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09092f);
             this.h = imageView;
             imageView.setOnClickListener(this);
             E(false);
@@ -290,6 +290,6 @@ public class rr0 extends pr0 {
     public View x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.e.findViewById(R.id.obfuscated_res_0x7f090270) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.e.findViewById(R.id.obfuscated_res_0x7f090266) : (View) invokeV.objValue;
     }
 }

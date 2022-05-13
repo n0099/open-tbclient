@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cc3;
-import com.repackage.gl2;
+import com.repackage.nc3;
+import com.repackage.rl2;
 /* loaded from: classes2.dex */
 public class ForbiddenInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -23,7 +23,7 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public cc3 errCode;
+    public nc3 errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
@@ -88,16 +88,16 @@ public class ForbiddenInfo implements Parcelable {
         this(parcel);
     }
 
-    private void convertToForbiddenModel(gl2 gl2Var) {
+    private void convertToForbiddenModel(rl2 rl2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, gl2Var) == null) || gl2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, rl2Var) == null) || rl2Var == null) {
             return;
         }
-        this.appId = gl2Var.H();
-        this.appKey = gl2Var.I();
-        this.appTitle = gl2Var.K();
-        this.launchPath = gl2Var.e0();
-        this.launchSource = gl2Var.T();
+        this.appId = rl2Var.H();
+        this.appKey = rl2Var.I();
+        this.appTitle = rl2Var.K();
+        this.launchPath = rl2Var.e0();
+        this.launchSource = rl2Var.T();
     }
 
     @Override // android.os.Parcelable
@@ -156,12 +156,12 @@ public class ForbiddenInfo implements Parcelable {
         this.enableSlidingFlag = 0;
     }
 
-    public ForbiddenInfo(gl2 gl2Var, String str, String str2) {
+    public ForbiddenInfo(rl2 rl2Var, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gl2Var, str, str2};
+            Object[] objArr = {rl2Var, str, str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -172,7 +172,7 @@ public class ForbiddenInfo implements Parcelable {
             }
         }
         this.enableSlidingFlag = 0;
-        convertToForbiddenModel(gl2Var);
+        convertToForbiddenModel(rl2Var);
         this.forbiddenReason = str;
         this.forbiddenDetail = str2;
     }

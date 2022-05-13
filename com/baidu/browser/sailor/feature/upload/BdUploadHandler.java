@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.repackage.by;
-import com.repackage.cy;
-import com.repackage.ux;
+import com.repackage.dx;
+import com.repackage.kx;
+import com.repackage.lx;
 import java.io.File;
 /* loaded from: classes.dex */
 public class BdUploadHandler implements INoProGuard {
@@ -89,7 +89,7 @@ public class BdUploadHandler implements INoProGuard {
                     this.a.mCanHandleResult = true;
                     this.a.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
                 }
-                by.b().d(4099);
+                kx.b().d(4099);
             }
         }
     }
@@ -132,7 +132,7 @@ public class BdUploadHandler implements INoProGuard {
                     this.a.mCanHandleResult = true;
                     this.a.mActivity.startActivityForResult(this.a.createCamcorderIntent(), 11);
                 }
-                by.b().d(4099);
+                kx.b().d(4099);
             }
         }
     }
@@ -161,13 +161,13 @@ public class BdUploadHandler implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (cy.a(this.mActivity)) {
+            if (lx.a(this.mActivity)) {
                 return new Intent("android.media.action.VIDEO_CAPTURE");
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
             intent.putExtra("permissions", new String[]{"android.permission.CAMERA"});
-            by.b().a(4099, new b(this));
+            kx.b().a(4099, new b(this));
             return intent;
         }
         return (Intent) invokeV.objValue;
@@ -209,7 +209,7 @@ public class BdUploadHandler implements INoProGuard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, intentArr)) == null) {
             Intent intent = new Intent("android.intent.action.CHOOSER");
             intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(ux.c(EMABTest.TYPE_STRING, "sailor_choose_upload")));
+            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(dx.c(EMABTest.TYPE_STRING, "sailor_choose_upload")));
             return intent;
         }
         return (Intent) invokeL.objValue;
@@ -239,13 +239,13 @@ public class BdUploadHandler implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (cy.a(this.mActivity) && cy.b(this.mActivity)) {
+            if (lx.a(this.mActivity) && lx.b(this.mActivity)) {
                 return createCameraIntentAfterCheckPermission();
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
             intent.putExtra("permissions", new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"});
-            by.b().a(4099, new a(this));
+            kx.b().a(4099, new a(this));
             return intent;
         }
         return (Intent) invokeV.objValue;

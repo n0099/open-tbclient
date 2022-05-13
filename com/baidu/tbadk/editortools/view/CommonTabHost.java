@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i05;
-import com.repackage.u25;
+import com.repackage.k35;
+import com.repackage.w05;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     public CommonTabContentView b;
     public CommonTabWidgetView c;
     public ProgressBar d;
-    public ArrayList<u25> e;
+    public ArrayList<k35> e;
     public int f;
     public int g;
     public Context h;
@@ -71,18 +71,18 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
 
         @Override // com.baidu.tbadk.editortools.view.CommonTabHost.b
-        public void b(u25 u25Var) {
+        public void b(k35 k35Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u25Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k35Var) == null) {
                 this.a.m();
                 this.a.c.e();
                 this.a.c.setDatas(this.a.e);
                 int size = this.a.e.size();
                 boolean z = false;
                 for (int i = 0; i < size; i++) {
-                    u25.b i2 = ((u25) this.a.e.get(i)).i();
-                    if (i2 != null) {
-                        this.a.l(i2);
+                    k35.b h = ((k35) this.a.e.get(i)).h();
+                    if (h != null) {
+                        this.a.l(h);
                         z = true;
                     }
                 }
@@ -111,7 +111,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     public interface b {
         void a();
 
-        void b(u25 u25Var);
+        void b(k35 k35Var);
 
         void onLoadFail();
     }
@@ -152,31 +152,31 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
     }
 
-    public void b() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setVisibility(0);
         }
     }
 
-    @Override // com.repackage.v05
-    public void d(i05 i05Var) {
+    @Override // com.repackage.j15
+    public void g(w05 w05Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i05Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w05Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(i05Var);
+        editorTools.A(w05Var);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.repackage.v05
+    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.repackage.j15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -190,16 +190,16 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
     }
 
-    public void k(u25 u25Var) {
+    public void j(k35 k35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, u25Var) == null) {
-            u25Var.s(this.k);
-            u25Var.setEditorTools(this.a);
-            this.e.add(u25Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, k35Var) == null) {
+            k35Var.s(this.k);
+            k35Var.setEditorTools(this.a);
+            this.e.add(k35Var);
         }
     }
 
-    public final void l(u25.b bVar) {
+    public final void l(k35.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
             this.c.b(bVar);
@@ -218,10 +218,10 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             this.h = context;
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f5, (ViewGroup) this, true);
-            this.b = (CommonTabContentView) findViewById(R.id.obfuscated_res_0x7f0906ad);
-            this.c = (CommonTabWidgetView) findViewById(R.id.obfuscated_res_0x7f0906ae);
-            this.d = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0906ac);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ee, (ViewGroup) this, true);
+            this.b = (CommonTabContentView) findViewById(R.id.obfuscated_res_0x7f0906a8);
+            this.c = (CommonTabWidgetView) findViewById(R.id.obfuscated_res_0x7f0906a9);
+            this.d = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0906a7);
             this.c.setOnTabSelectedListener(this);
             this.c.setEditorTools(this.a);
             setOrientation(1);
@@ -237,17 +237,17 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
     }
 
-    public void onAction(i05 i05Var) {
+    public void onAction(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, i05Var) == null) {
-            Iterator<u25> it = this.e.iterator();
+        if (interceptable == null || interceptable.invokeL(1048587, this, w05Var) == null) {
+            Iterator<k35> it = this.e.iterator();
             while (it.hasNext()) {
-                it.next().onAction(i05Var);
+                it.next().onAction(w05Var);
             }
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -262,7 +262,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDetachedFromWindow();
-            Iterator<u25> it = this.e.iterator();
+            Iterator<k35> it = this.e.iterator();
             while (it.hasNext()) {
                 it.next().a();
             }
@@ -287,14 +287,14 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         this.f = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.repackage.v05
+    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.repackage.j15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, editorTools) == null) {
             this.a = editorTools;
-            ArrayList<u25> arrayList = this.e;
+            ArrayList<k35> arrayList = this.e;
             if (arrayList != null && arrayList.size() != 0) {
-                Iterator<u25> it = this.e.iterator();
+                Iterator<k35> it = this.e.iterator();
                 while (it.hasNext()) {
                     it.next().setEditorTools(this.a);
                 }
@@ -313,7 +313,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.repackage.v05
+    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.repackage.j15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -335,7 +335,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                 return;
             }
             this.l = true;
-            Iterator<u25> it = this.e.iterator();
+            Iterator<k35> it = this.e.iterator();
             while (it.hasNext()) {
                 it.next().q(this.h);
             }

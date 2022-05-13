@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
-import com.repackage.ef5;
-import com.repackage.gp4;
-import com.repackage.hc5;
-import com.repackage.nf5;
-import com.repackage.qp4;
-import com.repackage.xq4;
+import com.repackage.bq4;
+import com.repackage.gg5;
+import com.repackage.ir4;
+import com.repackage.rp4;
+import com.repackage.xf5;
+import com.repackage.yc5;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +75,7 @@ public class OriginalThreadInfo {
     public final List<PbContent> t;
     public SpannableString u;
     @Nullable
-    public List<nf5> v;
+    public List<gg5> v;
     @Nullable
     public ThreadData w;
     public boolean x;
@@ -99,10 +99,10 @@ public class OriginalThreadInfo {
         this.t = new ArrayList();
     }
 
-    public static OriginalThreadInfo l(ThreadData threadData) {
+    public static OriginalThreadInfo m(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
             if (threadData == null) {
                 return null;
             }
@@ -111,7 +111,7 @@ public class OriginalThreadInfo {
                 return originalThreadInfo;
             }
             OriginalThreadInfo originalThreadInfo2 = new OriginalThreadInfo();
-            originalThreadInfo2.s(threadData);
+            originalThreadInfo2.t(threadData);
             originalThreadInfo2.d = threadData.getForum_name();
             originalThreadInfo2.e = threadData.getFid();
             originalThreadInfo2.f = threadData.getTid();
@@ -128,7 +128,7 @@ public class OriginalThreadInfo {
             originalThreadInfo2.h = arrayList2;
             originalThreadInfo2.r = threadData.getThreadVideoInfo();
             if (threadData.isLinkThread() && threadData.getLinkThreadData() != null) {
-                gp4 linkThreadData = threadData.getLinkThreadData();
+                rp4 linkThreadData = threadData.getLinkThreadData();
                 originalThreadInfo2.g = linkThreadData.d();
                 abstractData.text = linkThreadData.a();
                 mediaData.setPic(linkThreadData.b());
@@ -140,7 +140,7 @@ public class OriginalThreadInfo {
                 mediaData.setPic(threadData.getThreadVideoInfo().thumbnail_url);
             }
             originalThreadInfo2.j = threadData.getThreadAlaInfo();
-            originalThreadInfo2.r();
+            originalThreadInfo2.s();
             originalThreadInfo2.D = threadData.itemData;
             originalThreadInfo2.F = threadData.itemStarData;
             originalThreadInfo2.p = threadData.getBaijiahaoData();
@@ -150,7 +150,7 @@ public class OriginalThreadInfo {
         return (OriginalThreadInfo) invokeL.objValue;
     }
 
-    public ThreadData a() {
+    public ThreadData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -175,13 +175,13 @@ public class OriginalThreadInfo {
     }
 
     @Nullable
-    public SpannableString b() {
+    public SpannableString c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.u : (SpannableString) invokeV.objValue;
     }
 
-    public ActivityItemData c() {
+    public ActivityItemData d() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -193,9 +193,9 @@ public class OriginalThreadInfo {
             int size = this.s.size();
             for (int i = 0; i < size; i++) {
                 PbContent pbContent = this.s.get(i);
-                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && k() && (str = pbContent.text) != null && str.length() >= 3) {
+                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && l() && (str = pbContent.text) != null && str.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = hc5.d(pbContent.text);
+                    activityItemData.link_url = yc5.d(pbContent.text);
                     String str2 = pbContent.text;
                     activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                     return activityItemData;
@@ -206,7 +206,7 @@ public class OriginalThreadInfo {
         return (ActivityItemData) invokeV.objValue;
     }
 
-    public String d() {
+    public String e() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -216,13 +216,13 @@ public class OriginalThreadInfo {
             } else {
                 str = (ListUtils.getItem(this.i, 0) == null || StringUtils.isNull(((AbstractData) ListUtils.getItem(this.i, 0)).text)) ? null : ((AbstractData) ListUtils.getItem(this.i, 0)).text;
             }
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f01) : str;
+            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f1f) : str;
         }
         return (String) invokeV.objValue;
     }
 
     @NonNull
-    public List<PbContent> e() {
+    public List<PbContent> f() {
         InterceptResult invokeV;
         List<PbContent> list;
         Interceptable interceptable = $ic;
@@ -240,13 +240,13 @@ public class OriginalThreadInfo {
     }
 
     @Nullable
-    public List<nf5> f() {
+    public List<gg5> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.v : (List) invokeV.objValue;
     }
 
-    public boolean g() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -256,7 +256,7 @@ public class OriginalThreadInfo {
         return invokeV.booleanValue;
     }
 
-    public boolean h() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -266,13 +266,13 @@ public class OriginalThreadInfo {
         return invokeV.booleanValue;
     }
 
-    public boolean i() {
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.x : invokeV.booleanValue;
     }
 
-    public boolean j() {
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -286,7 +286,7 @@ public class OriginalThreadInfo {
         return invokeV.booleanValue;
     }
 
-    public boolean k() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -296,21 +296,21 @@ public class OriginalThreadInfo {
         return invokeV.booleanValue;
     }
 
-    public void m(OriginThreadInfo originThreadInfo) {
+    public void n(OriginThreadInfo originThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, originThreadInfo) == null) {
-            n(originThreadInfo, null);
+            o(originThreadInfo, null);
         }
     }
 
-    public void n(OriginThreadInfo originThreadInfo, @Nullable ThreadData threadData) {
+    public void o(OriginThreadInfo originThreadInfo, @Nullable ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, originThreadInfo, threadData) == null) {
             if (originThreadInfo == null) {
-                q();
+                r();
                 return;
             }
-            s(threadData);
+            t(threadData);
             this.d = originThreadInfo.fname;
             this.e = originThreadInfo.fid.longValue();
             this.f = originThreadInfo.tid;
@@ -391,26 +391,26 @@ public class OriginalThreadInfo {
                 pollData.parserProtobuf(originThreadInfo.poll_info);
             }
             this.H = originThreadInfo.is_frs_mask.intValue() == 1;
-            r();
-            o();
+            s();
+            p();
         }
     }
 
-    public final void o() {
+    public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.v == null) {
                 this.v = new ArrayList();
             }
-            this.u = new SpannableString(ef5.G(this.s, this.E, true, this.w, this.v));
+            this.u = new SpannableString(xf5.G(this.s, this.E, true, this.w, this.v));
         }
     }
 
-    public void p(JSONObject jSONObject) {
+    public void q(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
             if (jSONObject == null) {
-                q();
+                r();
                 return;
             }
             try {
@@ -419,7 +419,7 @@ public class OriginalThreadInfo {
                 this.f = jSONObject.optString("tid");
                 this.g = jSONObject.optString("title");
                 this.k = jSONObject.optInt("thread_type");
-                this.s = qp4.a(jSONObject.optJSONArray("content"));
+                this.s = bq4.a(jSONObject.optJSONArray("content"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
                 if (optJSONObject != null) {
                     AlaInfoData alaInfoData = new AlaInfoData();
@@ -463,7 +463,7 @@ public class OriginalThreadInfo {
                     this.p = baijiahaoData;
                     baijiahaoData.parseJson(optJSONObject2);
                 }
-                this.r = xq4.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+                this.r = ir4.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                     this.q = new ArrayList<>();
@@ -473,7 +473,7 @@ public class OriginalThreadInfo {
                         this.q.add(voiceModel);
                     }
                 }
-                o();
+                p();
             } finally {
                 try {
                 } finally {
@@ -482,16 +482,16 @@ public class OriginalThreadInfo {
         }
     }
 
-    public final void q() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.a = 0;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cec);
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d06);
             this.c = null;
         }
     }
 
-    public void r() {
+    public void s() {
         VideoInfo videoInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -527,12 +527,12 @@ public class OriginalThreadInfo {
             } else if (!StringUtils.isNull(this.g)) {
                 this.b = this.g;
             } else {
-                this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cec);
+                this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d06);
             }
         }
     }
 
-    public void s(@Nullable ThreadData threadData) {
+    public void t(@Nullable ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             this.w = threadData;
@@ -550,6 +550,7 @@ public class OriginalThreadInfo {
         public String showPicUrl;
         public String showText;
         public int showType;
+        public transient ThreadData threadData;
         public String threadId;
         public String videoId;
 
@@ -581,6 +582,7 @@ public class OriginalThreadInfo {
                 shareInfo.itemData = originalThreadInfo.D;
                 shareInfo.itemStarData = originalThreadInfo.F;
                 shareInfo.pollData = originalThreadInfo.G;
+                shareInfo.threadData = originalThreadInfo.w;
                 return shareInfo;
             }
             return (ShareInfo) invokeL.objValue;
@@ -589,7 +591,7 @@ public class OriginalThreadInfo {
         public static ShareInfo generateShareInfo(ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? generateShareInfo(OriginalThreadInfo.l(threadData)) : (ShareInfo) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? generateShareInfo(OriginalThreadInfo.m(threadData)) : (ShareInfo) invokeL.objValue;
         }
     }
 }

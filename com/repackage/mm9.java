@@ -1,50 +1,46 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class mm9 implements ValueAnimator.AnimatorUpdateListener {
+public final class mm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
-    public final /* synthetic */ int b;
-    public final /* synthetic */ int c;
-    public final /* synthetic */ InstallActivity d;
+    public final double a;
+    public final double b;
 
-    public mm9(InstallActivity installActivity, int i, int i2, int i3) {
+    public mm9(double d, double d2, double d3, double d4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = installActivity;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        this.a = d3;
+        this.b = d4;
     }
 
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+    public final double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
-            float animatedFraction2 = valueAnimator.getAnimatedFraction();
-            int i = this.b;
-            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
-            this.d.getWindow().getDecorView().refreshDrawableState();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.doubleValue;
+    }
+
+    public final double b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.doubleValue;
     }
 }

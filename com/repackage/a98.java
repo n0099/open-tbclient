@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tr8;
+import com.repackage.qq8;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -43,12 +43,12 @@ public class a98 implements QRCodeView.c {
     public final z88 a;
     public final TbPageContext b;
     public f c;
-    public tr8 d;
+    public qq8 d;
     public e e;
     public boolean f;
 
     /* loaded from: classes5.dex */
-    public class a implements tr8.a {
+    public class a implements qq8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -73,7 +73,7 @@ public class a98 implements QRCodeView.c {
             this.a = str;
         }
 
-        @Override // com.repackage.tr8.a
+        @Override // com.repackage.qq8.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -82,7 +82,7 @@ public class a98 implements QRCodeView.c {
             }
         }
 
-        @Override // com.repackage.tr8.a
+        @Override // com.repackage.qq8.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -91,7 +91,7 @@ public class a98 implements QRCodeView.c {
             }
         }
 
-        @Override // com.repackage.tr8.a
+        @Override // com.repackage.qq8.a
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -100,7 +100,7 @@ public class a98 implements QRCodeView.c {
             }
         }
 
-        @Override // com.repackage.tr8.a
+        @Override // com.repackage.qq8.a
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -140,7 +140,7 @@ public class a98 implements QRCodeView.c {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            vt4.k().y("key_gallery_last_image_path", str);
+            iu4.k().y("key_gallery_last_image_path", str);
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
@@ -395,7 +395,7 @@ public class a98 implements QRCodeView.c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            oi.M(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04e0);
+            mi.M(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04e6);
             this.b.getPageActivity().finish();
         }
     }
@@ -505,7 +505,7 @@ public class a98 implements QRCodeView.c {
         }
         if (Build.VERSION.SDK_INT < 23 || (this.b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.b.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
             String f2 = f(this.b.getPageActivity().getContentResolver());
-            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(vt4.k().q("key_gallery_last_image_path", null))) {
+            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(iu4.k().q("key_gallery_last_image_path", null))) {
                 return;
             }
             e eVar = this.e;
@@ -521,8 +521,8 @@ public class a98 implements QRCodeView.c {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            tr8 tr8Var = this.d;
-            if (tr8Var != null && !tr8Var.isCancelled()) {
+            qq8 qq8Var = this.d;
+            if (qq8Var != null && !qq8Var.isCancelled()) {
                 this.d.cancel();
             }
             f fVar = this.c;
@@ -592,18 +592,18 @@ public class a98 implements QRCodeView.c {
     public final void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (!oi.C()) {
+            if (!mi.C()) {
                 this.a.viewHideLoading();
-                oi.N(this.b.getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c18));
+                mi.N(this.b.getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c2e));
                 return;
             }
-            tr8 tr8Var = this.d;
-            if (tr8Var != null && !tr8Var.isCancelled()) {
+            qq8 qq8Var = this.d;
+            if (qq8Var != null && !qq8Var.isCancelled()) {
                 this.d.cancel();
             }
-            tr8 tr8Var2 = new tr8(str, new a(this, str));
-            this.d = tr8Var2;
-            tr8Var2.setPriority(3);
+            qq8 qq8Var2 = new qq8(str, new a(this, str));
+            this.d = qq8Var2;
+            qq8Var2.setPriority(3);
             this.d.execute(new String[0]);
         }
     }
@@ -634,7 +634,7 @@ public class a98 implements QRCodeView.c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
             if (Build.VERSION.SDK_INT <= 21) {
-                oi.M(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f00e2);
+                mi.M(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f00e4);
                 return;
             }
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();

@@ -1,13 +1,7 @@
 package com.repackage;
-
-import java.io.IOException;
 /* loaded from: classes6.dex */
 public interface na9 {
-    void a() throws IOException;
+    void a(double d);
 
-    void b(String str) throws IOException;
-
-    int c(byte[] bArr, int i, int i2) throws IOException;
-
-    void d(va9 va9Var);
+    void a(String str, boolean z);
 }

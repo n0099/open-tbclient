@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b21;
 import com.repackage.bo0;
-import com.repackage.c11;
-import com.repackage.hi0;
+import com.repackage.ki0;
 import com.repackage.lo0;
-import com.repackage.r11;
+import com.repackage.m11;
 import com.repackage.ty0;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -69,8 +69,8 @@ public class NadExpressBottomView extends ViewGroup {
                 return;
             }
         }
-        l = c11.c.a(hi0.b(), 3.0f);
-        m = c11.c.a(hi0.b(), 0.0f);
+        l = m11.c.a(ki0.b(), 3.0f);
+        m = m11.c.a(ki0.b(), 0.0f);
         n = e(R.dimen.obfuscated_res_0x7f070046);
         o = e(R.dimen.obfuscated_res_0x7f070502);
         p = e(R.dimen.obfuscated_res_0x7f070483);
@@ -78,8 +78,8 @@ public class NadExpressBottomView extends ViewGroup {
         r = e(R.dimen.obfuscated_res_0x7f070068);
         s = e(R.dimen.obfuscated_res_0x7f070068);
         t = e(R.dimen.obfuscated_res_0x7f07052b);
-        u = d(R.color.obfuscated_res_0x7f060271);
-        v = d(R.color.obfuscated_res_0x7f06024e);
+        u = d(R.color.obfuscated_res_0x7f060274);
+        v = d(R.color.obfuscated_res_0x7f060251);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -106,13 +106,13 @@ public class NadExpressBottomView extends ViewGroup {
     public static int d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? ContextCompat.getColor(hi0.b(), i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? ContextCompat.getColor(ki0.b(), i) : invokeI.intValue;
     }
 
     public static int e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? hi0.b().getResources().getDimensionPixelSize(i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? ki0.b().getResources().getDimensionPixelSize(i) : invokeI.intValue;
     }
 
     public final String a(String str, float f, TextPaint textPaint) {
@@ -149,7 +149,7 @@ public class NadExpressBottomView extends ViewGroup {
                         if (f > h2) {
                             h = measuredWidth + h2;
                         } else {
-                            String b = r11.b(this.d, this.b, f, this.e);
+                            String b = b21.b(this.d, this.b, f, this.e);
                             this.k = b;
                             ty0.a(this.g, b, i2);
                         }
@@ -224,10 +224,10 @@ public class NadExpressBottomView extends ViewGroup {
             AdImageView adImageView = new AdImageView(getContext());
             this.a = adImageView;
             adImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de5));
-            this.a.setId(R.id.obfuscated_res_0x7f09149c);
+            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dff));
+            this.a.setId(R.id.obfuscated_res_0x7f0914ba);
             this.a.setContentDescription("不感兴趣");
-            r11.a(getContext(), this.a, 15.0f);
+            b21.a(getContext(), this.a, 15.0f);
             setWillNotDraw(false);
             TextPaint textPaint = new TextPaint();
             this.e = textPaint;
@@ -253,7 +253,7 @@ public class NadExpressBottomView extends ViewGroup {
                 ty0.b(this.g, a);
             }
             if (!TextUtils.isEmpty(this.b)) {
-                String b = r11.b(this.d, this.b, p, this.e);
+                String b = b21.b(this.d, this.b, p, this.e);
                 this.k = b;
                 ty0.b(this.g, b);
             } else if (TextUtils.isEmpty(this.d)) {
@@ -285,7 +285,7 @@ public class NadExpressBottomView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onAttachedToWindow();
-            r11.a(getContext(), this.a, 15.0f);
+            b21.a(getContext(), this.a, 15.0f);
         }
     }
 

@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tq5;
 import com.repackage.uq5;
+import com.repackage.vq5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -19,7 +19,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<ThreadData> livesList;
-    public uq5 mSpecialActivityListData;
+    public vq5 mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSpecialRecommendResponse() {
@@ -39,7 +39,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         }
         this.hasMore = false;
         this.livesList = new ArrayList();
-        this.mSpecialActivityListData = new uq5();
+        this.mSpecialActivityListData = new vq5();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -68,17 +68,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     this.hasMore = false;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-                uq5 uq5Var = this.mSpecialActivityListData;
-                if (uq5Var != null && uq5Var.a == null) {
-                    uq5Var.a = new ArrayList();
+                vq5 vq5Var = this.mSpecialActivityListData;
+                if (vq5Var != null && vq5Var.a == null) {
+                    vq5Var.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            tq5 tq5Var = new tq5();
-                            tq5Var.e(optJSONObject3);
-                            this.mSpecialActivityListData.a.add(tq5Var);
+                            uq5 uq5Var = new uq5();
+                            uq5Var.e(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(uq5Var);
                         }
                     }
                 }

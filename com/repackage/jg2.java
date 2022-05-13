@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jg2 extends de2<ug2> {
+public class jg2 extends oe2<fh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,33 +27,22 @@ public class jg2 extends de2<ug2> {
         }
     }
 
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteVideoPlayState" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goBackground" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ug2 ug2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull fh2 fh2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ug2Var) == null) {
-            String str = command.what;
-            d(ug2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.has("status") && jSONObject.has("userId")) {
-                    long optLong = jSONObject.optLong("userId", -1L);
-                    boolean optBoolean = jSONObject.optBoolean("status");
-                    if (sg2.a(optLong)) {
-                        ug2Var.e0(optLong, optBoolean);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fh2Var) == null) {
+            d(fh2Var, command.what, null, true);
+            fh2Var.n();
         }
     }
 }

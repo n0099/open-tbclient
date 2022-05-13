@@ -1,159 +1,210 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.y03;
 /* loaded from: classes5.dex */
-public final class c13 {
+public class c13 extends q03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final x03 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755850100, "Lcom/repackage/c13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755850100, "Lcom/repackage/c13;");
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public c13() {
+        this(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((x03) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
     }
 
-    public static g13 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+    @Override // com.repackage.x03
+    public void A(y03.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            G().A(aVar);
+        }
+    }
+
+    @Override // com.repackage.x03
+    public e33 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? G().B() : (e33) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? G().D() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.x03
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public x03 G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (x03) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? G().getAppId() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? G().l() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.x03
+    public void m(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+            G().m(bundle, str);
+        }
+    }
+
+    @Override // com.repackage.x03
+    public SwanAppCores n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? G().n() : (SwanAppCores) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public String o(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
-            g13 g13Var = new g13();
-            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", g13Var);
-            qj2.s().a(g13Var);
-            g13Var.b(new w33(g13Var));
-            g13Var.b(new v33(g13Var));
-            g13Var.b(new c43(g13Var));
-            g13Var.b(new a43(g13Var));
-            g13Var.b(new z33(g13Var));
-            g13Var.b(new t33(g13Var));
-            g13Var.b(new m33(g13Var));
-            g13Var.b(new l33(g13Var));
-            g13Var.b(new k33(g13Var));
-            g13Var.b(new n33(g13Var));
-            g13Var.b(new r33(g13Var));
-            g13Var.b(new q33(g13Var));
-            g13Var.b(new e43(g13Var));
-            g13Var.b(new g43(g13Var));
-            g13Var.b(new f43(g13Var));
-            g13Var.b(new o13(g13Var));
-            g13Var.b(new h33(g13Var));
-            g13Var.b(new jt1(g13Var));
-            g13Var.b(new mt1(g13Var));
-            g13Var.b(new ot1(g13Var));
-            g13Var.b(new ht1(g13Var));
-            g13Var.b(new kt1(g13Var));
-            g13Var.b(new nt1(g13Var));
-            g13Var.b(new on2(g13Var));
-            g13Var.b(new nn2(g13Var));
-            g13Var.b(new kp2(g13Var));
-            g13Var.b(new dz1(g13Var));
-            g13Var.b(new xx1(g13Var));
-            g13Var.b(new e83(g13Var));
-            g13Var.b(new x73(g13Var));
-            g13Var.b(new y73(g13Var));
-            g13Var.b(new b83(g13Var));
-            g13Var.b(new rr2(g13Var));
-            g13Var.b(new yi2(g13Var));
-            g13Var.b(new vi2(g13Var));
-            g13Var.b(new zi2(g13Var));
-            g13Var.b(new nb3(g13Var));
-            g13Var.b(new ob3(g13Var));
-            g13Var.b(new pb3(g13Var));
-            g13Var.b(new qb3(g13Var));
-            g13Var.b(new rb3(g13Var));
-            g13Var.b(new sb3(g13Var));
-            g13Var.b(new tb3(g13Var));
-            g13Var.b(new ub3(g13Var));
-            g13Var.b(new rm2(g13Var));
-            g13Var.b(new us1(g13Var));
-            g13Var.b(new zs1(g13Var));
-            g13Var.b(new vs1(g13Var));
-            g13Var.b(new ys1(g13Var));
-            g13Var.b(new ws1(g13Var));
-            g13Var.b(new xs1(g13Var));
-            g13Var.b(new lw1(g13Var));
-            g13Var.b(new mw1(g13Var));
-            g13Var.b(new cd2(g13Var));
-            g13Var.b(new bh1(g13Var));
-            g13Var.b(new yg1(g13Var));
-            g13Var.b(new wa3(g13Var));
-            g13Var.b(new xa3(g13Var));
-            g13Var.b(new ga3(g13Var));
-            g13Var.b(new uf3(g13Var));
-            g13Var.b(new ns1(g13Var));
-            g13Var.b(new sn2(g13Var));
-            g13Var.b(new tn2(g13Var));
-            g13Var.b(new rn2(g13Var));
-            g13Var.b(new w73(g13Var));
-            g13Var.b(new sy1(g13Var));
-            g13Var.b(new ac3(g13Var));
-            g13Var.b(new zb3(g13Var));
-            g13Var.b(new bc3(g13Var));
-            g13Var.b(new qa3(g13Var));
-            g13Var.b(new f33(g13Var));
-            g13Var.b(new c33(g13Var));
-            g13Var.b(new y13(g13Var));
-            if (a) {
-                g13Var.b(new d43(g13Var));
-                g13Var.b(new hy1(g13Var));
-            }
-            g13Var.b(new b23(g13Var));
-            g13Var.b(new s13(g13Var));
-            g13Var.b(new j13(g13Var));
-            g13Var.b(new u13(g13Var));
-            g13Var.b(new it1(g13Var));
-            g13Var.b(new lt1(g13Var));
-            g13Var.b(new gw1(g13Var));
-            g13Var.b(new m23(g13Var));
-            g13Var.b(new p23(g13Var));
-            g13Var.b(new q23(g13Var));
-            g13Var.b(new o23(g13Var));
-            g13Var.b(new r23(g13Var));
-            g13Var.b(new x33(g13Var));
-            g13Var.b(new dn1(g13Var));
-            g13Var.b(new ta2(g13Var));
-            g13Var.b(new k23(g13Var));
-            g13Var.b(new l23(g13Var));
-            g13Var.b(new j33(g13Var));
-            g13Var.b(new s23(g13Var));
-            g13Var.b(new f23(g13Var));
-            g13Var.b(new l13(g13Var));
-            g13Var.b(new bq2(g13Var));
-            g13Var.b(new t13(g13Var));
-            g13Var.b(new zg2(g13Var));
-            g13Var.b(new bh2(g13Var));
-            g13Var.b(new x23(g13Var));
-            g13Var.b(new y23(g13Var));
-            g13Var.b(new vp2(g13Var));
-            g13Var.b(new gh1(g13Var));
-            g13Var.b(new ts2(g13Var));
-            g13Var.b(new kn1(g13Var));
-            g13Var.b(new on1(g13Var));
-            g13Var.b(new mn1(g13Var));
-            g13Var.b(new pn1(g13Var));
-            g13Var.b(new nn1(g13Var));
-            g13Var.b(new y43(g13Var));
-            g13Var.b(new bn1(g13Var));
-            g13Var.b(new cn1(g13Var));
-            g13Var.b(new in1(g13Var));
-            qj2.Y().a(g13Var);
-            return g13Var;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) ? G().o(strArr) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public void p(nf3<y03.a> nf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, nf3Var) == null) {
+            G().p(nf3Var);
         }
-        return (g13) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            G().q(str);
+        }
+    }
+
+    @Override // com.repackage.x03
+    public u03 r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? G().r() : (u03) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public void s(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
+            G().s(swanAppActivity);
+        }
+    }
+
+    @Override // com.repackage.x03
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            G().t();
+        }
+    }
+
+    @Override // com.repackage.x03
+    public void u(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, swanAppActivity) == null) {
+            G().u(swanAppActivity);
+        }
+    }
+
+    @Override // com.repackage.x03
+    public void v(nf3<y03.a> nf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, nf3Var) == null) {
+            G().v(nf3Var);
+        }
+    }
+
+    @Override // com.repackage.x03
+    public void w(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, bundle) == null) {
+            G().w(str, bundle);
+        }
+    }
+
+    @Override // com.repackage.x03
+    public SwanAppActivity x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? G().x() : (SwanAppActivity) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public xh1 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? G().y() : (xh1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x03
+    public px2 z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? G().z() : (px2) invokeV.objValue;
+    }
+
+    public c13(x03 x03Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x03Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = x03Var == null ? t03.J() : x03Var;
     }
 }

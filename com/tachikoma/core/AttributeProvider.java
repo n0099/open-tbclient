@@ -31,7 +31,7 @@ import com.tachikoma.core.component.text.TKText;
 import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AttributeProvider implements IProvider<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

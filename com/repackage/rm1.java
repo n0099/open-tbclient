@@ -1,45 +1,13 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.repackage.qm1;
+import android.content.Context;
 /* loaded from: classes7.dex */
-public interface rm1<T extends qm1> extends TypedCallbackHandler {
-    SwanAppWebViewManager.d J();
+public interface rm1 {
+    void a(Context context, nf3<Boolean> nf3Var);
 
-    @UiThread
-    void Q();
+    void b(boolean z, nf3<String> nf3Var);
 
-    void X(w12 w12Var);
+    void c(Context context, nf3<String> nf3Var);
 
-    String a();
-
-    String c();
-
-    void d(xy1 xy1Var);
-
-    void destroy();
-
-    String e0();
-
-    void f(Activity activity);
-
-    void h0();
-
-    void loadUrl(String str);
-
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void s();
-
-    T u();
-
-    void v(w12 w12Var);
+    void d(nf3<Integer> nf3Var);
 }

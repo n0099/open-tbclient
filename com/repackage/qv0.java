@@ -349,10 +349,10 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
                 return;
             }
         }
-        x = b21.a(124.0f);
-        y = b21.a(85.0f);
-        z = b21.a(119.0f);
-        A = b21.a(50.0f);
+        x = l21.a(124.0f);
+        y = l21.a(85.0f);
+        z = l21.a(119.0f);
+        A = l21.a(50.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -401,14 +401,14 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c0();
             this.e = new b(this, this.c);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b21.a(300.0f), b21.a(300.0f));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l21.a(300.0f), l21.a(300.0f));
             this.k = new BdVideoNewCacheView(this.c);
             q0(false);
             layoutParams.gravity = 17;
             this.e.addView(this.k, layoutParams);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
             layoutParams2.gravity = 80;
-            layoutParams2.bottomMargin = b21.b(-4.3f);
+            layoutParams2.bottomMargin = l21.b(-4.3f);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.c, 2);
             this.l = bdThumbSeekBar;
             bdThumbSeekBar.setThumbScaleVisible(false);
@@ -416,7 +416,7 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
             this.e.addView(this.l, layoutParams2);
             LockImageView lockImageView = new LockImageView(this.c);
             this.m = lockImageView;
-            lockImageView.setBackground(this.c.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e10));
+            lockImageView.setBackground(this.c.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2a));
             this.m.e(kq0.W0() ? 1000 : 2000);
             this.m.setOnClickListener(this);
             this.m.setVisibility(4);
@@ -428,9 +428,9 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
             if (W == null) {
                 BdVideoSeekbarImageView bdVideoSeekbarImageView = new BdVideoSeekbarImageView(this.c);
                 this.f = bdVideoSeekbarImageView;
-                bdVideoSeekbarImageView.setIcon(R.drawable.obfuscated_res_0x7f080e16);
-                this.f.setWidth(b21.a(124.0f));
-                this.f.setHeight(b21.a(85.0f));
+                bdVideoSeekbarImageView.setIcon(R.drawable.obfuscated_res_0x7f080e30);
+                this.f.setWidth(l21.a(124.0f));
+                this.f.setHeight(l21.a(85.0f));
             }
             this.f.setVisibility(4);
             this.e.addView(this.f, layoutParams3);
@@ -439,30 +439,30 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
             if (V == null) {
                 BdVideoSeekbarImageView bdVideoSeekbarImageView2 = new BdVideoSeekbarImageView(this.c);
                 this.g = bdVideoSeekbarImageView2;
-                bdVideoSeekbarImageView2.setIcon(R.drawable.obfuscated_res_0x7f080e15);
-                this.g.setWidth(b21.a(124.0f));
-                this.g.setHeight(b21.a(85.0f));
+                bdVideoSeekbarImageView2.setIcon(R.drawable.obfuscated_res_0x7f080e2f);
+                this.g.setWidth(l21.a(124.0f));
+                this.g.setHeight(l21.a(85.0f));
             }
             this.g.setVisibility(4);
             this.e.addView(this.g, layoutParams3);
             if (!this.r) {
                 BdVideoPopImageView bdVideoPopImageView = new BdVideoPopImageView(this.c);
                 this.h = bdVideoPopImageView;
-                bdVideoPopImageView.setIcon(R.drawable.obfuscated_res_0x7f080e18);
+                bdVideoPopImageView.setIcon(R.drawable.obfuscated_res_0x7f080e32);
                 this.h.setMsg("100%");
                 this.h.setVisibility(4);
                 this.e.addView(this.h, layoutParams3);
                 BdVideoPopImageView bdVideoPopImageView2 = new BdVideoPopImageView(this.c);
                 this.i = bdVideoPopImageView2;
                 bdVideoPopImageView2.setMsg("0%");
-                this.i.setIcon(R.drawable.obfuscated_res_0x7f080e17);
+                this.i.setIcon(R.drawable.obfuscated_res_0x7f080e31);
                 this.i.setVisibility(4);
                 this.e.addView(this.i, layoutParams3);
             }
             BdVideoPopImageView bdVideoPopImageView3 = new BdVideoPopImageView(this.c);
             this.j = bdVideoPopImageView3;
             bdVideoPopImageView3.setMsg("0%");
-            this.j.setIcon(R.drawable.obfuscated_res_0x7f080e12);
+            this.j.setIcon(R.drawable.obfuscated_res_0x7f080e2c);
             this.j.setVisibility(4);
             this.e.addView(this.j, layoutParams3);
         }
@@ -522,9 +522,9 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b21.a(37.0f), b21.a(37.0f));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l21.a(37.0f), l21.a(37.0f));
             layoutParams.gravity = 16;
-            layoutParams.leftMargin = b21.b(15.0f);
+            layoutParams.leftMargin = l21.b(15.0f);
             return layoutParams;
         }
         return (FrameLayout.LayoutParams) invokeV.objValue;
@@ -578,8 +578,8 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
             int h0 = h0(i2 + i, r);
             int i3 = h0 - i;
             boolean z2 = r >= 3600;
-            String a2 = z01.a(h0, z2);
-            String a3 = z01.a(r, z2);
+            String a2 = i11.a(h0, z2);
+            String a3 = i11.a(r, z2);
             if (i3 >= 0) {
                 this.f.setVisibility(0);
                 this.g.setVisibility(8);
@@ -751,7 +751,7 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
                 BdVideoPopImageView bdVideoPopImageView2 = this.i;
                 bdVideoPopImageView2.setMsg(b2 + "%");
             }
-            dy0.d(hi0.b(), (int) f);
+            dy0.d(ki0.b(), (int) f);
             rs0 w = hs0.w(LayerEvent.ACTION_ADJUST_VOLUME);
             w.n(20, Integer.valueOf(b2));
             G(w);
@@ -836,7 +836,7 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
             this.j.requestLayout();
             BdVideoPopImageView bdVideoPopImageView = this.j;
             bdVideoPopImageView.setMsg(((int) ((f / 255.0f) * 100.0f)) + "%");
-            m11.d(getActivity(), (int) f);
+            w11.d(getActivity(), (int) f);
             G(hs0.w(LayerEvent.ACTION_ADJUST_LIGHT));
             ay0.b("GestureLayer", "onBrightSlide : " + f);
         }
@@ -1088,17 +1088,17 @@ public class qv0 extends mv0 implements View.OnClickListener, ot0 {
         }
     }
 
-    @Override // com.repackage.ot0
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? v().Q() : invokeV.booleanValue;
-    }
-
     public final void p0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
         }
+    }
+
+    @Override // com.repackage.ot0
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? v().Q() : invokeV.booleanValue;
     }
 
     public void q0(boolean z2) {

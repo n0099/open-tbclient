@@ -53,9 +53,9 @@ public class s88 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.B0();
-            this.f.B0();
-            this.g.B0();
+            this.e.C0();
+            this.f.C0();
+            this.g.C0();
         }
     }
 
@@ -66,21 +66,21 @@ public class s88 {
             PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
             this.e = postSearchListFragment;
             bVar.c = postSearchListFragment;
-            bVar.b = c(R.string.obfuscated_res_0x7f0f10aa);
+            bVar.b = c(R.string.obfuscated_res_0x7f0f10c3);
             bVar.a = 1;
             this.c.c(bVar);
             FragmentTabHost.b bVar2 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
             this.f = postSearchListFragment2;
             bVar2.c = postSearchListFragment2;
-            bVar2.b = c(R.string.obfuscated_res_0x7f0f10a9);
+            bVar2.b = c(R.string.obfuscated_res_0x7f0f10c2);
             bVar2.a = 2;
             this.c.c(bVar2);
             FragmentTabHost.b bVar3 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
             this.g = postSearchListFragment3;
             bVar3.c = postSearchListFragment3;
-            bVar3.b = c(R.string.obfuscated_res_0x7f0f10a8);
+            bVar3.b = c(R.string.obfuscated_res_0x7f0f10c1);
             bVar3.a = 3;
             this.c.c(bVar3);
         }
@@ -90,12 +90,12 @@ public class s88 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
             fragmentTabIndicator.setText(i);
             fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
             fragmentTabIndicator.h = R.color.s_actionbar_text_color;
             fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            fragmentTabIndicator.setWidth((oi.k(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
+            fragmentTabIndicator.setWidth((mi.k(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
             return fragmentTabIndicator;
         }
         return (FragmentTabIndicator) invokeI.objValue;
@@ -128,9 +128,9 @@ public class s88 {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091c3a)).inflate();
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091c87)).inflate();
             inflate.setVisibility(0);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f0918b0);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091908);
             this.c = fragmentTabHost;
             fragmentTabHost.setup(this.a.getSupportFragmentManager());
             this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
@@ -167,7 +167,7 @@ public class s88 {
             j(true);
             PostSearchListFragment e = e(i);
             if (e != null) {
-                e.F0(o88Var, z);
+                e.G0(o88Var, z);
             }
         }
     }
@@ -207,7 +207,7 @@ public class s88 {
             if (this.c.getCurrentTabType() == i) {
                 PostSearchListFragment e = e(i);
                 if (e != null) {
-                    e.G0(true);
+                    e.H0(true);
                     return;
                 }
                 return;

@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCCommStatesReport;
+import com.baidu.rtc.RTCLoadManager;
 import com.baidu.rtc.player.BRTCPlayer;
 import com.baidu.rtc.player.BRTCPlayerEvents;
 import com.baidu.rtc.player.PlayTimeStatistician;
@@ -18,6 +19,8 @@ import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.searchbox.player.callback.UniversalPlayerCallbackManager;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.tieba.medialive.player.bdrtc.TbBRTCPlayerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,14 +51,14 @@ public class ci7 extends bi7 implements LivePlayer, IPlayerViewable {
 
         /* renamed from: com.repackage.ci7$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0393a implements Runnable {
+        public class RunnableC0390a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0393a(a aVar, int i, String str) {
+            public RunnableC0390a(a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,7 +250,7 @@ public class ci7 extends bi7 implements LivePlayer, IPlayerViewable {
             if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || (tbBRTCPlayerView = (ci7Var = this.a).o) == null || ci7Var.e == null) {
                 return;
             }
-            tbBRTCPlayerView.post(new RunnableC0393a(this, i, str));
+            tbBRTCPlayerView.post(new RunnableC0390a(this, i, str));
         }
 
         @Override // com.baidu.rtc.player.BRTCPlayerEvents
@@ -350,6 +353,16 @@ public class ci7 extends bi7 implements LivePlayer, IPlayerViewable {
         this.p = false;
         this.q = buildParams;
         k();
+        if (LaunchUpApplicationSwitch.getIsOn()) {
+            l();
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
+            RTCLoadManager.getInstance(TbadkCoreApplication.getInst().getContext()).loadLibraries("armeabi", null);
+        }
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.IPlayerViewable

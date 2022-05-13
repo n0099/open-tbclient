@@ -57,7 +57,7 @@ public class pu0 extends xt0 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && new fp0().a()) {
             yl0.a.a().b();
-            CyberPlayerManager.prefetch(str, hi0.e(), "", 0, i, (CyberPlayerManager.HttpDNS) null);
+            CyberPlayerManager.prefetch(str, ki0.e(), "", 0, i, (CyberPlayerManager.HttpDNS) null);
         }
     }
 }

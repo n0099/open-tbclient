@@ -1,24 +1,25 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
 import com.win.opensdk.core.Info;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class dq9 implements eu9 {
+public final class dq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ oq9 a;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ Info b;
 
-    public dq9(oq9 oq9Var) {
+    public dq9(Context context, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oq9Var};
+            Object[] objArr = {context, info};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,29 +29,20 @@ public class dq9 implements eu9 {
                 return;
             }
         }
-        this.a = oq9Var;
+        this.a = context;
+        this.b = info;
     }
 
-    @Override // com.repackage.eu9
-    public void a() {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.eu9
-    public void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            this.a.b((Info) obj);
-        }
-    }
-
-    @Override // com.repackage.eu9
-    public void onFail(PBError pBError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
-            this.a.h.onFail(pBError);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            tq9 a = xq9.a(this.a);
+            try {
+                a.b = xq9.d("hte", new br9(this.b));
+                a.k("co", i);
+            } catch (JSONException unused) {
+            }
+            a.m();
         }
     }
 }

@@ -1,46 +1,46 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.setting.oauth.TaskState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
-import org.json.JSONException;
+import com.repackage.z53;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class g53<ResultDataT> {
+public class g53 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m53<ResultDataT> a;
-    public final Set<cf3<m53<ResultDataT>>> b;
-    public final LinkedList<i53> c;
-    public boolean d;
-    public boolean e;
 
     /* loaded from: classes6.dex */
-    public class a extends i53 {
+    public class a implements nf3<x53<z53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g53 c;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ g53 f;
 
-        public a(g53 g53Var) {
+        public a(g53 g53Var, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g53Var};
+                Object[] objArr = {g53Var, callbackHandler, str, activity, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,36 +50,53 @@ public abstract class g53<ResultDataT> {
                     return;
                 }
             }
-            this.c = g53Var;
+            this.f = g53Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = activity;
+            this.d = str2;
+            this.e = str3;
         }
 
-        @Override // com.repackage.i53
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(x53<z53.e> x53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.k()) {
-                    return true;
+            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
+                if (s53.h(x53Var)) {
+                    if (r23.b) {
+                        Log.i("SwanAppAction", "onCallback: has permission scope_mobile_api");
+                    }
+                    this.f.m(this.a, this.b, this.c, this.d, this.e, false);
+                    return;
                 }
-                h53.k("initialPrepare failed", Boolean.TRUE);
-                throw new OAuthException(10001);
+                ux1.k("SwanAppAction", "onCallback: no permission scope_mobile_api");
+                n73.U(this.e, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no permission ");
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(402).toString());
             }
-            return invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends i53 {
+    public class b implements nf3<g63> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g53 c;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ boolean g;
+        public final /* synthetic */ g53 h;
 
-        public b(g53 g53Var) {
+        public b(g53 g53Var, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2, String str3, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g53Var};
+                Object[] objArr = {g53Var, activity, Boolean.valueOf(z), str, callbackHandler, str2, str3, Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,285 +106,133 @@ public abstract class g53<ResultDataT> {
                     return;
                 }
             }
-            this.c = g53Var;
+            this.h = g53Var;
+            this.a = activity;
+            this.b = z;
+            this.c = str;
+            this.d = callbackHandler;
+            this.e = str2;
+            this.f = str3;
+            this.g = z2;
         }
 
-        @Override // com.repackage.i53
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(g63 g63Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.j()) {
-                    return true;
-                }
-                h53.k("finalPrepare failed", Boolean.TRUE);
-                if (g53.f) {
-                    throw new OAuthException(10001);
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cf3 a;
-        public final /* synthetic */ g53 b;
-
-        public c(g53 g53Var, cf3 cf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g53Var, cf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, g63Var) == null) {
+                ux1.b("OpenData", "onOpenDataCallback:: ", g63Var);
+                u03 c = this.h.c();
+                if (!g63Var.D()) {
+                    if (c != null && !c.M().e(this.a) && !this.b) {
+                        n73.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 2, this.c);
+                    }
+                    if (r23.b) {
+                        Log.i("SwanAppAction", "onCallback: no open datamobile");
+                    }
+                    s53.n(g63Var, this.d, this.e);
+                    n73.U(this.f, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no open data");
+                    if (this.g) {
+                        n73.s("click", "telLogin", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                        return;
+                    }
                     return;
                 }
+                ux1.k("SwanAppAction", "onCallback: got open datamobile");
+                if (c != null && c.M().e(this.a) && !this.b) {
+                    n73.S("success", 2, this.c);
+                }
+                n73.T(this.f, "success");
+                if (this.g) {
+                    n73.s("click", "telLogin", "succ_agree");
+                }
+                this.d.handleSchemeDispatchCallback(this.e, UnitedSchemeUtility.wrapCallbackParams(g63Var.g, 0).toString());
             }
-            this.b = g53Var;
-            this.a = cf3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            cf3 cf3Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cf3Var = this.a) == null) {
-                return;
-            }
-            cf3Var.onCallback(this.b.a);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755727092, "Lcom/repackage/g53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755727092, "Lcom/repackage/g53;");
-                return;
-            }
-        }
-        f = tg1.a;
-    }
-
-    public g53() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g53(r13 r13Var) {
+        super(r13Var, "/swanAPI/getPhoneNumber");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new m53<>();
-        this.b = new HashSet();
-        this.c = new LinkedList<>();
-        this.d = false;
-        this.e = false;
     }
 
-    public final synchronized void a() {
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                i();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (u03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = new b(this);
-            bVar.h(this);
-            bVar.g();
-            this.e = true;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(null);
-        }
-    }
-
-    @NonNull
-    public g53 call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TaskState.INIT == e()) {
-                s(TaskState.CALLING);
-                n();
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
             }
-            return this;
-        }
-        return (g53) invokeV.objValue;
-    }
-
-    public void d(@Nullable Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (exc instanceof OAuthException) {
-                this.a.c = (OAuthException) exc;
-            } else if (exc != null) {
-                h53.t("OAuthTask#finish", exc.getMessage());
-                this.a.c = new OAuthException(exc, 10001);
+            String optString = optParamsAsJo.optString("invokeFrom");
+            String str = optString.equals(NativeConstants.COMPONENT) ? "getPhoneNumberButton" : "getPhoneNumberApi";
+            n73.T(str, "create");
+            String optString2 = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                n73.U(str, com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty cb");
+                return false;
             }
-            if (!this.a.c() && f && exc != null) {
-                exc.printStackTrace();
+            SwanAppActivity x = t03.J().x();
+            if (x == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                n73.U(str, com.baidu.pass.biometrics.face.liveness.b.a.g0, "the context is not an activity");
+                return false;
             }
-            s(TaskState.FINISHED);
-            h53.k(toString(), Boolean.FALSE);
-            g();
-            this.b.clear();
-        }
-    }
-
-    public TaskState e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.b : (TaskState) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a aVar = new a(this);
-            aVar.h(this);
-            aVar.g();
-            this.d = true;
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (cf3<m53<ResultDataT>> cf3Var : this.b) {
-                h53.l(new c(this, cf3Var));
+            if (!u03Var.M().e(context)) {
+                n73.S("show", 2, optString);
             }
-        }
-    }
-
-    public g53 h(@NonNull i53 i53Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i53Var)) == null) {
-            i53Var.h(this);
-            this.c.offer(i53Var);
-            return this;
-        }
-        return (g53) invokeL.objValue;
-    }
-
-    public abstract void i();
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (optParamsAsJo.optString("invokeFrom").equals(RetrieveTaskManager.KEY)) {
+                n(callbackHandler, optString2, x, optString, str);
+            } else {
+                m(callbackHandler, optString2, x, optString, str, TextUtils.equals("login", optParamsAsJo.optString("from")));
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
+    public final void m(CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l(i53 i53Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, i53Var) == null) {
-            if (i53Var.c()) {
-                n();
-            } else {
-                d(i53Var.b());
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callbackHandler, str, activity, str2, str3, Boolean.valueOf(z)}) == null) {
+            boolean e = t03.J().r().M().e(activity);
+            n73.T(str3, "checkScope");
+            if (z) {
+                n73.s("show", "telLogin", null);
             }
+            g63.B(activity, "mobile", null, false, str3, new b(this, activity, e, str2, callbackHandler, str, str3, z));
         }
     }
 
-    public abstract ResultDataT m(JSONObject jSONObject) throws JSONException;
-
-    public final void n() {
+    public final void n(CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TaskState.CALLING.equals(e())) {
-                if (f) {
-                    h53.k("IllegalState on prepare", Boolean.FALSE);
-                }
-            } else if (!this.d) {
-                f();
-            } else if (!this.c.isEmpty()) {
-                this.c.poll().g();
-            } else if (!this.e) {
-                b();
-            } else {
-                a();
-            }
-        }
-    }
-
-    public g53<ResultDataT> o(cf3<m53<ResultDataT>> cf3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cf3Var)) == null) {
-            if (this.a.b.isCallbackAvailable()) {
-                this.b.add(cf3Var);
-            }
-            return this;
-        }
-        return (g53) invokeL.objValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.b = TaskState.INIT;
-            this.d = false;
-            this.e = false;
-        }
-    }
-
-    public g53<ResultDataT> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this : (g53) invokeL.objValue;
-    }
-
-    public void r(ResultDataT resultdatat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, resultdatat) == null) {
-            this.a.a = resultdatat;
-        }
-    }
-
-    public final void s(TaskState taskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
-            this.a.b = taskState;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str, activity, str2, str3) == null) {
+            n73.T(str3, "checkScope");
+            t03.J().r().d0().g(c(), "scope_mobile_api", new a(this, callbackHandler, str, activity, str2, str3));
         }
     }
 }

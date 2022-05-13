@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
+import com.repackage.li;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BigImgCard extends BaseCardInfo {
@@ -55,7 +55,7 @@ public class BigImgCard extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ni.isEmpty(this.url)) {
+            if (li.isEmpty(this.url)) {
                 return false;
             }
             return super.isValid();

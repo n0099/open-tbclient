@@ -5,11 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class f01 extends d01 {
+public class f01 extends e01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,16 +31,13 @@ public class f01 extends d01 {
                 return;
             }
         }
-        this.b = i;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 100L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        this.c = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        this.c = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 100L, TimeUnit.MILLISECONDS, new SynchronousQueue());
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeNormalCell" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeDisasterCell" : (String) invokeV.objValue;
     }
 }

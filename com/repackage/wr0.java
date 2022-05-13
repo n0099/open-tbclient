@@ -50,10 +50,10 @@ public class wr0 extends sr0 {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0598, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d058b, (ViewGroup) null);
             this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090c16);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f090c0b);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090c04);
+            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f090bf9);
         }
     }
 

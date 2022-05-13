@@ -12,16 +12,9 @@ public class xl3 {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Inject(force = false)
-    public static yl3 a() {
+    public static wl3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? xm5.a() : (yl3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static zl3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new hg3() : (zl3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? vl3.a() : (wl3) invokeV.objValue;
     }
 }

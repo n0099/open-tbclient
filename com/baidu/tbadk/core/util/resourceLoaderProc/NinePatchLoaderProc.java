@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg;
-import com.repackage.fo;
+import com.repackage.co;
+import com.repackage.dg;
 import com.repackage.ub;
 import com.repackage.vb;
 /* loaded from: classes3.dex */
@@ -63,7 +63,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public fo createImageFromDiskPicOperate(vb vbVar, String str, int i, int i2) {
+    public co createImageFromDiskPicOperate(vb vbVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, vbVar, str, i, i2)) == null) {
@@ -72,13 +72,13 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
                 vbVar.formatData(vbVar.getData());
                 Bitmap bitmap = vbVar.getBitmap();
                 if (bitmap != null) {
-                    return new fo(bitmap, false, str, ubVar.g());
+                    return new co(bitmap, false, str, ubVar.g());
                 }
                 return null;
             }
             return null;
         }
-        return (fo) invokeLLII.objValue;
+        return (co) invokeLLII.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -127,15 +127,15 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public fo decodeToResource(byte[] bArr, Object... objArr) {
+    public co decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-            fg.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
-            return new fo(Bytes2NineBitmap);
+            dg.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
+            return new co(Bytes2NineBitmap);
         }
-        return (fo) invokeLL.objValue;
+        return (co) invokeLL.objValue;
     }
 }

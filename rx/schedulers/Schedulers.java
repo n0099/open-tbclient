@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a1a;
-import com.repackage.d1a;
-import com.repackage.ez9;
-import com.repackage.f1a;
-import com.repackage.j3a;
-import com.repackage.m3a;
-import com.repackage.n3a;
-import com.repackage.y0a;
-import com.repackage.z0a;
+import com.repackage.d2a;
+import com.repackage.g2a;
+import com.repackage.h2a;
+import com.repackage.sz9;
+import com.repackage.tz9;
+import com.repackage.uz9;
+import com.repackage.xz9;
+import com.repackage.zx9;
+import com.repackage.zz9;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
@@ -25,9 +25,9 @@ public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicReference<Schedulers> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ez9 a;
-    public final ez9 b;
-    public final ez9 c;
+    public final zx9 a;
+    public final zx9 b;
+    public final zx9 c;
 
     static {
         InterceptResult invokeClinit;
@@ -58,24 +58,24 @@ public final class Schedulers {
                 return;
             }
         }
-        n3a f = m3a.c().f();
-        ez9 g = f.g();
+        h2a f = g2a.c().f();
+        zx9 g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = n3a.a();
+            this.a = h2a.a();
         }
-        ez9 i3 = f.i();
+        zx9 i3 = f.i();
         if (i3 != null) {
             this.b = i3;
         } else {
-            this.b = n3a.c();
+            this.b = h2a.c();
         }
-        ez9 j = f.j();
+        zx9 j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = n3a.e();
+            this.c = h2a.e();
         }
     }
 
@@ -98,34 +98,34 @@ public final class Schedulers {
         }
     }
 
-    public static ez9 computation() {
+    public static zx9 computation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j3a.f(a().a) : (ez9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d2a.f(a().a) : (zx9) invokeV.objValue;
     }
 
-    public static ez9 from(Executor executor) {
+    public static zx9 from(Executor executor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor)) == null) ? new y0a(executor) : (ez9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor)) == null) ? new sz9(executor) : (zx9) invokeL.objValue;
     }
 
-    public static ez9 immediate() {
+    public static zx9 immediate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a1a.a : (ez9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? uz9.a : (zx9) invokeV.objValue;
     }
 
-    public static ez9 io() {
+    public static zx9 io() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? j3a.k(a().b) : (ez9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? d2a.k(a().b) : (zx9) invokeV.objValue;
     }
 
-    public static ez9 newThread() {
+    public static zx9 newThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? j3a.l(a().c) : (ez9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? d2a.l(a().c) : (zx9) invokeV.objValue;
     }
 
     public static void reset() {
@@ -143,7 +143,7 @@ public final class Schedulers {
             Schedulers a = a();
             a.b();
             synchronized (a) {
-                z0a.d.shutdown();
+                tz9.d.shutdown();
             }
         }
     }
@@ -154,7 +154,7 @@ public final class Schedulers {
             Schedulers a = a();
             a.c();
             synchronized (a) {
-                z0a.d.start();
+                tz9.d.start();
             }
         }
     }
@@ -165,24 +165,24 @@ public final class Schedulers {
         return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new TestScheduler() : (TestScheduler) invokeV.objValue;
     }
 
-    public static ez9 trampoline() {
+    public static zx9 trampoline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f1a.a : (ez9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? zz9.a : (zx9) invokeV.objValue;
     }
 
     public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.a instanceof d1a) {
-                    ((d1a) this.a).shutdown();
+                if (this.a instanceof xz9) {
+                    ((xz9) this.a).shutdown();
                 }
-                if (this.b instanceof d1a) {
-                    ((d1a) this.b).shutdown();
+                if (this.b instanceof xz9) {
+                    ((xz9) this.b).shutdown();
                 }
-                if (this.c instanceof d1a) {
-                    ((d1a) this.c).shutdown();
+                if (this.c instanceof xz9) {
+                    ((xz9) this.c).shutdown();
                 }
             }
         }
@@ -192,14 +192,14 @@ public final class Schedulers {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.a instanceof d1a) {
-                    ((d1a) this.a).start();
+                if (this.a instanceof xz9) {
+                    ((xz9) this.a).start();
                 }
-                if (this.b instanceof d1a) {
-                    ((d1a) this.b).start();
+                if (this.b instanceof xz9) {
+                    ((xz9) this.b).start();
                 }
-                if (this.c instanceof d1a) {
-                    ((d1a) this.c).start();
+                if (this.c instanceof xz9) {
+                    ((xz9) this.c).start();
                 }
             }
         }

@@ -21,8 +21,8 @@ public class m88 {
     public w38 a;
     public x38 b;
     public p48 c;
-    public List<ho> d;
-    public ArrayList<uo> e;
+    public List<eo> d;
+    public ArrayList<ro> e;
     public BdTypeListView f;
 
     public m88(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
@@ -62,27 +62,27 @@ public class m88 {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof lo)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof io)) {
             this.f.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public boolean c(String str) {
         InterceptResult invokeL;
-        ArrayList<uo> arrayList;
+        ArrayList<ro> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             boolean z = false;
-            if (ni.isEmpty(str)) {
+            if (li.isEmpty(str)) {
                 return false;
             }
             if (this.f != null && (arrayList = this.e) != null) {
-                Iterator<uo> it = arrayList.iterator();
+                Iterator<ro> it = arrayList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    uo next = it.next();
+                    ro next = it.next();
                     if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
                         z = true;
                         it.remove();
@@ -90,7 +90,7 @@ public class m88 {
                     }
                 }
                 if (z) {
-                    ArrayList<uo> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
+                    ArrayList<ro> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
                     this.e = mergeDynamicThreadByTime;
                     this.f.setData(mergeDynamicThreadByTime);
                     b();
@@ -101,7 +101,7 @@ public class m88 {
         return invokeL.booleanValue;
     }
 
-    public void d(ArrayList<uo> arrayList) {
+    public void d(ArrayList<ro> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f == null) {
             return;

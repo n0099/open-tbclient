@@ -1,11 +1,35 @@
 package com.repackage;
+
+import android.media.MediaMetadataRetriever;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes7.dex */
-public interface ua9 {
-    void onCancel();
+public class ua9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onExceptionThrown(String str);
+    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) || mediaMetadataRetriever == null) {
+            return;
+        }
+        try {
+            mediaMetadataRetriever.release();
+        } catch (Exception e) {
+            va9.g(e);
+        }
+    }
 
-    void onProgressChanged(int i, double d, long j);
-
-    void onTrackEnd(int i);
+    public static void b(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Throwable th) {
+            va9.d(th.getMessage());
+        }
+    }
 }

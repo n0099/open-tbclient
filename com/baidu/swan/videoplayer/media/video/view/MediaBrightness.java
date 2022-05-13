@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ha3;
+import com.repackage.sa3;
 /* loaded from: classes2.dex */
 public final class MediaBrightness extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -69,14 +69,14 @@ public final class MediaBrightness extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07e1, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07da, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e22);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09119b);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e11);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911aa);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070697);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811af);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811c5);
             this.a.setLayoutParams(layoutParams);
         }
     }
@@ -84,7 +84,7 @@ public final class MediaBrightness extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = ha3.c().a((Activity) getContext());
+            this.f = sa3.c().a((Activity) getContext());
         }
     }
 
@@ -105,7 +105,7 @@ public final class MediaBrightness extends FrameLayout {
             } else if (f <= 0.0f) {
                 f = 0.0f;
             }
-            ha3.c().e((Activity) getContext(), f);
+            sa3.c().e((Activity) getContext(), f);
         }
     }
 

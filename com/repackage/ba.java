@@ -84,7 +84,7 @@ public class ba {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             try {
-                BdStatisticsManager.getInstance().debug("socket", "url", oj.j().q(), "dns_cost", Long.valueOf(oj.j().h()), TiebaStatic.CON_COST, Long.valueOf(oj.j().g()), "remote_ip", oj.j().o(), ETAG.KEY_LOCAL_DNS, oj.j().m(), "local_dns_bak", oj.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
+                BdStatisticsManager.getInstance().debug("socket", "url", mj.j().q(), "dns_cost", Long.valueOf(mj.j().h()), TiebaStatic.CON_COST, Long.valueOf(mj.j().g()), "remote_ip", mj.j().o(), ETAG.KEY_LOCAL_DNS, mj.j().m(), "local_dns_bak", mj.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -95,10 +95,10 @@ public class ba {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             try {
-                ug statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+                sg statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
                 statsItem.b("action", "imconn");
-                statsItem.b(TiebaStatic.CON_COST, String.valueOf(oj.j().g()));
-                statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, yg.a(BdBaseApplication.getInst()));
+                statsItem.b(TiebaStatic.CON_COST, String.valueOf(mj.j().g()));
+                statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, wg.a(BdBaseApplication.getInst()));
                 BdStatisticsManager.getInstance().performance("im", statsItem);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

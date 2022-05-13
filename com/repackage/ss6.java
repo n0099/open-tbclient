@@ -1,25 +1,23 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.EsportRank;
-import tbclient.EsportUser;
+import com.repackage.dp8;
 /* loaded from: classes7.dex */
-public class ss6 {
+public class ss6 implements dp8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
     public ss6() {
         Interceptable interceptable = $ic;
@@ -31,79 +29,38 @@ public class ss6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void h(EsportRank esportRank) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, esportRank) == null) || esportRank == null) {
+        String version = TbConfig.getVersion();
+        if (TextUtils.isEmpty(version)) {
             return;
         }
-        this.a = esportRank.title;
-        this.b = String.valueOf(esportRank.rank);
-        this.c = esportRank.text;
-        this.g = esportRank.url;
-        EsportUser esportUser = esportRank.user;
-        if (esportUser != null) {
-            this.d = esportUser.steam_name;
-            this.e = esportUser.steam_portrait;
+        StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
+    }
+
+    @Override // com.repackage.dp8.a
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
         }
     }
 
-    public void i(String str) {
+    @Override // com.repackage.dp8.a
+    public void b(Context context, WebView webView, WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
         }
     }
 
-    public void j(String str) {
+    @Override // com.repackage.dp8.a
+    public void c(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.g = str;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
         }
     }
 }

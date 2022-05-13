@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m41;
-import com.repackage.n41;
-import com.repackage.p41;
-import com.repackage.zi0;
+import com.repackage.a51;
+import com.repackage.cj0;
+import com.repackage.x41;
+import com.repackage.y41;
 /* loaded from: classes2.dex */
-public class BubbleManager extends p41 implements View.OnClickListener {
+public class BubbleManager extends a51 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -95,11 +95,11 @@ public class BubbleManager extends p41 implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            if (cls == n41.class || cls == m41.class) {
+            if (cls == y41.class || cls == x41.class) {
                 try {
                     return cls.newInstance();
                 } catch (Exception e) {
-                    zi0.b("BubbleManager", "", e);
+                    cj0.b("BubbleManager", "", e);
                     return null;
                 }
             }

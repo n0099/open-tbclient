@@ -1,55 +1,142 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class la6 implements uo {
+public class la6 extends eo<ma6, ComplaintBarlordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumEmotionPackageData a;
+    public int i;
+    public View.OnClickListener j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755535760, "Lcom/repackage/la6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ la6 a;
+
+        public a(la6 la6Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {la6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755535760, "Lcom/repackage/la6;");
-                return;
+            this.a = la6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
+                String str = (String) view2.getTag();
+                if (this.a.i == 1 || this.a.i == 4) {
+                    str = str + "?isNightModel=1";
+                }
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0418), str, true));
+                customMessage.setTag(this.a.e);
+                MessageManager.getInstance().sendMessage(customMessage);
             }
         }
-        b = BdUniqueId.gen();
     }
 
-    public la6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public la6(b9 b9Var) {
+        super(b9Var.getPageActivity(), ma6.c, b9Var.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.j = new a(this);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.eo
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ma6 ma6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        g0(i, view2, viewGroup, ma6Var, complaintBarlordViewHolder);
+        return view2;
+    }
+
+    public final void d0(ComplaintBarlordViewHolder complaintBarlordViewHolder, ma6 ma6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, complaintBarlordViewHolder, ma6Var) == null) {
+            complaintBarlordViewHolder.d.setText(ma6Var.a);
+            complaintBarlordViewHolder.b.setTag(ma6Var.b);
+            complaintBarlordViewHolder.b.setOnClickListener(this.j);
         }
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void e0(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, complaintBarlordViewHolder) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            this.i = skinType;
+            if (complaintBarlordViewHolder.a == skinType) {
+                return;
+            }
+            complaintBarlordViewHolder.a = skinType;
+            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
+            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
+            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: f0 */
+    public ComplaintBarlordViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new ComplaintBarlordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ed, viewGroup, false)) : (ComplaintBarlordViewHolder) invokeL.objValue;
+    }
+
+    public View g0(int i, View view2, ViewGroup viewGroup, ma6 ma6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ma6Var, complaintBarlordViewHolder})) == null) {
+            if (ma6Var != null && complaintBarlordViewHolder != null) {
+                e0(complaintBarlordViewHolder);
+                d0(complaintBarlordViewHolder, ma6Var);
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

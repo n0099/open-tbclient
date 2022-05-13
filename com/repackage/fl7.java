@@ -39,9 +39,9 @@ public class fl7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0807, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0800, (ViewGroup) null);
             this.a = inflate;
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ed3);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f2b);
             this.a.setTag(this);
             return this.a;
         }

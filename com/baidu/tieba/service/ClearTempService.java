@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ClearTempService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE_FILE_COUNT = 300;
@@ -27,7 +27,7 @@ public class ClearTempService extends BdBaseService {
     public volatile boolean interrupted;
     public Thread thread;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class ClearTempService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

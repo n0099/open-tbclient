@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ue8;
+import com.repackage.jd8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ue8 mSearchMajorResultData;
+    public jd8 mSearchMajorResultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public YoungsterVerifyHttpResponsedMessage() {
@@ -41,16 +41,16 @@ public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessag
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                ue8 ue8Var = new ue8();
-                this.mSearchMajorResultData = ue8Var;
-                ue8Var.a(optJSONObject);
+                jd8 jd8Var = new jd8();
+                this.mSearchMajorResultData = jd8Var;
+                jd8Var.a(optJSONObject);
             }
         }
     }
 
-    public ue8 getData() {
+    public jd8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (ue8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (jd8) invokeV.objValue;
     }
 }

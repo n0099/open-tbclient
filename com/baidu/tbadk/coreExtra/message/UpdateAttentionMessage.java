@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
+import com.repackage.li;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
@@ -62,7 +62,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (ni.isEmpty(optString) || ni.isEmpty(this.k) || ni.isEmpty(optString2) || ni.isEmpty(optString3)) {
+            if (li.isEmpty(optString) || li.isEmpty(this.k) || li.isEmpty(optString2) || li.isEmpty(optString3)) {
                 return;
             }
             BlockPopInfoData blockPopInfoData = new BlockPopInfoData();

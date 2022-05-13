@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.is5;
 import com.repackage.js5;
-import com.repackage.uo;
-import com.repackage.ws5;
+import com.repackage.ks5;
+import com.repackage.ro;
+import com.repackage.xs5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -43,9 +43,9 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     public int g;
     public List<ThreadData> h;
     public List<ThreadData> i;
-    public List<uo> j;
-    public List<uo> k;
-    public List<uo> l;
+    public List<ro> j;
+    public List<ro> k;
+    public List<ro> l;
     public int m;
     public b n;
     public HttpMessageListener o;
@@ -157,7 +157,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public List<uo> L(List<ThreadData> list) {
+    public List<ro> L(List<ThreadData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
@@ -167,28 +167,28 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
             LinkedList linkedList = new LinkedList();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                ws5 ws5Var = new ws5();
+                xs5 xs5Var = new xs5();
                 ThreadData threadData = list.get(i);
-                ws5Var.a = threadData;
+                xs5Var.a = threadData;
                 if (threadData.getAuthor() != null) {
-                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", ws5Var.a.getAuthor().getUserId()));
+                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", xs5Var.a.getAuthor().getUserId()));
                 }
                 int i2 = i + 1;
                 if (i2 < size) {
                     ThreadData threadData2 = list.get(i2);
-                    ws5Var.b = threadData2;
+                    xs5Var.b = threadData2;
                     if (threadData2.getAuthor() != null) {
-                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", ws5Var.b.getAuthor().getUserId()));
+                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", xs5Var.b.getAuthor().getUserId()));
                     }
                 }
-                linkedList.add(ws5Var);
+                linkedList.add(xs5Var);
             }
             return linkedList;
         }
         return (List) invokeL.objValue;
     }
 
-    public List<uo> M() {
+    public List<ro> M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (List) invokeV.objValue;
@@ -220,24 +220,24 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
             if (ListUtils.getCount(this.j) == 0 && ListUtils.getCount(this.k) == 0) {
                 return;
             }
-            List<uo> list3 = this.l;
+            List<ro> list3 = this.l;
             if (list3 == null) {
                 this.l = new ArrayList();
             } else {
                 list3.clear();
             }
-            List<uo> list4 = this.j;
+            List<ro> list4 = this.j;
             if (list4 != null && list4.size() != 0) {
                 this.l.addAll(this.j);
                 this.d = true;
             } else {
-                this.l.add(new is5());
+                this.l.add(new js5());
                 this.d = false;
             }
             if (ListUtils.getCount(this.k) <= 0 || this.f) {
                 return;
             }
-            this.l.add(new js5());
+            this.l.add(new ks5());
             for (int i = 0; i < 3 && i < ListUtils.getCount(this.k); i++) {
                 if (this.k.get(i) != null) {
                     this.l.add(this.k.get(i));

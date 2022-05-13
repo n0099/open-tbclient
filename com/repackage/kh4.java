@@ -1,65 +1,106 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.system.Os;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-@Service
+import java.io.File;
+import java.io.FileOutputStream;
 /* loaded from: classes6.dex */
-public class kh4 implements el1 {
+public class kh4 implements hh4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public kh4() {
+    public kh4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = context.getApplicationContext();
+    }
+
+    @Override // com.repackage.hh4
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !new File(this.a.getFilesDir(), "libuuid.so").exists() : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hh4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d() : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hh4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str);
         }
     }
 
-    @Override // com.repackage.el1
-    public ug2 a(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) ? new mh4() : (ug2) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (file.exists()) {
+                return nh4.c(file);
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.el1
-    public ui2 b(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
+    @SuppressLint({"WorldReadableFiles"})
+    @TargetApi(21)
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) ? new ph4(invoker, str) : (ui2) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.el1
-    public ui2 c(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) ? new oh4(invoker, str) : (ui2) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.el1
-    public tg2 d(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) ? new lh4() : (tg2) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.el1
-    public re2 e(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) ? new zh4(invoker, str) : (re2) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            int i = Build.VERSION.SDK_INT >= 24 ? 1 : 0;
+            FileOutputStream fileOutputStream = null;
+            try {
+                try {
+                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
+                    fileOutputStream.write(str.getBytes());
+                    fileOutputStream.flush();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (i != 0) {
+                    try {
+                        Os.chmod(file.getAbsolutePath(), 436);
+                    } catch (Exception unused) {
+                    }
+                }
+            } finally {
+                nh4.a(fileOutputStream);
+            }
+        }
     }
 }

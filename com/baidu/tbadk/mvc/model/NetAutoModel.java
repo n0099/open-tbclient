@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o65;
-import com.repackage.p65;
+import com.repackage.e75;
+import com.repackage.f75;
 /* loaded from: classes3.dex */
-public abstract class NetAutoModel<T extends o65, D extends p65, ActivityType> extends NetModel<T, D, ActivityType> {
+public abstract class NetAutoModel<T extends e75, D extends f75, ActivityType> extends NetModel<T, D, ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public abstract class NetAutoModel<T extends o65, D extends p65, ActivityType> e
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (o65) objArr2[1], (NetModel.NetModelType) objArr2[2]);
+                super((TbPageContext) objArr2[0], (e75) objArr2[1], (NetModel.NetModelType) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

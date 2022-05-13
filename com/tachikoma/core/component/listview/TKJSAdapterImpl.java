@@ -18,7 +18,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEIGHT_INVALID = -1;

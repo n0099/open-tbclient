@@ -18,17 +18,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs9;
-import com.repackage.gs9;
-import com.repackage.ip9;
-import com.repackage.ko9;
-import com.repackage.lp9;
-import com.repackage.yr9;
+import com.repackage.br9;
+import com.repackage.do9;
+import com.repackage.fn9;
+import com.repackage.go9;
+import com.repackage.tq9;
+import com.repackage.xq9;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.webviewbase.AdvancedWebView;
 import org.json.JSONException;
 /* loaded from: classes8.dex */
-public class H5OpenActivity extends Activity implements ko9 {
+public class H5OpenActivity extends Activity implements fn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
@@ -53,44 +53,44 @@ public class H5OpenActivity extends Activity implements ko9 {
         this.e = false;
     }
 
-    @Override // com.repackage.ko9
+    @Override // com.repackage.fn9
     public void a(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) && this.e) {
-            yr9 a = cs9.a(this);
-            a.f(new gs9(this.d), i, str2);
+            tq9 a = xq9.a(this);
+            a.f(new br9(this.d), i, str2);
             a.m();
             this.e = false;
-            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f155e), 0).show();
+            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f158a), 0).show();
         }
     }
 
-    @Override // com.repackage.ko9
+    @Override // com.repackage.fn9
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.e) {
-            yr9 a = cs9.a(this);
-            a.f(new gs9(this.d), 200, str);
+            tq9 a = xq9.a(this);
+            a.f(new br9(this.d), 200, str);
             a.m();
             this.e = false;
         }
     }
 
-    @Override // com.repackage.ko9
+    @Override // com.repackage.fn9
     public void a(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
         }
     }
 
-    @Override // com.repackage.ko9
+    @Override // com.repackage.fn9
     public void a(String str, String str2, String str3, long j, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5}) == null) {
         }
     }
 
-    @Override // com.repackage.ko9
+    @Override // com.repackage.fn9
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -127,7 +127,7 @@ public class H5OpenActivity extends Activity implements ko9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08d0);
+            setContentView(R.layout.obfuscated_res_0x7f0d08c5);
             try {
                 this.d = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
             } catch (Exception e) {
@@ -140,14 +140,14 @@ public class H5OpenActivity extends Activity implements ko9 {
             }
             this.b = new AdvancedWebView(this);
             this.e = true;
-            yr9 a = cs9.a(this);
+            tq9 a = xq9.a(this);
             try {
-                a.b = cs9.d("wbas", new gs9(this.d));
+                a.b = xq9.d("wbas", new br9(this.d));
             } catch (JSONException unused) {
             }
             a.m();
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09245d);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09245c);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0924ad);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0924ac);
             this.a = frameLayout;
             frameLayout.removeAllViews();
             try {
@@ -157,8 +157,8 @@ public class H5OpenActivity extends Activity implements ko9 {
             this.a.addView(this.b);
             this.b.b(this, this);
             this.b.setGeolocationEnabled(false);
-            this.b.setWebViewClient(new ip9(this));
-            this.b.setWebChromeClient(new lp9(this));
+            this.b.setWebViewClient(new do9(this));
+            this.b.setWebChromeClient(new go9(this));
             Info info = this.d;
             if (info == null || TextUtils.isEmpty(info.getOph5Url())) {
                 Info info2 = this.d;
@@ -185,9 +185,9 @@ public class H5OpenActivity extends Activity implements ko9 {
             }
             super.onDestroy();
             this.e = false;
-            yr9 a = cs9.a(this);
+            tq9 a = xq9.a(this);
             try {
-                a.b = cs9.d("wbao", new gs9(this.d));
+                a.b = xq9.d("wbao", new br9(this.d));
             } catch (JSONException unused) {
             }
             a.m();

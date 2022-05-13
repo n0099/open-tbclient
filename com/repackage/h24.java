@@ -1,41 +1,37 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class h24 {
+public class h24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    @JvmField
-    public final byte[] message;
-    @V8JavascriptField
-    @JvmField
-    public final Object remoteInfo;
 
-    public h24(byte[] message, Object remoteInfo) {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i, long j, long j2);
+
+        void b(int i);
+
+        void success();
+    }
+
+    public static void a(String str, a aVar) {
+        u03 L;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {message, remoteInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, aVar) == null) || aVar == null || TextUtils.isEmpty(str) || (L = u03.L()) == null) {
+            return;
         }
-        Intrinsics.checkNotNullParameter(message, "message");
-        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
-        this.message = message;
-        this.remoteInfo = remoteInfo;
+        if (g24.b().d(str)) {
+            aVar.success();
+            return;
+        }
+        String a2 = g24.b().a(str);
+        if (TextUtils.isEmpty(a2)) {
+            aVar.b(2112);
+        } else {
+            c84.h(new xb4(L.b, L.j0(), a2, 1), new k24(L.b, L.j0(), g24.b().c(str, 2), aVar));
+        }
     }
 }

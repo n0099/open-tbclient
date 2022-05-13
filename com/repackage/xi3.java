@@ -1,216 +1,169 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.wifi.WifiManager;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
-    public c c;
-    public b d;
-    public JSONObject e;
+    public boolean a;
+    public String b;
+    public boolean c;
+    public String d;
+    public int e;
+    public String f;
+    public String g;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
-        public int g;
-        public int h;
-        public String i;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public double b;
-        public double c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public xi3(@NonNull Context context, @NonNull JSONObject jSONObject) {
+    public xi3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a();
-        c cVar = new c();
-        b bVar = new b();
-        String f0 = j03.f0();
-        String str = "";
-        this.a = TextUtils.isEmpty(f0) ? "" : f0;
-        this.b = aVar;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = jSONObject;
-        String r = de3.r();
-        aVar.a = "0".equals(r) ? "" : r;
-        String a2 = a();
-        aVar.b = "0".equals(a2) ? "" : a2;
-        aVar.c = 2;
-        aVar.d = zi3.e(context) ? 3 : 2;
-        String i3 = fx1.i();
-        aVar.e = "NUL".equals(i3) ? "" : i3;
-        String g = fx1.g();
-        aVar.f = "NUL".equals(g) ? "" : g;
-        aVar.g = ae3.n(context);
-        aVar.h = ae3.o(context);
-        String b2 = b();
-        if (!TextUtils.isEmpty(b2) && !Config.DEF_MAC_ID.equals(b2)) {
-            str = b2;
-        }
-        aVar.i = str;
-        bVar.a = zi3.c();
-        bVar.b = zi3.d(context);
     }
 
     public String a() {
         InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = nl3.b.a(AppRuntime.getAppContext());
-            return TextUtils.isEmpty(a2) ? "0" : a2;
+            String str = this.d;
+            int hashCode = str.hashCode();
+            if (hashCode == 2154) {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
+                    c = 2;
+                }
+                c = 65535;
+            } else if (hashCode != 2161) {
+                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
+                    c = 1;
+                }
+                c = 65535;
+            } else {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
+                    c = 0;
+                }
+                c = 65535;
+            }
+            if (c == 0) {
+                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007d);
+            } else if (c == 1) {
+                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007e);
+            } else if (c != 2) {
+                this.g = "";
+            } else {
+                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007f);
+            }
+            return this.g;
         }
         return (String) invokeV.objValue;
     }
 
     public String b() {
-        String str;
         InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                str = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-            } catch (Exception unused) {
-                str = null;
+            String str = this.d;
+            int hashCode = str.hashCode();
+            if (hashCode == 2154) {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
+                    c = 2;
+                }
+                c = 65535;
+            } else if (hashCode != 2161) {
+                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
+                    c = 1;
+                }
+                c = 65535;
+            } else {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
+                    c = 0;
+                }
+                c = 65535;
             }
-            return TextUtils.isEmpty(str) ? "" : str;
+            if (c == 0) {
+                this.f = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
+            } else if (c == 1) {
+                this.f = "https://ms.zzx9.cn/html/oauth/protocol2.html";
+            } else if (c == 2) {
+                this.f = "https://wap.cmpassport.com/resources/html/contract.html";
+            }
+            return this.f;
         }
         return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public JSONObject c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject.put("app_id", this.a);
-                jSONObject2.put("deviceid", this.b.a);
-                jSONObject2.put("androidid", this.b.b);
-                jSONObject2.put("os_type", this.b.c);
-                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.b.d);
-                jSONObject2.put("device_vendor", this.b.e);
-                jSONObject2.put("device_model", this.b.f);
-                jSONObject2.put("screen_height", this.b.g);
-                jSONObject2.put("screen_width", this.b.h);
-                jSONObject2.put("mac", this.b.i);
-                jSONObject.put(Config.DEVICE_PART, jSONObject2);
-                jSONObject3.put("coord_type", this.c.a);
-                jSONObject3.put("latitude", this.c.b);
-                jSONObject3.put("longitude", this.c.c);
-                jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-                jSONObject4.put("network", this.d.a);
-                jSONObject4.put("operator", this.d.b);
-                jSONObject.put("network", jSONObject4);
-                jSONObject.put("data", this.e);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public String d() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+        }
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xf0;
+import com.repackage.ag0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -166,7 +166,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
             try {
                 MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = xf0.b;
+                    mediaAEffect.shaderConfigKey = ag0.b;
                 }
                 if (mediaAEffect.mediaOneAEffects != null) {
                     ArrayList arrayList = new ArrayList();

@@ -298,7 +298,7 @@ public class c extends com.kwad.sdk.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09101d);
-        this.c = (KsAdWebView) a(R.id.obfuscated_res_0x7f0910bc);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09102c);
+        this.c = (KsAdWebView) a(R.id.obfuscated_res_0x7f0910cb);
     }
 }

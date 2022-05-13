@@ -12,7 +12,6 @@ import android.net.wifi.WifiManager;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +51,7 @@ public class NetStateManager {
                 }
             }
             Mobile = new NetState("Mobile", 0);
-            WIFI = new NetState(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
+            WIFI = new NetState("WIFI", 1);
             NetState netState = new NetState("NOWAY", 2);
             NOWAY = netState;
             $VALUES = new NetState[]{Mobile, WIFI, netState};

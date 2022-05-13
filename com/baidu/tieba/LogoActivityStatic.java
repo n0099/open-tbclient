@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ug5;
+import com.repackage.nh5;
 /* loaded from: classes3.dex */
 public class LogoActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public class LogoActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
-        ug5.g();
+        nh5.g();
     }
 
     public LogoActivityStatic() {

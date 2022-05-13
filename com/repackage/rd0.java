@@ -1,9 +1,10 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,102 +12,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public class rd0 {
+public class rd0 extends md0 {
     public static /* synthetic */ Interceptable $ic;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public Set<String> b;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static rd0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-46044619, "Lcom/repackage/rd0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-46044619, "Lcom/repackage/rd0$b;");
-                    return;
-                }
-            }
-            a = new rd0(null);
-        }
-    }
+    public Surface l;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755354317, "Lcom/repackage/rd0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755354317, "Lcom/repackage/rd0;");
-                return;
-            }
-        }
-        c = vt4.o("advert_hide_list");
-    }
-
-    public /* synthetic */ rd0(a aVar) {
-        this();
-    }
-
-    public static rd0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (rd0) invokeV.objValue;
-    }
-
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            if (this.b == null) {
-                this.b = this.a.getStringSet(c, null);
-            }
-            Set<String> set = this.b;
-            if (set == null) {
-                return false;
-            }
-            return set.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755354317, "Lcom/repackage/rd0;")) == null) {
             return;
         }
-        Set<String> stringSet = this.a.getStringSet(c, null);
-        this.b = stringSet;
-        if (stringSet == null) {
-            this.b = new HashSet();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        this.b.add(str);
-        this.a.edit().putStringSet(c, this.b).commit();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755354317, "Lcom/repackage/rd0;");
+        }
     }
 
     public rd0() {
@@ -119,9 +43,70 @@ public class rd0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+    }
+
+    @Override // com.repackage.md0
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.h == 0) {
+                this.h = this.e.presentationTimeUs;
+                md0.j = 0L;
+            }
+            MediaCodec.BufferInfo bufferInfo = this.e;
+            long j = bufferInfo.presentationTimeUs - this.h;
+            bufferInfo.presentationTimeUs = j;
+            md0.j = j;
+            hd0.x().V(md0.j / 1000);
+        }
+    }
+
+    public Surface k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (Surface) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(od0 od0Var, pd0 pd0Var) {
+        nd0 nd0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, od0Var, pd0Var) != null) {
+            return;
+        }
+        boolean z = true;
+        if (od0Var != null && pd0Var != null) {
+            this.c = pd0Var;
+            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(od0Var.j(), od0Var.n(), od0Var.l());
+            createVideoFormat.setInteger("color-format", 2130708361);
+            createVideoFormat.setInteger("bitrate", od0Var.i());
+            createVideoFormat.setInteger("frame-rate", od0Var.k());
+            createVideoFormat.setInteger("i-frame-interval", od0Var.m());
+            try {
+                MediaCodec createEncoderByType = MediaCodec.createEncoderByType(od0Var.j());
+                this.d = createEncoderByType;
+                createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                this.l = this.d.createInputSurface();
+                this.g = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            nd0Var = this.f;
+            if (nd0Var == null) {
+                nd0Var.b(z);
+                return;
+            }
+            return;
+        }
+        z = false;
+        nd0Var = this.f;
+        if (nd0Var == null) {
+        }
     }
 }

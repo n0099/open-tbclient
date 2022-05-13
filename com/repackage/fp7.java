@@ -109,10 +109,10 @@ public class fp7 extends cp7 {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f1e);
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f14);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f22);
-            int k = (oi.k(TbadkCoreApplication.getInst()) / 4) + oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2b);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f21);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
+            int k = (mi.k(TbadkCoreApplication.getInst()) / 4) + mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
             this.a.setLayoutParams(new LinearLayout.LayoutParams(k, k));
             int i3 = k / 3;
             this.b.setLayoutParams(new LinearLayout.LayoutParams(i3, i3));
@@ -161,8 +161,8 @@ public class fp7 extends cp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, op7Var) == null) {
             if (op7Var.g()) {
-                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0302).setShapeRadius(oi.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0807).setShadowSide(ShadowDrawable.ALL).setShadowRadius(oi.f(this.b, R.dimen.tbds20)).setOffsetX(0).setOffsetY(oi.f(this.b, R.dimen.tbds10)).into(bVar.a);
-                vr4 d = vr4.d(bVar.c);
+                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0302).setShapeRadius(mi.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0807).setShadowSide(ShadowDrawable.ALL).setShadowRadius(mi.f(this.b, R.dimen.tbds20)).setOffsetX(0).setOffsetY(mi.f(this.b, R.dimen.tbds10)).into(bVar.a);
+                gs4 d = gs4.d(bVar.c);
                 d.v(R.color.CAM_X0313);
                 d.A(R.dimen.T_X06);
                 if (bVar.b.getBdImage() == null || StringUtils.isNull(bVar.b.getBdImage().q())) {
@@ -171,8 +171,8 @@ public class fp7 extends cp7 {
                 bVar.b.setImageBitmap(f(bVar.b.getBdImage().p(), -1));
                 return;
             }
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0201).setShapeRadius(oi.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(oi.f(this.b, R.dimen.tbds20)).setOffsetX(0).setOffsetY(oi.f(this.b, R.dimen.tbds10)).into(bVar.a);
-            vr4 d2 = vr4.d(bVar.c);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0201).setShapeRadius(mi.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(mi.f(this.b, R.dimen.tbds20)).setOffsetX(0).setOffsetY(mi.f(this.b, R.dimen.tbds10)).into(bVar.a);
+            gs4 d2 = gs4.d(bVar.c);
             d2.v(R.color.CAM_X0105);
             d2.A(R.dimen.T_X06);
             bVar.b.setImageBitmap(null);
@@ -188,7 +188,7 @@ public class fp7 extends cp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d04fe, viewGroup, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d04f3, viewGroup, false);
                 bVar = new b(view2);
                 view2.setTag(bVar);
             } else {

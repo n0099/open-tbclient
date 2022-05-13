@@ -114,8 +114,8 @@ public class j38 {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            kk8.f(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
-            kk8.c(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
+            hj8.f(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
+            hj8.c(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
         }
     }
 

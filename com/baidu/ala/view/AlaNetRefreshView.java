@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a45;
+import com.repackage.r45;
 /* loaded from: classes.dex */
-public class AlaNetRefreshView extends a45 {
+public class AlaNetRefreshView extends r45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mNetFailTipView;
@@ -28,7 +28,7 @@ public class AlaNetRefreshView extends a45 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaNetRefreshView(Context context) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0101, (ViewGroup) null));
+        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00fd, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,10 +44,10 @@ public class AlaNetRefreshView extends a45 {
                 return;
             }
         }
-        this.mNetRefreshImg = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090206);
-        this.mNetFailTipView = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090207);
-        this.mNetRefreshBtn = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090204);
-        this.mNetRefreshContainer = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090205);
+        this.mNetRefreshImg = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901fc);
+        this.mNetFailTipView = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901fd);
+        this.mNetRefreshBtn = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901fa);
+        this.mNetRefreshContainer = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901fb);
     }
 
     public void onChangeSkinType() {

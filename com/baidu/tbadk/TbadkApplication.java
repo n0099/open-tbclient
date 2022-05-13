@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
-import com.repackage.ng;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.lg;
 import java.util.Calendar;
 /* loaded from: classes2.dex */
 public class TbadkApplication extends TbadkCoreApplication {
@@ -31,7 +31,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public ng resourcesWrapper;
+    public lg resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -112,7 +112,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new ng(super.getResources());
+                    this.resourcesWrapper = new lg(super.getResources());
                 }
                 return this.resourcesWrapper;
             }
@@ -198,7 +198,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            vt4.k().D("account_share");
+            iu4.k().D("account_share");
         }
     }
 

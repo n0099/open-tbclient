@@ -57,7 +57,7 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo222a() {
+    public hh mo223a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hh.x : (hh) invokeV.objValue;
@@ -65,7 +65,7 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo222a() {
+    public String mo223a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "24" : (String) invokeV.objValue;

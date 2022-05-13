@@ -18,7 +18,7 @@ import com.baidu.turbonet.net.TurbonetContext;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class q78 {
     public static /* synthetic */ Interceptable $ic;
     public static OkHttpClient a;

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -116,17 +116,17 @@ public class SignItemView extends FrameLayout {
                     return;
                 }
             }
-            this.a = R.drawable.obfuscated_res_0x7f08064d;
-            this.b = R.drawable.obfuscated_res_0x7f08064e;
-            this.c = R.drawable.obfuscated_res_0x7f08064c;
-            this.d = R.drawable.obfuscated_res_0x7f08064f;
-            this.e = R.drawable.obfuscated_res_0x7f08064c;
+            this.a = R.drawable.obfuscated_res_0x7f08063c;
+            this.b = R.drawable.obfuscated_res_0x7f08063d;
+            this.c = R.drawable.obfuscated_res_0x7f08063b;
+            this.d = R.drawable.obfuscated_res_0x7f08063e;
+            this.e = R.drawable.obfuscated_res_0x7f08063b;
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fa4);
-            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091c5e);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f83);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fb2);
+            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091caa);
             this.i = circleView;
             circleView.setVisibility(4);
             int i3 = activeCenterStatusData.is_today_mission;
@@ -195,8 +195,8 @@ public class SignItemView extends FrameLayout {
         }
         this.a = 3;
         this.d = new ArrayList<>();
-        this.h = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.i = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.h = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.i = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         d();
     }
 
@@ -204,7 +204,7 @@ public class SignItemView extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activeCenterStatusData)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0778, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0770, (ViewGroup) null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.weight = 1.0f;
             this.b.addView(inflate, layoutParams);
@@ -218,11 +218,11 @@ public class SignItemView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0771, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cef);
-            this.c = (LineView) findViewById(R.id.obfuscated_res_0x7f09125f);
-            this.f = oi.f(getContext(), R.dimen.tbds23);
-            this.g = oi.f(getContext(), R.dimen.tbds26);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0769, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d45);
+            this.c = (LineView) findViewById(R.id.obfuscated_res_0x7f09126c);
+            this.f = mi.f(getContext(), R.dimen.tbds23);
+            this.g = mi.f(getContext(), R.dimen.tbds26);
         }
     }
 
@@ -321,8 +321,8 @@ public class SignItemView extends FrameLayout {
         }
         this.a = 3;
         this.d = new ArrayList<>();
-        this.h = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.i = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.h = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.i = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         d();
     }
 
@@ -347,8 +347,8 @@ public class SignItemView extends FrameLayout {
         }
         this.a = 3;
         this.d = new ArrayList<>();
-        this.h = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.i = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.h = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.i = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         d();
     }
 }

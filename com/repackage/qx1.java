@@ -1,21 +1,27 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.fj2;
-import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes7.dex */
 public class qx1 {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
-    public static final String b;
-    public static final String c;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,83 +37,312 @@ public class qx1 {
                 return;
             }
         }
-        a = "__localDebug__" + File.separator + "master.js";
-        b = "__localDebug__" + File.separator + "main.js";
-        c = "__localDebug__" + File.separator + "slave.js";
+        a = ox1.b();
+        b = new String[]{ox1.c(), ox1.b(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
     }
 
-    public static fj2.g a(gl2 gl2Var) {
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gl2Var)) == null) {
-            File d = d();
-            sx1.e().f("unzipstart");
-            fj2.M(b(), d, gl2Var);
-            sx1.e().f("unzipend");
-            fj2.g gVar = new fj2.g();
-            File file = new File(d, "app.json");
-            SwanAppConfigData b2 = v03.b(d.getAbsolutePath());
-            gVar.a = d.getPath() + File.separator;
-            gVar.b = b2;
-            jx1.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String b2 = uu2.b();
+            return b2 != null ? a(str, "launchid", b2) : str;
         }
-        return (fj2.g) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static File b() {
+    public static int c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new File(c(), "local_debug.swan") : (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
+        NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
+            String str = null;
+            try {
+                networkInfo = ((ConnectivityManager) bk2.c().getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (NullPointerException unused) {
+                networkInfo = null;
             }
-            return file;
+            if (networkInfo != null) {
+                str = "wifi".equals(networkInfo.getTypeName().toLowerCase()) ? "WIFI" : networkInfo.getExtraInfo();
+            }
+            if (str != null) {
+                String upperCase = str.toUpperCase();
+                if ("WIFI".equals(upperCase)) {
+                    return 1;
+                }
+                if ("3GNET".equals(upperCase)) {
+                    return 21;
+                }
+                if ("3GWAP".equals(upperCase)) {
+                    return 22;
+                }
+                if ("CMNET".equals(upperCase)) {
+                    return 31;
+                }
+                if ("UNINET".equals(upperCase)) {
+                    return 32;
+                }
+                if ("CTNET".equals(upperCase)) {
+                    return 33;
+                }
+                if ("CMWAP".equals(upperCase)) {
+                    return 41;
+                }
+                if ("UNIWAP".equals(upperCase)) {
+                    return 42;
+                }
+                return "CTWAP".equals(upperCase) ? 43 : 5;
+            }
+            return 5;
         }
-        return (File) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static File d() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? bk2.n().a() : (String) invokeV.objValue;
     }
 
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d() + File.separator + a;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "a0" : (String) invokeV.objValue;
     }
 
     public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d() + File.separator + c;
+            String g = g();
+            String h = h();
+            int i = Build.VERSION.SDK_INT;
+            String i2 = i();
+            return g + "_" + h + "_" + i + "_" + i2;
         }
         return (String) invokeV.objValue;
     }
 
-    public static boolean g() {
+    public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String str = Build.MODEL;
+            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            String str = Build.MANUFACTURER;
+            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? j(s()) : (String) invokeV.objValue;
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? j(t()) : (String) invokeV.objValue;
+    }
+
+    public static String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? j(f()) : (String) invokeV.objValue;
+    }
+
+    public static int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            NetworkInfo c = SwanAppNetworkUtils.c(bk2.c());
+            if (c == null) {
+                return 0;
+            }
+            return c.getSubtype();
+        }
+        return invokeV.intValue;
+    }
+
+    public static String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return c() + "_" + n();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? AppRuntime.getApplication().getPackageName() : (String) invokeV.objValue;
+    }
+
+    public static String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? "android" : (String) invokeV.objValue;
+    }
+
+    public static String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? fh1.a() : (String) invokeV.objValue;
+    }
+
+    public static String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            int o = le3.o(appContext);
+            int n = le3.n(appContext);
+            int m = le3.m(appContext);
+            String q = q();
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(o);
+            stringBuffer.append("_");
+            stringBuffer.append(n);
+            stringBuffer.append("_");
+            stringBuffer.append(q);
+            stringBuffer.append("_");
+            stringBuffer.append(oe3.D());
+            stringBuffer.append("_");
+            stringBuffer.append(m);
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? bk2.h0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
+    }
+
+    public static boolean u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (String str2 : b) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) ? w(str, false) : (String) invokeL.objValue;
+    }
+
+    public static String w(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
+            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(SwanAppAllianceLoginHelper.d.f() ? 2 : 0));
+            return z ? b(a2) : a2;
+        }
+        return (String) invokeLZ.objValue;
     }
 }

@@ -2,6 +2,7 @@ package com.tachikoma.core.component.network;
 
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.NotifyAdapterUtil;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class NetworkType {
     public static final /* synthetic */ NetworkType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +57,7 @@ public final class NetworkType {
         LIVE = new NetworkType("LIVE", 6, "live");
         IM = new NetworkType("IM", 7, "IM");
         PUSH = new NetworkType(NotifyAdapterUtil.PUSH_EN, 8, "push");
-        AD = new NetworkType("AD", 9, "ad");
+        AD = new NetworkType("AD", 9, LaunchStatsUtils.AD);
         MERCHANT = new NetworkType("MERCHANT", 10, "merchant");
         GZONE = new NetworkType("GZONE", 11, "gzone");
         NetworkType networkType = new NetworkType("ZT", 12, "zt");

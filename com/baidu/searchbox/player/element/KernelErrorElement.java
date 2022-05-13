@@ -78,9 +78,9 @@ public class KernelErrorElement extends AbsElement {
     public void initElement() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0156, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0152, null);
             this.mRootView = linearLayout;
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091857);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0918af);
             this.mTextNetError = textView;
             textView.setOnClickListener(this.mParent);
         }

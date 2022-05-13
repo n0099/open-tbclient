@@ -237,7 +237,7 @@ public class ViewUtils {
     public static void doOnApplyWindowInsets(@NonNull View view2, @Nullable AttributeSet attributeSet, int i, int i2, @Nullable OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view2, attributeSet, Integer.valueOf(i), Integer.valueOf(i2), onApplyWindowInsetsListener}) == null) {
-            TypedArray obtainStyledAttributes = view2.getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04049e, R.attr.obfuscated_res_0x7f0404a1, R.attr.obfuscated_res_0x7f0404a3}, i, i2);
+            TypedArray obtainStyledAttributes = view2.getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404a3, R.attr.obfuscated_res_0x7f0404a6, R.attr.obfuscated_res_0x7f0404a8}, i, i2);
             boolean z = obtainStyledAttributes.getBoolean(0, false);
             boolean z2 = obtainStyledAttributes.getBoolean(1, false);
             boolean z3 = obtainStyledAttributes.getBoolean(2, false);

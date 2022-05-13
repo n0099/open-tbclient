@@ -14,21 +14,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lv9;
-import com.repackage.mv9;
-import com.repackage.nv9;
+import com.repackage.gu9;
+import com.repackage.hu9;
+import com.repackage.iu9;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String q = "YYSSOLoginActivity";
     public transient /* synthetic */ FieldHolder $fh;
-    public nv9 n;
+    public iu9 n;
     public String o;
-    public lv9 p;
+    public gu9 p;
 
     /* loaded from: classes2.dex */
-    public class a implements lv9 {
+    public class a implements gu9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YYSSOLoginActivity a;
@@ -51,7 +51,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             this.a = yYSSOLoginActivity;
         }
 
-        @Override // com.repackage.lv9
+        @Override // com.repackage.gu9
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -61,7 +61,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             }
         }
 
-        @Override // com.repackage.lv9
+        @Override // com.repackage.gu9
         public void onComplete(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
@@ -83,13 +83,13 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             }
         }
 
-        @Override // com.repackage.lv9
-        public void onError(mv9 mv9Var) {
+        @Override // com.repackage.gu9
+        public void onError(hu9 hu9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mv9Var) == null) {
-                Log.d(YYSSOLoginActivity.q, "onError " + mv9Var.a + " " + mv9Var.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hu9Var) == null) {
+                Log.d(YYSSOLoginActivity.q, "onError " + hu9Var.a + " " + hu9Var.b);
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, mv9Var.a, mv9Var.b);
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, hu9Var.a, hu9Var.b);
             }
         }
     }
@@ -136,7 +136,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && !TextUtils.isEmpty(confignation.yyAppId)) {
                 try {
-                    nv9 b = nv9.b(getApplicationContext(), confignation.yyAppId);
+                    iu9 b = iu9.b(getApplicationContext(), confignation.yyAppId);
                     this.n = b;
                     b.a(this, this.p);
                     return;

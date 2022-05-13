@@ -201,19 +201,19 @@ public class tr7 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e3, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01dc, (ViewGroup) null);
         this.a = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090645);
-        this.c = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09063d);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09063e);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090631);
-        this.c.setRadius(oi.d(context, 2.0f));
-        this.g = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090632);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09062f);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09062e);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09063d);
+        this.c = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090635);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090636);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090629);
+        this.c.setRadius(mi.d(context, 2.0f));
+        this.g = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09062a);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090627);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090626);
         this.i = textView;
         textView.setOnClickListener(new a(this));
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090630);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090628);
     }
 
     public View c() {
@@ -244,12 +244,12 @@ public class tr7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.i.setText(R.string.obfuscated_res_0x7f0f0f6c);
+                this.i.setText(R.string.obfuscated_res_0x7f0f0f87);
                 SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
                 this.i.setEnabled(false);
                 return;
             }
-            this.i.setText(R.string.obfuscated_res_0x7f0f029c);
+            this.i.setText(R.string.obfuscated_res_0x7f0f02a2);
             this.i.setEnabled(true);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0111, 1);
         }
@@ -280,7 +280,7 @@ public class tr7 {
             this.f.setVisibility(4);
             return;
         }
-        this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f03c7, UtilHelper.getFixedText(str, 7, false)));
+        this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f03cc, UtilHelper.getFixedText(str, 7, false)));
         this.f.setOnClickListener(new d(this, str));
         this.f.setVisibility(0);
     }
@@ -294,7 +294,7 @@ public class tr7 {
         }
         textView.setText(excellentPbThreadInfo.title);
         if (!StringUtils.isNull(excellentPbThreadInfo.forum.forum_name) && excellentPbThreadInfo.forum.forum_id != null && excellentPbThreadInfo.excid.longValue() > 0) {
-            bn4.c().h(excellentPbThreadInfo.forum.forum_name);
+            ln4.c().h(excellentPbThreadInfo.forum.forum_name);
             this.j.setVisibility(0);
             i(context, excellentPbThreadInfo.forum.forum_name);
             BarImageView barImageView = this.g;

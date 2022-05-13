@@ -1,268 +1,233 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.text.TextUtils;
+import android.view.Surface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.repackage.h99;
+import com.repackage.k99;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class g99 extends z89 implements ua9 {
+public class g99 extends h99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h99 B;
-    public String C;
-    public Thread D;
-    public long E;
-    public long F;
-
-    /* loaded from: classes6.dex */
-    public class a extends va9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g99 a;
-
-        public a(g99 g99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g99Var;
-        }
-
-        @Override // com.repackage.va9, com.repackage.ua9
-        public void onExceptionThrown(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.z == null || this.a.l) {
-                return;
-            }
-            this.a.z.onExceptionThrown(str);
-        }
-
-        @Override // com.repackage.va9
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.a.k = true;
-                if (this.a.z == null || this.a.l) {
-                    return;
-                }
-                this.a.z.onFinishedWriting(z);
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g99(String str, String str2, int[] iArr) throws Exception {
-        super(0, str, iArr);
+    public g99(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, iArr};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.C = str2;
-        this.B.e(str2);
-        F(this);
     }
 
-    @Override // com.repackage.z89
-    public void B(long j) {
+    /* JADX WARN: Removed duplicated region for block: B:49:0x015c A[Catch: all -> 0x0282, TryCatch #0 {all -> 0x0282, blocks: (B:27:0x00e3, B:29:0x00e9, B:31:0x00f2, B:47:0x0156, B:49:0x015c, B:51:0x0162, B:52:0x016f, B:55:0x0175, B:57:0x0178, B:59:0x0192, B:61:0x0198, B:63:0x01a6, B:65:0x01ac, B:69:0x01b9, B:76:0x01c9, B:78:0x01d0, B:79:0x01d9, B:81:0x01f7, B:83:0x0201, B:86:0x020f, B:89:0x021c, B:33:0x010d, B:35:0x0115, B:39:0x0126, B:44:0x0143, B:42:0x0131, B:93:0x0240, B:95:0x0246, B:96:0x024e), top: B:108:0x00e3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0209  */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public h99.b a(String str, boolean z, k99.f fVar, k99.f fVar2, long j, long j2, long j3) throws Exception {
+        InterceptResult invokeCommon;
+        MediaFormat mediaFormat;
+        ByteBuffer[] byteBufferArr;
+        long j4;
+        int dequeueOutputBuffer;
+        ByteBuffer[] byteBufferArr2;
+        byte[] bArr;
+        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = j * 1000;
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), fVar, fVar2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            k99.f fVar3 = fVar2;
+            long j5 = j2;
+            if (TextUtils.isEmpty(str) || fVar == null || fVar3 == null) {
+                return null;
             }
-            this.E = j2;
-            if (this.e != null) {
-                if (j2 > this.e.getDuration()) {
-                    j2 = this.e.getDuration();
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = this.a;
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str2);
+            int i = 0;
+            while (true) {
+                if (i >= mediaExtractor.getTrackCount()) {
+                    mediaFormat = null;
+                    break;
                 }
-                synchronized (this.c) {
-                    this.e.seek(j2);
+                mediaFormat = mediaExtractor.getTrackFormat(i);
+                if (mediaFormat.getString("mime").startsWith("audio/")) {
+                    mediaExtractor.selectTrack(i);
+                    break;
                 }
+                i++;
             }
-        }
-    }
-
-    @Override // com.repackage.z89
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
-            return;
-        }
-        long currentPosition = this.e.getCurrentPosition();
-        long j = this.E;
-        long j2 = currentPosition - j;
-        long j3 = this.F;
-        long duration = j3 > 0 ? j3 - j : this.e.getDuration();
-        double d = duration == 0 ? 0.0d : j2 / duration;
-        double d2 = d >= 0.0d ? d : 0.0d;
-        onProgressChanged(this.n, d2 > 1.0d ? 1.0d : d2, j2);
-    }
-
-    @Override // com.repackage.z89
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.I();
-            Thread thread = this.D;
-            if (thread == null || !thread.isAlive()) {
-                Thread thread2 = new Thread(this);
-                this.D = thread2;
-                thread2.start();
+            va9.c("AndroidAudioDecoder", "startTime:" + j + ",endTime:" + j5);
+            if (j > 0) {
+                mediaExtractor.seekTo(j * 1000, 0);
             }
-            super.I();
-        }
-    }
-
-    public void R(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            long j2 = j * 1000;
-            this.F = j2;
-            if (this.e != null) {
-                if (j2 > this.e.getDuration()) {
-                    j2 = this.e.getDuration();
+            if (mediaFormat == null) {
+                va9.b("not a valid file with audio track..");
+                mediaExtractor.release();
+                return null;
+            }
+            va9.b("mediaFormat " + mediaFormat);
+            h99.b bVar = new h99.b();
+            int i2 = fVar3.b;
+            int i3 = fVar3.a;
+            int i4 = fVar3.c;
+            bVar.a = str;
+            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
+            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+            createDecoderByType.start();
+            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
+            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
+            double d = mediaFormat.getLong("durationUs");
+            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+            boolean z2 = false;
+            boolean z3 = false;
+            ByteBuffer[] byteBufferArr3 = outputBuffers;
+            while (!z2) {
+                long j6 = currentTimeMillis;
+                if (!z3) {
+                    try {
+                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
+                        if (dequeueInputBuffer >= 0) {
+                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
+                            if (readSampleData < 0) {
+                                va9.b("saw input EOS.");
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                byteBufferArr = inputBuffers;
+                                j4 = 5000;
+                            } else {
+                                long sampleTime = mediaExtractor.getSampleTime();
+                                if (j3 != 0) {
+                                    byteBufferArr = inputBuffers;
+                                    mediaExtractor.seekTo(sampleTime + j3, 0);
+                                } else {
+                                    byteBufferArr = inputBuffers;
+                                }
+                                if (j5 != -1 && sampleTime + j3 >= j5 * 1000) {
+                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                    j4 = 5000;
+                                }
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, 0);
+                                mediaExtractor.advance();
+                                j4 = 5000;
+                                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                                if (dequeueOutputBuffer < 0) {
+                                    byteBufferArr2 = byteBufferArr3;
+                                    if (dequeueOutputBuffer == -3) {
+                                        byteBufferArr3 = createDecoderByType.getOutputBuffers();
+                                        va9.b("output buffers have changed.");
+                                        fVar3 = fVar2;
+                                        inputBuffers = byteBufferArr;
+                                        j5 = j2;
+                                        currentTimeMillis = j6;
+                                    } else if (dequeueOutputBuffer == -2) {
+                                        va9.b("output format has changed to " + createDecoderByType.getOutputFormat());
+                                    }
+                                } else if ((bufferInfo.flags & 2) != 0) {
+                                    va9.b("audio encoder: codec config buffer");
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                    inputBuffers = byteBufferArr;
+                                    currentTimeMillis = j6;
+                                } else {
+                                    if (bufferInfo.size == 0 || dequeueOutputBuffer < 0 || byteBufferArr3.length <= dequeueOutputBuffer) {
+                                        byteBufferArr2 = byteBufferArr3;
+                                    } else {
+                                        ByteBuffer byteBuffer = byteBufferArr3[dequeueOutputBuffer];
+                                        byteBuffer.position(bufferInfo.offset);
+                                        byteBufferArr2 = byteBufferArr3;
+                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                        byte[] bArr3 = new byte[bufferInfo.size];
+                                        byteBuffer.get(bArr3);
+                                        if (z) {
+                                            bArr = null;
+                                            bArr2 = null;
+                                        } else {
+                                            bArr2 = fVar2.a() ? k99.c(fVar3.c / 8, fVar.c / 8, bArr3) : null;
+                                            if (fVar2.b()) {
+                                                bArr = k99.d(fVar3.b, fVar.b, fVar.c / 8, bArr2 == null ? bArr3 : bArr2);
+                                            } else {
+                                                bArr = null;
+                                            }
+                                        }
+                                        if (bArr == null) {
+                                            bArr = bArr2 == null ? bArr3 : bArr2;
+                                        }
+                                        fileOutputStream.write(bArr);
+                                        if (this.b != null) {
+                                            this.b.a(bArr3, bufferInfo.presentationTimeUs / d);
+                                        }
+                                        va9.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                    }
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                    if ((bufferInfo.flags & 4) != 0) {
+                                        va9.b("saw output EOS.");
+                                        z2 = true;
+                                    }
+                                }
+                                byteBufferArr3 = byteBufferArr2;
+                                fVar3 = fVar2;
+                                inputBuffers = byteBufferArr;
+                                j5 = j2;
+                                currentTimeMillis = j6;
+                            }
+                            z3 = true;
+                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                            if (dequeueOutputBuffer < 0) {
+                            }
+                            byteBufferArr3 = byteBufferArr2;
+                            fVar3 = fVar2;
+                            inputBuffers = byteBufferArr;
+                            j5 = j2;
+                            currentTimeMillis = j6;
+                        }
+                    } finally {
+                        fileOutputStream.close();
+                        createDecoderByType.stop();
+                        createDecoderByType.release();
+                        mediaExtractor.release();
+                    }
                 }
-                synchronized (this.c) {
-                    this.e.h(j2);
+                byteBufferArr = inputBuffers;
+                j4 = 5000;
+                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                if (dequeueOutputBuffer < 0) {
                 }
+                byteBufferArr3 = byteBufferArr2;
+                fVar3 = fVar2;
+                inputBuffers = byteBufferArr;
+                j5 = j2;
+                currentTimeMillis = j6;
             }
-        }
-    }
-
-    public void S(va9 va9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, va9Var) == null) {
-            this.z = va9Var;
-            this.B.d(new a(this));
-        }
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.l = true;
-            this.k = true;
-            Thread thread = this.D;
-            if (thread != null) {
-                try {
-                    thread.interrupt();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                this.D = null;
+            long j7 = currentTimeMillis;
+            if (this.b != null) {
+                this.b.a(null, 1.0d);
             }
-            try {
-                this.B.g();
-            } catch (Exception e2) {
-                ac9.e("VideoMuxer", "cancel finishWriting error:" + e2.getMessage());
-            }
+            va9.b("decode " + str + " cost " + (System.currentTimeMillis() - j7) + " milliseconds !");
+            return bVar;
         }
-    }
-
-    @Override // com.repackage.ua9
-    public void onCancel() {
-        va9 va9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (va9Var = this.z) == null) {
-            return;
-        }
-        va9Var.onCancel();
-    }
-
-    @Override // com.repackage.ua9
-    public void onExceptionThrown(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.z == null || this.l) {
-            return;
-        }
-        this.z.onExceptionThrown(str);
-    }
-
-    @Override // com.repackage.ua9
-    public void onProgressChanged(int i, double d, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) || this.z == null || this.l) {
-            return;
-        }
-        this.z.onProgressChanged(i, d, j);
-    }
-
-    @Override // com.repackage.ua9
-    public void onTrackEnd(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            try {
-                this.B.b();
-            } catch (Exception e) {
-                ac9.e("VideoMuxer", "onTrackEnd finishWriting error:" + e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.repackage.z89
-    public d99 p() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            h99 h99Var = new h99(this.C, m(), i());
-            this.B = h99Var;
-            return h99Var;
-        }
-        return (d99) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z89
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.z89
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.z89
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.D != null) {
-                this.D = null;
-            }
-            try {
-                this.B.b();
-            } catch (Exception e) {
-                ac9.e("VideoMuxer", "onStop finishWriting error:" + e.getMessage());
-            }
-        }
+        return (h99.b) invokeCommon.objValue;
     }
 }

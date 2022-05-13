@@ -1,123 +1,75 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db5;
+import com.repackage.ub5;
 /* loaded from: classes6.dex */
-public class nb5 extends ib5 {
+public class nb5 extends r45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public db5.c a;
-    public TbPageContext b;
-    public BdRecyclerView c;
-    public PbListView d;
+    public NoDataView a;
 
-    public nb5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, db5.c cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nb5(Context context) {
+        super(new NoDataView(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = bdRecyclerView;
-        this.a = cVar;
-        PbListView pbListView = new PbListView(getActivity());
-        this.d = pbListView;
-        pbListView.b();
-        this.d.p(R.color.transparent);
-        this.d.t(this.a.a);
-        this.d.L(this.a.b);
-        this.d.x();
-        this.d.G(R.dimen.tbfontsize33);
-        this.d.E(SkinManager.getColor(R.color.CAM_X0107));
-        this.d.A(R.color.CAM_X0110);
-        this.d.s();
+        this.a = (NoDataView) getView();
     }
 
-    private Activity getActivity() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.b.getPageActivity() : (Activity) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ib5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.g) {
-                e();
-            } else {
-                d();
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.f(f9.a(getView().getContext()), i);
         }
     }
 
-    @Override // com.repackage.ib5
-    public void b() {
+    public void b(ub5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.Q();
-            this.d.C(this.a.c);
-            this.d.B(null);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.ib5
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.C(this.a.e);
-            this.d.B(null);
+        this.a.setVisibility(0);
+        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
+        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
+        aVar2.h(aVar.c);
+        aVar2.j(aVar.g);
+        this.a.setImgOption(aVar2.f());
+        String str = (!aVar.b || TextUtils.isEmpty(aVar.a)) ? aVar.d : aVar.a;
+        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
+        aVar3.g(str);
+        this.a.setTextOption(aVar3.f());
+        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
+            String str2 = aVar.e;
+            View.OnClickListener onClickListener = aVar.h;
+            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
+            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
+            this.a.setButtonOption(aVar4.e());
+        } else {
+            this.a.setButtonOption(null);
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.C(this.a.d);
-            this.d.B(null);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.C(this.a.f);
-            this.d.B(this.a.h);
-        }
-    }
-
-    @Override // com.repackage.lb5
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d.d(i);
-        }
+        a(TbadkCoreApplication.getInst().getSkinType());
     }
 }

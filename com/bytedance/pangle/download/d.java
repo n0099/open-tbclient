@@ -7,7 +7,6 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +53,7 @@ public final class d {
             c = new a("MOBILE", 2, 1);
             d = new a("MOBILE_2G", 3, 2);
             e = new a("MOBILE_3G", 4, 3);
-            f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
+            f = new a("WIFI", 5, 4);
             a aVar = new a("MOBILE_4G", 6, 5);
             g = aVar;
             i = new a[]{a, b, c, d, e, f, aVar};

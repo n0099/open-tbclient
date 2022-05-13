@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class PushDialogUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
@@ -48,13 +48,13 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
                 setBackgroundDrawable(null);
                 return;
             }
-            int f = oi.f(getContext(), R.dimen.tbds32);
+            int f = mi.f(getContext(), R.dimen.tbds32);
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_add_follow_blue_s);
             drawable.setBounds(0, 0, f, f);
             setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            setTextSize(0, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
+            setTextSize(0, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
             setTextColor(ContextCompat.getColor(getContext(), R.color.CAM_X0111));
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f081095);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ab);
         }
     }
 

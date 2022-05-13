@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b00;
+import com.repackage.kz;
 /* loaded from: classes7.dex */
-public class un7 extends in7<eq4, ThreadCardViewHolder<eq4>> implements qi5 {
+public class un7 extends in7<pq4, ThreadCardViewHolder<pq4>> implements ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId k;
     public TbPageContext<?> l;
-    public zo m;
+    public xo m;
     public String n;
     public String o;
     public View.OnClickListener p;
     public PullLeftRefreshLayout.f q;
-    public km4 r;
+    public vm4 r;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -98,7 +98,7 @@ public class un7 extends in7<eq4, ThreadCardViewHolder<eq4>> implements qi5 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements km4<dq4> {
+    public class c implements vm4<oq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ un7 a;
@@ -122,29 +122,29 @@ public class un7 extends in7<eq4, ThreadCardViewHolder<eq4>> implements qi5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: b */
-        public void c(View view2, dq4 dq4Var, int i, long j) {
+        public void c(View view2, oq4 oq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                fn7.a("c14399", dq4Var, i + 1, this.a.j.getOrignalPage().getTopicId());
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, oq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                fn7.a("c14399", oq4Var, i + 1, this.a.j.getOrignalPage().getTopicId());
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: d */
-        public void a(View view2, dq4 dq4Var, int i, long j) {
+        public void a(View view2, oq4 oq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (dq4Var == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, oq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (oq4Var == null) {
                     this.a.l.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a.l.getPageActivity(), this.a.o)));
                     return;
                 }
-                String m = dq4Var.m();
-                if (ni.isForumName(m)) {
+                String m = oq4Var.m();
+                if (li.isForumName(m)) {
                     this.a.l.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.l.getPageActivity()).createNormalCfg(m, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                    fn7.a("c13739", dq4Var, i + 1, this.a.j.getOrignalPage().getTopicId());
+                    fn7.a("c13739", oq4Var, i + 1, this.a.j.getOrignalPage().getTopicId());
                 }
             }
         }
@@ -176,21 +176,21 @@ public class un7 extends in7<eq4, ThreadCardViewHolder<eq4>> implements qi5 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: e0 */
     public ThreadCardViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b00.b bVar = new b00.b(this.l.getPageActivity(), false);
-            uz uzVar = new uz(this.l, this.k);
-            uzVar.u(false);
-            uzVar.p(false);
-            uzVar.t(false);
-            uzVar.s(this.q);
-            uzVar.q(this.p);
-            uzVar.r(this.r);
-            bVar.n(uzVar);
+            kz.b bVar = new kz.b(this.l.getPageActivity(), false);
+            dz dzVar = new dz(this.l, this.k);
+            dzVar.u(false);
+            dzVar.p(false);
+            dzVar.t(false);
+            dzVar.s(this.q);
+            dzVar.q(this.p);
+            dzVar.r(this.r);
+            bVar.n(dzVar);
             bVar.l().c(0);
             bVar.l().f(0);
             bVar.l().e(0);
@@ -203,28 +203,28 @@ public class un7 extends in7<eq4, ThreadCardViewHolder<eq4>> implements qi5 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: f0 */
-    public View S(int i, View view2, ViewGroup viewGroup, eq4 eq4Var, ThreadCardViewHolder<eq4> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, pq4 pq4Var, ThreadCardViewHolder<pq4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eq4Var, threadCardViewHolder})) == null) {
-            if (eq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pq4Var, threadCardViewHolder})) == null) {
+            if (pq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
                 return null;
             }
-            fn7.f("c14384", this.j.getOrignalPage().getTopicId());
+            fn7.g("c14384", this.j.getOrignalPage().getTopicId());
             threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof pi5) {
+            if (threadCardViewHolder.c() instanceof hj5) {
                 threadCardViewHolder.c().b(this.n);
             }
-            threadCardViewHolder.g(eq4Var);
+            threadCardViewHolder.g(pq4Var);
             threadCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
             return threadCardViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.qi5
+    @Override // com.repackage.ij5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -232,10 +232,10 @@ public class un7 extends in7<eq4, ThreadCardViewHolder<eq4>> implements qi5 {
         }
     }
 
-    public void g0(zo zoVar) {
+    public void g0(xo xoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zoVar) == null) {
-            this.m = zoVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xoVar) == null) {
+            this.m = xoVar;
         }
     }
 }

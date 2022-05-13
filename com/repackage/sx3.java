@@ -1,15 +1,33 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface sx3 {
-    View a(Context context, GameCloseGuidePopView.e eVar);
+public class sx3 implements jy3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i);
+    public sx3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c();
-
-    void release();
+    @Override // com.repackage.jy3
+    public void a(vq2 vq2Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, vq2Var, context) == null) {
+        }
+    }
 }

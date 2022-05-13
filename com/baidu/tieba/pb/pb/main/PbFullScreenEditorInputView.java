@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t86;
-import com.repackage.u86;
-import com.repackage.zw4;
+import com.repackage.c86;
+import com.repackage.d86;
+import com.repackage.mx4;
 /* loaded from: classes3.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements u86.g {
+    public class a implements d86.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -47,7 +47,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.u86.g
+        @Override // com.repackage.d86.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -59,7 +59,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements u86.g {
+    public class b implements d86.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -82,7 +82,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.u86.g
+        @Override // com.repackage.d86.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -92,7 +92,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements u86.g {
+    public class c implements d86.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -115,7 +115,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.u86.g
+        @Override // com.repackage.d86.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -167,29 +167,29 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        u86.e(getContext(), str, new a(this));
+        d86.f(getContext(), str, new a(this));
     }
 
     public void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             if (!TextUtils.isEmpty(str)) {
-                u86.e(getContext(), str, new b(this));
+                d86.f(getContext(), str, new b(this));
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            u86.e(getContext(), str2, new c(this));
+            d86.f(getContext(), str2, new c(this));
         }
     }
 
-    public void m(zw4 zw4Var) {
+    public void m(mx4 mx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zw4Var) == null) {
-            if (t86.a(getText().toString()) >= 10) {
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1403);
+        if (interceptable == null || interceptable.invokeL(1048580, this, mx4Var) == null) {
+            if (c86.a(getText().toString()) >= 10) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f142b);
             } else {
-                u86.b(getContext(), zw4Var, this);
+                d86.b(getContext(), mx4Var, this);
             }
         }
     }

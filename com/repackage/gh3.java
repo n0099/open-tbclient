@@ -1,27 +1,34 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gh3 {
+public class gh3 implements gk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fh3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized fh3 a() {
-        InterceptResult invokeV;
-        fh3 fh3Var;
+    public gh3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (gh3.class) {
-                if (a == null) {
-                    a = new fh3();
-                }
-                fh3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return fh3Var;
         }
-        return (fh3) invokeV.objValue;
+    }
+
+    @Override // com.repackage.gk1
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            sh3.i(context);
+        }
     }
 }

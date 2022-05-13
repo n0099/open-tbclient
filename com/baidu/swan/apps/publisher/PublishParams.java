@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.gl2;
-import com.repackage.j03;
+import com.repackage.rl2;
+import com.repackage.u03;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -336,16 +336,16 @@ public final class PublishParams implements Parcelable {
         this(str, str2, str3, i, i2, str4, i3, str5, i4, str6, str7, str8, i5, f, list, r18, r19);
         String str11;
         String str12;
-        gl2.a X;
-        gl2.a X2;
+        rl2.a X;
+        rl2.a X2;
         if ((i6 & 32768) != 0) {
-            j03 L = j03.L();
+            u03 L = u03.L();
             str11 = (L == null || (X2 = L.X()) == null) ? null : X2.H();
         } else {
             str11 = str9;
         }
         if ((i6 & 65536) != 0) {
-            j03 L2 = j03.L();
+            u03 L2 = u03.L();
             str12 = (L2 == null || (X = L2.X()) == null) ? null : X.v1();
         } else {
             str12 = str10;

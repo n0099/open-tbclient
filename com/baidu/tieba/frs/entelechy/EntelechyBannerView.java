@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class EntelechyBannerView extends BannerView {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +42,7 @@ public class EntelechyBannerView extends BannerView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.c) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.topMargin = (oi.f(getContext(), R.dimen.obfuscated_res_0x7f07019a) - oi.d(getContext(), 20.0f)) / 2;
+            layoutParams.topMargin = (mi.f(getContext(), R.dimen.obfuscated_res_0x7f07019a) - mi.d(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
             this.c.requestLayout();
         }

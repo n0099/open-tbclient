@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -58,7 +58,7 @@ public class g implements Parcelable {
                 }
             }
         } catch (JSONException e) {
-            ym9.b("UploadLogMessage", "parse upload message error " + e.getMessage());
+            tl9.b("UploadLogMessage", "parse upload message error " + e.getMessage());
         }
         this.d = new b(str2, str3, str4);
     }

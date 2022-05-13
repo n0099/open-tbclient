@@ -58,54 +58,54 @@ public class pk7 {
         this.e = baseActivity;
         Window window = baseActivity.getWindow();
         this.f = window;
-        this.d = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091eb8);
-        this.a = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f091eb6);
-        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091eb9);
+        this.d = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091f10);
+        this.a = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f091f0e);
+        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091f11);
         this.b = imageView;
         imageView.setOnClickListener(onClickListener);
-        ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091eb1);
+        ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091f09);
         this.g = imageView2;
         imageView2.setOnClickListener(onClickListener2);
-        this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091eba);
-        this.i = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091eb5);
-        this.j = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f091eb7);
+        this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f12);
+        this.i = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091f0d);
+        this.j = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f091f0f);
     }
 
-    public void a(j05 j05Var, String str) {
+    public void a(x05 x05Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, j05Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, x05Var, str) == null) {
             this.h = new EditorTools(this.e.getPageContext().getPageActivity());
             d();
-            c(j05Var);
-            b(j05Var, str);
+            c(x05Var);
+            b(x05Var, str);
             this.h.f();
-            this.h.A(new i05(35, 5, Boolean.FALSE));
+            this.h.A(new w05(35, 5, Boolean.FALSE));
             this.h.j();
             o(this.h);
         }
     }
 
-    public final void b(j05 j05Var, String str) {
+    public final void b(x05 x05Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j05Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x05Var, str) == null) {
             this.h.d(new tk7(this.e.getPageContext(), 2, str));
-            this.h.setActionListener(26, j05Var);
-            this.h.setActionListener(3, j05Var);
+            this.h.setActionListener(26, x05Var);
+            this.h.setActionListener(3, x05Var);
         }
     }
 
-    public final void c(j05 j05Var) {
+    public final void c(x05 x05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x05Var) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             this.h.h(arrayList);
-            u05 n = this.h.n(5);
+            i15 n = this.h.n(5);
             if (n != null) {
-                n.j = 1;
+                n.l = 1;
                 n.e(false);
             }
-            this.h.setActionListener(24, j05Var);
+            this.h.setActionListener(24, x05Var);
         }
     }
 
@@ -165,7 +165,7 @@ public class pk7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h.q();
-            this.h.A(new i05(5, -1, null));
+            this.h.A(new w05(5, -1, null));
         }
     }
 

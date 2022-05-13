@@ -191,7 +191,7 @@ public class xh7 extends vh7 implements LivePlayer {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || isPlayerMute()) {
             return;
         }
-        dz5.b(new b(this, i));
+        ez5.b(new b(this, i));
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -425,8 +425,8 @@ public class xh7 extends vh7 implements LivePlayer {
             if (this.mVideoTask.videoUrl.isEmpty()) {
                 return;
             }
-            if (!mi.H() && !mi.z()) {
-                if (mi.v() || mi.u()) {
+            if (!ki.H() && !ki.z()) {
+                if (ki.v() || ki.u()) {
                     if (b().a()) {
                         doPlay();
                         return;

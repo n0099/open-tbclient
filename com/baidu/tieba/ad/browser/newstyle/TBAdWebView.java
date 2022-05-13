@@ -7,14 +7,14 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg5;
+import com.repackage.kh5;
+import com.repackage.rj0;
 /* loaded from: classes3.dex */
 public class TBAdWebView extends BaseAdWebView {
     public static /* synthetic */ Interceptable $ic;
@@ -41,16 +41,16 @@ public class TBAdWebView extends BaseAdWebView {
     }
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    public void b(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
+    public void b(@NonNull rj0 rj0Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, downloadCacheKey, z) == null) {
-            if (!rg5.h().u() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, rj0Var, z) == null) {
+            if (!kh5.a().f() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
                 PermissionUtil.requestWriteExternalStorage((Activity) this.b, 0);
                 return;
             }
-            BaseAdWebView.d dVar = this.f;
+            BaseAdWebView.d dVar = this.e;
             if (dVar != null) {
-                dVar.onDownloadStart(downloadCacheKey);
+                dVar.onDownloadStart(rj0Var);
             }
         }
     }

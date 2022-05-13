@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vd5;
+import com.repackage.oe5;
 /* loaded from: classes7.dex */
 public class qo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SimpleDragSortListView a;
     public final a b;
-    public final vd5 c;
+    public final oe5 c;
 
     /* loaded from: classes7.dex */
-    public static class a extends wd5 {
+    public static class a extends pe5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int F;
@@ -29,19 +29,19 @@ public class qo7 {
         public ListView H;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vd5 vd5Var, ListView listView) {
-            super(vd5Var, listView, 0, 2, 0);
+        public a(oe5 oe5Var, ListView listView) {
+            super(oe5Var, listView, 0, 2, 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vd5Var, listView};
+                Object[] objArr = {oe5Var, listView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((vd5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
+                    super((oe5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,14 +61,14 @@ public class qo7 {
             }
         }
 
-        @Override // com.repackage.zd5, com.repackage.vd5.j
+        @Override // com.repackage.se5, com.repackage.oe5.j
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             }
         }
 
-        @Override // com.repackage.wd5, com.repackage.vd5.j
+        @Override // com.repackage.pe5, com.repackage.oe5.j
         public void c(View view2, Point point, Point point2) {
             int top;
             int top2;
@@ -94,7 +94,7 @@ public class qo7 {
             }
         }
 
-        @Override // com.repackage.wd5
+        @Override // com.repackage.pe5
         public int w(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -126,9 +126,9 @@ public class qo7 {
             }
         }
         this.a = simpleDragSortListView;
-        vd5 vd5Var = new vd5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.c = vd5Var;
-        simpleDragSortListView.setDragSortViewEventDelegate(vd5Var);
+        oe5 oe5Var = new oe5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
+        this.c = oe5Var;
+        simpleDragSortListView.setDragSortViewEventDelegate(oe5Var);
         a aVar = new a(this.c, simpleDragSortListView);
         this.b = aVar;
         aVar.d(-1);
@@ -151,7 +151,7 @@ public class qo7 {
         }
     }
 
-    public void c(vd5.i iVar) {
+    public void c(oe5.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
             this.c.t0(iVar);

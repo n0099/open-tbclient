@@ -1,50 +1,123 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.xf9;
 /* loaded from: classes7.dex */
-public class yf9 {
+public class yf9 implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
-    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ ExpressAdListenerWrapper c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ TTNativeExpressAd e;
+    public final /* synthetic */ xf9.b f;
+    public final /* synthetic */ xf9 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755143579, "Lcom/repackage/yf9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755143579, "Lcom/repackage/yf9;");
+    public yf9(xf9 xf9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, TTNativeExpressAd tTNativeExpressAd, xf9.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xf9Var, expressAdListenerWrapper, str, tTNativeExpressAd, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
-        a = sharedPreferences;
-        b = sharedPreferences.edit();
+        this.g = xf9Var;
+        this.c = expressAdListenerWrapper;
+        this.d = str;
+        this.e = tTNativeExpressAd;
+        this.f = bVar;
     }
 
-    public static double a() {
-        InterceptResult invokeV;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
-    }
-
-    public static double b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.g.onAdClicked(this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.d;
+                pid = this.g.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.g.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+            }
         }
-        return invokeL.doubleValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.g.onAdShow(this.e, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.d;
+                pid = this.g.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.g.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.d();
+            xf9.b bVar = this.f;
+            if (bVar.c) {
+                return;
+            }
+            int i2 = bVar.a + 1;
+            bVar.a = i2;
+            if (i2 == bVar.b) {
+                bVar.d.onAdError(i, str);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.e.setCanInterruptVideoPlay(true);
+            this.g.j.put(this.e, this.c);
+            xf9.b bVar = this.f;
+            TTNativeExpressAd tTNativeExpressAd = this.e;
+            if (bVar.c) {
+                bVar.d.cacheOrDestroyAd(tTNativeExpressAd);
+                return;
+            }
+            bVar.d.onAdLoaded((xf9) tTNativeExpressAd);
+            bVar.c = true;
+        }
     }
 }

@@ -272,7 +272,7 @@ public class b implements k {
             StringBuilder sb = new StringBuilder();
             String gx = com.baidu.ar.h.c.gx();
             a(sb, "app_id", TextUtils.isEmpty(this.js) ? DuMixARConfig.getAipAppId() : this.js);
-            a(sb, "brand", Build.BRAND);
+            a(sb, com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
             a(sb, Config.DEVICE_PART, Build.DEVICE);
             a(sb, "dumix_type", gx);
             a(sb, "fr", "-1");

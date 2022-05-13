@@ -77,7 +77,7 @@ public class fj0 implements lk0 {
         }
         this.a.i = (float) wy0.a(j, j2);
         this.a.c = AdDownloadStatus.DOWNLOADING;
-        ej0.b().d(AdDownloadAction.PROGRESS_UPDATE, this.a);
+        ej0.b().e(AdDownloadAction.PROGRESS_UPDATE, this.a);
     }
 
     @Override // com.repackage.lk0
@@ -90,7 +90,7 @@ public class fj0 implements lk0 {
             rj0Var.c = AdDownloadStatus.DOWNLOADING;
             rj0Var.h = file;
             rj0Var.q.d = j;
-            ej0.b().d(adDownloadAction, this.a);
+            ej0.b().e(adDownloadAction, this.a);
             hj0.a().update(this.a);
             hj0.a().c(this.a);
         }
@@ -101,7 +101,7 @@ public class fj0 implements lk0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             this.a.c = AdDownloadStatus.PAUSE;
-            ej0.b().d(AdDownloadAction.PAUSE, this.a);
+            ej0.b().e(AdDownloadAction.PAUSE, this.a);
             yj0.f().h(this.a, "notify_type_pause");
             hj0.a().c(this.a);
         }
@@ -115,7 +115,7 @@ public class fj0 implements lk0 {
             rj0Var.c = AdDownloadStatus.NONE;
             rj0Var.i = 0.0f;
             rj0Var.j = 0.0f;
-            ej0.b().d(AdDownloadAction.FAIL, this.a);
+            ej0.b().e(AdDownloadAction.FAIL, this.a);
             yj0.f().h(this.a, "notify_type_stop");
             hj0.a().c(this.a);
         }
@@ -131,7 +131,7 @@ public class fj0 implements lk0 {
                 rj0 rj0Var = this.a;
                 rj0Var.d = pk0.a(rj0Var.h);
             }
-            if (this.a.h != null && (packageArchiveInfo = hi0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128)) != null) {
+            if (this.a.h != null && (packageArchiveInfo = ki0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128)) != null) {
                 rj0 rj0Var2 = this.a;
                 rj0Var2.o = packageArchiveInfo.versionName;
                 rj0Var2.n = packageArchiveInfo.versionCode;
@@ -141,11 +141,11 @@ public class fj0 implements lk0 {
             rj0Var3.c = AdDownloadStatus.COMPLETED;
             rj0Var3.i = 1.0f;
             rj0Var3.j = 1.0f;
-            ej0.b().d(AdDownloadAction.COMPLETE, this.a);
+            ej0.b().e(AdDownloadAction.COMPLETE, this.a);
             ok0.a().b(this.a);
             yj0.f().i(this.a);
             hj0.a().c(this.a);
-            b01.a(new a(this), "ad_auto_install", 3, 1000L);
+            c01.a(new a(this), "ad_auto_install", 3, 1000L);
         }
     }
 }

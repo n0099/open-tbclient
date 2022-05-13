@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.te5;
+import com.repackage.kg;
+import com.repackage.mf5;
 import java.io.File;
 import java.util.Arrays;
 import org.json.JSONObject;
@@ -41,7 +41,7 @@ public class AgreeMaterial extends OrmObject {
         public String tid;
 
         /* loaded from: classes3.dex */
-        public class a implements te5.a {
+        public class a implements mf5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -64,7 +64,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.repackage.te5.a
+            @Override // com.repackage.mf5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -78,7 +78,7 @@ public class AgreeMaterial extends OrmObject {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements te5.a {
+        public class b implements mf5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -101,7 +101,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.repackage.te5.a
+            @Override // com.repackage.mf5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -166,8 +166,8 @@ public class AgreeMaterial extends OrmObject {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                long g = mg.g(this.startTime, 0L);
-                long g2 = mg.g(this.endTime, 0L);
+                long g = kg.g(this.startTime, 0L);
+                long g2 = kg.g(this.endTime, 0L);
                 if (currentTimeMillis >= g && currentTimeMillis < g2 && !StringUtils.isNull(this.dayDirName)) {
                     if (AgreeMaterial.z(this.dayDirName + str)) {
                         boolean z = false;
@@ -218,12 +218,12 @@ public class AgreeMaterial extends OrmObject {
             }
         }
 
-        public final void z(String str, te5.a aVar) {
+        public final void z(String str, mf5.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) || StringUtils.isNull(str)) {
                 return;
             }
-            new te5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
+            new mf5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
         }
     }
 

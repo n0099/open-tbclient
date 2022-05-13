@@ -65,10 +65,10 @@ public class gz {
     public static void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            ex m403a = gx.m401a().m403a();
-            m403a.a(ew.k.a());
-            m403a.c(i);
-            gx.m401a().a(m403a);
+            ex m404a = gx.m402a().m404a();
+            m404a.a(ew.k.a());
+            m404a.c(i);
+            gx.m402a().a(m404a);
         }
     }
 
@@ -88,13 +88,13 @@ public class gz {
     public static void a(int i, int i2, int i3, String str, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4)}) == null) {
-            ex m403a = gx.m401a().m403a();
-            m403a.a((byte) i);
-            m403a.a(i2);
-            m403a.b(i3);
-            m403a.b(str);
-            m403a.c(i4);
-            gx.m401a().a(m403a);
+            ex m404a = gx.m402a().m404a();
+            m404a.a((byte) i);
+            m404a.a(i2);
+            m404a.b(i3);
+            m404a.b(str);
+            m404a.c(i4);
+            gx.m402a().a(m404a);
         }
     }
 
@@ -105,14 +105,14 @@ public class gz {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i4 = (i << 24) | i2;
                 if (a.a.containsKey(Integer.valueOf(i4))) {
-                    ex m403a = gx.m401a().m403a();
-                    m403a.a(i2);
-                    m403a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
-                    m403a.b(str);
+                    ex m404a = gx.m402a().m404a();
+                    m404a.a(i2);
+                    m404a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                    m404a.b(str);
                     if (i3 > -1) {
-                        m403a.c(i3);
+                        m404a.c(i3);
                     }
-                    gx.m401a().a(m403a);
+                    gx.m402a().a(m404a);
                     a.a.remove(Integer.valueOf(i2));
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -131,20 +131,20 @@ public class gz {
     public static void a(String str, int i, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i, exc) == null) {
-            ex m403a = gx.m401a().m403a();
+            ex m404a = gx.m402a().m404a();
             if (i > 0) {
-                m403a.a(ew.l.a());
-                m403a.b(str);
-                m403a.b(i);
-                gx.m401a().a(m403a);
+                m404a.a(ew.l.a());
+                m404a.b(str);
+                m404a.b(i);
+                gx.m402a().a(m404a);
                 return;
             }
             try {
                 gv.a a2 = gv.a(exc);
-                m403a.a(a2.a.a());
-                m403a.c(a2.f436a);
-                m403a.b(str);
-                gx.m401a().a(m403a);
+                m404a.a(a2.a.a());
+                m404a.c(a2.f436a);
+                m404a.b(str);
+                gx.m402a().a(m404a);
             } catch (NullPointerException unused) {
             }
         }
@@ -155,24 +155,24 @@ public class gz {
         if (interceptable == null || interceptable.invokeLL(65544, null, str, exc) == null) {
             try {
                 gv.a b = gv.b(exc);
-                ex m403a = gx.m401a().m403a();
-                m403a.a(b.a.a());
-                m403a.c(b.f436a);
-                m403a.b(str);
-                gx.m401a().a(m403a);
+                ex m404a = gx.m402a().m404a();
+                m404a.a(b.a.a());
+                m404a.c(b.f436a);
+                m404a.b(str);
+                gx.m402a().a(m404a);
             } catch (NullPointerException unused) {
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m407a() {
+    public static byte[] m408a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            ey m404a = gx.m401a().m404a();
-            if (m404a != null) {
-                return ip.a(m404a);
+            ey m405a = gx.m402a().m405a();
+            if (m405a != null) {
+                return ip.a(m405a);
             }
             return null;
         }
@@ -191,11 +191,11 @@ public class gz {
         if (interceptable == null || interceptable.invokeLL(65547, null, str, exc) == null) {
             try {
                 gv.a d = gv.d(exc);
-                ex m403a = gx.m401a().m403a();
-                m403a.a(d.a.a());
-                m403a.c(d.f436a);
-                m403a.b(str);
-                gx.m401a().a(m403a);
+                ex m404a = gx.m402a().m404a();
+                m404a.a(d.a.a());
+                m404a.c(d.f436a);
+                m404a.b(str);
+                gx.m402a().a(m404a);
             } catch (NullPointerException unused) {
             }
         }

@@ -3,22 +3,57 @@ package com.repackage;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaStageViewHolder;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaEmptyLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class at5 extends kd6<lj8, FrsPageAlaStageViewHolder> implements rx5 {
+public class at5 extends pc6<ThreadData, FrsPageAlaEmptyLiveViewHolder> implements sx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public lt5 u;
+    public kt5 t;
+    public String u;
+    public ux5<ThreadData> v;
+
+    /* loaded from: classes5.dex */
+    public class a extends ux5<ThreadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(at5 at5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ux5
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) || view2 == null || threadData == null) {
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(threadData.getThreadType())));
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public at5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -39,26 +74,21 @@ public class at5 extends kd6<lj8, FrsPageAlaStageViewHolder> implements rx5 {
                 return;
             }
         }
+        this.v = new a(this);
     }
 
-    @Override // com.repackage.kd6, com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        m0(i, view2, viewGroup, (lj8) obj, (FrsPageAlaStageViewHolder) viewHolder);
-        return view2;
-    }
-
-    @Override // com.repackage.rx5
+    @Override // com.repackage.sx5
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
+            this.u = str;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: l0 */
-    public FrsPageAlaStageViewHolder M(ViewGroup viewGroup) {
+    public FrsPageAlaEmptyLiveViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
@@ -66,36 +96,45 @@ public class at5 extends kd6<lj8, FrsPageAlaStageViewHolder> implements rx5 {
             if (tbPageContext == null) {
                 return null;
             }
-            lt5 lt5Var = new lt5(tbPageContext);
-            this.u = lt5Var;
-            lt5Var.a(this.t);
-            return new FrsPageAlaStageViewHolder(this.u);
+            kt5 kt5Var = new kt5(tbPageContext);
+            this.t = kt5Var;
+            kt5Var.v(this.e);
+            this.t.a(this.u);
+            return new FrsPageAlaEmptyLiveViewHolder(this.t);
         }
-        return (FrsPageAlaStageViewHolder) invokeL.objValue;
+        return (FrsPageAlaEmptyLiveViewHolder) invokeL.objValue;
     }
 
-    public View m0(int i, View view2, ViewGroup viewGroup, lj8 lj8Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.pc6, com.repackage.eo
+    /* renamed from: m0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lj8Var, frsPageAlaStageViewHolder})) == null) {
-            super.S(i, view2, viewGroup, lj8Var, frsPageAlaStageViewHolder);
-            if (lj8Var != null) {
-                FrsViewData frsViewData = this.j;
-                int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-                lt5 lt5Var = frsPageAlaStageViewHolder.a;
-                lt5Var.x = (i + 1) - topThreadSize;
-                lt5Var.a(this.t);
-                frsPageAlaStageViewHolder.a.l(lj8Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsPageAlaEmptyLiveViewHolder})) == null) {
+            frsPageAlaEmptyLiveViewHolder.a.l(threadData);
+            frsPageAlaEmptyLiveViewHolder.a.a(this.u);
+            frsPageAlaEmptyLiveViewHolder.a.n(this.v);
+            if (threadData != null) {
+                threadData.updateShowStatus();
             }
-            return view2;
+            return frsPageAlaEmptyLiveViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.rx5
+    @Override // com.repackage.pc6
+    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, bdUniqueId) == null) {
+            super.n(tbPageContext, bdUniqueId);
+        }
+    }
+
+    @Override // com.repackage.sx5
     public void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 }

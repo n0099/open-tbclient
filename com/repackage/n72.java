@@ -1,40 +1,126 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n72 {
+public final class n72 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static LruCache<String, Object> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL(c());
-            } catch (Exception e) {
-                e.getStackTrace();
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final n72 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-202060086, "Lcom/repackage/n72$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-202060086, "Lcom/repackage/n72$b;");
+                    return;
+                }
             }
+            a = new n72(null);
         }
     }
 
-    public static void b(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
-                sQLiteDatabase.execSQL("CREATE TRIGGER delete_old_swan_history AFTER INSERT ON ai_apps_history WHEN (select count(*) from ai_apps_history)>200 BEGIN  DELETE FROM ai_apps_history WHERE _id IN (SELECT _id FROM  ai_apps_history ORDER BY visit_time LIMIT (SELECT count(*) -200 FROM ai_apps_history)); END;");
-            } catch (Exception e) {
-                e.printStackTrace();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755516664, "Lcom/repackage/n72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755516664, "Lcom/repackage/n72;");
+                return;
             }
         }
+        a = eh1.a;
     }
 
-    public static String c() {
+    public /* synthetic */ n72(a aVar) {
+        this();
+    }
+
+    public static n72 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE IF NOT EXISTS ai_apps_history (_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL UNIQUE,app_from TEXT,visit_time INTEGER DEFAULT 0,app_name TEXT,app_icon TEXT,frame_type INTEGER,sync_state INTEGER,pay_protected INTEGER,app_type TEXT,app_key TEXT,version_code TEXT);" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (n72) invokeV.objValue;
+    }
+
+    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return config;
+                }
+                CONFIG config2 = (CONFIG) b.get(str);
+                if (config2 == null) {
+                    return config;
+                }
+                if (a) {
+                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
+                }
+                return config2;
+            }
+        }
+        return (CONFIG) invokeLL.objValue;
+    }
+
+    public synchronized <CONFIG> void c(String str, CONFIG config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && config != null) {
+                    if (a) {
+                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
+                    }
+                    b.put(str, config);
+                }
+            }
+        }
+    }
+
+    public n72() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        b = new LruCache<>(10);
     }
 }

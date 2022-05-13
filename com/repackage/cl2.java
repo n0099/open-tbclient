@@ -1,9 +1,11 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,41 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public final class cl2 {
+public class cl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Object> a;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final cl2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-468034134, "Lcom/repackage/cl2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-468034134, "Lcom/repackage/cl2$b;");
-                    return;
-                }
-            }
-            a = new cl2(null);
-        }
-    }
+    public WeakReference<Activity> mActivityRef;
+    public CallbackHandler mCallbackHandler;
+    public Context mContext;
+    public sz1 mJsContainer;
+    public UnitedSchemeMainDispatcher mMainDispatcher;
 
     static {
         InterceptResult invokeClinit;
@@ -60,94 +38,16 @@ public final class cl2 {
                 return;
             }
         }
-        b = tg1.a;
+        DEBUG = eh1.a;
     }
 
-    public /* synthetic */ cl2(a aVar) {
-        this();
-    }
-
-    public static cl2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (cl2) invokeV.objValue;
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.evictAll();
-                }
-            }
-        }
-    }
-
-    public synchronized <RESULT> RESULT b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                RESULT result = (RESULT) this.a.get(str);
-                if (result == null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
-                    }
-                    return null;
-                }
-                try {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
-                    }
-                    return result;
-                } catch (Exception e) {
-                    if (b) {
-                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
-                    }
-                    return null;
-                }
-            }
-        }
-        return (RESULT) invokeL.objValue;
-    }
-
-    public synchronized <RESULT> void d(String str, RESULT result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && result != null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
-                    }
-                    this.a.put(str, result);
-                }
-            }
-        }
-    }
-
-    public synchronized void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (b) {
-                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
-                }
-                this.a.remove(str);
-            }
-        }
-    }
-
-    public cl2() {
+    @SuppressLint({"BDThrowableCheck"})
+    public cl2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, sz1 sz1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, sz1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,6 +57,40 @@ public final class cl2 {
                 return;
             }
         }
-        this.a = new LruCache<>(10);
+        this.mContext = context;
+        this.mMainDispatcher = unitedSchemeMainDispatcher;
+        this.mCallbackHandler = callbackHandler;
+        this.mJsContainer = sz1Var;
+        if (DEBUG) {
+            if (context == null || unitedSchemeMainDispatcher == null) {
+                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
+            }
+        }
+    }
+
+    public Context getDispatchContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Activity> weakReference = this.mActivityRef;
+            Activity activity = weakReference != null ? weakReference.get() : null;
+            return activity == null ? this.mContext : activity;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public void setActivityRef(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
+            return;
+        }
+        this.mActivityRef = new WeakReference<>(activity);
+    }
+
+    public void setCallbackHandler(CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
+            this.mCallbackHandler = callbackHandler;
+        }
     }
 }

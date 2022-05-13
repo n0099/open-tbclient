@@ -1,86 +1,74 @@
 package com.repackage;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public abstract class y11 {
+public class y11 {
     public static /* synthetic */ Interceptable $ic;
-    public static final y11 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends y11 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.y11
-        public void a(Context context, kw0 kw0Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, context, kw0Var, z) == null) {
-            }
-        }
-
-        @Override // com.repackage.y11
-        public void b(@Nullable String str, @Nullable String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755194760, "Lcom/repackage/y11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755194760, "Lcom/repackage/y11;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    public y11() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return str + "/bddownload/";
         }
+        return (String) invokeL.objValue;
     }
 
-    public abstract void a(Context context, kw0 kw0Var, boolean z);
+    public static File b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT > 28) {
+                    return context.getExternalFilesDir(null);
+                }
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    if (s11.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && s11.b("permission_storage")) {
+                        return c();
+                    }
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        return context.getExternalFilesDir(null);
+                    }
+                    return context.getFilesDir();
+                }
+                return context.getFilesDir();
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (File) invokeL.objValue;
+    }
 
-    public abstract void b(@Nullable String str, @Nullable String str2);
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Environment.getExternalStorageDirectory() : (File) invokeV.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? e(context, "/mnt/sdcard") : (String) invokeL.objValue;
+    }
+
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                return a(b(context).getPath());
+            } catch (Throwable unused) {
+                return a(str);
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
 }

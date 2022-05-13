@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class um7 implements m65 {
+public class um7 implements c75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -241,7 +241,7 @@ public class um7 implements m65 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.k65
+    @Override // com.repackage.a75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -280,7 +280,7 @@ public class um7 implements m65 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.repackage.c75
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -311,7 +311,7 @@ public class um7 implements m65 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.repackage.c75
     public boolean p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

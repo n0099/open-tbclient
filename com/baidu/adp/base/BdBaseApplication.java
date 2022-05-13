@@ -208,7 +208,7 @@ public class BdBaseApplication extends Application {
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            x8.f().p();
+            x8.g().q();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;

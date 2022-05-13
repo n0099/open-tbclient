@@ -6,17 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.ueg.encrypt.entity.EncryptAlgorithm;
 /* loaded from: classes7.dex */
-public final class r69 {
+public class r69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q69 a;
+    public EncryptAlgorithm a;
+    public String b;
 
-    public r69() {
+    public r69(EncryptAlgorithm encryptAlgorithm, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {encryptAlgorithm, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,26 +29,19 @@ public final class r69 {
                 return;
             }
         }
-        this.a = new q69();
+        this.a = encryptAlgorithm;
+        this.b = str;
     }
 
-    public final List<com.baidu.ubs.analytics.a.l> a() {
+    public EncryptAlgorithm a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (EncryptAlgorithm) invokeV.objValue;
     }
 
-    public final void b(int i) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
-        }
-    }
-
-    public final void c(com.baidu.ubs.analytics.a.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.a.c(lVar);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

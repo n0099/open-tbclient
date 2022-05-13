@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w20;
+import com.repackage.f20;
 /* loaded from: classes.dex */
 public class AppIdentityManager {
     public static /* synthetic */ Interceptable $ic;
@@ -52,7 +52,7 @@ public class AppIdentityManager {
             if (!TextUtils.isEmpty(this.mAppName)) {
                 return this.mAppName;
             }
-            return w20.a().getAppName();
+            return f20.a().getAppName();
         }
         return (String) invokeV.objValue;
     }
@@ -61,7 +61,7 @@ public class AppIdentityManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String a = w20.b().a();
+            String a = f20.b().a();
             return TextUtils.isEmpty(a) ? getAppName() : a;
         }
         return (String) invokeV.objValue;

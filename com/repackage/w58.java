@@ -20,7 +20,7 @@ public class w58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public cr4 b;
+    public nr4 b;
     public boolean c;
     public View d;
     public TbImageView e;
@@ -80,24 +80,24 @@ public class w58 {
         }
         this.i = new a(this);
         this.a = tbPageContext;
-        this.c = vt4.k().h("key_person_dynamic_tab_guide_has_shown", false);
+        this.c = iu4.k().h("key_person_dynamic_tab_guide_has_shown", false);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d069f, (ViewGroup) null);
             this.d = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e39);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e28);
             this.e = tbImageView;
             e(tbImageView);
             this.e.setAutoChangeStyle(true);
-            this.e.setRadius(oi.f(this.a.getPageActivity(), R.dimen.tbds24));
+            this.e.setRadius(mi.f(this.a.getPageActivity(), R.dimen.tbds24));
             this.e.setConrers(3);
             this.e.setIsBitmapPic(true);
-            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090e3a);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090e3b);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090e38);
+            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090e29);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090e2a);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090e27);
             this.h = textView;
             textView.setOnClickListener(this.i);
             d();
@@ -113,7 +113,7 @@ public class w58 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080f4f);
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080f65);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
@@ -126,7 +126,7 @@ public class w58 {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tbImageView.getLayoutParams();
-        int k = oi.k(this.a.getPageActivity()) - (oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070225) * 2);
+        int k = mi.k(this.a.getPageActivity()) - (mi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070225) * 2);
         layoutParams.width = k;
         layoutParams.height = (k * com.kuaishou.weapon.un.w0.c0) / 380;
         tbImageView.setLayoutParams(layoutParams);
@@ -138,11 +138,11 @@ public class w58 {
             return;
         }
         this.c = true;
-        vt4.k().u("key_person_dynamic_tab_guide_has_shown", true);
+        iu4.k().u("key_person_dynamic_tab_guide_has_shown", true);
         b();
-        cr4 cr4Var = new cr4(this.a.getPageActivity());
-        this.b = cr4Var;
-        cr4Var.setContentViewSize(1);
+        nr4 nr4Var = new nr4(this.a.getPageActivity());
+        this.b = nr4Var;
+        nr4Var.setContentViewSize(1);
         this.b.setCancelable(true);
         this.b.setCanceledOnTouchOutside(false);
         this.b.setContentView(this.d);

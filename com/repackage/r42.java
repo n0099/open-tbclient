@@ -1,42 +1,90 @@
 package com.repackage;
 
+import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r42 implements q42 {
+public final class r42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public s42 a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755400383, "Lcom/repackage/r42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755400383, "Lcom/repackage/r42;");
+                return;
+            }
+        }
+        b = eh1.a;
+    }
 
     public r42() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = s42.a;
+    }
+
+    public final void a(@NonNull tx2 tx2Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tx2Var, prefetchEvent, pMSAppInfo) == null) {
+            Bundle bundle = new Bundle();
+            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
+            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
+            if (pMSAppInfo == null) {
+                pMSAppInfo = p84.i().u(prefetchEvent.appId);
+            }
+            if (pMSAppInfo == null) {
+                return;
+            }
+            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
+            if (this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
+                kx2 e = kx2.e();
+                mx2 mx2Var = new mx2(120, bundle);
+                mx2Var.b(tx2Var.b);
+                mx2Var.p(false);
+                e.h(mx2Var);
             }
         }
     }
 
-    @Override // com.repackage.q42
-    public String a(@NonNull String str) {
-        InterceptResult invokeL;
+    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull tx2 tx2Var, @Nullable PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? og4.d(str.getBytes(), false) : (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "MD5KeyProvider" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, tx2Var, pMSAppInfo) == null) {
+            a(tx2Var, prefetchEvent, pMSAppInfo);
+            tx2Var.i0(prefetchEvent);
+            if (b) {
+                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
+                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + tx2Var.b.index);
+            }
+        }
     }
 }

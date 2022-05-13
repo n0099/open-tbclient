@@ -1,8 +1,6 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -13,22 +11,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h23 extends g23 {
+public class h23 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject b;
+
+        public a(h23 h23Var, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h23Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zf4.l(this.a, this.b);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h23(g13 g13Var) {
-        super(g13Var, "/swanAPI/checkAppInstalled");
+    public h23(r13 r13Var) {
+        super(r13Var, "/swanAPI/openStatisticEvent");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,43 +74,37 @@ public class h23 extends g23 {
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            JSONObject a = g23.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-                jx1.i("SwanCheckAppInstalledAction", "params parse error");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
             }
-            String optString = a.optString("name");
+            String optString = optParamsAsJo.optString("bizId", "-1");
             if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parameter error");
-                jx1.i("SwanCheckAppInstalledAction", "packageName empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
                 return false;
             }
-            PackageInfo packageInfo = null;
             try {
-                packageInfo = context.getPackageManager().getPackageInfo(optString, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                jx1.d("SwanCheckAppInstalledAction", e.getMessage(), e);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (packageInfo != null) {
-                    jSONObject.put("hasApp", true);
-                    jSONObject.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
-                } else {
-                    jSONObject.put("hasApp", false);
+                optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+                optParamsAsJo.putOpt("eventType", "0");
+                optParamsAsJo.putOpt("propagation", ud3.f(optParamsAsJo.optJSONObject("propagation"), "source", t03.J().r().V().T()));
+            } catch (JSONException e) {
+                if (r23.b) {
+                    e.printStackTrace();
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success"));
-            } catch (JSONException e2) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
-                jx1.d("SwanCheckAppInstalledAction", e2.getMessage(), e2);
             }
+            JSONObject optJSONObject = optParamsAsJo.optJSONObject("content");
+            if (optJSONObject != null) {
+                r73.y(optJSONObject.optJSONObject("ext"));
+            }
+            ux1.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
+            od3.k(new a(this, optString, optParamsAsJo), "OpenStatisticEvent");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
         return invokeLLLL.booleanValue;

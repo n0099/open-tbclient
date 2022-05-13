@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi6;
-import com.repackage.tw5;
+import com.repackage.th6;
+import com.repackage.uw5;
 import com.repackage.w68;
 /* loaded from: classes3.dex */
-public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> implements w68 {
+public class FrsCardVideoViewHolder<T extends th6> extends CardViewHolder<T> implements w68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tw5) newInitContext.callArgs[0]);
+                super((uw5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,7 +55,7 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
             if (t == 0) {
                 return 0;
             }
-            return ((oi6) t).getCurrentPosition();
+            return ((th6) t).getCurrentPosition();
         }
         return invokeV.intValue;
     }
@@ -69,7 +69,7 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
             if (t == 0) {
                 return null;
             }
-            return ((oi6) t).I();
+            return ((th6) t).I();
         }
         return (String) invokeV.objValue;
     }
@@ -83,7 +83,7 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
             if (t == 0) {
                 return null;
             }
-            return ((oi6) t).J();
+            return ((th6) t).J();
         }
         return (View) invokeV.objValue;
     }
@@ -107,7 +107,7 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
             if (t == 0) {
                 return false;
             }
-            return ((oi6) t).R();
+            return ((th6) t).R();
         }
         return invokeV.booleanValue;
     }
@@ -121,7 +121,7 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
             if (t == 0) {
                 return false;
             }
-            return ((oi6) t).isPlaying();
+            return ((th6) t).isPlaying();
         }
         return invokeV.booleanValue;
     }
@@ -133,7 +133,7 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.a) == 0) {
             return;
         }
-        ((oi6) t).startPlay();
+        ((th6) t).startPlay();
     }
 
     @Override // com.repackage.w68
@@ -143,6 +143,6 @@ public class FrsCardVideoViewHolder<T extends oi6> extends CardViewHolder<T> imp
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.a) == 0) {
             return;
         }
-        ((oi6) t).stopPlay();
+        ((th6) t).stopPlay();
     }
 }

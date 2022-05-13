@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
-import com.repackage.ni;
+import com.repackage.li;
+import com.repackage.mr4;
 import com.repackage.qe;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -96,7 +96,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.a = ni.getDateStringMouth(date);
+                        aVar.a = li.getDateStringMouth(date);
                         aVar.b = msgInfo.type.intValue();
                         aVar.c = msgInfo.content;
                         aVar.d = msgInfo.id.intValue();
@@ -107,8 +107,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            br4.f();
-            qe<byte[]> d = br4.d("tb.im_official_history");
+            mr4.f();
+            qe<byte[]> d = mr4.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

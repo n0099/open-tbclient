@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f;
-import com.repackage.i20;
-import com.repackage.j20;
-import com.repackage.k20;
-import com.repackage.o20;
+import com.repackage.r10;
+import com.repackage.s10;
+import com.repackage.t10;
+import com.repackage.x10;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -35,10 +35,10 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
     public transient /* synthetic */ FieldHolder $fh;
-    public i20 mDownloadManager;
+    public r10 mDownloadManager;
 
     /* loaded from: classes.dex */
-    public static class a extends k20 {
+    public static class a extends t10 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -67,7 +67,7 @@ public class CaptureDownloadService extends Service {
             this.c = LocalBroadcastManager.getInstance(context);
         }
 
-        @Override // com.repackage.k20
+        @Override // com.repackage.t10
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -79,7 +79,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.repackage.k20
+        @Override // com.repackage.t10
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -91,7 +91,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.repackage.k20
+        @Override // com.repackage.t10
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -101,7 +101,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.repackage.k20
+        @Override // com.repackage.t10
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
@@ -112,7 +112,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.repackage.k20
+        @Override // com.repackage.t10
         public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
@@ -122,7 +122,7 @@ public class CaptureDownloadService extends Service {
                 f fVar = this.b;
                 fVar.g = 3;
                 fVar.e = i;
-                fVar.f = o20.a(j, j2);
+                fVar.f = x10.a(j, j2);
                 if (i(i)) {
                     j(this.b);
                 }
@@ -199,7 +199,7 @@ public class CaptureDownloadService extends Service {
     private void download(int i, f fVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65542, this, i, fVar, str) == null) {
-            j20.a aVar = new j20.a();
+            s10.a aVar = new s10.a();
             aVar.d(fVar.d);
             this.mDownloadManager.f(aVar.a(), str, new a(i, fVar, getApplicationContext()));
         }
@@ -246,7 +246,7 @@ public class CaptureDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mDownloadManager = i20.i();
+            this.mDownloadManager = r10.i();
         }
     }
 

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import com.repackage.rj7;
 /* loaded from: classes3.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
@@ -69,19 +69,19 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
                         if (getTCodeResMessage.getTCodeInfo().a.equals("0")) {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f05b2);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f05b8);
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f05ac);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f05b2);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
                 }
                 this.a.showToast(errorString);
             }
@@ -135,10 +135,10 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f090ccf) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090cbb) {
             requestTCodeInfo();
         } else {
-            oi.w(getPageContext().getPageActivity(), this.mView.b());
+            mi.w(getPageContext().getPageActivity(), this.mView.b());
         }
     }
 

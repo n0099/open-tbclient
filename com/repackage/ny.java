@@ -1,193 +1,265 @@
 package com.repackage;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.NewGridImageLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.layout.GridImageLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import com.baidu.webkit.sdk.WebViewFactory;
-import com.baidu.webkit.sdk.WebViewFactoryProvider;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.vz;
+import com.repackage.zx;
 /* loaded from: classes6.dex */
-public final class ny {
+public class ny extends gy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NewGridImageLayout h;
+    public zn4 i;
+    public int j;
+    public String k;
+    public int l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964032102, "Lcom/repackage/ny;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny a;
+
+        public a(ny nyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nyVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964032102, "Lcom/repackage/ny;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            ny nyVar;
+            zx.a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (nyVar = this.a).e) == null) {
+                return;
+            }
+            aVar.a(nyVar.i);
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        MessageDigest messageDigest;
-        DataInputStream dataInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            DataInputStream dataInputStream2 = null;
-            try {
-                try {
-                    messageDigest = MessageDigest.getInstance("MD5");
-                    dataInputStream = new DataInputStream(new FileInputStream(str));
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[131072];
-                while (true) {
-                    int read = dataInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                String b = b(messageDigest.digest(), "");
-                try {
-                    dataInputStream.close();
-                } catch (Exception unused) {
-                }
-                return b;
-            } catch (Exception e2) {
-                e = e2;
-                dataInputStream2 = dataInputStream;
-                e.printStackTrace();
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused2) {
-                    }
-                }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                dataInputStream2 = dataInputStream;
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                throw th;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class b implements vz.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny a;
 
-    public static String b(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String processTypeString = WebKitFactory.getProcessTypeString();
-            if (TextUtils.isEmpty(processTypeString) || !processTypeString.equals("1")) {
-                Boolean bool = Boolean.FALSE;
-                WebViewFactoryProvider provider = WebViewFactory.getProvider();
-                if (provider != null) {
-                    bool = (Boolean) provider.getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE);
-                }
-                return bool.booleanValue();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
-                int type = activeNetworkInfo.getType();
-                if (activeNetworkInfo.isAvailable() && 1 == type) {
-                    return true;
+        public b(ny nyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return false;
+            this.a = nyVar;
         }
-        return invokeL.booleanValue;
-    }
 
-    public static boolean e(View view2) {
-        InterceptResult invokeL;
-        ViewParent parent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
-            if (view2 == null || (parent = view2.getParent()) == null || view2.getVisibility() != 0) {
+        @Override // com.repackage.vz.b
+        public boolean a(vz.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.f().booleanValue()) {
+                    fx5.a(this.a.i.getThreadData().getId());
+                    fx5.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    fx5.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                }
                 return false;
             }
-            ViewGroup viewGroup = (ViewGroup) parent;
-            int indexOfChild = viewGroup.indexOfChild(view2);
-            int childCount = viewGroup.getChildCount();
-            if (indexOfChild == childCount - 1) {
-                return true;
-            }
-            for (int i = indexOfChild + 1; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0 && childAt.getHeight() > 0 && childAt.getWidth() > 0 && view2.getHeight() > 0 && view2.getWidth() > 0 && childAt.getWidth() >= view2.getWidth() && childAt.getHeight() >= view2.getHeight()) {
-                    return false;
-                }
-            }
-            return true;
+            return invokeL.booleanValue;
         }
-        return invokeL.booleanValue;
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ny(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return URLEncoder.encode(new String(my.a(str.getBytes())), "UTF-8");
-            } catch (Exception e) {
-                Log.printStackTrace(e);
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.j = 3;
+        this.h = new NewGridImageLayout(context);
+    }
+
+    public void A(zx.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.h.setNeedFrsTabName(z);
+        }
+    }
+
+    public void C(bg<ImageView> bgVar, bg<GifView> bgVar2) {
+        NewGridImageLayout newGridImageLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bgVar, bgVar2) == null) || (newGridImageLayout = this.h) == null) {
+            return;
+        }
+        newGridImageLayout.setObjectPool(bgVar, bgVar2);
+    }
+
+    public void D(boolean z) {
+        NewGridImageLayout newGridImageLayout;
+        GridImageLayout gridImageLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (newGridImageLayout = this.h) == null || (gridImageLayout = newGridImageLayout.f) == null) {
+            return;
+        }
+        gridImageLayout.setIsTransform(z);
+    }
+
+    public void E(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) && f().booleanValue()) {
+            this.h.setPadding(i, i2, i3, i4);
+        }
+    }
+
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h.n = z;
+        }
+    }
+
+    @Override // com.repackage.zx
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zx
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            i(1, new b(this));
+        }
+    }
+
+    @Override // com.repackage.zx
+    public void l(ux5<zn4> ux5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ux5Var) == null) {
+            this.h.setSubClickListener(ux5Var);
+        }
+    }
+
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i) == null) {
+            if (this.j != i && f().booleanValue()) {
+                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
+            }
+            NewGridImageLayout newGridImageLayout = this.h;
+            if (newGridImageLayout != null) {
+                newGridImageLayout.s(i);
+            }
+            this.j = i;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: u */
+    public void a(zn4 zn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, zn4Var) == null) {
+            this.i = zn4Var;
+            this.h.setFrom(this.k);
+            this.h.setFromForPb(this.l);
+            this.h.setTransmit(f().booleanValue());
+            this.h.a(zn4Var);
+            this.h.setJumpToPbListener(new a(this));
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.h.setBackgroundColor(i);
+        }
+    }
+
+    public void w(int i) {
+        NewGridImageLayout newGridImageLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (newGridImageLayout = this.h) == null) {
+            return;
+        }
+        newGridImageLayout.setCornerStyle(i);
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.k = str;
+        }
+    }
+
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.h.setFromCDN(z);
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.l = i;
+        }
     }
 }

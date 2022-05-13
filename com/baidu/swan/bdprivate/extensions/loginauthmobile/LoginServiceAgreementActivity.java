@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.de3;
+import com.repackage.oe3;
 /* loaded from: classes2.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -70,9 +70,9 @@ public class LoginServiceAgreementActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = de3.c0(this);
+            int c0 = oe3.c0(this);
             super.onCreate(bundle);
-            de3.g(this, c0);
+            oe3.g(this, c0);
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
@@ -80,15 +80,15 @@ public class LoginServiceAgreementActivity extends BaseActivity {
             }
             Bundle extras = intent.getExtras();
             setContentView(R.layout.obfuscated_res_0x7f0d0043);
-            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901b2);
+            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901a8);
             if (extras != null) {
                 ngWebView.loadUrl(extras.getString("url"));
             }
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090186);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017c);
             this.mActionBar = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
             this.mActionBar.setLeftBackViewClickListener(new a(this));
-            this.mActionBar.setTitle(R.string.obfuscated_res_0x7f0f12cf);
+            this.mActionBar.setTitle(R.string.obfuscated_res_0x7f0f12f0);
             this.mActionBar.setRightZoneVisibility(false);
         }
     }

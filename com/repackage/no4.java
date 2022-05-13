@@ -2,7 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BannerImage;
 /* loaded from: classes6.dex */
-public class no4 extends pn4 implements i65 {
+public class no4 extends BaseCardInfo implements ro {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public static final int[] c;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public List<mo4> a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +34,6 @@ public class no4 extends pn4 implements i65 {
             }
         }
         b = BdUniqueId.gen();
-        c = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     }
 
     public no4() {
@@ -48,39 +49,25 @@ public class no4 extends pn4 implements i65 {
                 return;
             }
         }
-        this.a = 6;
+        this.a = new ArrayList();
     }
 
-    public int e() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 
-    public void g(int i) {
+    public void parserProtobuf(List<BannerImage> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.pn4
-    public lp4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        for (BannerImage bannerImage : list) {
+            mo4 mo4Var = new mo4();
+            mo4Var.f(bannerImage);
+            this.a.add(mo4Var);
         }
-        return (lp4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.pn4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
     }
 }

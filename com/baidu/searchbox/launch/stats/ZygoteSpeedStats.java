@@ -10,6 +10,7 @@ import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,14 +30,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String AFTER_MAINTAB_CREATE_COST = "afterMainTabCreateCost";
     public static final String AFTER_MAINTAB_CREATE_COST_NO_AD = "afterMainTabCreateCostNoAd";
     public static final int APPLICATION_LAUNCH_THRESHOLD = 1000;
+    public static final String APP_HAS_BACKGROUND = "hasBackground";
     public static final String APP_STARTED_COST = "appStartedCost";
     public static final boolean DEBUG;
     public static final int DEFAULT_TICKS = 100;
     public static final String DRAW_TO_END_COST = "draw2End";
     public static final String ELAPSED_CPU_COST = "elapsedCpuCost";
+    public static final String ELAPSED_NO_BACKGROUND_COST = "elapsedNoBackgroundCost";
     public static final String ELAPSED_NO_SPLASH_COST = "elapsedNoSplashCost";
     public static final String ELAPSED_NO_TOTAL_SPLASH_COST = "elapsedNoTotalSplashCost";
     public static final String ELAPSED_REALTIME_COST = "elapsedRealtimeCost";
@@ -55,6 +57,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public long mElapsedCpuTimeStart;
     public long mElapsedRealtimeCost;
     public long mElapsedRealtimeEnd;
+    public long mElapsedSecondDrawTimeStamp;
     public long mFixUserPerceptionCost;
     public long mLaunchStartStamp;
     public long mSecondDrawDispatchedTimeStamp;
@@ -99,6 +102,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         this.mFixUserPerceptionCost = -1L;
         this.mElapsedRealtimeCost = -1L;
         this.mSecondDrawDispatchedTimeStamp = -1L;
+        this.mElapsedSecondDrawTimeStamp = -1L;
         this.mLaunchStartStamp = -1L;
         this.isSwitchOn = false;
     }
@@ -232,6 +236,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             }
             if (i == 5054) {
                 this.mSecondDrawDispatchedTimeStamp = j;
+                this.mElapsedSecondDrawTimeStamp = SystemClock.elapsedRealtime();
             }
         }
     }
@@ -307,13 +312,14 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     }
                 }
             }
-            long adTotalDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getAdTotalDuration();
-            if (adTotalDuration > 50 && adTotalDuration < 60000) {
-                hashMap.put(ELAPSED_NO_TOTAL_SPLASH_COST, String.valueOf(adTotalDuration));
-                JSONObject jsonData3 = SpeedStatsUtils.getJsonData(adTotalDuration, null);
+            hashMap.put(APP_HAS_BACKGROUND, SpeedStats.getInstance().getAppInBackgroundDuration() > 0 ? "1" : "0");
+            long adShowDuration2 = (this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getAdShowDuration()) - SpeedStats.getInstance().getAppInBackgroundDuration();
+            if (adShowDuration2 > 50 && adShowDuration2 < 60000) {
+                hashMap.put(ELAPSED_NO_BACKGROUND_COST, String.valueOf(adShowDuration2));
+                JSONObject jsonData3 = SpeedStatsUtils.getJsonData(adShowDuration2, null);
                 if (jsonData3 != null) {
                     try {
-                        jSONObject.put(ELAPSED_NO_TOTAL_SPLASH_COST, jsonData3);
+                        jSONObject.put(ELAPSED_NO_BACKGROUND_COST, jsonData3);
                     } catch (JSONException e3) {
                         if (DEBUG) {
                             e3.printStackTrace();
@@ -321,7 +327,21 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     }
                 }
             }
-            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mLaunchStartStamp, this.mSecondDrawDispatchedTimeStamp);
+            long adTotalDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getAdTotalDuration();
+            if (adTotalDuration > 50 && adTotalDuration < 60000) {
+                hashMap.put(ELAPSED_NO_TOTAL_SPLASH_COST, String.valueOf(adTotalDuration));
+                JSONObject jsonData4 = SpeedStatsUtils.getJsonData(adTotalDuration, null);
+                if (jsonData4 != null) {
+                    try {
+                        jSONObject.put(ELAPSED_NO_TOTAL_SPLASH_COST, jsonData4);
+                    } catch (JSONException e4) {
+                        if (DEBUG) {
+                            e4.printStackTrace();
+                        }
+                    }
+                }
+            }
+            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mLaunchStartStamp, this.mElapsedSecondDrawTimeStamp);
             if (durationWithoutAD > 50 && durationWithoutAD < 60000) {
                 hashMap.put(LAUNCH_TO_DEAW_COST, String.valueOf(durationWithoutAD));
             }
@@ -338,26 +358,26 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             long durationWithoutAD2 = SpeedStatsManager.getInstance().getDurationWithoutAD(SpeedStatsManager.getInstance().getMainTabActivityEndDuration(), SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp()) - SpeedStatsManager.getInstance().getExtraSecondCreateDuration();
             if (durationWithoutAD2 > 50 && durationWithoutAD2 < 60000) {
                 hashMap.put(AFTER_MAINTAB_CREATE_COST_NO_AD, String.valueOf(durationWithoutAD2));
-                JSONObject jsonData4 = SpeedStatsUtils.getJsonData(durationWithoutAD2, null);
-                if (jsonData4 != null) {
+                JSONObject jsonData5 = SpeedStatsUtils.getJsonData(durationWithoutAD2, null);
+                if (jsonData5 != null) {
                     try {
-                        jSONObject.put(AFTER_MAINTAB_CREATE_COST_NO_AD, jsonData4);
-                    } catch (JSONException e4) {
+                        jSONObject.put(AFTER_MAINTAB_CREATE_COST_NO_AD, jsonData5);
+                    } catch (JSONException e5) {
                         if (DEBUG) {
-                            e4.printStackTrace();
+                            e5.printStackTrace();
                         }
                     }
                 }
             }
             hashMap.put(IS_SWITCH_ON, this.isSwitchOn ? "1" : "0");
-            JSONObject jsonData5 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
-            if (jsonData5 != null) {
+            JSONObject jsonData6 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
+            if (jsonData6 != null) {
                 try {
-                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData5);
+                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData6);
                     return true;
-                } catch (JSONException e5) {
+                } catch (JSONException e6) {
                     if (DEBUG) {
-                        e5.printStackTrace();
+                        e6.printStackTrace();
                         return true;
                     }
                     return true;

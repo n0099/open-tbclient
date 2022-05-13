@@ -1,71 +1,72 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.View;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecomTopicList;
 /* loaded from: classes7.dex */
 public class zw6 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
 
-    public zw6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755097544, "Lcom/repackage/zw6;")) == null) {
+            return;
         }
-        this.e = true;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f == 1 : invokeV.booleanValue;
-    }
-
-    public zw6(@NonNull RecomTopicList recomTopicList, int i) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = recomTopicList.topic_id.longValue();
-        this.b = recomTopicList.topic_name;
-        this.c = recomTopicList.tag.intValue();
-        this.d = i + 1;
-        this.f = recomTopicList.is_video_topic.intValue();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755097544, "Lcom/repackage/zw6;");
+        }
+    }
+
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null) {
+                try {
+                    return activity.isInMultiWindowMode();
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
+        View childAt = bdTypeRecyclerView.getChildAt(0);
+        int top = childAt != null ? childAt.getTop() : 0;
+        a = firstVisiblePosition;
+        b = top;
+    }
+
+    public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || a > bdTypeRecyclerView.getCount() - 1) {
+            return;
+        }
+        bdTypeRecyclerView.requestFocusFromTouch();
+        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, b);
+        a = 0;
+        b = 0;
     }
 }

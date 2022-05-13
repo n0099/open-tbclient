@@ -1,25 +1,33 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes6.dex */
 public class iq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+    public FrsFragment a;
+    public NavigationBarCoverTip b;
+    public TextView c;
+    public int d;
 
-    public iq6() {
+    public iq6(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, navigationBarCoverTip};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,103 +37,58 @@ public class iq6 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+        this.a = frsFragment;
+        this.b = navigationBarCoverTip;
+        b();
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void a(String str) {
+        int i;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true : invokeLL.booleanValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || li.isEmpty(str) || this.b == null || !this.a.isPrimary() || (i = this.d) > 0) {
+            return;
+        }
+        this.d = i + 1;
+        if (str.length() < 20) {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b8) + "\n" + str;
+        } else if (str.length() < 34) {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b8) + str;
+        } else {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b8) + str.substring(0, 34);
+        }
+        this.c.setText(str2);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+        SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
+        this.b.m(this.a.getActivity(), this.c, 5000);
     }
 
-    public void b(String str, String str2) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2;
-            Set<String> keySet = this.a.getAll().keySet();
-            SharedPreferences.Editor edit = this.a.edit();
-            for (String str4 : keySet) {
-                if (str4.startsWith(str3)) {
-                    edit.remove(str4);
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = 0;
+            this.c = new TextView(this.a.getActivity());
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(3);
+            } else {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(19);
             }
-            edit.apply();
+            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+            this.c.setMaxLines(2);
+            this.c.setEllipsize(TextUtils.TruncateAt.END);
         }
     }
 
-    public long c(String str, String str2) {
-        InterceptResult invokeLL;
+    public void c() {
+        NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getLong(str + '_' + str2 + "_visit_time", 0L);
-            }
-            return 0L;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.b) == null) {
+            return;
         }
-        return invokeLL.longValue;
-    }
-
-    public boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getBoolean(str + '_' + str2 + "_show", false);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getInt(str + '_' + str2 + "_show_cnt", 0);
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    public long f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.a.getLong(str + '_' + str2 + "_show_time", 0L);
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public void g(String str, String str2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2 + "_show_time";
-            String str4 = str + '_' + str2 + "_show_cnt";
-            int i = this.a.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.a.edit();
-            if (i > 3) {
-                edit.putInt(str4, i + 1);
-            }
-            edit.putLong(str3, j);
-            if (z) {
-                edit.putBoolean(str + '_' + str2 + "_show", true);
-            }
-            edit.apply();
-        }
-    }
-
-    public void h(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2 + "_visit_time";
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putLong(str3, j);
-            edit.apply();
-        }
+        navigationBarCoverTip.i();
     }
 }

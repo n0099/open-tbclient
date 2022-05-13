@@ -61,8 +61,8 @@ public class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f0910b9);
-        this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f0910ba);
-        this.d = (ViewGroup) a(R.id.obfuscated_res_0x7f0910a4);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f0910c8);
+        this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f0910c9);
+        this.d = (ViewGroup) a(R.id.obfuscated_res_0x7f0910b3);
     }
 }

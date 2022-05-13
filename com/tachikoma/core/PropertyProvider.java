@@ -59,7 +59,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PropertyProvider implements IProvider<ArrayList<String>> {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, ArrayList<String>> attributeMap;

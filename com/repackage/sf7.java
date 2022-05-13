@@ -1,45 +1,180 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestCommonViewHolder;
-import com.baidu.tieba.postsearch.PostSearchActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class sf7 extends ho<xf7, SearchSuggestCommonViewHolder> {
+public class sf7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context i;
+    public String a;
+    public List<String> b;
+    public Context c;
 
     /* loaded from: classes7.dex */
-    public class a implements dp {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+    }
 
-        public a(sf7 sf7Var, Context context) {
+    public sf7(Context context, ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = context;
+        this.b = arrayList;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public String getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int count = getCount();
+            if (count <= 0 || i >= count) {
+                return null;
+            }
+            return this.b.get(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void b(TextView textView, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.a)) {
+            return;
+        }
+        String lowerCase = str.toLowerCase();
+        String lowerCase2 = this.a.toLowerCase();
+        if (!lowerCase.contains(lowerCase2)) {
+            textView.setText(str);
+            return;
+        }
+        int indexOf = lowerCase.indexOf(lowerCase2);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.a.length() + indexOf, 33);
+        textView.setText(spannableStringBuilder);
+    }
+
+    public void c(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        this.a = str.trim();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<String> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0740, (ViewGroup) null);
+                bVar = new b(this, null);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091b2d);
+                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c55);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091c54);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            String item = getItem(i);
+            if (StringUtils.isNull(item)) {
+                return view2;
+            }
+            b(bVar.c, item);
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != bVar.a) {
+                bVar.a = skinType;
+                SkinManager.setBackgroundResource(bVar.b, R.drawable.addresslist_item_bg);
+                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public View b;
+        public TextView c;
+        public View d;
+
+        public b(sf7 sf7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sf7Var, context};
+                Object[] objArr = {sf7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,91 +184,11 @@ public class sf7 extends ho<xf7, SearchSuggestCommonViewHolder> {
                     return;
                 }
             }
-            this.a = context;
+            this.a = 3;
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof xf7)) {
-                xf7 xf7Var = (xf7) uoVar;
-                String a = xf7Var.a();
-                String b = xf7Var.b();
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, b);
-                Context context = this.a;
-                if (context != null && (context instanceof BdBaseActivity)) {
-                    customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
-                TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", b));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sf7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = context;
-        this.d = bdUniqueId;
-        V(new a(this, context));
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, xf7 xf7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        a0(i, view2, viewGroup, xf7Var, searchSuggestCommonViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public SearchSuggestCommonViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SearchSuggestCommonViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d074b, viewGroup, false)) : (SearchSuggestCommonViewHolder) invokeL.objValue;
-    }
-
-    public View a0(int i, View view2, ViewGroup viewGroup, xf7 xf7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xf7Var, searchSuggestCommonViewHolder})) == null) {
-            if (xf7Var == null) {
-                return view2;
-            }
-            b0(searchSuggestCommonViewHolder);
-            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.obfuscated_res_0x7f080a11, R.color.CAM_X0109, null);
-            rf7.a(searchSuggestCommonViewHolder.b, xf7Var.b(), xf7Var.a());
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void b0(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
-            vr4 d = vr4.d(searchSuggestCommonViewHolder.b);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
-            vr4.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
+        public /* synthetic */ b(sf7 sf7Var, a aVar) {
+            this(sf7Var);
         }
     }
 }

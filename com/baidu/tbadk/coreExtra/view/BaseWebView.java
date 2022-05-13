@@ -30,23 +30,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bm4;
-import com.repackage.ql8;
-import com.repackage.rg;
-import com.repackage.sl8;
-import com.repackage.ul4;
+import com.repackage.fm4;
+import com.repackage.mm4;
+import com.repackage.nk8;
+import com.repackage.pg;
+import com.repackage.pk8;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sl8 jsCallback;
+    public pk8 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public ql8 mJsBridge;
+    public nk8 mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -58,7 +58,7 @@ public class BaseWebView extends WebView {
     public WebViewClient mWebViewClient;
 
     /* loaded from: classes3.dex */
-    public class a implements sl8 {
+    public class a implements pk8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -81,15 +81,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.repackage.sl8
+        @Override // com.repackage.pk8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                ql8 ql8Var = baseWebView.mJsBridge;
-                if (ql8Var != null) {
-                    return ql8Var.b(baseWebView.getWebView(), str, jsPromptResult);
+                nk8 nk8Var = baseWebView.mJsBridge;
+                if (nk8Var != null) {
+                    return nk8Var.b(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -130,7 +130,7 @@ public class BaseWebView extends WebView {
                     return true;
                 }
                 try {
-                    ul4.j(this.a.mContext, str);
+                    fm4.j(this.a.mContext, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -225,7 +225,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                bm4.a("BaseWebView", webView);
+                mm4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -316,7 +316,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && rg.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && pg.e((Activity) this.a.getContext())) {
                     return super.onJsAlert(webView, str, str2, jsResult);
                 }
                 return true;
@@ -329,7 +329,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && rg.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && pg.e((Activity) this.a.getContext())) {
                     return super.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
                 return true;
@@ -342,7 +342,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && rg.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && pg.e((Activity) this.a.getContext())) {
                     return super.onJsConfirm(webView, str, str2, jsResult);
                 }
                 return true;
@@ -427,10 +427,10 @@ public class BaseWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            ul4.a(getSettings());
+            fm4.a(getSettings());
             this.mWebViewClient = new c(this);
             this.mWebChromeClient = new k(this, null);
-            this.mJsBridge = new ql8();
+            this.mJsBridge = new nk8();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -438,7 +438,7 @@ public class BaseWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            ul4.f(getContext());
+            fm4.f(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);
@@ -521,12 +521,12 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        ql8 ql8Var;
+        nk8 nk8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) || (ql8Var = this.mJsBridge) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) || (nk8Var = this.mJsBridge) == null) {
             return;
         }
-        ql8Var.i(getWebView(), str, hashMap);
+        nk8Var.i(getWebView(), str, hashMap);
     }
 
     @RequiresApi(api = 21)
@@ -561,10 +561,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(sl8 sl8Var) {
+    public void setOnJsPromptCallback(pk8 pk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sl8Var) == null) {
-            this.jsCallback = sl8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, pk8Var) == null) {
+            this.jsCallback = pk8Var;
         }
     }
 

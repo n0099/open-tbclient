@@ -65,7 +65,7 @@ public class fe {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
-                if (fe.m351a(bArr)) {
+                if (fe.m352a(bArr)) {
                     fe a2 = fe.a(bArr);
                     return (a2.f358a == 0 || a2.f358a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f359a);
                 }
@@ -252,7 +252,7 @@ public class fe {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (m351a(bArr)) {
+            if (m352a(bArr)) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
                 order.getInt();
                 short s = order.getShort();
@@ -268,7 +268,7 @@ public class fe {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m351a(byte[] bArr) {
+    public static boolean m352a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {

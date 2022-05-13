@@ -1,12 +1,14 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,32 +16,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r02;
+import com.repackage.or2;
 /* loaded from: classes6.dex */
-public class i12 {
+public final class i12 extends d12<h12> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r02 a;
-    public final a12 b;
-    public final o02 c;
-    public String d;
+    public final or2 a;
+    public final pr2 b;
 
     /* loaded from: classes6.dex */
-    public class a implements r02.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SceneType a;
-        public final /* synthetic */ c12 b;
-        public final /* synthetic */ q02 c;
-        public final /* synthetic */ i12 d;
+        public final /* synthetic */ h12 a;
+        public final /* synthetic */ i12 b;
 
-        public a(i12 i12Var, SceneType sceneType, c12 c12Var, q02 q02Var) {
+        public a(i12 i12Var, h12 h12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i12Var, sceneType, c12Var, q02Var};
+                Object[] objArr = {i12Var, h12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,65 +47,18 @@ public class i12 {
                     return;
                 }
             }
-            this.d = i12Var;
-            this.a = sceneType;
-            this.b = c12Var;
-            this.c = q02Var;
+            this.b = i12Var;
+            this.a = h12Var;
         }
 
-        @Override // com.repackage.r02.b
-        public void a(NetworkStatus networkStatus) {
+        @Override // java.lang.Runnable
+        public void run() {
+            Bitmap p;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                i02.b(this.d.d);
-                l02.i(1);
-                k02.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getScene());
-                sb.append(this.c.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                l02.g(sb.toString());
-                if (i12.e) {
-                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
-                }
-                this.d.h(networkStatus, this.c, this.b);
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (p = le3.p()) == null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements r02.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(i12 i12Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.r02.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                a12.d().j();
-                o02.d().j();
-                i02.c();
-                l02.i(0);
-                k02.c("exit_skeleton", networkStatus.getStatus());
-            }
+            Message.obtain(this.b, 2, h12.a(this.a.b, p)).sendToTarget();
         }
     }
 
@@ -124,85 +75,118 @@ public class i12 {
                 return;
             }
         }
-        e = tg1.a;
+        c = eh1.a;
     }
 
-    public i12() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i12(Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = o02.d();
-        this.a = new r02();
-        this.b = a12.d();
+        this.a = or2.a.a("simple_parser");
+        this.b = (pr2) or2.a.a("hsv_parser");
     }
 
-    public void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.d12
+    /* renamed from: c */
+    public void a(h12 h12Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e) {
-                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h12Var) == null) || h12Var == null) {
+            return;
+        }
+        if (!e(h12Var.b)) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + h12Var.b);
+                return;
             }
-            this.a.a(new b(this));
+            return;
         }
+        f(h12Var);
     }
 
-    public void e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.d12
+    /* renamed from: d */
+    public void b(h12 h12Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f(SceneType.SCENE_SKELETON_TIMEOUT);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, h12Var) == null) || h12Var == null) {
+            return;
         }
-    }
-
-    public void f(SceneType sceneType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
-            if (de3.I(this.d) && de3.H()) {
-                if (e) {
-                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
+        if (!e(h12Var.b)) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + h12Var.b);
+                return;
+            }
+            return;
+        }
+        Bitmap bitmap = h12Var.d;
+        c02 f = dr2.f();
+        View B = hm2.U().B(h12Var.b);
+        if (bitmap != null && f != null && B != null) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> start parsing capture");
+            }
+            Rect b = dr2.b(bitmap, f, B);
+            this.a.c(dr2.d(f));
+            if (!dr2.h() && this.a.a(bitmap, b)) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is full white screen.");
                 }
-                a12.d().j();
-                o02.d().j();
-                q02 f = this.c.f();
-                this.a.a(new a(this, sceneType, this.b.f(), f));
-            } else if (e) {
-                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
+                u12 u12Var = new u12();
+                u12Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
+                u12Var.d(h12Var.b);
+                return;
             }
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public final void h(@NonNull NetworkStatus networkStatus, @NonNull q02 q02Var, @NonNull c12 c12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, q02Var, c12Var) == null) {
-            boolean b2 = q02Var.b();
-            int i = R.string.obfuscated_res_0x7f0f12e6;
-            if (b2) {
-                i = R.string.obfuscated_res_0x7f0f12eb;
-            } else if (c12Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f12e9;
-            } else if (c12Var.e() != RequestStatus.STATUS_FAILED) {
-                if (c12Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f12ea : R.string.obfuscated_res_0x7f0f12e7;
-                } else if (c12Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f12e8;
+            double d = this.b.d(bitmap, b);
+            u12 u12Var2 = new u12();
+            if (dr2.g() && d >= 0.5d) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
                 }
+                u12Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
+                u12Var2.d(h12Var.b);
+            } else if (d >= 0.7d) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
+                }
+                u12Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
+                u12Var2.d(h12Var.b);
+            } else {
+                j12.b().a();
             }
-            j02.f(i);
+        } else if (c) {
+            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
         }
+    }
+
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? TextUtils.equals(oe3.B(), str) : invokeL.booleanValue;
+    }
+
+    public final void f(h12 h12Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, h12Var) == null) || h12Var == null) {
+            return;
+        }
+        if (c) {
+            Log.d("WhitePageHandler", ">> start to get capture.");
+        }
+        oe3.e0(new a(this, h12Var));
     }
 }

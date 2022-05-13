@@ -1,19 +1,22 @@
 package com.repackage;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes7.dex */
-public interface zo3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+public interface zo3<VIEW extends View> {
+    void a(String str);
 
-    void b(String str, JSONObject jSONObject, ResponseCallback<ro3> responseCallback);
+    void b(DownloadState downloadState);
 
-    void c(String str, ResponseCallback<ao3> responseCallback);
+    zo3 c(Context context, DownloadParams downloadParams, uo3 uo3Var);
 
-    void d(String str);
+    void d(int i);
 
-    void e(String str);
+    void e(Object obj);
 
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    void f();
+
+    VIEW getRealView();
 }

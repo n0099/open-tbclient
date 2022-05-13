@@ -1,6 +1,5 @@
 package com.baidu.location.c;
 
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +13,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
             if (i.i()) {
-                return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+                return "WIFI";
             }
             switch (i) {
                 case 1:

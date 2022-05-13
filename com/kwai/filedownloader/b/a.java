@@ -16,19 +16,19 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractBinderC0353a extends Binder implements a {
+    public static abstract class AbstractBinderC0352a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwai.filedownloader.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0354a implements a {
+        public static class C0353a implements a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0354a(IBinder iBinder) {
+            public C0353a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,10 +59,10 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (this.b.transact(1, obtain, null, 1) || AbstractBinderC0353a.a() == null) {
+                        if (this.b.transact(1, obtain, null, 1) || AbstractBinderC0352a.a() == null) {
                             return;
                         }
-                        AbstractBinderC0353a.a().a(messageSnapshot);
+                        AbstractBinderC0352a.a().a(messageSnapshot);
                     } finally {
                         obtain.recycle();
                     }
@@ -77,7 +77,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0353a() {
+        public AbstractBinderC0352a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public interface a extends IInterface {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0354a.a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0353a.a : (a) invokeV.objValue;
         }
 
         public static a a(IBinder iBinder) {
@@ -107,7 +107,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0354a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0353a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

@@ -1,9 +1,13 @@
 package com.repackage;
+
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public interface ga8 {
-    int a();
+    void L();
 
-    void b();
+    TbPageContext<?> i();
 
-    void c();
+    int q0();
+
+    String y();
 }

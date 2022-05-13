@@ -1,27 +1,40 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.channel.model.gdt.GDTNativeUnifiedVideoView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.qq.e.ads.nativ.NativeADEventListener;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.repackage.ah9;
 /* loaded from: classes6.dex */
-public class gh9 implements TTFullScreenVideoAd.FullScreenVideoAdInteractionListener {
+public class gh9 implements FunNativeAd2Bridger<NativeUnifiedADData, com.fun.module.gdt.w> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ TTFullScreenVideoAd c;
-    public final /* synthetic */ fh9 d;
+    public final ah9.c a;
+    public final /* synthetic */ nh9 b;
+    public final /* synthetic */ ah9 c;
 
-    public gh9(fh9 fh9Var, TTFullScreenVideoAd tTFullScreenVideoAd) {
+    public gh9(ah9 ah9Var, NativeUnifiedADData nativeUnifiedADData, String str, nh9 nh9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fh9Var, tTFullScreenVideoAd};
+            Object[] objArr = {ah9Var, nativeUnifiedADData, str, nh9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,52 +44,59 @@ public class gh9 implements TTFullScreenVideoAd.FullScreenVideoAdInteractionList
                 return;
             }
         }
-        this.d = fh9Var;
-        this.c = tTFullScreenVideoAd;
+        this.c = ah9Var;
+        this.b = nh9Var;
+        this.a = new ah9.c(ah9Var, nativeUnifiedADData, str);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onAdClose() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.gdt.w, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.gdt.w createExpressView(NativeUnifiedADData nativeUnifiedADData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nativeUnifiedADData)) == null) ? this.c.b(FunAdSdk.getAppContext(), nativeUnifiedADData) : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.w> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
+            NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
+            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.b.c.getGdtADStatusChangeListener();
+            if (gdtADStatusChangeListener != null) {
+                this.a.d = new eh9(this, gdtADStatusChangeListener, nativeUnifiedADData2);
+            } else {
+                this.a.d = null;
+            }
+            this.c.j(nativeUnifiedADData2, str, customInflater.getGdtNativeAdContainer(), this.b.d, customInflater.getClickViews(), this.a, funAdInteractionListener);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onAdShow() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.w> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onAdVideoBarClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.b, new String[0]);
-            this.b = true;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onSkippedVideo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onVideoComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
+            NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
+            com.fun.module.gdt.w wVar = (com.fun.module.gdt.w) expressInflater.getExpressView();
+            ah9 ah9Var = this.c;
+            FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> funNativeAdListenerHelper = ah9Var.i;
+            pid = ah9Var.mPid;
+            funNativeAdListenerHelper.startShow(nativeUnifiedADData2, str, pid, this.a, funAdInteractionListener);
+            ah9.c cVar = this.a;
+            cVar.d = new fh9(this, wVar, nativeUnifiedADData2);
+            ah9 ah9Var2 = this.c;
+            ah9Var2.getClass();
+            if (wVar instanceof GDTNativeUnifiedVideoView) {
+                ((GDTNativeUnifiedVideoView) wVar).setVideoOnClickListener(new ch9(ah9Var2));
+            }
+            nativeUnifiedADData2.setNativeAdEventListener(cVar);
+            wVar.a(nativeUnifiedADData2);
+            expressInflater.inflate();
         }
     }
 }

@@ -17,6 +17,8 @@ public class LaunchTaskConstants {
     public static final int TASK_TYPE_ASYNC = 2;
     public static final int TASK_TYPE_IDLE = 3;
     public static final int TASK_TYPE_SYNC = 1;
+    public static final int VIEW_ACTIVITY = 5;
+    public static final int VIEW_APP_CREATE = 4;
     public static final int YUNPUSH_PROCESS = 256;
     public transient /* synthetic */ FieldHolder $fh;
 

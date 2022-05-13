@@ -1,27 +1,44 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class pm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<m45> a;
-    public Context b;
+    public final Context a;
+    public final View b;
+    public final ThreadAchievementShareInfo.ParamBean c;
+    public TbImageView d;
+    public ImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
 
-    public pm4(Context context) {
+    public pm4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,34 +48,50 @@ public class pm4 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
+        this.a = context;
+        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086e, (ViewGroup) null);
+        this.c = threadAchievementShareInfo.getParams();
+        c();
+        b();
     }
 
-    public void a(m45 m45Var) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) || m45Var == null || m45Var.b() == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public final void b() {
+        ThreadAchievementShareInfo.ParamBean paramBean;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
             return;
         }
-        Iterator<m45> it = this.a.iterator();
-        while (it.hasNext()) {
-            m45 next = it.next();
-            if (next != null && next.b() != null && next.b().e == m45Var.b().e) {
-                return;
-            }
+        this.d.K(this.c.getVideo_info().getThumbnail_url(), 10, false);
+        this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
+        this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090692);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090688);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091920);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091921);
+            this.i = textView;
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092371);
+            this.d = tbImageView;
+            tbImageView.setDefaultBgResource(R.color.transparent);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918b0);
+            this.e = imageView;
+            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
-        this.a.add(m45Var);
-    }
-
-    public ArrayList<m45> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Context) invokeV.objValue;
     }
 }

@@ -1,88 +1,128 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.AlbumElement;
+import tbclient.ItemGameCode;
+import tbclient.ItemGameInfo;
+import tbclient.ItemInfo;
+import tbclient.ItemPage.DataRes;
+import tbclient.RecentUpdate;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public class wk6 extends ho<cl6, GameSubCommentView.GameSubCommentViewHolder> {
+public class wk6 implements f75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public a j;
+    public ItemInfo a;
+    public List<AlbumElement> b;
+    public ArrayList<ro> c;
+    public boolean d;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(cl6 cl6Var);
-
-        void b(cl6 cl6Var);
-
-        void c(cl6 cl6Var);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wk6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public wk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.c = new ArrayList<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public GameSubCommentView.GameSubCommentViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            GameSubCommentView gameSubCommentView = new GameSubCommentView(this.i);
-            gameSubCommentView.d(this.j);
-            return new GameSubCommentView.GameSubCommentViewHolder(gameSubCommentView);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (GameSubCommentView.GameSubCommentViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, cl6 cl6Var, GameSubCommentView.GameSubCommentViewHolder gameSubCommentViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cl6Var, gameSubCommentViewHolder})) == null) {
-            if (cl6Var != null) {
-                gameSubCommentViewHolder.c(cl6Var);
+        ItemInfo itemInfo = dataRes.item_info;
+        this.a = itemInfo;
+        if (itemInfo == null) {
+            return;
+        }
+        this.b = dataRes.album_list;
+        int i = 1;
+        this.d = dataRes.has_tornado.intValue() == 1;
+        ItemGameCode itemGameCode = dataRes.item_game_code;
+        if (itemGameCode != null && ListUtils.getCount(itemGameCode.game_code_list) != 0) {
+            ol6 ol6Var = new ol6();
+            ol6Var.i(dataRes.item_game_code);
+            this.c.add(ol6Var);
+        }
+        ItemGameInfo itemGameInfo = dataRes.item_game_info;
+        if (itemGameInfo != null) {
+            List<ThreadInfo> list = itemGameInfo.hot_videos;
+            if (list != null && ListUtils.getCount(list) >= 3) {
+                pl6 pl6Var = new pl6();
+                pl6Var.g(dataRes.item_game_info.hot_videos);
+                this.c.add(pl6Var);
             }
-            return gameSubCommentViewHolder.b();
+            RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
+            if (recentUpdate != null && !li.isEmpty(recentUpdate.log)) {
+                ql6 ql6Var = new ql6();
+                ql6Var.g(dataRes.item_game_info.recent_update);
+                this.c.add(ql6Var);
+            }
         }
-        return (View) invokeCommon.objValue;
+        if (!ListUtils.isEmpty(dataRes.thread_list)) {
+            ml6 ml6Var = new ml6();
+            ml6Var.setSupportType(BaseCardInfo.SupportType.TOP);
+            this.c.add(ml6Var);
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.setPositionInFrsItemTab(i);
+                    i++;
+                    threadData.insertItemToTitleOrAbstractText();
+                    this.c.add(threadData);
+                    ml6 ml6Var2 = new ml6();
+                    ml6Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    this.c.add(ml6Var2);
+                }
+            }
+            ml6 ml6Var3 = new ml6();
+            ml6Var3.g(this.a.id.intValue());
+            ml6Var3.setPositionInFrsItemTab(i);
+            ml6Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+            this.c.add(ml6Var3);
+        }
+        nl6 nl6Var = new nl6();
+        nl6Var.i(dataRes.item_info);
+        if (nl6Var.g()) {
+            this.c.add(nl6Var);
+        }
+        rl6 rl6Var = new rl6();
+        rl6Var.g(dataRes.recommend_item);
+        this.c.add(rl6Var);
     }
 
-    public void b0(a aVar) {
+    @Override // com.repackage.f75
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.j = aVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.repackage.f75
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
         }
     }
 }

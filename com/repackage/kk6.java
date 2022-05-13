@@ -7,24 +7,23 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kk6 extends m45 {
+public class kk6 extends d55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsGameRecommendFragment c;
 
-    public kk6(String str, String str2) {
+    public kk6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,30 +33,29 @@ public class kk6 extends m45 {
                 return;
             }
         }
-        this.c = FrsGameRecommendFragment.F0(str, str2);
-        b().a = this.c;
+        b().a = frsFragment;
     }
 
-    @Override // com.repackage.m45
-    public n45 a() {
+    @Override // com.repackage.d55
+    public e55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n45 n45Var = new n45();
-            n45Var.e = 11;
-            n45Var.b = R.string.obfuscated_res_0x7f0f06dd;
-            n45Var.i = n45.l;
-            return n45Var;
+            e55 e55Var = new e55();
+            e55Var.e = 1;
+            e55Var.b = R.string.obfuscated_res_0x7f0f03d4;
+            e55Var.i = e55.k;
+            return e55Var;
         }
-        return (n45) invokeV.objValue;
+        return (e55) invokeV.objValue;
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
             this.b = fragmentTabIndicator;
             fragmentTabIndicator.setTextSize(2.0f);
             return this.b;
@@ -65,7 +63,7 @@ public class kk6 extends m45 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,5 +71,12 @@ public class kk6 extends m45 {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public void g(od6 od6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, od6Var) == null) && od6Var != null && od6Var.h(1)) {
+            od6Var.a(this);
+        }
     }
 }

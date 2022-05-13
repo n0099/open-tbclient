@@ -1,40 +1,27 @@
 package com.repackage;
 
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class en5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dn5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
+    public static synchronized dn5 a() {
         InterceptResult invokeV;
+        dn5 dn5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? qj2.M().a() : invokeV.booleanValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-            int i = a() ? 2 : 1;
-            if (defaultNightMode != i) {
-                AppCompatDelegate.setDefaultNightMode(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (en5.class) {
+                if (a == null) {
+                    a = new dn5();
+                }
+                dn5Var = a;
             }
+            return dn5Var;
         }
-    }
-
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
-            intent.putExtra("key_night_mode", z);
-            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
-        }
+        return (dn5) invokeV.objValue;
     }
 }

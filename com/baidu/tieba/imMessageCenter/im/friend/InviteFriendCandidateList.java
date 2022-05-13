@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iy4;
+import com.repackage.wy4;
 /* loaded from: classes3.dex */
 public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     public static /* synthetic */ Interceptable $ic;
@@ -104,16 +104,16 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         j();
     }
 
-    public void e(iy4 iy4Var) {
+    public void e(wy4 wy4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iy4Var) == null) || getItemLength() >= this.g) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, wy4Var) == null) || getItemLength() >= this.g) {
             return;
         }
         HeadImageView f = f();
         f.setIsRound(false);
-        f.K(iy4Var.h(), 12, false);
+        f.K(wy4Var.h(), 12, false);
         if (i()) {
-            f.setTag(iy4Var);
+            f.setTag(wy4Var);
             f.setOnClickListener(this.j);
             this.c.addView(f, getItemLength());
             scrollTo(getItemLength() * (this.d + this.f), 0);
@@ -147,11 +147,11 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.c.getChildAt(i);
-                if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof iy4)) {
+                if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof wy4)) {
                     if (i > 0) {
                         sb.append(",");
                     }
-                    sb.append(((iy4) tag).e());
+                    sb.append(((wy4) tag).e());
                 }
             }
             return sb.toString();
@@ -171,17 +171,17 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         return invokeV.intValue;
     }
 
-    public boolean h(iy4 iy4Var) {
+    public boolean h(wy4 wy4Var) {
         InterceptResult invokeL;
         Object tag;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iy4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, wy4Var)) == null) {
             int childCount = this.c.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.c.getChildAt(i);
-                if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof iy4) && ((iy4) tag).equals(iy4Var)) {
-                    iy4Var.setChecked(true);
-                    childAt.setTag(iy4Var);
+                if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof wy4) && ((wy4) tag).equals(wy4Var)) {
+                    wy4Var.setChecked(true);
+                    childAt.setTag(wy4Var);
                     return true;
                 }
             }
@@ -232,10 +232,10 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         }
     }
 
-    public void l(iy4 iy4Var) {
+    public void l(wy4 wy4Var) {
         View findViewWithTag;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iy4Var) == null) || (findViewWithTag = this.c.findViewWithTag(iy4Var)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wy4Var) == null) || (findViewWithTag = this.c.findViewWithTag(wy4Var)) == null) {
             return;
         }
         this.c.removeView(findViewWithTag);

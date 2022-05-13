@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.br4;
-import com.repackage.de7;
-import com.repackage.kk8;
+import com.repackage.he7;
+import com.repackage.hj8;
+import com.repackage.mr4;
 import com.repackage.qe;
 import com.repackage.wa;
 import tbclient.Lego.DataRes;
@@ -101,8 +101,8 @@ public class LegoPageModel extends BdBaseModel {
                         this.a.b.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            br4.f();
-                            qe<byte[]> d = br4.d("tb.lego_update");
+                            mr4.f();
+                            qe<byte[]> d = mr4.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j);
                             sb.append("_");
@@ -153,25 +153,15 @@ public class LegoPageModel extends BdBaseModel {
         }
         this.a = new a(this, CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
         setUniqueId(bdUniqueId);
-        A();
+        registerHttpTask();
         this.a.getSocketMessageListener().setSelfListener(true);
         this.a.getHttpMessageListener().setSelfListener(true);
         registerListener(this.a);
     }
 
-    public final void A() {
+    public void A(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, kk8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void B(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.b = bVar;
         }
     }
@@ -180,7 +170,7 @@ public class LegoPageModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             cancelMessage();
             return false;
         }
@@ -191,10 +181,20 @@ public class LegoPageModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public final void registerHttpTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, hj8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public void z(int i, long j, String str, int i2, String str2) {
@@ -208,7 +208,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            de7 a2 = de7.a(j, str);
+            he7 a2 = he7.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);

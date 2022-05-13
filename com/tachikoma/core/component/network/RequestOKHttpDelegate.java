@@ -16,7 +16,7 @@ import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestOKHttpDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

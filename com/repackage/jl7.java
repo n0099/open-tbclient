@@ -31,7 +31,7 @@ public class jl7 {
                 return;
             }
         }
-        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ed7);
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f2f);
         View view2 = new View(viewGroup.getContext());
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) viewGroup.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)));
         this.a.addHeaderView(view2);

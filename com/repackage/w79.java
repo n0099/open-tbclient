@@ -1,25 +1,25 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ueg.encrypt.entity.EncryptAlgorithm;
 /* loaded from: classes7.dex */
-public class w79 {
+public class w79 implements d89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EncryptAlgorithm a;
-    public String b;
+    public j79 a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public w79(EncryptAlgorithm encryptAlgorithm, String str) {
+    public w79() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {encryptAlgorithm, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,19 +29,127 @@ public class w79 {
                 return;
             }
         }
-        this.a = encryptAlgorithm;
-        this.b = str;
+        this.d = true;
     }
 
-    public EncryptAlgorithm a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.d89
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (EncryptAlgorithm) invokeV.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            j79 j79Var = this.a;
+            if (j79Var == null || bArr == null) {
+                return 0;
+            }
+            this.b += bArr.length;
+            j79Var.putBytes(bArr, i);
+            return this.b;
+        }
+        return invokeLI.intValue;
     }
 
-    public String b() {
+    @Override // com.repackage.d89
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.d89
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (j79) lb9.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+            }
+            j79 j79Var = this.a;
+            if (j79Var != null) {
+                j79Var.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.repackage.d89
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            j79 j79Var = this.a;
+            if (j79Var == null || j79Var.availableBytes() <= 0) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(int[] iArr) {
+        j79 j79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (j79Var = this.a) == null) {
+            return;
+        }
+        j79Var.setVoiceChangeType(iArr);
+    }
+
+    @Override // com.repackage.d89
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.d89
+    public void c() {
+        j79 j79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (j79Var = this.a) == null) {
+            return;
+        }
+        j79Var.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        j79 j79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (j79Var = this.a) == null) {
+            return;
+        }
+        j79Var.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.repackage.d89
+    public void d() {
+        j79 j79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (j79Var = this.a) == null) {
+            return;
+        }
+        j79Var.close();
+        this.a = null;
+    }
+
+    @Override // com.repackage.d89
+    public void e() {
+        j79 j79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (j79Var = this.a) == null) {
+            return;
+        }
+        j79Var.clearQueues();
     }
 }

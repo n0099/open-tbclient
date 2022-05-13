@@ -1,18 +1,20 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class t84 implements p84<g94> {
+public class t84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Class<?>, s84> a;
+    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public t84() {
         Interceptable interceptable = $ic;
@@ -24,37 +26,43 @@ public class t84 implements p84<g94> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    @Override // com.repackage.p84
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    public <T> s84<T> a(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? this.a.get(cls) : (s84) invokeL.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public <T> Uri b(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL,pkg_type INT DEFAULT 0," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? this.b.get(cls) : (Uri) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pkg_main" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.p84
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = new ConcurrentHashMap<>();
+            this.b = new ConcurrentHashMap<>();
+            this.a.put(r94.class, new w84());
+            this.a.put(s94.class, new x84());
+            this.a.put(p94.class, new v84());
+            this.a.put(n94.class, new u84());
+            this.a.put(PMSAppInfo.class, new r84());
+            this.a.put(t94.class, new y84());
+            this.a.put(u94.class, new z84());
+            this.b.put(r94.class, j94.f);
+            this.b.put(s94.class, j94.g);
+            this.b.put(p94.class, j94.d);
+            this.b.put(n94.class, j94.h);
+            this.b.put(PMSAppInfo.class, j94.e);
+            this.b.put(t94.class, j94.i);
+            this.b.put(u94.class, j94.j);
         }
     }
 }

@@ -1,22 +1,18 @@
 package com.repackage;
 
-import android.os.Handler;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.INetWorkCore;
-import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
-import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public INetWorkCore a;
-    public HttpNetContext b;
+    public String a;
+    public String b;
+    public String c;
 
     public gb8() {
         Interceptable interceptable = $ic;
@@ -28,61 +24,23 @@ public class gb8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        d();
     }
 
-    public boolean a(String str, Handler handler, int i, int i2, int i3) {
-        InterceptResult invokeCommon;
+    public static gb8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? b(str, handler, i, i2, i3, false) : invokeCommon.booleanValue;
-    }
-
-    public boolean b(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            c().getRequest().addBdussData(this.a);
-            return this.a.downloadFile(str, handler, i, i2, i3, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            gb8 gb8Var = new gb8();
+            gb8Var.a = jSONObject.optString("apk_name");
+            gb8Var.b = jSONObject.optString("apk_url");
+            gb8Var.c = jSONObject.optString("download_key");
+            return gb8Var;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public HttpNetContext c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (HttpNetContext) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = new HttpNetContext();
-            this.a = new hb8(this.b);
-            this.b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
-            ag.o(TbadkCoreApplication.getInst().getCuid());
-            ag.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            ag.r(TbadkCoreApplication.getInst().getCuidGid());
-        }
-    }
-
-    public void e() {
-        INetWorkCore iNetWorkCore;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iNetWorkCore = this.a) == null) {
-            return;
-        }
-        iNetWorkCore.setCancel();
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b.getRequest().getNetWorkParam().mUrl = str;
-        }
+        return (gb8) invokeL.objValue;
     }
 }

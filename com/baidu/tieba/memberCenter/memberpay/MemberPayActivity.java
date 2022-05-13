@@ -35,11 +35,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b85;
-import com.repackage.e85;
-import com.repackage.vt4;
-import com.repackage.y75;
-import com.repackage.yw4;
+import com.repackage.iu4;
+import com.repackage.lx4;
+import com.repackage.p85;
+import com.repackage.s85;
+import com.repackage.v85;
 /* loaded from: classes3.dex */
 public class MemberPayActivity extends BaseActivity<MemberPayActivity> implements RadioGroup.OnCheckedChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -113,7 +113,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                         this.a.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.a.mCurrentShowType)));
                         this.a.setResult(-1);
-                        vt4.k().u("show_member_deid_line", true);
+                        iu4.k().u("show_member_deid_line", true);
                         if (this.a.mIsClose) {
                             this.a.closeActivity();
                         } else {
@@ -166,12 +166,12 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                             this.a.mLoadFinished = true;
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
                         return;
                     }
                     String errorString = responseMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
                     }
                     this.a.showToast(errorString);
                 }
@@ -214,12 +214,12 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                 return;
             }
             this.a.mMemberPayView.g(((Boolean) customResponsedMessage.getData()).booleanValue());
-            this.a.showToast(R.string.obfuscated_res_0x7f0f13e6);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f140b);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class d implements b85 {
+    public class d implements s85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPayActivity a;
@@ -242,17 +242,17 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             this.a = memberPayActivity;
         }
 
-        @Override // com.repackage.b85
+        @Override // com.repackage.s85
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e85 c = e85.c();
+                v85 c = v85.c();
                 c.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + this.a.mReferPage + "&click_zone=" + this.a.mClickZone, this.a.getPageContext());
                 this.a.finish();
             }
         }
 
-        @Override // com.repackage.b85
+        @Override // com.repackage.s85
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -260,7 +260,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             }
         }
 
-        @Override // com.repackage.b85
+        @Override // com.repackage.s85
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -487,7 +487,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0621));
+            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0627));
             this.mMemberPayView = new MemberPayView(this, this.mWantedMemberType, this.mIsPayDialog.booleanValue());
         }
     }
@@ -522,7 +522,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mClickZone : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -536,17 +536,17 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public y75 getPageStayDurationItem() {
+    public p85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            y75 pageStayDurationItem = super.getPageStayDurationItem();
+            p85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (y75) invokeV.objValue;
+        return (p85) invokeV.objValue;
     }
 
     public String getReferPage() {
@@ -574,9 +574,9 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         if (!(interceptable == null || interceptable.invokeLI(1048582, this, radioGroup, i) == null) || (memberPayView = this.mMemberPayView) == null) {
             return;
         }
-        if (i == R.id.obfuscated_res_0x7f09042b) {
+        if (i == R.id.obfuscated_res_0x7f090426) {
             memberPayView.k(2);
-        } else if (i == R.id.obfuscated_res_0x7f09042c) {
+        } else if (i == R.id.obfuscated_res_0x7f090427) {
             memberPayView.k(1);
         }
     }
@@ -586,13 +586,13 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f09027e) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090272) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{LAW_JUMP_URL + TbadkCoreApplication.getCurrentVerson(getPageContext().getPageActivity())});
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0921b6 || view2.getId() == R.id.obfuscated_res_0x7f0921b5) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09220d || view2.getId() == R.id.obfuscated_res_0x7f09220c) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09216e) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0921c4) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{AUTO_PAY_AGREEMENT_JUMP_URL});
             }
         }
@@ -610,7 +610,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                 return;
             }
             handleIntent();
-            yw4 consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
+            lx4 consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
             if (consumePathData != null) {
                 this.mIsPayDialog = Boolean.valueOf(consumePathData.b(1, this.mSceneId));
             }

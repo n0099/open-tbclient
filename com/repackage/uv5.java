@@ -1,50 +1,63 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Search.DataRes;
 /* loaded from: classes7.dex */
 public class uv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public boolean k;
+    public long l;
 
-    public uv5(TbPageContext tbPageContext) {
+    public uv5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_CARD_INFO, TbConfig.SERVER_ADDRESS + "c/c/bawu/verifyIdentityInfo");
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(long j) {
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_CARD_INFO);
-            httpMessage.addParam("fid", j);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
         }
+        Long l = dataRes.uid;
+        this.b = l == null ? 0L : l.longValue();
+        this.c = dataRes.portrait;
+        this.d = dataRes.name_show;
+        Long l2 = dataRes.apply_id;
+        this.e = l2 == null ? 0L : l2.longValue();
+        Integer num = dataRes.vote_num;
+        this.f = num == null ? 0 : num.intValue();
+        Integer num2 = dataRes.agree_num;
+        this.g = num2 == null ? 0 : num2.intValue();
+        Integer num3 = dataRes.thread_num;
+        this.h = num3 == null ? 0 : num3.intValue();
+        Integer num4 = dataRes.post_num;
+        this.i = num4 == null ? 0 : num4.intValue();
+        Boolean bool = dataRes.is_vote;
+        this.k = bool != null ? bool.booleanValue() : false;
+        Long l3 = dataRes.tid;
+        this.l = l3 != null ? l3.longValue() : 0L;
     }
 }

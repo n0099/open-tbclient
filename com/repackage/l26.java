@@ -1,40 +1,78 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.o0;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class l26 {
     public static /* synthetic */ Interceptable $ic;
+    public static final l26 a;
+    public static final o0 b;
+    public static final Class<? extends n06>[] c;
+    public static final o0 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l26(int i, int i2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755580927, "Lcom/repackage/l26;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755580927, "Lcom/repackage/l26;");
+                return;
+            }
+        }
+        a = new l26();
+        o0 b2 = o0.d(s06.class).b();
+        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
+        b = b2;
+        c = new Class[]{s06.class, r06.class};
+        o0.b d2 = o0.d(s06.class, r06.class);
+        d2.c(t06.class, v06.class);
+        o0 b3 = d2.b();
+        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
+        d = b3;
+    }
+
+    public l26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void a(int i) {
+    public final o0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (o0) invokeV.objValue;
     }
 
-    public final void b(int i) {
+    public final Class<? extends n06>[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : (Class[]) invokeV.objValue;
+    }
+
+    public final o0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (o0) invokeV.objValue;
     }
 }

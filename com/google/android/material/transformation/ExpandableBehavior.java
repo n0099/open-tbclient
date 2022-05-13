@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_COLLAPSED = 2;

@@ -1,153 +1,66 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, fd4> d;
-    public static Map<String, Map<String, fd4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final AbiType c;
+    public int a;
+    public int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755711685, "Lcom/repackage/fd4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755711685, "Lcom/repackage/fd4;");
-                return;
-            }
-        }
-        d = new HashMap();
-        e = new HashMap();
-    }
-
-    public fd4(@NonNull String str, @NonNull AbiType abiType) {
+    public fd4(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, abiType};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = TextUtils.isEmpty(str) ? "" : str;
-        this.c = abiType;
-        this.b = a(str, abiType);
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public static String a(String str, AbiType abiType) {
-        InterceptResult invokeLL;
+    public static fd4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
-            return "so_" + str + "_" + abiType.id;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static synchronized Map<String, fd4> b(@NonNull String str) {
-        InterceptResult invokeL;
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (fd4.class) {
-                hashMap = new HashMap(c(str));
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static synchronized Map<String, fd4> c(@NonNull String str) {
-        InterceptResult invokeL;
-        Map<String, fd4> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (fd4.class) {
-                map = e.get(str);
-                if (map == null) {
-                    map = new HashMap<>();
-                    if (!TextUtils.isEmpty(str)) {
-                        for (AbiType abiType : AbiType.values()) {
-                            fd4 fd4Var = new fd4(str, abiType);
-                            map.put(fd4Var.b, fd4Var);
-                        }
-                        d.putAll(map);
-                        e.put(str, map);
-                    }
-                }
-            }
-            return map;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Nullable
-    public static synchronized fd4 d(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        fd4 e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
-            synchronized (fd4.class) {
-                e2 = e(str, a(str, abiType));
-            }
-            return e2;
-        }
-        return (fd4) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static synchronized fd4 e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            synchronized (fd4.class) {
-                fd4 fd4Var = null;
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    c(str);
-                    fd4 fd4Var2 = d.get(str2);
-                    if (fd4Var2 != null) {
-                        if (TextUtils.equals(str, fd4Var2.a)) {
-                            fd4Var = fd4Var2;
-                        }
-                    }
-                    return fd4Var;
-                }
-                return null;
-            }
-        }
-        return (fd4) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new fd4(2, 2, 1000) : (fd4) invokeV.objValue;
     }
 
     @NonNull
+    public static fd4 b(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                return new fd4(jSONObject.optInt("max_num", 2), jSONObject.optInt("per_call_num", 2), jSONObject.optInt("call_interval", 1000));
+            }
+            return a();
+        }
+        return (fd4) invokeL.objValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.b + ", callInterval=" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

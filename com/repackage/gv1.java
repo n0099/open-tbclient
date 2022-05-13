@@ -1,80 +1,53 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class gv1 extends zv1 {
+public class gv1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean j;
+    public iu1 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755664689, "Lcom/repackage/gv1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755664689, "Lcom/repackage/gv1;");
-                return;
-            }
-        }
-        boolean z = tg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gv1(String str) {
-        super("canvas", "canvasId");
+    public gv1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.j = false;
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            jx1.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
+    }
+
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
+        iu1 iu1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) && (iu1Var = this.a) != null && iu1Var.d()) {
+            if (this.a.c()) {
+                bu1Var.c.setShader(this.a.b());
+                return;
+            }
+            bu1Var.m = this.a.a();
+            bu1Var.c.setColor(this.a.a());
+            bu1Var.b.setShader(null);
         }
     }
 
-    @Override // com.repackage.zv1, com.repackage.iq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.repackage.au1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
-            this.f = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
-            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
-            this.g = !TextUtils.equals(jSONObject.optString("gesture"), "0");
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+            return;
         }
-    }
-
-    @Override // com.repackage.zv1, com.repackage.iq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
+        this.a = new iu1(jSONArray);
     }
 }

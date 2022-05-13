@@ -1,133 +1,110 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.helios.common.cc.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes5.dex */
-public final class e50 extends d50 {
+public class e50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b d;
+    public String a;
+    public boolean b;
+    public boolean c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Class<?> a;
-        public Method b;
-        public Method c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            d();
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public final long b(Object obj) throws n.a {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                try {
-                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
-                } catch (Exception unused) {
-                    throw new n.a("");
-                }
-            }
-            return invokeL.longValue;
-        }
-
-        public final void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a = Class.forName(com.baidu.helios.common.cc.n.a(h50.a()), true, Object.class.getClassLoader());
-                    this.b = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(h50.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.c = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(h50.c()), null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public final void f(Object obj, byte[] bArr, int i, int i2) throws n.a {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
-                try {
-                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
-                } catch (Exception unused) {
-                    throw new n.a("");
-                }
-            }
-        }
-
-        public final Object g() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
-        }
-    }
-
-    public e50(int i, int i2) {
+    public e50(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 32;
-        this.b = i;
-        this.c = i2;
-        this.d = new b(null);
+        this.a = str;
+        this.b = z;
+        this.c = z2;
     }
 
-    @Override // com.repackage.d50
-    public com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2) {
-        long j;
-        InterceptResult invokeLII;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            try {
-                Object g = this.d.g();
-                this.d.f(g, bArr, i, i2);
-                j = this.d.b(g);
-            } catch (Exception unused) {
-                j = 4294967295L;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 5 ? -1 : 0;
+                        }
+                        return 1;
+                    }
+                    return 3;
+                }
+                return 4;
             }
-            return com.baidu.helios.common.cc.a.a(new long[]{j});
+            return 6;
         }
-        return (com.baidu.helios.common.cc.a) invokeLII.objValue;
+        return invokeI.intValue;
+    }
+
+    public String b(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
+                short[] sArr = new short[5];
+                int[] iArr = new int[8];
+                int i3 = 5;
+                for (int i4 = 0; i4 < 5; i4++) {
+                    int i5 = (i2 * 5) + i4;
+                    if (i5 < bArr.length) {
+                        sArr[i4] = (short) (bArr[i5] & 255);
+                    } else {
+                        sArr[i4] = 0;
+                        i3--;
+                    }
+                }
+                int a = a(i3);
+                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
+                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
+                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
+                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
+                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
+                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
+                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
+                iArr[7] = (byte) (sArr[4] & 31);
+                int i6 = 0;
+                while (true) {
+                    i = 8 - a;
+                    if (i6 >= i) {
+                        break;
+                    }
+                    char charAt = this.a.charAt(iArr[i6]);
+                    if (this.c) {
+                        charAt = Character.toLowerCase(charAt);
+                    }
+                    byteArrayOutputStream.write(charAt);
+                    i6++;
+                }
+                if (this.b) {
+                    while (i < 8) {
+                        byteArrayOutputStream.write(61);
+                        i++;
+                    }
+                }
+            }
+            return new String(byteArrayOutputStream.toByteArray());
+        }
+        return (String) invokeL.objValue;
     }
 }

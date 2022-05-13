@@ -1,75 +1,61 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.io.File;
-import java.util.List;
-@Singleton
-@Service
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.se9;
+import com.repackage.sj9;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class ye9 extends LoggerManager.c {
+public class ye9 implements sj9.a<qe9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ sj9 a;
 
-    public ye9() {
+    public ye9(sj9 sj9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sj9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = sj9Var;
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.sj9.a
+    public void a(qe9 qe9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) ? ze9.o(j, j2, str, str2, z, z2, str3) : (List) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.yalog.LoggerManager.c
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + ".yalog";
+        if (interceptable == null || interceptable.invokeL(1048576, this, qe9Var) == null) {
+            LogPrinter.v("SlotId:%s is totally same with oldOne", qe9Var.a);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public Logger d(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.sj9.a
+    public void b(qe9 qe9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new ze9(str) : (Logger) invokeL.objValue;
-    }
-
-    @Override // com.baidu.yalog.LoggerManager.c
-    public List<String> e(long j, long j2, String str, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) ? ze9.y(j, j2, str, str2) : (List) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.yalog.LoggerManager.c
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ze9.z();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qe9Var) == null) {
+            qe9 qe9Var2 = qe9Var;
+            LogPrinter.v("Update SlotId:%s", qe9Var2.a);
+            HashMap<String, ue9> hashMap = this.a.c;
+            String str = qe9Var2.a;
+            hashMap.put(str, new ue9(str, new we9(this, qe9Var2)));
+            se9 se9Var = this.a.b;
+            synchronized (se9Var.a) {
+                se9Var.a(qe9Var2.a).add(new se9.a(qe9Var2));
+            }
         }
     }
 }

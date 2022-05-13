@@ -1,35 +1,45 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class rm8 extends qm8 {
+public class rm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile tm8 g;
-    public volatile boolean h;
-    public int i;
+    public MainTabActivity a;
+    public PopupWindow b;
+    public FragmentTabHost c;
+    public String d;
+    public long e;
+    public View f;
+    public TextView g;
+    public TextView h;
+    public Runnable i;
+    public Runnable j;
+    public View.OnClickListener k;
 
     /* loaded from: classes7.dex */
-    public class a implements ThreadFactory {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
+        public final /* synthetic */ rm8 a;
 
         public a(rm8 rm8Var) {
             Interceptable interceptable = $ic;
@@ -46,20 +56,23 @@ public class rm8 extends qm8 {
                     return;
                 }
             }
-            this.a = 0;
+            this.a = rm8Var;
         }
 
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable);
-                thread.setName("VideoUploadThread@" + this.a);
-                this.a = this.a + 1;
-                return thread;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null || this.a.b == null || this.a.b.getContentView() == null) {
+                return;
             }
-            return (Thread) invokeL.objValue;
+            FragmentTabWidget fragmentTabWidget = this.a.c.getFragmentTabWidget();
+            int k = mi.k(this.a.a.getActivity());
+            int f = mi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f070294);
+            this.a.b.getContentView().measure(0, 0);
+            pg.l(this.a.b, fragmentTabWidget, (k - mi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0702c4)) / 2, -f);
+            iu4.k().x("home_tip", this.a.e);
+            ng.a().postDelayed(this.a.j, 5000L);
+            TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
         }
     }
 
@@ -67,135 +80,140 @@ public class rm8 extends qm8 {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RandomAccessFile a;
-        public final /* synthetic */ ArrayList b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ CountDownLatch g;
-        public final /* synthetic */ rm8 h;
+        public final /* synthetic */ rm8 a;
 
-        public b(rm8 rm8Var, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
+        public b(rm8 rm8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rm8Var, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
+                Object[] objArr = {rm8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.h = rm8Var;
-            this.a = randomAccessFile;
-            this.b = arrayList;
-            this.c = i;
-            this.d = i2;
-            this.e = str;
-            this.f = i3;
-            this.g = countDownLatch;
+            this.a = rm8Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                tm8 h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
-                if (h != null) {
-                    if (h.b != 0) {
-                        this.h.g.b = h.b;
-                        this.h.g.c = h.c;
-                    }
-                    if (!StringUtils.isNull(h.a)) {
-                        this.h.g.a = h.a;
-                    }
-                    synchronized (this.h) {
-                        rm8.k(this.h);
-                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
-                    }
-                }
-                this.g.countDown();
+                this.a.g();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rm8(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rm8 a;
+
+        public c(rm8 rm8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rm8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rm8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.h();
+                if (WriteActivityConfig.isAsyncWriting()) {
+                    return;
+                }
+                WriteActivityConfig.newInstance(this.a.a).setType(9).setTitle(this.a.d).setForumId("0").send();
+                TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 1));
+            }
+        }
+    }
+
+    public rm8(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new tm8();
+        this.i = new a(this);
+        this.j = new b(this);
+        this.k = new c(this);
+        this.a = mainTabActivity;
+        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091e88);
     }
 
-    public static /* synthetic */ int k(rm8 rm8Var) {
-        int i = rm8Var.i;
-        rm8Var.i = i + 1;
-        return i;
-    }
-
-    @Override // com.repackage.qm8
-    public void a() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
+            pg.c(this.b);
         }
     }
 
-    @Override // com.repackage.qm8
-    public boolean c() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ng.a().removeCallbacks(this.i);
+            ng.a().removeCallbacks(this.j);
+            g();
+        }
     }
 
-    @Override // com.repackage.qm8
-    public tm8 g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            int size = arrayList.size();
-            CountDownLatch countDownLatch = new CountDownLatch(size);
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                for (int i2 = 0; i2 < size; i2++) {
-                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
-                }
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                threadPoolExecutor.shutdown();
-                try {
-                    randomAccessFile.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                return this.g;
-            } catch (FileNotFoundException unused) {
-                return this.g;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
         }
-        return (tm8) invokeLLI.objValue;
+    }
+
+    public void j(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || iu4.k().m("home_tip", 0L) == j || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
+            return;
+        }
+        this.d = str2;
+        this.e = j;
+        if (this.f == null) {
+            View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0830, (ViewGroup) null);
+            this.f = inflate;
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09206c);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09206e);
+            this.f.setOnClickListener(this.k);
+        }
+        this.g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
+        this.h.setText(R.string.obfuscated_res_0x7f0f1434);
+        if (this.b == null) {
+            this.b = new PopupWindow(this.f, -2, -2);
+        } else {
+            h();
+        }
+        ng.a().removeCallbacks(this.i);
+        ng.a().postDelayed(this.i, 100L);
     }
 }

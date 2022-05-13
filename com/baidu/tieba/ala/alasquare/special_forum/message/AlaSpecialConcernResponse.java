@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vq5;
+import com.repackage.wq5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vq5> followList;
+    public List<wq5> followList;
     public boolean hasMore;
     public int pn;
-    public List<vq5> recommendList;
+    public List<wq5> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +59,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject = jSONObject2.optJSONObject("user");
                         JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                         if (optJSONObject != null && optJSONObject2 != null) {
-                            vq5 vq5Var = new vq5();
-                            vq5Var.a(optJSONObject, optJSONObject2);
-                            this.followList.add(vq5Var);
+                            wq5 wq5Var = new wq5();
+                            wq5Var.a(optJSONObject, optJSONObject2);
+                            this.followList.add(wq5Var);
                         }
                     }
                 }
@@ -72,9 +72,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("user");
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                         if (optJSONObject3 != null && optJSONObject4 != null) {
-                            vq5 vq5Var2 = new vq5();
-                            vq5Var2.a(optJSONObject3, optJSONObject4);
-                            this.recommendList.add(vq5Var2);
+                            wq5 wq5Var2 = new wq5();
+                            wq5Var2.a(optJSONObject3, optJSONObject4);
+                            this.recommendList.add(wq5Var2);
                         }
                     }
                 }

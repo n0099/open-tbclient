@@ -1,22 +1,27 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class d46 extends a15 {
+public class d46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EmotionGroupType a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public p15 g;
+    public int h;
+    public int i;
+    public int j;
 
     public d46() {
         Interceptable interceptable = $ic;
@@ -28,123 +33,143 @@ public class d46 extends a15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        t();
     }
 
-    @Override // com.repackage.a15
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int intValue = (i < 0 || i >= z05.b.size()) ? 0 : z05.b.get(i).intValue();
-            for (Map.Entry<String, Integer> entry : z05.c.entrySet()) {
-                if (entry.getValue().intValue() == intValue) {
-                    return entry.getKey();
-                }
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public int c() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? z05.b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    @Override // com.repackage.a15
-    public String f() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "_local" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.a15
-    public String g() {
+    public EmotionGroupType c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "_local" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (EmotionGroupType) invokeV.objValue;
     }
 
-    @Override // com.repackage.a15
-    public EmotionGroupType h() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? EmotionGroupType.LOCAL : (EmotionGroupType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    @Override // com.repackage.a15
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.intValue;
+    }
+
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    @Override // com.repackage.a15
-    public boolean j() {
+    public p15 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (p15) invokeV.objValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.d = i;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.a15
-    public int l() {
-        InterceptResult invokeV;
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.b = i;
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.repackage.a15
-    public boolean m(String str) {
-        InterceptResult invokeL;
+    public void m(EmotionGroupType emotionGroupType) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? z05.c.get(str) != null : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.a15
-    public fo n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? o(str) : (fo) invokeL.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public fo o(String str) {
-        InterceptResult invokeL;
-        Bitmap e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            Integer num = z05.c.get(str);
-            if (num == null || (e = gi.d().e(TbadkCoreApplication.getInst().getApp(), num.intValue())) == null) {
-                return null;
-            }
-            return new fo(e, false, str);
+        if (interceptable == null || interceptable.invokeL(1048588, this, emotionGroupType) == null) {
+            this.a = emotionGroupType;
         }
-        return (fo) invokeL.objValue;
     }
 
-    public final void t() {
+    public void n(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.p(7);
-            super.s(3);
-            fo foVar = new fo(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080702), false);
-            super.r(foVar);
-            super.q(foVar);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void u(p15 p15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, p15Var) == null) {
+            this.g = p15Var;
         }
     }
 }

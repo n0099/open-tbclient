@@ -1,58 +1,76 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class aw implements zv {
+public final class aw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    public aw() {
+    public aw(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
     }
 
-    @Override // com.repackage.zv
-    public void a(String str) {
-        BDPTask t;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (t = BDPTask.m.t()) == null) {
-            return;
-        }
-        t.C(str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.zv
-    public void b(String str, UniqueId uniqueId) {
-        BDPTask t;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) || (t = BDPTask.m.t()) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof aw) {
+                aw awVar = (aw) obj;
+                return ((Intrinsics.areEqual(awVar.a, this.a) ^ true) || (Intrinsics.areEqual(awVar.b, this.b) ^ true)) ? false : true;
+            }
+            return false;
         }
-        t.G(str, uniqueId);
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.zv
-    public void c(String str, String str2) {
-        BDPTask t;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (t = BDPTask.m.t()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
         }
-        t.u0(str, str2);
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "TaskUBCStatus(taskSingleKey=" + this.a + ", taskUBCStatus=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

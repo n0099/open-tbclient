@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.model.AdOperator;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +58,7 @@ public class ko0 {
         this.q = false;
         jSONObject.optString("style");
         this.a = jSONObject.optString("user_name");
-        this.b = jSONObject.optString("user_portrait");
+        this.b = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
         this.c = jSONObject.optString("scheme");
         this.d = jSONObject.optString("button_scheme");
         this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
@@ -90,7 +91,7 @@ public class ko0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.d = w01.a(this.d, str, "__BTN_SCHEME__");
+            this.d = f11.a(this.d, str, "__BTN_SCHEME__");
             return this;
         }
         return (ko0) invokeL.objValue;
@@ -162,7 +163,7 @@ public class ko0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.c = w01.a(this.c, str, "__SCHEME__");
+            this.c = f11.a(this.c, str, "__SCHEME__");
             return this;
         }
         return (ko0) invokeL.objValue;

@@ -39,13 +39,6 @@ public class TiebaMainDatabaseHelper extends i9 {
         }
     }
 
-    private void prepareDBForV22(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) {
-            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists ad_follow_up_info_table(download_key TEXT NOT NULL, package_name TEXT NOT NULL, last_show_time TEXT NOT NULL, show_times TEXT, finish_download_time TEXT, ad_string TEXT NOT NULL, cmatch TEXT, install_status TEXT, ad_extension_info1 TEXT, ad_extension_info2 TEXT, ad_extension_info3 TEXT,PRIMARY KEY(download_key , package_name ) )");
-        }
-    }
-
     @Override // com.repackage.i9
     public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
@@ -78,7 +71,6 @@ public class TiebaMainDatabaseHelper extends i9 {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS local_game");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS user_graffiti");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
-            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS download_info");
         }
     }
@@ -105,7 +97,6 @@ public class TiebaMainDatabaseHelper extends i9 {
                 prepareDBForV17(sQLiteDatabase);
                 prepareDBForV18(sQLiteDatabase);
                 prepareDBForV19V20V21(sQLiteDatabase);
-                prepareDBForV22(sQLiteDatabase);
                 prepareDBForV23(sQLiteDatabase);
                 prepareDBForV24(sQLiteDatabase);
             } catch (Exception e) {
@@ -179,10 +170,6 @@ public class TiebaMainDatabaseHelper extends i9 {
             if (i < 21) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
                 prepareDBForV19V20V21(sQLiteDatabase);
-            }
-            if (i < 22) {
-                executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
-                prepareDBForV22(sQLiteDatabase);
             }
             if (i < 23) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS download_info");

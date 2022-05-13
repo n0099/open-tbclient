@@ -7,7 +7,6 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,7 +129,7 @@ public class a {
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
                 return 128;
             }
-            if (activeNetworkInfo.getTypeName().toUpperCase().equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+            if (activeNetworkInfo.getTypeName().toUpperCase().equals("WIFI")) {
                 return 2;
             }
             String lowerCase = activeNetworkInfo.getExtraInfo().toLowerCase();

@@ -1,20 +1,10 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
-import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,136 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ei3 {
+import java.util.List;
+/* loaded from: classes5.dex */
+public class ei3 extends w53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
-
-    /* loaded from: classes6.dex */
-    public class a implements oi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ vg1 b;
-        public final /* synthetic */ ei3 c;
-
-        /* renamed from: com.repackage.ei3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0410a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0410a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    rz2.d(this.a.a);
-                }
-            }
-        }
-
-        public a(ei3 ei3Var, ViewGroup viewGroup, vg1 vg1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ei3Var, viewGroup, vg1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ei3Var;
-            this.a = viewGroup;
-            this.b = vg1Var;
-        }
-
-        @Override // com.repackage.oi3
-        public void a(QuickLoginInfo quickLoginInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
-                ViewGroup viewGroup = this.a;
-                if (viewGroup != null) {
-                    viewGroup.post(new RunnableC0410a(this));
-                }
-                if (this.c.i(quickLoginInfo)) {
-                    this.c.a.putParcelable("quick_login_info", quickLoginInfo);
-                }
-                String T = i03.J().r().V().T();
-                String appId = i03.J().getAppId();
-                this.c.a.putString("app_name", i03.J().r().Y());
-                this.c.a.putString("appid", appId);
-                this.c.a.putString("launch_from", T);
-                if (ei3.b) {
-                    Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + this.c.a.toString());
-                }
-                hi3.a("show", "login", null, T, appId);
-                this.c.f(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vg1 a;
-
-        public b(ei3 ei3Var, vg1 vg1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ei3Var, vg1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vg1Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                if (delegateResult.isOk()) {
-                    this.a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
-                    return;
-                }
-                this.a.onResult(-2);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -166,7 +32,11 @@ public class ei3 {
                 return;
             }
         }
-        b = tg1.a;
+        a = eh1.a;
+        try {
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+        } catch (Exception unused) {
+        }
     }
 
     public ei3() {
@@ -179,61 +49,75 @@ public class ei3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (bd3.f()) {
+                CookieManager.getInstance().flush();
                 return;
             }
-        }
-        this.a = new Bundle();
-    }
-
-    public final void e(vg1 vg1Var) {
-        SwanAppActivity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, vg1Var) == null) || (activity = wl2.U().getActivity()) == null) {
-            return;
-        }
-        Intent intent = new Intent(activity, LoginAndGetMobileActivity.class);
-        intent.putExtras(this.a);
-        activity.startActivity(intent);
-        activity.overridePendingTransition(R.anim.obfuscated_res_0x7f010091, 0);
-        gi3.c(vg1Var);
-    }
-
-    public final void f(vg1 vg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vg1Var) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                e(vg1Var);
-            } else {
-                g(vg1Var);
-            }
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
         }
     }
 
-    public final void g(vg1 vg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vg1Var) == null) {
-            DelegateUtils.callOnMainWithActivity(wl2.U().getActivity(), PluginDelegateActivity.class, fi3.class, this.a, new b(this, vg1Var));
-        }
-    }
-
-    public void h(vg1 vg1Var) {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vg1Var) == null) {
-            SwanAppActivity x = i03.J().x();
-            if (x == null || x.isFinishing()) {
-                viewGroup = null;
-            } else {
-                viewGroup = (ViewGroup) x.findViewById(16908290);
-                rz2.h(x, viewGroup, x.getResources().getString(R.string.obfuscated_res_0x7f0f12a1));
-            }
-            ri3.b(new a(this, viewGroup, vg1Var));
-        }
-    }
-
-    public final boolean i(QuickLoginInfo quickLoginInfo) {
+    @Override // com.repackage.w53, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, quickLoginInfo)) == null) ? quickLoginInfo != null && quickLoginInfo.supportQuickLogin : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String str2 = "";
+            try {
+                str2 = CookieManager.getInstance().getCookie(str);
+                if (a) {
+                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+                }
+            } catch (Exception unused) {
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (a) {
+                Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
+                Log.d("RealCookieManager", "storeCookie cookies: " + list);
+            }
+            try {
+                for (String str2 : list) {
+                    CookieManager.getInstance().setCookie(str, str2);
+                }
+                a();
+            } catch (Exception unused) {
+            }
+        }
     }
 }

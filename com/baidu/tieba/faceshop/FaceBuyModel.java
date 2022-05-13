@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.ni;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class FaceBuyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -212,7 +212,7 @@ public class FaceBuyModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 String obj = objArr[0].toString();
                 FaceBuyQueryData faceBuyQueryData = null;
-                if (!ni.isEmpty(obj)) {
+                if (!li.isEmpty(obj)) {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
                     this.a = netWork;
                     netWork.addPostData("order_id", obj);

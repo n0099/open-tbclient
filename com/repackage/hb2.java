@@ -1,89 +1,204 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj2;
-import com.repackage.o53;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hb2 extends g23 {
+public class hb2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile hb2 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements cf3<m53<o53.e>> {
+    public class a implements nf3<Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ hb2 e;
+        public final /* synthetic */ nf3 a;
+        public final /* synthetic */ int b;
 
-        public a(hb2 hb2Var, CallbackHandler callbackHandler, String str, Context context, String str2) {
+        /* renamed from: com.repackage.hb2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0426a implements nf3<Exception> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0426a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.nf3
+            /* renamed from: a */
+            public void onCallback(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                    ux1.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
+                    nf3 nf3Var = this.a.a;
+                    if (nf3Var != null) {
+                        nf3Var.onCallback(exc);
+                    }
+                }
+            }
+        }
+
+        public a(hb2 hb2Var, nf3 nf3Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hb2Var, callbackHandler, str, context, str2};
+                Object[] objArr = {hb2Var, nf3Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = hb2Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-            this.d = str2;
+            this.a = nf3Var;
+            this.b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
+        @Override // com.repackage.nf3
         /* renamed from: a */
-        public void onCallback(m53<o53.e> m53Var) {
+        public void onCallback(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m53Var) == null) {
-                if (h53.h(m53Var)) {
-                    this.e.l(this.c, this.d, this.b, this.a);
-                } else {
-                    h53.q(m53Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (exc == null) {
+                    ux1.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
+                    nf3 nf3Var = this.a;
+                    if (nf3Var != null) {
+                        nf3Var.onCallback(null);
+                        return;
+                    }
+                    return;
                 }
+                ux1.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
+                z93.o(this.b, new C0426a(this));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements fj2.c {
+    public class b implements nf3<Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ nf3 a;
+        public final /* synthetic */ int b;
 
-        public b(hb2 hb2Var, Context context, CallbackHandler callbackHandler, String str) {
+        /* loaded from: classes6.dex */
+        public class a implements nf3<Exception> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.nf3
+            /* renamed from: a */
+            public void onCallback(Exception exc) {
+                nf3 nf3Var;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || (nf3Var = this.a.a) == null) {
+                    return;
+                }
+                nf3Var.onCallback(exc);
+            }
+        }
+
+        public b(hb2 hb2Var, nf3 nf3Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hb2Var, context, callbackHandler, str};
+                Object[] objArr = {hb2Var, nf3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nf3Var;
+            this.b = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (exc != null) {
+                    nf3 nf3Var = this.a;
+                    if (nf3Var != null) {
+                        nf3Var.onCallback(exc);
+                        return;
+                    }
+                    return;
+                }
+                db2.h(this.b, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hb2 a;
+
+        public c(hb2 hb2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hb2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,98 +208,104 @@ public class hb2 extends g23 {
                     return;
                 }
             }
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = str;
+            this.a = hb2Var;
         }
 
-        @Override // com.repackage.fj2.c
-        public void a(int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // com.repackage.fj2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                b03.f(this.a, R.string.obfuscated_res_0x7f0f0147).G();
-                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-            }
-        }
-
-        @Override // com.repackage.fj2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File d = q93.d();
-                File c = q93.c();
-                if (g23.b) {
-                    Log.d("replaceSwanCore", "swanCoreZipFile: " + d + " swanCoreDir: " + c);
-                }
-                if (d.exists() && mg4.U(d.getPath(), c.getPath())) {
-                    iw2.M(true);
-                    b03.f(this.a, R.string.obfuscated_res_0x7f0f0148).G();
-                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                    return;
-                }
-                b03.f(this.a, R.string.obfuscated_res_0x7f0f0147).G();
-                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hb2(g13 g13Var) {
-        super(g13Var, "/swanAPI/debug/replaceSwanCore");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755654087, "Lcom/repackage/hb2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755654087, "Lcom/repackage/hb2;");
                 return;
             }
         }
+        a = eh1.a;
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    public hb2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            JSONObject a2 = g23.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                b03.f(context, R.string.obfuscated_res_0x7f0f013f).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            String optString = a2.optString("url");
-            String optString2 = a2.optString("cb");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                j03Var.d0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, context, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            }
-            b03.f(context, R.string.obfuscated_res_0x7f0f0114).G();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swan core url or cb is null");
-            return false;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void l(Context context, String str, String str2, CallbackHandler callbackHandler) {
+    public static hb2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, callbackHandler) == null) {
-            fj2.J(str, new b(this, context, callbackHandler, str2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (hb2.class) {
+                    if (b == null) {
+                        b = new hb2();
+                    }
+                }
+            }
+            return b;
+        }
+        return (hb2) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            da3.b().e(null, 0);
+            da3.b().e(null, 1);
+            db2.h(0, null);
+            db2.h(1, null);
+        }
+    }
+
+    public void c(@Nullable nf3<Exception> nf3Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nf3Var, i) == null) {
+            ux1.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
+            g(new a(this, nf3Var, i), i);
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            if (a) {
+                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            z93.l(i, i2);
+            db2.g(i, i2);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
+        }
+    }
+
+    public final void g(@Nullable nf3<Exception> nf3Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, nf3Var, i) == null) {
+            da3.b().e(new b(this, nf3Var, i), i);
         }
     }
 }

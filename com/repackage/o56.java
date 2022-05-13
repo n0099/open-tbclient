@@ -1,19 +1,13 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.R;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankHttpResMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankReqMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankSocketResMsg;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.HttpsConnSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,197 +17,65 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class o56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public m56 c;
-    public b d;
-    public wa e;
 
     /* loaded from: classes6.dex */
-    public class a extends wa {
+    public static class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o56 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(o56 o56Var, int i, int i2) {
-            super(i, i2);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o56Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = o56Var;
         }
 
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.a) {
-                m56 m56Var = null;
-                if (responsedMessage instanceof HotUserRankHttpResMsg) {
-                    m56Var = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
-                } else if (responsedMessage instanceof HotUserRankSocketResMsg) {
-                    m56Var = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                if (TbadkCoreApplication.getInst().checkInterrupt()) {
+                    return null;
                 }
-                if (responsedMessage.getError() == 0) {
-                    if (this.a.b == 1 && (m56Var == null || ListUtils.isEmpty(m56Var.b))) {
-                        if (this.a.d != null) {
-                            this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
-                        }
-                    } else if (m56Var != null) {
-                        this.a.c.a = m56Var.a;
-                        this.a.c.b.addAll(m56Var.b);
-                        this.a.c.c = m56Var.c;
-                        this.a.c.d = m56Var.d;
-                        this.a.c.e = m56Var.e;
-                        this.a.c.f = m56Var.f;
-                        if (ListUtils.isEmpty(m56Var.b)) {
-                            this.a.c.g = false;
-                        } else {
-                            this.a.c.g = m56Var.g;
-                            o56.c(this.a);
-                        }
-                        if (this.a.d != null) {
-                            this.a.d.a(m56Var);
-                        }
-                    }
-                } else if (this.a.d != null) {
-                    this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-                }
+                NetWork netWork = new NetWork("http://tiebac.baidu.com/empty.gif");
+                netWork.getNetData();
+                boolean isNetSuccess = netWork.isNetSuccess();
+                NetWork netWork2 = new NetWork("https://tiebac.baidu.com/empty.gif");
+                netWork2.getNetData();
+                boolean isNetSuccess2 = netWork2.isNetSuccess();
+                NetWork netWork3 = new NetWork("http://c.tieba.baidu.com/c/s/recordHttpsConnectivity");
+                netWork3.addPostData("is_success_http", String.valueOf(isNetSuccess ? 1 : 0));
+                netWork3.addPostData("is_success_https", String.valueOf(isNetSuccess2 ? 1 : 0));
+                netWork3.postNetData();
+                TiebaStatic.log(new StatisticItem("c13734").param("obj_locate", 1).param("obj_type", isNetSuccess ? 1 : 0));
+                TiebaStatic.log(new StatisticItem("c13734").param("obj_locate", 2).param("obj_type", isNetSuccess2 ? 1 : 0));
+                return null;
             }
+            return (Void) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(m56 m56Var);
-
-        void onError(int i, String str);
-    }
-
-    public o56(BdUniqueId bdUniqueId) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            a aVar = new a();
+            aVar.setPriority(1);
+            aVar.execute(new Void[0]);
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        m();
-        l();
-        this.c = new m56();
     }
 
-    public static /* synthetic */ int c(o56 o56Var) {
-        int i = o56Var.b;
-        o56Var.b = i + 1;
-        return i;
-    }
-
-    public int f() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public m56 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (m56) invokeV.objValue;
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.forumId = j;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.category = str;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
-        }
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c.g : invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, kk8.a(TbConfig.HOT_USER_RANK_URL, 309652));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            l95 l95Var = new l95(309652);
-            l95Var.setResponsedClass(HotUserRankSocketResMsg.class);
-            l95Var.g(true);
-            l95Var.setPriority(4);
-            MessageManager.getInstance().registerTask(l95Var);
-        }
-    }
-
-    public void n(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.d = bVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ki.z() && SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1 : invokeV.booleanValue;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class FragmentTabSwellingView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -105,13 +105,13 @@ public class FragmentTabSwellingView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = oi.f(getContext().getApplicationContext(), R.dimen.tbds137);
-            this.f = oi.f(getContext().getApplicationContext(), R.dimen.tbds204);
-            this.g = oi.f(getContext().getApplicationContext(), R.dimen.tbds23);
-            this.h = oi.f(getContext().getApplicationContext(), R.dimen.tbds51);
-            this.i = oi.f(getContext().getApplicationContext(), R.dimen.tbds16);
-            this.j = oi.f(getContext().getApplicationContext(), R.dimen.tbds52);
-            this.k = oi.f(getContext().getApplicationContext(), R.dimen.tbds2);
+            this.e = mi.f(getContext().getApplicationContext(), R.dimen.tbds137);
+            this.f = mi.f(getContext().getApplicationContext(), R.dimen.tbds204);
+            this.g = mi.f(getContext().getApplicationContext(), R.dimen.tbds23);
+            this.h = mi.f(getContext().getApplicationContext(), R.dimen.tbds51);
+            this.i = mi.f(getContext().getApplicationContext(), R.dimen.tbds16);
+            this.j = mi.f(getContext().getApplicationContext(), R.dimen.tbds52);
+            this.k = mi.f(getContext().getApplicationContext(), R.dimen.tbds2);
         }
     }
 
@@ -120,7 +120,7 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (getWidth() > oi.k(getContext())) {
+            if (getWidth() > mi.k(getContext())) {
                 return;
             }
             this.c.reset();

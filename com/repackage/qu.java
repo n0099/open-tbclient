@@ -1,306 +1,47 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class qu<T> {
+public final class qu {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public tu<su<T>, qu<T>.c> b;
-    public int c;
-    public volatile Object d;
-    public volatile Object e;
-    public int f;
-    public boolean g;
-    public boolean h;
-    public final Runnable i;
+    public final uu a;
+    public final String b;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qu a;
-
-        public a(qu quVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {quVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = quVar;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.repackage.qu */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public void run() {
-            Object obj;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.a.a) {
-                    obj = this.a.e;
-                    this.a.e = qu.j;
-                }
-                this.a.p(obj);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends qu<T>.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(qu quVar, su<T> suVar) {
-            super(quVar, suVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {quVar, suVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((qu) objArr2[0], (su) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.repackage.qu.c
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final su<T> a;
-        public boolean b;
-        public int c;
-        public final /* synthetic */ qu d;
-
-        public c(qu quVar, su<T> suVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {quVar, suVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = quVar;
-            this.c = -1;
-            this.a = suVar;
-        }
-
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || z == this.b) {
-                return;
-            }
-            this.b = z;
-            boolean z2 = this.d.c == 0;
-            this.d.c += this.b ? 1 : -1;
-            if (z2 && this.b) {
-                this.d.m();
-            }
-            if (this.d.c == 0 && !this.b) {
-                this.d.n();
-            }
-            if (this.b) {
-                this.d.j(this);
-            }
-        }
-
-        public abstract boolean b();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964029343, "Lcom/repackage/qu;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964029343, "Lcom/repackage/qu;");
-                return;
-            }
-        }
-        j = new Object();
-    }
-
-    public qu() {
+    public qu(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Object();
-        this.b = new tu<>();
-        this.c = 0;
-        this.d = j;
-        this.e = j;
-        this.f = -1;
-        this.i = new a(this);
+        this.b = str;
+        this.a = new uu();
     }
 
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || bv.b()) {
-            return;
-        }
-        throw new IllegalStateException("Cannot invoke " + str + " on a background thread");
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.repackage.su<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void i(qu<T>.c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && cVar.b) {
-            if (!cVar.b()) {
-                cVar.a(false);
-                return;
-            }
-            int i = cVar.c;
-            int i2 = this.f;
-            if (i >= i2) {
-                return;
-            }
-            cVar.c = i2;
-            cVar.a.onChanged(this.d);
-        }
-    }
-
-    public final void j(qu<T>.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            if (this.g) {
-                this.h = true;
-                return;
-            }
-            this.g = true;
-            do {
-                this.h = false;
-                if (cVar != null) {
-                    i(cVar);
-                    cVar = null;
-                } else {
-                    tu<su<T>, qu<T>.c>.d g = this.b.g();
-                    while (g.hasNext()) {
-                        i((c) ((Map.Entry) g.next()).getValue());
-                        if (this.h) {
-                            break;
-                        }
-                    }
-                }
-            } while (this.h);
-            this.g = false;
-        }
-    }
-
-    public T k() {
+    public final TaskInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            T t = (T) this.d;
-            if (t != j) {
-                return t;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String a = uw.c.a(this.b);
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("parse taskInfo str:" + a);
+            return (TaskInfo) this.a.a("info").a(a);
         }
-        return (T) invokeV.objValue;
-    }
-
-    public void l(su<T> suVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, suVar) == null) {
-            b bVar = new b(this, suVar);
-            if (this.b.e(suVar, bVar) != null) {
-                return;
-            }
-            bVar.a(true);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public void o(T t) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            synchronized (this.a) {
-                z = this.e == j;
-                this.e = t;
-            }
-            if (z) {
-                bv.c(this.i);
-            }
-        }
-    }
-
-    public void p(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-            h("setValue");
-            this.f++;
-            this.d = t;
-            j(null);
-        }
+        return (TaskInfo) invokeV.objValue;
     }
 }

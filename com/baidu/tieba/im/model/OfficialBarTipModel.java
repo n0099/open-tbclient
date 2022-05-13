@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.c87;
-import com.repackage.i57;
+import com.repackage.s47;
+import com.repackage.s77;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -62,10 +62,10 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         return invokeV.booleanValue;
     }
 
-    public void deleteSelectedDatas(i57 i57Var) {
+    public void deleteSelectedDatas(s47 s47Var) {
         LinkedList<ImMessageCenterShowItemData> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i57Var) == null) || (linkedList = this.mList) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s47Var) == null) || (linkedList = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
@@ -76,7 +76,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
                 arrayList.add(next);
             }
         }
-        asyncDeleteMsgList(arrayList, 4, i57Var);
+        asyncDeleteMsgList(arrayList, 4, s47Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
@@ -121,7 +121,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
             return;
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-        OfficialSettingItemData a = c87.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        OfficialSettingItemData a = s77.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }

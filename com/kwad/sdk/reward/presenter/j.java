@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.InterfaceC0327a {
+public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.InterfaceC0326a {
     public List<AdTemplate> b;
     public KsRefluxView d;
     public KsAdWebView e;
@@ -85,7 +85,7 @@ public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.Interf
                     }
                 }
                 if (adTemplate != null) {
-                    AdWebViewActivityProxy.launch(j.this.q(), new AdWebViewActivityProxy.a.C0303a().a(iVar.b).b(iVar.a).a(adTemplate).a());
+                    AdWebViewActivityProxy.launch(j.this.q(), new AdWebViewActivityProxy.a.C0302a().a(iVar.b).b(iVar.a).a(adTemplate).a());
                 }
             }
         }));
@@ -93,9 +93,9 @@ public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.Interf
 
     private void s() {
         SceneImpl sceneImpl = ((com.kwad.sdk.reward.g) this).a.g.mAdScene;
-        SceneImpl m105clone = sceneImpl != null ? sceneImpl.m105clone() : null;
-        if (m105clone != null) {
-            com.kwad.sdk.reflux.a.a(m105clone, this);
+        SceneImpl m106clone = sceneImpl != null ? sceneImpl.m106clone() : null;
+        if (m106clone != null) {
+            com.kwad.sdk.reflux.a.a(m106clone, this);
         }
     }
 
@@ -164,11 +164,11 @@ public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.Interf
         s();
     }
 
-    @Override // com.kwad.sdk.reflux.a.InterfaceC0327a
+    @Override // com.kwad.sdk.reflux.a.InterfaceC0326a
     public void a(int i, String str) {
     }
 
-    @Override // com.kwad.sdk.reflux.a.InterfaceC0327a
+    @Override // com.kwad.sdk.reflux.a.InterfaceC0326a
     public void a(@Nullable List<AdTemplate> list) {
         com.kwad.sdk.core.d.a.a("RewardRefluxPresenter", "onRefluxAdLoad :" + list.size());
         this.b = list;
@@ -188,7 +188,7 @@ public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.Interf
         }
     }
 
-    @Override // com.kwad.sdk.reflux.a.InterfaceC0327a
+    @Override // com.kwad.sdk.reflux.a.InterfaceC0326a
     public void a_(int i) {
     }
 
@@ -200,7 +200,7 @@ public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.Interf
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        KsRefluxView ksRefluxView = (KsRefluxView) a(R.id.obfuscated_res_0x7f091120);
+        KsRefluxView ksRefluxView = (KsRefluxView) a(R.id.obfuscated_res_0x7f09112f);
         this.d = ksRefluxView;
         this.e = ksRefluxView.getWebView();
         this.d.setViewListener(this);

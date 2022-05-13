@@ -1,42 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class y14 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x14 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int progress;
-    @V8JavascriptField
-    public long totalBytesExpectedToWrite;
-    @V8JavascriptField
-    public long totalBytesWritten;
 
-    public y14() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String toString() {
+    public static synchronized x14 a() {
         InterceptResult invokeV;
+        x14 x14Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubPackageProgressData{progress=" + this.progress + ", totalBytesWritten=" + this.totalBytesWritten + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (y14.class) {
+                if (a == null) {
+                    a = new x14();
+                }
+                x14Var = a;
+            }
+            return x14Var;
         }
-        return (String) invokeV.objValue;
+        return (x14) invokeV.objValue;
     }
 }

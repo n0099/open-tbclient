@@ -20,17 +20,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cx1;
-import com.repackage.jx1;
-import com.repackage.rw1;
-import com.repackage.tg1;
-import com.repackage.zv1;
+import com.repackage.eh1;
+import com.repackage.kw1;
+import com.repackage.nx1;
+import com.repackage.ux1;
 /* loaded from: classes2.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public zv1 b;
+    public kw1 b;
     public Path c;
     public ScrollView d;
 
@@ -47,7 +47,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
                 return;
             }
         }
-        e = tg1.a;
+        e = eh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,20 +77,20 @@ public class SwanAppComponentContainerView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || Build.VERSION.SDK_INT < 21 || (path = this.c) == null || this.a == null) {
             return;
         }
-        zv1 zv1Var = this.b;
-        if (zv1Var instanceof rw1) {
-            rw1 rw1Var = (rw1) zv1Var;
-            if (rw1Var.n > 0) {
+        kw1 kw1Var = this.b;
+        if (kw1Var instanceof cx1) {
+            cx1 cx1Var = (cx1) kw1Var;
+            if (cx1Var.n > 0) {
                 path.reset();
                 Path path2 = this.c;
                 float left = this.a.getLeft();
                 float top = this.a.getTop();
                 float right = this.a.getRight();
                 float bottom = this.a.getBottom();
-                int i = rw1Var.n;
+                int i = cx1Var.n;
                 path2.addRoundRect(left, top, right, bottom, i, i, Path.Direction.CW);
                 if (e) {
-                    Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + rw1Var.n);
+                    Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + cx1Var.n);
                 }
                 canvas.save();
                 canvas.clipPath(this.c);
@@ -126,10 +126,10 @@ public class SwanAppComponentContainerView extends FrameLayout {
         }
     }
 
-    public void setModel(@NonNull zv1 zv1Var) {
+    public void setModel(@NonNull kw1 kw1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zv1Var) == null) {
-            this.b = zv1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, kw1Var) == null) {
+            this.b = kw1Var;
         }
     }
 
@@ -151,14 +151,14 @@ public class SwanAppComponentContainerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
             if (this.a == view2) {
-                jx1.o("Component-ContainerView", "repeat setTargetView with the same view");
+                ux1.o("Component-ContainerView", "repeat setTargetView with the same view");
                 return;
             }
             if (this.c == null) {
                 this.c = new Path();
             }
             if (this.a != null) {
-                cx1.a("Component-ContainerView", "repeat setTargetView with the different view");
+                nx1.a("Component-ContainerView", "repeat setTargetView with the different view");
                 removeView(this.a);
             }
             this.a = view2;

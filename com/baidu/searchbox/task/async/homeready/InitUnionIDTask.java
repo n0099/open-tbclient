@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yc9;
+import com.repackage.tb9;
 /* loaded from: classes2.dex */
 public class InitUnionIDTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class InitUnionIDTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yc9.c(TbadkCoreApplication.getInst()).e(null);
+            tb9.c(TbadkCoreApplication.getInst()).e(null);
         }
     }
 

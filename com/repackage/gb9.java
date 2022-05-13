@@ -1,97 +1,287 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.view.MotionEvent;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.TargetApi;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.ugc.editvideo.data.MediaInfo;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class gb9 extends db9 {
+public class gb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean B;
 
-    @Override // com.repackage.cb9, com.repackage.rb9
-    public void a(lb9 lb9Var, SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, lb9Var, surfaceTexture) == null) {
-            lb9Var.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
-            lb9Var.f(surfaceTexture);
-        }
-    }
-
-    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            GLES20.glBindFramebuffer(36160, i2);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
-            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            GLES20.glClear(16640);
-            if (this.z) {
-                if (z) {
-                    int i8 = this.j;
-                    int i9 = this.k;
-                    if (i8 > i9) {
-                        int i10 = this.p;
-                        float f = (i10 * 1.0f) / i8;
-                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
-                    } else {
-                        GLES20.glViewport(0, 0, this.p, this.q);
-                    }
-                    this.o.drawFrame(this.l, fArr2);
-                }
-                if (z2) {
-                    GLES20.glViewport(0, 0, this.p, this.q);
-                } else {
-                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
-                }
-                this.mFullScreen2D.drawFrame(i, fArr);
-            } else {
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(i, fArr);
-                if (z) {
-                    int i11 = i4 + this.w;
-                    int i12 = this.q;
-                    int i13 = this.k;
-                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
-                    this.o.drawFrame(this.l, fArr2);
-                }
-            }
-            GLES20.glBindFramebuffer(36160, 0);
-        }
-    }
-
-    public boolean j(MotionEvent motionEvent) {
+    public static long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(pf0 pf0Var, int i, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, pf0Var, i, fArr) == null) && this.s && this.l != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
-                this.mTextureId = i;
-                this.m.updateTexImage();
-                this.m.getTransformMatrix(this.n);
-                f();
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
-            } catch (Throwable th) {
-                ac9.c("followvideo", th.toString());
+                mediaMetadataRetriever.setDataSource(str);
+                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
             }
         }
+        return invokeL.longValue;
+    }
+
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return invokeL.longValue;
+        }
+        if (TextUtils.isEmpty(str)) {
+            return 0L;
+        }
+        MediaMetadataRetriever mediaMetadataRetriever = null;
+        try {
+            if (new File(str).exists()) {
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    long d = za9.d(mediaMetadataRetriever2.extractMetadata(9), 0L);
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return d;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0L;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return 0L;
+        } catch (Exception unused5) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static long c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            long j = 0;
+            if (FileUtils.isExists(str)) {
+                MediaExtractor mediaExtractor = new MediaExtractor();
+                try {
+                    try {
+                        mediaExtractor.setDataSource(str);
+                        MediaFormat mediaFormat = null;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= mediaExtractor.getTrackCount()) {
+                                break;
+                            }
+                            MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
+                            if (trackFormat.getString("mime").startsWith(i == 0 ? "audio/" : com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START)) {
+                                mediaExtractor.selectTrack(i2);
+                                mediaFormat = trackFormat;
+                                break;
+                            }
+                            i2++;
+                        }
+                        if (mediaFormat != null) {
+                            j = mediaFormat.getLong("durationUs");
+                        }
+                    } catch (Exception e) {
+                        va9.e("VideoMuxer", "getMediaDurationMs error:" + e.getMessage());
+                    }
+                    return j / 1000;
+                } finally {
+                    mediaExtractor.release();
+                }
+            }
+            return 0L;
+        }
+        return invokeLI.longValue;
+    }
+
+    public static MediaInfo d(String str) {
+        InterceptResult invokeL;
+        MediaInfo mediaInfo;
+        File file;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return (MediaInfo) invokeL.objValue;
+        }
+        MediaMetadataRetriever mediaMetadataRetriever2 = null;
+        try {
+            try {
+                file = new File(str);
+            } catch (Exception e) {
+                e = e;
+                mediaInfo = null;
+            }
+            if (file.exists() && file.isFile()) {
+                mediaInfo = new MediaInfo();
+                try {
+                    mediaInfo.setVideoPath(str);
+                    mediaInfo.setLastModified(file.lastModified());
+                    mediaMetadataRetriever = new MediaMetadataRetriever();
+                } catch (Exception e2) {
+                    e = e2;
+                }
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    mediaInfo.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
+                    mediaInfo.setMimeType(mediaMetadataRetriever.extractMetadata(12));
+                    mediaInfo.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
+                    mediaInfo.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
+                    mediaInfo.setRotation(za9.c(mediaMetadataRetriever.extractMetadata(24), 0));
+                    ua9.a(mediaMetadataRetriever);
+                } catch (Exception e3) {
+                    e = e3;
+                    mediaMetadataRetriever2 = mediaMetadataRetriever;
+                    va9.g(e);
+                    if (mediaMetadataRetriever2 != null) {
+                        ua9.a(mediaMetadataRetriever2);
+                    }
+                    return mediaInfo;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever2 = mediaMetadataRetriever;
+                    if (mediaMetadataRetriever2 != null) {
+                        ua9.a(mediaMetadataRetriever2);
+                    }
+                    throw th;
+                }
+                return mediaInfo;
+            }
+            return null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    int c = za9.c(mediaMetadataRetriever.extractMetadata(20), 0);
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return c;
+                } catch (Throwable th) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                try {
+                    mediaMetadataRetriever.release();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, str)) != null) {
+            return invokeL.intValue;
+        }
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        MediaMetadataRetriever mediaMetadataRetriever = null;
+        try {
+            if (new File(str).exists()) {
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    int parseInt = Integer.parseInt(mediaMetadataRetriever2.extractMetadata(9));
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return parseInt;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return 0;
+        } catch (Exception unused5) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    @TargetApi(16)
+    public static boolean g(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str);
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (fb9.j(mediaExtractor.getTrackFormat(i))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

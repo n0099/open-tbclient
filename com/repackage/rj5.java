@@ -1,26 +1,38 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad.download.AdDownloadData;
-import com.baidu.tieba.ad.download.DownloadCacheKey;
-import com.baidu.tieba.ad.download.state.StopStatus;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class rj5 implements tj5 {
+public class rj5 implements NadAsyncRequester.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pj5 a;
+    public PlaceId a;
+    public String b;
+    public int c;
+    public boolean d;
+    public NadAsyncRequester e;
+    public long f;
+    public final WeakReference<IAdBaseAsyncController.a> g;
 
-    public rj5(@NonNull pj5 pj5Var) {
+    public rj5(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pj5Var};
+            Object[] objArr = {placeId, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,68 +42,80 @@ public class rj5 implements tj5 {
                 return;
             }
         }
-        this.a = pj5Var;
+        this.d = false;
+        this.f = 0L;
+        this.a = placeId;
+        this.b = str;
+        this.g = new WeakReference<>(aVar);
+        this.e = new NadAsyncRequester(this, this.a);
     }
 
-    @Override // com.repackage.tj5
-    public void a(@NonNull DownloadCacheKey downloadCacheKey, String str, boolean z) {
+    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.c
+    public final void a(boolean z, List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, downloadCacheKey, str, z) == null) {
-            AdDownloadData b = lj5.d().b(downloadCacheKey);
-            this.a.a(100);
-            this.a.d(b.extra().getStatus());
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
+            IAdBaseAsyncController.a aVar = this.g.get();
+            if (!z || pd7.e(list)) {
+                if (aVar != null) {
+                    aVar.b(null);
+                    return;
+                }
+                return;
+            }
+            f(list);
+            c(list);
+            if (aVar != null) {
+                aVar.b(list);
+            }
         }
     }
 
-    @Override // com.repackage.tj5
-    public void b(@NonNull DownloadCacheKey downloadCacheKey) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadCacheKey) == null) {
-            AdDownloadData b = lj5.d().b(downloadCacheKey);
-            this.a.a(100);
-            this.a.d(b.extra().getStatus());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.h();
         }
     }
 
-    @Override // com.repackage.tj5
-    public void c(@NonNull DownloadCacheKey downloadCacheKey, int i) {
+    public void c(List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadCacheKey, i) == null) {
-            this.a.d(lj5.d().b(downloadCacheKey).extra().getStatus());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
         }
     }
 
-    @Override // com.repackage.tj5
-    public void d(@NonNull DownloadCacheKey downloadCacheKey) {
+    public void d(int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, downloadCacheKey) == null) {
-            AdDownloadData b = lj5.d().b(downloadCacheKey);
-            this.a.a(100);
-            this.a.d(b.extra().getStatus());
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, map) == null) || System.currentTimeMillis() - this.f < this.c * q98.a) {
+            return;
+        }
+        this.e.i(map, i);
+        this.f = System.currentTimeMillis();
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
         }
     }
 
-    @Override // com.repackage.tj5
-    public void e(@NonNull DownloadCacheKey downloadCacheKey) {
+    public void f(List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, downloadCacheKey) == null) {
-            this.a.d(lj5.d().b(downloadCacheKey).extra().getStatus());
-        }
-    }
-
-    @Override // com.repackage.tj5
-    public void f(@NonNull DownloadCacheKey downloadCacheKey, StopStatus stopStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, downloadCacheKey, stopStatus) == null) {
-            this.a.d(lj5.d().b(downloadCacheKey).extra().getStatus());
-        }
-    }
-
-    @Override // com.repackage.tj5
-    public void g(@NonNull DownloadCacheKey downloadCacheKey, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, downloadCacheKey, i) == null) {
-            this.a.a(lj5.d().b(downloadCacheKey).extra().getPercent());
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            Iterator<AdvertAppInfo> it = list.iterator();
+            while (it.hasNext()) {
+                AdvertAppInfo next = it.next();
+                next.j = this.b;
+                if (n98.l(next) && this.d) {
+                    it.remove();
+                } else {
+                    int q = next.q();
+                    if (q != 0) {
+                        vb8.h(next, 0, q);
+                        it.remove();
+                    }
+                }
+            }
         }
     }
 }

@@ -3,73 +3,93 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.ItemManage.DataRes;
-import tbclient.ManageInfo;
+import java.util.HashMap;
+import tbclient.ItemManage.DataReq;
+import tbclient.ItemManage.ItemManageReqIdl;
 /* loaded from: classes6.dex */
-public class i36 implements p65 {
+public class i36 implements e75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<z26> a;
-    public List<z26> b;
-    public Integer c;
+    public int a;
+    public final int b;
 
-    public i36() {
+    public i36(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
+        this.a = i;
+        this.b = i2;
     }
 
-    public void a(i36 i36Var) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i36Var) == null) {
-            this.a.addAll(i36Var.a);
-            this.b = i36Var.b;
-            this.c = i36Var.c;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = 1;
         }
     }
 
-    public void b(DataRes dataRes) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
-            for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.a.add(z26.e(manageInfo));
-            }
-            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.b.add(z26.e(manageInfo2));
-            }
-            this.c = dataRes.has_more;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a++;
         }
     }
 
-    @Override // com.repackage.p65
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.repackage.g75
+    public Object f(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.a);
+            builder.rn = 15;
+            builder.tab_id = Integer.valueOf(this.b);
+            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
+            DataReq build = builder.build(false);
+            builder2.data = build;
+            jd5.a(build, false);
+            return builder2.build(false);
         }
+        return invokeZ.objValue;
     }
 
-    @Override // com.repackage.p65
-    public void initByProtobuf(Message message) {
+    @Override // com.repackage.d75
+    public HashMap<String, Object> u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.repackage.d75
+    public HashMap<String, String> w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

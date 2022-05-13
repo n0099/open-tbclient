@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lu4;
+import com.repackage.mi;
 import com.repackage.np7;
-import com.repackage.oi;
 import com.repackage.tp7;
+import com.repackage.yu4;
 import com.repackage.zp7;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,30 +88,30 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     return;
                 }
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f14);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f22);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f0d);
-            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0920af);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091414);
-            this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903e0);
-            this.g = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09209b);
-            this.h = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09140f);
-            this.i = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903cf);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09209c);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091410);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903d0);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09209a);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09140e);
-            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903ce);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920a8);
-            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091412);
-            this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903d7);
-            this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ad);
-            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091413);
-            this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903dd);
-            this.v = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0920b0);
-            this.w = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f091415);
-            this.x = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0903e2);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f21);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f1a);
+            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09210a);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09142b);
+            this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903db);
+            this.g = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920f6);
+            this.h = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f091426);
+            this.i = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903c9);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920f7);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091427);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903ca);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920f5);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091425);
+            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903c8);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092103);
+            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091429);
+            this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903d2);
+            this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092108);
+            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09142a);
+            this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903d8);
+            this.v = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f09210b);
+            this.w = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f09142c);
+            this.x = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0903dd);
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
@@ -130,9 +130,9 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
             this.j.setTypeface(Typeface.DEFAULT_BOLD);
             this.k.setTypeface(Typeface.DEFAULT_BOLD);
             this.l.setTypeface(Typeface.DEFAULT_BOLD);
-            this.v.setConfig(new lu4());
-            this.w.setConfig(new lu4());
-            this.x.setConfig(new lu4());
+            this.v.setConfig(new yu4());
+            this.w.setConfig(new yu4());
+            this.x.setConfig(new yu4());
             a(this.g);
             a(this.h);
             a(this.i);
@@ -144,7 +144,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                 barImageView.setShowOval(true);
                 barImageView.setShowOuterBorder(false);
                 barImageView.setShowInnerBorder(true);
-                barImageView.setStrokeWith(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                barImageView.setStrokeWith(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
                 barImageView.setStrokeColorResId(R.color.CAM_X0401);
             }
         }
@@ -185,17 +185,17 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int size = this.a.a.size() - 1;
-                this.d.p(size, this.a);
+                this.d.q(size, this.a);
                 InterestedForumAdapter interestedForumAdapter = this.d;
                 InterestedForumViewHolder interestedForumViewHolder = this.b;
                 np7 np7Var = this.a;
                 interestedForumAdapter.z(interestedForumViewHolder, np7Var.a.get(np7Var.e));
-                this.d.p(size, this.a);
+                this.d.q(size, this.a);
                 InterestedForumAdapter interestedForumAdapter2 = this.d;
                 InterestedForumViewHolder interestedForumViewHolder2 = this.b;
                 np7 np7Var2 = this.a;
                 interestedForumAdapter2.w(interestedForumViewHolder2, np7Var2.a.get(np7Var2.e));
-                this.d.p(size, this.a);
+                this.d.q(size, this.a);
                 InterestedForumAdapter interestedForumAdapter3 = this.d;
                 InterestedForumViewHolder interestedForumViewHolder3 = this.b;
                 np7 np7Var3 = this.a;
@@ -249,17 +249,17 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 tp7 tp7Var = this.a;
                 tp7Var.b = !tp7Var.b;
-                lu4 lu4Var = new lu4();
+                yu4 yu4Var = new yu4();
                 if (!this.a.b) {
                     InterestedForumAdapter.m(this.c);
                     this.b.setText("感兴趣");
-                    this.b.setConfig(lu4Var);
+                    this.b.setConfig(yu4Var);
                     this.c.d = false;
                 } else {
                     InterestedForumAdapter.l(this.c);
                     this.b.setText("已选择");
-                    lu4Var.t(R.color.CAM_X0109);
-                    this.b.setConfig(lu4Var);
+                    yu4Var.t(R.color.CAM_X0109);
+                    this.b.setConfig(yu4Var);
                     InterestedForumAdapter interestedForumAdapter = this.c;
                     interestedForumAdapter.d = interestedForumAdapter.r();
                 }
@@ -311,15 +311,15 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     public final void A(TBSpecificationBtn tBSpecificationBtn, tp7 tp7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, tBSpecificationBtn, tp7Var) == null) {
-            lu4 lu4Var = new lu4();
+            yu4 yu4Var = new yu4();
             if (!tp7Var.b) {
                 tBSpecificationBtn.setText("感兴趣");
-                tBSpecificationBtn.setConfig(lu4Var);
+                tBSpecificationBtn.setConfig(yu4Var);
                 return;
             }
             tBSpecificationBtn.setText("已选择");
-            lu4Var.t(R.color.CAM_X0109);
-            tBSpecificationBtn.setConfig(lu4Var);
+            yu4Var.t(R.color.CAM_X0109);
+            tBSpecificationBtn.setConfig(yu4Var);
         }
     }
 
@@ -363,7 +363,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public final void p(int i, np7 np7Var) {
+    public final void q(int i, np7 np7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i, np7Var) == null) {
             int i2 = np7Var.e;
@@ -448,7 +448,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
     public InterestedForumViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i)) == null) ? new InterestedForumViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ff, (ViewGroup) null)) : (InterestedForumViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i)) == null) ? new InterestedForumViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f4, (ViewGroup) null)) : (InterestedForumViewHolder) invokeLI.objValue;
     }
 
     public void u() {

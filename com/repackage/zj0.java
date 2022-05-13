@@ -123,22 +123,22 @@ public abstract class zj0 implements gk0 {
         this.b = 0L;
         this.c = null;
         this.a = rj0Var;
-        h();
+        d();
     }
 
     @Override // com.repackage.gk0
-    public void c(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
+    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, rj0Var) == null) {
             switch (a.a[adDownloadAction.ordinal()]) {
                 case 1:
-                    u();
+                    q();
                     break;
                 case 2:
-                    v();
+                    r();
                     break;
                 case 3:
-                    u();
+                    q();
                     break;
                 case 4:
                     this.a.i = Math.max(rj0Var.i, rj0Var.j);
@@ -150,7 +150,7 @@ public abstract class zj0 implements gk0 {
                     }
                     break;
                 case 5:
-                    v();
+                    r();
                     ik0 ik0Var2 = this.e;
                     if (ik0Var2 != null) {
                         ik0Var2.h(rj0Var);
@@ -158,11 +158,11 @@ public abstract class zj0 implements gk0 {
                     }
                     break;
                 case 6:
-                    v();
+                    r();
                     break;
                 case 7:
-                    v();
-                    f(AdDownloadCode.ERROR_OTHERS);
+                    r();
+                    b(AdDownloadCode.ERROR_OTHERS);
                     ik0 ik0Var3 = this.e;
                     if (ik0Var3 != null) {
                         ik0Var3.b(rj0Var, AdDownloadCode.ERROR_OTHERS);
@@ -170,11 +170,11 @@ public abstract class zj0 implements gk0 {
                     }
                     return;
             }
-            f(AdDownloadCode.SUCCESS);
+            b(AdDownloadCode.SUCCESS);
         }
     }
 
-    public final void f(AdDownloadCode adDownloadCode) {
+    public final void b(AdDownloadCode adDownloadCode) {
         fk0 fk0Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) || (fk0Var = this.c) == null) {
@@ -187,7 +187,7 @@ public abstract class zj0 implements gk0 {
         }
     }
 
-    public void g() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ej0.b().a(this.a);
@@ -198,25 +198,18 @@ public abstract class zj0 implements gk0 {
         }
     }
 
-    @Override // com.repackage.gk0
-    public rj0 getData() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (rj0) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            w();
-            m();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            s();
+            i();
         }
     }
 
-    public final void i() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (!pk0.f(this.a.h)) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!pk0.e(this.a.h)) {
                 ej0.b().a(this.a);
                 this.a.f();
             }
@@ -229,10 +222,10 @@ public abstract class zj0 implements gk0 {
         }
     }
 
-    public final boolean j() {
+    public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             long j = currentTimeMillis - this.b;
             this.b = currentTimeMillis;
@@ -241,47 +234,53 @@ public abstract class zj0 implements gk0 {
         return invokeV.booleanValue;
     }
 
-    public final void k() {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             switch (a.b[this.a.c.ordinal()]) {
                 case 1:
                 case 2:
-                    t();
-                    break;
-                case 3:
-                    l();
-                    break;
-                case 4:
                     o();
                     break;
+                case 3:
+                    h();
+                    break;
+                case 4:
+                    k();
+                    break;
                 case 5:
-                    i();
-                    ej0.c(AdDownloadAction.INSTALL_START, this.a);
+                    e();
+                    ej0.d(AdDownloadAction.INSTALL_START, this.a);
                     break;
                 case 6:
                     if (pk0.b(this.a.d)) {
-                        ej0.c(AdDownloadAction.OPEN, this.a);
-                        pk0.e(this.a);
+                        ej0.c(this.a);
                         break;
                     } else {
                         this.a.c = AdDownloadStatus.NONE;
-                        t();
+                        o();
                         break;
                     }
             }
             if (TextUtils.isEmpty(this.a.f)) {
                 return;
             }
-            qh0.b(this.a.f);
+            th0.b(this.a.f);
         }
     }
 
-    public final void l() {
+    @Override // com.repackage.gk0
+    public rj0 getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (rj0) invokeV.objValue;
+    }
+
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ej0.b().e(this.a);
-            v();
+            ej0.b().f(this.a);
+            r();
             ik0 ik0Var = this.e;
             if (ik0Var != null) {
                 ik0Var.a(this.a);
@@ -289,24 +288,24 @@ public abstract class zj0 implements gk0 {
         }
     }
 
-    public void m() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ej0.b().f(this.a.d(), this);
+            ej0.b().g(this.a.d(), this);
         }
     }
 
-    public void n() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ej0.b().i(this.a.d(), this);
+            ej0.b().j(this.a.d(), this);
         }
     }
 
-    public final void o() {
+    public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ej0.b().g(this.a);
+            ej0.b().h(this.a);
             ik0 ik0Var = this.e;
             if (ik0Var != null) {
                 ik0Var.e(this.a);
@@ -314,47 +313,47 @@ public abstract class zj0 implements gk0 {
         }
     }
 
-    public void p() {
+    public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            r(null);
+            m(null);
         }
     }
 
-    public void r(@Nullable fk0 fk0Var) {
+    public void m(@Nullable fk0 fk0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, fk0Var) == null) {
             this.c = fk0Var;
-            if (j()) {
-                f(AdDownloadCode.ERROR_FAST_CLICK);
+            if (f()) {
+                b(AdDownloadCode.ERROR_FAST_CLICK);
                 ik0 ik0Var = this.e;
                 if (ik0Var != null) {
                     ik0Var.b(this.a, AdDownloadCode.ERROR_FAST_CLICK);
                 }
             } else if (this.a.e()) {
-                f(AdDownloadCode.ERROR_INVALID_DATA);
+                b(AdDownloadCode.ERROR_INVALID_DATA);
                 ik0 ik0Var2 = this.e;
                 if (ik0Var2 != null) {
                     ik0Var2.b(this.a, AdDownloadCode.ERROR_INVALID_DATA);
                 }
             } else {
-                k();
-                f(AdDownloadCode.SUCCESS);
+                g();
+                b(AdDownloadCode.SUCCESS);
             }
         }
     }
 
-    public void s(ik0 ik0Var) {
+    public void n(ik0 ik0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, ik0Var) == null) {
             this.e = ik0Var;
         }
     }
 
-    public final void t() {
+    public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ej0.b().h(this.a);
+            ej0.b().i(this.a);
             ik0 ik0Var = this.e;
             if (ik0Var != null) {
                 ik0Var.c(this.a);
@@ -362,7 +361,7 @@ public abstract class zj0 implements gk0 {
         }
     }
 
-    public final void u() {
+    public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.d == null && this.a.a()) {
@@ -375,7 +374,7 @@ public abstract class zj0 implements gk0 {
         }
     }
 
-    public final void v() {
+    public final void r() {
         dk0 dk0Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (dk0Var = this.d) == null) {
@@ -384,7 +383,7 @@ public abstract class zj0 implements gk0 {
         dk0Var.c();
     }
 
-    public final void w() {
+    public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.a.h(hj0.a().query(this.a.d()));

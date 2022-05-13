@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.m11;
 /* loaded from: classes7.dex */
 public class vv0 extends mv0 {
     public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public class vv0 extends mv0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.C();
-            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0599, y()).findViewById(R.id.obfuscated_res_0x7f090e7c);
+            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d058c, y()).findViewById(R.id.obfuscated_res_0x7f090e83);
             this.e = adImageView;
             adImageView.setVisibility(8);
             if (this.e.getLayoutParams() instanceof FrameLayout.LayoutParams) {
@@ -108,10 +108,10 @@ public class vv0 extends mv0 {
         }
         int i2 = -1;
         if (z) {
-            if (c11.c.c(this.c) < c11.c.e(this.c)) {
-                i2 = (c11.c.c(this.c) * 16) / 9;
+            if (m11.c.c(this.c) < m11.c.e(this.c)) {
+                i2 = (m11.c.c(this.c) * 16) / 9;
             } else {
-                i = (c11.c.e(this.c) * 9) / 16;
+                i = (m11.c.e(this.c) * 9) / 16;
                 if (this.e.getLayoutParams() == null) {
                     this.e.getLayoutParams().width = i2;
                     this.e.getLayoutParams().height = i;
@@ -143,7 +143,7 @@ public class vv0 extends mv0 {
                 this.e.setVisibility(8);
                 return;
             }
-            this.e.k(poster);
+            this.e.o(poster);
             L(v().V0());
             this.e.setOnClickListener(new a(this));
         }
@@ -206,7 +206,7 @@ public class vv0 extends mv0 {
                 N();
             } else if (c != 3) {
             } else {
-                this.e.g("");
+                this.e.n("");
             }
         }
     }
@@ -298,7 +298,7 @@ public class vv0 extends mv0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onLayerRelease();
-            this.e.g("");
+            this.e.n("");
         }
     }
 }

@@ -1,23 +1,31 @@
 package com.repackage;
 
-import java.util.ArrayList;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface xb9 {
+public class xb9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public cc9 a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onCompletion();
-
-        boolean onError(int i, int i2, Object obj);
-
-        boolean onInfo(int i, int i2, Object obj);
+    public xb9(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new yb9(context).a();
     }
-
-    void release();
-
-    void setListener(a aVar);
-
-    void setSource(ArrayList<String> arrayList);
-
-    void start();
 }

@@ -2,13 +2,14 @@ package com.ss.android.downloadlib.g;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.ss.android.download.api.download.DownloadModel;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class e {
     @Nullable
     public static JSONObject a() {
-        return com.ss.android.downloadlib.addownload.j.i().optJSONObject("ad");
+        return com.ss.android.downloadlib.addownload.j.i().optJSONObject(LaunchStatsUtils.AD);
     }
 
     @NonNull

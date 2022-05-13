@@ -1,43 +1,55 @@
 package com.repackage;
 
-import android.util.Log;
+import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
 public class xa9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755178175, "Lcom/repackage/xa9;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755178175, "Lcom/repackage/xa9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755178175, "Lcom/repackage/xa9;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755178175, "Lcom/repackage/xa9;");
-        }
+        a = new DecimalFormat("0.00");
     }
 
-    public static void a(String str, String str2) {
+    public static String a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
-            Log.d(str, "-----------------" + str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
-            Log.d("muxer_publish_progress", str + "---" + str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            try {
+                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
+                return Color.parseColor("#" + hexString + str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
+            }
         }
+        return invokeLL.intValue;
     }
 }

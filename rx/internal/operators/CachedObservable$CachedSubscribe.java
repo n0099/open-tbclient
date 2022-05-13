@@ -4,23 +4,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
-import com.repackage.hz9;
-import com.repackage.xz9;
+import com.repackage.cy9;
+import com.repackage.sy9;
+import com.repackage.wx9;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements bz9.a<T> {
+public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements wx9.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2817751667698696782L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xz9<T> state;
+    public final sy9<T> state;
 
-    public CachedObservable$CachedSubscribe(xz9<T> xz9Var) {
+    public CachedObservable$CachedSubscribe(sy9<T> sy9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xz9Var};
+            Object[] objArr = {sy9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,21 +30,21 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
                 return;
             }
         }
-        this.state = xz9Var;
+        this.state = sy9Var;
     }
 
-    @Override // com.repackage.bz9.a, com.repackage.pz9
+    @Override // com.repackage.wx9.a, com.repackage.ky9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((hz9) ((hz9) obj));
+        call((cy9) ((cy9) obj));
     }
 
-    public void call(hz9<? super T> hz9Var) {
+    public void call(cy9<? super T> cy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
-            CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(hz9Var, this.state);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cy9Var) == null) {
+            CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(cy9Var, this.state);
             this.state.c(cachedObservable$ReplayProducer);
-            hz9Var.b(cachedObservable$ReplayProducer);
-            hz9Var.f(cachedObservable$ReplayProducer);
+            cy9Var.b(cachedObservable$ReplayProducer);
+            cy9Var.f(cachedObservable$ReplayProducer);
             if (get() || !compareAndSet(false, true)) {
                 return;
             }

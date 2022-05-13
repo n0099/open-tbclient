@@ -112,9 +112,51 @@ public class ak0 extends zj0 {
         this.c = new ek0(this);
     }
 
-    public void A(String str, String str2, String str3, String str4) {
+    @NonNull
+    public rj0 t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (rj0) invokeV.objValue;
+    }
+
+    public String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = a.a[this.f.c.ordinal()];
+            if (i == 1) {
+                rj0 rj0Var = this.f;
+                rj0Var.i = 0.0f;
+                rj0Var.j = 0.0f;
+                return "0";
+            } else if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        return i != 5 ? "0" : "4";
+                    }
+                    rj0 rj0Var2 = this.f;
+                    rj0Var2.i = 1.0f;
+                    rj0Var2.j = 1.0f;
+                    return "3";
+                }
+                return "2";
+            } else {
+                return "1";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            m(this.c);
+        }
+    }
+
+    public void w(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
             vj0 vj0Var = new vj0();
             ArrayList arrayList = new ArrayList();
             JSONObject jSONObject = new JSONObject();
@@ -140,9 +182,9 @@ public class ak0 extends zj0 {
         }
     }
 
-    public void B(String str, String str2, String str3, String str4) {
+    public void x(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, str3, str4) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         String str5 = str + "_" + str4 + "_" + str3 + "_" + str2;
@@ -153,53 +195,11 @@ public class ak0 extends zj0 {
         this.g.put(str5, bVar);
     }
 
-    public void C(String str, String str2, String str3, String str4) {
+    public void y(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             return;
         }
         this.g.remove(str + "_" + str4 + "_" + str3 + "_" + str2);
-    }
-
-    @NonNull
-    public rj0 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (rj0) invokeV.objValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = a.a[this.f.c.ordinal()];
-            if (i == 1) {
-                rj0 rj0Var = this.f;
-                rj0Var.i = 0.0f;
-                rj0Var.j = 0.0f;
-                return "0";
-            } else if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        return i != 5 ? "0" : "4";
-                    }
-                    rj0 rj0Var2 = this.f;
-                    rj0Var2.i = 1.0f;
-                    rj0Var2.j = 1.0f;
-                    return "3";
-                }
-                return "2";
-            } else {
-                return "1";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            r(this.c);
-        }
     }
 }

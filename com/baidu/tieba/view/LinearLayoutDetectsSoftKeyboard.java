@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes4.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
             int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
             if (this.a != null) {
                 boolean z = true;
-                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= oi.d(activity, 48.0f) + 128) {
+                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= mi.d(activity, 48.0f) + 128) {
                     z = false;
                 }
                 this.a.a(z);

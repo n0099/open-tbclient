@@ -1,7 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Typeface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,13 +8,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class du1 extends pt1 {
+public class du1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public float b;
-    public boolean c;
-    public boolean d;
 
     public du1() {
         Interceptable interceptable = $ic;
@@ -27,72 +22,22 @@ public class du1 extends pt1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "sans-serif";
-        this.b = ae3.g(10.0f);
-        this.c = false;
-        this.d = false;
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
-        int i;
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) {
-            if (this.c && this.d) {
-                i = 3;
-            } else if (this.c) {
-                i = 1;
-            } else {
-                i = this.d ? 2 : 0;
-            }
-            qt1Var.e.setTypeface(Typeface.create(this.a, i));
-            qt1Var.e.setTextSize(this.b);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) {
+            bu1Var.f.reset();
         }
     }
 
-    @Override // com.repackage.pt1
+    @Override // com.repackage.au1
     public void b(JSONArray jSONArray) {
-        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    for (String str : jSONArray.optString(0).split(" ")) {
-                        if (str.contains("italic")) {
-                            this.d = true;
-                        } else if (str.contains("oblique")) {
-                            this.d = true;
-                        } else if (str.contains("bold")) {
-                            this.c = true;
-                        } else if (!str.contains("normal")) {
-                            if (Character.isDigit(str.charAt(0))) {
-                                int length = str.length();
-                                int i = 0;
-                                while (true) {
-                                    if (i >= str.length()) {
-                                        break;
-                                    } else if (!Character.isDigit(str.charAt(i))) {
-                                        length = i;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                this.b = ae3.g(Float.parseFloat(str.substring(0, length)));
-                            } else {
-                                this.a = str;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                if (tg1.a) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

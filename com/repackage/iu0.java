@@ -36,7 +36,7 @@ public class iu0 implements yl0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            yb1.b(application);
+            jc1.b(application);
         }
     }
 

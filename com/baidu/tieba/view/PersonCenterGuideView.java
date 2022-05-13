@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
 import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes4.dex */
 public class PersonCenterGuideView extends RelativeLayout {
@@ -129,7 +129,7 @@ public class PersonCenterGuideView extends RelativeLayout {
             this.a.setVisibility(0);
             this.a.e.setVisibility(4);
             this.a.b.startAnimation(this.a.h);
-            vt4.k().u("has_shown_person_center_guide", this.a.a);
+            iu4.k().u("has_shown_person_center_guide", this.a.a);
         }
     }
 
@@ -190,13 +190,13 @@ public class PersonCenterGuideView extends RelativeLayout {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b0, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091780);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06a1, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0917aa);
             this.b = tbImageView;
             tbImageView.setIsRound(true);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091783);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091782);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091781);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0917ad);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ac);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917ab);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
             this.f = rotateAnimation;
             rotateAnimation.setDuration(660L);
@@ -208,7 +208,7 @@ public class PersonCenterGuideView extends RelativeLayout {
             this.h = animationSet;
             animationSet.addAnimation(this.f);
             this.h.addAnimation(this.g);
-            this.a = vt4.k().h("has_shown_person_center_guide", false);
+            this.a = iu4.k().h("has_shown_person_center_guide", false);
         }
     }
 

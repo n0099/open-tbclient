@@ -27,7 +27,7 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
         }
     }
 
-    public abstract void B0();
+    public abstract void C0();
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
@@ -43,7 +43,7 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onNetRefreshButtonClicked();
-            B0();
+            C0();
         }
     }
 }

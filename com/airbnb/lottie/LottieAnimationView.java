@@ -178,7 +178,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(null, R.attr.obfuscated_res_0x7f04043a);
+        init(null, R.attr.obfuscated_res_0x7f04043e);
     }
 
     private void cancelLoaderTask() {
@@ -250,7 +250,7 @@ public class LottieAnimationView extends AppCompatImageView {
 
     private void init(@Nullable AttributeSet attributeSet, @AttrRes int i) {
         String string;
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040274, R.attr.obfuscated_res_0x7f040275, R.attr.obfuscated_res_0x7f040276, R.attr.obfuscated_res_0x7f040277, R.attr.obfuscated_res_0x7f040278, R.attr.obfuscated_res_0x7f040279, R.attr.obfuscated_res_0x7f04027a, R.attr.obfuscated_res_0x7f04027b, R.attr.obfuscated_res_0x7f04027c, R.attr.obfuscated_res_0x7f04027d, R.attr.obfuscated_res_0x7f04027e, R.attr.obfuscated_res_0x7f04027f, R.attr.obfuscated_res_0x7f04043b, R.attr.obfuscated_res_0x7f04043c, R.attr.obfuscated_res_0x7f04043d, R.attr.obfuscated_res_0x7f04043e}, i, 0);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040274, R.attr.obfuscated_res_0x7f040275, R.attr.obfuscated_res_0x7f040276, R.attr.obfuscated_res_0x7f040277, R.attr.obfuscated_res_0x7f040278, R.attr.obfuscated_res_0x7f040279, R.attr.obfuscated_res_0x7f04027a, R.attr.obfuscated_res_0x7f04027b, R.attr.obfuscated_res_0x7f04027c, R.attr.obfuscated_res_0x7f04027d, R.attr.obfuscated_res_0x7f04027e, R.attr.obfuscated_res_0x7f04027f, R.attr.obfuscated_res_0x7f04043f, R.attr.obfuscated_res_0x7f040440, R.attr.obfuscated_res_0x7f040441, R.attr.obfuscated_res_0x7f040442}, i, 0);
         this.cacheComposition = obtainStyledAttributes.getBoolean(12, true);
         boolean hasValue = obtainStyledAttributes.hasValue(7);
         boolean hasValue2 = obtainStyledAttributes.hasValue(3);
@@ -835,7 +835,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(attributeSet, R.attr.obfuscated_res_0x7f04043a);
+        init(attributeSet, R.attr.obfuscated_res_0x7f04043e);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet, int i) {

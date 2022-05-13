@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nw;
-import com.repackage.yv;
-import com.repackage.zv;
+import com.repackage.hv;
+import com.repackage.iv;
+import com.repackage.wv;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/bdtask/strategy/PassiveLifecycleStrategy;", "Lcom/repackage/nw;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskState.key, "", "onInterruptException", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/bdtask/strategy/PassiveLifecycleStrategy;", "Lcom/repackage/wv;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskState.key, "", "onInterruptException", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class e implements nw {
+public final class e implements wv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,17 +35,17 @@ public final class e implements nw {
         }
     }
 
-    @Override // com.repackage.nw
+    @Override // com.repackage.wv
     public void a(SubTaskState subTaskState) {
-        zv d;
-        zv d2;
+        iv d;
+        iv d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            nw.a.c(this, subTaskState);
+            wv.a.c(this, subTaskState);
             int curStatusCode = subTaskState.getTaskStatus().getCurStatusCode();
             DebugTrace.a.c(new PassiveLifecycleStrategy$onInterruptException$1(curStatusCode));
             if (curStatusCode == 103) {
-                yv v = BDPTask.m.v();
+                hv v = BDPTask.m.v();
                 if (v == null || (d = v.d()) == null) {
                     return;
                 }
@@ -56,7 +56,7 @@ public final class e implements nw {
                     t.Q(subTaskState.getTaskInfo(), curStatusCode);
                 }
             } else {
-                yv v2 = BDPTask.m.v();
+                hv v2 = BDPTask.m.v();
                 if (v2 == null || (d2 = v2.d()) == null) {
                     return;
                 }
@@ -65,17 +65,17 @@ public final class e implements nw {
         }
     }
 
-    @Override // com.repackage.nw
+    @Override // com.repackage.wv
     public boolean b(TaskInfo taskInfo, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? nw.a.b(this, taskInfo, i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? wv.a.b(this, taskInfo, i) : invokeLI.booleanValue;
     }
 
     public void c(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            nw.a.a(this, subTaskState);
+            wv.a.a(this, subTaskState);
         }
     }
 }

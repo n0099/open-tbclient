@@ -5,55 +5,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class y04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public j14 b;
-    public int c;
-    public long d;
+    public String a;
+    public List<long[]> b;
+    public String c;
 
-    public y04(int i, j14 j14Var) {
+    public y04() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), j14Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = j14Var;
-        this.c = f14.d() ? 20 : 10;
-        this.d = System.currentTimeMillis();
     }
 
-    public JSONObject a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", this.a);
-                jSONObject.put("stage", this.c);
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.d);
-                if (this.b != null) {
-                    jSONObject.put("msg", this.b.a());
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+            return "[ videoPath = " + this.a + "; clipPath = " + this.c + "; clipList = " + this.b + " ]";
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

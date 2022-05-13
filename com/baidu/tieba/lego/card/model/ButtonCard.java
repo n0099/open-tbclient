@@ -3,12 +3,13 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kd7;
+import com.repackage.qd7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ButtonCard extends BaseCardInfo {
@@ -48,15 +49,15 @@ public class ButtonCard extends BaseCardInfo {
                 return;
             }
         }
-        this.defaultWidth = 750;
+        this.defaultWidth = PassBiometricUtil.k;
         this.defaultHeight = 80;
         this.title = jSONObject.optString("title", "");
-        this.titleColor = kd7.b(jSONObject.optString("title_color"));
-        this.buttonColor = kd7.b(jSONObject.optString("btn_color"));
+        this.titleColor = qd7.b(jSONObject.optString("title_color"));
+        this.buttonColor = qd7.b(jSONObject.optString("btn_color"));
         this.btnScheme = jSONObject.optString("btn_scheme", "");
         this.cardWidth = jSONObject.optInt("width", this.defaultWidth);
         this.cardHeight = jSONObject.optInt("height", this.defaultHeight);
-        this.bgColor = kd7.b(jSONObject.optString("bg_color"));
+        this.bgColor = qd7.b(jSONObject.optString("bg_color"));
         this.bgPicUrl = jSONObject.optString("bg_pic_url", "");
         this.btnColorStyle = jSONObject.optInt("btn_color_style", -1);
         extractPhoneNumber(this.btnScheme);

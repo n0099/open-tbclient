@@ -44,7 +44,7 @@ public final class fr {
         }
         f391a = new Vector<>();
         try {
-            for (ClassLoader classLoader : m370a()) {
+            for (ClassLoader classLoader : m371a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -117,7 +117,7 @@ public final class fr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m369a() {
+    public static String m370a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "3.1.0" : (String) invokeV.objValue;
@@ -137,7 +137,7 @@ public final class fr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m370a() {
+    public static ClassLoader[] m371a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {

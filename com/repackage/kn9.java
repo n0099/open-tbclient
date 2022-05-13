@@ -1,31 +1,72 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public final class kn9 {
+public class kn9 implements sn9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ on9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755552965, "Lcom/repackage/kn9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755552965, "Lcom/repackage/kn9;");
+    public kn9(on9 on9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {on9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", "V", "C", "S", "Q", "R", "A", "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
+        this.a = on9Var;
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        sn9 sn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sn9Var = this.a.b) == null) {
+            return;
+        }
+        sn9Var.onClicked();
+    }
+
+    @Override // com.repackage.sn9
+    public void onDisplayed() {
+        sn9 sn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sn9Var = this.a.b) == null) {
+            return;
+        }
+        sn9Var.onDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        sn9 sn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (sn9Var = this.a.b) == null) {
+            return;
+        }
+        sn9Var.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        sn9 sn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sn9Var = this.a.b) == null) {
+            return;
+        }
+        sn9Var.onLoaded();
     }
 }

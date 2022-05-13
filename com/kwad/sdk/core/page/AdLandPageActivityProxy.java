@@ -76,9 +76,9 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     }
 
     private void initTipBarView() {
-        this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09118b);
-        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09118c);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118d);
+        this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09119a);
+        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09119b);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09119c);
         this.mWebTipBarCloseBtn = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.6
             @Override // android.view.View.OnClickListener
@@ -106,7 +106,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     private void initView() {
         KsAdWebView ksAdWebView;
         String G;
-        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091182);
+        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091191);
         this.mAdWebView = ksAdWebView2;
         handlerLandingPageAtEndCard(ksAdWebView2);
         this.mAdWebView.setTemplateData(this.mAdTemplate);
@@ -119,10 +119,10 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
                 }
             }
         });
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a6);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a8);
-        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ad);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b5);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b6);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b7);
+        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910bc);
         List<AdInfo> list = this.mAdTemplate.adInfoList;
         if (list != null && list.size() > 0 && this.mAdTemplate.adInfoList.get(0) != null) {
             AdInfo.AdBaseInfo adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo;
@@ -281,7 +281,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
 
     @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
-        setContentView(R.layout.obfuscated_res_0x7f0d0412);
+        setContentView(R.layout.obfuscated_res_0x7f0d0406);
         String stringExtra = getIntent().getStringExtra("key_template_json");
         this.mDialogUrl = getIntent().getStringExtra(KEY_DIALOG_URL);
         try {

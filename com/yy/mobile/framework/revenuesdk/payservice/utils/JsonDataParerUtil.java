@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -155,7 +154,7 @@ public class JsonDataParerUtil {
             String str2 = "";
             if (str != null) {
                 try {
-                    String string = new JSONObject(str).getString(AdUploadHttpRequest.KEY_PRODUCT_ID);
+                    String string = new JSONObject(str).getString("productId");
                     if (string != null) {
                         str2 = string;
                     }
@@ -179,7 +178,7 @@ public class JsonDataParerUtil {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (str == new JSONObject(purchaseInfo.data).optString(AdUploadHttpRequest.KEY_PRODUCT_ID)) {
+                if (str == new JSONObject(purchaseInfo.data).optString("productId")) {
                     return purchaseInfo;
                 }
             }

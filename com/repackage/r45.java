@@ -1,93 +1,27 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class r45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public String b;
-    public boolean c;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public s45 g;
-    public hg<fo> h;
+    public View attachedView;
+    public boolean isAttached;
+    public boolean isWrapStyle;
 
-    /* loaded from: classes7.dex */
-    public class a extends hg<fo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r45 a;
-
-        public a(r45 r45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r45Var;
-        }
-
-        @Override // com.repackage.hg
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                super.onCancelled(str);
-            }
-        }
-
-        @Override // com.repackage.hg
-        public void onProgressUpdate(Object... objArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
-                super.onProgressUpdate(objArr);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, foVar, str, i) == null) {
-                if (foVar != null && str != null) {
-                    if (str.equals(this.a.b)) {
-                        this.a.c = true;
-                    } else if (str.equals(this.a.d)) {
-                        this.a.e = true;
-                    }
-                }
-                if (this.a.c && this.a.e) {
-                    this.a.f = true;
-                }
-                if (this.a.g == null || !this.a.f) {
-                    return;
-                }
-                this.a.g.a();
-            }
-        }
-    }
-
-    public r45() {
+    public r45(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -97,70 +31,70 @@ public class r45 {
                 return;
             }
         }
-        this.h = new a(this);
+        this.isWrapStyle = false;
+        this.attachedView = view2;
     }
 
-    public int j() {
-        InterceptResult invokeV;
+    public void attachView(View view2, boolean z) {
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 45;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() != null) {
+            return;
         }
-        return invokeV.intValue;
+        this.isAttached = true;
+        v45.b(view2, this.isWrapStyle).a(view2, this.attachedView, z);
+        onViewAttached();
     }
 
-    public String k() {
-        InterceptResult invokeV;
+    public void dettachView(View view2) {
+        View view3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String str = this.b;
-            if (str != null && !ni.isEmpty(str)) {
-                ig.h().k(this.b, j(), this.h, 0, 0, this.a, new Object[0]);
-            }
-            String str2 = this.d;
-            if (str2 == null || ni.isEmpty(str2)) {
-                return;
-            }
-            ig.h().k(this.d, j(), this.h, 0, 0, this.a, new Object[0]);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() == null || !(view2 instanceof ViewGroup)) {
+            return;
+        }
+        try {
+            onViewDettached();
+            ((ViewGroup) view2).removeView(this.attachedView);
+            this.isAttached = false;
+        } catch (Exception unused) {
         }
     }
 
-    public void o(JSONObject jSONObject) {
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            this.b = jSONObject.optString("pic_before");
-            this.d = jSONObject.optString("pic_after");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.attachedView : (View) invokeV.objValue;
+    }
+
+    public boolean isViewAttached() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isAttached : invokeV.booleanValue;
+    }
+
+    public void onViewAttached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    public void p(s45 s45Var) {
+    public void onViewDettached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, s45Var) == null) {
-            this.g = s45Var;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public void q(BdUniqueId bdUniqueId) {
+    public void setWrapStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.isWrapStyle = z;
+        }
+    }
+
+    public void attachView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            attachView(view2, false);
         }
     }
 }

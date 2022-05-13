@@ -1,61 +1,25 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
-public abstract class m10 {
+public final class m10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i10 a;
-    public final int b;
-    public byte[] c;
 
-    public m10(i10 i10Var) {
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i10Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            try {
+                return MessageDigest.getInstance("SHA-1").digest(bArr);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
-        this.a = i10Var;
-        this.b = i10Var.a();
+        return (byte[]) invokeL.objValue;
     }
-
-    public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2) throws InvalidKeyException;
-
-    public abstract void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public void c(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            b(bArr, i, i2, bArr2, i3);
-        }
-    }
-
-    public abstract void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public void e(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            d(bArr, i, i2, bArr2, i3);
-        }
-    }
-
-    public abstract void f();
-
-    public abstract void g();
-
-    public abstract void h();
 }

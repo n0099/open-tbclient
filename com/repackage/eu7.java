@@ -145,7 +145,7 @@ public class eu7 {
                 return;
             }
         }
-        m = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070256);
+        m = mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070256);
     }
 
     public eu7(PbFragment pbFragment, ViewStub viewStub) {
@@ -264,11 +264,11 @@ public class eu7 {
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (view2 = this.f) == null) {
             return;
         }
-        this.i = (PbLandscapeListView) view2.findViewById(R.id.obfuscated_res_0x7f09143c);
-        this.g = this.f.findViewById(R.id.obfuscated_res_0x7f09143d);
+        this.i = (PbLandscapeListView) view2.findViewById(R.id.obfuscated_res_0x7f091453);
+        this.g = this.f.findViewById(R.id.obfuscated_res_0x7f091454);
         l();
-        this.l = this.f.findViewById(R.id.obfuscated_res_0x7f09143b);
-        this.d = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f091440);
+        this.l = this.f.findViewById(R.id.obfuscated_res_0x7f091452);
+        this.d = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f091457);
         cu7 cu7Var = new cu7(this.c.getPageContext());
         this.k = cu7Var;
         this.i.setNextPage(cu7Var);
@@ -277,13 +277,13 @@ public class eu7 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f09143e);
+            NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f091455);
             this.j = navigationBar;
             this.h = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ImageView backImageView = this.j.getBackImageView();
             if (backImageView != null && (backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
-                int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070201);
+                int f = mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070201);
                 layoutParams.height = f;
                 layoutParams.width = f;
                 backImageView.setLayoutParams(layoutParams);
@@ -293,11 +293,11 @@ public class eu7 {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.h.getLayoutParams();
                 layoutParams2.width = -2;
                 layoutParams2.height = -1;
-                this.h.setPadding(oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070207), this.h.getPaddingTop(), this.h.getPaddingRight(), this.h.getPaddingBottom());
+                this.h.setPadding(mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070207), this.h.getPaddingTop(), this.h.getPaddingRight(), this.h.getPaddingBottom());
                 this.h.setLayoutParams(layoutParams2);
             }
             if (this.j.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j.getBackImageView(), R.drawable.obfuscated_res_0x7f0809bb, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j.getBackImageView(), R.drawable.obfuscated_res_0x7f0809d1, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -339,7 +339,7 @@ public class eu7 {
     public void q(Runnable runnable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048592, this, runnable) == null) && m()) {
-            this.g.setTranslationY(oi.p(this.c.getContext())[1]);
+            this.g.setTranslationY(mi.p(this.c.getContext())[1]);
             this.l.setAlpha(0.0f);
             s(m, 1.0f, runnable);
         }

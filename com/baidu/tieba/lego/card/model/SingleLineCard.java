@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id7;
-import com.repackage.kd7;
+import com.repackage.od7;
+import com.repackage.qd7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -23,7 +23,7 @@ public class SingleLineCard extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
-    public final id7 buttonInfo;
+    public final od7 buttonInfo;
     public final int gravity;
     public final int height;
     public final String iconTitle;
@@ -66,9 +66,9 @@ public class SingleLineCard extends BaseCardInfo {
             this.iconUrlNight = optJSONObject.optString("urlNight");
             this.iconType = optJSONObject.optInt("type");
             this.iconTitle = optJSONObject.optString("text");
-            int b = kd7.b(optJSONObject.optString("tColor", ""));
-            int b2 = kd7.b(optJSONObject.optString("tColorN", ""));
-            if (!kd7.a(b) && !kd7.a(b2)) {
+            int b = qd7.b(optJSONObject.optString("tColor", ""));
+            int b2 = qd7.b(optJSONObject.optString("tColorN", ""));
+            if (!qd7.a(b) && !qd7.a(b2)) {
                 this.iconTitleColor = b;
                 this.iconTitleColorNight = b2;
             } else {
@@ -89,13 +89,13 @@ public class SingleLineCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             this.params.add(optJSONArray.optString(i3));
         }
-        this.paramColor = kd7.b(jSONObject.optString("pColor", ""));
-        this.paramColorNight = kd7.b(jSONObject.optString("pColorNight", ""));
-        this.titleColor = kd7.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = kd7.b(jSONObject.optString("tColorNight", ""));
-        this.bgColor = kd7.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = kd7.b(jSONObject.optString("bgColorNight", ""));
-        this.buttonInfo = id7.a(jSONObject.optJSONObject("moreButton"));
+        this.paramColor = qd7.b(jSONObject.optString("pColor", ""));
+        this.paramColorNight = qd7.b(jSONObject.optString("pColorNight", ""));
+        this.titleColor = qd7.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = qd7.b(jSONObject.optString("tColorNight", ""));
+        this.bgColor = qd7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = qd7.b(jSONObject.optString("bgColorNight", ""));
+        this.buttonInfo = od7.a(jSONObject.optJSONObject("moreButton"));
         this.showLeftLine = jSONObject.optInt("showLeftLine") == 1;
         this.showLeftIcon = jSONObject.optInt("showLeftIcon") == 1;
         this.maxLines = jSONObject.optInt("maxLines", 1);
@@ -116,10 +116,10 @@ public class SingleLineCard extends BaseCardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bgColorNight : invokeV.intValue;
     }
 
-    public id7 getButtonInfo() {
+    public od7 getButtonInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonInfo : (id7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonInfo : (od7) invokeV.objValue;
     }
 
     public int getGravity() {

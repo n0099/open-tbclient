@@ -1,267 +1,249 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pbextra.praise.PraiseListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class r08 {
+public class r08 extends z8<PraiseListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public byte[] c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int[] k;
-    public int[] l;
-    public int m;
-    public int n;
-    public boolean o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public int[] u;
-    public int v;
-    public byte[] w;
+    public p08 a;
+    public PraiseListActivity b;
+    public View c;
+    public NavigationBar d;
+    public View e;
+    public NoDataView f;
+    public View g;
+    public TextView h;
+    public BdListView i;
+    public View j;
+    public TextView k;
+    public TextView l;
+    public ProgressBar m;
+    public ProgressBar n;
 
-    public r08(int i, int i2, byte[] bArr, int i3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r08(PraiseListActivity praiseListActivity, String str) {
+        super(praiseListActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), bArr, Integer.valueOf(i3)};
+            Object[] objArr = {praiseListActivity, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = 12;
-        this.j = 4096;
-        this.k = new int[5003];
-        this.l = new int[5003];
-        this.m = 5003;
-        this.n = 0;
-        this.o = false;
-        this.s = 0;
-        this.t = 0;
-        this.u = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, RevenueServerConst.GetUserCouponStoreResponse, 4095, 8191, 16383, 32767, 65535};
-        this.w = new byte[256];
-        this.a = i;
-        this.b = i2;
-        this.c = bArr;
-        this.d = Math.max(2, i3);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.b = praiseListActivity;
+        praiseListActivity.setContentView(R.layout.obfuscated_res_0x7f0d08d6);
+        this.c = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09250c);
+        this.d = (NavigationBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09250b);
+        this.e = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f092509);
+        this.f = NoDataViewFactory.a(this.b.getPageContext().getContext(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, mi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ec7), null);
+        this.i = (BdListView) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09250a);
+        TextView textView = new TextView(this.b.getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
+        this.i.x(textView, 0);
+        this.m = (ProgressBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09250d);
+        p08 p08Var = new p08(praiseListActivity);
+        this.a = p08Var;
+        this.i.setAdapter((ListAdapter) p08Var);
+        this.i.setOnScrollListener(this.a);
+        this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText("");
+        View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d8, (ViewGroup) null);
+        this.g = inflate;
+        inflate.setOnClickListener(praiseListActivity);
+        TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092504);
+        this.h = textView2;
+        textView2.setText(str);
+        this.g.setVisibility(8);
+        this.i.addHeaderView(this.g);
+        View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d7, (ViewGroup) null);
+        this.j = inflate2;
+        this.k = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f092502);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f092503);
+        this.n = (ProgressBar) this.j.findViewById(R.id.obfuscated_res_0x7f092501);
+        this.j.setVisibility(8);
+        this.k.setOnClickListener(praiseListActivity);
+        this.i.addFooterView(this.j);
+        this.i.setOnItemClickListener(praiseListActivity);
     }
 
-    public final int a(int i) {
-        InterceptResult invokeI;
+    public void e(dn4 dn4Var, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (1 << i) - 1 : invokeI.intValue;
-    }
-
-    public void b(byte b, OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Byte.valueOf(b), outputStream}) == null) {
-            byte[] bArr = this.w;
-            int i = this.v;
-            int i2 = i + 1;
-            this.v = i2;
-            bArr[i] = b;
-            if (i2 >= 254) {
-                g(outputStream);
-            }
-        }
-    }
-
-    public void c(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, outputStream) == null) {
-            d(this.m);
-            int i = this.q;
-            this.n = i + 2;
-            this.o = true;
-            i(i, outputStream);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                this.k[i2] = -1;
-            }
-        }
-    }
-
-    public void e(int i, OutputStream outputStream) throws IOException {
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeIL(1048580, this, i, outputStream) != null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, dn4Var, i) == null) || dn4Var == null) {
             return;
         }
-        this.p = i;
-        int i2 = 0;
-        this.o = false;
-        this.g = i;
-        this.i = a(i);
-        int i3 = 1 << (i - 1);
-        this.q = i3;
-        this.r = i3 + 1;
-        this.n = i3 + 2;
-        this.v = 0;
-        int h = h();
-        for (int i4 = this.m; i4 < 65536; i4 *= 2) {
-            i2++;
-        }
-        int i5 = 8 - i2;
-        int i6 = this.m;
-        d(i6);
-        i(this.q, outputStream);
-        while (true) {
-            int h2 = h();
-            if (h2 != -1) {
-                int i7 = (h2 << this.h) + h;
-                int i8 = (h2 << i5) ^ h;
-                int[] iArr2 = this.k;
-                if (iArr2[i8] == i7) {
-                    h = this.l[i8];
-                } else {
-                    if (iArr2[i8] >= 0) {
-                        int i9 = i6 - i8;
-                        if (i8 == 0) {
-                            i9 = 1;
-                        }
-                        do {
-                            i8 -= i9;
-                            if (i8 < 0) {
-                                i8 += i6;
-                            }
-                            iArr = this.k;
-                            if (iArr[i8] == i7) {
-                                h = this.l[i8];
-                                break;
-                            }
-                        } while (iArr[i8] >= 0);
-                    }
-                    i(h, outputStream);
-                    int i10 = this.n;
-                    if (i10 < this.j) {
-                        int[] iArr3 = this.l;
-                        this.n = i10 + 1;
-                        iArr3[i8] = i10;
-                        this.k[i8] = i7;
-                    } else {
-                        c(outputStream);
-                    }
-                    h = h2;
-                }
-            } else {
-                i(h, outputStream);
-                i(this.r, outputStream);
-                return;
-            }
+        dn4Var.k(i == 1);
+        dn4Var.j(this.c);
+        dn4Var.j(this.g);
+        dn4Var.j(this.j);
+        this.d.onChangeSkinType(this.b.getPageContext(), i);
+        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
+        NoDataView noDataView = this.f;
+        if (noDataView != null) {
+            noDataView.f(this.b.getPageContext(), i);
         }
     }
 
-    public void f(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, outputStream) == null) {
-            outputStream.write(this.d);
-            this.e = this.a * this.b;
-            this.f = 0;
-            e(this.d + 1, outputStream);
-            outputStream.write(0);
-        }
-    }
-
-    public void g(OutputStream outputStream) throws IOException {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, outputStream) == null) || (i = this.v) <= 0) {
-            return;
-        }
-        outputStream.write(i);
-        outputStream.write(this.w, 0, this.v);
-        this.v = 0;
-    }
-
-    public final int h() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.e;
-            if (i == 0) {
-                return -1;
-            }
-            this.e = i - 1;
-            byte[] bArr = this.c;
-            int i2 = this.f;
-            this.f = i2 + 1;
-            return bArr[i2] & 255;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (View) invokeV.objValue;
     }
 
-    public void i(int i, OutputStream outputStream) throws IOException {
+    public View h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, outputStream) == null) {
-            int i2 = this.s;
-            int[] iArr = this.u;
-            int i3 = this.t;
-            int i4 = i2 & iArr[i3];
-            this.s = i4;
-            if (i3 > 0) {
-                this.s = i4 | (i << i3);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (View) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m.getVisibility() == 0 || this.n.getVisibility() == 0 : invokeV.booleanValue;
+    }
+
+    public void j() {
+        p08 p08Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (p08Var = this.a) == null) {
+            return;
+        }
+        p08Var.notifyDataSetChanged();
+    }
+
+    public void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.e.setVisibility(8);
+            this.f.setVisibility(0);
+            if (!StringUtils.isNull(str)) {
+                this.f.setTextOption(NoDataViewFactory.e.c(str));
+            } else if (1 == i) {
+                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f07d9));
             } else {
-                this.s = i;
+                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ec7));
             }
-            this.t += this.g;
-            while (this.t >= 8) {
-                b((byte) (this.s & 255), outputStream);
-                this.s >>= 8;
-                this.t -= 8;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.n.setVisibility(0);
+            } else {
+                this.m.setVisibility(0);
             }
-            if (this.n > this.i || this.o) {
-                if (this.o) {
-                    int i5 = this.p;
-                    this.g = i5;
-                    this.i = a(i5);
-                    this.o = false;
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+        }
+    }
+
+    public void n(int i, List<n08> list, int i2, int i3) {
+        String format;
+        String format2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.g.setVisibility(0);
+            if (i > 0) {
+                PraiseListActivity praiseListActivity = this.b;
+                if (praiseListActivity.pageType != 1) {
+                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ec8), StringHelper.numFormatOverWan(i));
                 } else {
-                    int i6 = this.g + 1;
-                    this.g = i6;
-                    if (i6 == this.h) {
-                        this.i = this.j;
-                    } else {
-                        this.i = a(i6);
-                    }
+                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f07da), StringHelper.numFormatOverWan(i));
+                }
+                this.d.setTitleText(format2);
+            } else {
+                this.d.setTitleText("");
+            }
+            if (list != null && list.size() >= 1) {
+                this.e.setVisibility(0);
+                this.f.setVisibility(8);
+                this.a.c(list);
+                this.a.notifyDataSetChanged();
+                switch (i2) {
+                    case 1001:
+                        this.j.setVisibility(0);
+                        this.k.setVisibility(0);
+                        this.l.setVisibility(8);
+                        return;
+                    case 1002:
+                        this.j.setVisibility(8);
+                        return;
+                    case 1003:
+                        this.j.setVisibility(0);
+                        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
+                        this.k.setVisibility(8);
+                        this.l.setVisibility(0);
+                        PraiseListActivity praiseListActivity2 = this.b;
+                        if (praiseListActivity2.pageType != 1) {
+                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ec6), StringHelper.numFormatOverWan(i));
+                        } else {
+                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f07da), StringHelper.numFormatOverWan(i));
+                        }
+                        this.l.setText(format);
+                        return;
+                    default:
+                        this.j.setVisibility(8);
+                        return;
                 }
             }
-            if (i == this.r) {
-                while (this.t > 0) {
-                    b((byte) (this.s & 255), outputStream);
-                    this.s >>= 8;
-                    this.t -= 8;
-                }
-                g(outputStream);
-            }
+            k(null, this.b.pageType);
         }
     }
 }

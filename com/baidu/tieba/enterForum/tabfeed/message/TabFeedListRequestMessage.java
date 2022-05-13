@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.rc5;
+import com.repackage.jd5;
+import com.repackage.mi;
 import tbclient.Tabfeedlist.DataReq;
 import tbclient.Tabfeedlist.TabfeedlistReqIdl;
 /* loaded from: classes3.dex */
@@ -56,11 +56,11 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.rn = 30;
                 builder.tab_name = this.tabName;
                 builder.tab_code = this.tabCode;
-                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
-                builder.scr_d = Integer.valueOf((int) oi.h(TbadkCoreApplication.getInst()));
+                builder.scr_h = Integer.valueOf(mi.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(mi.k(TbadkCoreApplication.getInst()));
+                builder.scr_d = Integer.valueOf((int) mi.h(TbadkCoreApplication.getInst()));
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    rc5.a(builder, true);
+                    jd5.a(builder, true);
                 }
                 TabfeedlistReqIdl.Builder builder2 = new TabfeedlistReqIdl.Builder();
                 builder2.data = builder.build(false);

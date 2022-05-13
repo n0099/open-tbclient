@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.renderer;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-import com.repackage.pf0;
+import com.repackage.sf0;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.microedition.khronos.opengles.GL10;
@@ -17,7 +17,7 @@ public interface IMediaRenderer extends IMediaLifeCycleIncludeGlThread {
         public static final int TEXTURE_MODE_EXT = 0;
     }
 
-    void onDrawFrame(pf0 pf0Var, int i, float[] fArr);
+    void onDrawFrame(sf0 sf0Var, int i, float[] fArr);
 
     void onGLLocation(GLViewPortLocation gLViewPortLocation);
 

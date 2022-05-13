@@ -1,117 +1,169 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigHTTPResMsg;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigReqMsg;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigSocketResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public xj4<yj4> a;
+    public boolean b;
+    public BdUniqueId c;
+    public wa d;
 
-    public static String a(char[] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
-            if (cArr == null || cArr.length == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (char c : cArr) {
-                if (c != 0) {
-                    sb.append(c);
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a extends wa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zj4 a;
 
-    public static char[] b(char[][] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if (cArr == null || cArr[0] == null) {
-                return null;
-            }
-            char[] cArr2 = new char[cArr.length * cArr[0].length];
-            int i = 0;
-            for (int i2 = 0; i2 < cArr.length; i2++) {
-                for (int i3 = 0; i3 < cArr[i2].length; i3++) {
-                    if (cArr[i2][i3] != 0) {
-                        cArr2[i] = cArr[i2][i3];
-                        i++;
-                    }
-                }
-            }
-            return cArr2;
-        }
-        return (char[]) invokeL.objValue;
-    }
-
-    public static void c(char[] cArr, char[][] cArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
-            int length = cArr2.length;
-            int length2 = cArr2[0].length;
-            int i = 0;
-            int i2 = 0;
-            for (char c : cArr) {
-                if (i >= length2) {
-                    i2++;
-                    i = 0;
-                }
-                if (i2 >= length) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zj4 zj4Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zj4Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                cArr2[i2][i] = c;
-                i++;
+            }
+            this.a = zj4Var;
+        }
+
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.b = false;
+                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.d() != responsedMessage.getOrginalMessage().getTag()) {
+                    return;
+                }
+                if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
+                    if (this.a.a != null) {
+                        this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        return;
+                    }
+                    return;
+                }
+                yj4 yj4Var = null;
+                if (responsedMessage instanceof ActiveConfigSocketResMsg) {
+                    yj4Var = ((ActiveConfigSocketResMsg) responsedMessage).getData();
+                } else if (responsedMessage instanceof ActiveConfigHTTPResMsg) {
+                    yj4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
+                }
+                if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
+                    iu4.k().x("pref_key_active_config_info", System.currentTimeMillis());
+                }
+                if (yj4Var != null && yj4Var.g != null) {
+                    if (this.a.a != null) {
+                        this.a.a.a(yj4Var);
+                    }
+                    if (yj4Var.g.is_first_up != 1) {
+                        nj4.g().q(yj4Var.g);
+                    }
+                }
+                if (yj4Var != null && this.a.c()) {
+                    iu4.k().x("pref_key_last_register_mission", System.currentTimeMillis());
+                    kj4.b().i(yj4Var);
+                    if (this.a.a != null) {
+                        this.a.a.onSuccess(yj4Var);
+                    }
+                }
+                gu4.e().j(yj4Var);
             }
         }
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public zj4(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
-                return str.replace("$", "").replace("!", "");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeL.objValue;
+        this.b = false;
+        this.d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
+        this.c = bdUniqueId;
+        e();
+        this.d.setTag(d());
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public static char[][] e(char[][] cArr) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
-            if (cArr == null || cArr[0] == null) {
-                return null;
-            }
-            char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
-            for (int length = cArr.length - 1; length >= 0; length--) {
-                cArr2[(cArr.length - length) - 1] = cArr[length];
-            }
-            return cArr2;
-        }
-        return (char[][]) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(iu4.k().m("pref_key_last_register_mission", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    public BdUniqueId d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            char[] charArray = str.toCharArray();
-            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
-            c(charArray, cArr);
-            return a(b(e(cArr)));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hj8.h(309637, ActiveConfigSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, hj8.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void f(boolean z, boolean z2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || this.b) {
+            return;
+        }
+        if (!z) {
+            this.b = true;
+        }
+        iu4.k().x("pref_key_last_active_config", System.currentTimeMillis());
+        ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
+        activeConfigReqMsg.setFirstUp(z);
+        activeConfigReqMsg.setSchemaUp(z2);
+        activeConfigReqMsg.launtchType = i;
+        activeConfigReqMsg.setTag(d());
+        MessageManager.getInstance().sendMessage(activeConfigReqMsg);
+    }
+
+    public void g(xj4<yj4> xj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xj4Var) == null) {
+            this.a = xj4Var;
+        }
     }
 }

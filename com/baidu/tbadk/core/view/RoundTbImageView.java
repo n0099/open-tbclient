@@ -95,7 +95,7 @@ public class RoundTbImageView extends TbClipImageView {
                 return;
             }
         }
-        this.w0 = R.drawable.obfuscated_res_0x7f08120b;
+        this.w0 = R.drawable.obfuscated_res_0x7f081221;
         this.x0 = R.color.CAM_X0209;
         w();
     }

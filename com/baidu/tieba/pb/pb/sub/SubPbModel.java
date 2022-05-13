@@ -37,10 +37,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.il8;
-import com.repackage.mg;
-import com.repackage.ni;
-import com.repackage.oi;
+import com.repackage.fk8;
+import com.repackage.kg;
+import com.repackage.li;
+import com.repackage.mi;
 import com.repackage.rs7;
 import com.repackage.wa;
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class SubPbModel extends DataModel {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<rs7> A;
     public boolean B;
-    public il8 C;
+    public fk8 C;
     public SmallTailInfo D;
     public boolean E;
     public ArrayList<String> F;
@@ -218,7 +218,7 @@ public class SubPbModel extends DataModel {
                 int error = responsedMessage.getError();
                 String errorString = responsedMessage.getErrorString();
                 if (this.a.C == null) {
-                    this.a.C = new il8("pbfloorStat");
+                    this.a.C = new fk8("pbfloorStat");
                 }
                 if (this.a.C != null) {
                     if (error == 0) {
@@ -241,7 +241,7 @@ public class SubPbModel extends DataModel {
                         str = errorString;
                         z2 = z4;
                         this.a.C.b(z, true, error, errorString, j5, j3, j2);
-                        this.a.C = new il8("pbfloorStat");
+                        this.a.C = new fk8("pbfloorStat");
                         this.a.C = null;
                     } else {
                         rs7Var = null;
@@ -588,12 +588,12 @@ public class SubPbModel extends DataModel {
     }
 
     public final void U0() {
-        il8 il8Var;
+        fk8 fk8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || (il8Var = this.C) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || (fk8Var = this.C) == null) {
             return;
         }
-        il8Var.a();
+        fk8Var.a();
         this.C = null;
     }
 
@@ -793,22 +793,22 @@ public class SubPbModel extends DataModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, num)) == null) {
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-            int k = oi.k(TbadkCoreApplication.getInst().getApp());
-            int i3 = oi.i(TbadkCoreApplication.getInst().getApp());
+            int k = mi.k(TbadkCoreApplication.getInst().getApp());
+            int i3 = mi.i(TbadkCoreApplication.getInst().getApp());
             if (1 != this.a) {
-                j = mg.g(this.c, 0L);
+                j = kg.g(this.c, 0L);
                 g = 0;
             } else {
-                if (!ni.isEmpty(this.L)) {
-                    g2 = mg.g(this.c, 0L);
-                    g = mg.g(this.i, 0L);
+                if (!li.isEmpty(this.L)) {
+                    g2 = kg.g(this.c, 0L);
+                    g = kg.g(this.i, 0L);
                 } else {
                     if (!TextUtils.isEmpty(this.i)) {
-                        g2 = mg.g(this.c, 0L);
-                        long g3 = mg.g(this.i, 0L);
+                        g2 = kg.g(this.c, 0L);
+                        long g3 = kg.g(this.i, 0L);
                         g = g3;
                     } else {
-                        g = mg.g(this.c, 0L);
+                        g = kg.g(this.c, 0L);
                     }
                     j = 0;
                 }
@@ -834,7 +834,7 @@ public class SubPbModel extends DataModel {
             if (g != 0) {
                 subPbRequestMessage.setOriUgcTopPid(this.P);
             }
-            subPbRequestMessage.setForumId(mg.g(this.l, 0L));
+            subPbRequestMessage.setForumId(kg.g(this.l, 0L));
             return subPbRequestMessage;
         }
         return (SubPbRequestMessage) invokeL.objValue;

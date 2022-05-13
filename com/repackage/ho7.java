@@ -26,9 +26,9 @@ public class ho7 {
                 File file = new File(str);
                 if (file.exists()) {
                     if (c(file)) {
-                        fo foVar = jb.a.b().get(str);
-                        if (foVar != null) {
-                            bitmap = foVar.p();
+                        co coVar = jb.a.b().get(str);
+                        if (coVar != null) {
+                            bitmap = coVar.p();
                         }
                     } else {
                         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -49,12 +49,12 @@ public class ho7 {
         Bitmap f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            k35 k35Var = new k35();
-            fo c = k35Var.c(imageFileInfo, true);
+            b45 b45Var = new b45();
+            co c = b45Var.c(imageFileInfo, true);
             if (c != null) {
                 f = c.p();
             } else {
-                f = k35Var.f(imageFileInfo, true);
+                f = b45Var.f(imageFileInfo, true);
             }
             return f == null ? a(imageFileInfo.getFilePath()) : f;
         }
@@ -84,7 +84,7 @@ public class ho7 {
             }
             try {
                 byte[] bArr = new byte[7];
-                r1 = fileInputStream.read(bArr, 0, 6) == 6 ? oi.A(bArr) : false;
+                r1 = fileInputStream.read(bArr, 0, 6) == 6 ? mi.A(bArr) : false;
                 fileInputStream.close();
             } catch (FileNotFoundException e4) {
                 e = e4;

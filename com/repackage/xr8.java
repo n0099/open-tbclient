@@ -1,71 +1,164 @@
 package com.repackage;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.R;
+import com.baidu.tieba.model.VideoHolyCardModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class xr8 {
     public static /* synthetic */ Interceptable $ic;
+    public static xr8 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public VideoHolyCardModel a;
+    public boolean b;
+    public boolean c;
+    public VideoHolyCardModel.c d;
 
-    public static byte[] a(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xr8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xr8 xr8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xr8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(list.get(i));
-                sb.append("\n");
-            }
-            return sb.toString().getBytes();
+            this.a = xr8Var;
         }
-        return (byte[]) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && ki.x()) {
+                this.a.b();
+            }
+        }
     }
 
-    public static byte[] b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public class b implements VideoHolyCardModel.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xr8 a;
+
+        public b(xr8 xr8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xr8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return jSONObject.toString().getBytes();
+            this.a = xr8Var;
         }
-        return (byte[]) invokeL.objValue;
+
+        @Override // com.baidu.tieba.model.VideoHolyCardModel.c
+        public void onResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.b = z;
+            }
+        }
     }
 
-    public static boolean c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    public xr8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            of ofVar = new of();
-            ofVar.b().t(str);
-            ofVar.b().r(HttpMessageTask.HTTP_METHOD.POST);
-            ofVar.b().c("", bArr);
-            new lf(ofVar).m(3, -1, -1);
-            int i = ofVar.c().b;
-            byte[] bArr2 = ofVar.c().i;
-            if (bArr2 == null || i != 200) {
-                return false;
-            }
-            try {
-                return new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") == 0;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        this.d = new b(this);
+        e();
+        if (PermissionUtil.isAgreePrivacyPolicy()) {
+            b();
+        }
+    }
+
+    public static xr8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (xr8.class) {
+                    if (e == null) {
+                        e = new xr8();
+                    }
+                }
+            }
+            return e;
+        }
+        return (xr8) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == null) {
+                VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
+                this.a = videoHolyCardModel;
+                videoHolyCardModel.D(this.d);
+            }
+            this.a.B();
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2000994));
+        }
+    }
+
+    public void f(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.b && !this.c) {
+            mi.M(context, R.string.obfuscated_res_0x7f0f06bd);
+            this.c = true;
+        }
     }
 }

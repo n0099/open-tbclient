@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class q88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class q88 {
     public final HttpMessageListener l;
     public CustomMessageListener m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class q88 {
                     }
                     String errorString = postSearchHttpResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
                     }
                     this.a.a.showToast(errorString);
                     this.a.a.refreshResultListByTab(intValue, null, z);
@@ -99,7 +99,7 @@ public class q88 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

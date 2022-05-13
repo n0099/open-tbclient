@@ -1,154 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.network.outback.IOutbackClientIPProvider;
-import com.baidu.searchbox.network.outback.IOutbackContext;
-import com.baidu.searchbox.network.outback.core.CallFactory;
-import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t60;
-import java.util.HashMap;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSession;
-import okhttp3.OkHttpClient;
-import okhttp3.internal.tls.OkHostnameVerifier;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class ok implements IOutbackContext {
+public class ok extends mk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, CallFactory.CallFactoryProducer> a;
-    public CallFactory.CallFactoryProducer b;
-
-    /* loaded from: classes6.dex */
-    public class a implements HostnameVerifier {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ok okVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {okVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) ? OkHostnameVerifier.INSTANCE.verify(str, sSLSession) : invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements IAdditionalRecord {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(ok okVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {okVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public long getAppLaunchTimeStamp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getClientIPV6() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getHttpDnsAreaInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public long getHttpDnsAreaInfoLastUpdateTime() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public int getIpStack() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public int getNetworkQuality() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getProcessName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
+    public Rect q;
 
     public ok() {
         Interceptable interceptable = $ic;
@@ -163,57 +32,70 @@ public class ok implements IOutbackContext {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new a(this)).build();
-        t60.b bVar = new t60.b();
-        bVar.p(build);
-        t60 n = bVar.n();
-        this.b = n;
-        this.a.put(n.getEngineName(), this.b);
+        this.q = new Rect();
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public CallFactory.CallFactoryProducer getBackupCallFactoryProducer() {
-        InterceptResult invokeV;
+    @Override // com.repackage.mk
+    public void a(pk pkVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (CallFactory.CallFactoryProducer) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public IOutbackClientIPProvider getClientIPProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pkVar, imageView) == null) {
+            DrawerArgs drawerArgs = this.k;
+            if (drawerArgs.c) {
+                float f = drawerArgs.d / 2.0f;
+                if (!drawerArgs.g) {
+                    this.g.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+                    return;
+                }
+                int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+                int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+                RectF rectF = this.f;
+                PointF b = b(rectF.left, rectF.top, this.e);
+                RectF rectF2 = this.f;
+                PointF b2 = b(rectF2.right, rectF2.bottom, this.e);
+                this.g.set(Math.max((int) b.x, 0) + f, Math.max((int) b.y, 0) + f, Math.min((int) b2.x, width) - f, Math.min((int) b2.y, height) - f);
+            }
         }
-        return (IOutbackClientIPProvider) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public Context getContext() {
-        InterceptResult invokeV;
+    @Override // com.repackage.mk
+    public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.c) {
+            canvas.drawRect(this.g, this.c);
+        }
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public CallFactory.CallFactoryProducer getDefaultCallFactoryProducer() {
-        InterceptResult invokeV;
+    @Override // com.repackage.mk
+    public void h(Canvas canvas, pk pkVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (CallFactory.CallFactoryProducer) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, pkVar, imageView) == null) {
+            Matrix matrix = this.e;
+            if (matrix != null) {
+                canvas.concat(matrix);
+            }
+            if (pkVar.e()) {
+                Bitmap bitmap = pkVar.a.getBitmap();
+                this.q.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.q, this.f, this.b);
+            } else if (pkVar.d()) {
+                this.q.set(0, 0, pkVar.b(), pkVar.a());
+                pkVar.b.g(canvas, this.q, this.f, this.b);
+            }
+        }
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public IAdditionalRecord getIAdditionalRecord() {
-        InterceptResult invokeV;
+    @Override // com.repackage.mk
+    public void i(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new b(this) : (IAdditionalRecord) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (HashMap) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, canvas, imageView) == null) || this.k.m == 0) {
+            return;
+        }
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        canvas.translate(scrollX, scrollY);
+        this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+        this.d.setColor(this.k.m);
+        canvas.drawRect(this.n, this.d);
+        canvas.translate(-scrollX, -scrollY);
     }
 }

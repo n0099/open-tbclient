@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.be5;
+import com.repackage.ue5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class XGridLayout extends AdapterLayout {
@@ -57,12 +57,12 @@ public class XGridLayout extends AdapterLayout {
     }
 
     public void e() {
-        be5 be5Var;
+        ue5 ue5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (be5Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ue5Var = this.a) == null) {
             return;
         }
-        be5Var.c();
+        ue5Var.c();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -204,7 +204,7 @@ public class XGridLayout extends AdapterLayout {
         this.e = 0;
         this.f = 0;
         this.g = 9;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402ab, R.attr.obfuscated_res_0x7f0402ad, R.attr.obfuscated_res_0x7f0402af, R.attr.obfuscated_res_0x7f0402b0, R.attr.obfuscated_res_0x7f0402b2});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402ae, R.attr.obfuscated_res_0x7f0402b0, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f0402b3, R.attr.obfuscated_res_0x7f0402b5});
         this.d = obtainStyledAttributes.getInteger(3, this.d);
         this.e = (int) obtainStyledAttributes.getDimension(0, this.e);
         this.f = (int) obtainStyledAttributes.getDimension(4, this.f);

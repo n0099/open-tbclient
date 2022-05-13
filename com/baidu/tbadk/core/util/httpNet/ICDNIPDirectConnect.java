@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mm4;
+import com.repackage.xm4;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes3.dex */
 public abstract class ICDNIPDirectConnect {
@@ -71,7 +71,7 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract String getAllIPListCanUsed();
 
-    public abstract mm4 getCDNImageTimeData();
+    public abstract xm4 getCDNImageTimeData();
 
     public abstract String getCachedCdnIp(int i);
 
@@ -87,7 +87,7 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract void result(String str, String str2, boolean z, boolean z2, boolean z3);
 
-    public abstract void setCDNImageTimeData(mm4 mm4Var);
+    public abstract void setCDNImageTimeData(xm4 xm4Var);
 
     public abstract void setIpDisableTime(int i);
 }

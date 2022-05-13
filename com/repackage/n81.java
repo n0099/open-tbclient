@@ -1,89 +1,110 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.mode.CommandMessage;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class n81 {
+public final class n81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
 
-    /* loaded from: classes6.dex */
-    public class a extends LruCache<String, Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = aa1.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = aa1.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(n81 n81Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n81Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Context a = aa1.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = aa1.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final void c(g81 g81Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, g81Var, str) == null) || g81Var == null) {
+            return;
+        }
+        boolean z = false;
+        if (str == null || StringsKt__StringsJVMKt.isBlank(str)) {
+            return;
+        }
+        String a = g81Var.a("Cookie");
+        String str2 = "BDUSS=" + str;
+        if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
+            g81Var.d("Cookie", str2);
+            return;
+        }
+        g81Var.d("Cookie", a + "; " + str2);
+    }
+
+    public static final void d(g81 g81Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, g81Var) == null) || g81Var == null) {
+            return;
+        }
+        g81Var.d("channel", "cashiersdk");
+        g81Var.d("deviceType", "ANDROID");
+        g81Var.d("osVersion", Build.VERSION.RELEASE);
+        g81Var.d(CommandMessage.SDK_VERSION, "2.8.7.9");
+        g81Var.d("appVersion", b());
+        g81Var.d("sdkPgName", a());
+        g81Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+    }
+
+    public static final f81 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            f81 f81Var = new f81();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    f81Var.d(next, jSONObject.optString(next));
                 }
             }
+            return f81Var;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) ? bitmap.getByteCount() / 1024 : invokeLL.intValue;
-        }
-    }
-
-    public n81() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
-    }
-
-    public void a(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-            String b = s81.b(str);
-            if (b(b) == null) {
-                this.a.put(b, bitmap);
-            }
-        }
-    }
-
-    public final Bitmap b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.get(str) : (Bitmap) invokeL.objValue;
-    }
-
-    public Bitmap c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(s81.b(str)) : (Bitmap) invokeL.objValue;
+        return (f81) invokeL.objValue;
     }
 }

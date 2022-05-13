@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class hx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public String a;
+    public long b;
     public int c;
 
     public hx4() {
@@ -31,46 +31,39 @@ public class hx4 {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public int c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.a;
-            if (i == 0) {
-                return Integer.MAX_VALUE;
-            }
-            return i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
     }
 
-    public void d(String str) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = mg.e(str, 0);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = mg.e(str, 0);
+            this.a = str;
         }
     }
 
-    public void f(String str) {
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = mg.e(str, 0);
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.b = j;
         }
     }
 }

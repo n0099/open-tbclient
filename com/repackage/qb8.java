@@ -1,36 +1,42 @@
 package com.repackage;
 
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.widget.RemoteViews;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.download.RecAppDownloadReceiver;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes6.dex */
 public class qb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RemoteViews a;
+    public final TbPageContext<?> a;
+    public final DragImageView.h b;
+    public final boolean c;
+    public Map<AdvertAppInfo, pb8> d;
+    public pb8 e;
 
-    /* loaded from: classes7.dex */
-    public class a extends hg<fo> {
+    /* loaded from: classes6.dex */
+    public class a implements cd7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qb8 a;
+        public final /* synthetic */ pb8 a;
 
-        public a(qb8 qb8Var) {
+        public a(qb8 qb8Var, pb8 pb8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qb8Var};
+                Object[] objArr = {qb8Var, pb8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,81 +46,129 @@ public class qb8 {
                     return;
                 }
             }
-            this.a = qb8Var;
+            this.a = pb8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
+        @Override // com.repackage.cd7
+        public void a(int i, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) || this.a.a == null || foVar == null || foVar.p() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) {
+                AdvertAppInfo a = this.a.a();
+                if (i == 0 || a == null) {
+                    return;
+                }
+                String str = "image";
+                if (hashMap != null) {
+                    String str2 = (String) hashMap.get("da_area");
+                    if (!TextUtils.isEmpty(str2)) {
+                        str = str2;
+                    }
+                }
+                if (ka8.h(i)) {
+                    vb8.f(a, 0, str, i);
+                } else {
+                    vb8.m(a, 0, str);
+                }
+                kd7.c(a);
             }
-            this.a.a.setImageViewBitmap(R.id.obfuscated_res_0x7f090290, foVar.p());
         }
     }
 
-    public qb8(DownloadData downloadData, int i) {
+    public qb8(@NonNull TbPageContext<?> tbPageContext, boolean z, DragImageView.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {downloadData, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z), hVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.obfuscated_res_0x7f0d0244);
-        b(i);
-        this.a.setTextViewText(R.id.obfuscated_res_0x7f090832, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cb6));
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f090820, R.drawable.obfuscated_res_0x7f080e55);
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f090823, R.drawable.obfuscated_res_0x7f080e53);
-        this.a.setTextViewText(R.id.obfuscated_res_0x7f09081e, downloadData.getUser_name());
-        ig.h().m(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), RecAppDownloadReceiver.class);
-        intent.setAction("action_pause_download");
-        intent.putExtra("download_data", downloadData);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f090820, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
-        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), RecAppDownloadReceiver.class);
-        intent2.setAction("action_cancel_download");
-        intent2.putExtra("download_data", downloadData);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f090823, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
+        this.a = tbPageContext;
+        this.c = z;
+        this.b = hVar;
+        this.d = new HashMap();
     }
 
-    public void b(int i) {
-        String str;
+    public pb8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i > 0) {
-                str = i + "%";
-            } else {
-                str = "0%";
-            }
-            this.a.setProgressBar(R.id.obfuscated_res_0x7f090830, 100, i, false);
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f090831, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            pb8 pb8Var = new pb8(this.a);
+            pb8Var.c();
+            pb8Var.setBusinessType(99);
+            pb8Var.setFromCDN(this.c);
+            pb8Var.C(this.b);
+            pb8Var.setAfterClickSchemeListener(new a(this, pb8Var));
+            return pb8Var;
         }
+        return (pb8) invokeV.objValue;
+    }
+
+    public View b(AdvertAppInfo advertAppInfo, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z)) == null) {
+            if (advertAppInfo == null || !(advertAppInfo.h instanceof AdCard)) {
+                return null;
+            }
+            pb8 pb8Var = this.d.get(advertAppInfo);
+            if (pb8Var == null) {
+                pb8Var = a();
+                this.d.put(advertAppInfo, pb8Var);
+            }
+            pb8Var.d((AdCard) advertAppInfo.h);
+            this.e = pb8Var;
+            if (z) {
+                pb8Var.w();
+            }
+            return pb8Var.r();
+        }
+        return (View) invokeLZ.objValue;
     }
 
     public void c() {
+        pb8 pb8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f090832, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0504));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f090820, R.drawable.obfuscated_res_0x7f080e56);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pb8Var = this.e) == null) {
+            return;
         }
+        pb8Var.w();
     }
 
     public void d() {
+        pb8 pb8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f090832, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cb6));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f090820, R.drawable.obfuscated_res_0x7f080e55);
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pb8Var = this.e) == null) {
+            return;
         }
+        pb8Var.A();
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (pb8 pb8Var : this.d.values()) {
+                if (pb8Var != null) {
+                    pb8Var.B();
+                }
+            }
+            this.d.clear();
+        }
+    }
+
+    public void f(AdvertAppInfo advertAppInfo) {
+        pb8 pb8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) || advertAppInfo == null || (pb8Var = this.d.get(advertAppInfo)) == null) {
+            return;
+        }
+        pb8Var.B();
+        this.d.remove(advertAppInfo);
     }
 }

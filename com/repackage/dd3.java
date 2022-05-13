@@ -1,366 +1,28 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.view.Window;
+import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.android.ActivityUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
-import rx.subjects.PublishSubject;
 /* loaded from: classes5.dex */
 public final class dd3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static volatile k b;
-    public static volatile k c;
-    public static volatile k d;
-    public static final pz9 e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements pz9<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(Pair<Runnable, String> pair) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                String name = Thread.currentThread().getName();
-                Thread currentThread = Thread.currentThread();
-                currentThread.setName(name + "-" + ((String) pair.second));
-                try {
-                    long currentTimeMillis = dd3.a ? System.currentTimeMillis() : 0L;
-                    ((Runnable) pair.first).run();
-                    if (dd3.a) {
-                        Log.d("SwanAppExecutorUtils", "Task [" + ((String) pair.second) + "] caused " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
-                    }
-                } finally {
-                    if (z) {
-                    }
-                    Thread.currentThread().setName(name);
-                }
-                Thread.currentThread().setName(name);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements tz9<Pair<Runnable, String>, bz9<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tz9
-        public bz9<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? fz9.g(pair).h(Schedulers.io()).f(dd3.e).l() : (bz9) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements tz9<Pair<Runnable, String>, bz9<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tz9
-        public bz9<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? fz9.g(pair).h(Schedulers.computation()).f(dd3.e).l() : (bz9) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d implements pz9<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && dd3.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e implements pz9<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                dd3.g().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class f implements pz9<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && dd3.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class g implements pz9<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                dd3.f().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class h implements pz9<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public h(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && dd3.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class i implements pz9<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pz9
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                dd3.h().execute((Runnable) pair.first, (String) pair.second);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface j extends Executor {
-        void execute(@NonNull Runnable runnable, @NonNull String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class k extends t3a<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(u3a u3aVar) {
-            super(u3aVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u3aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((u3a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                execute(runnable, "");
-            }
-        }
-
-        @Override // com.repackage.dd3.j
-        public void execute(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
-                onNext(Pair.create(runnable, dd3.i(str)));
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -375,128 +37,119 @@ public final class dd3 {
                 return;
             }
         }
-        a = tg1.a;
-        e = new a();
+        a = eh1.a;
     }
 
-    public dd3() {
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeL(65537, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
         }
+        Window window = activity.getWindow();
+        window.clearFlags(1024);
+        int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
+        if (qz2.b) {
+            systemUiVisibility |= 5120;
+        }
+        window.getDecorView().setSystemUiVisibility(systemUiVisibility);
     }
 
-    public static iz9 c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
+    public static void b(Activity activity, Dialog dialog) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) ? fz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i() : (iz9) invokeCommon.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null || dialog == null || dialog.getWindow() == null || dialog.getWindow().getDecorView() == null) {
+            return;
+        }
+        dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
     }
 
-    public static iz9 d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) ? fz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i() : (iz9) invokeCommon.objValue;
-    }
-
-    public static iz9 e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) ? fz9.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i() : (iz9) invokeCommon.objValue;
-    }
-
-    public static j f() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (c == null) {
-                synchronized (dd3.class) {
-                    if (c == null) {
-                        c = new k(PublishSubject.F());
-                        c.n().d(new c()).s().t();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 5894;
         }
-        return (j) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static j g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (b == null) {
-                synchronized (dd3.class) {
-                    if (b == null) {
-                        b = new k(PublishSubject.F());
-                        b.n().d(new b()).s().t();
-                    }
-                }
-            }
-            return b;
-        }
-        return (j) invokeV.objValue;
-    }
-
-    public static j h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (d == null) {
-                synchronized (dd3.class) {
-                    if (d == null) {
-                        d = new k(PublishSubject.F());
-                        d.n().k(Schedulers.io()).b(e).s().t();
-                    }
-                }
-            }
-            return d;
-        }
-        return (j) invokeV.objValue;
-    }
-
-    public static String i(String str) {
+    public static boolean d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (str == null) {
-                str = null;
-            } else if (!str.startsWith("SwanAppExecutorUtils_")) {
-                str = "SwanAppExecutorUtils_" + str;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
+    }
+
+    public static void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
+        }
+        Window window = activity.getWindow();
+        window.setFlags(1024, 1024);
+        window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
+    }
+
+    public static void f(Activity activity, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
+            h(activity, intent, true);
+        }
+    }
+
+    public static boolean g(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) ? h(context, intent, false) : invokeLL.booleanValue;
+    }
+
+    public static boolean h(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) ? i(context, intent, z, true) : invokeLLZ.booleanValue;
+    }
+
+    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
-            if (str == null) {
-                str = "SwanAppExecutorUtils";
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1227, 0).show();
+                    return false;
+                }
+                return false;
+            } catch (SecurityException e) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1227, 0).show();
+                }
+                if (a) {
+                    Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
+                    return false;
+                }
+                return false;
             }
-            return str.length() > 256 ? str.substring(0, 255) : str;
         }
-        return (String) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static void j(@NonNull Runnable runnable, @NonNull String str) {
+    public static void j(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, runnable, str) == null) {
-            f().execute(runnable, str);
-        }
-    }
-
-    public static void k(@NonNull Runnable runnable, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, runnable, str) == null) {
-            g().execute(runnable, str);
-        }
-    }
-
-    public static void l(@NonNull Runnable runnable, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, runnable, str) == null) {
-            h().execute(runnable, str);
+        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
+            if (a) {
+                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
+            }
+            if (activity == null || activity.isDestroyed()) {
+                return;
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+                activity.finishAndRemoveTask();
+            } else {
+                activity.finish();
+            }
         }
     }
 }

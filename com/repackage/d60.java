@@ -1,30 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.cookie.CookieManager;
+import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.List;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 /* loaded from: classes5.dex */
-public final class d60 {
+public class d60 implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String[] b;
-    public int c;
-    public String d;
-    public long e;
-    public long f;
+    public CookieManager a;
 
-    public d60(Context context, String str) {
+    public d60(CookieManager cookieManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {cookieManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,28 +35,90 @@ public final class d60 {
                 return;
             }
         }
-        this.a = str;
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.d = packageInfo.versionName;
-            this.c = packageInfo.versionCode;
-            this.e = packageInfo.firstInstallTime;
-            this.f = packageInfo.lastUpdateTime;
-            this.b = new String[packageInfo.signatures.length];
-            for (int i3 = 0; i3 < this.b.length; i3++) {
-                this.b[i3] = z50.c(packageInfo.signatures[i3].toByteArray());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.a = cookieManager;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt <= 31 || charAt >= 127) {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                } else {
+                    sb.append(charAt);
+                }
+            }
+            return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final List<Cookie> b(HttpUrl httpUrl, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int length = str.length();
+            int i = 0;
+            while (i < length) {
+                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
+                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
+                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
+                String trimSubstring2 = delimiterOffset2 < delimiterOffset ? Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset) : "";
+                if (trimSubstring2.startsWith("\"") && trimSubstring2.endsWith("\"")) {
+                    trimSubstring2 = trimSubstring2.substring(1, trimSubstring2.length() - 1);
+                }
+                String a = a(trimSubstring);
+                String a2 = a(trimSubstring2);
+                if (!Util.isTextEmpty(a) && this.a.shouldSendCookie(httpUrl.toString(), a)) {
+                    arrayList.add(new Cookie.Builder().name(a).value(a2).domain(httpUrl.host()).build());
+                }
+                i = delimiterOffset + 1;
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
+            ArrayList arrayList = new ArrayList();
+            CookieManager cookieManager = this.a;
+            if (cookieManager != null) {
+                String cookie = cookieManager.getCookie(httpUrl.toString());
+                if (!Util.isTextEmpty(cookie)) {
+                    arrayList.addAll(b(httpUrl, cookie));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, httpUrl, list) == null) || this.a == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        String httpUrl2 = httpUrl.toString();
+        for (Cookie cookie : list) {
+            String cookie2 = cookie.toString();
+            if (!Util.isTextEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
+                arrayList.add(cookie2);
+            }
+        }
+        this.a.storeCookie(httpUrl.toString(), arrayList);
     }
 }

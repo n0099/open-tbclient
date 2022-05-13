@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class dk5<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> {
+public abstract class dk5<T, V extends TypeAdapter.ViewHolder> extends eo<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

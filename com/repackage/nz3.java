@@ -10,23 +10,23 @@ public class nz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
+    public Object data;
+    @V8JavascriptField
     public Object header;
+    @V8JavascriptField
+    public int statusCode;
 
-    public nz3(Object obj) {
+    public nz3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.header = obj;
     }
 }

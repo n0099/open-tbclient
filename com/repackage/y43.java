@@ -1,43 +1,35 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o53;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class y43 extends g23 {
+public class y43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Boolean> a;
+    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements cf3<m53<o53.e>> {
+    public static class a implements nf3<u53> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ y43 d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ nf3 b;
 
-        public a(y43 y43Var, Context context, CallbackHandler callbackHandler, String str) {
+        public a(String str, nf3 nf3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y43Var, context, callbackHandler, str};
+                Object[] objArr = {str, nf3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,111 +39,79 @@ public class y43 extends g23 {
                     return;
                 }
             }
-            this.d = y43Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = str;
+            this.a = str;
+            this.b = nf3Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
+        @Override // com.repackage.nf3
         /* renamed from: a */
-        public void onCallback(m53<o53.e> m53Var) {
+        public void onCallback(u53 u53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m53Var) == null) {
-                this.d.l(m53Var, this.a, this.b, this.c);
+            if (interceptable == null || interceptable.invokeL(1048576, this, u53Var) == null) {
+                boolean z = true;
+                z = (u53Var == null || u53Var.d || u53Var.j != 1) ? false : false;
+                y43.a.put(this.a, Boolean.valueOf(z));
+                this.b.onCallback(Boolean.valueOf(z));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y43(g13 g13Var) {
-        super(g13Var, "/swanAPI/getCommonSysInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755191815, "Lcom/repackage/y43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755191815, "Lcom/repackage/y43;");
                 return;
             }
         }
+        a = new ConcurrentHashMap();
+        b = new ConcurrentHashMap();
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    public static void b(nf3<Boolean> nf3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (j03Var == null) {
-                jx1.i("GetSysInfo", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            String optString = jd3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                jx1.i("GetSysInfo", "cb is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            j03Var.d0().g((Activity) context, "mapp_i_get_common_sys_info", new a(this, context, callbackHandler, optString));
-            jx1.i("GetSysInfo", "callback success");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void k(Context context, String str, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, callbackHandler) == null) {
-            String i = qj2.h0().i(AppRuntime.getAppContext());
-            String r = de3.r();
-            String a2 = qj2.G0().a(context);
-            String h = qj2.h0().h(context);
-            String cookie = qj2.q().a().getCookie(".baidu.com");
-            String l = be3.l(cookie, "BAIDUID");
-            String l2 = be3.l(cookie, "H_WISE_SIDS");
-            String a3 = ug4.b(AppRuntime.getAppContext()).a();
-            if (g23.b) {
-                Log.d("GetSysInfoAction", "cuid = " + i + ", imei = " + r + ", zid = " + a2 + ", uid = " + h + ", baiDuId = " + l + ", sid = " + l2);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("cuid", i);
-                jSONObject.put("imei", r);
-                jSONObject.put("zid", a2);
-                jSONObject.put("uid", h);
-                jSONObject.put("baidu_id", l);
-                jSONObject.put("sid", l2);
-                jSONObject.put("uuid", a3);
-                jx1.i("GetSysInfo", "fetch commonSysInfo success");
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            } catch (JSONException e) {
-                if (g23.b) {
-                    e.printStackTrace();
-                }
-                jx1.c("GetSysInfo", "generate data occur exception");
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
-        }
-    }
-
-    public final void l(m53<o53.e> m53Var, Context context, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, m53Var, context, callbackHandler, str) == null) {
-            if (!h53.h(m53Var)) {
-                h53.q(m53Var, callbackHandler, str);
+        if (interceptable == null || interceptable.invokeL(65538, null, nf3Var) == null) {
+            String appId = t03.J().getAppId();
+            Boolean bool = a.get(appId);
+            if (bool != null) {
+                nf3Var.onCallback(bool);
             } else {
-                k(context, str, callbackHandler);
+                t03.J().r().d0().e("mapp_custom_screenshot_image", new a(appId, nf3Var));
             }
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Boolean bool = b.get(t03.J().getAppId());
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            b.clear();
+            a.clear();
+        }
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            b.put(t03.J().getAppId(), Boolean.valueOf(z));
         }
     }
 }

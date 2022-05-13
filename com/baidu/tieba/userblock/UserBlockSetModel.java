@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.fm4;
-import com.repackage.kk8;
+import com.repackage.hj8;
+import com.repackage.qm4;
 import com.repackage.wa;
 /* loaded from: classes4.dex */
 public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public fm4 b;
+    public qm4 b;
     public wa c;
 
     /* loaded from: classes4.dex */
@@ -66,19 +66,19 @@ public class UserBlockSetModel extends BdBaseModel {
                 return;
             }
             if (!(responsedMessage instanceof UserBlockSetSocketResponseMessage) && !(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
-                this.a.b.onError(-1, this.a.C(R.string.obfuscated_res_0x7f0f0312));
+                this.a.b.onError(-1, this.a.C(R.string.obfuscated_res_0x7f0f0317));
                 return;
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
             if (error == 0 && !responsedMessage.hasError()) {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f0314);
+                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f0319);
                 }
                 this.a.b.onSuccess(errorString);
             } else {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f0312);
+                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f0317);
                 }
                 this.a.b.onError(error, errorString);
             }
@@ -118,8 +118,8 @@ public class UserBlockSetModel extends BdBaseModel {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            kk8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            hj8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+            hj8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);
@@ -139,10 +139,10 @@ public class UserBlockSetModel extends BdBaseModel {
         }
     }
 
-    public void F(fm4 fm4Var) {
+    public void F(qm4 qm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fm4Var) == null) {
-            this.b = fm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qm4Var) == null) {
+            this.b = qm4Var;
         }
     }
 

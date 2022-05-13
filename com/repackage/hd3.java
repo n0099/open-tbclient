@@ -1,21 +1,12 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.opengl.GLES10;
-import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.face.platform.utils.BitmapUtils;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,76 +14,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.lang.reflect.Field;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
-import javax.microedition.khronos.egl.EGLSurface;
-import org.webrtc.EglBase10;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class hd3 {
+public class hd3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static List<String> b;
+    public static List<String> c;
+    public static final Object d;
+    public static int e;
+    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements ef3<OutputStream, Boolean> {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bitmap a;
-        public final /* synthetic */ Bitmap.CompressFormat b;
-        public final /* synthetic */ int c;
+        public final boolean a;
 
-        public a(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
+        public a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bitmap, compressFormat, Integer.valueOf(i)};
+                Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = bitmap;
-            this.b = compressFormat;
-            this.c = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ef3
-        /* renamed from: b */
-        public Boolean a(OutputStream outputStream) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
-                Bitmap bitmap = this.a;
-                if (bitmap != null) {
-                    Bitmap.CompressFormat compressFormat = this.b;
-                    if (compressFormat == null) {
-                        compressFormat = Bitmap.CompressFormat.JPEG;
-                    }
-                    if (bitmap.compress(compressFormat, this.c, outputStream)) {
-                        z = true;
-                        return Boolean.valueOf(z);
-                    }
-                }
-                z = false;
-                return Boolean.valueOf(z);
-            }
-            return (Boolean) invokeL.objValue;
+            this.a = z;
         }
     }
 
@@ -109,527 +65,242 @@ public final class hd3 {
                 return;
             }
         }
-        a = tg1.a;
+        a = eh1.a;
+        b = new ArrayList();
+        c = new ArrayList();
+        d = new Object();
+        e = 0;
+        f = 0;
     }
 
-    public static Bitmap a(Bitmap bitmap, long j, boolean z) {
-        InterceptResult invokeCommon;
-        byte[] byteArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{bitmap, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (bitmap == null || j <= 0) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            int i = 100;
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-            if (byteArrayOutputStream.size() <= j) {
-                byteArray = byteArrayOutputStream.toByteArray();
-            } else {
-                byteArrayOutputStream.reset();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 0, byteArrayOutputStream);
-                if (byteArrayOutputStream.size() >= j) {
-                    byteArray = byteArrayOutputStream.toByteArray();
-                } else {
-                    int i2 = 0;
-                    int i3 = 0;
-                    while (i2 < i) {
-                        i3 = (i2 + i) / 2;
-                        byteArrayOutputStream.reset();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
-                        int i4 = (byteArrayOutputStream.size() > j ? 1 : (byteArrayOutputStream.size() == j ? 0 : -1));
-                        if (i4 == 0) {
-                            break;
-                        } else if (i4 > 0) {
-                            i = i3 - 1;
-                        } else {
-                            i2 = i3 + 1;
-                        }
-                    }
-                    if (i == i3 - 1) {
-                        byteArrayOutputStream.reset();
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
-                    }
-                    byteArray = byteArrayOutputStream.toByteArray();
-                }
-            }
-            if (z && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static boolean b(File file, File file2, int i) {
-        InterceptResult invokeLLI;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, file, file2, i)) == null) {
-            if (a) {
-                Log.d(BitmapUtils.TAG, "压缩图片");
-            }
-            if (file2 == null) {
-                if (a) {
-                    Log.e(BitmapUtils.TAG, "dest file is null");
-                }
-                return false;
-            } else if (i >= 0 && i <= 100) {
-                Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
-                if (decodeFile == null) {
-                    if (a) {
-                        Log.e(BitmapUtils.TAG, "compress image，but decode bitmap is null");
-                    }
-                    return false;
-                }
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file2);
-                    } catch (FileNotFoundException e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
-                    mg4.d(fileOutputStream);
-                    return true;
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (a) {
-                        Log.e(BitmapUtils.TAG, "压缩图片失败", e);
-                    }
-                    mg4.d(fileOutputStream2);
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    mg4.d(fileOutputStream2);
-                    throw th;
-                }
-            } else {
-                if (a) {
-                    Log.e(BitmapUtils.TAG, "quality must be 0..100");
-                }
-                return false;
-            }
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean c(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            try {
-                if (a) {
-                    Log.d(BitmapUtils.TAG, "copyJpegExif oldFilePath:" + str + "，newFilePath：" + str2 + ",quality:" + i);
-                }
-                ExifInterface i2 = i(str);
-                ExifInterface i3 = i(str2);
-                if (i2 != null && i3 != null) {
-                    Field[] fields = ExifInterface.class.getFields();
-                    for (int i4 = 0; i4 < fields.length; i4++) {
-                        String name = fields[i4].getName();
-                        if (!TextUtils.isEmpty(name) && name.startsWith("TAG")) {
-                            String obj = fields[i4].get(ExifInterface.class).toString();
-                            String attribute = i2.getAttribute(obj);
-                            if (a) {
-                                Log.d(BitmapUtils.TAG, "fields name:" + obj + "，value：" + attribute);
-                            }
-                            if (!TextUtils.isEmpty(obj) && !TextUtils.equals("Orientation", obj)) {
-                                if (i < 100) {
-                                    char c = 65535;
-                                    switch (obj.hashCode()) {
-                                        case -2093253645:
-                                            if (obj.equals("PixelYDimension")) {
-                                                c = 3;
-                                                break;
-                                            }
-                                            break;
-                                        case -1896740140:
-                                            if (obj.equals("PixelXDimension")) {
-                                                c = 1;
-                                                break;
-                                            }
-                                            break;
-                                        case -666122239:
-                                            if (obj.equals("ImageLength")) {
-                                                c = 2;
-                                                break;
-                                            }
-                                            break;
-                                        case 542970187:
-                                            if (obj.equals("ImageWidth")) {
-                                                c = 0;
-                                                break;
-                                            }
-                                            break;
-                                    }
-                                    if (c != 0) {
-                                        if (c != 1) {
-                                            if (c != 2) {
-                                                if (c == 3) {
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                if (attribute != null) {
-                                    i3.setAttribute(obj, attribute);
-                                }
-                            }
-                        }
-                    }
-                    i3.saveAttributes();
-                    return true;
-                }
-                return false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (file.getParentFile().exists()) {
-                return true;
-            }
-            return file.getParentFile().mkdirs();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Bitmap e(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            try {
-                return MediaStore.Images.Media.getBitmap(i03.J().getContentResolver(), uri);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        ExifInterface i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (i = i(str)) == null) {
-                return 0;
-            }
-            int attributeInt = i.getAttributeInt("Orientation", 1);
-            if (attributeInt != 3) {
-                if (attributeInt != 6) {
-                    return attributeInt != 8 ? 0 : 270;
-                }
-                return 90;
-            }
-            return 180;
-        }
-        return invokeL.intValue;
-    }
-
-    public static Bitmap g(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, drawable)) == null) {
-            if (drawable == null) {
-                return null;
-            }
-            return h(drawable, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static Bitmap h(Drawable drawable, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, drawable, i, i2)) == null) {
-            Bitmap bitmap = null;
-            if (drawable != null && i > 0 && i2 > 0) {
-                try {
-                    bitmap = Bitmap.createBitmap(i, i2, drawable.getOpacity() != -1 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
-                    if (bitmap != null) {
-                        Canvas canvas = new Canvas(bitmap);
-                        drawable.setBounds(0, 0, i, i2);
-                        drawable.draw(canvas);
-                    }
-                } catch (Exception | OutOfMemoryError e) {
-                    e.printStackTrace();
-                }
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeLII.objValue;
-    }
-
-    public static ExifInterface i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (ExifInterface) invokeL.objValue;
-    }
-
-    public static int[] j() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            int[] iArr = new int[1];
-            GLES10.glGetIntegerv(3379, iArr, 0);
-            if (iArr[0] != 0) {
-                return iArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e()) {
+                if (a) {
+                    Log.d("SwanAppCompat", "has used ab description");
+                }
+                return true;
             }
-            EGL10 egl10 = (EGL10) EGLContext.getEGL();
-            EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            egl10.eglInitialize(eglGetDisplay, new int[2]);
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            egl10.eglChooseConfig(eglGetDisplay, new int[]{12351, 12430, 12329, 0, 12339, 1, 12344}, eGLConfigArr, 1, new int[1]);
-            EGLConfig eGLConfig = eGLConfigArr[0];
-            EGLSurface eglCreatePbufferSurface = egl10.eglCreatePbufferSurface(eglGetDisplay, eGLConfig, new int[]{12375, 64, 12374, 64, 12344});
-            EGLContext eglCreateContext = egl10.eglCreateContext(eglGetDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 1, 12344});
-            egl10.eglMakeCurrent(eglGetDisplay, eglCreatePbufferSurface, eglCreatePbufferSurface, eglCreateContext);
-            GLES10.glGetIntegerv(3379, iArr, 0);
-            EGLSurface eGLSurface = EGL10.EGL_NO_SURFACE;
-            egl10.eglMakeCurrent(eglGetDisplay, eGLSurface, eGLSurface, EGL10.EGL_NO_CONTEXT);
-            egl10.eglDestroySurface(eglGetDisplay, eglCreatePbufferSurface);
-            egl10.eglDestroyContext(eglGetDisplay, eglCreateContext);
-            egl10.eglTerminate(eglGetDisplay);
-            return iArr;
+            return !i93.a().getBoolean("swan_app_js_native_ab_update_key", false);
         }
-        return (int[]) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static File k(String str) {
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? l(wl2.U().G().k(), str) : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            ux1.c("JsNative", f + "-true");
+            return f + "-true-" + str + "-" + c();
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static File l(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            if (a) {
-                Log.d(BitmapUtils.TAG, "获取temp路径");
-            }
-            String str3 = "swan_tmp_" + System.currentTimeMillis() + "_" + str2;
-            File file = null;
-            if (!TextUtils.isEmpty(str)) {
-                File file2 = new File(str);
-                if (file2.exists()) {
-                    file = new File(file2, str3);
-                } else if (file2.mkdirs()) {
-                    file = new File(file2, str3);
-                }
-                if (file != null && !file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (IOException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-            if (a && file != null) {
-                Log.e(BitmapUtils.TAG, "temp路径:" + file.getAbsolutePath());
-            }
-            return file;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static Uri m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (!str.startsWith("http://") && !str.startsWith("https://") && !str.startsWith("file://") && !str.startsWith("content://")) {
-                if (str.startsWith("/")) {
-                    return Uri.fromFile(new File(str));
-                }
-                return null;
-            }
-            return Uri.parse(str);
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public static boolean n(File file, File file2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65550, null, file, file2, i)) != null) {
-            return invokeLLI.booleanValue;
-        }
-        if (a) {
-            Log.d(BitmapUtils.TAG, "rotateAndCompressImage");
-        }
-        if (file2 == null || file == null || !file.exists() || !file2.exists()) {
-            if (a) {
-                Log.e(BitmapUtils.TAG, "dest file or sourceFile is null");
-            }
-            return false;
-        } else if (i >= 0 && i <= 100) {
-            FileOutputStream fileOutputStream = null;
-            try {
-                try {
-                    Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
-                    if (decodeFile != null && decodeFile.getWidth() != 0 && decodeFile.getHeight() != 0) {
-                        int f = f(file.getAbsolutePath());
-                        if (f != 0) {
-                            Matrix matrix = new Matrix();
-                            matrix.postRotate(f);
-                            decodeFile = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
-                        }
-                        FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                        try {
-                            decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream2);
-                            mg4.d(fileOutputStream2);
-                            c(file.getAbsolutePath(), file2.getAbsolutePath(), i);
-                            return true;
-                        } catch (Exception e) {
-                            e = e;
-                            fileOutputStream = fileOutputStream2;
-                            if (a) {
-                                Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            synchronized (d) {
+                if (b != null) {
+                    sb.append("v8list:{");
+                    for (String str : b) {
+                        if (!TextUtils.isEmpty(str)) {
+                            if (str.length() > 100) {
+                                sb.append(str.substring(0, 99));
+                                sb.append(StringHelper.STRING_MORE);
+                            } else {
+                                sb.append(str);
                             }
-                            mg4.d(fileOutputStream);
-                            return false;
-                        } catch (OutOfMemoryError e2) {
-                            e = e2;
-                            fileOutputStream = fileOutputStream2;
-                            if (a) {
-                                Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
+                            sb.append(";");
+                        }
+                    }
+                    sb.append("},");
+                }
+                if (c != null) {
+                    sb.append("weblist:{");
+                    for (String str2 : c) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            if (str2.length() > 100) {
+                                sb.append(str2.substring(0, 99));
+                                sb.append(StringHelper.STRING_MORE);
+                            } else {
+                                sb.append(str2);
                             }
-                            mg4.d(fileOutputStream);
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileOutputStream = fileOutputStream2;
-                            mg4.d(fileOutputStream);
-                            throw th;
+                            sb.append(";");
                         }
                     }
-                    if (a) {
-                        Log.e(BitmapUtils.TAG, "compress image，but decode bitmap is null");
-                    }
-                    mg4.d(null);
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
+                    sb.append("}");
                 }
-            } catch (Exception e3) {
-                e = e3;
-            } catch (OutOfMemoryError e4) {
-                e = e4;
             }
-        } else {
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d(int i, String str) {
+        InterceptResult invokeIL;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            f = 0;
+            if (e == 1) {
+                ux1.i("SwanAppCompat", "type support default");
+                f = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else if (TextUtils.equals(str, "swan/web")) {
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else {
+                if (a() && !il2.b().isEmpty()) {
+                    synchronized (d) {
+                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
+                            list = b;
+                        } else {
+                            list = c;
+                        }
+                        if (list != null && list.size() > 0) {
+                            if (a) {
+                                Log.d("SwanAppCompat", "support ab js native descriptions");
+                            }
+                            e = 2;
+                            f = 2;
+                            return list.get(i);
+                        } else if (list != null) {
+                            f = 3;
+                        } else {
+                            f = 4;
+                        }
+                    }
+                }
+                if (a) {
+                    Log.d("SwanAppCompat", "use default descriptions");
+                }
+                e = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
+            }
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? e == 2 : invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? !je3.f("3.320.0") : invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? !je3.f("3.120.2") : invokeV.booleanValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             if (a) {
-                Log.e(BitmapUtils.TAG, "quality must be 0..100");
+                Log.d("SwanAppCompat", "on App upgrade");
             }
-            return false;
+            if (d84.b() != null && zc4.b()) {
+                d84.b().i().putString("key_online_description_fix_version", "0");
+            }
+            i93.a().putBoolean("swan_app_js_native_ab_update_key", true);
         }
     }
 
-    public static boolean o(Bitmap bitmap, String str, int i) {
-        InterceptResult invokeLLI;
+    public static void i() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65551, null, bitmap, str, i)) == null) ? p(bitmap, str, i, Bitmap.CompressFormat.JPEG) : invokeLLI.booleanValue;
+        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
+            Log.e("JsNative", f + "-true");
+        }
     }
 
-    public static boolean p(Bitmap bitmap, String str, int i, Bitmap.CompressFormat compressFormat) {
-        InterceptResult invokeLLIL;
+    public static void j() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65552, null, bitmap, str, i, compressFormat)) == null) ? q(str, new a(bitmap, compressFormat, i)) : invokeLLIL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start release descriptions");
+            }
+            synchronized (d) {
+                e = 0;
+                b = new ArrayList();
+                c = new ArrayList();
+            }
+        }
     }
 
-    public static boolean q(String str, ef3<OutputStream, Boolean> ef3Var) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
+    public static void k() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65553, null, str, ef3Var)) != null) {
-            return invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start prepare ab description");
+            }
+            synchronized (d) {
+                l(true);
+                l(false);
+            }
+            if (a) {
+                Log.d("SwanAppCompat", "end prepare ab description");
+            }
         }
-        boolean z = false;
-        if (!mg4.w()) {
-            return false;
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            try {
-                File file = new File(str);
-                if (ef3Var != null && d(file)) {
-                    fileOutputStream = new FileOutputStream(file);
-                    try {
-                        if (ef3Var.a(fileOutputStream).booleanValue()) {
-                            z = true;
-                            mg4.d(fileOutputStream);
-                            return z;
-                        }
-                        fileOutputStream2 = fileOutputStream;
-                    } catch (FileNotFoundException e) {
-                        e = e;
-                        fileOutputStream2 = fileOutputStream;
-                        if (a) {
-                            Log.e(BitmapUtils.TAG, "保存图片失败", e);
-                        }
-                        mg4.d(fileOutputStream2);
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream2 = fileOutputStream;
-                        mg4.d(fileOutputStream2);
-                        throw th;
-                    }
+    }
+
+    public static void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("start prepare ab description :");
+                sb.append(z ? V8Engine.TYPE_V8 : AlbumActivityConfig.FROM_WEB_VIEW);
+                Log.d("SwanAppCompat", sb.toString());
+            }
+            ff3 ff3Var = new ff3(z);
+            String a2 = il2.a();
+            String string = i93.a().getString("swan_app_js_native_ab_sign", null);
+            if (!TextUtils.equals(a2, string)) {
+                if (a) {
+                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
                 }
-                fileOutputStream = fileOutputStream2;
-                mg4.d(fileOutputStream);
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
+                if (!ff3Var.a(3)) {
+                    return;
+                }
+                i93.a().putString("swan_app_js_native_ab_sign", a2);
+            } else if (i93.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
+                if (!ff3Var.a(3)) {
+                    return;
+                }
+                i93.a().putBoolean("swan_app_js_native_ab_update_key", false);
             }
-        } catch (FileNotFoundException e2) {
-            e = e2;
+            List<String> d2 = ff3Var.d();
+            if (d2 != null) {
+                m(d2, z);
+            }
         }
     }
 
-    public static void r(Context context, String str) {
+    public static void m(List<String> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) || str == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLZ(65549, null, list, z) == null) && list != null && e == 0) {
+            if (z) {
+                b = list;
+            } else {
+                c = list;
+            }
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("has update descriptions, list :");
+                sb.append(list.toString());
+                sb.append(" type :");
+                sb.append(z ? V8Engine.TYPE_V8 : AlbumActivityConfig.FROM_WEB_VIEW);
+                Log.d("SwanAppCompat", sb.toString());
+            }
         }
-        File file = new File(str);
-        Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-        intent.setData(Uri.fromFile(file));
-        context.sendBroadcast(intent);
     }
 }

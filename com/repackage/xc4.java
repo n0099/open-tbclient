@@ -1,16 +1,20 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xc4 extends qb4 {
+public class xc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xc4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
     public xc4() {
         Interceptable interceptable = $ic;
@@ -22,24 +26,77 @@ public class xc4 extends qb4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.a = d84.b().i().getInt("max_emit_app_close_num", 1);
+    }
+
+    public static xc4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (xc4.class) {
+                    if (c == null) {
+                        c = new xc4();
+                    }
+                }
+            }
+            return c;
+        }
+        return (xc4) invokeV.objValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || c == null) {
+            return;
+        }
+        c = null;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d84.b().i().getString("simple_control_item_version", "0") : (String) invokeV.objValue;
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b++;
             }
         }
     }
 
-    @Override // com.repackage.qb4
-    public JSONObject d() {
+    public synchronized boolean d() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("version", wc4.e().a());
-                jSONObject.put("base_info", jSONObject2);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.b < this.a;
             }
-            return jSONObject;
+            return z;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
+        d84.b().i().putString("simple_control_item_version", optString);
+        d84.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

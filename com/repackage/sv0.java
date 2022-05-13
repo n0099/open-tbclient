@@ -82,7 +82,7 @@ public class sv0 extends lv0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.C();
-            this.e.M(hi0.e());
+            this.e.M(ki0.e());
         }
     }
 

@@ -1,7 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,15 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class yu1 extends pt1 {
+public class yu1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public int e;
-    public int f;
+    public int a;
 
     public yu1() {
         Interceptable interceptable = $ic;
@@ -33,37 +27,26 @@ public class yu1 extends pt1 {
         }
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) {
-            if (qt1Var.a() == 0) {
-                qt1Var.b(canvas.save());
-            } else {
-                canvas.restoreToCount(qt1Var.a());
-                qt1Var.b(canvas.save());
-            }
-            Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
-            canvas.concat(matrix);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) || (i = this.a) <= 0) {
+            return;
         }
+        bu1Var.e.setTextSize(i);
     }
 
-    @Override // com.repackage.pt1
+    @Override // com.repackage.au1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                if (jSONArray.length() == 6) {
-                    this.a = (float) jSONArray.optDouble(0);
-                    this.b = (float) jSONArray.optDouble(1);
-                    this.c = (float) jSONArray.optDouble(2);
-                    this.d = (float) jSONArray.optDouble(3);
-                    this.e = ae3.g((float) jSONArray.optDouble(4));
-                    this.f = ae3.g((float) jSONArray.optDouble(5));
+                if (jSONArray.length() > 0) {
+                    this.a = le3.g((float) jSONArray.optDouble(0));
                 }
             } catch (Exception e) {
-                if (tg1.a) {
+                if (eh1.a) {
                     e.printStackTrace();
                 }
             }

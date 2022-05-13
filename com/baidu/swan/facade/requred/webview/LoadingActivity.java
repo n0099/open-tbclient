@@ -20,17 +20,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa2;
-import com.repackage.ae3;
-import com.repackage.cf3;
-import com.repackage.de3;
-import com.repackage.dn3;
-import com.repackage.i03;
-import com.repackage.n03;
-import com.repackage.y92;
-import com.repackage.z92;
+import com.repackage.ja2;
+import com.repackage.ka2;
+import com.repackage.la2;
+import com.repackage.le3;
+import com.repackage.nf3;
+import com.repackage.oe3;
+import com.repackage.on3;
+import com.repackage.t03;
+import com.repackage.y03;
 /* loaded from: classes2.dex */
-public class LoadingActivity extends Activity implements cf3<n03.a> {
+public class LoadingActivity extends Activity implements nf3<y03.a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EVENT_ID_HIDE = "loading_hide";
     public static final String EXT_SO_LIB_NAME = "so_lib_name";
@@ -40,18 +40,18 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     public static final int PROGRESS_MAX = 100;
     public static final int PROGRESS_MIN = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cf3<aa2> mFinishCallback;
+    public final nf3<la2> mFinishCallback;
     public boolean mFirstAnimIsLoaded;
     public LottieAnimationView mFirstLottieAnimationView;
     public ImageView mLogoView;
-    public final cf3<aa2> mProgressCallback;
+    public final nf3<la2> mProgressCallback;
     public TextView mProgressView;
     public LottieAnimationView mSecondLottieAnimationView;
     public SwanAppActionBar mSwanAppActionBar;
-    public aa2 mUpdating;
+    public la2 mUpdating;
 
     /* loaded from: classes2.dex */
-    public class a implements cf3<aa2> {
+    public class a implements nf3<la2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
@@ -109,18 +109,18 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
+        @Override // com.repackage.nf3
         /* renamed from: a */
-        public void onCallback(aa2 aa2Var) {
+        public void onCallback(la2 la2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aa2Var) == null) {
-                de3.e0(new RunnableC0166a(this));
+            if (interceptable == null || interceptable.invokeL(1048576, this, la2Var) == null) {
+                oe3.e0(new RunnableC0166a(this));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements cf3<aa2> {
+    public class b implements nf3<la2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
@@ -144,11 +144,11 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
+        @Override // com.repackage.nf3
         /* renamed from: a */
-        public void onCallback(aa2 aa2Var) {
+        public void onCallback(la2 la2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aa2Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, la2Var) == null) {
                 this.a.finish();
             }
         }
@@ -243,16 +243,16 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mProgressView.setText(getString(R.string.obfuscated_res_0x7f0f0193, new Object[]{0}));
+            this.mProgressView.setText(getString(R.string.obfuscated_res_0x7f0f0195, new Object[]{0}));
             Intent intent = getIntent();
-            Bitmap d2 = dn3.b().d();
+            Bitmap d2 = on3.b().d();
             if (d2 == null) {
                 this.mLogoView.setImageResource(R.drawable.obfuscated_res_0x7f0801c0);
             } else {
                 this.mLogoView.setImageBitmap(d2);
             }
             String stringExtra = intent == null ? "" : intent.getStringExtra(EXT_SO_LIB_NAME);
-            aa2 j = y92.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+            la2 j = ja2.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
             this.mUpdating = j;
             if (j != null && !j.n()) {
                 this.mUpdating.v(this.mProgressCallback);
@@ -267,7 +267,7 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     private void initActionBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090186);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017c);
             this.mSwanAppActionBar = swanAppActionBar;
             swanAppActionBar.f(-16777216, false);
             this.mSwanAppActionBar.setRightExitOnClickListener(new d(this));
@@ -277,13 +277,13 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0901b0);
-            this.mLogoView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901ad);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901ae);
+            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a6);
+            this.mLogoView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a3);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a4);
             this.mFirstLottieAnimationView = lottieAnimationView;
             lottieAnimationView.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
             this.mFirstLottieAnimationView.setAnimation(LOTTIE_ANIM_FIRST_NAME);
-            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901af);
+            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a5);
             this.mSecondLottieAnimationView = lottieAnimationView2;
             lottieAnimationView2.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
             this.mSecondLottieAnimationView.setAnimation(LOTTIE_ANIM_SECOND_NAME);
@@ -297,7 +297,7 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     private void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            i03.J().v(this);
+            t03.J().v(this);
         }
     }
 
@@ -317,7 +317,7 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     private void unregisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            i03.J().p(this);
+            t03.J().p(this);
         }
     }
 
@@ -325,13 +325,13 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            int c0 = de3.c0(this);
+            int c0 = oe3.c0(this);
             super.onCreate(bundle);
-            de3.g(this, c0);
+            oe3.g(this, c0);
             setContentView(R.layout.obfuscated_res_0x7f0d0042);
             initViews();
             initActionBar();
-            ae3.a(this);
+            le3.a(this);
             registerListener();
             init();
             LogUtil.logActivity(this, "onCreate");
@@ -345,10 +345,10 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
             this.mFirstLottieAnimationView.removeAllAnimatorListeners();
             this.mFirstLottieAnimationView.cancelAnimation();
             this.mSecondLottieAnimationView.cancelAnimation();
-            aa2 aa2Var = this.mUpdating;
-            if (aa2Var != null) {
-                aa2Var.g(this.mFinishCallback);
-                aa2Var.h(this.mProgressCallback);
+            la2 la2Var = this.mUpdating;
+            if (la2Var != null) {
+                la2Var.g(this.mFinishCallback);
+                la2Var.h(this.mProgressCallback);
             }
             unregisterListener();
             super.onDestroy();
@@ -358,8 +358,8 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
     public void updateUiProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            aa2 aa2Var = this.mUpdating;
-            z92.b m = aa2Var == null ? null : aa2Var.m();
+            la2 la2Var = this.mUpdating;
+            ka2.b m = la2Var == null ? null : la2Var.m();
             if (m == null || !m.a()) {
                 return;
             }
@@ -368,13 +368,13 @@ public class LoadingActivity extends Activity implements cf3<n03.a> {
             if (textView == null || min <= 0) {
                 return;
             }
-            textView.setText(getString(R.string.obfuscated_res_0x7f0f0193, new Object[]{Integer.valueOf(min)}));
+            textView.setText(getString(R.string.obfuscated_res_0x7f0f0195, new Object[]{Integer.valueOf(min)}));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.cf3
-    public void onCallback(n03.a aVar) {
+    @Override // com.repackage.nf3
+    public void onCallback(y03.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && TextUtils.equals(aVar.b, EVENT_ID_HIDE)) {
             finish();

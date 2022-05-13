@@ -1,72 +1,90 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.rule.TaskRuleData;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sv extends jv<TaskRuleData> {
+public final class sv implements qv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final UBCManager a;
+    public final tv b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sv(lv lvVar) {
-        super(lvVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964027390, "Lcom/repackage/sv;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964027390, "Lcom/repackage/sv;");
+        }
+    }
+
+    public sv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lvVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((lv) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        this.b = (tv) ServiceManager.getService(tv.a.a());
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.qv
+    public void a(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jv
-    /* renamed from: c */
-    public TaskRuleData a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String version = jSONObject.optString("ver");
-                String upgrade = jSONObject.optString("url");
-                long optLong = jSONObject.optLong("expire");
-                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
-                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
-                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
-                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
-                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
-                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
-                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
-                Intrinsics.checkExpressionValueIsNotNull(version, "version");
-                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
-                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", str2);
+            hashMap.put("page", str);
+            if (jSONObject != null) {
+                String jSONObject2 = jSONObject.toString();
+                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "it.toString()");
+                hashMap.put("ext", jSONObject2);
+            }
+            UBCManager uBCManager = this.a;
+            if (uBCManager != null) {
+                uBCManager.onEvent("3676", hashMap);
             }
         }
-        return (TaskRuleData) invokeL.objValue;
+    }
+
+    @Override // com.repackage.qv
+    public void b(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            String extra = jSONObject.toString();
+            HashMap hashMap = new HashMap();
+            hashMap.put("value", str);
+            hashMap.put("type", "abnormal");
+            Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
+            hashMap.put("ext", extra);
+            tv tvVar = this.b;
+            if (tvVar != null) {
+                tvVar.a("3677", str, extra);
+            }
+        }
     }
 }

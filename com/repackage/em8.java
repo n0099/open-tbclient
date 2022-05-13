@@ -1,124 +1,74 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import tbclient.GetIconList.Setting;
+import tbclient.GetIconList.UserInfo;
 /* loaded from: classes6.dex */
-public class em8 extends fm8 {
+public class em8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, Long> d;
 
-    /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            String valueOf = String.valueOf(i);
+            if (i >= 1000000) {
+                float f = i / 10000.0f;
+                int i2 = i / 10000;
+                if (f > i2) {
+                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
                 }
+                return i2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
             }
+            return valueOf;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() == null) {
-                return;
-            }
-            TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().e();
-        }
+        return (String) invokeI.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755732703, "Lcom/repackage/em8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755732703, "Lcom/repackage/em8;");
-                return;
-            }
-        }
-        MessageManager.getInstance().registerListener(new a(2005016));
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public em8(int i) {
-        super(i);
+    public static String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (j < 0) {
+                j = 0;
             }
-        }
-        this.d = new HashMap<>();
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-                this.d.clear();
-            }
-        }
-    }
-
-    public long f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                synchronized (this) {
-                    if (this.d.get(str) != null) {
-                        return this.d.get(str).longValue();
-                    }
-                    return 0L;
+            String valueOf = String.valueOf(j);
+            if (j >= 1000000) {
+                float f = ((float) j) / 10000.0f;
+                long j2 = j / 10000;
+                if (f > ((float) j2)) {
+                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0L;
+                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
             }
+            return valueOf;
         }
-        return invokeL.longValue;
+        return (String) invokeJ.objValue;
+    }
+
+    public static int c(UserInfo userInfo, int i, Setting setting) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, userInfo, i, setting)) == null) {
+            if (userInfo == null || userInfo.is_mem == null) {
+                return 0;
+            }
+            return userInfo.is_mem.intValue() != 2 ? i : (setting == null || setting.vip_extra_switch.intValue() != 1 || setting.vip_extra_percent.intValue() <= 0) ? i : ((setting.vip_extra_percent.intValue() * i) / 100) + i;
+        }
+        return invokeLIL.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (int) (i / 100.0f) : invokeI.intValue;
     }
 }

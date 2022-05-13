@@ -25,13 +25,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.c78;
 import com.repackage.f9;
-import com.repackage.g45;
-import com.repackage.h45;
+import com.repackage.ki;
 import com.repackage.mi;
-import com.repackage.oi;
-import com.repackage.pg;
+import com.repackage.ng;
+import com.repackage.ro;
 import com.repackage.tn7;
-import com.repackage.uo;
+import com.repackage.x45;
+import com.repackage.y45;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class HotTopicDetailFeedView extends FrameLayout {
@@ -40,8 +40,8 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public TbPageContext<HotTopicDetailActivity> a;
     public BdTypeRecyclerView b;
     public tn7 c;
-    public g45 d;
-    public h45 e;
+    public x45 d;
+    public y45 e;
     public PbListView f;
     public RecyclerView.OnScrollListener g;
     public c78 h;
@@ -198,7 +198,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.A()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ki.A()) {
                 ((HotTopicDetailActivity) this.a.a.getOrignalPage()).refreshFeedData(this.a.i);
             }
         }
@@ -241,7 +241,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
             if (c78Var != null) {
                 c78Var.h();
             }
-            pg.a().removeCallbacks(this.k);
+            ng.a().removeCallbacks(this.k);
         }
     }
 
@@ -256,22 +256,22 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void g() {
-        g45 g45Var;
+        x45 x45Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (g45Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (x45Var = this.d) == null) {
             return;
         }
-        g45Var.dettachView(this);
+        x45Var.dettachView(this);
         this.d = null;
     }
 
     public void h() {
-        h45 h45Var;
+        y45 y45Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (h45Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (y45Var = this.e) == null) {
             return;
         }
-        h45Var.dettachView(this);
+        y45Var.dettachView(this);
         this.e = null;
     }
 
@@ -322,13 +322,13 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            g45 g45Var = this.d;
-            if (g45Var != null) {
-                g45Var.onChangeSkinType();
+            x45 x45Var = this.d;
+            if (x45Var != null) {
+                x45Var.onChangeSkinType();
             }
-            h45 h45Var = this.e;
-            if (h45Var != null) {
-                h45Var.onChangeSkinType();
+            y45 y45Var = this.e;
+            if (y45Var != null) {
+                y45Var.onChangeSkinType();
             }
             PbListView pbListView = this.f;
             if (pbListView != null) {
@@ -387,7 +387,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         bdTypeRecyclerView.setNextPage(pbListView);
         this.f.G(R.dimen.tbfontsize33);
         this.f.L(0);
-        this.f.t(oi.f(getContext(), R.dimen.tbds182));
+        this.f.t(mi.f(getContext(), R.dimen.tbds182));
         this.f.Q();
     }
 
@@ -395,9 +395,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             if (this.d == null) {
-                g45 g45Var = new g45(getContext());
-                this.d = g45Var;
-                g45Var.i();
+                x45 x45Var = new x45(getContext());
+                this.d = x45Var;
+                x45Var.i();
                 this.d.onChangeSkinType();
                 this.d.setWrapStyle(true);
             }
@@ -418,16 +418,16 @@ public class HotTopicDetailFeedView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (this.e == null) {
-                h45 h45Var = new h45(getContext(), new d(this));
-                this.e = h45Var;
-                h45Var.setWrapStyle(false);
+                y45 y45Var = new y45(getContext(), new d(this));
+                this.e = y45Var;
+                y45Var.setWrapStyle(false);
             }
             this.e.attachView(this, false);
             this.e.p();
             if (z) {
-                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
+                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
             } else {
-                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f0874));
+                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f087c));
             }
             this.e.b().setClickable(false);
         }
@@ -443,10 +443,10 @@ public class HotTopicDetailFeedView extends FrameLayout {
         bdTypeRecyclerView.setNextPage(pbListView);
         this.f.f();
         this.f.L(0);
-        this.f.C(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+        this.f.C(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f09ee));
     }
 
-    public void setData(@NonNull List<uo> list) {
+    public void setData(@NonNull List<ro> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.c.d(list);

@@ -59,7 +59,7 @@ public class UpdateDialogConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09ef));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09f5));
             return false;
         }
         return invokeV.booleanValue;

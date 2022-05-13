@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i27;
+import com.repackage.i17;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<i27> b;
+    public List<i17> b;
 
     public TopicTimelineAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i) {
-        i27 i27Var;
+        i17 i17Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, topicTimelineHolder, i) == null) || (i27Var = (i27) ListUtils.getItem(this.b, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, topicTimelineHolder, i) == null) || (i17Var = (i17) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
         TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.b();
-        topicTimelineCellCardView.setData(i27Var);
+        topicTimelineCellCardView.setData(i17Var);
         topicTimelineCellCardView.b();
     }
 
@@ -69,7 +69,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.b) : invokeV.intValue;
     }
 
-    public void setData(List<i27> list) {
+    public void setData(List<i17> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;

@@ -345,7 +345,7 @@ public enum EcKwaiInfoManager {
             performDownload(context, str, str2);
             return;
         }
-        u.a(context, context.getString(R.string.obfuscated_res_0x7f0f098f), 0);
+        u.a(context, context.getString(R.string.obfuscated_res_0x7f0f0993), 0);
         init(context);
     }
 }

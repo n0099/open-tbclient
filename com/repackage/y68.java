@@ -27,11 +27,7 @@ public interface y68 extends MediaController.MediaPlayerControl {
 
     int getPlayerWidth();
 
-    int getVideoHeight();
-
     OnStatusChangedListener.VideoStatus getVideoStatus();
-
-    int getVideoWidth();
 
     void j();
 

@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b03;
-import com.repackage.id3;
-import com.repackage.nz2;
-import com.repackage.rf3;
-import com.repackage.tg1;
+import com.repackage.cg3;
+import com.repackage.eh1;
+import com.repackage.m03;
+import com.repackage.td3;
+import com.repackage.yz2;
 /* loaded from: classes2.dex */
 public class SwanAppAdbDebugActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -111,7 +111,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 return;
             }
         }
-        DEBUG = tg1.a;
+        DEBUG = eh1.a;
     }
 
     public SwanAppAdbDebugActivity() {
@@ -136,25 +136,25 @@ public class SwanAppAdbDebugActivity extends Activity {
             if (DEBUG) {
                 Log.d(TAG, "ADB Debug onCreate");
             }
-            if (id3.a(this)) {
+            if (td3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
             Intent intent = getIntent();
             if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                b03.f(this, R.string.obfuscated_res_0x7f0f00f8).G();
+                m03.f(this, R.string.obfuscated_res_0x7f0f00fa).G();
                 if (DEBUG) {
                     Log.d(TAG, "ADB Debug lack of app path");
                 }
                 finish();
             }
-            nz2.a aVar = new nz2.a(this);
-            aVar.V(getString(R.string.obfuscated_res_0x7f0f00f6));
-            aVar.x(getString(R.string.obfuscated_res_0x7f0f00f7));
-            aVar.n(new rf3());
+            yz2.a aVar = new yz2.a(this);
+            aVar.V(getString(R.string.obfuscated_res_0x7f0f00f8));
+            aVar.x(getString(R.string.obfuscated_res_0x7f0f00f9));
+            aVar.n(new cg3());
             aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f0110, new b(this, intent));
-            aVar.B(R.string.obfuscated_res_0x7f0f1279, new a(this));
+            aVar.O(R.string.obfuscated_res_0x7f0f0112, new b(this, intent));
+            aVar.B(R.string.obfuscated_res_0x7f0f129a, new a(this));
             aVar.X();
             LogUtil.logActivity(this, "onCreate");
         }

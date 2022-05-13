@@ -21,15 +21,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.u77;
+import com.repackage.k77;
+import com.repackage.kg;
 import com.repackage.ya;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u77 addGroupView;
+    public k77 addGroupView;
     public ya searchGroupCallback;
     public SearchGroupModel searchGroupModel;
 
@@ -65,7 +65,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.addGroupView.o(false);
+                this.a.addGroupView.q(false);
                 if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
                     this.a.groupNotSearched();
                 } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
@@ -109,7 +109,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void groupNotSearched() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            showToast(R.string.obfuscated_res_0x7f0f00c8);
+            showToast(R.string.obfuscated_res_0x7f0f00ca);
         }
     }
 
@@ -127,11 +127,11 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65543, this, str, i) == null) {
             if (i < 0) {
-                showToast(R.string.obfuscated_res_0x7f0f0c17);
+                showToast(R.string.obfuscated_res_0x7f0f0c2d);
             } else if (!TextUtils.isEmpty(str)) {
                 showToast(str);
             } else {
-                showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
+                showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c2d));
             }
         }
     }
@@ -141,17 +141,17 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
                 try {
-                    this.addGroupView.o(true);
-                    this.searchGroupModel.sendMessage(mg.g(str, 0L));
+                    this.addGroupView.q(true);
+                    this.searchGroupModel.sendMessage(kg.g(str, 0L));
                     return;
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
-                    this.addGroupView.o(false);
-                    showToast(R.string.obfuscated_res_0x7f0f07e6);
+                    this.addGroupView.q(false);
+                    showToast(R.string.obfuscated_res_0x7f0f07ee);
                     return;
                 }
             }
-            showToast(R.string.obfuscated_res_0x7f0f0e58);
+            showToast(R.string.obfuscated_res_0x7f0f0e76);
         }
     }
 
@@ -160,7 +160,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            this.addGroupView.h(i);
+            this.addGroupView.i(i);
         }
     }
 
@@ -169,16 +169,16 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onClick(view2);
-            if (view2 == this.addGroupView.j()) {
+            if (view2 == this.addGroupView.k()) {
                 finish();
-            } else if (view2 == this.addGroupView.l()) {
+            } else if (view2 == this.addGroupView.m()) {
                 TiebaStatic.log("add_group_searchbtn_click");
                 if (view2.getTag() instanceof String) {
                     doSearch((String) view2.getTag());
                 }
-            } else if (view2 == this.addGroupView.k()) {
-                this.addGroupView.i();
-            } else if (view2 == this.addGroupView.m()) {
+            } else if (view2 == this.addGroupView.l()) {
+                this.addGroupView.j();
+            } else if (view2 == this.addGroupView.n()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
             }
         }
@@ -189,7 +189,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.addGroupView = new u77(this);
+            this.addGroupView = new k77(this);
             this.searchGroupModel = new SearchGroupModel(this);
             registerListener(this.searchGroupCallback);
         }

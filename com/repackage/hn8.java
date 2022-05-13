@@ -1,74 +1,111 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.GetIconList.Setting;
-import tbclient.GetIconList.UserInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public boolean b;
+    public Runnable c;
 
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            String valueOf = String.valueOf(i);
-            if (i >= 1000000) {
-                float f = i / 10000.0f;
-                int i2 = i / 10000;
-                if (f > i2) {
-                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1474);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn8 a;
+
+        public a(hn8 hn8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return i2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1474);
             }
-            return valueOf;
+            this.a = hn8Var;
         }
-        return (String) invokeI.objValue;
-    }
 
-    public static String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            String valueOf = String.valueOf(j);
-            if (j >= 1000000) {
-                float f = ((float) j) / 10000.0f;
-                long j2 = j / 10000;
-                if (f > ((float) j2)) {
-                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1474);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                    this.a.b = true;
+                } else {
+                    this.a.a();
                 }
-                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1474);
             }
-            return valueOf;
         }
-        return (String) invokeJ.objValue;
     }
 
-    public static int c(UserInfo userInfo, int i, Setting setting) {
-        InterceptResult invokeLIL;
+    public hn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, userInfo, i, setting)) == null) {
-            if (userInfo == null || userInfo.is_mem == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, tm8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return userInfo.is_mem.intValue() != 2 ? i : (setting == null || setting.vip_extra_switch.intValue() != 1 || setting.vip_extra_percent.intValue() <= 0) ? i : ((setting.vip_extra_percent.intValue() * i) / 100) + i;
         }
-        return invokeLIL.intValue;
+        this.b = false;
+        this.c = new a(this);
+        this.a = mainTabActivity;
     }
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (int) (i / 100.0f) : invokeI.intValue;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TbSingleton.getInstance().getNewUserRedPackageData() == null) {
+            return;
+        }
+        TbSingleton.getInstance().setNewUserRedPackageShowed(true);
+        this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
+        TbSingleton.getInstance().setNewUserRedPackageData(null);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            this.b = false;
+            ng.a().removeCallbacks(this.c);
+            ng.a().postDelayed(this.c, 200L);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ng.a().removeCallbacks(this.c);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ng.a().removeCallbacks(this.c);
+            ng.a().postDelayed(this.c, 200L);
+        }
     }
 }

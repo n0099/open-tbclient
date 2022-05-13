@@ -1,110 +1,143 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gk1;
-import com.repackage.nz2;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class fz1 {
+public class fz1 extends w53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public CookieManager a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements gk1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-
-        public a(Context context, b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755690636, "Lcom/repackage/fz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = context;
-            this.b = bVar;
-        }
-
-        @Override // com.repackage.gk1.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!z) {
-                    jx1.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f0103));
-                    return;
-                }
-                jx1.c("DeveloperAuthenticateHelper", "Authentication Success");
-                this.b.a(true, "");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755690636, "Lcom/repackage/fz1;");
+                return;
             }
         }
+        b = eh1.a;
+    }
 
-        @Override // com.repackage.gk1.b
-        public void b(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                jx1.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
-                String message = exc.getMessage();
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0103));
-                if (TextUtils.isEmpty(message)) {
-                    str = "";
-                } else {
-                    str = "\n" + message;
-                }
-                sb.append(str);
-                this.b.a(false, sb.toString());
+    public fz1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = new gz1();
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z, String str);
-    }
-
-    public static void a(@NonNull j03 j03Var, @NonNull Context context, @NonNull b bVar) {
+    public final Bundle a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, j03Var, context, bVar) == null) {
-            wg1.b(j03Var.N(), new a(context, bVar));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", i);
+            bundle.putString("param1", str);
+            bundle.putString("param2", str2);
+            return bundle;
         }
+        return (Bundle) invokeLLI.objValue;
     }
 
-    public static void b(Context context, @StringRes int i, String str) {
+    @Override // com.repackage.w53, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
-            nz2.a aVar = new nz2.a(context);
-            aVar.U(i);
-            aVar.x(str);
-            aVar.n(new rf3());
-            aVar.O(R.string.obfuscated_res_0x7f0f0110, null);
-            aVar.X();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.getCookie(str);
+            }
+            jx2 c = hx2.c(ez1.class, a(str, "", 4));
+            if (c.a()) {
+                String string = c.a.getString("result");
+                if (b) {
+                    Log.d("DelegationCookieManager", "getCookie cookie : " + string);
+                }
+                return string;
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void c(Context context, String str) {
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            b(context, R.string.obfuscated_res_0x7f0f0149, str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.shouldAcceptCookie(str, str2);
+            }
+            jx2 c = hx2.c(ez1.class, a(str, str2, 1));
+            if (c.a()) {
+                return c.a.getBoolean("result");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.shouldSendCookie(str, str2);
+            }
+            jx2 c = hx2.c(ez1.class, a(str, str2, 2));
+            if (c.a()) {
+                return c.a.getBoolean("result");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                this.a.storeCookie(str, list);
+                return;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", 3);
+            bundle.putString("param1", str);
+            bundle.putStringArrayList("param2", (ArrayList) list);
+            hx2.c(ez1.class, bundle);
+            if (b) {
+                Log.d("DelegationCookieManager", "set cookies for " + str);
+            }
         }
     }
 }

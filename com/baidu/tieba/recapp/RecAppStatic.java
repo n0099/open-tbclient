@@ -17,18 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc8;
-import com.repackage.fb8;
-import com.repackage.jh5;
+import com.repackage.ci5;
+import com.repackage.ja8;
 import com.repackage.la8;
-import com.repackage.ma8;
-import com.repackage.oa8;
-import com.repackage.s98;
-import com.repackage.u98;
-import com.repackage.uj5;
-import com.repackage.w98;
-import com.repackage.wi5;
-import com.repackage.y98;
+import com.repackage.oj5;
+import com.repackage.r98;
+import com.repackage.t98;
+import com.repackage.v98;
+import com.repackage.x98;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +34,7 @@ public class RecAppStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements y98.a {
+    public static class a implements x98.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +52,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // com.repackage.y98.a
+        @Override // com.repackage.x98.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -146,21 +142,19 @@ public class RecAppStatic {
                 return;
             }
         }
-        ma8.a.set(new oa8());
-        dc8.a.set(new la8());
+        ja8.a.set(new la8());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        wi5.l().e(new a());
-        jh5.b().c(1, new w98());
-        jh5.b().c(2, new u98());
+        oj5.l().e(new a());
+        ci5.b().c(1, new v98());
+        ci5.b().c(2, new t98());
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         b bVar = new b(inst);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        s98.t().b();
-        s98.t().f();
-        uj5.a.set(new fb8());
+        r98.t().b();
+        r98.t().f();
     }
 
     public RecAppStatic() {

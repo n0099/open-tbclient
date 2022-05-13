@@ -1,125 +1,81 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
+/* loaded from: classes6.dex */
 public class qg {
     public static /* synthetic */ Interceptable $ic;
+    public static qg b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadPoolExecutor a;
 
-    public static boolean a(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
-            try {
-                context.sendBroadcast(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964029777, "Lcom/repackage/qg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964029777, "Lcom/repackage/qg;");
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        b = new qg();
     }
 
-    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
-        InterceptResult invokeLLLI;
+    public qg() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
-            try {
-                context.bindService(intent, serviceConnection, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLI.booleanValue;
+        this.a = new ScheduledThreadPoolExecutor(1);
     }
 
-    public static boolean startActivity(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public static qg a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
-            try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (qg) invokeV.objValue;
     }
 
-    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
-        InterceptResult invokeLLI;
+    public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            if (this.a.getTaskCount() >= 1) {
+                new Thread(runnable).start();
+                return;
+            }
             try {
-                activity.startActivityForResult(intent, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
             }
         }
-        return invokeLLI.booleanValue;
     }
 
-    public static boolean startService(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
             try {
-                context.startService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
             }
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean stopService(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
-            try {
-                context.stopService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
-            try {
-                context.unbindService(serviceConnection);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
     }
 }

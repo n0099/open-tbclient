@@ -69,10 +69,10 @@ public class WriteImageActivityConfig extends IntentConfig {
         getIntent().putExtra("foruimname", str2);
         getIntent().putExtra("display_size", i3);
         if (str3 != null) {
-            getIntent().putExtra("finish_text", str3);
+            getIntent().putExtra(FINISH_TEXT, str3);
         }
         if (str4 != null) {
-            getIntent().putExtra("cancel_text", str4);
+            getIntent().putExtra(CANCEL_TEXT, str4);
         }
         if (str6 != null) {
             getIntent().putExtra("file_name", str6);
@@ -106,10 +106,10 @@ public class WriteImageActivityConfig extends IntentConfig {
         getIntent().putExtra("foruimname", str2);
         getIntent().putExtra("display_size", i3);
         if (str3 != null) {
-            getIntent().putExtra("finish_text", str3);
+            getIntent().putExtra(FINISH_TEXT, str3);
         }
         if (str4 != null) {
-            getIntent().putExtra("cancel_text", str4);
+            getIntent().putExtra(CANCEL_TEXT, str4);
         }
         getIntent().setData(uri);
         setRequestCode(i2);

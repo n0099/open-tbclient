@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b39;
+import com.repackage.w19;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -16,7 +16,7 @@ import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
 import tbclient.GetRecommendTopic.TopicList;
 import tbclient.GetRecommendTopic.TopicListModule;
 /* loaded from: classes4.dex */
-public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage implements b39 {
+public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage implements w19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicListModule recommendTopic;
@@ -39,7 +39,7 @@ public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage im
         }
     }
 
-    @Override // com.repackage.b39
+    @Override // com.repackage.w19
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

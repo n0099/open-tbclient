@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc1;
+import com.repackage.qc1;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
-public class SpeedRuntimeProvider extends fc1<ISpeedContext> {
+public class SpeedRuntimeProvider extends qc1<ISpeedContext> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAIN_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.MainTabActivity";
     public static final String SCHEMA_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.SchemaRouteActivity";
@@ -38,7 +38,7 @@ public class SpeedRuntimeProvider extends fc1<ISpeedContext> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     public ISpeedContext createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,14 +131,14 @@ public class SpeedRuntimeProvider extends fc1<ISpeedContext> {
             public boolean isPushDispatchActivity(Activity activity) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) ? SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) ? "com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(activity.getClass().getName()) : invokeL.booleanValue;
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public boolean isSchemeDispatchActivity(Activity activity) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048585, this, activity)) == null) ? SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048585, this, activity)) == null) ? "com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(activity.getClass().getName()) : invokeL.booleanValue;
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext

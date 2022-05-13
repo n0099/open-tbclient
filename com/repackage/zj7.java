@@ -59,13 +59,13 @@ public class zj7 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ac8);
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921de);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e0);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921dd);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921df);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921b9);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b16);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906cd);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092235);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092237);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092234);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092236);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092210);
         }
     }
 
@@ -85,7 +85,7 @@ public class zj7 extends BaseAdapter {
             }
         }
         this.b = LayoutInflater.from(tbPageContext.getPageActivity());
-        int k = oi.k(tbPageContext.getPageActivity());
+        int k = mi.k(tbPageContext.getPageActivity());
         this.c = k;
         this.d = (k - tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds120)) / 3;
         this.e = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds360);
@@ -222,7 +222,7 @@ public class zj7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0540, (ViewGroup) null);
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0534, (ViewGroup) null);
                 view2.setTag(new a(this, view2));
             }
             c(i, getItem(i), (a) view2.getTag());

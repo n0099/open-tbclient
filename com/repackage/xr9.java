@@ -1,28 +1,25 @@
 package com.repackage;
 
-import android.os.Handler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.win.opensdk.core.Info;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class xr9 implements Runnable {
+public class xr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ byte[] a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ at9 c;
+    public List a;
 
-    public xr9(byte[] bArr, String str, at9 at9Var) {
+    public xr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, str, at9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,82 +29,54 @@ public final class xr9 implements Runnable {
                 return;
             }
         }
-        this.a = bArr;
-        this.b = str;
-        this.c = at9Var;
+        this.a = Collections.synchronizedList(new ArrayList());
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        FileOutputStream fileOutputStream;
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.a;
-            String str = this.b;
-            at9 at9Var = this.c;
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            File file = new File(str);
-            String substring = str.substring(0, str.lastIndexOf("/"));
-            if (!file.exists()) {
-                new File(substring).mkdir();
-            }
-            FileOutputStream fileOutputStream2 = null;
             try {
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
+                this.a.clear();
+            } catch (Exception unused) {
             }
-            try {
-                byte[] bArr2 = new byte[1024];
-                while (true) {
-                    int read = byteArrayInputStream.read(bArr2);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr2, 0, read);
-                }
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (at9Var != null && (handler = at9Var.a.c.k) != null) {
-                    handler.post(new xs9(at9Var));
-                }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-                if (at9Var != null) {
-                    return;
-                }
-                return;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            if (at9Var != null || (handler2 = at9Var.a.c.k) == null) {
-                return;
-            }
-            handler2.post(new ts9(at9Var));
         }
+    }
+
+    public void b(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            synchronized (this.a) {
+                this.a.clear();
+                this.a.addAll(list);
+            }
+        }
+    }
+
+    public Info c() {
+        InterceptResult invokeV;
+        Info info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.a) {
+                info = null;
+                while (this.a.size() > 0 && ((info = (Info) this.a.remove(0)) == null || !info.isEffective())) {
+                }
+            }
+            return info;
+        }
+        return (Info) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        boolean isEmpty;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                isEmpty = this.a.isEmpty();
+            }
+            return isEmpty;
+        }
+        return invokeV.booleanValue;
     }
 }

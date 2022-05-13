@@ -15,6 +15,7 @@ import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.searchbox.launch.ScheduleStrategy;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
@@ -48,6 +49,8 @@ public class SpeedStats {
     public static final int DATA_TYPE_NONE = -1;
     public static final boolean DEBUG;
     public static final int DEFAULT_DELAY_TIME = 10000;
+    public static final String PUSH_ACTIVITY = "com.baidu.tieba.yunpush.YunPushProxyActivity";
+    public static final String SCHEME_ACTIVITY = "com.baidu.tieba.tblauncher.SchemaRouteActivity";
     public static final String TAG = "SpeedStats";
     public static final int TYPE_INTRODUCTION = 0;
     public static final int TYPE_NONE = -1;
@@ -55,7 +58,10 @@ public class SpeedStats {
     public static final String UBC_LAUNCH_SPEED_ID = "127";
     public static SpeedStats mInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public long backgroudDuration;
+    public long backgroudTimeStamp;
     public boolean isMainPageStatsEnd;
+    public boolean isSchemePushStatsEnd;
     public Context mContext;
     public int mCpuCore;
     public int mFeedDataType;
@@ -123,7 +129,10 @@ public class SpeedStats {
         this.mUbcManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
         this.mHasForegroundToBackground = false;
         this.mSpeedStatsManager = SpeedStatsManager.getInstance();
+        this.backgroudTimeStamp = 0L;
+        this.backgroudDuration = 0L;
         this.isMainPageStatsEnd = false;
+        this.isSchemePushStatsEnd = false;
     }
 
     private void asyncUploadSpeedInfo() {
@@ -210,6 +219,7 @@ public class SpeedStats {
                             }
                             hashMap.put("version", SpeedRuntime.getSpeedContext().getVersionName());
                             hashMap.put("cpu", String.valueOf(this.this$0.mCpuCore));
+                            hashMap.put("device_score", String.valueOf(ScheduleStrategy.getDeviceScore()));
                             hashMap.put(SpeedStatsUtils.UBC_KEY_DRAW_COUNT, String.valueOf(this.this$0.mSpeedStatsManager.getDrawCount()));
                             this.this$0.mFlow.setValue(hashMap);
                             this.this$0.mFlow.end();
@@ -346,23 +356,19 @@ public class SpeedStats {
     /* JADX INFO: Access modifiers changed from: private */
     public String calculateDuration() {
         InterceptResult invokeV;
-        long mainActivityCreateStartTimeStamp;
+        long appLaunchDuration;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
             int i = this.mStartMainActivityType;
-            if (i != 6 && i != 5 && i != 3 && i != 1) {
-                mainActivityCreateStartTimeStamp = (i == 4 || i == 2 || i == 0 || i == 8 || i == 9) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : -1L;
+            if (i != 8 && i != 9) {
+                appLaunchDuration = i == 4 ? this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getAdShowDuration() : 0L;
             } else {
-                mainActivityCreateStartTimeStamp = this.mSpeedStatsManager.getMainActivityCreateStartTimeStamp();
+                appLaunchDuration = this.mSpeedStatsManager.getAppLaunchDuration();
             }
-            if (mainActivityCreateStartTimeStamp > 0) {
-                long appUserPerceptionLaunchDuration = this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getAdShowDuration();
-                if (appUserPerceptionLaunchDuration <= 50 || appUserPerceptionLaunchDuration >= 60000) {
-                    return null;
-                }
-                return String.valueOf(appUserPerceptionLaunchDuration);
+            if (appLaunchDuration <= 50 || appLaunchDuration >= 60000) {
+                return null;
             }
-            return null;
+            return String.valueOf(appLaunchDuration);
         }
         return (String) invokeV.objValue;
     }
@@ -567,6 +573,7 @@ public class SpeedStats {
             Log.d(TAG, "************version:" + map.get("version") + "*************");
             Log.d(TAG, "************stage:" + map.get("stage") + "*************");
             Log.d(TAG, "************cpu:" + map.get("cpu") + "*************");
+            Log.d(TAG, "************device_score:" + map.get("device_score") + "*************");
             Log.d(TAG, "************drawCount:" + map.get(SpeedStatsUtils.UBC_KEY_DRAW_COUNT) + "*************");
             Log.d(TAG, "*****************UBC end*****************");
         }
@@ -588,40 +595,46 @@ public class SpeedStats {
         }
     }
 
+    public long getAppInBackgroundDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.backgroudDuration : invokeV.longValue;
+    }
+
     public long getAppLaunchDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSpeedStatsManager.getAppLaunchDuration() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSpeedStatsManager.getAppLaunchDuration() : invokeV.longValue;
     }
 
     public long getAppStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : invokeV.longValue;
     }
 
     public long getLaunchEndTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedStatsManager.getAppLaunchEndTimeStamp() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSpeedStatsManager.getAppLaunchEndTimeStamp() : invokeV.longValue;
     }
 
     public int getLaunchType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLaunchType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLaunchType : invokeV.intValue;
     }
 
     public boolean hasForegroundToBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mHasForegroundToBackground : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mHasForegroundToBackground : invokeV.booleanValue;
     }
 
     public boolean isHotLaunch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i = this.mStartMainActivityType;
             return i == 6 || i == 7;
         }
@@ -631,33 +644,53 @@ public class SpeedStats {
     public boolean isStartAppFromLauncher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsStartAppFromLauncher : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsStartAppFromLauncher : invokeV.booleanValue;
+    }
+
+    public void onAppBackground() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.backgroudTimeStamp = System.currentTimeMillis();
+        }
     }
 
     public void onAppCreateEnd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             SmartLaunchStats.setAppStartTimeStamp(getAppStartTime());
         }
     }
 
+    public void onAppForeground() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.isMainPageStatsEnd || this.backgroudTimeStamp == 0) {
+            return;
+        }
+        this.backgroudDuration += System.currentTimeMillis() - this.backgroudTimeStamp;
+        this.backgroudTimeStamp = 0L;
+    }
+
     public void onAppProcessUpgrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.mLaunchType = i;
         }
     }
 
     public void onBaseActivityCreate(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
             detectStartAppFrom(activity);
-            if (!this.mHasActivityCreate && System.currentTimeMillis() - this.mSpeedStatsManager.getAppCreateEndTimeStamp() > 300) {
+            if (this.mHasActivityCreate) {
+                return;
+            }
+            if (System.currentTimeMillis() - this.mSpeedStatsManager.getAppCreateEndTimeStamp() > 300) {
                 SmartLaunchStats.setFirstAvailableTimeFlag(false);
             }
+            this.mHasActivityCreate = true;
             if (activity != null) {
+                Intent intent = activity.getIntent();
                 if (isMainTabActivity(activity)) {
-                    Intent intent = activity.getIntent();
                     if (intent != null) {
                         if (TextUtils.equals(intent.getAction(), "android.intent.action.MAIN")) {
                             StringBuilder sb = new StringBuilder();
@@ -665,7 +698,7 @@ public class SpeedStats {
                             sb.append(!this.mHasMainActivityLaunched);
                             Log.d(TAG, sb.toString());
                             if (SpeedRuntime.getSpeedContext().isAgreePrivacyPolicy()) {
-                                this.mSpeedStatsManager.setStatsFlag(true);
+                                SpeedStatsManager.getInstance().setStatsFlag(0);
                             }
                             if (this.mStartMainActivityType == -1) {
                                 if (this.mHasMainActivityLaunched) {
@@ -679,8 +712,20 @@ public class SpeedStats {
                         }
                     }
                     this.mHasMainActivityLaunched = true;
+                } else if (intent == null || intent.getComponent() == null) {
+                } else {
+                    String dataString = intent.getDataString();
+                    String className = intent.getComponent().getClassName();
+                    if (SpeedRuntime.getSpeedContext().isAgreePrivacyPolicy()) {
+                        if (!TextUtils.isEmpty(dataString) && !TextUtils.isEmpty(className) && className.equals("com.baidu.tieba.tblauncher.SchemaRouteActivity")) {
+                            SpeedStatsManager.getInstance().setStatsFlag(2);
+                        }
+                        if (TextUtils.isEmpty(dataString) || TextUtils.isEmpty(className) || !className.equals(PUSH_ACTIVITY)) {
+                            return;
+                        }
+                        SpeedStatsManager.getInstance().setStatsFlag(1);
+                    }
                 }
-                this.mHasActivityCreate = true;
             }
         }
     }
@@ -689,12 +734,12 @@ public class SpeedStats {
     @TimeSpendTrace(isEnd = true)
     public void onMainPageStatsEnd(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, context) == null) || this.isMainPageStatsEnd) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, context) == null) || this.isMainPageStatsEnd) {
             return;
         }
         this.isMainPageStatsEnd = true;
         nb.b().c();
-        if (this.mSpeedStatsManager.getStatsFlag()) {
+        if (this.mSpeedStatsManager.getStatsFlag() == 0) {
             this.mSpeedStatsManager.addStatsTimeStamp(6000);
             this.mUbcPage = SpeedStatsUtils.UBC_PAGE_ALLCACHE;
             Log.d(TAG, "*****************统计终点*****************");
@@ -714,24 +759,28 @@ public class SpeedStats {
 
     @DebugTrace
     @TimeSpendTrace(isEnd = true)
-    public void onSchemeOrPushStatsEnd(Context context, boolean z, String str) {
+    public void onSchemeOrPushStatsEnd(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, Boolean.valueOf(z), str}) == null) {
-            nb.b().c();
-            if (z) {
-                this.mStartMainActivityType = 8;
-            } else {
-                this.mStartMainActivityType = 9;
-            }
+        if (!(interceptable == null || interceptable.invokeLIL(1048590, this, context, i, str) == null) || this.isSchemePushStatsEnd) {
+            return;
+        }
+        this.isSchemePushStatsEnd = true;
+        nb.b().c();
+        if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
+            this.mStartMainActivityType = i;
             this.mUbcPage = str;
             this.mSpeedStatsManager.addStatsTimeStamp(6000);
             asyncUploadSpeedInfo();
         }
+        if (SmartLaunchStats.hasTriedToFindFirstAvailableTime() || hasForegroundToBackground()) {
+            return;
+        }
+        SmartLaunchStats.tryToFindFirstIdleTimeStamp();
     }
 
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             this.mContext = context;
         }
     }

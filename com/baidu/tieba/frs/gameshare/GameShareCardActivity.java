@@ -21,21 +21,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.dd5;
-import com.repackage.ic5;
-import com.repackage.ry4;
-import com.repackage.vk6;
+import com.repackage.fz4;
+import com.repackage.sd5;
+import com.repackage.vd5;
+import com.repackage.wj6;
+import com.repackage.zc5;
 /* loaded from: classes3.dex */
-public class GameShareCardActivity extends BaseActivity implements vk6.h {
+public class GameShareCardActivity extends BaseActivity implements wj6.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GameShareData mShareData;
-    public ry4 mShareTool;
-    public vk6 mView;
+    public fz4 mShareTool;
+    public wj6 mView;
 
     /* loaded from: classes3.dex */
-    public class a extends ad5<ShareItem> {
+    public class a extends sd5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -61,7 +61,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
+        @Override // com.repackage.sd5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -75,7 +75,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ic5<ShareItem> {
+    public class b implements zc5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameShareCardActivity a;
@@ -99,7 +99,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ic5
+        @Override // com.repackage.zc5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends ad5<ShareItem> {
+    public class c extends sd5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -136,7 +136,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
+        @Override // com.repackage.sd5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -150,7 +150,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements ic5<ShareItem> {
+    public class d implements zc5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameShareCardActivity a;
@@ -174,7 +174,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ic5
+        @Override // com.repackage.zc5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -185,7 +185,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
     }
 
     /* loaded from: classes3.dex */
-    public class e extends ad5<ShareItem> {
+    public class e extends sd5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -211,7 +211,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
+        @Override // com.repackage.sd5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -225,7 +225,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements ic5<ShareItem> {
+    public class f implements zc5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameShareCardActivity a;
@@ -249,7 +249,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ic5
+        @Override // com.repackage.zc5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
     }
 
     /* loaded from: classes3.dex */
-    public class g extends ad5<ShareItem> {
+    public class g extends sd5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -286,7 +286,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
+        @Override // com.repackage.sd5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -300,7 +300,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
     }
 
     /* loaded from: classes3.dex */
-    public class h implements ic5<ShareItem> {
+    public class h implements zc5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameShareCardActivity a;
@@ -324,7 +324,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ic5
+        @Override // com.repackage.zc5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -358,7 +358,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
             paint.setTextSize(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
             paint.setAntiAlias(true);
             paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0782), bitmap.getWidth() / 2, this.mView.h() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d5), paint);
+            canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f078b), bitmap.getWidth() / 2, this.mView.h() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d5), paint);
             canvas.save();
             canvas.restore();
         }
@@ -371,8 +371,8 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bitmap)) == null) {
             ShareItem shareItem = new ShareItem();
             shareItem.i(bitmap);
-            shareItem.i0 = false;
-            shareItem.h0 = false;
+            shareItem.m0 = false;
+            shareItem.l0 = false;
             shareItem.g();
             return shareItem;
         }
@@ -383,7 +383,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, bundle) == null) {
             if (this.mShareTool == null) {
-                this.mShareTool = new ry4(getActivity(), null);
+                this.mShareTool = new fz4(getActivity(), null);
             }
             if (bundle == null) {
                 this.mShareData = (GameShareData) getIntent().getParcelableExtra(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
@@ -397,7 +397,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             if (this.mView == null) {
-                this.mView = new vk6(getActivity(), this);
+                this.mView = new wj6(getActivity(), this);
             }
             setContentView(this.mView.i());
             this.mView.m(this.mShareData);
@@ -424,7 +424,7 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
     }
 
-    @Override // com.repackage.vk6.h
+    @Override // com.repackage.wj6.h
     public void onCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -449,21 +449,21 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            vk6 vk6Var = this.mView;
-            if (vk6Var != null) {
-                vk6Var.j();
+            wj6 wj6Var = this.mView;
+            if (wj6Var != null) {
+                wj6Var.j();
             }
         }
     }
 
-    @Override // com.repackage.vk6.h
+    @Override // com.repackage.wj6.h
     public void onQQShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "9"));
-        dd5.b(new e(this, bitmap), new f(this));
+        vd5.b(new e(this, bitmap), new f(this));
     }
 
     @Override // android.app.Activity
@@ -475,33 +475,33 @@ public class GameShareCardActivity extends BaseActivity implements vk6.h {
         }
     }
 
-    @Override // com.repackage.vk6.h
+    @Override // com.repackage.wj6.h
     public void onSinaShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "7"));
-        dd5.b(new g(this, bitmap), new h(this));
+        vd5.b(new g(this, bitmap), new h(this));
     }
 
-    @Override // com.repackage.vk6.h
+    @Override // com.repackage.wj6.h
     public void onWeixinShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "4"));
-        dd5.b(new a(this, bitmap), new b(this));
+        vd5.b(new a(this, bitmap), new b(this));
     }
 
-    @Override // com.repackage.vk6.h
+    @Override // com.repackage.wj6.h
     public void onWxFriendsShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "3"));
-        dd5.b(new c(this, bitmap), new d(this));
+        vd5.b(new c(this, bitmap), new d(this));
     }
 }

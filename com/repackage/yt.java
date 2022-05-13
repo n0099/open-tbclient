@@ -1,20 +1,6 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
+import com.baidu.bdtask.framework.ui.mvvm.IViewData;
 /* loaded from: classes7.dex */
-public interface yt {
-    Activity a();
-
-    zt b();
-
-    void c(Activity activity);
-
-    boolean d();
-
-    Context getAppContext();
-
-    String getAppVersion();
-
-    String getSdkVersion();
+public interface yt<ViewData extends IViewData> {
 }

@@ -1,20 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class a32 extends l22 {
+public class a32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean a;
+    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,42 +27,46 @@ public class a32 extends l22 {
                 return;
             }
         }
-        l = tg1.a;
+        a = eh1.a;
+        b = new AtomicInteger(0);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a32(boolean z, boolean z2) {
-        super(z, z2);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (l) {
-            Log.d("PreloadMasterManagerMulti", "PreloadMasterManagerMulti created");
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str != null && str.startsWith("master") : invokeL.booleanValue;
     }
 
-    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-        InterceptResult invokeLL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
-            if (this.e == null || this.e.b == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = "master";
+            if (u42.h()) {
+                int andIncrement = b.getAndIncrement();
+                if (andIncrement >= 1) {
+                    str = "master" + andIncrement;
+                }
+                if (a) {
+                    Log.i("MasterIdGenerator", "next master id - " + str);
+                }
+                return str;
             }
-            return (pMSAppInfo.versionCode == this.e.b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.e.a) && !m(cVar, this.e.c)) ? false : true;
+            return "master";
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int andSet = b.getAndSet(0);
+            if (a) {
+                Log.i("MasterIdGenerator", "last master id - " + andSet);
+            }
+            return andSet;
+        }
+        return invokeV.intValue;
     }
 }

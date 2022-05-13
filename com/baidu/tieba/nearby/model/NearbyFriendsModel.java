@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an7;
 import com.repackage.bn7;
-import com.repackage.tc8;
-import com.repackage.uo;
+import com.repackage.rb8;
+import com.repackage.ro;
 import com.repackage.zm7;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
     public transient /* synthetic */ FieldHolder $fh;
     public bn7 a;
     public int b;
-    public List<uo> c;
+    public List<ro> c;
     public boolean d;
     public boolean e;
     public final HttpMessageListener f;
@@ -168,7 +168,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
             httpMessage.addParam(Config.PACKAGE_NAME, this.b);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam("app_pos", tc8.e().b());
+            httpMessage.addParam("app_pos", rb8.e().b());
             MessageManager.getInstance().sendMessage(httpMessage);
             return false;
         }

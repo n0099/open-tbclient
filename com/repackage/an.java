@@ -1,27 +1,11 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public class an {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile zm a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface an {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("tbadkcore", "ISoProcess");
 
-    public static synchronized zm a() {
-        InterceptResult invokeV;
-        zm zmVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (an.class) {
-                if (a == null) {
-                    a = new zm();
-                }
-                zmVar = a;
-            }
-            return zmVar;
-        }
-        return (zm) invokeV.objValue;
-    }
+    void a(@NonNull String str);
 }

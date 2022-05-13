@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.vb7;
+import com.repackage.cc7;
+import com.repackage.mi;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelItemView extends LinearLayout {
@@ -57,7 +57,7 @@ public class LabelItemView extends LinearLayout {
     public final TextView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0485, (ViewGroup) this, false) : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0479, (ViewGroup) this, false) : (TextView) invokeV.objValue;
     }
 
     public final void b() {
@@ -70,7 +70,7 @@ public class LabelItemView extends LinearLayout {
             paint.setStyle(Paint.Style.STROKE);
             this.d.setColor(SkinManager.getColor(R.color.CAM_X0204));
             this.d.setStrokeWidth(1.0f);
-            this.c = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070233);
+            this.c = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070233);
             for (int i = 0; i < 3; i++) {
                 addView(a());
             }
@@ -96,7 +96,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<vb7> list, boolean z) {
+    public void setData(List<cc7> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
@@ -110,19 +110,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            vb7 vb7Var = list.get(i2);
-            if (vb7Var != null && (getChildAt(i2) instanceof TextView)) {
+            cc7 cc7Var = list.get(i2);
+            if (cc7Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = vb7Var.b;
-                if (!StringUtils.isNull(str) && vb7Var.b.length() > 4) {
-                    str = vb7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = cc7Var.b;
+                if (!StringUtils.isNull(str) && cc7Var.b.length() > 4) {
+                    str = cc7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(vb7Var.c);
-                textView.setTag(vb7Var);
+                textView.setSelected(cc7Var.c);
+                textView.setTag(cc7Var);
             }
             i2++;
         }

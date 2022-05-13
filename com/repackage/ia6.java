@@ -1,81 +1,80 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.GetMemberInfo.MemberGodInfo;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class ia6 extends ho<ja6, ForumEmotionEmptyViewHolder> {
+public class ia6 implements ro {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public fa6 j;
-    public ka6 k;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ia6(TbPageContext<?> tbPageContext, ka6 ka6Var, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ka6Var, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755625133, "Lcom/repackage/ia6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755625133, "Lcom/repackage/ia6;");
                 return;
             }
         }
-        this.i = tbPageContext;
-        this.k = ka6Var;
+        b = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public ForumEmotionEmptyViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public ia6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.i);
-            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
-            return new ForumEmotionEmptyViewHolder(this.i, forumEmotionEmptyView);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ja6 ja6Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
-        InterceptResult invokeCommon;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ja6Var, forumEmotionEmptyViewHolder})) == null) {
-            forumEmotionEmptyViewHolder.d(ja6Var, i, this.k, this.j);
-            return forumEmotionEmptyViewHolder.b();
-        }
-        return (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void b0(fa6 fa6Var) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fa6Var) == null) {
-            this.j = fa6Var;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
+    }
+
+    public void e(MemberGodInfo memberGodInfo) {
+        List<User> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memberGodInfo) == null) || memberGodInfo == null || (list = memberGodInfo.forum_god_list) == null || list.size() <= 0) {
+            return;
+        }
+        b(memberGodInfo.forum_god_num.intValue());
+    }
+
+    @Override // com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

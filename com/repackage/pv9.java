@@ -1,30 +1,30 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.open.deviceidentifiertest.VirtualDevice;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public final class pv9 {
+public class pv9 extends mv9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pv9() {
+        super(Framedata.Opcode.PING);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (a == null) {
-                    a = new VirtualDevice().getDeviceID(context);
-                }
-                return a;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
     }
 }

@@ -1,104 +1,22 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes6.dex */
 public class pi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public int a;
     public long b;
-    public String c;
+    public boolean c;
     public String d;
-    public int e;
-    public int f;
-    public int g;
-    public b h;
-    public String i;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("name");
-                jSONObject.optString("title");
-                aVar.b = jSONObject.optString("pic");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a a;
-        public a b;
-        public a c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = a.a(jSONObject.optJSONObject("follow_icon"));
-                bVar.b = a.a(jSONObject.optJSONObject("like_icon"));
-                bVar.c = a.a(jSONObject.optJSONObject("reply_icon"));
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
 
     public pi8() {
         Interceptable interceptable = $ic;
@@ -110,46 +28,64 @@ public class pi8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    public static pi8 a(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return b(new JSONObject(str));
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (pi8) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public static pi8 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            pi8 pi8Var = new pi8();
-            pi8Var.a = jSONObject.optLong("effect_time", 0L);
-            pi8Var.b = jSONObject.optLong("invalid_time", 0L);
-            pi8Var.e = jSONObject.optInt(StampMissionHttpRequestMessage.TASK_FOLLOW, 0);
-            pi8Var.f = jSONObject.optInt(StampMissionHttpRequestMessage.TASK_LIKE, 0);
-            pi8Var.g = jSONObject.optInt(StampMissionHttpRequestMessage.TASK_REPLY, 0);
-            pi8Var.c = jSONObject.optString("type");
-            pi8Var.d = jSONObject.optString(StampMissionHttpRequestMessage.KEY_TASK_TYPE);
-            pi8Var.h = b.a(jSONObject.optJSONObject("icon_info"));
-            pi8Var.i = jSONObject.toString();
-            return pi8Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void c(StarInfo starInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) == null) || starInfo == null) {
+            return;
         }
-        return (pi8) invokeL.objValue;
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
+            }
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
+            }
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
+        }
+        boolean z = starInfo.trade != null;
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
+            }
+            String str3 = starInfo.trade.url;
+        }
+        this.d = starInfo.star_forum_headimg;
     }
 }

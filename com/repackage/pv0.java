@@ -75,14 +75,14 @@ public class pv0 extends mv0 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.i == null) {
-                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d059b, null);
+                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d058e, null);
                 this.i = linearLayout;
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091857);
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0918af);
                 this.j = textView;
                 textView.setOnClickListener(this);
                 this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
             }
-            this.j.setText(R.string.obfuscated_res_0x7f0f0b4a);
+            this.j.setText(R.string.obfuscated_res_0x7f0f0b5e);
             P(v().V0());
             this.i.setVisibility(0);
         }
@@ -92,10 +92,10 @@ public class pv0 extends mv0 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.k) {
             if (this.f == null) {
-                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d059c, null);
+                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d058f, null);
                 this.f = linearLayout;
-                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09218e);
-                Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f090400);
+                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0921e6);
+                Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f0903fb);
                 this.h = button;
                 button.setOnClickListener(this);
                 this.e.addView(this.f, new FrameLayout.LayoutParams(-1, -1));
@@ -239,11 +239,11 @@ public class pv0 extends mv0 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090400 || view2.getId() == R.id.obfuscated_res_0x7f091857) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0903fb || view2.getId() == R.id.obfuscated_res_0x7f0918af) {
                 if (!BdNetUtils.f()) {
                     ViewGroup n = v().n();
                     if (n != null && v().n1().a()) {
-                        t01.a().b(n.getContext(), R.string.obfuscated_res_0x7f0f0b4b);
+                        u01.a().b(n.getContext(), R.string.obfuscated_res_0x7f0f0b5f);
                         return;
                     }
                     return;

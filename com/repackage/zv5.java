@@ -1,143 +1,130 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ManagerElection;
 /* loaded from: classes7.dex */
-public class zv5 extends BdAsyncTask<Void, String, String> {
+public class zv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public vv5 b;
-    public String c;
+    public yv5 a;
+    public xv5 b;
+    public List<xv5> c;
+    public ManagerElection d;
+    public boolean e;
+    public long f;
+    public BdUniqueId g;
 
-    public zv5(String str, int i, vv5 vv5Var) {
+    public zv5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), vv5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = i;
-        this.b = vv5Var;
-        this.c = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return null;
-            }
-            return c(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v9 */
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        ?? isEmpty = TextUtils.isEmpty(str);
-        String str2 = null;
-        str2 = null;
-        str2 = null;
-        InputStream inputStream = null;
-        try {
-            try {
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (isEmpty != 0) {
-                return null;
-            }
-            try {
-                isEmpty = new FileInputStream(str);
-                try {
-                    byte[] bArr = new byte[isEmpty.available()];
-                    isEmpty.read(bArr);
-                    str2 = Base64.encodeToString(bArr, 0);
-                    isEmpty.close();
-                    isEmpty = isEmpty;
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (isEmpty != 0) {
-                        isEmpty.close();
-                        isEmpty = isEmpty;
-                    }
-                    return str2;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                isEmpty = 0;
-            } catch (Throwable th) {
-                th = th;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            return str2;
-        } catch (Throwable th2) {
-            th = th2;
-            inputStream = isEmpty;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public yv5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            super.onPostExecute((zv5) str);
-            vv5 vv5Var = this.b;
-            if (vv5Var == null || str == null) {
-                return;
-            }
-            vv5Var.a("", this.a, str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (yv5) invokeV.objValue;
+    }
+
+    public List<xv5> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public ManagerElection e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (ManagerElection) invokeV.objValue;
+    }
+
+    public xv5 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (xv5) invokeV.objValue;
+    }
+
+    public BdUniqueId g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(ArrayList<xv5> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.c = arrayList;
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void k(ManagerElection managerElection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, managerElection) == null) {
+            this.d = managerElection;
+        }
+    }
+
+    public void l(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
+            this.g = bdUniqueId;
+        }
+    }
+
+    public void m(yv5 yv5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, yv5Var) == null) {
+            this.a = yv5Var;
+        }
+    }
+
+    public void n(xv5 xv5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, xv5Var) == null) {
+            this.b = xv5Var;
         }
     }
 }

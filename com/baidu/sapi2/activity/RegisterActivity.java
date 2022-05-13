@@ -117,7 +117,7 @@ public class RegisterActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04df);
+                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -150,7 +150,7 @@ public class RegisterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1060);
+            setTitleText(R.string.obfuscated_res_0x7f0f1078);
             WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.RegisterActivity.2
                 public static /* synthetic */ Interceptable $ic;

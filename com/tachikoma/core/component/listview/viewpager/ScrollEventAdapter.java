@@ -19,7 +19,7 @@ import com.tachikoma.core.component.listview.viewpager.RecyclerViewPager;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_POSITION = -1;
@@ -46,11 +46,11 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     public ScrollEventValues mScrollValues;
     public int mTarget;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public @interface Orientation {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ScrollEventValues {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public @interface ScrollState {
     }
 

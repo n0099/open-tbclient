@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.yt4;
-import com.repackage.yx5;
+import com.repackage.lu4;
+import com.repackage.mi;
+import com.repackage.zx5;
 /* loaded from: classes3.dex */
 public class SingleLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -52,26 +52,26 @@ public class SingleLinkCardView extends RelativeLayout {
         }
     }
 
-    public void a(yx5 yx5Var) {
+    public void a(zx5 zx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yx5Var) == null) {
-            if (yx5Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) yx5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zx5Var) == null) {
+            if (zx5Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) zx5Var;
                 this.a.K(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkFrom);
-                    int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int f2 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                    int f3 = oi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int f4 = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int f5 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int f6 = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    yt4 yt4Var = new yt4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    yt4Var.b(f2);
-                    yt4Var.h(f5);
-                    yt4Var.i(f6);
-                    spannableStringBuilder.setSpan(yt4Var, 0, pbLinkData.linkFrom.length(), 17);
+                    int f = mi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int f2 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int f3 = mi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int f4 = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int f5 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int f6 = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    lu4 lu4Var = new lu4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    lu4Var.b(f2);
+                    lu4Var.h(f5);
+                    lu4Var.i(f6);
+                    spannableStringBuilder.setSpan(lu4Var, 0, pbLinkData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkUrl);
@@ -84,7 +84,7 @@ public class SingleLinkCardView extends RelativeLayout {
                         this.c.setVisibility(8);
                     } else {
                         this.b.setMaxLines(1);
-                        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0408), pbLinkData.extTxt));
+                        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040e), pbLinkData.extTxt));
                         this.c.setVisibility(0);
                     }
                 } else {
@@ -93,23 +93,23 @@ public class SingleLinkCardView extends RelativeLayout {
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
                     this.b.setMaxLines(1);
                 }
-            } else if (yx5Var instanceof PbGoodsData) {
-                PbGoodsData pbGoodsData = (PbGoodsData) yx5Var;
+            } else if (zx5Var instanceof PbGoodsData) {
+                PbGoodsData pbGoodsData = (PbGoodsData) zx5Var;
                 this.a.K(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkFrom);
-                    int f7 = oi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int f8 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                    int f9 = oi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int f10 = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int f11 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int f12 = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    yt4 yt4Var2 = new yt4(f7, -1, R.color.CAM_X0305, f9, R.color.CAM_X0305, f10, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    yt4Var2.b(f8);
-                    yt4Var2.h(f11);
-                    yt4Var2.i(f12);
-                    spannableStringBuilder2.setSpan(yt4Var2, 0, pbGoodsData.linkFrom.length(), 17);
+                    int f7 = mi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int f8 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int f9 = mi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int f10 = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int f11 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int f12 = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    lu4 lu4Var2 = new lu4(f7, -1, R.color.CAM_X0305, f9, R.color.CAM_X0305, f10, mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    lu4Var2.b(f8);
+                    lu4Var2.h(f11);
+                    lu4Var2.i(f12);
+                    spannableStringBuilder2.setSpan(lu4Var2, 0, pbGoodsData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkUrl);
@@ -121,7 +121,7 @@ public class SingleLinkCardView extends RelativeLayout {
                     this.c.setVisibility(8);
                 } else {
                     this.b.setMaxLines(1);
-                    this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0408), pbGoodsData.price));
+                    this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040e), pbGoodsData.price));
                     this.c.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl) && TextUtils.isEmpty(pbGoodsData.price)) {
@@ -188,8 +188,8 @@ public class SingleLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d077a, this);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ff2);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0772, this);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091000);
         this.a = tbImageView;
         tbImageView.setBorderSurroundContent(true);
         this.a.setDrawCorner(true);
@@ -199,10 +199,10 @@ public class SingleLinkCardView extends RelativeLayout {
         this.a.setDrawBorder(true);
         this.a.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
         this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.a.setRadius(oi.f(context, R.dimen.tbds10));
+        this.a.setRadius(mi.f(context, R.dimen.tbds10));
         this.a.setPlaceHolder(2);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ef);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce7);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092247);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cd3);
         b();
     }
 }

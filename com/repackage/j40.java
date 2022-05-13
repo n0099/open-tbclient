@@ -1,16 +1,16 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.common.util.DeviceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class j40 implements m40 {
+public class j40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public m40[] a;
 
     public j40() {
         Interceptable interceptable = $ic;
@@ -22,20 +22,32 @@ public class j40 implements m40 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new m40[]{new n40(8, 0), new o40(0, 1), new o40(1, 1), new n40(7, 1)};
     }
 
-    @Override // com.repackage.m40
-    public String a(Context context) throws NullPointerException {
+    public byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null) {
-                return DeviceId.getCUID(context);
-            }
-            throw new NullPointerException("context should not be null");
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+        l40 l40Var = new l40();
+        byte[] b = k40.b(bArr, bArr.length + ((this.a.length + 1) * l40.b));
+        k40.a(b, l40Var.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            m40[] m40VarArr = this.a;
+            if (i >= m40VarArr.length) {
+                return Arrays.copyOf(l40Var.b(), l40.b);
+            }
+            m40 m40Var = m40VarArr[i];
+            i++;
+            int length = bArr.length + (l40.b * i);
+            l40Var.a(m40Var.b(b, 0, length), m40Var.a(), m40Var.c(), m40Var.d());
+            k40.a(b, l40Var.b(), length);
+        }
     }
 }

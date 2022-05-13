@@ -1,20 +1,26 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class pw1 extends sv1 {
+public final class pw1 extends iw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String t;
     public boolean u;
+    public boolean v;
+    public String w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pw1() {
-        super("coverImage", "viewId");
+        super("animateview", "sanId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,21 +36,33 @@ public final class pw1 extends sv1 {
             }
         }
         this.u = false;
+        this.v = true;
+        this.w = null;
     }
 
-    @Override // com.repackage.sv1, com.repackage.xv1, com.repackage.zv1, com.repackage.iq2
+    @Override // com.repackage.iw1, com.repackage.kw1, com.repackage.tq2
     public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.u = jSONObject.optBoolean("loadState", false);
-        pq2 pq2Var = this.h;
-        if (pq2Var == null || (jSONObject2 = this.j) == null) {
-            return;
-        }
-        pq2Var.i(jSONObject2.optBoolean("fixed", false));
+        this.t = jSONObject.optString("path");
+        this.u = jSONObject.optBoolean("loop");
+        this.v = jSONObject.optBoolean("autoPlay");
+        this.w = jSONObject.optString("action");
+    }
+
+    @Override // com.repackage.kw1, com.repackage.tq2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b)) ? false : true : invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? isValid() && !TextUtils.isEmpty(this.t) : invokeV.booleanValue;
     }
 }

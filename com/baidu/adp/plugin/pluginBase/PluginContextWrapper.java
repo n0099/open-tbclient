@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.om;
+import com.repackage.lm;
 /* loaded from: classes.dex */
 public class PluginContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public class PluginContextWrapper extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PluginSetting g = om.h().g(this.mPackageName);
+            PluginSetting g = lm.h().g(this.mPackageName);
             if (g != null && g.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
                 if (plugin2 != null && plugin2.isLoaded()) {
@@ -107,7 +107,7 @@ public class PluginContextWrapper extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            PluginSetting g = om.h().g(this.mPackageName);
+            PluginSetting g = lm.h().g(this.mPackageName);
             if (g != null && g.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
                 if (plugin2 != null && plugin2.isLoaded()) {

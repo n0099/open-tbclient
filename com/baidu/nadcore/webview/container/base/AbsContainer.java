@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,26 +21,68 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e31;
-import com.repackage.o21;
-import com.repackage.s21;
+import com.repackage.al0;
+import com.repackage.c31;
+import com.repackage.el0;
+import com.repackage.o31;
+import com.repackage.q31;
+import com.repackage.y21;
 /* loaded from: classes2.dex */
 public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o21 a;
+    public y21 a;
     public boolean b;
+    public final Object c;
 
     /* loaded from: classes2.dex */
-    public interface a {
+    public class a extends el0<q31> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AbsContainer b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(AbsContainer absContainer, Class cls) {
+            super(cls);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {absContainer, cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Class) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = absContainer;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.el0
+        public void onEvent(@NonNull q31 q31Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q31Var) == null) || TextUtils.isEmpty(q31Var.a)) {
+                return;
+            }
+            this.b.l(q31Var.a);
+        }
     }
 
-    public AbsContainer(@NonNull o21 o21Var) {
+    /* loaded from: classes2.dex */
+    public interface b {
+    }
+
+    public AbsContainer(@NonNull y21 y21Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o21Var};
+            Object[] objArr = {y21Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,7 +93,8 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
             }
         }
         this.b = true;
-        this.a = o21Var;
+        this.c = new Object();
+        this.a = y21Var;
     }
 
     public abstract boolean a(MotionEvent motionEvent);
@@ -64,19 +108,19 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
     }
 
-    public void d(a aVar) {
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
         }
     }
 
-    public abstract e31 e();
+    public abstract o31 e();
 
     @NonNull
     public final Context f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? s21.c() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? c31.c() : (Context) invokeV.objValue;
     }
 
     public abstract View g();
@@ -113,27 +157,25 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
 
     public abstract boolean k();
 
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-        }
-    }
+    public abstract void l(String str);
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            t();
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            al0.a().unregister(this.c);
         }
     }
 
-    public void o(Bundle bundle) {
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }
     }
 
@@ -196,9 +238,9 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
     }
 
-    public void p() {
+    public void p(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
         }
     }
 
@@ -214,24 +256,37 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
     }
 
-    public void s(View view2) {
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, view2) == null) {
-            o21 o21Var = this.a;
-            if (o21Var == null || !o21Var.handleSetContentView()) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            al0.a().c(this.c, 1, new a(this, q31.class));
+        }
+    }
+
+    public void u(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, view2) == null) {
+            y21 y21Var = this.a;
+            if (y21Var == null || !y21Var.handleSetContentView()) {
                 getActivity().setContentView(view2);
             }
         }
     }
 
-    public abstract void t(String str);
+    public abstract void v(String str);
 
-    public void u(boolean z) {
+    public void w(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             this.b = z;
         }
     }
 
-    public abstract void v();
+    public abstract void x();
 }

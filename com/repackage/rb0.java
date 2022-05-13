@@ -1,57 +1,41 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rb0 extends Handler {
+public class rb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final rb0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755356239, "Lcom/repackage/rb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static <T> int a(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null || list.isEmpty()) {
+                return 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755356239, "Lcom/repackage/rb0;");
-                return;
-            }
+            return list.size();
         }
-        a = new rb0();
+        return invokeL.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rb0() {
-        super(Looper.getMainLooper());
+    public static <T> T b(List<T> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+                return null;
             }
+            return list.get(i);
         }
+        return (T) invokeLI.objValue;
     }
 
-    public static final rb0 a() {
-        InterceptResult invokeV;
+    public static <T> boolean c(List<T> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (rb0) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) ? a(list) <= 0 : invokeL.booleanValue;
     }
 }

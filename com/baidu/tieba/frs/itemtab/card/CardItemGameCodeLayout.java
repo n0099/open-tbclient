@@ -22,15 +22,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gz;
-import com.repackage.nm6;
-import com.repackage.oi;
-import com.repackage.tu4;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.gv4;
+import com.repackage.mi;
+import com.repackage.ol6;
+import com.repackage.py;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes3.dex */
-public class CardItemGameCodeLayout extends RelativeLayout implements gz {
+public class CardItemGameCodeLayout extends RelativeLayout implements py {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -71,7 +71,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements gz {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ListUtils.isEmpty(this.a.g)) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(14)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new gv4(14)));
             if (this.a.e == null) {
                 this.a.e = new GameCodeListDialog(view2.getContext());
             }
@@ -105,27 +105,27 @@ public class CardItemGameCodeLayout extends RelativeLayout implements gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
-            setPadding(oi.f(context, R.dimen.M_W_X006), oi.f(context, R.dimen.M_H_X005), oi.f(context, R.dimen.M_W_X006), oi.f(context, R.dimen.M_H_X005));
+            setPadding(mi.f(context, R.dimen.M_W_X006), mi.f(context, R.dimen.M_H_X005), mi.f(context, R.dimen.M_W_X006), mi.f(context, R.dimen.M_H_X005));
             ImageView imageView = new ImageView(context);
             this.a = imageView;
             imageView.setId(1);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(context, R.dimen.tbds62), oi.f(context, R.dimen.tbds62));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(mi.f(context, R.dimen.tbds62), mi.f(context, R.dimen.tbds62));
             layoutParams.addRule(9);
             layoutParams.addRule(15);
             this.a.setLayoutParams(layoutParams);
             addView(this.a);
             this.b = new TextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -1);
-            layoutParams2.setMargins(oi.f(context, R.dimen.tbds23), 0, 0, 0);
+            layoutParams2.setMargins(mi.f(context, R.dimen.tbds23), 0, 0, 0);
             layoutParams2.addRule(1, this.a.getId());
             layoutParams2.addRule(15);
             this.b.setLayoutParams(layoutParams2);
-            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06fa));
+            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0703));
             addView(this.b);
             ImageView imageView2 = new ImageView(context);
             this.d = imageView2;
             imageView2.setId(2);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(oi.f(context, R.dimen.tbds42), oi.f(context, R.dimen.tbds42));
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(mi.f(context, R.dimen.tbds42), mi.f(context, R.dimen.tbds42));
             layoutParams3.addRule(11);
             layoutParams3.addRule(15);
             this.d.setLayoutParams(layoutParams3);
@@ -140,20 +140,20 @@ public class CardItemGameCodeLayout extends RelativeLayout implements gz {
         }
     }
 
-    @Override // com.repackage.gz
+    @Override // com.repackage.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            vr4 d = vr4.d(this.b);
+            gs4 d = gs4.d(this.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
-            vr4 d2 = vr4.d(this.c);
+            gs4 d2 = gs4.d(this.c);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X08);
-            vr4 d3 = vr4.d(this);
+            gs4 d3 = gs4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0807e2, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0807cd, WebPManager.ResourceStateType.NORMAL);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             GameCodeListDialog gameCodeListDialog = this.e;
             if (gameCodeListDialog != null) {
@@ -162,17 +162,17 @@ public class CardItemGameCodeLayout extends RelativeLayout implements gz {
         }
     }
 
-    public void setData(nm6 nm6Var) {
+    public void setData(ol6 ol6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nm6Var) == null) || nm6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ol6Var) == null) || ol6Var == null) {
             return;
         }
-        this.f = nm6Var.g();
-        this.g = nm6Var.e();
+        this.f = ol6Var.g();
+        this.g = ol6Var.e();
         if (this.f != 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b5), Integer.valueOf(this.f)));
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba), Integer.valueOf(this.f)));
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f146a));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1492));
         }
     }
 

@@ -57,14 +57,14 @@ import com.repackage.b9;
 import com.repackage.c9;
 import com.repackage.d9;
 import com.repackage.e9;
-import com.repackage.vm;
+import com.repackage.sm;
+import com.repackage.ul;
+import com.repackage.vo;
 import com.repackage.w8;
-import com.repackage.xl;
-import com.repackage.xo;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class ActivityProxy extends Activity implements xl, e9, Handler.Callback, c9 {
+public class ActivityProxy extends Activity implements ul, e9, Handler.Callback, c9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PluginBaseActivity mEntity;
@@ -309,7 +309,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -578,7 +578,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         return invokeL.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public PluginBaseActivity getTarget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -815,7 +815,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
                 Class cls = Integer.TYPE;
-                vm.k(pluginBaseActivity, "onActivityResult", new Class[]{cls, cls, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
+                sm.k(pluginBaseActivity, "onActivityResult", new Class[]{cls, cls, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
                 return;
             }
             super.onActivityResult(i, i2, intent);
@@ -828,7 +828,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
+                sm.k(pluginBaseActivity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
             } else {
                 super.onApplyThemeResource(theme, i, z);
             }
@@ -867,7 +867,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeLL(1048632, this, activity, charSequence) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
+                sm.k(pluginBaseActivity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
             } else {
                 super.onChildTitleChanged(activity, charSequence);
             }
@@ -969,7 +969,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
-            return pluginBaseActivity != null ? (Dialog) vm.k(pluginBaseActivity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
+            return pluginBaseActivity != null ? (Dialog) sm.k(pluginBaseActivity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
         }
         return (Dialog) invokeI.objValue;
     }
@@ -1036,7 +1036,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, MissionEvent.MESSAGE_DESTROY, new Class[0], new Object[0]);
+                sm.k(pluginBaseActivity, MissionEvent.MESSAGE_DESTROY, new Class[0], new Object[0]);
             } else {
                 super.onDestroy();
             }
@@ -1159,7 +1159,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeL(1048656, this, intent) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
+                sm.k(pluginBaseActivity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
             } else {
                 super.onNewIntent(intent);
             }
@@ -1212,7 +1212,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeV(1048660, this) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, MissionEvent.MESSAGE_PAUSE, new Class[0], new Object[0]);
+                sm.k(pluginBaseActivity, MissionEvent.MESSAGE_PAUSE, new Class[0], new Object[0]);
             } else {
                 super.onPause();
             }
@@ -1225,7 +1225,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeL(1048661, this, bundle) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+                sm.k(pluginBaseActivity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onPostCreate(bundle);
             }
@@ -1238,7 +1238,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onPostResume", new Class[0], new Object[0]);
+                sm.k(pluginBaseActivity, "onPostResume", new Class[0], new Object[0]);
             } else {
                 super.onPostResume();
             }
@@ -1246,13 +1246,13 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
     }
 
     @Override // com.repackage.e9
-    public void onPreLoad(xo xoVar) {
+    public void onPreLoad(vo voVar) {
         PluginBaseActivity pluginBaseActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048663, this, xoVar) == null) || (pluginBaseActivity = this.mEntity) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048663, this, voVar) == null) || (pluginBaseActivity = this.mEntity) == null) {
             return;
         }
-        pluginBaseActivity.onPreLoad(xoVar);
+        pluginBaseActivity.onPreLoad(voVar);
     }
 
     @Override // android.app.Activity
@@ -1302,7 +1302,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeV(1048667, this) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onRestart", new Class[0], new Object[0]);
+                sm.k(pluginBaseActivity, "onRestart", new Class[0], new Object[0]);
             } else {
                 super.onRestart();
             }
@@ -1315,7 +1315,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeL(1048668, this, bundle) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+                sm.k(pluginBaseActivity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onRestoreInstanceState(bundle);
             }
@@ -1328,7 +1328,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeV(1048669, this) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onResume", new Class[0], new Object[0]);
+                sm.k(pluginBaseActivity, "onResume", new Class[0], new Object[0]);
             } else {
                 super.onResume();
             }
@@ -1341,7 +1341,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeL(1048670, this, bundle) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+                sm.k(pluginBaseActivity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onSaveInstanceState(bundle);
             }
@@ -1368,7 +1368,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeV(1048672, this) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onStart", new Class[0], new Object[0]);
+                sm.k(pluginBaseActivity, "onStart", new Class[0], new Object[0]);
             } else {
                 super.onStart();
             }
@@ -1381,7 +1381,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeV(1048673, this) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, MissionEvent.MESSAGE_STOP, new Class[0], new Object[0]);
+                sm.k(pluginBaseActivity, MissionEvent.MESSAGE_STOP, new Class[0], new Object[0]);
             } else {
                 super.onStop();
             }
@@ -1394,7 +1394,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         if (interceptable == null || interceptable.invokeLI(1048674, this, charSequence, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
+                sm.k(pluginBaseActivity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
             } else {
                 super.onTitleChanged(charSequence, i);
             }
@@ -1515,7 +1515,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyAddContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048684, this, view2, layoutParams) == null) {
@@ -1523,14 +1523,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048685, this, intent, serviceConnection, i)) == null) ? super.bindService(intent, serviceConnection, i) : invokeLLI.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyCloseContextMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048686, this) == null) {
@@ -1538,7 +1538,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyCloseOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048687, this) == null) {
@@ -1546,63 +1546,63 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048688, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? super.createPendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, motionEvent)) == null) ? super.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyDispatchKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048690, this, keyEvent)) == null) ? super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048691, this, keyEvent)) == null) ? super.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048692, this, accessibilityEvent)) == null) ? super.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyDispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyDispatchTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048694, this, motionEvent)) == null) ? super.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public View proxyFindViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048695, this, i)) == null) ? super.findViewById(i) : (View) invokeI.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048696, this) == null) {
@@ -1610,7 +1610,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyFinishActivity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048697, this, i) == null) {
@@ -1618,7 +1618,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyFinishActivityFromChild(Activity activity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048698, this, activity, i) == null) {
@@ -1626,7 +1626,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyFinishFromChild(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048699, this, activity) == null) {
@@ -1634,14 +1634,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public Context proxyGetApplicationContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) ? super.getApplicationContext() : (Context) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public ComponentName proxyGetCallingActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1651,28 +1651,28 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         return (ComponentName) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public String proxyGetCallingPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) ? super.getCallingPackage() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public int proxyGetChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) ? super.getChangingConfigurations() : invokeV.intValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public View proxyGetCurrentFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) ? super.getCurrentFocus() : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public Intent proxyGetIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1685,126 +1685,126 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         return (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) ? super.getLastNonConfigurationInstance() : invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public LayoutInflater proxyGetLayoutInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) ? super.getLayoutInflater() : (LayoutInflater) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public String proxyGetLocalClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) ? super.getLocalClassName() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public MenuInflater proxyGetMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048709, this)) == null) ? super.getMenuInflater() : (MenuInflater) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public PackageManager proxyGetPackageManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048710, this)) == null) ? super.getPackageManager() : (PackageManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public SharedPreferences proxyGetPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048711, this, i)) == null) ? super.getPreferences(i) : (SharedPreferences) invokeI.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public int proxyGetRequestedOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) ? super.getRequestedOrientation() : invokeV.intValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public SharedPreferences proxyGetSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048713, this, str, i)) == null) ? super.getSharedPreferences(str, i) : (SharedPreferences) invokeLI.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public Object proxyGetSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048714, this, str)) == null) ? super.getSystemService(str) : invokeL.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public int proxyGetTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) ? super.getTaskId() : invokeV.intValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public int proxyGetWallpaperDesiredMinimumHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) ? super.getWallpaperDesiredMinimumHeight() : invokeV.intValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public int proxyGetWallpaperDesiredMinimumWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048717, this)) == null) ? super.getWallpaperDesiredMinimumWidth() : invokeV.intValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public Window proxyGetWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) ? super.getWindow() : (Window) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public WindowManager proxyGetWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048719, this)) == null) ? super.getWindowManager() : (WindowManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyHasWindowFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) ? super.hasWindowFocus() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyIsFinishing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) ? super.isFinishing() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyIsTaskRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) ? super.isTaskRoot() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyMoveTaskToBack(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeZ = interceptable.invokeZ(1048723, this, z)) == null) ? super.moveTaskToBack(z) : invokeZ.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048724, this, i, i2, intent) == null) {
@@ -1812,7 +1812,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048725, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -1820,7 +1820,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048726, this) == null) {
@@ -1828,7 +1828,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048727, this) == null) {
@@ -1836,7 +1836,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnChildTitleChanged(Activity activity, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048728, this, activity, charSequence) == null) {
@@ -1844,7 +1844,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048729, this, configuration) == null) {
@@ -1852,7 +1852,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnContentChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048730, this) == null) {
@@ -1860,14 +1860,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnContextItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048731, this, menuItem)) == null) ? super.onContextItemSelected(menuItem) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnContextMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048732, this, menu) == null) {
@@ -1875,7 +1875,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048733, this, bundle) == null) {
@@ -1883,7 +1883,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048734, this, contextMenu, view2, contextMenuInfo) == null) {
@@ -1891,28 +1891,28 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048735, this, i, menu)) == null) ? super.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048736, this, bitmap, canvas)) == null) ? super.onCreateThumbnail(bitmap, canvas) : invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048738, this, str, context, attributeSet)) == null) ? super.onCreateView(str, context, attributeSet) : (View) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048739, this) == null) {
@@ -1920,7 +1920,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048740, this) == null) {
@@ -1928,35 +1928,35 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048741, this, i, keyEvent)) == null) ? super.onKeyDown(i, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048742, this, i, keyEvent)) == null) ? super.onKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048743, this, i, i2, keyEvent)) == null) ? super.onKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048744, this, i, keyEvent)) == null) ? super.onKeyUp(i, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnLowMemory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048745, this) == null) {
@@ -1964,28 +1964,28 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnMenuItemSelected(int i, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048746, this, i, menuItem)) == null) ? super.onMenuItemSelected(i, menuItem) : invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048747, this, i, menu)) == null) ? super.onMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnOptionsItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048748, this, menuItem)) == null) ? super.onOptionsItemSelected(menuItem) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnOptionsMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048749, this, menu) == null) {
@@ -1993,7 +1993,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048750, this, i, menu) == null) {
@@ -2001,7 +2001,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048751, this) == null) {
@@ -2009,7 +2009,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnPostCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048752, this, bundle) == null) {
@@ -2017,7 +2017,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnPostResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048753, this) == null) {
@@ -2025,7 +2025,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnPrepareDialog(int i, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048754, this, i, dialog) == null) {
@@ -2033,21 +2033,21 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnPrepareOptionsMenu(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048755, this, menu)) == null) ? super.onPrepareOptionsMenu(menu) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeILL = interceptable.invokeILL(1048756, this, i, view2, menu)) == null) ? super.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnRestart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048757, this) == null) {
@@ -2055,7 +2055,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048758, this, bundle) == null) {
@@ -2063,7 +2063,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048759, this) == null) {
@@ -2071,14 +2071,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public Object proxyOnRetainNonConfigurationInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) ? super.onRetainNonConfigurationInstance() : invokeV.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048761, this, bundle) == null) {
@@ -2086,14 +2086,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) ? super.onSearchRequested() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048763, this) == null) {
@@ -2101,7 +2101,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048764, this) == null) {
@@ -2109,7 +2109,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048765, this, charSequence, i) == null) {
@@ -2117,21 +2117,21 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048766, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyOnTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048767, this, motionEvent)) == null) ? super.onTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnUserInteraction() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048768, this) == null) {
@@ -2139,7 +2139,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048769, this, layoutParams) == null) {
@@ -2147,7 +2147,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOnWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048770, this, z) == null) {
@@ -2155,7 +2155,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOpenContextMenu(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048771, this, view2) == null) {
@@ -2163,7 +2163,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOpenOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048772, this) == null) {
@@ -2171,7 +2171,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyOverridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048773, this, i, i2) == null) {
@@ -2179,7 +2179,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyRegisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048774, this, view2) == null) {
@@ -2187,7 +2187,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetContentView(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048775, this, i) == null) {
@@ -2195,7 +2195,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048778, this, intent) == null) {
@@ -2203,7 +2203,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048779, this, i) == null) {
@@ -2211,7 +2211,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetTitle(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048780, this, i) == null) {
@@ -2219,7 +2219,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetTitleColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048782, this, i) == null) {
@@ -2227,7 +2227,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048783, this, z) == null) {
@@ -2235,7 +2235,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStartActivity(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048784, this, intent) == null) {
@@ -2243,7 +2243,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStartActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048785, this, intent, i) == null) {
@@ -2251,7 +2251,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStartActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048786, this, activity, intent, i) == null) {
@@ -2259,14 +2259,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyStartActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048787, this, intent, i)) == null) ? super.startActivityIfNeeded(intent, i) : invokeLI.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
@@ -2274,7 +2274,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -2289,7 +2289,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStartManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048791, this, cursor) == null) {
@@ -2297,14 +2297,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyStartNextMatchingActivity(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048792, this, intent)) == null) ? super.startNextMatchingActivity(intent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStartSearch(String str, boolean z, Bundle bundle, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048793, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
@@ -2312,14 +2312,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public ComponentName proxyStartService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048794, this, intent)) == null) ? super.startService(intent) : (ComponentName) invokeL.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyStopManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048795, this, cursor) == null) {
@@ -2327,14 +2327,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048796, this, intent)) == null) ? super.stopService(intent) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyTakeKeyEvents(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048797, this, z) == null) {
@@ -2342,7 +2342,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxyUnregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048798, this, view2) == null) {
@@ -2370,7 +2370,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context, com.repackage.xl
+    @Override // android.content.ContextWrapper, android.content.Context, com.repackage.ul
     public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -2664,7 +2664,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context, com.repackage.xl
+    @Override // android.content.ContextWrapper, android.content.Context, com.repackage.ul
     public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048827, this, broadcastReceiver) == null) {
@@ -2672,14 +2672,14 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public View proxyOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048737, this, view2, str, context, attributeSet)) == null) ? super.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetContentView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048776, this, view2) == null) {
@@ -2687,7 +2687,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048781, this, charSequence) == null) {
@@ -2704,7 +2704,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
             loadEntityActivity();
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                vm.k(pluginBaseActivity, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+                sm.k(pluginBaseActivity, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onCreate(bundle);
             }
@@ -2712,7 +2712,7 @@ public class ActivityProxy extends Activity implements xl, e9, Handler.Callback,
         }
     }
 
-    @Override // com.repackage.xl
+    @Override // com.repackage.ul
     public void proxySetContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048777, this, view2, layoutParams) == null) {

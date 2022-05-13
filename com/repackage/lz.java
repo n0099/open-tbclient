@@ -1,409 +1,149 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgMutiPicLayout;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m00;
 /* loaded from: classes6.dex */
-public class lz extends qy<pn4> {
+public class lz {
     public static /* synthetic */ Interceptable $ic;
+    public static final int k;
+    public static final int l;
+    public static final int m;
+    public static final int n;
+    public static final int o;
+    public static final int p;
+    public static final int q;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgMutiPicLayout f;
-    public pn4 g;
+    public boolean a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
     public int h;
-    public String i;
-    public Context j;
+    public int i;
+    public boolean j;
 
-    /* loaded from: classes6.dex */
-    public class a implements eg<ImageView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz a;
-
-        public a(lz lzVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964033993, "Lcom/repackage/lz;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lzVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = lzVar;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            e(imageView2);
-            return imageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            h(imageView2);
-            return imageView2;
-        }
-
-        public ImageView e(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageView)) == null) {
-                if (imageView instanceof TbImageView) {
-                    TbImageView tbImageView = (TbImageView) imageView;
-                    tbImageView.setTag(null);
-                    if (bn4.c().g()) {
-                        tbImageView.setAdjustViewBounds(false);
-                        tbImageView.setInterceptOnClick(false);
-                    } else {
-                        tbImageView.setDefaultResource(R.drawable.icon_click);
-                        tbImageView.setAdjustViewBounds(true);
-                        tbImageView.setInterceptOnClick(true);
-                    }
-                }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: f */
-        public void b(ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, imageView) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.O();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: g */
-        public ImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.j);
-                boolean g = bn4.c().g();
-                foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    foreDrawableImageView.setAdjustViewBounds(false);
-                    foreDrawableImageView.setInterceptOnClick(false);
-                } else {
-                    foreDrawableImageView.setDefaultResource(R.drawable.icon_click);
-                    foreDrawableImageView.setAdjustViewBounds(true);
-                    foreDrawableImageView.setInterceptOnClick(true);
-                }
-                return foreDrawableImageView;
-            }
-            return (ImageView) invokeV.objValue;
-        }
-
-        public ImageView h(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, imageView)) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.O();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                    foreDrawableImageView.G();
-                }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements eg<GifView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz a;
-
-        public b(lz lzVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lzVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lzVar;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ GifView a(GifView gifView) {
-            GifView gifView2 = gifView;
-            e(gifView2);
-            return gifView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ GifView c(GifView gifView) {
-            GifView gifView2 = gifView;
-            h(gifView2);
-            return gifView2;
-        }
-
-        public GifView e(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
-                gifView.setTag(null);
-                if (bn4.c().g()) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
-                }
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: f */
-        public void b(GifView gifView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, gifView) == null) {
-                gifView.setBackgroundDrawable(null);
-                gifView.setImageDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                gifView.Z();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: g */
-        public GifView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.a.j);
-                boolean g = bn4.c().g();
-                gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
-                }
-                return gifView;
-            }
-            return (GifView) invokeV.objValue;
-        }
-
-        public GifView h(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gifView)) == null) {
-                gifView.c0();
-                gifView.Z();
-                gifView.setImageDrawable(null);
-                gifView.d0();
-                gifView.setBackgroundDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements m00.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz a;
-
-        public c(lz lzVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lzVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lzVar;
-        }
-
-        @Override // com.repackage.m00.b
-        public boolean a(m00.a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    ex5.a(this.a.g.getThreadData().getId());
-                    TextView textView = this.a.f.a;
-                    TextView textView2 = this.a.f.b;
-                    ex5.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    ex5.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964033993, "Lcom/repackage/lz;");
                 return;
             }
         }
-        this.h = 3;
-        new dg(new a(this), 12, 0);
-        new dg(new b(this), 20, 0);
-        this.j = context;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().i instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().i.getParent() == null) {
-            this.f = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().i;
-        } else {
-            this.f = new MutiImgMutiPicLayout(context);
-        }
+        k = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        l = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        m = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        n = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        o = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        p = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds0);
+        q = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
-    @Override // com.repackage.qy
-    public View g() {
+    public lz() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = n;
+        this.c = p;
+        this.d = k;
+        this.e = 0;
+        this.f = l;
+        this.g = m;
+        this.h = R.color.CAM_X0205;
+        this.i = q;
+    }
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.qy
-    public void h() {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i(1, new c(this));
-        }
-    }
-
-    @Override // com.repackage.qy
-    public void l(tx5<pn4> tx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tx5Var) == null) {
-            this.f.setSubClickListener(tx5Var);
-        }
-    }
-
-    @Override // com.repackage.gz
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.h = i;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
-    /* renamed from: r */
-    public void a(pn4 pn4Var) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pn4Var) == null) {
-            this.g = pn4Var;
-            this.f.setFrom(this.i);
-            this.f.a(pn4Var);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public void s(String str) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.i = str;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.i = i;
         }
     }
 
-    public void t(boolean z) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setFromCDN(z);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public void u(boolean z) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setNeedFrsTabName(z);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.j = z;
         }
     }
 }

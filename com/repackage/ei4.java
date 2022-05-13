@@ -1,74 +1,91 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLConnection;
-import java.util.zip.GZIPInputStream;
-/* loaded from: classes6.dex */
+import java.text.DecimalFormat;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public class ei4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(@NonNull File file) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            String canonicalPath = file.getCanonicalPath();
-            if (canonicalPath.endsWith("/")) {
-                return canonicalPath;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755736671, "Lcom/repackage/ei4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return canonicalPath + "/";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static File b(@NonNull File file, @NonNull String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            String a = a(file);
-            String canonicalPath = new File(file, str).getCanonicalPath();
-            if (canonicalPath.startsWith(a)) {
-                return new File(canonicalPath);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755736671, "Lcom/repackage/ei4;");
+                return;
             }
-            return null;
         }
-        return (File) invokeLL.objValue;
+        a = eh1.a;
     }
 
-    @NonNull
-    public static String c(@NonNull String str) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
-            return guessContentTypeFromName == null ? "text/plain" : guessContentTypeFromName;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
+                    jSONObject2.put("vtype", str3);
+                    jSONObject.putOpt("videoId", str);
+                    jSONObject2.put("data", jSONObject.toString());
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+                ux1.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
+                bg3.d(str2, str, "video", str3, jSONObject2);
+            } else if (a) {
+                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
+            }
         }
-        return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
-        InterceptResult invokeLL;
+    public static void b(String str, String str2, String str3, int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) ? str.endsWith(".svgz") ? new GZIPInputStream(inputStream) : inputStream : (InputStream) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            String format = TextUtils.isEmpty(str3) ? "0" : new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
+                jSONObject.putOpt("width", Integer.valueOf(le3.O(i)));
+                jSONObject.putOpt("height", Integer.valueOf(le3.O(i2)));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "loadedmetadata", jSONObject);
+        }
     }
 
-    @NonNull
-    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
-        InterceptResult invokeL;
+    public static void c(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) ? d(file.getPath(), new FileInputStream(file)) : (InputStream) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("fullscreen", z ? "1" : "0");
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "fullscreenchange", jSONObject);
+        }
     }
 }

@@ -1,27 +1,33 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
-import android.view.View;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBMediaView;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes7.dex */
-public class to9 {
+public class to9 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zo9 a;
-    public xo9 b;
+    public Context a;
+    public boolean b;
+    public final BlockingQueue c;
 
-    public to9(Context context, String str) {
+    public to9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,53 +37,50 @@ public class to9 {
                 return;
             }
         }
-        zo9 zo9Var = new zo9(context, str);
-        this.a = zo9Var;
-        zo9Var.f = new po9(this);
+        this.b = false;
+        this.c = new LinkedBlockingQueue();
+        this.a = context;
     }
 
-    public void a() {
+    public IBinder a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b) {
+                throw new IllegalStateException("Binder already consumed");
+            }
+            IBinder iBinder = (IBinder) this.c.take();
+            if (iBinder != null) {
+                this.b = true;
+            }
+            return iBinder;
+        }
+        return (IBinder) invokeV.objValue;
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
             try {
-                if (this.a != null) {
-                    this.a.b();
-                    this.a = null;
+                this.c.put(iBinder);
+                String a = ((com.win.opensdk.a) com.win.opensdk.b.a(iBinder)).a();
+                if (TextUtils.isEmpty(a)) {
+                    return;
                 }
-                if (this.b != null) {
-                    this.b = null;
-                }
-            } catch (Exception unused) {
+                hq9.x(this.a, a);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void b(View view2, PBMediaView pBMediaView) {
-        zo9 zo9Var;
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pBMediaView) == null) || (zo9Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
         }
-        zo9Var.c(view2, pBMediaView);
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            zo9 zo9Var = this.a;
-            return (zo9Var == null || !zo9Var.f()) ? "" : zo9Var.c.getLoad_type();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            zo9 zo9Var = this.a;
-            return zo9Var != null && zo9Var.f();
-        }
-        return invokeV.booleanValue;
     }
 }

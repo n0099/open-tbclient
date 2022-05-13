@@ -3,7 +3,6 @@ package com.sdk.base.framework.f.g;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,7 +61,7 @@ public class a {
                     String typeName = activeNetworkInfo.getTypeName();
                     if ("MOBILE".equalsIgnoreCase(typeName)) {
                         cVar = c.b;
-                    } else if (CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equalsIgnoreCase(typeName)) {
+                    } else if ("WIFI".equalsIgnoreCase(typeName)) {
                         cVar = c.a;
                     }
                 }

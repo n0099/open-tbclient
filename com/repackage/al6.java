@@ -1,72 +1,81 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.repackage.kz;
 /* loaded from: classes5.dex */
-public class al6 implements uo {
+public class al6 extends pc6<pl6, ThreadCardViewHolder<pl6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755852890, "Lcom/repackage/al6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755852890, "Lcom/repackage/al6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public al6(JSONObject jSONObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (jSONObject == null) {
-            return;
-        }
-        jSONObject.optString("id");
-        this.a = jSONObject.optString("user_id");
-        jSONObject.optString("forum_id");
-        jSONObject.optString("score");
-        jSONObject.optString("create_time");
-        jSONObject.optString("time_passed");
-        jSONObject.optString("content");
-        jSONObject.optInt("zan_num");
-        jSONObject.optInt("is_zan", 0);
-        jSONObject.optString("user_name");
-        jSONObject.optString("portrait");
+        this.k = tbPageContext;
+        this.e = bdUniqueId2;
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: l0 */
+    public ThreadCardViewHolder<pl6> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kz.b bVar = new kz.b(this.k.getPageActivity(), true);
+            bVar.n(new il6(this.k.getPageActivity()));
+            bVar.l().b(0);
+            bVar.l().c(0);
+            bVar.l().f(0);
+            bVar.l().e(0);
+            bVar.l().i(0);
+            bVar.l().h(0);
+            ThreadCardViewHolder<pl6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.m));
+            threadCardViewHolder.k(this.e);
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.pc6, com.repackage.eo
+    /* renamed from: m0 */
+    public View S(int i, View view2, ViewGroup viewGroup, pl6 pl6Var, ThreadCardViewHolder<pl6> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pl6Var, threadCardViewHolder})) == null) {
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(pl6Var);
+            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

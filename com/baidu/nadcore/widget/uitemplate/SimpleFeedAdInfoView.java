@@ -54,11 +54,11 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             super.a(attributeSet);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0914cf);
-            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0914d0);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0914d1);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ee);
+            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0914ef);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f0);
             c();
-            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dae);
+            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dc8);
         }
     }
 
@@ -67,31 +67,31 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TextView textView = this.i;
             if (textView != null) {
-                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06024e));
+                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060251));
             }
             AppCompatRatingBar appCompatRatingBar = this.j;
             if (appCompatRatingBar != null) {
-                appCompatRatingBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060299), PorterDuff.Mode.SRC_ATOP);
+                appCompatRatingBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06029c), PorterDuff.Mode.SRC_ATOP);
             }
             TextView textView2 = this.k;
             if (textView2 != null) {
-                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060271));
+                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
             }
             TextView textView3 = this.a;
             if (textView3 != null) {
-                textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060271));
+                textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
             }
             TextView textView4 = this.b;
             if (textView4 != null) {
-                textView4.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060271));
+                textView4.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
             }
             TextView textView5 = this.c;
             if (textView5 != null) {
-                textView5.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060271));
+                textView5.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
             }
             TextView textView6 = this.d;
             if (textView6 != null) {
-                textView6.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060271));
+                textView6.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
             }
         }
     }

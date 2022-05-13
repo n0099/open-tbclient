@@ -1,43 +1,90 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.na3;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class oa3 {
+public class oa3 extends pa3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public na3 a;
 
-    public oa3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oa3(r13 r13Var) {
+        super(r13Var, "/swanAPI/getBatteryInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((r13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(int i) {
-        na3 na3Var;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (na3Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (j(context, u03Var, unitedSchemeEntity)) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (r23.b) {
+                        Log.d("SwanAppAction", "getBatteryInfo --- params is empty");
+                    }
+                    ux1.c("battery", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (r23.b) {
+                        Log.d("SwanAppAction", "getBatteryInfo --- cb is empty");
+                    }
+                    ux1.c("battery", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                na3.a a = na3.a(context);
+                if (a == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
+                    return false;
+                }
+                if (r23.b) {
+                    Log.d("battery", "/swanAPI/getBatteryInfo = level: " + a.a + " ; plugged: " + a.b);
+                }
+                JSONObject k = k(a);
+                if (k == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
+                    if (r23.b) {
+                        Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
+                    }
+                    return false;
+                }
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString(), optString);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            return false;
         }
-        na3Var.a(i);
-    }
-
-    public void b(na3 na3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, na3Var) == null) {
-            this.a = na3Var;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

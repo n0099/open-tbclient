@@ -1,32 +1,46 @@
 package com.repackage;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c36 {
+public abstract class c36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
 
-    public static b36 a(BaseFragment baseFragment, int i) {
-        InterceptResult invokeLI;
+    public c36(BaseFragment baseFragment, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragment, i)) == null) {
-            if (baseFragment == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i == 1) {
-                return new g36(baseFragment, i);
-            }
-            if (i == 2) {
-                return new f36(baseFragment, i);
-            }
-            if (i == 3) {
-                return new d36(baseFragment, i);
-            }
-            return null;
         }
-        return (b36) invokeLI.objValue;
+        this.a = baseFragment;
     }
+
+    public abstract void a();
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.a.getUniqueId());
+        }
+    }
+
+    public abstract void c();
+
+    public abstract void d(f36 f36Var);
 }

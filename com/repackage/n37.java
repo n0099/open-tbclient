@@ -1,29 +1,45 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class n37 implements m37 {
+public class n37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m37 a;
-    public AbsHListView b;
+    public final l37 a;
+    public View b;
+    public BdTypeRecyclerView c;
+    public PbListView d;
 
-    public n37(AbsHListView absHListView) {
+    /* loaded from: classes6.dex */
+    public interface a {
+    }
+
+    public n37(a aVar, View view2, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {absHListView};
+            Object[] objArr = {aVar, view2, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,79 +49,113 @@ public class n37 implements m37 {
                 return;
             }
         }
-        this.b = absHListView;
+        this.b = view2;
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b31);
+        this.c = bdTypeRecyclerView;
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
+        this.c.setFadingEdgeLength(0);
+        this.c.setOverScrollMode(2);
+        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
+        this.d = pbListView;
+        pbListView.a();
+        this.d.p(R.color.CAM_X0205);
+        this.d.t(mi.f(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.d.x();
+        this.d.G(R.dimen.tbfontsize33);
+        this.d.A(R.color.CAM_X0110);
+        this.c.setNextPage(this.d);
+        this.d.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.d.f();
+        this.d.C(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f09ee));
+        c();
+        this.a = new l37(tbPageContext, this.c);
     }
 
-    @Override // com.repackage.m37
-    @TargetApi(11)
-    public void a(ActionMode actionMode, int i, long j, boolean z) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.a.a(actionMode, i, j, z);
-            if (this.b.getCheckedItemCount() == 0) {
-                actionMode.finish();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public void c(m37 m37Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m37Var) == null) {
-            this.a = m37Var;
-        }
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) ? this.a.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
-            if (this.a.onCreateActionMode(actionMode, menu)) {
-                this.b.setLongClickable(false);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.c;
+            if (bdTypeRecyclerView == null) {
+                return false;
             }
-            return false;
+            return !ListUtils.isEmpty(bdTypeRecyclerView.getData());
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public void onDestroyActionMode(ActionMode actionMode) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
-            this.a.onDestroyActionMode(actionMode);
-            AbsHListView absHListView = this.b;
-            absHListView.mChoiceActionMode = null;
-            absHListView.clearChoices();
-            AbsHListView absHListView2 = this.b;
-            absHListView2.mDataChanged = true;
-            absHListView2.rememberSyncState();
-            this.b.requestLayout();
-            this.b.setLongClickable(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            PbListView pbListView = this.d;
+            if (pbListView != null) {
+                pbListView.E(SkinManager.getColor(R.color.CAM_X0107));
+                this.d.d(skinType);
+            }
+            BdTypeRecyclerView bdTypeRecyclerView = this.c;
+            if (bdTypeRecyclerView == null || bdTypeRecyclerView.getAdapter() == null) {
+                return;
+            }
+            this.c.getAdapter().notifyDataSetChanged();
         }
     }
 
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) ? this.a.onPrepareActionMode(actionMode, menu) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.scrollToPosition(0);
+        }
+    }
+
+    public void e(List<ro> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.c.setData(list);
+    }
+
+    public void f(TbPageTag tbPageTag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
+            this.a.a(tbPageTag);
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.c.setVisibility(0);
+            } else {
+                this.c.setVisibility(8);
+            }
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            yc6 yc6Var = new yc6();
+            yc6Var.a = 401;
+            yc6Var.b = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, yc6Var));
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new xc6());
+            this.c.setData(arrayList);
+        }
     }
 }

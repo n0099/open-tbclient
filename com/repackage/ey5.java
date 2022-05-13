@@ -2,8 +2,6 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ey5 extends fy5 {
+public class ey5 extends xx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId N0;
-    public static final BdUniqueId O0;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<r27> a;
+    public String b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,16 +33,13 @@ public class ey5 extends fy5 {
                 return;
             }
         }
-        N0 = BdUniqueId.gen();
-        O0 = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
-    public ey5(ThreadData threadData) {
+    public ey5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,55 +49,52 @@ public class ey5 extends fy5 {
                 return;
             }
         }
-        this.a = threadData;
+        this.a = new ArrayList();
     }
 
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void e(r27 r27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
-            }
-            if (threadData.getThreadType() == 49 || threadData.getThreadType() == 69) {
-                return true;
-            }
-            return threadData.getThreadType() == 67 && threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().friendRoomStatus == 2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, r27Var) == null) {
+            this.a.add(r27Var);
         }
-        return invokeL.booleanValue;
     }
 
-    public StatisticItem Z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            StatisticItem g = g(str);
-            g.delete("obj_type");
-            g.delete("obj_type");
-            g.param("obj_type", 3);
-            return g;
-        }
-        return (StatisticItem) invokeL.objValue;
-    }
-
-    @Override // com.repackage.fy5, com.repackage.xx5, com.repackage.pn4
-    public ThreadData getThreadData() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.fy5, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    public List<r27> getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData != null && threadData.getThreadType() == 67) {
-                return O0;
-            }
-            return N0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
         }
-        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
     }
 }

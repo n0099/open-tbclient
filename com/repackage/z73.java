@@ -1,74 +1,128 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes7.dex */
-public class z73 extends g23 {
+public class z73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z73(g13 g13Var) {
-        super(g13Var, "/swanAPI/getStorage");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ SwanInterfaceType e;
+
+        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = swanInterfaceType;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.a;
+                boolean z = (i == 2000 || i == 0) ? false : true;
+                String n = n73.n(t03.J().l());
+                JSONObject jSONObject = new JSONObject();
+                ud3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, t03.J().getAppId());
+                ud3.f(jSONObject, "hostName", bk2.n().a());
+                ud3.f(jSONObject, "network", ug4.e());
+                ud3.f(jSONObject, "launchid", t03.J().r().V().V());
+                if (z) {
+                    ud3.f(jSONObject, "response", this.b);
+                    ud3.f(jSONObject, "statusCode", this.c);
+                    ud3.f(jSONObject, "request_url", this.d);
+                }
+                z73.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
             }
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    public static void a(SwanInterfaceType swanInterfaceType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (g23.b) {
-                Log.d("SwanAppAction", "start get storage");
-            }
-            if (j03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String Q = kq1.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject O = kq1.O(j03Var.e0().g().getString(Q, null));
-            if (O == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(O, 0));
-            return true;
+        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
+            c(swanInterfaceType, 2000, null, null);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
+            od3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
+        }
+    }
+
+    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
+            String str3 = null;
+            if (response != null) {
+                String valueOf = String.valueOf(response.code());
+                str3 = response.request().url().toString();
+                str2 = valueOf;
+            } else {
+                str2 = null;
+            }
+            b(swanInterfaceType, i, str3, str2, str);
+        }
+    }
+
+    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("from", str);
+                jSONObject2.put("type", str2);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("page", str3);
+                }
+                jSONObject2.put("value", String.valueOf(i));
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                b73.k("874", jSONObject2);
+                if (z) {
+                    b73.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
+                }
+            } catch (JSONException e) {
+                if (u03.v) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

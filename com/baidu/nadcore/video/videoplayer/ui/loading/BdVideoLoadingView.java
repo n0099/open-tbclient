@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c21;
-import com.repackage.e21;
-import com.repackage.f21;
+import com.repackage.m21;
+import com.repackage.o21;
+import com.repackage.p21;
 /* loaded from: classes2.dex */
 public class BdVideoLoadingView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c21 a;
+    public m21 a;
     public a b;
 
     /* loaded from: classes2.dex */
@@ -50,7 +50,7 @@ public class BdVideoLoadingView extends ImageView {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setLoadingRenderer(new f21(context));
+            setLoadingRenderer(new p21(context));
         }
     }
 
@@ -61,12 +61,12 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void c() {
-        c21 c21Var;
+        m21 m21Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (c21Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (m21Var = this.a) == null) {
             return;
         }
-        c21Var.start();
+        m21Var.start();
         a aVar = this.b;
         if (aVar != null) {
             aVar.a();
@@ -74,12 +74,12 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void d() {
-        c21 c21Var;
+        m21 m21Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (c21Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (m21Var = this.a) == null) {
             return;
         }
-        c21Var.stop();
+        m21Var.stop();
         a aVar = this.b;
         if (aVar != null) {
             aVar.b();
@@ -93,12 +93,12 @@ public class BdVideoLoadingView extends ImageView {
         }
     }
 
-    public void setLoadingRenderer(e21 e21Var) {
+    public void setLoadingRenderer(o21 o21Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, e21Var) == null) {
-            c21 c21Var = new c21(e21Var);
-            this.a = c21Var;
-            setImageDrawable(c21Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, o21Var) == null) {
+            m21 m21Var = new m21(o21Var);
+            this.a = m21Var;
+            setImageDrawable(m21Var);
         }
     }
 

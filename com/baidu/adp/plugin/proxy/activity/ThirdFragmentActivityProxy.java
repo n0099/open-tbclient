@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yl;
+import com.repackage.vl;
 /* loaded from: classes.dex */
 public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
     public static /* synthetic */ Interceptable $ic;
@@ -51,13 +51,13 @@ public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
                     Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
                     PluginBaseThirdFragmentActivity pluginBaseThirdFragmentActivity = (PluginBaseThirdFragmentActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseThirdFragmentActivity.class).newInstance();
                     this.mEntity = pluginBaseThirdFragmentActivity;
-                    pluginBaseThirdFragmentActivity.setActivityProxy((yl) this);
+                    pluginBaseThirdFragmentActivity.setActivityProxy((vl) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                     setTheme(plugin2.getActivityThemeResource());
                 } else {
                     PluginBaseThirdFragmentActivity pluginBaseThirdFragmentActivity2 = (PluginBaseThirdFragmentActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseThirdFragmentActivity.class).newInstance();
                     this.mEntity = pluginBaseThirdFragmentActivity2;
-                    pluginBaseThirdFragmentActivity2.setActivityProxy((yl) this);
+                    pluginBaseThirdFragmentActivity2.setActivityProxy((vl) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                 }
             } catch (ClassNotFoundException e) {

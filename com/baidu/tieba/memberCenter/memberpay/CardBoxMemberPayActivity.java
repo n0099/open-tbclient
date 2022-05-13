@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ck7;
-import com.repackage.e85;
+import com.repackage.v85;
 import com.repackage.xj7;
 /* loaded from: classes3.dex */
 public class CardBoxMemberPayActivity extends BaseActivity implements View.OnClickListener {
@@ -139,12 +139,12 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                             this.a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
                         return;
                     }
                     String errorString = responseCardBoxMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
                     }
                     this.a.showToast(errorString);
                 }
@@ -314,11 +314,11 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                 payConfig.setTitle(this.mView.i());
                 str = this.mView.r;
             }
-            payConfig.setOrderName(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0aa6, new Object[]{String.valueOf(j3)}));
+            payConfig.setOrderName(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0aad, new Object[]{String.valueOf(j3)}));
             payConfig.setAutoPay(i);
             payConfig.setPropsMon(String.valueOf(j3));
             payConfig.paymentPosKey = str;
-            e85.c().a(payConfig, getPageContext().getPageActivity());
+            v85.c().a(payConfig, getPageContext().getPageActivity());
         }
     }
 

@@ -1,32 +1,38 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qj2;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class uv3 {
+public class uv3 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements cf3<j53> {
+    public class a implements qj2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qs1 a;
+        public final /* synthetic */ uv3 a;
 
-        public a(qs1 qs1Var) {
+        public a(uv3 uv3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qs1Var};
+                Object[] objArr = {uv3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,63 +42,103 @@ public class uv3 {
                     return;
                 }
             }
-            this.a = qs1Var;
+            this.a = uv3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
-        /* renamed from: a */
-        public void onCallback(j53 j53Var) {
+        @Override // com.repackage.qj2.c
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j53Var) == null) {
-                if (j53Var == null || j53Var.d || j53Var.j != 1) {
-                    uv3.c(this.a, false, "system deny");
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // com.repackage.qj2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.l(R.string.obfuscated_res_0x7f0f015f);
+            }
+        }
+
+        @Override // com.repackage.qj2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File c = vv3.c();
+                File b = vv3.b();
+                if (!c.exists() || !xg4.U(c.getPath(), b.getPath())) {
+                    this.a.l(R.string.obfuscated_res_0x7f0f015f);
                 } else {
-                    uv3.c(this.a, true, "authorize:ok");
+                    this.a.l(R.string.obfuscated_res_0x7f0f0160);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755247553, "Lcom/repackage/uv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755247553, "Lcom/repackage/uv3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uv3(r13 r13Var) {
+        super(r13Var, "/swanAPI/debug/dashboardConnect");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
     }
 
-    public static void b(JsObject jsObject) {
-        qs1 F;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, jsObject) == null) || (F = qs1.F(jsObject)) == null) {
-            return;
-        }
-        j03 a0 = j03.a0();
-        if (a0 == null) {
-            c(F, false, "authorize:fail internal error");
-        } else {
-            a0.d0().e("mapp_enable_eval", new a(F));
-        }
-    }
-
-    public static void c(qs1 qs1Var, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{qs1Var, Boolean.valueOf(z), str}) == null) {
-            if (a) {
-                Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (r23.b) {
+                JSONObject a2 = r23.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    l(R.string.obfuscated_res_0x7f0f012b);
+                    return false;
+                }
+                String optString = a2.optString("meterUrl");
+                if (TextUtils.isEmpty(optString)) {
+                    l(R.string.obfuscated_res_0x7f0f012c);
+                    return false;
+                }
+                vv3.a();
+                qj2.d dVar = new qj2.d();
+                dVar.a = k(context, optString);
+                new b82().e(dVar, vv3.c().getPath(), new a(this));
+                return false;
             }
-            ru3 ru3Var = new ru3();
-            ru3Var.errMsg = str;
-            u24.call(qs1Var, z, ru3Var);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final String k(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            String i = bk2.h0().i(context);
+            String str2 = new String(kx3.g().a("BASE64", (i + "\u0000\u0000").getBytes()));
+            String str3 = str.contains("?") ? "&" : "?";
+            return str + str3 + "cuid=" + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Toast.makeText(bk2.c(), i, 1).show();
         }
     }
 }

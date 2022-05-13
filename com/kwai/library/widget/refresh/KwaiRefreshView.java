@@ -93,21 +93,21 @@ public class KwaiRefreshView extends RelativeLayout implements f {
                 return;
             }
         }
-        this.c = R.drawable.obfuscated_res_0x7f080bc7;
+        this.c = R.drawable.obfuscated_res_0x7f080be2;
         a(context, attributeSet);
     }
 
     private void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040432});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040436});
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();
             if (resourceId != 0) {
                 this.c = resourceId;
             }
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d044c, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091969);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0440, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919c1);
             post(new Runnable(this) { // from class: com.kwai.library.widget.refresh.KwaiRefreshView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

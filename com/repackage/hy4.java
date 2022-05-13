@@ -1,154 +1,79 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.ForumInfo;
+import tbclient.ThreadInfo;
+import tbclient.VoiceRoom;
 /* loaded from: classes6.dex */
 public class hy4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static Map<String, String> b;
-    public static boolean c;
-    public static boolean d;
-    public static int e;
-    public static int f;
-    public static boolean g;
-    public static String h;
-    public static Map<String, String> i;
-    public static int j;
-    public static int k;
-    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
+    public Long a;
+    public String b;
+    public List<VoiceRoom> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755631922, "Lcom/repackage/hy4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public hy4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755631922, "Lcom/repackage/hy4;");
-        }
+        this.c = new ArrayList();
     }
 
-    public static int a() {
+    public List<VoiceRoom> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!c) {
-                return vt4.k().l("video_report_config_upload_number", 5);
-            }
-            return f;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public static int b() {
+    public Long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!c) {
-                return vt4.k().l("video_report_config_upload_type", 0);
-            }
-            return e;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
     }
 
-    public static boolean c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!c) {
-                return vt4.k().h("video_report_config_switch", true);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void d(DataRes dataRes) {
+        VoiceRoom voiceRoom;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        ForumInfo forumInfo = dataRes.forum;
+        if (forumInfo != null) {
+            this.a = forumInfo.id;
+            this.b = forumInfo.name;
+        }
+        if (ListUtils.isEmpty(dataRes.voice_room_list)) {
+            return;
+        }
+        for (ThreadInfo threadInfo : dataRes.voice_room_list) {
+            if (threadInfo != null && (voiceRoom = threadInfo.voice_room) != null && !StringUtils.isNull(voiceRoom.room_name) && voiceRoom.room_id.longValue() > 0) {
+                this.c.add(voiceRoom);
             }
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void d(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        c = true;
-        d = jSONObject.optInt("switch", 1) != 0;
-        vt4.k().u("video_report_config_switch", d);
-        e = jSONObject.optInt("upload_type", 0);
-        vt4.k().w("video_report_config_upload_type", e);
-        f = jSONObject.optInt("upload_number", 5);
-        vt4.k().w("video_report_config_upload_number", f);
-        j = jSONObject.optInt("prepare_max_wait_time", 10000);
-        vt4.k().w("video_report_prepare_max_wait_time", j);
-        k = jSONObject.optInt("prepare_max_loading_time", 3000);
-        vt4.k().w("video_report_prepare_max_loading_time", k);
-        l = jSONObject.optInt("is_open_prepare_time", 0) == 1;
-        vt4.k().u("video_report_is_open_prepare_time", l);
-        g = jSONObject.optInt("moov_check", 0) != 0;
-        vt4.k().u("video_report_config_moov_check", g);
-        String optString = jSONObject.optString("android_debug_type");
-        h = optString;
-        if (!StringUtils.isNull(optString)) {
-            vt4.k().y("video_report_config_debug_type", h);
-            e(h);
-        }
-        String optString2 = jSONObject.optString("step_cache_strategy");
-        a = optString2;
-        if (StringUtils.isNull(optString2)) {
-            return;
-        }
-        vt4.k().y("video_report_config_step_cache_strategy", a);
-        f(a);
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (i == null) {
-            i = new HashMap();
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
-            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
-            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (b == null) {
-            b = new HashMap();
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
-            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
-            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
-            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
-            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
         }
     }
 }

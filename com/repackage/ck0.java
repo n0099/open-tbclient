@@ -92,39 +92,39 @@ public class ck0 extends zj0 {
     }
 
     @Override // com.repackage.zj0, com.repackage.gk0
-    public void c(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
+    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, rj0Var) == null) {
-            super.c(adDownloadAction, rj0Var);
-            x();
+            super.a(adDownloadAction, rj0Var);
+            t();
         }
     }
 
-    public void x() {
+    public void t() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == null) {
             return;
         }
-        Resources resources = hi0.b().getResources();
-        String string = resources.getString(R.string.obfuscated_res_0x7f0f0b81);
+        Resources resources = ki0.b().getResources();
+        String string = resources.getString(R.string.obfuscated_res_0x7f0f0b95);
         switch (a.a[this.a.c.ordinal()]) {
             case 1:
-                string = TextUtils.isEmpty(this.a.p.d) ? resources.getString(R.string.obfuscated_res_0x7f0f0b81) : this.a.p.d;
+                string = TextUtils.isEmpty(this.a.p.d) ? resources.getString(R.string.obfuscated_res_0x7f0f0b95) : this.a.p.d;
                 break;
             case 2:
                 string = new DecimalFormat("#.#%").format(this.a.i);
                 break;
             case 3:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b75);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b89);
                 break;
             case 4:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b78);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b8c);
                 break;
             case 5:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b7c);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b90);
                 break;
             case 6:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b77);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b8b);
                 break;
         }
         hk0<?> hk0Var = this.f.get();
@@ -154,6 +154,6 @@ public class ck0 extends zj0 {
         }
         this.f = null;
         this.f = new WeakReference<>(hk0Var);
-        x();
+        t();
     }
 }

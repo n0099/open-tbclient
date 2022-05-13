@@ -1,240 +1,171 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class cd2 extends g23 {
+public class cd2 implements x83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context c;
-    public j03 d;
-    public CallbackHandler e;
+    public y83 a;
 
-    /* loaded from: classes5.dex */
-    public class a implements SubscribeHelper.k {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-
-        public a(cd2 cd2Var, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd2Var, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = unitedSchemeEntity;
-        }
-
-        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
-        public void a(int i, @NonNull String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
-                this.a.result = UnitedSchemeUtility.wrapCallbackParams(i, str);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements SubscribeHelper.k {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ cd2 b;
-
-        public b(cd2 cd2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cd2Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
-        public void a(int i, @NonNull String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
-                if (jSONObject == null) {
-                    this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(i, str).toString());
-                } else {
-                    this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i).toString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements dd2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ cd2 b;
-
-        public c(cd2 cd2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cd2Var;
-            this.a = str;
-        }
-
-        @Override // com.repackage.ny2
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                if (py2.c.c()) {
-                    return;
-                }
-                if (qj2.h0().e(this.b.c)) {
-                    py2.c.e();
-                } else {
-                    py2.c.f();
-                }
-            }
-        }
-
-        @Override // com.repackage.ny2
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cd2(g13 g13Var) {
-        super(g13Var, "/swanAPI/getFormId");
+    public cd2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        ed2.X(ed2.p(), ed2.t());
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.x83
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (unitedSchemeEntity == null) {
-                if (g23.b) {
-                    Log.w("GetFormIdAction", "entity is null");
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? ed2.Y(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (!rc2.USER_DATA_PATH.equals(str)) {
+                    if (str.startsWith(rc2.USER_DATA_PATH + File.separator)) {
+                    }
                 }
-                return false;
-            } else if (j03Var != null && (context instanceof Activity) && callbackHandler != null) {
-                this.c = context;
-                this.d = j03Var;
-                this.e = callbackHandler;
-                JSONObject a2 = g23.a(unitedSchemeEntity, "params");
-                if (a2 != null && a2.length() != 0) {
-                    String optString = a2.optString("cb");
-                    if (TextUtils.isEmpty(optString)) {
-                        if (g23.b) {
-                            Log.w("GetFormIdAction", "cb is empty");
-                        }
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "cb is empty");
-                        return false;
-                    }
-                    String N = j03Var.N();
-                    if (TextUtils.isEmpty(N)) {
-                        if (g23.b) {
-                            Log.w("GetFormIdAction", "appKey is empty");
-                        }
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "appKey is empty");
-                        return false;
-                    }
-                    if (TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE.equals(a2.optString("reportType"))) {
-                        SubscribeHelper subscribeHelper = new SubscribeHelper();
-                        if (!subscribeHelper.n(this.c, this.d, N, a2, SubscribeHelper.invokeSubscribeFrom.GET_FORM_ID_BUTTON, new a(this, unitedSchemeEntity))) {
-                            return false;
-                        }
-                        subscribeHelper.o(N, new b(this, optString));
-                    } else {
-                        l(N, optString);
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.x83
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return ed2.N("bdfile://tmp" + File.separator + str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    @NonNull
+    public synchronized y83 d() {
+        InterceptResult invokeV;
+        y83 y83Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new dd2();
+                }
+                y83Var = this.a;
+            }
+            return y83Var;
+        }
+        return (y83) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (c83.s(str) == PathType.RELATIVE) {
+                return ed2.Y(str);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ed2.P(rc2.USER_DATA_PATH) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? ed2.Z(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? g(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            String B = ed2.B(str);
+            if (TextUtils.isEmpty(B)) {
+                return null;
+            }
+            return B;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public boolean j(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) ? ed2.V(str) : invokeLZ.booleanValue;
+    }
+
+    @Override // com.repackage.x83
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ed2.N("bdfile://tmp") : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (str.startsWith("bdfile://tmp" + File.separator) || "bdfile://tmp".equals(str)) {
                     return true;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                return false;
-            } else {
-                if (g23.b) {
-                    Log.d("GetFormIdAction", "runtime parameter error");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "runtime parameter error");
-                return false;
             }
+            return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void l(@NonNull String str, @NonNull String str2) {
+    @Override // com.repackage.x83
+    public String m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (!SubscribeHelper.l()) {
-                this.e.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jd3.f(null, "data", jd3.f(null, "formid", "")), 0).toString());
-                return;
-            }
-            qj2.W().c(str, new c(this, str2));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? e(str) : (String) invokeL.objValue;
     }
 }

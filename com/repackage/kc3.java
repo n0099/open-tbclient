@@ -1,107 +1,76 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d63;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kc3 {
+public class kc3 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                kc3.b(this.a, this.b);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755563722, "Lcom/repackage/kc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755563722, "Lcom/repackage/kc3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc3(r13 r13Var) {
+        super(r13Var, "/swanAPI/closeTextarea");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
-        b = 0;
     }
 
-    public static void b(int i, int i2) {
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            if (i == 0) {
-                b = 2;
-            } else if (i2 > i) {
-                b = 1;
-                wa2.d().e(i, i2);
-                wc3.h();
-                rj2.m().i();
-                d63.a.a();
-                j62.d();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
             }
-            if (a) {
-                Log.d("SwanAppUpgradeManager", "App onUpgrade on thread: " + Thread.currentThread());
+            ux1.i("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
+            gx1 gx1Var = new gx1();
+            try {
+                gx1Var.a(optParamsAsJo);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                ux1.d("CloseTextAreaAction", "model parse exception:", e);
             }
+            fx1 fx1Var = (fx1) hx1.a(gx1Var);
+            if (fx1Var == null) {
+                String str = "can't find textarea component:#" + gx1Var.b;
+                ux1.c("CloseTextAreaAction", str);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
+                return false;
+            }
+            lw1 B = fx1Var.B();
+            if (!B.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+                return false;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : invokeV.intValue;
-    }
-
-    public static void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
-            if (i != 0 && qj2.g0().l()) {
-                dd3.k(new a(i, i2), "onUpgradeOperation");
-            } else {
-                b(i, i2);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

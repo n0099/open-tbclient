@@ -12,7 +12,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,15 +20,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m45;
-import com.repackage.n45;
-import com.repackage.o45;
-import com.repackage.oi;
-import com.repackage.p45;
-import com.repackage.q45;
-import com.repackage.t45;
+import com.repackage.d55;
+import com.repackage.e55;
+import com.repackage.f55;
+import com.repackage.g55;
+import com.repackage.j55;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
-public class RecommendFrsDelegateStatic extends m45 {
+public class RecommendFrsDelegateStatic extends d55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
@@ -62,14 +60,14 @@ public class RecommendFrsDelegateStatic extends m45 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            n45 b;
+            e55 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
-            ((o45) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((o45) customResponsedMessage.getData()).getContext() == null || (b = recommendFrsDelegateStatic.b()) == null || b.a.isAdded()) {
+            ((f55) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
+            if (((f55) customResponsedMessage.getData()).getContext() == null || (b = recommendFrsDelegateStatic.b()) == null || b.a.isAdded()) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -124,6 +122,38 @@ public class RecommendFrsDelegateStatic extends m45 {
         }
     }
 
+    /* loaded from: classes3.dex */
+    public class c implements g55.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public c(RecommendFrsDelegateStatic recommendFrsDelegateStatic, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {recommendFrsDelegateStatic, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // com.repackage.g55.a
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(this.a).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null) : invokeV.objValue;
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -156,40 +186,33 @@ public class RecommendFrsDelegateStatic extends m45 {
         }
     }
 
-    @Override // com.repackage.m45
-    public n45 a() {
+    @Override // com.repackage.d55
+    public e55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n45 n45Var = new n45();
-            n45Var.a = new RecommendFrsControlFragment();
-            n45Var.e = 2;
-            n45Var.b = R.string.obfuscated_res_0x7f0f084b;
-            n45Var.f = R.raw.lottie_tab_home;
-            n45Var.i = n45.m;
-            n45Var.h = t45.d().c("homePage");
-            return n45Var;
+            e55 e55Var = new e55();
+            e55Var.a = new RecommendFrsControlFragment();
+            e55Var.e = 2;
+            e55Var.b = R.string.obfuscated_res_0x7f0f0853;
+            e55Var.f = R.raw.lottie_tab_home;
+            e55Var.i = e55.l;
+            e55Var.h = j55.d().c("homePage");
+            return e55Var;
         }
-        return (n45) invokeV.objValue;
+        return (e55) invokeV.objValue;
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (p45.e().a()) {
-                this.b = (MaintabBottomIndicator) p45.e().d(2);
-            } else if (PreInitMainTabViewSwitch.getIsOn()) {
-                this.b = q45.b().a();
-            }
-            if (this.b == null) {
-                this.b = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-            }
+            this.b = (MaintabBottomIndicator) g55.e().d(1001, new c(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f = this.b;
-            aVar.c = oi.d(context, 12.0f);
+            aVar.c = mi.d(context, 12.0f);
             MessageRedDotView messageRedDotView = this.c;
             aVar.a = messageRedDotView;
             messageRedDotView.setVisibility(8);
@@ -199,7 +222,7 @@ public class RecommendFrsDelegateStatic extends m45 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +232,7 @@ public class RecommendFrsDelegateStatic extends m45 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -217,7 +240,7 @@ public class RecommendFrsDelegateStatic extends m45 {
         }
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

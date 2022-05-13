@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ee8;
+import com.repackage.uc8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
 import tbclient.GetPrivateInfo.ResData;
 import tbclient.SimpleUser;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ee8 privacyData;
+    public uc8 privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacySocketMessage() {
@@ -35,13 +35,13 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new ee8();
+        this.privacyData = new uc8();
     }
 
-    public ee8 getPrivacyData() {
+    public uc8 getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privacyData : (ee8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privacyData : (uc8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

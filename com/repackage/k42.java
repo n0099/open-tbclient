@@ -1,78 +1,277 @@
 package com.repackage;
 
-import android.util.Pair;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.facebook.common.internal.Sets;
+import com.repackage.tb4;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class k42 extends mo1 {
+public final class k42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<Integer> b;
+    public static final Map<String, Long> c;
+    public static int d;
+    public static final pf3<String, String> e;
+    public static final pf3<tb4.a, String> f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k42(@NonNull ko1 ko1Var) {
-        super(ko1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ko1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ko1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements pf3<String, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.repackage.pf3
+        public /* bridge */ /* synthetic */ String a(String str) {
+            String str2 = str;
+            b(str2);
+            return str2;
+        }
+
+        public String b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? str : (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements pf3<tb4.a, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pf3
+        /* renamed from: b */
+        public String a(tb4.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? aVar == null ? "" : aVar.b() : (String) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755608920, "Lcom/repackage/k42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755608920, "Lcom/repackage/k42;");
                 return;
             }
         }
+        a = eh1.a;
+        b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
+        c = new ConcurrentHashMap();
+        d = 1800;
+        e = new a();
+        f = new b();
     }
 
-    @Override // com.repackage.mo1
-    public String h() {
-        InterceptResult invokeV;
+    public static <T> T a(String str, T t) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, t)) == null) {
+            if (a) {
+                Log.i("PreDownloadUtils", "Recorded=" + c.size() + " # " + str + " => " + t);
+            }
+            return t;
+        }
+        return (T) invokeLL.objValue;
     }
 
-    @Override // com.repackage.mo1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
-    }
-
-    public js1 x(String str) {
+    public static boolean b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#prefetchResources params=" + str, false);
-            Pair<js1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return (js1) s.first;
-            }
-            if (!SwanAppNetworkUtils.i(qj2.c())) {
-                return new js1(1001, "network disconnected");
-            }
-            JSONArray c = jd3.c(jSONObject, "video");
-            if (c != null && c.length() > 0) {
-                qj2.U().a(c);
-            }
-            JSONArray c2 = jd3.c(jSONObject, "image");
-            if (c2 != null && c2.length() > 0) {
-                qj2.U().c(c2);
-            }
-            return js1.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Long l = c.get(str);
+            return l == null || System.currentTimeMillis() - l.longValue() > ((long) (d * 1000));
         }
-        return (js1) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? g(str, true) : invokeL.booleanValue;
+    }
+
+    public static boolean d(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (str2 != null) {
+                str = str + str2;
+            }
+            return c(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? g(str, false) : invokeL.booleanValue;
+    }
+
+    public static boolean f(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (str2 != null && str != null) {
+                str = str + str2;
+            }
+            return e(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(@Nullable String str, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
+            String str2 = "shouldDownloadItem app=" + str + " record=" + z + ZeusCrashHandler.NAME_SEPERATOR;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (z) {
+                c.put(str, Long.valueOf(System.currentTimeMillis()));
+                z2 = true;
+            } else {
+                z2 = !c.containsKey(str);
+            }
+            Boolean valueOf = Boolean.valueOf(z2);
+            a(str2 + " should", valueOf);
+            if (!valueOf.booleanValue()) {
+                Boolean valueOf2 = Boolean.valueOf(b(str));
+                a(str2 + " AB", valueOf2);
+                if (!valueOf2.booleanValue()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static List<String> h(Collection<String> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) ? j(e, collection) : (List) invokeL.objValue;
+    }
+
+    public static List<tb4.a> i(Collection<tb4.a> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) ? j(f, collection) : (List) invokeL.objValue;
+    }
+
+    public static <SwanItemT> List<SwanItemT> j(@NonNull pf3<SwanItemT, String> pf3Var, Collection<SwanItemT> collection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, pf3Var, collection)) == null) ? k(pf3Var, collection, false) : (List) invokeLL.objValue;
+    }
+
+    public static <SwanItemT> List<SwanItemT> k(@NonNull pf3<SwanItemT, String> pf3Var, Collection<SwanItemT> collection, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65547, null, pf3Var, collection, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (collection != null) {
+                Iterator<SwanItemT> it = collection.iterator();
+                while (it.hasNext()) {
+                    SwanItemT next = it.next();
+                    if (g(next == null ? "" : pf3Var.a(next), z)) {
+                        arrayList.add(next);
+                    }
+                }
+                a("shouldDownloadSet", "record=" + z + " targets=" + collection.size() + " should=" + arrayList.size());
+            }
+            return arrayList;
+        }
+        return (List) invokeLLZ.objValue;
+    }
+
+    public static boolean l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
+    }
+
+    public static boolean m(m94 m94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, m94Var)) == null) ? m94Var != null && l(m94Var.a) : invokeL.booleanValue;
+    }
+
+    public static boolean n(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            Iterator<Map.Entry<String, Long>> it = c.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<String, Long> next = it.next();
+                if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {
+                    it.remove();
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

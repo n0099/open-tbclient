@@ -21,19 +21,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-/* loaded from: classes7.dex */
+import com.repackage.nr4;
+/* loaded from: classes6.dex */
 public class q48 implements u58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
     public TbPageContext c;
-    public xt4 d;
-    public zt4 e;
+    public ku4 d;
+    public mu4 e;
     public BdUniqueId f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,8 +66,8 @@ public class q48 implements u58 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    /* loaded from: classes6.dex */
+    public class b implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,17 +87,17 @@ public class q48 implements u58 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    /* loaded from: classes6.dex */
+    public class c implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ q48 a;
@@ -120,17 +120,17 @@ public class q48 implements u58 {
             this.a = q48Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 if (Build.VERSION.SDK_INT < 11) {
-                    cr4Var.dismiss();
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f06f2);
+                    nr4Var.dismiss();
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f06fb);
                     return;
                 }
                 TiebaStatic.log("c10038");
-                cr4Var.dismiss();
+                nr4Var.dismiss();
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.a.c.getPageActivity(), 2, true, 5);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
                 if (!StringUtils.isNULL("4010001002")) {
@@ -141,8 +141,8 @@ public class q48 implements u58 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d implements cr4.e {
+    /* loaded from: classes6.dex */
+    public class d implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -162,17 +162,17 @@ public class q48 implements u58 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class e implements cr4.e {
+    /* loaded from: classes6.dex */
+    public class e implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
@@ -197,19 +197,19 @@ public class q48 implements u58 {
             this.a = userMuteAddAndDelCustomMessage;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 this.b.g();
                 MessageManager.getInstance().sendMessage(this.a);
-                cr4Var.dismiss();
+                nr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class f implements cr4.e {
+    /* loaded from: classes6.dex */
+    public class f implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -229,11 +229,11 @@ public class q48 implements u58 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
             }
         }
     }
@@ -256,9 +256,9 @@ public class q48 implements u58 {
         this.a = -1;
         this.b = "";
         this.c = tbPageContext;
-        zt4 zt4Var = new zt4();
-        this.e = zt4Var;
-        zt4Var.a = 1000L;
+        mu4 mu4Var = new mu4();
+        this.e = mu4Var;
+        mu4Var.a = 1000L;
         this.f = bdUniqueId;
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
         BdUniqueId bdUniqueId2 = this.f;
@@ -277,31 +277,31 @@ public class q48 implements u58 {
     public void a(int i, int i2, String str, int i3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
-            xt4 xt4Var = this.d;
-            if (xt4Var != null) {
-                xt4Var.h(false);
+            ku4 ku4Var = this.d;
+            if (ku4Var != null) {
+                ku4Var.h(false);
             }
             this.a = i2;
             this.b = str;
             if (i3 == 0) {
                 if (i == 1) {
-                    this.e.c(this.c.getString(R.string.obfuscated_res_0x7f0f0b19));
+                    this.e.c(this.c.getString(R.string.obfuscated_res_0x7f0f0b2a));
                 } else if (i == 2) {
-                    this.e.c(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1469));
+                    this.e.c(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1491));
                 }
             } else if (i3 == 220017) {
                 if (TextUtils.isEmpty(str2)) {
-                    str2 = this.c.getString(R.string.obfuscated_res_0x7f0f0b15);
+                    str2 = this.c.getString(R.string.obfuscated_res_0x7f0f0b26);
                 }
                 i(str2);
             } else if (i3 == 1990043) {
                 h();
             } else {
-                if (ni.isEmpty(str2)) {
+                if (li.isEmpty(str2)) {
                     if (i == 1) {
-                        str2 = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0b16);
+                        str2 = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0b27);
                     } else if (i == 2) {
-                        str2 = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1468);
+                        str2 = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1490);
                     }
                 }
                 this.e.b(str2);
@@ -331,9 +331,9 @@ public class q48 implements u58 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.d == null) {
-                xt4 xt4Var = new xt4(this.c);
-                this.d = xt4Var;
-                xt4Var.e(new a(this));
+                ku4 ku4Var = new ku4(this.c);
+                this.d = ku4Var;
+                ku4Var.e(new a(this));
             }
             this.d.h(true);
         }
@@ -342,11 +342,11 @@ public class q48 implements u58 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            cr4 cr4Var = new cr4(this.c.getPageActivity());
-            cr4Var.setMessage(this.c.getString(R.string.obfuscated_res_0x7f0f0b17));
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccb, new c(this));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new d(this));
-            cr4Var.create(this.c).show();
+            nr4 nr4Var = new nr4(this.c.getPageActivity());
+            nr4Var.setMessage(this.c.getString(R.string.obfuscated_res_0x7f0f0b28));
+            nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce6, new c(this));
+            nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new d(this));
+            nr4Var.create(this.c).show();
         }
     }
 
@@ -356,10 +356,10 @@ public class q48 implements u58 {
             if (str == null) {
                 str = "";
             }
-            cr4 cr4Var = new cr4(this.c.getPageActivity());
-            cr4Var.setMessage(str);
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0984, new b(this));
-            cr4Var.create(this.c).show();
+            nr4 nr4Var = new nr4(this.c.getPageActivity());
+            nr4Var.setMessage(str);
+            nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0988, new b(this));
+            nr4Var.create(this.c).show();
         }
     }
 
@@ -371,15 +371,15 @@ public class q48 implements u58 {
                 MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
                 return;
             }
-            cr4 cr4Var = new cr4(this.c.getPageActivity());
-            if (ni.isEmpty(str)) {
-                cr4Var.setMessage(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0310, str2));
+            nr4 nr4Var = new nr4(this.c.getPageActivity());
+            if (li.isEmpty(str)) {
+                nr4Var.setMessage(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0315, str2));
             } else {
-                cr4Var.setMessage(str);
+                nr4Var.setMessage(str);
             }
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new e(this, userMuteAddAndDelCustomMessage));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new f(this));
-            cr4Var.create(this.c).show();
+            nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0428, new e(this, userMuteAddAndDelCustomMessage));
+            nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new f(this));
+            nr4Var.create(this.c).show();
         }
     }
 }

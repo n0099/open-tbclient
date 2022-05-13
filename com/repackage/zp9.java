@@ -1,53 +1,69 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+import com.win.opensdk.PBError;
+import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
-public class zp9 {
+public class zp9 implements zs9 {
     public static /* synthetic */ Interceptable $ic;
-    public static zp9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public sq9 b;
-    public boolean c;
+    public final /* synthetic */ pq9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755104178, "Lcom/repackage/zp9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755104178, "Lcom/repackage/zp9;");
-                return;
-            }
-        }
-        d = new zp9();
-    }
-
-    public zp9() {
+    public zp9(pq9 pq9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pq9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+        this.a = pq9Var;
+    }
+
+    @Override // com.repackage.zs9
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.zs9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
+            try {
+                this.a.c = info;
+                if (this.a.f != null) {
+                    if (info == null || info.getType() != 61) {
+                        this.a.f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.a.e()) {
+                        this.a.f.onLoaded();
+                    }
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    @Override // com.repackage.zs9
+    public void onFail(PBError pBError) {
+        dr9 dr9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (dr9Var = this.a.f) == null) {
+            return;
+        }
+        dr9Var.onFail(pBError);
     }
 }

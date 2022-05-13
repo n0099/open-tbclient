@@ -1,51 +1,49 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
+import com.win.opensdk.core.Info;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class aq9 extends Handler {
+public final class aq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ oq9 a;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ Info b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq9(oq9 oq9Var, Looper looper) {
-        super(looper);
+    public aq9(Context context, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oq9Var, looper};
+            Object[] objArr = {context, info};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = oq9Var;
+        this.a = context;
+        this.b = info;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public void a(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.a.e = true;
-            this.a.k.removeMessages(11);
-            int wt = this.a.e() ? this.a.f.getWt() : 0;
-            yr9 a = cs9.a(this.a.b);
-            a.e(new gs9(this.a.f), 2002, wt * 1000);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            tq9 a = xq9.a(this.a);
+            try {
+                a.b = xq9.d("rle", new br9(this.b));
+                a.k("co", i);
+            } catch (JSONException unused) {
+            }
+            a.l("msg", str);
             a.m();
-            this.a.h.onFail(PBError.TIMEOUT);
         }
     }
 }

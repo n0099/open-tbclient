@@ -1,83 +1,84 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.st3;
-import com.repackage.ys2;
-@Service
+@Autowired
 /* loaded from: classes6.dex */
-public class kx3 implements ph1 {
+public class kx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements st3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ys2.k a;
-
-        public a(kx3 kx3Var, ys2.k kVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kx3Var, kVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kVar;
-        }
-
-        @Override // com.repackage.st3.d
-        public void onFail(String str) {
-            ys2.k kVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (kVar = this.a) == null) {
-                return;
-            }
-            kVar.onFail(str);
-        }
-
-        @Override // com.repackage.st3.d
-        public void onSuccess() {
-            ys2.k kVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kVar = this.a) == null) {
-                return;
-            }
-            kVar.onSuccess();
-        }
+    @Inject(force = false)
+    public static ay3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? jm5.a() : (ay3) invokeV.objValue;
     }
 
-    public kx3() {
+    @Inject(force = false)
+    public static fy3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new ox3() : (fy3) invokeV.objValue;
     }
 
-    @Override // com.repackage.ph1
-    public void a(String str, ys2.k kVar) {
+    @Inject(force = false)
+    public static ey3 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
-            vt3.o().j(str, new a(this, kVar));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new nx3() : (ey3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static by3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? uq3.a() : (by3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static dy3 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? zq3.a() : (dy3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static cy3 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? wq3.a() : (cy3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static gy3 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new px3() : (gy3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static hy3 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new qx3() : (hy3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static iy3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new rx3() : (iy3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static jy3 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new sx3() : (jy3) invokeV.objValue;
     }
 }

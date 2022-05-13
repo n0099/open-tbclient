@@ -1,36 +1,34 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xn6 {
+public final class xn6 implements yn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, int i2) {
+    public xn6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13513");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_type", i);
-            if (i2 != -1) {
-                statisticItem.addParam("obj_locate", i2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void b(String str, int i) {
+    @Override // com.repackage.yn6
+    public void a(@NonNull View view2, @NonNull View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13512");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_source", i);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, onClickListener) == null) {
         }
     }
 }

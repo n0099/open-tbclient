@@ -1,35 +1,61 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.ik9;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class kk9 implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
+public abstract class kk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ik9.b a;
-    public final /* synthetic */ Context b;
-    public final /* synthetic */ ik9 c;
+    public AtomicBoolean a;
+    public long b;
+    public Runnable c;
 
-    public kk9(ik9 ik9Var, KsNativeAd ksNativeAd, Context context) {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kk9 a;
+
+        public a(kk9 kk9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kk9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kk9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+                if (this.a.a.get()) {
+                    ok9.a().postDelayed(this.a.c, this.a.b);
+                }
+            }
+        }
+    }
+
+    public kk9(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ik9Var, ksNativeAd, context};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,36 +65,28 @@ public class kk9 implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x>
                 return;
             }
         }
-        this.c = ik9Var;
-        this.b = context;
-        this.a = new ik9.b(ik9Var, ksNativeAd);
+        this.a = new AtomicBoolean(false);
+        this.c = new a(this);
+        this.b = 0 == j ? 300L : j;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.ks.x] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.ks.x createExpressView(KsNativeAd ksNativeAd) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksNativeAd)) == null) ? this.c.a(this.b, ksNativeAd) : (View) invokeL.objValue;
-    }
+    public abstract void b();
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.f(ksNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), this.a, funAdInteractionListener);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.get()) {
+            return;
         }
+        this.a.set(true);
+        ok9.a().removeCallbacks(this.c);
+        ok9.a().postDelayed(this.c, mk9.e().i());
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.f(ksNativeAd, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.a, funAdInteractionListener);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.get()) {
+            this.a.set(false);
+            ok9.a().removeCallbacks(this.c);
         }
     }
 }

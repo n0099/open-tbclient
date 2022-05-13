@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
+import com.repackage.kg;
 import protobuf.QueryUserPermission.DataReq;
 import protobuf.QueryUserPermission.QueryUserPermissionReqIdl;
 /* loaded from: classes3.dex */
@@ -41,7 +41,7 @@ public class RequestUserPermissionMessage extends TbSocketMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.forumId = Integer.valueOf(mg.e(String.valueOf(getForumId()), 0));
+                builder.forumId = Integer.valueOf(kg.e(String.valueOf(getForumId()), 0));
                 QueryUserPermissionReqIdl.Builder builder2 = new QueryUserPermissionReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

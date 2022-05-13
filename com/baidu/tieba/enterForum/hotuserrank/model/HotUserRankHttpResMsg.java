@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m56;
+import com.repackage.k56;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
 public class HotUserRankHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m56 pageData;
+    public k56 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankHttpResMsg() {
@@ -36,10 +36,10 @@ public class HotUserRankHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public m56 getPageData() {
+    public k56 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (m56) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (k56) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,8 +58,8 @@ public class HotUserRankHttpResMsg extends HttpResponsedMessage {
             }
             setErrorString(getInfluenceRankResIdl.error.usermsg);
         }
-        m56 m56Var = new m56();
-        this.pageData = m56Var;
-        m56Var.c(getInfluenceRankResIdl.data);
+        k56 k56Var = new k56();
+        this.pageData = k56Var;
+        k56Var.c(getInfluenceRankResIdl.data);
     }
 }

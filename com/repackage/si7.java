@@ -32,7 +32,7 @@ public class si7 implements ToastService {
     public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
-            oi.N(TbadkCoreApplication.getInst(), str);
+            mi.N(TbadkCoreApplication.getInst(), str);
         }
     }
 
@@ -40,7 +40,7 @@ public class si7 implements ToastService {
     public void showNormal(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-            oi.N(TbadkCoreApplication.getInst(), str);
+            mi.N(TbadkCoreApplication.getInst(), str);
         }
     }
 
@@ -48,7 +48,7 @@ public class si7 implements ToastService {
     public void showToastBottom(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
-            oi.N(TbadkCoreApplication.getInst(), str);
+            mi.N(TbadkCoreApplication.getInst(), str);
         }
     }
 }

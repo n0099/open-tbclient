@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
 /* loaded from: classes3.dex */
@@ -66,7 +66,7 @@ public class RealTimeRequest extends NetMessage {
             builder.ori_ugc_type = this.ori_ugc_type;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -1,93 +1,34 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Dialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.YYPayAmountCampaignView;
-import tv.athena.revenue.payui.view.YYPayAmountView;
-import tv.athena.revenue.payui.view.YYPayConfirmView;
-import tv.athena.revenue.payui.view.YYPayGiftView;
-import tv.athena.revenue.payui.view.YYPayResultView;
-import tv.athena.revenue.payui.view.YYPayWayView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class i5a implements b5a {
+public class i5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public x5a c;
-    public PayUIKitConfig d;
 
-    public i5a(int i, int i2, x5a x5aVar, PayUIKitConfig payUIKitConfig) {
+    public static void a(Dialog dialog, PayDialogType payDialogType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), x5aVar, payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
+            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
+            if (dialog == null || !dialog.isShowing()) {
                 return;
             }
+            dialog.dismiss();
         }
-        RLog.info("PayViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = x5aVar;
-        this.d = payUIKitConfig;
     }
 
-    @Override // com.repackage.b5a
-    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, w4a w4aVar) {
-        InterceptResult invokeLLL;
+    public static void b(Dialog dialog, PayDialogType payDialogType) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, w4aVar)) == null) ? new YYPayAmountView(activity, this.a, this.b, this.d, viewParams, this.c, w4aVar) : (IYYPayAmountView) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.b5a
-    public a7a b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) ? new YYPayConfirmView(activity, this.a, this.b, this.d) : (a7a) invokeL.objValue;
-    }
-
-    @Override // com.repackage.b5a
-    public z6a c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) ? new YYPayAmountCampaignView(activity, this.a, this.b, this.d) : (z6a) invokeL.objValue;
-    }
-
-    @Override // com.repackage.b5a
-    public b7a d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) ? new YYPayGiftView(activity, this.a, this.b, this.d) : (b7a) invokeL.objValue;
-    }
-
-    @Override // com.repackage.b5a
-    public IYYPayWayView e(Activity activity, IYYPayWayView.b bVar, w4a w4aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, bVar, w4aVar)) == null) ? new YYPayWayView(activity, this.a, this.b, bVar, this.c, this.d, w4aVar) : (IYYPayWayView) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.b5a
-    public IYYPayResultView f(Activity activity, IYYPayResultView.c cVar, w4a w4aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, cVar, w4aVar)) == null) ? new YYPayResultView(activity, this.d, this.c, this.a, this.b, cVar, w4aVar) : (IYYPayResultView) invokeLLL.objValue;
+        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
+            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
+            if (dialog == null || !dialog.isShowing()) {
+                return;
+            }
+            dialog.cancel();
+        }
     }
 }

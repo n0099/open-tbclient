@@ -1,62 +1,38 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public class m52 implements l52 {
+public final class m52 implements d52 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile m52 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, k52> a;
+    public a b;
+    public OutputStream c;
+    public File d;
+    public boolean e;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ m52 b;
+    public interface a {
+        void a(File file);
 
-        public a(m52 m52Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m52Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m52Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.h(this.a);
-            }
-        }
+        void b(File file);
     }
 
-    public m52() {
+    public m52(File file, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,123 +42,72 @@ public class m52 implements l52 {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.d = file;
+        this.b = aVar;
+        b(file);
     }
 
-    public static m52 d() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (m52.class) {
-                    if (b == null) {
-                        b = new m52();
-                    }
-                }
-            }
-            return b;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+            return;
         }
-        return (m52) invokeV.objValue;
-    }
-
-    public synchronized m52 b(String str, UbcFlowEvent ubcFlowEvent) {
-        InterceptResult invokeLL;
-        k52 k52Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
-            synchronized (this) {
-                if (c(str) && (k52Var = this.a.get(str)) != null) {
-                    k52Var.a(str, ubcFlowEvent);
-                    return this;
-                }
-                return this;
+        a aVar = this.b;
+        if (aVar != null) {
+            if (this.e) {
+                aVar.a(this.d);
+            } else {
+                aVar.b(this.d);
             }
         }
-        return (m52) invokeLL.objValue;
+        xg4.d(this.c);
     }
 
-    public final boolean c(String str) {
-        InterceptResult invokeL;
+    public final void b(File file) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
-    }
-
-    public synchronized m52 e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        k52 k52Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            synchronized (this) {
-                if (c(str) && (k52Var = this.a.get(str)) != null) {
-                    k52Var.d(str, z);
-                    if (z2) {
-                        i(str);
-                    }
-                    return this;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+            try {
+                if (this.c != null || file == null) {
+                    return;
                 }
-                return this;
-            }
-        }
-        return (m52) invokeCommon.objValue;
-    }
-
-    public synchronized m52 f(String str, n52 n52Var) {
-        InterceptResult invokeLL;
-        k52 k52Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, n52Var)) == null) {
-            synchronized (this) {
-                if (c(str) && (k52Var = this.a.get(str)) != null) {
-                    k52Var.e(str, n52Var);
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (m52) invokeLL.objValue;
-    }
-
-    public synchronized m52 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                if (c(str) && !this.a.containsKey(str)) {
-                    k52 k52Var = new k52();
-                    this.a.put(str, k52Var);
-                    k52Var.f(str);
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (m52) invokeL.objValue;
-    }
-
-    public final synchronized void h(String str) {
-        k52 k52Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                if (c(str) && (k52Var = this.a.get(str)) != null) {
-                    this.a.remove(str);
-                    k52Var.h(str);
+                xg4.h(this.d);
+                this.c = new FileOutputStream(file);
+            } catch (Exception e) {
+                if (d52.a) {
+                    Log.e("HybridIntercept", Log.getStackTraceString(e));
                 }
             }
         }
     }
 
-    public void i(String str) {
+    public void c(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            j(str, 0L);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) || inputStream == null || this.e) {
+            return;
         }
+        xg4.Q(inputStream, this.d);
+        this.e = true;
     }
 
-    public void j(String str, long j) {
+    public void d(byte[] bArr, int i, int i2) {
+        OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
+        if (!(interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) || (outputStream = this.c) == null) {
+            return;
+        }
+        try {
+            if (i2 > 0) {
+                outputStream.write(bArr, i, i2);
+            } else {
+                this.e = true;
+            }
+        } catch (IOException unused) {
+            xg4.d(this.c);
+            this.c = null;
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.b(this.d);
+            }
         }
     }
 }

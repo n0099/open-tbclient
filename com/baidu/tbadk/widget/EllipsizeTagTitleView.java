@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gz;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.py;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements gz {
+public class EllipsizeTagTitleView extends View implements py {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
@@ -83,13 +83,13 @@ public class EllipsizeTagTitleView extends View implements gz {
                 return;
             }
         }
-        B = oi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = oi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = mi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = mi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -306,7 +306,7 @@ public class EllipsizeTagTitleView extends View implements gz {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040605, R.attr.obfuscated_res_0x7f040606, R.attr.obfuscated_res_0x7f040607, R.attr.obfuscated_res_0x7f040608, R.attr.obfuscated_res_0x7f040609, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04060b, R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040612, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040616, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f040618});
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
@@ -337,7 +337,7 @@ public class EllipsizeTagTitleView extends View implements gz {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(oi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(mi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;
@@ -345,7 +345,7 @@ public class EllipsizeTagTitleView extends View implements gz {
         }
     }
 
-    @Override // com.repackage.gz
+    @Override // com.repackage.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {

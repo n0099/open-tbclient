@@ -1,34 +1,56 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m75 {
+public abstract class m75<T> extends n75<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public Class<T> c;
 
-    public static void a(String str, int i, String str2, String str3, String str4) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m75(int i, String str, Class<T> cls) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_locate", i);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("tid", str3);
-            statisticItem.param("fid", str4);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.b = str;
+        this.c = cls;
     }
 
-    public static void b(String str, String str2, String str3, String str4) {
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, str4) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("tid", str3);
-            statisticItem.param("fid", str4);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return this.c.newInstance();
+            } catch (ExceptionInInitializerError e) {
+                e.printStackTrace();
+                return null;
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+                return null;
+            } catch (InstantiationException e3) {
+                e3.printStackTrace();
+                return null;
+            }
         }
+        return (T) invokeV.objValue;
     }
 }

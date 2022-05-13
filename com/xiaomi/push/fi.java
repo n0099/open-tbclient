@@ -38,7 +38,7 @@ public class fi extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 fcVar = this.a.a;
-                fcVar.m349a();
+                fcVar.m350a();
             } catch (Exception e) {
                 this.a.c(9, e);
             }

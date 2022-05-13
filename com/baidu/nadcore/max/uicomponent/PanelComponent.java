@@ -25,25 +25,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a21;
 import com.repackage.ao0;
-import com.repackage.c11;
+import com.repackage.b61;
 import com.repackage.cn0;
+import com.repackage.d61;
 import com.repackage.dn0;
-import com.repackage.eh0;
 import com.repackage.en0;
-import com.repackage.fi0;
 import com.repackage.fn0;
 import com.repackage.gn0;
+import com.repackage.hh0;
 import com.repackage.hn0;
 import com.repackage.ho0;
+import com.repackage.ii0;
 import com.repackage.ln0;
+import com.repackage.m11;
 import com.repackage.mo0;
 import com.repackage.no0;
 import com.repackage.pn0;
-import com.repackage.q11;
-import com.repackage.q51;
-import com.repackage.qh0;
-import com.repackage.s51;
+import com.repackage.th0;
 import com.repackage.tn0;
 import com.repackage.uy0;
 import com.repackage.vm0;
@@ -77,14 +77,14 @@ public final class PanelComponent extends AbsComponentPlugin {
     public TextView l;
     public TextView m;
     public View n;
-    public s51<View> o;
+    public d61<View> o;
     public boolean p;
     public AlphaAnimation q;
-    public q11 r;
+    public a21 r;
     public final Lazy s;
 
     /* loaded from: classes2.dex */
-    public final class a extends q51 {
+    public final class a extends b61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PanelComponent a;
@@ -108,7 +108,7 @@ public final class PanelComponent extends AbsComponentPlugin {
             this.a = panelComponent;
         }
 
-        @Override // com.repackage.q51
+        @Override // com.repackage.b61
         public void a(String str) {
             en0 en0Var;
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
         /* JADX WARN: Removed duplicated region for block: B:30:0x008a  */
         /* JADX WARN: Removed duplicated region for block: B:35:? A[RETURN, SYNTHETIC] */
-        @Override // com.repackage.q51
+        @Override // com.repackage.b61
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -150,7 +150,7 @@ public final class PanelComponent extends AbsComponentPlugin {
                     z = false;
                     if (!z) {
                         xn0 xn0Var2 = this.a.f;
-                        qh0.c(xn0Var2 != null ? xn0Var2.i : null, this.a.getContext());
+                        th0.c(xn0Var2 != null ? xn0Var2.i : null, this.a.getContext());
                     } else {
                         fn0 fn0Var = (fn0) this.a.j().q(fn0.class);
                         if (fn0Var != null) {
@@ -177,7 +177,7 @@ public final class PanelComponent extends AbsComponentPlugin {
             }
         }
 
-        @Override // com.repackage.q51
+        @Override // com.repackage.b61
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -218,11 +218,11 @@ public final class PanelComponent extends AbsComponentPlugin {
             if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
                 Intrinsics.checkNotNullExpressionValue(v, "v");
                 int id = v.getId();
-                if (id == R.id.obfuscated_res_0x7f090109) {
+                if (id == R.id.obfuscated_res_0x7f0900ff) {
                     str = "title";
-                } else if (id == R.id.obfuscated_res_0x7f090087 || id == R.id.obfuscated_res_0x7f090088) {
+                } else if (id == R.id.obfuscated_res_0x7f090086 || id == R.id.obfuscated_res_0x7f090087) {
                     str = "icon";
-                } else if (id != R.id.obfuscated_res_0x7f09008b) {
+                } else if (id != R.id.obfuscated_res_0x7f09008a) {
                     return;
                 } else {
                     str = "name";
@@ -243,7 +243,7 @@ public final class PanelComponent extends AbsComponentPlugin {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c extends q11.b {
+    public static final class c extends a21.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PanelComponent a;
@@ -267,29 +267,29 @@ public final class PanelComponent extends AbsComponentPlugin {
             this.a = panelComponent;
         }
 
-        @Override // com.repackage.q11.b
+        @Override // com.repackage.a21.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.q11.b
+        @Override // com.repackage.a21.b
         public void f(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 float rint = (float) Math.rint(((float) (100000 - j)) / 1000);
                 if (this.a.p) {
-                    q11 q11Var = this.a.r;
-                    if (q11Var != null) {
-                        q11Var.a();
+                    a21 a21Var = this.a.r;
+                    if (a21Var != null) {
+                        a21Var.a();
                     }
                     this.a.r = null;
                     return;
                 }
-                s51 s51Var = this.a.o;
-                if (s51Var != null) {
-                    s51Var.update((int) rint);
+                d61 d61Var = this.a.o;
+                if (d61Var != null) {
+                    d61Var.update((int) rint);
                 }
             }
         }
@@ -324,9 +324,9 @@ public final class PanelComponent extends AbsComponentPlugin {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.u();
-                q11 q11Var = this.a.r;
-                if (q11Var != null) {
-                    q11Var.e();
+                a21 a21Var = this.a.r;
+                if (a21Var != null) {
+                    a21Var.e();
                 }
             }
         }
@@ -370,7 +370,7 @@ public final class PanelComponent extends AbsComponentPlugin {
                 if (yn0Var2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("panelModel");
                 }
-                adImageView.g(yn0Var2.c);
+                adImageView.n(yn0Var2.c);
                 AdImageView adImageView2 = this.k;
                 if (adImageView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("authorAvatar");
@@ -469,7 +469,7 @@ public final class PanelComponent extends AbsComponentPlugin {
             if (optString == null || optString.length() == 0) {
                 return;
             }
-            int f = pn0.a.f(c11.c.c(getContext()) / c11.c.e(getContext()), Intrinsics.areEqual("1", new JSONObject(optString).optString("video_stretch_switch", "0")));
+            int f = pn0.a.f(m11.c.c(getContext()) / m11.c.e(getContext()), Intrinsics.areEqual("1", new JSONObject(optString).optString("video_stretch_switch", "0")));
             View view2 = this.n;
             if (view2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelBgView");
@@ -484,31 +484,31 @@ public final class PanelComponent extends AbsComponentPlugin {
             cn0 a2 = dn0.a();
             Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
             a2.c();
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05bb, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ae, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…).inflate(layoutId, null)");
             this.g = inflate;
             if (inflate == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090109);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0900ff);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.ad_video_title)");
             this.h = (TextView) findViewById;
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f090102);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0900f8);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.ad_video_info)");
             this.i = (RelativeLayout) findViewById2;
-            View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f090089);
+            View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f090088);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.ad_author_container)");
             this.j = (LinearLayout) findViewById3;
-            View findViewById4 = inflate.findViewById(R.id.obfuscated_res_0x7f090087);
+            View findViewById4 = inflate.findViewById(R.id.obfuscated_res_0x7f090086);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.ad_author_avatar)");
             this.k = (AdImageView) findViewById4;
-            View findViewById5 = inflate.findViewById(R.id.obfuscated_res_0x7f090088);
+            View findViewById5 = inflate.findViewById(R.id.obfuscated_res_0x7f090087);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.ad_author_avatar_txt)");
             this.l = (TextView) findViewById5;
-            View findViewById6 = inflate.findViewById(R.id.obfuscated_res_0x7f09008b);
+            View findViewById6 = inflate.findViewById(R.id.obfuscated_res_0x7f09008a);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.ad_author_name)");
             this.m = (TextView) findViewById6;
-            View findViewById7 = inflate.findViewById(R.id.obfuscated_res_0x7f0900de);
+            View findViewById7 = inflate.findViewById(R.id.obfuscated_res_0x7f0900d6);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.ad_panel_constant_bg)");
             this.n = findViewById7;
         }
@@ -586,7 +586,7 @@ public final class PanelComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(fi0 event) {
+    public void c(ii0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -620,9 +620,9 @@ public final class PanelComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            q11 q11Var = this.r;
-            if (q11Var != null) {
-                q11Var.b();
+            a21 a21Var = this.r;
+            if (a21Var != null) {
+                a21Var.b();
             }
         }
     }
@@ -632,9 +632,9 @@ public final class PanelComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onRelease();
-            s51<View> s51Var = this.o;
-            if (s51Var != null) {
-                s51Var.a();
+            d61<View> d61Var = this.o;
+            if (d61Var != null) {
+                d61Var.a();
             }
             this.o = null;
             AlphaAnimation alphaAnimation = this.q;
@@ -646,21 +646,21 @@ public final class PanelComponent extends AbsComponentPlugin {
             if (view2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
             }
-            eh0.f(view2);
+            hh0.f(view2);
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
-        q11 q11Var;
+        a21 a21Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
             hn0 hn0Var = (hn0) j().q(hn0.class);
-            if (hn0Var == null || !hn0Var.k() || (q11Var = this.r) == null) {
+            if (hn0Var == null || !hn0Var.k() || (a21Var = this.r) == null) {
                 return;
             }
-            q11Var.c();
+            a21Var.c();
         }
     }
 
@@ -674,7 +674,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         if (view2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
         }
-        eh0.f(view2);
+        hh0.f(view2);
         FrameLayout h = hn0Var.h();
         if (h != null) {
             h.addView(view2);
@@ -688,20 +688,20 @@ public final class PanelComponent extends AbsComponentPlugin {
     }
 
     public final void w(vm0 vm0Var) {
-        q11 q11Var;
+        a21 a21Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, vm0Var) == null) {
             int i = ln0.$EnumSwitchMapping$0[vm0Var.getType().ordinal()];
             if (i != 1) {
-                if (i == 2 && (q11Var = this.r) != null) {
-                    q11Var.b();
+                if (i == 2 && (a21Var = this.r) != null) {
+                    a21Var.b();
                     return;
                 }
                 return;
             }
-            q11 q11Var2 = this.r;
-            if (q11Var2 != null) {
-                q11Var2.c();
+            a21 a21Var2 = this.r;
+            if (a21Var2 != null) {
+                a21Var2.c();
             }
         }
     }
@@ -741,9 +741,9 @@ public final class PanelComponent extends AbsComponentPlugin {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            q11 q11Var = new q11(100000L, 1000L);
-            q11Var.d(new c(this));
-            this.r = q11Var;
+            a21 a21Var = new a21(100000L, 1000L);
+            a21Var.d(new c(this));
+            this.r = a21Var;
         }
     }
 
@@ -767,12 +767,12 @@ public final class PanelComponent extends AbsComponentPlugin {
         tn0 c2;
         List<ao0> list;
         View view2;
-        s51<View> s51Var;
-        s51<View> s51Var2;
-        s51<View> s51Var3;
-        s51<View> s51Var4;
+        d61<View> d61Var;
+        d61<View> d61Var2;
+        d61<View> d61Var3;
+        d61<View> d61Var4;
         String appStr;
-        s51<View> s51Var5;
+        d61<View> d61Var5;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) || (a2 = xn0.j.a(jSONObject)) == null) {
             return;
@@ -813,35 +813,35 @@ public final class PanelComponent extends AbsComponentPlugin {
                 if (view2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
                 }
-                s51Var = (s51) view2.findViewById(R.id.obfuscated_res_0x7f0913b3);
-                this.o = s51Var;
-                if (s51Var != null) {
+                d61Var = (d61) view2.findViewById(R.id.obfuscated_res_0x7f0913c7);
+                this.o = d61Var;
+                if (d61Var != null) {
                     View view3 = this.g;
                     if (view3 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
                     }
-                    s51Var.setBtnPlaceholder(view3.findViewById(R.id.obfuscated_res_0x7f0900fe));
+                    d61Var.setBtnPlaceholder(view3.findViewById(R.id.obfuscated_res_0x7f0900f5));
                 }
-                s51Var2 = this.o;
-                if (s51Var2 != null) {
-                    s51Var2.setVisible(0);
+                d61Var2 = this.o;
+                if (d61Var2 != null) {
+                    d61Var2.setVisible(0);
                 }
-                s51Var3 = this.o;
-                if (s51Var3 != null) {
-                    s51Var3.setBtnIconNightModeEnable(false);
+                d61Var3 = this.o;
+                if (d61Var3 != null) {
+                    d61Var3.setBtnIconNightModeEnable(false);
                 }
-                s51Var4 = this.o;
-                if (s51Var4 != null) {
-                    s51Var4.setEnhanceBtnListener(new a(this));
+                d61Var4 = this.o;
+                if (d61Var4 != null) {
+                    d61Var4.setEnhanceBtnListener(new a(this));
                 }
                 appStr = jSONObject.optString("app_info");
                 Intrinsics.checkNotNullExpressionValue(appStr, "appStr");
                 if (appStr.length() > 0) {
                     a2.h = mo0.c(uy0.c(appStr));
                 }
-                s51Var5 = this.o;
-                if (s51Var5 == null) {
-                    s51Var5.setData(a2);
+                d61Var5 = this.o;
+                if (d61Var5 == null) {
+                    d61Var5.setData(a2);
                     return;
                 }
                 return;
@@ -864,25 +864,25 @@ public final class PanelComponent extends AbsComponentPlugin {
         view2 = this.g;
         if (view2 == null) {
         }
-        s51Var = (s51) view2.findViewById(R.id.obfuscated_res_0x7f0913b3);
-        this.o = s51Var;
-        if (s51Var != null) {
+        d61Var = (d61) view2.findViewById(R.id.obfuscated_res_0x7f0913c7);
+        this.o = d61Var;
+        if (d61Var != null) {
         }
-        s51Var2 = this.o;
-        if (s51Var2 != null) {
+        d61Var2 = this.o;
+        if (d61Var2 != null) {
         }
-        s51Var3 = this.o;
-        if (s51Var3 != null) {
+        d61Var3 = this.o;
+        if (d61Var3 != null) {
         }
-        s51Var4 = this.o;
-        if (s51Var4 != null) {
+        d61Var4 = this.o;
+        if (d61Var4 != null) {
         }
         appStr = jSONObject.optString("app_info");
         Intrinsics.checkNotNullExpressionValue(appStr, "appStr");
         if (appStr.length() > 0) {
         }
-        s51Var5 = this.o;
-        if (s51Var5 == null) {
+        d61Var5 = this.o;
+        if (d61Var5 == null) {
         }
     }
 }

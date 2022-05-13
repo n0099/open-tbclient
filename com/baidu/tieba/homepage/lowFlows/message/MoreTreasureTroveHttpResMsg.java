@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qx6;
-import com.repackage.uo;
-import com.repackage.vx6;
+import com.repackage.qw6;
+import com.repackage.ro;
+import com.repackage.vw6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes3.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements qx6 {
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements qw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uo> mMoreTreasureTroveDataList;
+    public List<ro> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveHttpResMsg() {
@@ -39,8 +39,8 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.repackage.qx6
-    public List<uo> getDataList() {
+    @Override // com.repackage.qw6
+    public List<ro> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;
@@ -59,6 +59,6 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
             setError(error.errorno.intValue());
             setErrorString(moreTreasureTroveResIdl.error.usermsg);
         }
-        this.mMoreTreasureTroveDataList = vx6.b(moreTreasureTroveResIdl);
+        this.mMoreTreasureTroveDataList = vw6.b(moreTreasureTroveResIdl);
     }
 }

@@ -52,7 +52,7 @@ public class s78 extends u78 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int i = this.p;
             if (i == this.e || i == this.n) {
-                y0();
+                x0();
             }
         }
     }
@@ -98,14 +98,14 @@ public class s78 extends u78 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f09232a) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f092380) {
             W();
             return;
         }
-        if (!mi.z()) {
-            oi.M(this.O, R.string.obfuscated_res_0x7f0f0c4e);
+        if (!ki.z()) {
+            mi.M(this.O, R.string.obfuscated_res_0x7f0f0c65);
         } else {
-            x0(ThreadCardUtils.computeViewArea(this.Q));
+            w0(ThreadCardUtils.computeViewArea(this.Q));
         }
         View.OnClickListener onClickListener = this.z0;
         if (onClickListener != null) {
@@ -144,7 +144,7 @@ public class s78 extends u78 {
         }
     }
 
-    public final void x0(Rect rect) {
+    public final void w0(Rect rect) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) || this.O0 == null) {
             return;
@@ -163,13 +163,13 @@ public class s78 extends u78 {
         Context context = this.O;
         boolean z = this.T;
         String str2 = this.h0;
-        nc5.e(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.O0.isJumpToFrsVideoTabPlay, true);
+        fd5.e(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.O0.isJumpToFrsVideoTabPlay, true);
     }
 
-    public void y0() {
+    public void x0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o0(this.f);
+            n0(this.f);
         }
     }
 

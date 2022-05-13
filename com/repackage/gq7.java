@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.TopicList.NewTopicList;
 /* loaded from: classes6.dex */
-public class gq7 implements uo {
+public class gq7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -59,7 +59,7 @@ public class gq7 implements uo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

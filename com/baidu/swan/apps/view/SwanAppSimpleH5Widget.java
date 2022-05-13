@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x12;
+import com.repackage.i22;
 /* loaded from: classes2.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
             if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
                 super.onReceivedTitle(bdSailorWebView, str);
                 if (this.this$0.U != null) {
-                    this.this$0.U.a(str);
+                    this.this$0.U.d(str);
                 }
             }
         }
@@ -95,7 +95,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, i, str, str2) == null) {
                 if (this.this$0.U != null) {
-                    this.this$0.U.d(i, str, str2);
+                    this.this$0.U.c(i, str, str2);
                 }
                 super.onReceivedError(bdSailorWebView, i, str, str2);
             }
@@ -105,7 +105,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         public boolean shouldOverrideUrlLoading(BdSailorWebView bdSailorWebView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str)) == null) ? this.this$0.U != null && this.this$0.U.c(str) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str)) == null) ? this.this$0.U != null && this.this$0.U.b(str) : invokeLL.booleanValue;
         }
 
         public /* synthetic */ SimpleWebViewClient(SwanAppSimpleH5Widget swanAppSimpleH5Widget, a aVar) {
@@ -161,14 +161,14 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.jz1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.uz1
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            x12 x12Var = this.U;
-            if (x12Var != null) {
-                x12Var.goBack();
+            i22 i22Var = this.U;
+            if (i22Var != null) {
+                i22Var.goBack();
             }
             return super.q();
         }

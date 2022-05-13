@@ -1,9 +1,11 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,154 +13,139 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.CookieManager;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class lo1 {
+public final class lo1 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public mo1 b;
 
     /* loaded from: classes6.dex */
-    public class a implements b {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ lo1 b;
 
-        public a(lo1 lo1Var, String str) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-207631034, "Lcom/repackage/lo1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-207631034, "Lcom/repackage/lo1$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lo1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.b = lo1Var;
-            this.a = str;
         }
 
-        @Override // com.repackage.lo1.b
-        public void a(js1 js1Var) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, js1Var) == null) {
-                if (lo1.c) {
-                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + js1Var.toString());
-                }
-                this.b.b.d(this.a, js1Var);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                i02.X2();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(js1 js1Var);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755522461, "Lcom/repackage/lo1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755522461, "Lcom/repackage/lo1;");
-                return;
-            }
-        }
-        c = tg1.a;
-    }
-
-    public lo1(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lo1(r13 r13Var) {
+        super(r13Var, "/swanAPI/setTplBdussSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
     }
 
-    @NonNull
-    public abstract js1 d(@NonNull JSONObject jSONObject, @NonNull b bVar);
-
-    @NonNull
-    public abstract js1 e(@NonNull JSONObject jSONObject);
-
-    public js1 f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull mo1 mo1Var) {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, mo1Var)) == null) {
-            this.b = mo1Var;
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
-            }
-            return i() ? h(jSONObject) : g(jSONObject, str);
-        }
-        return (js1) invokeLLL.objValue;
-    }
-
-    public final js1 g(@NonNull JSONObject jSONObject, @Nullable String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
-            }
-            js1 d = d(jSONObject, new a(this, str));
-            if (!d.h("isSync", Boolean.FALSE)) {
-                if (c) {
-                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, u03Var)) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
+            SwanAppAllianceLoginHelper.d.l(true);
+            if (optParamsAsJo == null) {
+                gh1 d = SwanAppAllianceLoginHelper.d.d();
+                if (d != null) {
+                    d.onResult(-1);
                 }
-                return new js1(1001, "make result json error");
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                SwanAppAllianceLoginHelper.d.a(ho1.d(), ho1.a());
+                return false;
             }
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
-            }
-            return d;
-        }
-        return (js1) invokeLL.objValue;
-    }
-
-    public final js1 h(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
-            }
-            js1 e = e(jSONObject);
-            if (!e.h("isSync", Boolean.TRUE)) {
-                if (c) {
-                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
+            int optInt = optParamsAsJo.optInt("errno");
+            JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+            oe3.a0(a.a);
+            if (optInt != 0) {
+                gh1 d2 = SwanAppAllianceLoginHelper.d.d();
+                if (d2 != null) {
+                    d2.onResult(-1);
                 }
-                return new js1(1001, "make result json error");
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
+                SwanAppAllianceLoginHelper.d.a(ho1.d(), ho1.a());
+                return false;
+            } else if (optJSONObject != null) {
+                Map<String, String> c = ch4.c(CookieManager.getInstance().getCookie(".baidu.com"));
+                Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
+                String str = c.get("OPENBDUSS");
+                if (!(str == null || StringsKt__StringsJVMKt.isBlank(str))) {
+                    io1.b.c(optInt, optJSONObject);
+                    co1.b(context, str);
+                    SwanAppAllianceLoginHelper.d.j(true);
+                    gh1 d3 = SwanAppAllianceLoginHelper.d.d();
+                    if (d3 != null) {
+                        d3.onResult(0);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
+                    SwanAppAllianceLoginHelper.d.a(ho1.f(), ho1.c());
+                    return true;
+                }
+                gh1 d4 = SwanAppAllianceLoginHelper.d.d();
+                if (d4 != null) {
+                    d4.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
+                SwanAppAllianceLoginHelper.d.a(ho1.d(), ho1.a());
+                return false;
+            } else {
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
+                SwanAppAllianceLoginHelper.d.a(ho1.d(), ho1.a());
+                return false;
             }
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
-            }
-            return e;
         }
-        return (js1) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
-
-    public abstract boolean i();
 }

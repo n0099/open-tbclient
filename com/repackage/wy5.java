@@ -1,109 +1,73 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.chosen.posts.request.ChosenPostCacheModel;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.HotThread.DataReq;
-import tbclient.HotThread.HotThreadReqIdl;
+import java.util.ArrayList;
+import tbclient.HotThread.Pic;
+import tbclient.HotThread.tinfo;
 /* loaded from: classes7.dex */
-public class wy5 implements o65, l65 {
+public class wy5 implements y65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public ArrayList<String> a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
 
-    public wy5() {
+    public wy5(int i, tinfo tinfoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), tinfoVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (tinfoVar == null) {
+            return;
+        }
+        this.a = new ArrayList<>();
+        this.b = i;
+        this.d = String.valueOf(tinfoVar.forum_id);
+        this.c = tinfoVar.forum_name;
+        this.e = String.valueOf(tinfoVar.thread_id);
+        for (Pic pic : tinfoVar.pics) {
+            if (pic != null && !StringUtils.isNull(pic.big_pic)) {
+                this.a.add(pic.big_pic);
             }
         }
     }
 
-    public void a() {
+    public CustomMessage<ImageViewerConfig> a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            ImageViewerConfig.b bVar = new ImageViewerConfig.b();
+            bVar.x(this.a);
+            bVar.B(this.b);
+            bVar.z(this.c);
+            bVar.y(this.d);
+            bVar.O(this.e);
+            bVar.C(true);
+            bVar.F(false);
+            ArrayList<String> arrayList = this.a;
+            bVar.J(arrayList.get(arrayList.size() - 1));
+            return new CustomMessage<>(2010000, bVar.v(context));
         }
-    }
-
-    @Override // com.repackage.q65
-    public Object f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.a);
-            HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
-            DataReq build = builder.build(false);
-            builder2.data = build;
-            rc5.a(build, true);
-            return builder2.build(false);
-        }
-        return invokeZ.objValue;
-    }
-
-    @Override // com.repackage.k65
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ChosenPostCacheModel.CACHE_KEY : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l65
-    public boolean isNeedUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.l65
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n65
-    public HashMap<String, Object> u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.repackage.n65
-    public HashMap<String, String> w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l65
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "tb.pb_normal" : (String) invokeV.objValue;
+        return (CustomMessage) invokeL.objValue;
     }
 }

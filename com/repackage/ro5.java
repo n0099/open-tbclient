@@ -1,6 +1,7 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,9 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ro5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public so5 a;
+    public un5 a;
+    public un5 b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +32,8 @@ public class ro5 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public ro5() {
@@ -46,10 +50,20 @@ public class ro5 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
+        SdkLiveInfoData sdkLiveInfoData;
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            un5 un5Var = this.a;
+            if (un5Var != null && (sdkLiveInfoData = un5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
+                return d;
+            }
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,43 +1,32 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
-public class ag {
+public class ag<K, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static boolean g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public of a;
-    public lf b;
-    public long c;
+    public final LinkedHashMap<K, V> a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
 
-    public ag() {
+    public ag(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,263 +36,217 @@ public class ag {
                 return;
             }
         }
-        i();
+        this.c = i;
+        this.a = new LinkedHashMap<>(0, 0.75f, true);
     }
 
-    public static void n(String str) {
+    public final synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                c();
+                this.d = 0;
+                this.e = 0;
+                this.f = 0;
+                this.g = 0;
+            }
         }
     }
 
-    public static void o(String str) {
+    public void b(boolean z, K k, V v, V v2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            h = str;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
         }
     }
 
-    public static void p(String str) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            i = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            n(-1);
         }
     }
 
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            j = str;
-        }
-    }
-
-    public static void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            k = str;
-        }
-    }
-
-    public static void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            g = z;
-        }
-    }
-
-    public static void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            e = str;
-        }
-    }
-
-    public final void a(of ofVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ofVar) == null) {
-            b(ofVar, false);
-        }
-    }
-
-    public final void b(of ofVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ofVar, z) == null) || ofVar == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(d)) {
-            ofVar.b().a("Cookie", d);
-        } else {
-            ofVar.b().a("Cookie", "");
-        }
-        if (!TextUtils.isEmpty(f)) {
-            ofVar.b().a("client_user_token", f);
-        }
-        if (!TextUtils.isEmpty(e)) {
-            ofVar.b().a("User-Agent", e);
-        }
-        if (z) {
-            ofVar.b().a("Accept-Encoding", "gzip");
-        } else {
-            ofVar.b().a("Accept-Encoding", "");
-        }
-        if (g) {
-            ofVar.b().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-        } else {
-            ofVar.b().a(HTTP.CONN_DIRECTIVE, "close");
-        }
-        ofVar.b().a("client_logid", String.valueOf(this.c));
-        if (!TextUtils.isEmpty(h)) {
-            ofVar.b().a("cuid", h);
-        }
-        if (!TextUtils.isEmpty(i)) {
-            ofVar.b().a("cuid_galaxy2", i);
-        }
-        if (!TextUtils.isEmpty(j)) {
-            ofVar.b().a("c3_aid", j);
-        }
-        if (TextUtils.isEmpty(k)) {
-            return;
-        }
-        ofVar.b().a(TiebaStatic.Params.CUID_GID, k);
-    }
-
-    public void c() {
-        lf lfVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lfVar = this.b) == null) {
-            return;
-        }
-        lfVar.b();
-    }
-
-    public boolean d(String str, String str2, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList, rf rfVar, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), linkedList, rfVar, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            a(ofVar);
-            this.a.b().t(str);
-            this.a.b().p(z4);
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            return lfVar.c(str2, rfVar, i2, i3, i4, i5, z2, z3);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public of e() {
+    public final synchronized int d() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (of) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                i = this.e;
+            }
+            return i;
+        }
+        return invokeV.intValue;
     }
 
-    public lf f() {
+    public synchronized boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            synchronized (this) {
+                if (this.b + i > this.c * 0.8d) {
+                    n(this.b - i);
+                }
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final V f(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
+            if (k == null) {
+                return null;
+            }
+            synchronized (this) {
+                V v = this.a.get(k);
+                if (v != null) {
+                    this.f++;
+                    return v;
+                }
+                this.g++;
+                return null;
+            }
+        }
+        return (V) invokeL.objValue;
+    }
+
+    public final synchronized int g() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (lf) invokeV.objValue;
-    }
-
-    public qf g(String str, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), linkedList})) == null) ? h(str, false, i2, i3, i4, i5, linkedList) : (qf) invokeCommon.objValue;
-    }
-
-    public qf h(String str, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), linkedList})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            b(ofVar, z);
-            this.a.b().t(str);
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            lfVar.d(i2, i4, i5);
-            return this.a.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                i = this.c;
+            }
+            return i;
         }
-        return (qf) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public void i() {
+    public final V h(K k, V v) {
+        InterceptResult invokeLL;
+        V put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            System.setProperty("http.keepAlive", "false");
-            this.c = BdStatisticsManager.getInstance().getClientLogId();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, k, v)) == null) {
+            if (k == null || v == null) {
+                return null;
+            }
+            synchronized (this) {
+                this.d++;
+                this.b += j(k, v);
+                put = this.a.put(k, v);
+                if (put != null) {
+                    this.b -= j(k, put);
+                }
+            }
+            if (put != null) {
+                b(false, k, put, v);
+            }
+            n(this.c);
+            return put;
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public final V i(K k) {
+        InterceptResult invokeL;
+        V remove;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) {
+            if (k == null) {
+                return null;
+            }
+            synchronized (this) {
+                remove = this.a.remove(k);
+                if (remove != null) {
+                    this.b -= j(k, remove);
+                }
+            }
+            if (remove != null) {
+                b(false, k, remove, null);
+            }
+            return remove;
+        }
+        return (V) invokeL.objValue;
+    }
+
+    public final int j(K k, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
+            int m = m(k, v);
+            if (m >= 0) {
+                return m;
+            }
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
+        }
+        return invokeLL.intValue;
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            synchronized (this) {
+                this.c = i;
+                n(i);
+            }
         }
     }
 
-    public boolean j() {
+    public final synchronized int l() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            lf lfVar = this.b;
-            if (lfVar != null) {
-                return lfVar.k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                i = this.b;
             }
-            return false;
+            return i;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public qf k(String str, List<BasicNameValuePair> list, boolean z, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
+    public int m(K k, V v) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, list, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), linkedList})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            b(ofVar, z);
-            this.a.b().t(str);
-            if (list != null) {
-                for (BasicNameValuePair basicNameValuePair : list) {
-                    this.a.b().d(basicNameValuePair);
-                }
-            }
-            if (linkedList != null) {
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    this.a.b().a(next.getName(), next.getValue());
-                }
-            }
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            lfVar.m(i2, i3, -1);
-            return this.a.c();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, v)) == null) {
+            return 1;
         }
-        return (qf) invokeCommon.objValue;
+        return invokeLL.intValue;
     }
 
-    public qf l(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i2, int i3, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
+        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void n(int i) {
+        K key;
+        V value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), arrayList, hashMap, Integer.valueOf(i2), Integer.valueOf(i3), linkedList})) == null) {
-            of ofVar = new of();
-            this.a = ofVar;
-            b(ofVar, z);
-            this.a.b().t(str);
-            if (linkedList != null) {
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    this.a.b().a(next.getName(), next.getValue());
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            while (true) {
+                synchronized (this) {
+                    if (this.b >= 0 && (!this.a.isEmpty() || this.b == 0)) {
+                        if (this.b <= i || this.a.isEmpty()) {
+                            break;
+                        }
+                        Map.Entry<K, V> next = this.a.entrySet().iterator().next();
+                        key = next.getKey();
+                        value = next.getValue();
+                        this.a.remove(key);
+                        this.b -= j(key, value);
+                        this.e++;
+                    } else {
+                        break;
+                    }
                 }
+                b(true, key, value, null);
             }
-            if (arrayList != null) {
-                Iterator<BasicNameValuePair> it2 = arrayList.iterator();
-                while (it2.hasNext()) {
-                    BasicNameValuePair next2 = it2.next();
-                    this.a.b().b(next2.getName(), next2.getValue());
-                }
-            }
-            if (hashMap != null) {
-                for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                    this.a.b().c(entry.getKey(), entry.getValue());
-                }
-            }
-            lf lfVar = new lf(this.a);
-            this.b = lfVar;
-            lfVar.m(i2, i3, -1);
-            return this.a.c();
         }
-        return (qf) invokeCommon.objValue;
-    }
-
-    public void m() {
-        lf lfVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (lfVar = this.b) == null) {
-            return;
-        }
-        lfVar.p();
     }
 }

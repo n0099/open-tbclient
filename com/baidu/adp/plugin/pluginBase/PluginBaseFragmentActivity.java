@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xl;
-import com.repackage.yl;
+import com.repackage.ul;
+import com.repackage.vl;
 /* loaded from: classes.dex */
 public class PluginBaseFragmentActivity extends PluginBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yl mProxyActivity;
+    public vl mProxyActivity;
 
     public PluginBaseFragmentActivity() {
         Interceptable interceptable = $ic;
@@ -37,38 +37,38 @@ public class PluginBaseFragmentActivity extends PluginBaseActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yl ylVar = this.mProxyActivity;
-            if (ylVar == null) {
+            vl vlVar = this.mProxyActivity;
+            if (vlVar == null) {
                 return null;
             }
-            return ylVar.proxyGetSupportFragmentManager();
+            return vlVar.proxyGetSupportFragmentManager();
         }
         return (FragmentManager) invokeV.objValue;
     }
 
     public void onAttachFragment(Fragment fragment) {
-        yl ylVar;
+        vl vlVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) || (ylVar = this.mProxyActivity) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) || (vlVar = this.mProxyActivity) == null) {
             return;
         }
-        ylVar.proxyOnAttachFragment(fragment);
+        vlVar.proxyOnAttachFragment(fragment);
     }
 
-    public void setActivityProxy(yl ylVar) {
+    public void setActivityProxy(vl vlVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ylVar) == null) {
-            super.setActivityProxy((xl) ylVar);
-            this.mProxyActivity = ylVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vlVar) == null) {
+            super.setActivityProxy((ul) vlVar);
+            this.mProxyActivity = vlVar;
         }
     }
 
     public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
-        yl ylVar;
+        vl vlVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, fragment, intent, i) == null) || (ylVar = this.mProxyActivity) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, fragment, intent, i) == null) || (vlVar = this.mProxyActivity) == null) {
             return;
         }
-        ylVar.proxyStartActivityFromFragment(fragment, intent, i);
+        vlVar.proxyStartActivityFromFragment(fragment, intent, i);
     }
 }

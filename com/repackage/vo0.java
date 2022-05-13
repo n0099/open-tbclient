@@ -73,9 +73,9 @@ public class vo0 {
                     this.c.element = headers.d(com.baidubce.http.Headers.LAST_MODIFIED);
                     if (i == 200) {
                         FileOutputStream fileOutputStream = new FileOutputStream(this.f);
-                        this.a.element = e11.b(inputStream, fileOutputStream);
-                        ki0.a(inputStream);
-                        ki0.a(fileOutputStream);
+                        this.a.element = o11.b(inputStream, fileOutputStream);
+                        ni0.a(inputStream);
+                        ni0.a(fileOutputStream);
                     } else if (i != 304) {
                         this.g.element = false;
                         Ref.ObjectRef objectRef = this.d;

@@ -1,117 +1,118 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yb7 implements View.OnClickListener {
+public class yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public TextView b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public ImageView f;
-    public TextView g;
-    public int h;
-    public int i;
-    public int j;
+    public int a;
+    public int b;
+    public List<zb7> c;
+    public ArrayList<Integer> d;
 
-    public yb7(Context context) {
+    public yb7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0486, (ViewGroup) null);
-        this.a = viewGroup;
-        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09061d);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091a01);
-        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09137b);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09137c);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090998);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090999);
-        this.d.setOnClickListener(this);
-        this.f.setOnClickListener(this);
-        c();
     }
 
-    public ViewGroup a() {
+    public static yb7 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            yb7 yb7Var = new yb7();
+            yb7Var.h(jSONObject.optInt("follow_forum_number"));
+            yb7Var.i(jSONObject.optInt("interest_board_stage"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("day_config");
+            if (optJSONArray != null) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    arrayList.add(zb7.c(optJSONArray.optJSONObject(i)));
+                }
+                yb7Var.g(arrayList);
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("class_id");
+            if (optJSONArray2 != null) {
+                ArrayList<Integer> arrayList2 = new ArrayList<>();
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    arrayList2.add(Integer.valueOf(optJSONArray2.optInt(i2)));
+                }
+                yb7Var.f(arrayList2);
+            }
+            return yb7Var;
+        }
+        return (yb7) invokeL.objValue;
+    }
+
+    public ArrayList<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
     }
 
-    public int b() {
+    public List<zb7> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public final void c() {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void f(ArrayList<Integer> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.d = arrayList;
         }
     }
 
-    public void d(List<vb7> list) {
+    public void g(List<zb7> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
-            this.h = list.get(0).a;
-            this.i = list.get(1).a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.c = list;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            boolean z = false;
-            if (view2 == this.d) {
-                z = true;
-            } else {
-                ImageView imageView = this.f;
-            }
-            this.j = z ? this.h : this.i;
-            SkinManager.setImageResource(this.d, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-            TextView textView = this.e;
-            int i = R.color.CAM_X0109;
-            SkinManager.setViewTextColor(textView, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-            TextView textView2 = this.g;
-            if (!z) {
-                i = R.color.CAM_X0301;
-            }
-            SkinManager.setViewTextColor(textView2, i);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
         }
     }
 }

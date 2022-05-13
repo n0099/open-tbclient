@@ -1,68 +1,23 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import java.util.ArrayList;
-import java.util.List;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class gn9 {
+public class gn9 implements gp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tn9 a;
-    public final SVGAVideoEntity b;
+    public final /* synthetic */ fp9 a;
 
-    /* loaded from: classes6.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final on9 b;
-
-        public a(gn9 gn9Var, String str, on9 on9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gn9Var, str, on9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = on9Var;
-        }
-
-        public final on9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (on9) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-    }
-
-    public gn9(SVGAVideoEntity sVGAVideoEntity) {
+    public gn9(fp9 fp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
+            Object[] objArr = {fp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,46 +27,76 @@ public class gn9 {
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new tn9();
+        this.a = fp9Var;
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+    @Override // com.repackage.gp9
+    public void c(boolean z, long j) {
+        gp9 gp9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (gp9Var = this.a.b) == null) {
+            return;
         }
+        gp9Var.c(z, j);
     }
 
-    public final tn9 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.gp9
+    public void d(String str) {
+        gp9 gp9Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (tn9) invokeV.objValue;
-    }
-
-    public final SVGAVideoEntity c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<nn9> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (nn9 nn9Var : g) {
-                a aVar = null;
-                if (i >= 0 && i < nn9Var.a().size() && nn9Var.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, nn9Var.b(), nn9Var.a().get(i));
-                }
-                if (aVar != null) {
-                    arrayList.add(aVar);
-                }
-            }
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (gp9Var = this.a.b) == null) {
+            return;
         }
-        return (List) invokeI.objValue;
+        gp9Var.d(str);
+    }
+
+    @Override // com.repackage.gp9
+    public void f() {
+        gp9 gp9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gp9Var = this.a.b) == null) {
+            return;
+        }
+        gp9Var.f();
+    }
+
+    @Override // com.repackage.gp9
+    public void g() {
+        gp9 gp9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gp9Var = this.a.b) == null) {
+            return;
+        }
+        gp9Var.g();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        gp9 gp9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gp9Var = this.a.b) == null) {
+            return;
+        }
+        gp9Var.onClicked();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        gp9 gp9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, pBError) == null) || (gp9Var = this.a.b) == null) {
+            return;
+        }
+        gp9Var.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        gp9 gp9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gp9Var = this.a.b) == null) {
+            return;
+        }
+        gp9Var.onLoaded();
     }
 }

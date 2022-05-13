@@ -138,6 +138,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_GOD_RECOMMEND = 1003375;
     public static final int CMD_GET_HISTORY_FORUM = 1003394;
     public static final int CMD_GET_HOT_THREAD = 1003005;
+    public static final int CMD_GET_ICE_BREAK_EMOTIONS = 1003530;
     public static final int CMD_GET_IMAGE_WATERMARK_TYPE = 1003448;
     public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
     public static final int CMD_GET_LEVLE_INFO = 1001710;
@@ -180,6 +181,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_TOKEN = 1003404;
     public static final int CMD_GET_USER_BLOCK_INFO = 1003488;
     public static final int CMD_GET_USER_INFO = 1003001;
+    public static final int CMD_GET_USER_LIST = 1003531;
     public static final int CMD_GET_USER_ORDER = 1003075;
     public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
     public static final int CMD_GET_VIDEO_ACTIVITY = 1003376;
@@ -247,9 +249,7 @@ public class CmdConfigHttp {
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_POST_VIDEO_MARK_RED_ICON = 1003500;
     public static final int CMD_PROFESSION_PERMISSION = 1003427;
-    public static final int CMD_RECOMMEND_FORUM = 1003428;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
-    public static final int CMD_RECOMMEND_TEST_CLOSE = 1003429;
     public static final int CMD_RELATE_REC_THREAD = 1003490;
     public static final int CMD_RELEVANCE_ITEM_SEARCH = 1003482;
     public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
@@ -259,7 +259,6 @@ public class CmdConfigHttp {
     public static final int CMD_SCHEMA_UPLOAD = 1003393;
     public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;
     public static final int CMD_SEARCH_LIST = 1003196;
-    public static final int CMD_SEARCH_MAJOR = 1003460;
     public static final int CMD_SEARCH_PB_EMOTION = 1003330;
     public static final int CMD_SEARCH_POST_FORUM = 1003335;
     public static final int CMD_SELECT_FORUM_ATTENTION = 1003480;

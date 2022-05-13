@@ -1,33 +1,14 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xp4 {
+public class xp4 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public View d;
-    public View e;
-    public View f;
-    public View g;
-    public View h;
-    public View i;
-    public View j;
-    public View k;
-    public View l;
-    public View m;
-    public View n;
-    public View o;
-    public View p;
-    public View q;
-    public View r;
-    public View s;
 
     public xp4() {
         Interceptable interceptable = $ic;
@@ -40,30 +21,6 @@ public class xp4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.k = null;
-            this.l = null;
-            this.m = null;
-            this.n = null;
-            this.o = null;
-            this.p = null;
-            this.q = null;
-            this.r = null;
-            this.s = null;
         }
     }
 }

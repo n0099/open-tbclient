@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TextInputEditText extends AppCompatEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +243,7 @@ public class TextInputEditText extends AppCompatEditText {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TextInputEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040211);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040214);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -282,7 +282,7 @@ public class TextInputEditText extends AppCompatEditText {
             }
         }
         this.parentRect = new Rect();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040657}, i, R.style.obfuscated_res_0x7f100331, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04065f}, i, R.style.obfuscated_res_0x7f100331, new int[0]);
         setTextInputLayoutFocusedRectEnabled(obtainStyledAttributes.getBoolean(0, false));
         obtainStyledAttributes.recycle();
     }

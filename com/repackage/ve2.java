@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class ve2 extends de2<re2> {
+public class ve2 extends oe2<ue2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,21 +27,22 @@ public class ve2 extends de2<re2> {
         }
     }
 
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "hidekeyboard" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull re2 re2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ue2 ue2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, re2Var) == null) {
-            re2Var.release();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ue2Var) == null) {
+            d(ue2Var, command.what, null, false);
+            ue2Var.x0();
         }
     }
 }

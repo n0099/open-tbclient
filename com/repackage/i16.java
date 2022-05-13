@@ -2,41 +2,60 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class i16 implements Comparator<f06> {
+public final class i16 extends q06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public i16() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public i16(l06 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((l06) objArr2[0], (o0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        o0 b = o0.i(v06.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(f06 o1, f06 o2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.q06
+    public void l(l0 entity, float f) {
+        v06 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o1, o2)) == null) {
-            Intrinsics.checkNotNullParameter(o1, "o1");
-            Intrinsics.checkNotNullParameter(o2, "o2");
-            return o1.compareTo(o2);
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            s06 b = q16.b(entity);
+            g06 a2 = b == null ? null : b.a();
+            if (a2 == null || (a = q16.a(entity)) == null) {
+                return;
+            }
+            if (p16.b(this) >= a2.e().k()) {
+                a.h(true);
+                a.c(p16.b(this) - a2.e().k());
+                return;
+            }
+            a.h(false);
         }
-        return invokeLL.intValue;
     }
 }

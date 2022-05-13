@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bk8;
 import com.repackage.e98;
-import com.repackage.el8;
 import com.repackage.f98;
 import java.net.URISyntaxException;
 /* loaded from: classes3.dex */
@@ -58,7 +58,7 @@ public class QRCodeStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<el8> {
+    public static class b implements CustomMessageTask.CustomRunnable<bk8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,15 +77,15 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<el8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<bk8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof el8)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof bk8)) {
                     return null;
                 }
-                el8 data = customMessage.getData();
+                bk8 data = customMessage.getData();
                 int i = data.a;
                 if (i == 0) {
                     str = e98.b(data.c);

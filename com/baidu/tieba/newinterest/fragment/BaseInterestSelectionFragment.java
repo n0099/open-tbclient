@@ -51,29 +51,29 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i > 0 && !this.b.isEnabled()) {
                 this.b.setEnabled(true);
-                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c22));
+                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c38));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10cf));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10e8));
             }
         }
     }
 
-    public void B0() {
+    public void C0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c.b(this);
         }
     }
 
-    public void C0() {
+    public void D0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             hideLoadingView(this.d);
         }
     }
 
-    public void D0(String str) {
+    public void E0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             hideLoadingView(this.d);
@@ -81,7 +81,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    public void E0(a aVar) {
+    public void F0(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.a = aVar;

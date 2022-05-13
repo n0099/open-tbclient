@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an0;
-import com.repackage.c11;
-import com.repackage.eh0;
-import com.repackage.fi0;
 import com.repackage.fn0;
 import com.repackage.fq0;
 import com.repackage.gq0;
+import com.repackage.hh0;
 import com.repackage.hn0;
+import com.repackage.ii0;
 import com.repackage.io0;
 import com.repackage.jq0;
+import com.repackage.m11;
 import com.repackage.nn0;
 import com.repackage.pn0;
 import com.repackage.px0;
@@ -306,7 +306,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(fi0 event) {
+    public void c(ii0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -357,7 +357,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
                 fq0Var.release();
             }
             this.d = null;
-            eh0.f(this.h);
+            hh0.f(this.h);
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
                 videoViewHolder.removeAllViews();
@@ -424,8 +424,8 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             }
             AdImageView adImageView = new AdImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            adImageView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dc0);
-            adImageView.g(this.l);
+            adImageView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dda);
+            adImageView.n(this.l);
             adImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             adImageView.setLayoutParams(layoutParams);
             adImageView.setClickable(false);
@@ -441,7 +441,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.i == null && this.h != null) {
             this.i = new FrameLayout(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            pn0.a.a(layoutParams, c11.c.e(getContext()), this.g, this.o, 1 / this.n, this.k, this.m);
+            pn0.a.a(layoutParams, m11.c.e(getContext()), this.g, this.o, 1 / this.n, this.k, this.m);
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
                 videoViewHolder.addView(this.i, layoutParams);
@@ -458,7 +458,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             layoutParams.gravity = 48;
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
-                videoViewHolder.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dc0);
+                videoViewHolder.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dda);
                 videoViewHolder.setEnableSlideLeft(true);
                 videoViewHolder.setInterceptOnTouchListener(new a(this, viewGroup, layoutParams));
                 viewGroup.addView(videoViewHolder, layoutParams);

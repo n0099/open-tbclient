@@ -1,30 +1,30 @@
 package com.repackage;
 
-import android.os.SystemClock;
-import android.view.View;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 /* loaded from: classes6.dex */
-public class mf3 {
+public final class mf3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long[] b;
-        public final /* synthetic */ Runnable c;
+        public final /* synthetic */ nf3 a;
+        public final /* synthetic */ Object b;
 
-        public a(Runnable runnable) {
+        public a(nf3 nf3Var, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
+                Object[] objArr = {nf3Var, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -34,31 +34,61 @@ public class mf3 {
                     return;
                 }
             }
-            this.c = runnable;
-            this.a = 5;
-            this.b = new long[5];
+            this.a = nf3Var;
+            this.b = obj;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                long[] jArr = this.b;
-                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
-                long[] jArr2 = this.b;
-                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
-                if (this.b[0] >= SystemClock.uptimeMillis() - 1000) {
-                    this.b = new long[this.a];
-                    this.c.run();
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onCallback(this.b);
             }
         }
     }
 
-    public static void a(View view2, Runnable runnable) {
+    public static <T> void a(Handler handler, nf3<T> nf3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
-            view2.setOnClickListener(new a(runnable));
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, handler, nf3Var, collection) == null) || nf3Var == null || collection == null || collection.isEmpty()) {
+            return;
+        }
+        for (T t : collection) {
+            e(handler, nf3Var, t);
+        }
+    }
+
+    public static <T> void b(Handler handler, nf3<T> nf3Var, T... tArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, handler, nf3Var, tArr) == null) || nf3Var == null || tArr == null || tArr.length < 1) {
+            return;
+        }
+        for (T t : tArr) {
+            e(handler, nf3Var, t);
+        }
+    }
+
+    public static <T> void c(nf3<T> nf3Var, Collection<T> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, nf3Var, collection) == null) {
+            a(null, nf3Var, collection);
+        }
+    }
+
+    public static <T> void d(nf3<T> nf3Var, T... tArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, nf3Var, tArr) == null) {
+            b(null, nf3Var, tArr);
+        }
+    }
+
+    public static <T> void e(Handler handler, nf3<T> nf3Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, nf3Var, t) == null) {
+            if (handler == null) {
+                nf3Var.onCallback(t);
+            } else {
+                handler.post(new a(nf3Var, t));
+            }
         }
     }
 }

@@ -26,12 +26,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
+import com.repackage.co;
+import com.repackage.di8;
 import com.repackage.f9;
-import com.repackage.fo;
-import com.repackage.gj8;
-import com.repackage.hg;
-import com.repackage.ig;
-import com.repackage.og;
+import com.repackage.fg;
+import com.repackage.gg;
+import com.repackage.mg;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -56,10 +56,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public int t;
     public boolean u;
     public HashMap<String, TbFragmentTabIndicator.a> v;
-    public final hg<fo> w;
+    public final fg<co> w;
 
     /* loaded from: classes3.dex */
-    public class a extends og {
+    public class a extends mg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -82,7 +82,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.a = fragmentTabIndicator;
         }
 
-        @Override // com.repackage.og
+        @Override // com.repackage.mg
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
@@ -92,7 +92,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends hg<fo> {
+    public class b extends fg<co> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -116,18 +116,18 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
+        @Override // com.repackage.fg
+        public void onLoaded(co coVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
-                super.onLoaded((b) foVar, str, i);
-                if (this.a.q == null || foVar == null || !foVar.w()) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) {
+                super.onLoaded((b) coVar, str, i);
+                if (this.a.q == null || coVar == null || !coVar.w()) {
                     this.a.l();
                     return;
                 }
                 this.a.q.setBackgroundResource(0);
                 this.a.q.setImageDrawable(null);
-                foVar.h(this.a.q);
+                coVar.h(this.a.q);
             }
         }
     }
@@ -248,9 +248,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
             this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02da, this);
-            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092391);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092392);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d1, this);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923e1);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923e2);
             this.r = textView;
             textView.setDuplicateParentStateEnabled(true);
             l();
@@ -263,9 +263,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             return;
         }
         if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.o)) {
-            ig.h().m(this.o, 10, this.w, getBdUniqueId());
+            gg.h().m(this.o, 10, this.w, getBdUniqueId());
         } else if (!TextUtils.isEmpty(this.n)) {
-            ig.h().m(this.n, 10, this.w, getBdUniqueId());
+            gg.h().m(this.n, 10, this.w, getBdUniqueId());
         } else {
             l();
         }
@@ -359,7 +359,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             String charSequence = this.r.getText().toString();
             if (z) {
-                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f1343) + charSequence;
+                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f1365) + charSequence;
             }
             this.r.setContentDescription(charSequence);
         }
@@ -504,13 +504,13 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 4) {
-                        this.r.setTextColor(gj8.e(this.f.dark.font_color));
+                        this.r.setTextColor(di8.e(this.f.dark.font_color));
                         return;
                     } else if (skinType == 1) {
-                        this.r.setTextColor(gj8.e(this.f.night.font_color));
+                        this.r.setTextColor(di8.e(this.f.night.font_color));
                         return;
                     } else {
-                        this.r.setTextColor(gj8.e(this.f.day.font_color));
+                        this.r.setTextColor(di8.e(this.f.day.font_color));
                         return;
                     }
                 }

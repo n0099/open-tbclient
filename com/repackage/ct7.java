@@ -28,15 +28,15 @@ public class ct7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             int fontSize = TbadkCoreApplication.getInst().getFontSize();
             if (fontSize == 0) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13fe);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1426);
             }
             if (fontSize == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13fb);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1423);
             }
             if (fontSize == 2) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13fc);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1424);
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13fd);
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1425);
         }
         return (String) invokeV.objValue;
     }

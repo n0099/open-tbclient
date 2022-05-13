@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.m11;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class pn0 {
@@ -115,7 +115,7 @@ public final class pn0 {
             if (!z || d <= 2.0d) {
                 return 0;
             }
-            return c11.c.a(hi0.b(), 52.0f);
+            return m11.c.a(ki0.b(), 52.0f);
         }
         return invokeCommon.intValue;
     }
@@ -127,7 +127,7 @@ public final class pn0 {
             if (i <= 0 || d2 < 0 || d2 > 1) {
                 return -1;
             }
-            return Math.min((int) (i * d2), Math.max((int) ((i - c11.c.a(hi0.b(), 200)) - (c11.c.e(hi0.b()) * d)), 0));
+            return Math.min((int) (i * d2), Math.max((int) ((i - m11.c.a(ki0.b(), 200)) - (m11.c.e(ki0.b()) * d)), 0));
         }
         return invokeCommon.intValue;
     }

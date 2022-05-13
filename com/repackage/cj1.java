@@ -1,13 +1,13 @@
 package com.repackage;
 
-import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cj1 implements jl1 {
+public class cj1 implements hl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,13 +25,20 @@ public class cj1 implements jl1 {
         }
     }
 
-    @Override // com.repackage.jl1
-    public boolean a(Message message) {
-        InterceptResult invokeL;
+    @Override // com.repackage.hl1
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.hl1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

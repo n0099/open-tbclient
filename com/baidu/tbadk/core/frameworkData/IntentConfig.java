@@ -11,16 +11,12 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -36,15 +32,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c9;
-import com.repackage.em;
+import com.repackage.e65;
 import com.repackage.f9;
-import com.repackage.o55;
-import com.repackage.om;
-import com.repackage.p75;
-import com.repackage.qg;
-import com.repackage.s75;
-import com.repackage.t75;
-import com.repackage.v75;
+import com.repackage.g85;
+import com.repackage.j85;
+import com.repackage.k85;
+import com.repackage.m85;
+import com.repackage.og;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -259,7 +253,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            qg.unbindService(this.a.mContext, this.a.mClientConnection);
+            og.unbindService(this.a.mContext, this.a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
@@ -313,7 +307,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         c9<?> b2 = f9.b(context);
-        t75 tbPageInfo = b2 instanceof s75 ? ((s75) b2).getTbPageInfo() : null;
+        k85 tbPageInfo = b2 instanceof j85 ? ((j85) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -340,14 +334,14 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        p75 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        g85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
         ArrayList<String> c = currentVisiblePageExtra == null ? null : currentVisiblePageExtra.c();
         if (ListUtils.isEmpty(c)) {
             return;
         }
         if (currentVisiblePageExtra != null) {
             TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
-            o55.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
+            e65.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
         }
         this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c);
     }
@@ -358,7 +352,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         c9<?> b2 = f9.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof v75 ? (ArrayList) ((v75) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof m85 ? (ArrayList) ((m85) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -375,36 +369,16 @@ public class IntentConfig extends OrmObject {
     }
 
     public void bindService(Class<?> cls) {
+        Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
             setComponentClass(cls);
-            if (this.mComponentClass == null || this.mContext == null) {
+            if (this.mComponentClass == null || (context = this.mContext) == null) {
                 return;
-            }
-            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (om.h().j(pluginNameByClassloader)) {
-                    return;
-                }
-                PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
-                return;
-            }
-            Intent intent = this.mIntent;
-            if (intent != null) {
-                try {
-                    if (PluginBaseService.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
-                        PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
-                        return;
-                    }
-                } catch (Exception e) {
-                    em.b().i("plugin_run_fail", pluginNameByClassloader);
-                    BdLog.detailException(e);
-                }
             }
             try {
-                this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
+                context.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             } catch (Throwable th) {
-                em.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }
@@ -581,7 +555,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            qg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            og.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -607,7 +581,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            qg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            og.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -626,81 +600,31 @@ public class IntentConfig extends OrmObject {
     }
 
     public void startService(Class<?> cls) {
+        Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, cls) == null) {
             setComponentClass(cls);
-            if (this.mComponentClass == null || this.mContext == null) {
+            if (this.mComponentClass == null || (context = this.mContext) == null) {
                 return;
-            }
-            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (om.h().j(pluginNameByClassloader)) {
-                    return;
-                }
-                PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-                return;
-            }
-            Intent intent = this.mIntent;
-            if (intent != null) {
-                try {
-                    if (PluginBaseService.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
-                        PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-                        return;
-                    }
-                } catch (Exception e) {
-                    em.b().i("plugin_run_fail", pluginNameByClassloader);
-                    BdLog.detailException(e);
-                }
             }
             try {
-                this.mContext.startService(this.mIntent);
+                context.startService(this.mIntent);
             } catch (Throwable th) {
-                em.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }
     }
 
     public void startActivityForResult(int i, Class<?> cls) {
-        Class<?> loadClass;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048600, this, i, cls) == null) {
             setComponentClass(cls);
             if (this.mComponentClass == null || this.mContext == null) {
                 return;
             }
-            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (om.h().j(pluginNameByClassloader)) {
-                    return;
-                }
-                PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-                return;
-            }
-            Intent intent = this.mIntent;
-            if (intent != null) {
-                try {
-                    if (PluginBaseActivity.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName()))) {
-                        PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-                        return;
-                    }
-                } catch (Exception e) {
-                    em.b().i("plugin_run_fail", pluginNameByClassloader);
-                    BdLog.detailException(e);
-                }
-            }
             try {
-                if (this.mComponentClass.getClassLoader() == null) {
-                    loadClass = Class.forName(this.mComponentClass.getName());
-                } else {
-                    loadClass = this.mComponentClass.getClassLoader().loadClass(this.mComponentClass.getName());
-                }
-                if (loadClass == null) {
-                    return;
-                }
                 startActivityForResult(i);
             } catch (Throwable th) {
-                em.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }
@@ -712,7 +636,7 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        p75 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        g85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
         ArrayList<String> buildNextPageSourceKeyList = TbPageExtraHelper.buildNextPageSourceKeyList(currentVisiblePageExtra == null ? null : currentVisiblePageExtra.d(), str);
         if (ListUtils.isEmpty(buildNextPageSourceKeyList)) {
             return;

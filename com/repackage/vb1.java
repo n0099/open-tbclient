@@ -1,18 +1,29 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class vb1 {
+public final class vb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bundle a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? IPCServiceManager.d() : (Bundle) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755237044, "Lcom/repackage/vb1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755237044, "Lcom/repackage/vb1;");
+                return;
+            }
+        }
+        a = sb1.b();
     }
 }

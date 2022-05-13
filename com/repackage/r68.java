@@ -46,7 +46,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-import com.repackage.pd8;
+import com.repackage.fc8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -132,7 +132,7 @@ public class r68 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && this.a.N == ((Integer) customResponsedMessage.getData()).intValue() && this.a.M) {
-                pg.a().removeCallbacks(this.a.Q);
+                ng.a().removeCallbacks(this.a.Q);
                 this.a.V();
             }
         }
@@ -218,7 +218,7 @@ public class r68 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements zu4 {
+    public class d implements mv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r68 a;
@@ -241,18 +241,18 @@ public class r68 {
             this.a = r68Var;
         }
 
-        @Override // com.repackage.zu4
+        @Override // com.repackage.mv4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.zu4
+        @Override // com.repackage.mv4
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                pg.a().postDelayed(this.a.Q, r68.S);
+                ng.a().postDelayed(this.a.Q, r68.S);
                 this.a.M = true;
                 r68 r68Var = this.a;
                 r68Var.N = r68Var.x.d();
@@ -581,20 +581,20 @@ public class r68 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof pd8)) {
-                SparseArray<pd8.a> sparseArray = ((pd8) customResponsedMessage.getData()).a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof fc8)) {
+                SparseArray<fc8.a> sparseArray = ((fc8) customResponsedMessage.getData()).a;
                 if (sparseArray.size() <= 0) {
                     return;
                 }
-                pd8.a aVar = sparseArray.get(2);
+                fc8.a aVar = sparseArray.get(2);
                 if (this.a.I != null && aVar != null) {
                     this.a.I.I(aVar.a);
                 }
-                pd8.a aVar2 = sparseArray.get(4);
-                pd8.a aVar3 = sparseArray.get(3);
-                pd8.a aVar4 = sparseArray.get(1);
-                pd8.a aVar5 = sparseArray.get(7);
-                pd8.a aVar6 = sparseArray.get(8);
+                fc8.a aVar2 = sparseArray.get(4);
+                fc8.a aVar3 = sparseArray.get(3);
+                fc8.a aVar4 = sparseArray.get(1);
+                fc8.a aVar5 = sparseArray.get(7);
+                fc8.a aVar6 = sparseArray.get(8);
                 if (this.a.i != null) {
                     if (this.a.i.w != null && this.a.i.w.b != null && aVar2 != null) {
                         this.a.i.w.b.putBoolean("person_center_item_red_tip_show", aVar2.a);
@@ -684,14 +684,14 @@ public class r68 {
             }
             ArrayList arrayList = new ArrayList();
             this.a = arrayList;
-            arrayList.add(r68Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0df5));
-            this.a.add(r68Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0df8));
-            this.a.add(r68Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0df4));
+            arrayList.add(r68Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e13));
+            this.a.add(r68Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e16));
+            this.a.add(r68Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e12));
             ArrayList arrayList2 = new ArrayList();
             this.b = arrayList2;
-            arrayList2.add(PersonCenterMainTabFragment.H0(r68Var.L, r68Var.j));
-            this.b.add(PersonCenterThreadTabFragment.N0(r68Var.L, r68Var.j));
-            this.b.add(PersonCenterDynamicTabFragment.K0(r68Var.L, r68Var.j));
+            arrayList2.add(PersonCenterMainTabFragment.I0(r68Var.L, r68Var.j));
+            this.b.add(PersonCenterThreadTabFragment.O0(r68Var.L, r68Var.j));
+            this.b.add(PersonCenterDynamicTabFragment.L0(r68Var.L, r68Var.j));
         }
 
         public void c() {
@@ -702,7 +702,7 @@ public class r68 {
             for (int i = 0; i < this.b.size(); i++) {
                 PersonCenterTabBaseFragment personCenterTabBaseFragment = this.b.get(i);
                 if (personCenterTabBaseFragment != null) {
-                    personCenterTabBaseFragment.B0(false);
+                    personCenterTabBaseFragment.C0(false);
                 }
             }
         }
@@ -717,7 +717,7 @@ public class r68 {
                 for (int i = 0; i < this.b.size(); i++) {
                     PersonCenterTabBaseFragment personCenterTabBaseFragment = this.b.get(i);
                     if (personCenterTabBaseFragment != null && personCenterTabBaseFragment.isPrimary()) {
-                        return personCenterTabBaseFragment.C0();
+                        return personCenterTabBaseFragment.D0();
                     }
                 }
                 return -1;
@@ -808,7 +808,7 @@ public class r68 {
             for (int i = 0; i < this.b.size(); i++) {
                 PersonCenterTabBaseFragment personCenterTabBaseFragment = this.b.get(i);
                 if (personCenterTabBaseFragment instanceof PersonCenterMainTabFragment) {
-                    ((PersonCenterMainTabFragment) personCenterTabBaseFragment).J0(y48Var);
+                    ((PersonCenterMainTabFragment) personCenterTabBaseFragment).K0(y48Var);
                 }
             }
         }
@@ -821,8 +821,8 @@ public class r68 {
             for (int i = 0; i < this.b.size(); i++) {
                 PersonCenterTabBaseFragment personCenterTabBaseFragment = this.b.get(i);
                 if (personCenterTabBaseFragment != null) {
-                    personCenterTabBaseFragment.E0(y48Var.C);
-                    personCenterTabBaseFragment.F0(y48Var.i());
+                    personCenterTabBaseFragment.F0(y48Var.C);
+                    personCenterTabBaseFragment.G0(y48Var.i());
                 }
             }
         }
@@ -884,20 +884,20 @@ public class r68 {
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (mi.z()) {
+            if (ki.z()) {
                 this.d.g();
                 this.d.a();
                 this.l.l();
                 return;
             }
-            this.l.p();
+            this.l.q();
         }
     }
 
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.l.p();
+            this.l.q();
         }
     }
 
@@ -947,42 +947,42 @@ public class r68 {
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             this.c = view2;
             this.p = UtilHelper.getStatusBarHeight();
-            this.q = (LottieSlideLoadingLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09177c);
-            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09177e);
-            this.r = new PersonHeaderBackgroundController(this.a, tbImageView, this.c.findViewById(R.id.obfuscated_res_0x7f09177b), this.j);
+            this.q = (LottieSlideLoadingLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917a5);
+            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0917a8);
+            this.r = new PersonHeaderBackgroundController(this.a, tbImageView, this.c.findViewById(R.id.obfuscated_res_0x7f0917a3), this.j);
             this.q.l(tbImageView);
             TbPageContext tbPageContext = this.a;
             View view3 = this.c;
-            this.J = new m68(tbPageContext, view3, view3.findViewById(R.id.obfuscated_res_0x7f09179a), this.j);
-            FrameLayout frameLayout = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09177f);
+            this.J = new m68(tbPageContext, view3, view3.findViewById(R.id.obfuscated_res_0x7f0917d3), this.j);
+            FrameLayout frameLayout = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917a9);
             this.E = frameLayout;
             this.F = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
             this.q.l(this.E);
             this.q.j(new d(this));
-            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091779);
+            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917a1);
             this.s = appBarLayout;
             appBarLayout.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new e(this));
-            this.t = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09179c);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.c.findViewById(R.id.obfuscated_res_0x7f09179b);
+            this.t = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917d5);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.c.findViewById(R.id.obfuscated_res_0x7f0917d4);
             this.u = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
             this.u.setRectPaintColor(R.color.CAM_X0302);
-            this.u.B(oi.f(this.a.getPageActivity(), R.dimen.tbds46), oi.f(this.a.getPageActivity(), R.dimen.tbds46), oi.f(this.a.getPageActivity(), R.dimen.tbds10), oi.f(this.a.getPageActivity(), R.dimen.tbds46), true);
-            this.u.setIndicatorOffset(oi.f(this.a.getPageActivity(), R.dimen.tbds64));
-            this.u.setIndicatorOvershot(oi.f(this.a.getPageActivity(), R.dimen.tbds8));
-            this.u.setIndicatorRadius(oi.f(this.a.getPageActivity(), R.dimen.tbds8));
-            this.u.setIndicatorMarginBottom(oi.f(this.a.getPageActivity(), R.dimen.tbds0));
-            this.u.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(oi.f(this.a.getPageActivity(), R.dimen.tbds166), -1));
+            this.u.B(mi.f(this.a.getPageActivity(), R.dimen.tbds46), mi.f(this.a.getPageActivity(), R.dimen.tbds46), mi.f(this.a.getPageActivity(), R.dimen.tbds10), mi.f(this.a.getPageActivity(), R.dimen.tbds46), true);
+            this.u.setIndicatorOffset(mi.f(this.a.getPageActivity(), R.dimen.tbds64));
+            this.u.setIndicatorOvershot(mi.f(this.a.getPageActivity(), R.dimen.tbds8));
+            this.u.setIndicatorRadius(mi.f(this.a.getPageActivity(), R.dimen.tbds8));
+            this.u.setIndicatorMarginBottom(mi.f(this.a.getPageActivity(), R.dimen.tbds0));
+            this.u.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(mi.f(this.a.getPageActivity(), R.dimen.tbds166), -1));
             this.u.setOnPageChangeListener(new f(this));
             GradientDrawable gradientDrawable = new GradientDrawable();
             this.D = gradientDrawable;
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0201));
             this.D.setCornerRadii(this.n);
             this.t.setBackgroundDrawable(this.D);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091796);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0917cf);
             this.v = findViewById;
             SkinManager.setBackgroundResource(findViewById, R.drawable.personalize_tab_shadow);
-            this.w = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f09179d);
+            this.w = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f0917dc);
             m mVar = new m(this, this.m.getActivity().getSupportFragmentManager());
             this.x = mVar;
             this.w.setAdapter(mVar);
@@ -1000,10 +1000,10 @@ public class r68 {
                 Q(this.a);
             }
             P(this.a);
-            this.b = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f091794);
-            this.y = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091774);
-            this.z = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091775);
-            this.A = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091795);
+            this.b = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0917ca);
+            this.y = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09179c);
+            this.z = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09179d);
+            this.A = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917cb);
         }
     }
 
@@ -1062,7 +1062,7 @@ public class r68 {
                 this.K.removeAllUpdateListeners();
                 this.K = null;
             }
-            pg.a().removeCallbacks(this.Q);
+            ng.a().removeCallbacks(this.Q);
         }
     }
 
@@ -1085,13 +1085,13 @@ public class r68 {
         }
     }
 
-    public void X(uw8 uw8Var) {
+    public void X(rv8 rv8Var) {
         m68 m68Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, uw8Var) == null) || (m68Var = this.J) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, rv8Var) == null) || (m68Var = this.J) == null) {
             return;
         }
-        m68Var.j(uw8Var);
+        m68Var.j(rv8Var);
     }
 
     public void Y() {
@@ -1134,14 +1134,14 @@ public class r68 {
         this.x.i(y48Var);
         if (ListUtils.isEmpty(y48Var.f())) {
             this.l.m();
-            oi.N(this.a.getContext(), this.a.getString(R.string.obfuscated_res_0x7f0f0473));
+            mi.N(this.a.getContext(), this.a.getString(R.string.obfuscated_res_0x7f0f047b));
             return;
         }
         PersonRedTipManager.getInstance().syncRedTipState(this.j);
         int size = y48Var.f().size();
         for (int i2 = 0; i2 < size; i2++) {
-            uo uoVar = y48Var.f().get(i2);
-            if (uoVar != null && (uoVar instanceof g58)) {
+            ro roVar = y48Var.f().get(i2);
+            if (roVar != null && (roVar instanceof g58)) {
                 this.l.m();
                 return;
             }

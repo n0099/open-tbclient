@@ -27,32 +27,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.ea7;
 import com.repackage.f9;
-import com.repackage.u65;
-import com.repackage.wx4;
-import com.repackage.y97;
-import com.repackage.z97;
+import com.repackage.fa7;
+import com.repackage.ga7;
+import com.repackage.ky4;
+import com.repackage.la7;
+import com.repackage.ro;
+import com.repackage.wa7;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AtMeModelController extends BdBaseModel<AtMessageActivity> implements CacheModel.c<z97>, NetModel.k<y97, z97> {
+public class AtMeModelController extends BdBaseModel implements CacheModel.c<ga7>, NetModel.k<fa7, ga7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtMessageActivity a;
-    public y97 b;
+    public AtMessageFragment a;
+    public fa7 b;
     public AtMeNetModel c;
     public AtMeCacheModel d;
-    public u65 e;
-    public FeedData f;
-    public ea7 g;
-    public final CustomMessageListener h;
+    public FeedData e;
+    public la7 f;
+    public final CustomMessageListener g;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtMeModelController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AtMeModelController atMeModelController, int i) {
@@ -72,27 +72,25 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                     return;
                 }
             }
-            this.a = atMeModelController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                this.a.a.dismissPullRefresh();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtMeModelController(AtMessageActivity atMessageActivity) {
-        super(f9.a(atMessageActivity.getPageContext().getPageActivity()));
+    public AtMeModelController(AtMessageFragment atMessageFragment) {
+        super(atMessageFragment.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atMessageActivity};
+            Object[] objArr = {atMessageFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,18 +101,18 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                 return;
             }
         }
-        this.h = new a(this, 2000994);
-        this.a = atMessageActivity;
+        this.g = new a(this, 2000994);
+        this.a = atMessageFragment;
     }
 
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (z()) {
-                AtMessageActivity atMessageActivity = this.a;
-                if (atMessageActivity != null) {
-                    atMessageActivity.showPullRefresh();
+            if (y()) {
+                AtMessageFragment atMessageFragment = this.a;
+                if (atMessageFragment != null) {
+                    atMessageFragment.W0();
                 }
                 this.d.O(this.b);
                 return true;
@@ -127,24 +125,23 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     public void B(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.b = new y97();
+            this.b = new fa7();
             AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) f9.a(this.a.getPageContext().getPageActivity()), this.b);
             this.c = atMeNetModel;
             atMeNetModel.a0(this);
-            AtMessageActivity atMessageActivity = this.a;
-            if (atMessageActivity != null) {
-                this.c.setUniqueId(atMessageActivity.getUniqueId());
+            AtMessageFragment atMessageFragment = this.a;
+            if (atMessageFragment != null) {
+                this.c.setUniqueId(atMessageFragment.getUniqueId());
             }
-            this.c.registerListener(this.h);
-            AtMeCacheModel atMeCacheModel = new AtMeCacheModel((TbPageContext) f9.a(this.a.getPageContext().getPageActivity()));
-            this.d = atMeCacheModel;
-            atMeCacheModel.Q(this);
-            AtMessageActivity atMessageActivity2 = this.a;
-            if (atMessageActivity2 != null) {
-                this.d.setUniqueId(atMessageActivity2.getUniqueId());
+            this.c.registerListener(this.g);
+            AtMessageFragment atMessageFragment2 = this.a;
+            if (atMessageFragment2 != null) {
+                AtMeCacheModel atMeCacheModel = new AtMeCacheModel((TbPageContext) f9.a(atMessageFragment2.getPageContext().getPageActivity()));
+                this.d = atMeCacheModel;
+                atMeCacheModel.Q(this);
+                this.d.setUniqueId(this.a.getUniqueId());
             }
-            this.g = new ea7();
-            this.e = new u65();
+            this.f = new la7();
         }
     }
 
@@ -152,67 +149,66 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.c.S() && this.e.a() && z()) {
-                this.e.f(true);
-                this.e.h(true);
-                this.b.c(this.f);
-                this.c.setNeedCache(false);
-                this.c.loadData();
-                this.a.onViewStateChanged(this.e);
-                return true;
+            if (this.c.S() || !y()) {
+                return false;
             }
-            return false;
+            this.b.c(this.e);
+            this.c.setNeedCache(false);
+            this.c.loadData();
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean D(y97 y97Var, z97 z97Var) {
-        InterceptResult invokeLL;
+    public boolean D(fa7 fa7Var, ga7 ga7Var, Boolean bool) {
+        InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, y97Var, z97Var)) == null) {
-            this.a.hideNetRefreshView();
-            if (y97Var.a() != 4) {
-                this.g.a().clear();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, fa7Var, ga7Var, bool)) == null) {
+            if (fa7Var.a() != 4) {
+                this.f.a().clear();
             }
-            this.g.c(z97Var);
-            if (z97Var != null && z97Var.a() != null && z97Var.a().size() > 0) {
-                this.f = z97Var.a().get(z97Var.a().size() - 1);
-                if (this.g.b() != null) {
-                    this.e.e(this.g.b().b() == 1);
-                } else {
-                    this.e.e(true);
+            this.f.c(ga7Var);
+            boolean z2 = true;
+            if (ga7Var != null && ga7Var.a() != null && ga7Var.a().size() > 0) {
+                this.e = ga7Var.a().get(ga7Var.a().size() - 1);
+                z = this.f.b() == null || this.f.b().b() == 1;
+                if (fa7Var != null) {
+                    fa7Var.d();
                 }
-                if (y97Var != null) {
-                    y97Var.d();
-                }
-                this.e.h(true);
             } else {
-                this.f = null;
-                this.e.e(false);
-                this.e.h(false);
+                this.e = null;
+                z = false;
+                z2 = false;
             }
-            this.e.f(false);
-            this.e.g(false);
-            wx4.g0().k();
+            ky4.h0().k();
             if (!TbadkCoreApplication.isLogin()) {
-                this.g.a().clear();
-            } else {
-                this.a.onViewStateChanged(this.e);
+                this.f.a().clear();
             }
-            this.a.onViewDataChanged(this.g);
-            return false;
+            ArrayList<ro> arrayList = new ArrayList<>();
+            Iterator<FeedData> it = this.f.a.iterator();
+            while (it.hasNext()) {
+                wa7 wa7Var = new wa7();
+                wa7Var.F(it.next());
+                if (bool.booleanValue()) {
+                    wa7Var.H(false);
+                }
+                arrayList.add(wa7Var);
+            }
+            this.a.V0(z, arrayList);
+            return z2;
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c.S() || !z()) {
+            if (this.c.S() || !y()) {
                 return false;
             }
-            this.f = null;
+            this.e = null;
             this.b.b();
             this.c.setNeedCache(true);
             this.c.loadData();
@@ -232,20 +228,20 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-    public void e(WriteCacheRespMsg<List<z97>> writeCacheRespMsg, WriteCacheMessage<z97> writeCacheMessage) {
+    public void e(WriteCacheRespMsg<List<ga7>> writeCacheRespMsg, WriteCacheMessage<ga7> writeCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, writeCacheRespMsg, writeCacheMessage) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-    public void g(ReadCacheRespMsg<List<z97>> readCacheRespMsg, ReadCacheMessage<z97> readCacheMessage) {
+    public void g(ReadCacheRespMsg<List<ga7>> readCacheRespMsg, ReadCacheMessage<ga7> readCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-                D(this.b, readCacheRespMsg.getData().get(0));
+                D(this.b, readCacheRespMsg.getData().get(0), Boolean.TRUE);
             }
-            this.f = null;
+            this.e = null;
             this.b.b();
             this.c.setNeedCache(true);
             this.c.loadData();
@@ -263,22 +259,21 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void m(MvcSocketResponsedMessage<z97, ?> mvcSocketResponsedMessage, MvcSocketMessage<y97, z97> mvcSocketMessage, MvcNetMessage<y97, z97> mvcNetMessage) {
-        z97 z97Var;
+    public void m(MvcSocketResponsedMessage<ga7, ?> mvcSocketResponsedMessage, MvcSocketMessage<fa7, ga7> mvcSocketMessage, MvcNetMessage<fa7, ga7> mvcNetMessage) {
+        ga7 ga7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
-            this.a.dismissPullRefresh();
             if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                z97Var = mvcSocketResponsedMessage.getData();
+                ga7Var = mvcSocketResponsedMessage.getData();
                 r0 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
                 if (mvcNetMessage != null) {
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                wx4.g0().Z(0);
-                z97Var = null;
+                ky4.h0().a0(0);
+                ga7Var = null;
             }
-            if (r0 == null || z97Var == null || !D(r0, z97Var)) {
+            if (r0 == null || ga7Var == null || !D(r0, ga7Var, Boolean.FALSE)) {
                 if (mvcSocketResponsedMessage != null) {
                     this.mErrorCode = mvcSocketResponsedMessage.getError();
                     this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -286,28 +281,43 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
-                this.a.onServerError(errorData);
+                if (this.mErrorCode != 0) {
+                    this.a.onServerError(errorData);
+                }
+            }
+        }
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            AtMeNetModel atMeNetModel = this.c;
+            if (atMeNetModel != null) {
+                atMeNetModel.a0(null);
+            }
+            AtMeCacheModel atMeCacheModel = this.d;
+            if (atMeCacheModel != null) {
+                atMeCacheModel.Q(null);
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void r(MvcHttpResponsedMessage<z97> mvcHttpResponsedMessage, MvcHttpMessage<y97, z97> mvcHttpMessage, MvcNetMessage<y97, z97> mvcNetMessage) {
-        z97 z97Var;
+    public void r(MvcHttpResponsedMessage<ga7> mvcHttpResponsedMessage, MvcHttpMessage<fa7, ga7> mvcHttpMessage, MvcNetMessage<fa7, ga7> mvcNetMessage) {
+        ga7 ga7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
-            this.a.dismissPullRefresh();
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
             if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                z97Var = mvcHttpResponsedMessage.getData();
+                ga7Var = mvcHttpResponsedMessage.getData();
                 r0 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
                 if (mvcNetMessage != null) {
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                wx4.g0().Z(0);
-                z97Var = null;
+                ky4.h0().a0(0);
+                ga7Var = null;
             }
-            if (r0 == null || z97Var == null || !D(r0, z97Var)) {
+            if (r0 == null || ga7Var == null || !D(r0, ga7Var, Boolean.FALSE)) {
                 if (mvcHttpResponsedMessage != null) {
                     this.mErrorCode = mvcHttpResponsedMessage.getError();
                     this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -315,27 +325,41 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
-                this.a.onServerError(errorData);
+                if (this.mErrorCode != 0) {
+                    this.a.onServerError(errorData);
+                }
             }
         }
     }
 
-    public boolean z() {
+    public boolean y() {
         InterceptResult invokeV;
         ArrayList<FeedData> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (TbadkCoreApplication.isLogin()) {
                 return true;
             }
-            ea7 ea7Var = this.g;
-            if (ea7Var != null && (arrayList = ea7Var.a) != null) {
+            la7 la7Var = this.f;
+            if (la7Var != null && (arrayList = la7Var.a) != null) {
                 arrayList.clear();
+                AtMessageFragment atMessageFragment = this.a;
+                if (atMessageFragment != null) {
+                    atMessageFragment.L0();
+                    this.a.V0(false, null);
+                }
             }
-            this.a.dismissPullRefresh();
-            this.a.onViewDataChanged(this.g);
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void z(int i) {
+        la7 la7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (la7Var = this.f) == null || la7Var.a() == null || i >= this.f.a().size()) {
+            return;
+        }
+        this.f.a().remove(i);
     }
 }

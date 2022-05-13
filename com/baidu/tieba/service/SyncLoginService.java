@@ -13,7 +13,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,13 +21,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.repackage.bn4;
-import com.repackage.ci;
-import com.repackage.ki5;
-import com.repackage.oi;
+import com.repackage.ai;
+import com.repackage.cj5;
+import com.repackage.ln4;
+import com.repackage.mi;
+import com.repackage.my4;
 import com.repackage.rl7;
-import com.repackage.yx4;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public static String mStatistics;
@@ -37,7 +36,7 @@ public class SyncLoginService extends BdBaseService {
     public Runnable mRunnable;
     public b mSyncTask;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +155,7 @@ public class SyncLoginService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Integer, rl7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,17 +194,17 @@ public class SyncLoginService extends BdBaseService {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
                 this.a = netWork;
-                netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+                netWork.addPostData("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(mi.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
-                stringBuffer.append(String.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(mi.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("_phone_screen", stringBuffer.toString());
-                this.a.addPostData("scr_w", String.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
-                this.a.addPostData("scr_h", String.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
-                this.a.addPostData("scr_dip", String.valueOf(oi.h(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_w", String.valueOf(mi.k(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_h", String.valueOf(mi.i(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_dip", String.valueOf(mi.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
-                if (yx4.d().e() > 0) {
+                if (my4.d().f() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -217,7 +216,7 @@ public class SyncLoginService extends BdBaseService {
                     }
                     this.a.addPostData("_active", str);
                 }
-                this.a.addPostData("_pic_quality", String.valueOf(bn4.c().e()));
+                this.a.addPostData("_pic_quality", String.valueOf(ln4.c().e()));
                 if (SyncLoginService.mStatistics != null) {
                     this.a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
@@ -227,13 +226,13 @@ public class SyncLoginService extends BdBaseService {
                 NetWork netWork2 = this.a;
                 netWork2.addPostData("versioncode", versionCode + "");
                 this.a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.a.addPostData(PackageTable.MD5, ki5.a());
+                this.a.addPostData(PackageTable.MD5, cj5.a());
                 NetWork netWork3 = this.a;
-                boolean a = ci.a();
+                boolean a = ai.a();
                 String str2 = WebKitFactory.OS_64;
                 netWork3.addPostData("running_abi", a ? WebKitFactory.OS_64 : "32");
                 NetWork netWork4 = this.a;
-                if (!ci.b()) {
+                if (!ai.b()) {
                     str2 = "32";
                 }
                 netWork4.addPostData("support_abi", str2);

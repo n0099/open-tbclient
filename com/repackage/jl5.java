@@ -1,9 +1,8 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +10,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jl5 extends fc1<ma1> {
+public class jl5 extends qc1<j31> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
 
     /* loaded from: classes6.dex */
-    public class a implements ma1 {
+    public class a implements j31 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jl5 c;
+
+        /* renamed from: com.repackage.jl5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class View$OnClickListenerC0437a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ AbsContainer a;
+
+            public View$OnClickListenerC0437a(a aVar, AbsContainer absContainer) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, absContainer};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = absContainer;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                AbsContainer absContainer;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (absContainer = this.a) == null) {
+                    return;
+                }
+                absContainer.x();
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ AbsContainer a;
+
+            public b(a aVar, AbsContainer absContainer) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, absContainer};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = absContainer;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                AbsContainer absContainer;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (absContainer = this.a) == null) {
+                    return;
+                }
+                absContainer.c();
+            }
+        }
 
         public a(jl5 jl5Var) {
             Interceptable interceptable = $ic;
@@ -36,92 +103,35 @@ public class jl5 extends fc1<ma1> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = jl5Var;
         }
 
-        @Override // com.repackage.ma1
-        public String a() {
+        @Override // com.repackage.j31
+        public int[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e38} : (int[]) invokeV.objValue;
         }
 
-        @Override // com.repackage.ma1
-        public int b() {
-            InterceptResult invokeV;
+        @Override // com.repackage.j31
+        public void b(View view2, AbsContainer absContainer) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 120;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.repackage.ma1
-        @SuppressLint({"ResourceType"})
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.obfuscated_res_0x7f080f62 : invokeV.intValue;
-        }
-
-        @Override // com.repackage.ma1
-        public JSONObject d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.c.a == null) {
-                    this.c.a = new JSONObject();
-                    try {
-                        this.c.a.put("query_response_thread", 1);
-                        this.c.a.put("query_unite_pid", "1640058553813");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, absContainer) == null) {
+                int intValue = ((Integer) view2.getTag()).intValue();
+                if (intValue == R.drawable.obfuscated_res_0x7f080e38) {
+                    view2.setOnClickListener(new View$OnClickListenerC0437a(this, absContainer));
+                } else if (intValue == R.drawable.obfuscated_res_0x7f080e39) {
+                    view2.setOnClickListener(new b(this, absContainer));
                 }
-                return this.c.a;
             }
-            return (JSONObject) invokeV.objValue;
         }
 
-        @Override // com.repackage.ma1
-        @NonNull
-        public String e() {
+        @Override // com.repackage.j31
+        public int[] c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.ma1
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (int) rl5.e() : invokeV.intValue;
-        }
-
-        @Override // com.repackage.ma1
-        public String from() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.ma1
-        @SuppressLint({"ResourceType"})
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080247 : invokeV.intValue;
-        }
-
-        @Override // com.repackage.ma1
-        @SuppressLint({"ResourceType"})
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080248 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e39} : (int[]) invokeV.objValue;
         }
     }
 
@@ -140,11 +150,11 @@ public class jl5 extends fc1<ma1> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
-    /* renamed from: c */
-    public ma1 createService() throws ServiceNotFoundException {
+    @Override // com.repackage.qc1
+    /* renamed from: a */
+    public j31 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (ma1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (j31) invokeV.objValue;
     }
 }

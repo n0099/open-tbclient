@@ -1,182 +1,142 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.publisher.draft.DraftData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class fy2 {
+public final class fy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ c c;
+    public static final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File file = new File(b(), "publisher_draft");
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+    }
 
-        public a(View view2, View view3, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, view3, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            u03 L = u03.L();
+            String v = c83.v(L != null ? L.b : null);
+            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
+            return v;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final DraftData c() {
+        InterceptResult invokeV;
+        ObjectInputStream objectInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(b(), "publisher_draft");
+            ObjectInputStream objectInputStream2 = null;
+            try {
+                try {
+                    if (file.exists()) {
+                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
+                        try {
+                            Object readObject = objectInputStream.readObject();
+                            if (readObject != null) {
+                                DraftData draftData = (DraftData) readObject;
+                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
+                                    objectInputStream.close();
+                                    return null;
+                                }
+                                objectInputStream.close();
+                                return draftData;
+                            }
+                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (objectInputStream != null) {
+                                objectInputStream.close();
+                            }
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    objectInputStream2 = "publisher_draft";
+                    if (objectInputStream2 != null) {
+                        objectInputStream2.close();
+                    }
+                    throw th;
                 }
-            }
-            this.a = view2;
-            this.b = view3;
-            this.c = cVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && wx2.c().e()) {
-                boolean c = fy2.c(this.a, this.b);
-                c cVar = this.c;
-                if (cVar != null) {
-                    cVar.onClickSwitch(view2, c);
+            } catch (Exception e2) {
+                e = e2;
+                objectInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (objectInputStream2 != null) {
                 }
+                throw th;
             }
+            return null;
         }
+        return (DraftData) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public b(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.setVisibility(4);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onClickSwitch(View view2, boolean z);
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public static void b(View view2, View view3, View view4, c cVar) {
+    public static final void d(DraftData draftData) {
+        ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, view3, view4, cVar) == null) {
-            if (view3 != null) {
-                view3.setOnClickListener(new a(view2, view4, cVar));
-            }
-            if (e(view2.getContext())) {
-                view4.setOnTouchListener(new b(view2));
-            }
+        if (!(interceptable == null || interceptable.invokeL(65539, null, draftData) == null) || draftData == null) {
+            return;
         }
-    }
-
-    public static boolean c(View view2, View view3) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, view3)) == null) {
-            boolean z = view2.getVisibility() != 0;
-            if (!z) {
-                h(view2, view3);
-            } else {
-                g(view2, view3);
+        File file = new File(b(), "publisher_draft");
+        try {
+            if (file.exists()) {
+                file.delete();
+                file.createNewFile();
             }
-            return z;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
-            if (view3 != null) {
-                iy2.k(view3);
-                view3.clearFocus();
+        ObjectOutputStream objectOutputStream2 = null;
+        try {
+            try {
+                objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+            } catch (Exception e2) {
+                e = e2;
             }
-            view2.setVisibility(8);
+        } catch (Throwable th) {
+            th = th;
         }
-    }
-
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context instanceof Activity) {
-                boolean d = ky2.d((Activity) context);
-                f(d);
-                return d;
+        try {
+            objectOutputStream.writeObject(draftData);
+            objectOutputStream.close();
+        } catch (Exception e3) {
+            e = e3;
+            objectOutputStream2 = objectOutputStream;
+            e.printStackTrace();
+            if (objectOutputStream2 != null) {
+                objectOutputStream2.close();
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z : invokeZ.booleanValue;
-    }
-
-    public static void g(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, view2, view3) == null) {
-            view2.setVisibility(0);
-            if (view3 != null) {
-                iy2.k(view3);
+        } catch (Throwable th2) {
+            th = th2;
+            objectOutputStream2 = objectOutputStream;
+            if (objectOutputStream2 != null) {
+                objectOutputStream2.close();
             }
-        }
-    }
-
-    public static void h(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, view2, view3) == null) {
-            iy2.m(view3);
-            if (e(view2.getContext())) {
-                view2.setVisibility(4);
-            }
+            throw th;
         }
     }
 }

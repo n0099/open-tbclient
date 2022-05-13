@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
+import com.repackage.kg;
 /* loaded from: classes3.dex */
 public class ReadRecordsData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public class ReadRecordsData extends OrmObject {
             if (StringUtils.isNull(this.a)) {
                 return 0L;
             }
-            return Double.valueOf(mg.c(this.a, 0.0d) * 100.0d).longValue();
+            return Double.valueOf(kg.c(this.a, 0.0d) * 100.0d).longValue();
         }
         return invokeV.longValue;
     }

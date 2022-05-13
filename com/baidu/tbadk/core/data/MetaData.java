@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ImageInfo;
 import com.baidu.tbadk.core.util.ImageProvider;
@@ -18,6 +19,7 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBo
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5772546803814127750L;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mFlag;
     public boolean mIsChecked;
 
     public MetaData() {
@@ -34,6 +36,7 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBo
             }
         }
         this.mIsChecked = false;
+        this.mFlag = 1;
     }
 
     @Override // com.baidu.tbadk.core.util.ImageProvider
@@ -93,11 +96,17 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBo
         return (ArrayList) invokeV.objValue;
     }
 
+    public int getItemType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFlag : invokeV.intValue;
+    }
+
     @Override // com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getPhotoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(getPortrait());
             return arrayList;
@@ -109,14 +118,14 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBo
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsChecked : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsChecked : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.util.ImageProvider
     public boolean isSupportImageSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -125,8 +134,15 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBo
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.mIsChecked = z;
+        }
+    }
+
+    public void setItemType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mFlag = i;
         }
     }
 }

@@ -1,12 +1,26 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.Pair;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,217 +28,118 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zr2;
+import com.repackage.jx3;
+import com.repackage.rl2;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collections;
-import java.util.HashMap;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.json.JSONException;
+@Service
 /* loaded from: classes7.dex */
-public class sy3 extends oy3 {
+public class sy3 extends dm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
+    public static final boolean o;
     public transient /* synthetic */ FieldHolder $fh;
-    public long h;
+    public String k;
+    public ix3 l;
+    public Runnable m;
+    public xy3 n;
 
     /* loaded from: classes7.dex */
-    public class a implements zr2.b {
+    public class a implements oj2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ py3 b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ m83 d;
-        public final /* synthetic */ sy3 e;
+        public final /* synthetic */ oj2 a;
+        public final /* synthetic */ rl2 b;
+        public final /* synthetic */ sy3 c;
 
-        public a(sy3 sy3Var, String str, py3 py3Var, boolean z, m83 m83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sy3Var, str, py3Var, Boolean.valueOf(z), m83Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = sy3Var;
-            this.a = str;
-            this.b = py3Var;
-            this.c = z;
-            this.d = m83Var;
-        }
+        /* renamed from: com.repackage.sy3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0521a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ nj2 a;
+            public final /* synthetic */ int b;
+            public final /* synthetic */ a c;
 
-        @Override // com.repackage.zr2.b
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.e.D(this.a, -1, "downloadFile:fail exceed max file size");
-                this.b.cancelTag(this.e.c);
-            }
-        }
-
-        @Override // com.repackage.zr2.b
-        public void b(int i, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || System.currentTimeMillis() - this.e.h <= 500) {
-                return;
-            }
-            if (j2 <= 52428800 && j <= 52428800) {
-                if (i <= 100) {
-                    ry3 ry3Var = new ry3(i, j2, j);
-                    JSEvent jSEvent = new JSEvent("progressUpdate");
-                    jSEvent.data = ry3Var;
-                    this.e.dispatchEvent(jSEvent);
-                }
-                if (this.c && this.d.d().a(j)) {
-                    this.e.D(this.a, -1, "downloadFile:fail exceed max file size");
-                    this.b.cancelTag(this.e.c);
-                }
-            } else {
-                this.e.D(this.a, -1, "downloadFile:fail exceed max file size");
-                this.b.cancelTag(this.e.c);
-            }
-            this.e.h = System.currentTimeMillis();
-        }
-
-        @Override // com.repackage.zr2.b
-        public void c(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                this.e.D(this.a, 0, "progress callback fail()");
-                this.b.cancelTag(this.e.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ m83 d;
-        public final /* synthetic */ boolean e;
-        public final /* synthetic */ sy3 f;
-
-        public b(sy3 sy3Var, String str, String str2, String str3, m83 m83Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sy3Var, str, str2, str3, m83Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = sy3Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = m83Var;
-            this.e = z;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.f.D(this.a, 0, iOException.getMessage());
-                if (SwanAppNetworkUtils.i(null)) {
-                    c73.u(0, this.a, 1, iOException.getMessage());
-                }
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                try {
-                    JSEvent jSEvent = new JSEvent("headersReceived");
-                    jSEvent.data = new bz3(this.f.J(response.headers()));
-                    this.f.dispatchEvent(jSEvent);
-                } catch (JSONException e) {
-                    if (sy3.i) {
-                        e.printStackTrace();
-                    }
-                }
-                String str2 = null;
-                try {
-                    if (TextUtils.isEmpty(this.b)) {
-                        str2 = m13.A(this.f.J(response.headers()), this.c);
-                    } else {
-                        str2 = this.f.V(this.b);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    if (sy3.i) {
-                        Log.d("DownloadTask", "the real file path is " + str2);
-                    }
-                    if (TextUtils.isEmpty(this.b)) {
-                        str = this.d.g(str2);
-                    } else {
-                        str = this.b;
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        this.f.D(this.a, -1, "parse tmpFilePath from realFilePath fail");
+            public RunnableC0521a(a aVar, nj2 nj2Var, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, nj2Var, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
-                    int code = response.code();
-                    String message = response.message();
-                    ty3 ty3Var = new ty3();
-                    ty3Var.statusCode = code;
-                    if (TextUtils.isEmpty(this.b)) {
-                        ty3Var.tempFilePath = str;
-                    } else {
-                        ty3Var.filePath = str;
-                    }
-                    InputStream byteStream = response.body().byteStream();
-                    File file = new File(str2);
-                    if (file.exists()) {
-                        long length = file.length();
-                        file.delete();
-                        if (this.e) {
-                            this.d.d().b(-length);
-                        }
-                    }
-                    if (this.f.W(byteStream, file)) {
-                        if (this.e) {
-                            this.d.d().b(file.length());
-                        }
-                        this.f.E(ty3Var);
-                    } else {
-                        this.f.D(this.a, -1, "downloadFile:fail abort");
-                    }
-                    mg4.d(byteStream);
-                    mg4.d(response);
-                    if (sy3.i) {
-                        Log.d("DownloadTask", "onResponse: respCode: " + code + ", url=" + this.a + ", msg=" + message);
-                    }
-                    c73.u(code, this.a, 1, message);
+                }
+                this.c = aVar;
+                this.a = nj2Var;
+                this.b = i;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c.c.i) {
                     return;
                 }
-                this.f.D(this.a, -1, "downloadFile:filePath is invalid");
+                jx3.c cVar = (jx3.c) this.a;
+                if (this.b != 0 || cVar == null) {
+                    return;
+                }
+                a aVar = this.c;
+                if (aVar.a == null) {
+                    return;
+                }
+                if (aVar.b.m0()) {
+                    if (!kv3.m().n()) {
+                        sx1.c(false);
+                        this.c.b.z0(false);
+                    } else {
+                        sy3 sy3Var = this.c.c;
+                        sy3Var.n(sy3Var.d).setVisibility(0);
+                        this.c.c.q().I(this.c.c.f);
+                        rx1.b(true);
+                        ux1.i("GamesControllerImpl", "init sConsole for devHook");
+                    }
+                }
+                this.c.c.l.c(cVar, this.c.c.d);
+                this.c.c.k = cVar.a;
+                this.c.a.a(0, cVar);
+                this.c.c.e0(cVar.c);
+                g24.b().e(cVar.c);
+            }
+        }
+
+        public a(sy3 sy3Var, oj2 oj2Var, rl2 rl2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sy3Var, oj2Var, rl2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sy3Var;
+            this.a = oj2Var;
+            this.b = rl2Var;
+        }
+
+        @Override // com.repackage.oj2
+        public void a(int i, nj2 nj2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, nj2Var) == null) {
+                oe3.d0(this.c.m);
+                this.c.m = new RunnableC0521a(this, nj2Var, i);
+                oe3.g0(this.c.m);
             }
         }
     }
@@ -242,164 +157,256 @@ public class sy3 extends oy3 {
                 return;
             }
         }
-        i = tg1.a;
+        o = eh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sy3(t72 t72Var, qs1 qs1Var) {
-        super(t72Var, qs1Var);
+    public sy3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t72Var, qs1Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((t72) objArr2[0], (qs1) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 2;
+        this.l = new ix3();
+        this.n = new xy3();
     }
 
-    @Override // com.repackage.oy3
-    public void D(String str, int i2, String str2) {
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public void E(rl2 rl2Var, oj2 oj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-            super.D(str, i2, str2);
-            c14.c(str, i2, str2, SwanAppNetworkUtils.i(null));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, rl2Var, oj2Var) == null) {
+            super.E(rl2Var, oj2Var);
+            if (o) {
+                Log.d("GamesControllerImpl", "asyncLoadSwanApp swanCoreVersion: " + rl2Var.j0());
+            }
+            jx3.c(rl2Var, new a(this, oj2Var, rl2Var));
+            tw3.m().I(rl2Var);
+            tw3.m().G(rl2Var);
+            if (o) {
+                Log.d("GamesControllerImpl", "SwanGameCoreRuntime preloadCoreRuntime by asyncLoadSwanApp");
+            }
+            tw3.m().z(null);
         }
     }
 
-    public void U(Request request, String str, String str2, py3 py3Var, uy3 uy3Var) {
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public ii1 F() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, str, str2, py3Var, uy3Var) == null) {
-            String httpUrl = request.url().toString();
-            m83 G = wl2.U().G();
-            boolean b2 = G.b(str);
-            c73.A(httpUrl, 1);
-            py3Var.call(request, Collections.singletonList(uy3Var), new b(this, httpUrl, str, str2, G, b2));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : (ii1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public SwanAppPropertyWindow J(Activity activity) {
+        InterceptResult invokeL;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            if (activity == null) {
+                return null;
+            }
+            if (this.g == null && (viewGroup = (ViewGroup) activity.findViewById(R.id.obfuscated_res_0x7f09016d)) != null) {
+                SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
+                this.g = swanAppPropertyWindow;
+                swanAppPropertyWindow.setVisibility(8);
+                viewGroup.addView(this.g);
+            }
+            return this.g;
+        }
+        return (SwanAppPropertyWindow) invokeL.objValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public li1 L() {
+        InterceptResult invokeV;
+        qw3 qw3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            d02 T = T();
+            if (T == null || (qw3Var = (qw3) T.n(qw3.class)) == null) {
+                return null;
+            }
+            return qw3Var.x3();
+        }
+        return (li1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public SwanCoreVersion M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? tw3.m().s() : (SwanCoreVersion) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public void O() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.O();
+            tw3.C();
+            j04.a.a().d(new JsObject());
+            xg4.k(ed2.p() + File.separator + "tmp");
         }
     }
 
-    @Nullable
-    public String V(@NonNull String str) {
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public li1 P() {
+        InterceptResult invokeV;
+        qw3 qw3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            d02 T = T();
+            if (T == null || (qw3Var = (qw3) T.n(qw3.class)) == null) {
+                return null;
+            }
+            return qw3Var.v3();
+        }
+        return (li1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dm2
+    @NonNull
+    public Pair<Integer, Integer> S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? r() : (Pair) invokeV.objValue;
+    }
+
+    public final void e0(n04 n04Var) {
+        u03 D;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, n04Var) == null) || (D = D()) == null) {
+            return;
+        }
+        D.G0(n04Var);
+    }
+
+    @Override // com.repackage.fm2
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public FullScreenFloatView n(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String i2 = wl2.U().G().i(str);
-            if (i2 == null) {
-                return null;
-            }
-            boolean endsWith = i2.endsWith(File.separator);
-            File parentFile = new File(i2).getParentFile();
-            boolean z = parentFile != null && parentFile.exists();
-            if (endsWith || !z) {
-                return null;
-            }
-            return i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, activity)) == null) {
+            super.n(activity);
+            this.f.setAutoAttachEnable(false);
+            return this.f;
         }
-        return (String) invokeL.objValue;
+        return (FullScreenFloatView) invokeL.objValue;
     }
 
-    public boolean W(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public zm1 q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048579, this, inputStream, file)) != null) {
-            return invokeLL.booleanValue;
-        }
-        if (inputStream == null || file == null) {
-            return false;
-        }
-        File parentFile = file.getParentFile();
-        if (parentFile != null && !parentFile.exists()) {
-            parentFile.mkdirs();
-        }
-        if (file.exists()) {
-            file.delete();
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            try {
-                fileOutputStream = new FileOutputStream(file);
-            } catch (Throwable th) {
-                th = th;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.a == null) {
+                this.a = new ov3(AppRuntime.getAppContext());
+                pv3.h(true);
             }
-        } catch (Exception e) {
-            e = e;
+            this.a.H((ViewGroup) this.d.findViewById(16908290));
+            return this.a;
         }
-        try {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    fileOutputStream.write(bArr, 0, read);
-                } else {
-                    fileOutputStream.flush();
-                    mg4.d(fileOutputStream);
-                    return true;
-                }
+        return (zm1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    @NonNull
+    public Pair<Integer, Integer> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? x() : (Pair) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.v();
+            SwanAppActivity swanAppActivity = this.d;
+            if (swanAppActivity != null && swanAppActivity.getLaunchInfo() != null) {
+                rl2.a launchInfo = this.d.getLaunchInfo();
+                x73 x73Var = new x73();
+                x73Var.a = n73.n(1);
+                x73Var.f = launchInfo.H();
+                x73Var.c = launchInfo.T();
+                x73Var.b = "show";
+                x73Var.d(launchInfo.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+                x73Var.b(n73.k(launchInfo.W()));
+                n73.onEvent(x73Var);
             }
-        } catch (Exception e2) {
-            e = e2;
-            fileOutputStream2 = fileOutputStream;
-            e.printStackTrace();
-            mg4.d(fileOutputStream2);
-            return false;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream2 = fileOutputStream;
-            mg4.d(fileOutputStream2);
-            throw th;
+            tn2.h(true);
+            j04.a.a().j();
         }
     }
 
-    public void start() {
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public void w() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.w();
+            tn2.h(false);
+            j04.a.a().f();
         }
-        String A = A();
-        if (TextUtils.isEmpty(A)) {
-            return;
-        }
-        if (j03.L() == null) {
-            D("", -1, "request:swanApp is null");
-            return;
-        }
-        py3 py3Var = (py3) j03.L().h0();
-        String B = this.b.B("filePath");
-        if (!TextUtils.isEmpty(B)) {
-            if (mg4.x(B)) {
-                D(A, -1, "downloadFile:filePath is invalid");
-                return;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    @NonNull
+    public Pair<Integer, Integer> x() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        View decorView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            SwanAppActivity swanAppActivity = this.d;
+            if (swanAppActivity == null) {
+                return super.x();
             }
-            String[] split = B.split("/");
-            if (TextUtils.isEmpty(split[split.length - 1])) {
-                D(A, -1, "downloadFile:filePath is invalid");
-                return;
+            Window window = swanAppActivity.getWindow();
+            boolean z = false;
+            if (window == null || (decorView = window.getDecorView()) == null) {
+                i = 0;
+                i2 = 0;
+            } else {
+                i2 = decorView.getWidth();
+                i = decorView.getHeight();
             }
+            Display defaultDisplay = this.d.getWindowManager().getDefaultDisplay();
+            if (i2 == 0 || i == 0) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                defaultDisplay.getRealMetrics(displayMetrics);
+                i2 = displayMetrics.widthPixels;
+                i = displayMetrics.heightPixels;
+            }
+            if (this.d.isLandScape() == ((defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) ? true : true)) {
+                int i3 = i2;
+                i2 = i;
+                i = i3;
+            }
+            if (o) {
+                Log.d("GamesControllerImpl", "getCurScreenSize width:" + i + ",height:" + i2);
+            }
+            return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
         }
-        m83 G = wl2.U().G();
-        boolean b2 = G.b(B);
-        if (b2 && G.d().a(0L)) {
-            D(A, -1, "downloadFile:fail exceed max size in usr");
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        Request.Builder builder = new Request.Builder();
-        H(builder, this.b.w("header"), hashMap, false);
-        builder.url(A).tag(this.c).build();
-        String t = mg4.t(A);
-        this.h = 0L;
-        uy3 uy3Var = new uy3();
-        uy3Var.c(new a(this, A, py3Var, b2, G));
-        U(builder.build(), B, t, py3Var, uy3Var);
+        return (Pair) invokeV.objValue;
+    }
+
+    @Override // com.repackage.dm2, com.repackage.fm2
+    public String z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? TextUtils.isEmpty(this.k) ? "" : this.k : (String) invokeV.objValue;
     }
 }

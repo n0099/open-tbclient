@@ -1,45 +1,18 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bc4 {
+public abstract class bc4 implements ec4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bc4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public ac4 b;
-
-    /* loaded from: classes5.dex */
-    public static class a extends sg4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_clean_stratey");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
 
     public bc4() {
         Interceptable interceptable = $ic;
@@ -51,64 +24,65 @@ public class bc4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a();
     }
 
-    public static bc4 b() {
-        InterceptResult invokeV;
+    public static <T> T e(@Nullable T t, @Nullable cc4<T> cc4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (bc4.class) {
-                    if (c == null) {
-                        c = new bc4();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, cc4Var)) == null) {
+            if (t != null && cc4Var != null) {
+                cc4Var.a(t);
             }
+            return t;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.ec4
+    @Nullable
+    public JSONObject a(@Nullable cc4<JSONObject> cc4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cc4Var)) == null) {
+            JSONObject d = d();
+            e(d, cc4Var);
+            return d;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ec4
+    @Nullable
+    public JSONArray b(@Nullable cc4<JSONArray> cc4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cc4Var)) == null) {
+            JSONArray c = c();
+            e(c, cc4Var);
             return c;
         }
-        return (bc4) invokeV.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    @NonNull
-    public ac4 a() {
+    @Nullable
+    public JSONArray c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                synchronized (bc4.class) {
-                    if (this.b == null) {
-                        this.b = ac4.b(this.a.getString("data", ""));
-                    }
-                }
-            }
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return (ac4) invokeV.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public String c() {
+    @Nullable
+    public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
-        String optString2 = jSONObject.optString("data");
-        if (TextUtils.isEmpty(optString2)) {
-            return;
-        }
-        this.a.edit().putString("version", optString).putString("data", optString2).apply();
+        return (JSONObject) invokeV.objValue;
     }
 }

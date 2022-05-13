@@ -52,8 +52,8 @@ public class BannerDownloadStateBar extends LinearLayout {
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090281);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090284);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090275);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09027a);
             setState(0);
         }
     }
@@ -65,37 +65,37 @@ public class BannerDownloadStateBar extends LinearLayout {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
                 this.c.setVisibility(8);
                 this.c.setImageDrawable(null);
-                this.b.setText(R.string.obfuscated_res_0x7f0f009b);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009d);
                 this.b.setTextColor(Color.parseColor("#333333"));
             } else if (i == 1) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
                 this.c.setVisibility(0);
                 this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800c0);
-                this.b.setText(R.string.obfuscated_res_0x7f0f009e);
+                this.b.setText(R.string.obfuscated_res_0x7f0f00a0);
                 this.b.setTextColor(Color.parseColor("#333333"));
             } else if (i == 2) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
                 this.c.setVisibility(0);
                 this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800c1);
-                this.b.setText(R.string.obfuscated_res_0x7f0f009f);
+                this.b.setText(R.string.obfuscated_res_0x7f0f00a1);
                 this.b.setTextColor(Color.parseColor("#333333"));
             } else if (i == 3) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bf);
                 this.c.setVisibility(8);
                 this.c.setImageDrawable(null);
-                this.b.setText(R.string.obfuscated_res_0x7f0f009c);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009e);
                 this.b.setTextColor(Color.parseColor("#FFFFFF"));
             } else if (i != 4) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
                 this.c.setVisibility(8);
                 this.c.setImageDrawable(null);
-                this.b.setText(R.string.obfuscated_res_0x7f0f009b);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009d);
                 this.b.setTextColor(Color.parseColor("#333333"));
             } else {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bf);
                 this.c.setVisibility(8);
                 this.c.setImageDrawable(null);
-                this.b.setText(R.string.obfuscated_res_0x7f0f009d);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009f);
                 this.b.setTextColor(Color.parseColor("#FFFFFF"));
             }
         }

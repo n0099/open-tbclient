@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jv;
-import com.repackage.ks;
-import com.repackage.lv;
-import com.repackage.nx;
-import com.repackage.qw;
+import com.repackage.su;
+import com.repackage.tr;
+import com.repackage.uu;
+import com.repackage.ww;
+import com.repackage.zv;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -111,7 +111,7 @@ public final class a {
                 return;
             }
         }
-        this.b = ks.a(5);
+        this.b = tr.a(5);
     }
 
     public static /* bridge */ /* synthetic */ Pair h(a aVar, SubTaskState subTaskState, boolean z, int i, Object obj) {
@@ -283,7 +283,7 @@ public final class a {
                     this.a = subTaskState;
                 } else if (taskInfo.isPassiveTask()) {
                     o(subTaskState.getTaskInfo());
-                    ks.b(this.b, subTaskState, 5);
+                    tr.b(this.b, subTaskState, 5);
                 }
                 Unit unit = Unit.INSTANCE;
             } finally {
@@ -316,7 +316,7 @@ public final class a {
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x005e, code lost:
         com.baidu.bdtask.framework.utils.DebugTrace.a.c(com.baidu.bdtask.ctrl.model.TaskStateQueue$peekPassiveTask$1$2.INSTANCE);
-        com.repackage.qw.c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
+        com.repackage.zv.c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
         r2 = r3;
      */
     /*
@@ -333,7 +333,7 @@ public final class a {
                 SubTaskState a2 = a();
                 SubTaskState subTaskState = null;
                 if (a2 == null || !a2.getTaskStatus().isActivated() || a2.getTaskStatus().isInterrupted()) {
-                    PriorityQueue<SubTaskState> d2 = ks.d(5);
+                    PriorityQueue<SubTaskState> d2 = tr.d(5);
                     d2.addAll(this.b);
                     while (true) {
                         if (d2.isEmpty() || (poll = d2.poll()) == null) {
@@ -344,7 +344,7 @@ public final class a {
                         if (((Boolean) h.getFirst()).booleanValue()) {
                             break;
                         }
-                        qw.c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h.getSecond(), 0));
+                        zv.c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h.getSecond(), 0));
                         DebugTrace.a.c(TaskStateQueue$peekPassiveTask$1$3.INSTANCE);
                         poll.getTaskStatus().reset2Interrupted();
                     }
@@ -389,7 +389,7 @@ public final class a {
             TaskStatus taskStatus = subTaskState.getTaskStatus();
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
             objectRef.element = "";
-            if (!nx.a.c(taskInfo.getTaskRule().getExpireTime())) {
+            if (!ww.a.c(taskInfo.getTaskRule().getExpireTime())) {
                 objectRef.element = "skipCache by expireTime error";
                 DebugTrace.a.c(new TaskStateQueue$restoreTaskCheck$1(objectRef, taskInfo));
                 return new Pair<>(null, (String) objectRef.element);
@@ -497,24 +497,24 @@ public final class a {
             try {
                 try {
                     UBCRecoveryTaskQueue uBCRecoveryTaskQueue = new UBCRecoveryTaskQueue();
-                    lv lvVar = new lv();
+                    uu uuVar = new uu();
                     JSONObject jSONObject = new JSONObject(str);
                     a aVar = new a();
                     String initiativeTaskJsonStr = jSONObject.optString("initiativeTask");
                     if (!TextUtils.isEmpty(initiativeTaskJsonStr)) {
-                        jv a2 = lvVar.a(TaskState.key);
+                        su a2 = uuVar.a(TaskState.key);
                         Intrinsics.checkExpressionValueIsNotNull(initiativeTaskJsonStr, "initiativeTaskJsonStr");
                         aVar.a = b((TaskState) a2.a(initiativeTaskJsonStr));
                     }
                     JSONArray optJSONArray = jSONObject.optJSONArray("passiveTaskQueue");
                     int i = 0;
                     if (optJSONArray != null) {
-                        PriorityQueue<SubTaskState> a3 = ks.a(5);
+                        PriorityQueue<SubTaskState> a3 = tr.a(5);
                         int length = optJSONArray.length();
                         for (int i2 = 0; i2 < length; i2++) {
-                            SubTaskState b = b((TaskState) lvVar.a(TaskState.key).a(optJSONArray.get(i2).toString()));
+                            SubTaskState b = b((TaskState) uuVar.a(TaskState.key).a(optJSONArray.get(i2).toString()));
                             if (b != null) {
-                                ks.b(a3, b, 5);
+                                tr.b(a3, b, 5);
                             }
                         }
                         aVar.b = a3;
@@ -553,7 +553,7 @@ public final class a {
                             }
                         }
                     }
-                    qw.c.e(uBCRecoveryTaskQueue);
+                    zv.c.e(uBCRecoveryTaskQueue);
                     SubTaskState a4 = a();
                     if (a4 != null && a4.getTaskInfo().isPassiveTask()) {
                         Pair<Boolean, String> g = g(a4, false);
@@ -561,10 +561,10 @@ public final class a {
                             a4.getTaskStatus().reset2Interrupted();
                             i = 500;
                         }
-                        qw.c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g.getSecond(), i));
+                        zv.c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g.getSecond(), i));
                     }
                     if (a4 != null && a4.getTaskInfo().isInitiActiveTask()) {
-                        qw.c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
+                        zv.c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
                     }
                     DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$$inlined$withLock$lambda$1(this, str));
                 } catch (Exception e) {
@@ -598,15 +598,15 @@ public final class a {
                 return;
             }
         }
-        this.b = ks.a(5);
+        this.b = tr.a(5);
         SubTaskState subTaskState = aVar.a;
         this.a = subTaskState != null ? subTaskState.deepCopy() : null;
-        PriorityQueue<SubTaskState> a = ks.a(5);
+        PriorityQueue<SubTaskState> a = tr.a(5);
         a.addAll(aVar.b);
         while (!a.isEmpty()) {
             SubTaskState poll = a.poll();
             if (poll != null) {
-                ks.b(this.b, poll.deepCopy(), 5);
+                tr.b(this.b, poll.deepCopy(), 5);
             }
         }
     }

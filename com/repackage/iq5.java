@@ -1,26 +1,19 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,29 +21,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kq5;
-import java.util.List;
+import com.repackage.lq5;
 /* loaded from: classes6.dex */
-public class iq5 extends gq5 {
+public class iq5 extends hq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long e;
-    public c f;
-    public Drawable g;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kq5 a;
+        public final /* synthetic */ lq5 a;
         public final /* synthetic */ iq5 b;
 
-        public a(iq5 iq5Var, kq5 kq5Var) {
+        public a(iq5 iq5Var, lq5 lq5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iq5Var, kq5Var};
+                Object[] objArr = {iq5Var, lq5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,73 +50,24 @@ public class iq5 extends gq5 {
                 }
             }
             this.b = iq5Var;
-            this.a = kq5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.f == null) {
-                return;
-            }
-            this.b.f.a(this.a);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kq5 a;
-        public final /* synthetic */ MetaData b;
-        public final /* synthetic */ iq5 c;
-
-        public b(iq5 iq5Var, kq5 kq5Var, MetaData metaData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq5Var, kq5Var, metaData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = iq5Var;
-            this.a = kq5Var;
-            this.b = metaData;
+            this.a = lq5Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                boolean g = this.c.g(this.a.d);
-                StatisticItem statisticItem = new StatisticItem("c12661");
-                statisticItem.param("obj_id", this.a.a.getAuthor().getUserId());
-                statisticItem.param("obj_type", g ? 1 : 0);
+                StatisticItem statisticItem = new StatisticItem("c12659");
+                statisticItem.param("tid", this.a.a.getTid());
                 TiebaStatic.log(statisticItem);
-                if (!this.c.g(this.a.d)) {
-                    this.c.h(this.b);
-                    return;
-                }
-                iq5 iq5Var = this.c;
-                iq5Var.b(iq5Var.a, this.a.a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_WHOLE_TAB);
+                iq5 iq5Var = this.b;
+                iq5Var.b(iq5Var.a, this.a.a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a(kq5 kq5Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public class d {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView a;
@@ -136,14 +76,11 @@ public class iq5 extends gq5 {
         public TextView d;
         public TextView e;
         public TextView f;
-        public TextView g;
 
-        public d(iq5 iq5Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -154,8 +91,8 @@ public class iq5 extends gq5 {
             }
         }
 
-        public /* synthetic */ d(iq5 iq5Var, a aVar) {
-            this(iq5Var);
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
@@ -177,139 +114,79 @@ public class iq5 extends gq5 {
                 return;
             }
         }
-        this.e = mg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-        this.g = SkinManager.getDrawable(this.b.getResources(), (int) R.drawable.icon_video_direct_seeding);
-    }
-
-    public final boolean g(List<kq5.a> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            for (kq5.a aVar : list) {
-                if (aVar != null && 1 == aVar.a) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         View view3;
-        d dVar;
+        b bVar;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                dVar = new d(this, null);
-                view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07a2, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f0919cd);
-                dVar.a = tbImageView;
-                tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-                dVar.a.setIsRound(true);
-                dVar.a.setAutoChangeStyle(false);
-                dVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                dVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0919d2);
-                dVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0919cf);
-                dVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0919d0);
-                dVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0919ce);
-                dVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0919cc);
-                dVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0919d1);
+                bVar = new b(null);
+                view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0798, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a1d);
+                bVar.a = tbImageView;
+                tbImageView.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
+                bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a20);
+                bVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a1c);
+                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a21);
+                bVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a1e);
+                bVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a1f);
                 SkinManager.setBackgroundColor(view3, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(dVar.b, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(dVar.e, (int) R.color.CAM_X0109);
-                SkinManager.setViewTextColor(dVar.f, (int) R.color.CAM_X0110);
-                SkinManager.setViewTextColor(dVar.g, (int) R.color.obfuscated_res_0x7f060a14);
-                dVar.c.setCompoundDrawablesWithIntrinsicBounds(this.g, (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(dVar.d, (int) R.color.CAM_X0301);
-                view3.setTag(dVar);
+                SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
+                SkinManager.setViewTextColor(bVar.d, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(bVar.f, (int) R.color.CAM_X0301);
+                view3.setTag(bVar);
             } else {
                 view3 = view2;
-                dVar = (d) view2.getTag();
+                bVar = (b) view2.getTag();
             }
-            kq5 item = getItem(i);
-            if (item != null && (threadData = item.a) != null && threadData.getAuthor() != null) {
-                com.baidu.tbadk.core.data.MetaData author = item.a.getAuthor();
-                int i2 = 12;
-                dVar.a.K(author.getPortrait(), 12, false);
+            lq5 item = getItem(i);
+            if (item != null && (threadData = item.a) != null && threadData.getAuthor() != null && item.a.getThreadAlaInfo() != null) {
+                MetaData author = item.a.getAuthor();
+                bVar.a.K(item.a.getThreadAlaInfo().cover, 10, false);
+                bVar.b.setText(item.a.getTitle());
                 this.d = 0;
-                dVar.c.setVisibility(8);
-                dVar.d.setVisibility(8);
+                bVar.e.setVisibility(8);
+                bVar.f.setVisibility(8);
                 if (!ListUtils.isEmpty(item.d)) {
-                    for (kq5.a aVar : item.d) {
+                    for (lq5.a aVar : item.d) {
                         if (aVar != null) {
-                            int i3 = aVar.a;
-                            if (1 == i3) {
-                                dVar.c.setVisibility(0);
+                            int i2 = aVar.a;
+                            if (1 == i2) {
+                                bVar.e.setVisibility(0);
                                 if (!TextUtils.isEmpty(aVar.b)) {
-                                    dVar.c.setText(aVar.b);
+                                    bVar.e.setText(aVar.b);
                                 }
                                 this.d++;
-                            } else if (2 == i3) {
-                                dVar.d.setVisibility(0);
+                            } else if (2 == i2) {
+                                bVar.f.setVisibility(0);
                                 if (!TextUtils.isEmpty(aVar.b)) {
-                                    dVar.d.setText(aVar.b);
+                                    bVar.f.setText(aVar.b);
                                 }
                                 this.d++;
                             }
                         }
                     }
                 }
-                boolean z = item.b;
                 String name_show = author.getName_show();
-                if (this.d <= 1) {
-                    i2 = 14;
-                } else if (!z) {
-                    i2 = 10;
+                int i3 = this.d <= 1 ? 14 : 13;
+                if (li.byteLength(name_show) > i3) {
+                    name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i3, StringHelper.STRING_MORE);
                 }
-                if (ni.byteLength(name_show) > i2) {
-                    name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE);
-                }
-                dVar.b.setText(name_show);
-                dVar.e.setText(StringHelper.getFormatTimeShort(item.c * 1000));
-                j(z, dVar);
-                dVar.g.setOnClickListener(new a(this, item));
-                view3.setOnClickListener(new b(this, item, author));
-                StatisticItem statisticItem = new StatisticItem("c12660");
-                statisticItem.param("obj_id", item.a.getAuthor().getUserId());
-                fq5.c().a(statisticItem);
+                bVar.d.setText(name_show);
+                bVar.c.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11c2, StringHelper.numberUniformFormatExtra(item.a.getThreadAlaInfo().audience_count)));
+                view3.setOnClickListener(new a(this, item));
+                StatisticItem statisticItem = new StatisticItem("c12658");
+                statisticItem.param("tid", item.a.getTid());
+                gq5.c().a(statisticItem);
             }
             return view3;
         }
         return (View) invokeILL.objValue;
-    }
-
-    public final void h(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, metaData) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b).createNormalConfig(Long.valueOf(metaData.getUserId()).longValue(), String.valueOf(this.e).equals(metaData.getUserId()), metaData.isBigV())));
-        }
-    }
-
-    public void i(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
-    public final void j(boolean z, d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, dVar) == null) {
-            if (z) {
-                dVar.g.setVisibility(8);
-                dVar.f.setVisibility(0);
-                dVar.f.setEnabled(false);
-                return;
-            }
-            dVar.f.setVisibility(8);
-            dVar.g.setVisibility(0);
-        }
     }
 }

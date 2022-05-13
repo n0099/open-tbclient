@@ -1,21 +1,25 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.security.InvalidKeyException;
 /* loaded from: classes7.dex */
-public class v00 {
+public abstract class v00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z00[] a;
+    public final r00 a;
+    public final int b;
+    public byte[] c;
 
-    public v00() {
+    public v00(r00 r00Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r00Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,29 +29,33 @@ public class v00 {
                 return;
             }
         }
-        this.a = new z00[]{new a10(8, 0), new b10(0, 1), new b10(1, 1), new a10(7, 1)};
+        this.a = r00Var;
+        this.b = r00Var.a();
     }
 
-    public byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2) throws InvalidKeyException;
+
+    public abstract void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
+
+    public void c(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        y00 y00Var = new y00();
-        byte[] b = w00.b(bArr, bArr.length + ((this.a.length + 1) * y00.b));
-        w00.a(b, y00Var.b(), bArr.length);
-        int i = 0;
-        while (true) {
-            z00[] z00VarArr = this.a;
-            if (i >= z00VarArr.length) {
-                return Arrays.copyOf(y00Var.b(), y00.b);
-            }
-            z00 z00Var = z00VarArr[i];
-            i++;
-            int length = bArr.length + (y00.b * i);
-            y00Var.a(z00Var.b(b, 0, length), z00Var.d(), z00Var.a(), z00Var.c());
-            w00.a(b, y00Var.b(), length);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            b(bArr, i, i2, bArr2, i3);
         }
     }
+
+    public abstract void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
+
+    public void e(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            d(bArr, i, i2, bArr2, i3);
+        }
+    }
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
 }

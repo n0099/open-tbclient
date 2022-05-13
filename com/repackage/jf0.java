@@ -1,65 +1,60 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.zxing.client.result.ResultParser;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 /* loaded from: classes6.dex */
 public class jf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i >= 21) {
-                return c(context);
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        try {
+            closeable.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                String[] strArr = Build.SUPPORTED_ABIS;
-                str = strArr.length > 0 ? strArr[0] : null;
-            } else {
-                str = Build.CPU_ABI;
-            }
-            return str != null && str.contains("arm64");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(Context context) {
+    public static String b(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                Object invoke = ClassLoader.class.getDeclaredMethod("findLibrary", String.class).invoke(context.getClassLoader(), "art");
-                if (invoke != null) {
-                    return ((String) invoke).contains("lib64");
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? c(inputStream, null) : (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream != null) {
+                if (TextUtils.isEmpty(str)) {
+                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
                 }
-                return false;
-            } catch (Exception unused) {
-                return b();
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+                StringWriter stringWriter = new StringWriter();
+                char[] cArr = new char[4096];
+                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
+                    stringWriter.write(cArr, 0, read);
+                }
+                String stringWriter2 = stringWriter.toString();
+                inputStreamReader.close();
+                stringWriter.close();
+                return (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
             }
+            throw new IllegalArgumentException("stream may not be null.");
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

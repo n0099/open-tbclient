@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
+import com.repackage.kg;
 /* loaded from: classes3.dex */
 public class PersonPostActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -59,7 +59,7 @@ public class PersonPostActivityConfig extends IntentConfig {
         }
         if (uri != null) {
             getIntent().putExtra("key_uid", uri.getQueryParameter("user_id"));
-            getIntent().putExtra("key_sex", mg.e(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("key_sex", kg.e(uri.getQueryParameter("sex"), 0));
             getIntent().putExtra(KEY_PORTRAIT_URL, uri.getQueryParameter("portrait"));
         }
     }

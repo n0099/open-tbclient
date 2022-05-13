@@ -1,35 +1,37 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.R;
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.repackage.es8;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class rs8<T> {
+public class rs8 implements zr8, es8.c, jz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public T b;
-    public T c;
-    public a d;
+    public BaseActivity a;
+    public rr8 b;
+    public ds8 c;
+    public SelectMusicModel d;
     public String e;
-    public Long f;
 
-    /* loaded from: classes7.dex */
-    public interface a<T> {
-        void a(rs8<T> rs8Var, T t, T t2);
-    }
-
-    public rs8(String str, T t, String str2) {
+    public rs8(rr8 rr8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, t, str2};
+            Object[] objArr = {rr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,95 +41,149 @@ public abstract class rs8<T> {
                 return;
             }
         }
-        this.e = str2;
-        i(t);
-        j(str);
+        this.b = rr8Var;
+        this.a = rr8Var.a;
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    public final void a(String str) {
+        rr8 rr8Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (T) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == null && !TextUtils.isEmpty(this.e)) {
-                d();
-            }
-            Long l = this.f;
-            if (l == null) {
-                return 0L;
-            }
-            return l.longValue();
-        }
-        return invokeV.longValue;
-    }
-
-    public T d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null && !TextUtils.isEmpty(this.a)) {
-                this.b = f();
-                if (!TextUtils.isEmpty(this.e)) {
-                    this.f = Long.valueOf(e(this.e, 0L));
-                }
-            }
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public abstract long e(String str, long j);
-
-    public abstract T f();
-
-    public abstract void g(String str, long j);
-
-    public abstract void h();
-
-    public void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            this.c = t;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(T t) {
-        T t2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, t) == null) || TextUtils.isEmpty(this.a) || t == (t2 = this.b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (rr8Var = this.b) == null) {
             return;
         }
-        if (t == null || !t.equals(t2)) {
-            T t3 = this.b;
-            this.b = t;
-            h();
-            if (!TextUtils.isEmpty(this.e)) {
-                Long valueOf = Long.valueOf(System.currentTimeMillis());
-                this.f = valueOf;
-                g(this.e, valueOf.longValue());
+        if (rr8Var.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        this.e = str;
+        VideoInfo videoInfo = new VideoInfo();
+        videoInfo.setVideoPath(this.e);
+        videoInfo.setThumbPath(this.b.c);
+        rr8 rr8Var2 = this.b;
+        if (rr8Var2 != null) {
+            rr8Var2.f(videoInfo);
+        }
+    }
+
+    public void b() {
+        rr8 rr8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (rr8Var = this.b) == null) {
+            return;
+        }
+        if (rr8Var.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        if (StringUtils.isNull(this.b.d)) {
+            rr8 rr8Var2 = this.b;
+            if (!rr8Var2.e) {
+                onSaveMusicVideo(rr8Var2.b, -4399, "");
+                return;
             }
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(this, t3, t);
+        }
+        if (this.d == null) {
+            this.d = new SelectMusicModel(this.a.getPageContext(), this);
+        }
+        SelectMusicModel selectMusicModel = this.d;
+        rr8 rr8Var3 = this.b;
+        selectMusicModel.B(rr8Var3.b, rr8Var3.d, sr8.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !rr8Var3.e);
+    }
+
+    @Override // com.repackage.jz5
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            rr8 rr8Var = this.b;
+            if (rr8Var != null) {
+                rr8Var.i(true);
             }
+            ds8 ds8Var = this.c;
+            if (ds8Var == null || !ds8Var.f()) {
+                return;
+            }
+            this.c.e();
+        }
+    }
+
+    @Override // com.repackage.es8.c
+    public void onGenFilterVideoFail(int i, String str) {
+        rr8 rr8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (rr8Var = this.b) == null) {
+            return;
+        }
+        rr8Var.d(i, str);
+    }
+
+    @Override // com.repackage.es8.c
+    public void onGenFilterVideoRecordError(int i, String str) {
+        rr8 rr8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) || (rr8Var = this.b) == null) {
+            return;
+        }
+        rr8Var.d(i, str);
+    }
+
+    @Override // com.repackage.es8.c
+    public void onGenFilterVideoSuccess(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            rr8 rr8Var = this.b;
+            if (rr8Var != null) {
+                rr8Var.e();
+            }
+            a(str);
+        }
+    }
+
+    @Override // com.repackage.zr8
+    public void onSaveMusicVideo(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048582, this, str, i, str2) == null) {
+            rr8 rr8Var = this.b;
+            if (rr8Var != null && rr8Var.b()) {
+                this.b.c();
+                this.b = null;
+            } else if (TextUtils.isEmpty(str)) {
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0ad4);
+                rr8 rr8Var2 = this.b;
+                if (rr8Var2 != null) {
+                    rr8Var2.g(i, str2);
+                }
+            } else {
+                rr8 rr8Var3 = this.b;
+                if (rr8Var3 != null) {
+                    rr8Var3.h();
+                }
+                if (!StringUtils.isNull(this.b.f)) {
+                    if (!StringHelper.equals(str, this.b.b)) {
+                        this.b.g = str;
+                    }
+                    if (this.c == null) {
+                        ds8 ds8Var = new ds8(this.a.getActivity());
+                        this.c = ds8Var;
+                        ds8Var.i(this);
+                    }
+                    this.c.g(str, this.b.f);
+                    return;
+                }
+                rr8 rr8Var4 = this.b;
+                if (rr8Var4 != null) {
+                    rr8Var4.e();
+                }
+                a(str);
+            }
+        }
+    }
+
+    @Override // com.repackage.zr8
+    public void setMusicData(List<MusicData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
         }
     }
 }

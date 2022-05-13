@@ -1,68 +1,96 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PlaceOrder.DataRes;
 /* loaded from: classes6.dex */
 public class gs6 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public long d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public long i;
+    public int j;
+    public int k;
+    public long l;
+    public int m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755667417, "Lcom/repackage/gs6;")) == null) {
+    public gs6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public PaymentConfirmRequestData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
+            paymentConfirmRequestData.setTdou_num(this.i);
+            paymentConfirmRequestData.setOpen_id(this.l);
+            paymentConfirmRequestData.setOrder_id(this.g);
+            paymentConfirmRequestData.setScene_id(this.b);
+            paymentConfirmRequestData.setGoods_name(this.a);
+            paymentConfirmRequestData.setGoods_pic(this.e);
+            paymentConfirmRequestData.setTerminal("" + this.f);
+            paymentConfirmRequestData.setGoods_num((long) this.j);
+            paymentConfirmRequestData.setGoods_unit(this.h);
+            paymentConfirmRequestData.setGoods_duration(this.d);
+            paymentConfirmRequestData.setGoods_user_level(this.c);
+            paymentConfirmRequestData.setPay_type(this.k);
+            paymentConfirmRequestData.setCurrency(this.m);
+            return paymentConfirmRequestData;
+        }
+        return (PaymentConfirmRequestData) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755667417, "Lcom/repackage/gs6;");
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a++;
-            StatisticItem.make(TbadkCoreStatisticKey.KEY_FRS_REQUEST_PAGE).eventStat();
-        }
-    }
-
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? String.format(Locale.CHINA, "%s%d", "#FunAd#", Integer.valueOf(String.format(Locale.CHINA, "%d%d", Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i)).hashCode())) : (String) invokeI.objValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (System.currentTimeMillis() + str).hashCode() & Integer.MAX_VALUE;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            return str.startsWith("#FunAd#");
-        }
-        return invokeL.booleanValue;
+        dataRes.timestamp.intValue();
+        this.a = dataRes.goods_name;
+        this.b = dataRes.scene_id.intValue();
+        this.c = dataRes.goods_user_level.intValue();
+        this.d = dataRes.goods_duration.intValue();
+        this.e = dataRes.goods_pic;
+        this.f = dataRes.terminal.intValue();
+        this.g = dataRes.order_id;
+        this.h = dataRes.goods_unit;
+        this.i = dataRes.tdou_num.intValue();
+        dataRes.goods_price.intValue();
+        this.j = dataRes.goods_num.intValue();
+        this.k = dataRes.pay_type.intValue();
+        dataRes.user_id.longValue();
+        dataRes.tb_timestamp.intValue();
+        this.l = dataRes.open_id.longValue();
+        dataRes.gift_count.intValue();
+        this.m = dataRes.currency.intValue();
     }
 }

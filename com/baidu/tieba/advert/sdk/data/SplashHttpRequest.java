@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.repackage.cl5;
-import com.repackage.pl5;
+import com.repackage.ql5;
 /* loaded from: classes3.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
@@ -70,7 +70,7 @@ public class SplashHttpRequest extends HttpMessage {
             return;
         }
         addParam("pid", adInfo.placeId);
-        addParam("ver", pl5.b(context));
+        addParam("ver", ql5.b(context));
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         addParam(SearchJsBridge.COOKIE_MOD, cl5.c());
         addParam("ot", 2);

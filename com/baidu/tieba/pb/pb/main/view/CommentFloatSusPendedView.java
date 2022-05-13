@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h95;
-import com.repackage.oi;
+import com.repackage.mi;
 import com.repackage.ss7;
+import com.repackage.y95;
 /* loaded from: classes3.dex */
 public class CommentFloatSusPendedView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public ViewGroup c;
-    public h95 d;
+    public y95 d;
     public float e;
     public float f;
     public boolean g;
@@ -79,12 +79,12 @@ public class CommentFloatSusPendedView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.k = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 CommentFloatSusPendedView commentFloatSusPendedView = this.a;
-                commentFloatSusPendedView.r((commentFloatSusPendedView.k * 1.0f) / oi.i(this.a.getContext()));
+                commentFloatSusPendedView.r((commentFloatSusPendedView.k * 1.0f) / mi.i(this.a.getContext()));
                 CommentFloatSusPendedView commentFloatSusPendedView2 = this.a;
-                commentFloatSusPendedView2.m = 1.0f - (commentFloatSusPendedView2.k / oi.i(this.a.getContext()));
+                commentFloatSusPendedView2.m = 1.0f - (commentFloatSusPendedView2.k / mi.i(this.a.getContext()));
                 if (this.a.k == 0) {
                     this.a.m = 1.0f;
-                } else if (this.a.k == oi.i(this.a.getContext())) {
+                } else if (this.a.k == mi.i(this.a.getContext())) {
                     this.a.m = 0.0f;
                     if (this.a.h && (this.a.getContext() instanceof Activity)) {
                         ((Activity) this.a.getContext()).finish();
@@ -136,10 +136,10 @@ public class CommentFloatSusPendedView extends LinearLayout {
             this.a.k = ss7Var.c;
             this.a.h = ss7Var.e;
             CommentFloatSusPendedView commentFloatSusPendedView = this.a;
-            commentFloatSusPendedView.r((commentFloatSusPendedView.f - this.a.e) / oi.i(this.a.getContext()));
+            commentFloatSusPendedView.r((commentFloatSusPendedView.f - this.a.e) / mi.i(this.a.getContext()));
             boolean z = this.a.f > this.a.e;
             if (this.a.h) {
-                this.a.j.setIntValues((int) (this.a.f - this.a.e), oi.i(this.a.getContext()));
+                this.a.j.setIntValues((int) (this.a.f - this.a.e), mi.i(this.a.getContext()));
                 this.a.j.setDuration(0L);
                 this.a.j.start();
             }
@@ -201,9 +201,9 @@ public class CommentFloatSusPendedView extends LinearLayout {
                                     this.e = motionEvent.getRawY();
                                 }
                                 if (m() && !this.h) {
-                                    r((this.f - this.e) / oi.i(getContext()));
+                                    r((this.f - this.e) / mi.i(getContext()));
                                 }
-                                this.m = 1.0f - ((this.f - this.e) / oi.i(getContext()));
+                                this.m = 1.0f - ((this.f - this.e) / mi.i(getContext()));
                             }
                         }
                         this.g = false;
@@ -211,7 +211,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
                         boolean z2 = this.f - this.e > ((float) this.l) && m();
                         this.h = z2;
                         if (z2) {
-                            this.j.setIntValues((int) (this.f - this.e), oi.i(getContext()));
+                            this.j.setIntValues((int) (this.f - this.e), mi.i(getContext()));
                             this.j.setDuration(300L);
                             this.j.start();
                         } else {
@@ -262,11 +262,11 @@ public class CommentFloatSusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            h95 h95Var = this.d;
-            if (h95Var == null) {
+            y95 y95Var = this.d;
+            if (y95Var == null) {
                 return false;
             }
-            return h95Var.isOnViewTop();
+            return y95Var.isOnViewTop();
         }
         return invokeV.booleanValue;
     }
@@ -334,7 +334,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.h = true;
-            this.j.setIntValues(0, oi.i(getContext()));
+            this.j.setIntValues(0, mi.i(getContext()));
             this.j.setDuration(300L);
             this.j.start();
         }
@@ -373,10 +373,10 @@ public class CommentFloatSusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(h95 h95Var) {
+    public void setContentViewTop(y95 y95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, h95Var) == null) {
-            this.d = h95Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, y95Var) == null) {
+            this.d = y95Var;
         }
     }
 
@@ -451,10 +451,10 @@ public class CommentFloatSusPendedView extends LinearLayout {
         this.m = 0.0f;
         this.n = true;
         this.p = new b(this, 2921597);
-        this.l = oi.i(context) / 10;
-        this.k = oi.i(context);
+        this.l = mi.i(context) / 10;
+        this.k = mi.i(context);
         MessageManager.getInstance().registerListener(this.p);
-        ValueAnimator ofInt = ValueAnimator.ofInt(oi.i(context), 0);
+        ValueAnimator ofInt = ValueAnimator.ofInt(mi.i(context), 0);
         this.j = ofInt;
         ofInt.setDuration(300L);
         this.j.setInterpolator(new LinearInterpolator());

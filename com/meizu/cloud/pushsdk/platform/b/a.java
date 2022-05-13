@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes5.dex */
 public class a extends c {
@@ -80,7 +80,7 @@ public class a extends c {
         if (iArr != null) {
             Intent[] intentArr = new Intent[iArr.length];
             for (int i = 0; i < this.a.length; i++) {
-                ym9.d("Strategy", "send notifyId " + this.a[i] + " to PushManagerService");
+                tl9.d("Strategy", "send notifyId " + this.a[i] + " to PushManagerService");
                 Intent intent = new Intent();
                 intent.putExtra("strategy_package_name", this.e.getPackageName());
                 intent.putExtra("strategy_type", g());
@@ -98,7 +98,7 @@ public class a extends c {
         int i = this.b;
         if (i == 0) {
             if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
-                ym9.b("Strategy", "android 6.0 blow so cancel all by context");
+                tl9.b("Strategy", "android 6.0 blow so cancel all by context");
                 com.meizu.cloud.pushsdk.notification.c.b.a(this.e);
             }
             com.meizu.cloud.pushsdk.notification.c.b.a(this.e, this.h);
@@ -113,7 +113,7 @@ public class a extends c {
             int[] iArr = this.a;
             if (iArr != null) {
                 for (int i2 : iArr) {
-                    ym9.b("Strategy", "clear notifyId " + i2);
+                    tl9.b("Strategy", "clear notifyId " + i2);
                     com.meizu.cloud.pushsdk.notification.c.b.a(this.e, this.h, i2);
                 }
                 return null;

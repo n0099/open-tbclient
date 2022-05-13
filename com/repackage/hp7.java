@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hp7 extends ho<rp7, InterestedForumStyleAMoreViewHolder> {
+public class hp7 extends eo<rp7, InterestedForumStyleAMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public xp7 i;
     public yp7 j;
 
     /* loaded from: classes6.dex */
-    public class a implements dp {
+    public class a implements bp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hp7 a;
@@ -45,11 +45,11 @@ public class hp7 extends ho<rp7, InterestedForumStyleAMoreViewHolder> {
             this.a = hp7Var;
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof rp7)) {
-                rp7 rp7Var = (rp7) uoVar;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof rp7)) {
+                rp7 rp7Var = (rp7) roVar;
                 if (this.a.i != null) {
                     this.a.i.d(rp7Var.a(), rp7Var.b(), i);
                 }
@@ -85,14 +85,14 @@ public class hp7 extends ho<rp7, InterestedForumStyleAMoreViewHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, rp7 rp7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
         c0(i, view2, viewGroup, rp7Var, interestedForumStyleAMoreViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: b0 */
     public InterestedForumStyleAMoreViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -100,9 +100,9 @@ public class hp7 extends ho<rp7, InterestedForumStyleAMoreViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             if (UbsABTestHelper.isInterestGuideStyleA()) {
-                inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03fe, viewGroup, false);
+                inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f2, viewGroup, false);
             } else {
-                inflate = UbsABTestHelper.isInterestGuideStyleB() ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0401, viewGroup, false) : null;
+                inflate = UbsABTestHelper.isInterestGuideStyleB() ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f5, viewGroup, false) : null;
             }
             return new InterestedForumStyleAMoreViewHolder(inflate);
         }
@@ -123,7 +123,7 @@ public class hp7 extends ho<rp7, InterestedForumStyleAMoreViewHolder> {
     public final void d0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, rp7 rp7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, rp7Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f091d));
+            interestedForumStyleAMoreViewHolder.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0921));
             if (UbsABTestHelper.isInterestGuideStyleA()) {
                 if (rp7Var.e()) {
                     interestedForumStyleAMoreViewHolder.b.setVisibility(0);
@@ -159,16 +159,16 @@ public class hp7 extends ho<rp7, InterestedForumStyleAMoreViewHolder> {
     public final void g0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAMoreViewHolder) == null) {
-            vr4 d = vr4.d(interestedForumStyleAMoreViewHolder.c);
+            gs4 d = gs4.d(interestedForumStyleAMoreViewHolder.c);
             d.v(R.color.CAM_X0302);
             d.z(R.dimen.T_X07);
             if (UbsABTestHelper.isInterestGuideStyleA()) {
-                vr4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
+                gs4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
             } else if (UbsABTestHelper.isInterestGuideStyleB()) {
-                vr4 d2 = vr4.d(interestedForumStyleAMoreViewHolder.b);
+                gs4 d2 = gs4.d(interestedForumStyleAMoreViewHolder.b);
                 d2.n(R.string.J_X17);
                 d2.f(R.color.CAM_X0201);
-                vr4 d3 = vr4.d(interestedForumStyleAMoreViewHolder.e);
+                gs4 d3 = gs4.d(interestedForumStyleAMoreViewHolder.e);
                 d3.n(R.string.J_X17);
                 d3.f(R.color.CAM_X0201);
             }

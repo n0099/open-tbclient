@@ -1,18 +1,16 @@
 package com.repackage;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hc8 {
+public class hc8 extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
     public hc8() {
         Interceptable interceptable = $ic;
@@ -28,19 +26,19 @@ public class hc8 {
         }
     }
 
-    public static hc8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            if (action.equals("android.intent.action.SCREEN_ON")) {
+                gc8.j().e = 1;
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                gc8.j().e = 1;
+                gc8.j().d.d();
+            } else if (action.equals("android.intent.action.USER_PRESENT")) {
+                gc8.j().e = 0;
             }
-            hc8 hc8Var = new hc8();
-            hc8Var.a = jSONObject.optString("apk_name");
-            hc8Var.b = jSONObject.optString("apk_url");
-            hc8Var.c = jSONObject.optString("download_key");
-            return hc8Var;
         }
-        return (hc8) invokeL.objValue;
     }
 }

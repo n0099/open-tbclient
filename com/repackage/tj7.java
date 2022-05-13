@@ -90,8 +90,8 @@ public class tj7 {
         }
         this.a = null;
         this.e = new a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
-        kk8.h(309429, FinishMemberTaskSocketMessage.class, false, false);
-        kk8.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
+        hj8.h(309429, FinishMemberTaskSocketMessage.class, false, false);
+        hj8.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
         MessageManager.getInstance().registerListener(this.e);
     }
 

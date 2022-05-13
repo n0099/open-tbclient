@@ -1,14 +1,16 @@
 package com.repackage;
 
-import android.widget.RelativeLayout;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.Align;
+import com.baidu.card.view.VideoImageNoPlayerLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +19,94 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.zx;
+import tbclient.VideoInfo;
 /* loaded from: classes7.dex */
-public class rz extends sy implements fz<lp4>, gz {
+public class rz extends gy {
     public static /* synthetic */ Interceptable $ic;
-    public static final int h;
+    public static final int r;
+    public static int s;
     public transient /* synthetic */ FieldHolder $fh;
-    public NEGFeedBackView e;
-    public Align f;
-    public boolean g;
+    public int h;
+    public int i;
+    public int j;
+    public Context k;
+    public zn4 l;
+    public VideoImageNoPlayerLayout m;
+    public int n;
+    public String o;
+    public int p;
+    public wz q;
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rz a;
+
+        public a(rz rzVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rzVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rzVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            rz rzVar;
+            zx.a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (rzVar = this.a).e) == null) {
+                return;
+            }
+            aVar.a(rzVar.l);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements wz {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rz a;
+
+        public b(rz rzVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rzVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rzVar;
+        }
+
+        @Override // com.repackage.wz
+        public void a(zn4 zn4Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, zn4Var) == null) || this.a.q == null) {
+                return;
+            }
+            this.a.q.a(this.a.l);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,270 +121,193 @@ public class rz extends sy implements fz<lp4>, gz {
                 return;
             }
         }
-        h = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+        r = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
+        s = mi.k(TbadkCoreApplication.getInst());
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public rz(TbPageContext tbPageContext, boolean z) {
-        this(tbPageContext, z ? Align.ALIGN_RIGHT_BOTTOM : Align.ALIGN_RIGHT_TOP);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rz(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], (Align) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds57);
-            int f2 = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-            int f3 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds34);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f, f);
-            layoutParams.addRule(11);
-            layoutParams.addRule(10);
-            layoutParams.rightMargin = f2;
-            layoutParams.topMargin = f3;
-            i(layoutParams);
-            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.e.setPadding(0, 0, 0, 0);
-            this.e.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void l(Align align) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, align) == null) || this.f == align) {
-            return;
-        }
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
-        int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
-        if (align == Align.ALIGN_RIGHT_TOP) {
-            int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
-            layoutParams.addRule(11);
-            layoutParams.addRule(10);
-            layoutParams.rightMargin = dimenPixelSize3;
-            layoutParams.topMargin = dimenPixelSize4;
-            i(layoutParams);
-            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.e.setLayoutParams(layoutParams);
-        } else if (align == Align.ALIGN_RIGHT_CENTER) {
-            int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
-            layoutParams2.addRule(11);
-            layoutParams2.addRule(15);
-            layoutParams2.rightMargin = dimenPixelSize5;
-            layoutParams2.bottomMargin = 0;
-            i(layoutParams2);
-            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.e.setLayoutParams(layoutParams2);
-        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-            int i = h;
-            int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int f2 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int f3 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
-            layoutParams3.addRule(11);
-            layoutParams3.addRule(12);
-            layoutParams3.rightMargin = f2;
-            layoutParams3.bottomMargin = f3;
-            i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808f3, R.color.CAM_X0111);
-            this.e.setPadding(f, f, f, f);
-            this.e.setLayoutParams(layoutParams3);
-        }
-        this.f = align;
-    }
-
-    public void m(pn4 pn4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) || pn4Var == null || pn4Var.getNegFeedBackData() == null) {
-            return;
-        }
-        if (pn4Var.getNegFeedBackData().h() <= 0 && pn4Var.getThreadData() != null) {
-            if (!pn4Var.showCardBottomOpWeight() && !pn4Var.isFromFrs()) {
-                l(Align.ALIGN_RIGHT_BOTTOM);
-            } else if (pn4Var.isSupportTop()) {
-                v((!p(pn4Var) || UbsABTestHelper.showNewUI()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds50) : o(R.dimen.tbds64));
-            } else if (pn4Var.isSupportBottom()) {
-                b00 b00Var = this.d;
-                if (b00Var != null) {
-                    b00Var.n(this);
-                }
-            } else {
-                l(Align.ALIGN_RIGHT_TOP);
-            }
-        } else if (this.g) {
-            k();
-        } else {
-            r(pn4Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.sy
-    /* renamed from: n */
-    public NEGFeedBackView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (NEGFeedBackView) invokeV.objValue;
-    }
-
-    public final int o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? oi.f(TbadkCoreApplication.getInst(), i) : invokeI.intValue;
-    }
-
-    @Override // com.repackage.gz
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
-            this.e.r();
-        }
-    }
-
-    public final boolean p(pn4 pn4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pn4Var)) == null) ? (pn4Var instanceof fy5) && ((fy5) pn4Var).n : invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
-    /* renamed from: q */
-    public void a(lp4 lp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, lp4Var) == null) {
-            if (lp4Var == null) {
-                this.e.setVisibility(8);
-                return;
-            }
-            this.e.setData(lp4Var);
-            this.e.setFirstRowSingleColumn(true);
-            this.e.setVisibility(0);
-        }
-    }
-
-    public final void r(pn4 pn4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pn4Var) == null) {
-            if (pn4Var.showCardBottomOpWeight()) {
-                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
-                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
-                int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-                int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
-                layoutParams.addRule(11);
-                layoutParams.addRule(10);
-                layoutParams.rightMargin = dimenPixelSize3;
-                layoutParams.topMargin = dimenPixelSize4;
-                i(layoutParams);
-                this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-                this.e.setLayoutParams(layoutParams);
-                return;
-            }
-            int i = h;
-            int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int f2 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int f3 = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds17);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i, i);
-            layoutParams2.addRule(11);
-            layoutParams2.addRule(10);
-            layoutParams2.rightMargin = f2;
-            layoutParams2.topMargin = f3;
-            i(layoutParams2);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808f3, R.color.CAM_X0111);
-            this.e.setPadding(f, f, f, f);
-            this.e.setLayoutParams(layoutParams2);
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.e.setAutoProcess(z);
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.e.setHeadText(str);
-        }
-    }
-
-    public void u(NEGFeedBackView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.e.setEventCallback(bVar);
-        }
-    }
-
-    public final void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            if (this.e.getParent() == null || layoutParams == null || layoutParams.topMargin != i) {
-                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
-                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
-                int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
-                layoutParams2.addRule(11);
-                layoutParams2.addRule(10);
-                layoutParams2.rightMargin = dimenPixelSize3;
-                layoutParams2.topMargin = i;
-                i(layoutParams2);
-                this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-                this.e.setLayoutParams(layoutParams2);
-            }
-        }
-    }
-
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.e.t(z);
-        }
-    }
-
-    public rz(TbPageContext tbPageContext, Align align) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, align};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        h(-1);
-        NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(tbPageContext);
-        this.e = nEGFeedBackView;
-        nEGFeedBackView.setId(R.id.obfuscated_res_0x7f09076d);
-        g(this.e);
-        l(align);
+        int i3 = s;
+        this.h = i3;
+        this.i = i3 / 2;
+        this.j = i3 / 3;
+        this.n = 0;
+        this.p = 3;
+        this.k = context;
+        this.m = new VideoImageNoPlayerLayout(context);
+        n(Boolean.TRUE);
+    }
+
+    @Override // com.repackage.zx
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zx
+    public void l(ux5<zn4> ux5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ux5Var) == null) {
+            super.l(ux5Var);
+            this.m.setOnCardSubClickListener(ux5Var);
+        }
+    }
+
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (this.p != i) {
+                this.m.h(tbPageContext, i);
+            }
+            this.p = i;
+        }
+    }
+
+    public Rect u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ThreadCardUtils.computeViewArea(this.m.c) : (Rect) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e8, code lost:
+        if (r3 != r11.height) goto L37;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00f1, code lost:
+        if (r3 != r11.height) goto L37;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x00f4, code lost:
+        r5 = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00f5, code lost:
+        r1 = com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper.handleTransmitVerticalVideoSize(r11, r0, r2, r3, r5);
+     */
+    @Override // com.repackage.oy
+    /* renamed from: v */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(zn4 zn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, zn4Var) == null) {
+            int k = mi.k(TbadkCoreApplication.getInst());
+            if (k != this.n) {
+                s = mi.k(TbadkCoreApplication.getInst());
+                if (!"pb".equals(this.o)) {
+                    this.h = s - r;
+                } else {
+                    this.h = s;
+                }
+                int i = this.h;
+                this.i = i / 2;
+                this.j = i / 3;
+                this.n = k;
+            }
+            this.l = zn4Var;
+            if (zn4Var != null && zn4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+                this.m.setVisibility(0);
+                this.m.a(zn4Var);
+                ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
+                int i2 = layoutParams.width;
+                int i3 = layoutParams.height;
+                boolean z = true;
+                if (this.l.getThreadData().originalThreadData.r.is_vertical.intValue() == 1) {
+                    VideoInfo videoInfo = this.l.getThreadData().originalThreadData.r;
+                    if (videoInfo == null) {
+                        return;
+                    }
+                    int i4 = (this.i / 9) * 16;
+                    int i5 = this.j;
+                    int intValue = videoInfo.video_width.intValue();
+                    int intValue2 = videoInfo.video_height.intValue();
+                    layoutParams.width = this.h;
+                    layoutParams2.width = this.i;
+                    r1 = i2 != layoutParams.width;
+                    if (intValue != 0 && intValue2 != 0) {
+                        int i6 = (int) (((intValue2 * 1.0f) / intValue) * this.i);
+                        if (i6 < i5) {
+                            i4 = i5;
+                        } else if (i6 <= i4) {
+                            i4 = i6;
+                        }
+                        layoutParams.height = i4;
+                        layoutParams2.height = i4;
+                    } else {
+                        layoutParams.height = i4;
+                        layoutParams2.height = i4;
+                    }
+                } else {
+                    int i7 = this.h;
+                    layoutParams.width = i7;
+                    layoutParams2.width = i7;
+                    layoutParams.height = ((i7 / 16) * 9) - mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                    layoutParams2.height = ((this.h / 16) * 9) - mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                    if (i3 != layoutParams.height || i2 != layoutParams.width) {
+                        r1 = true;
+                    }
+                }
+                if (r1) {
+                    this.m.setLayoutParams(layoutParams);
+                    this.m.j.setLayoutParams(layoutParams2);
+                }
+                this.m.setJumpToPbListener(new a(this));
+                this.m.setData(this.l);
+                d();
+                return;
+            }
+            this.m.setVisibility(8);
+        }
+    }
+
+    public void w(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.o = str;
+        }
+    }
+
+    public void x(zx.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void y(wz wzVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wzVar) == null) {
+            this.q = wzVar;
+            if (wzVar != null) {
+                z();
+            }
+        }
+    }
+
+    public final void z() {
+        VideoImageNoPlayerLayout videoImageNoPlayerLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (videoImageNoPlayerLayout = this.m) == null) {
+            return;
+        }
+        videoImageNoPlayerLayout.setVideoAreaClickListener(new b(this));
     }
 }

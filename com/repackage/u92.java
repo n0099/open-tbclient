@@ -1,47 +1,49 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class u92 extends q92 {
+public class u92 implements t92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String[] a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u92(@NonNull p92 p92Var) {
-        super(p92Var);
+    public u92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p92Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((p92) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new String[]{bk2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), bk2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
-    @Override // com.repackage.q92
-    public void e() {
-        ArrayList<String> arrayList;
+    @Override // com.repackage.t92
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (arrayList = this.d.b) == null || arrayList.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = xg4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            ux1.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        t82 d = v82.c().d();
-        ArrayList<String> arrayList2 = this.d.b;
-        ea2 l = ea2.l();
-        l.i(15);
-        d.g(arrayList2, true, false, l.k());
+        return (ArraySet) invokeV.objValue;
     }
 }

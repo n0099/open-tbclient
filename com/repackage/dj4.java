@@ -1,17 +1,9 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,48 +11,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.DecryptCode.DataRes;
 /* loaded from: classes5.dex */
 public class dj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static View.OnClickListener a;
+    public static final String l;
+    public static final String m;
+    public static final String n;
+    public static final String o;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            TbPageContext<?> d;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag();
-                if (tag instanceof CompleteTaskToastData) {
-                    CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                    if (TextUtils.isEmpty(completeTaskToastData.url) || (d = dj4.d()) == null) {
-                        return;
-                    }
-                    UrlManager.getInstance().dealOneLink(d, new String[]{completeTaskToastData.url});
-                    tj4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
-                }
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public Integer k;
 
     static {
         InterceptResult invokeClinit;
@@ -75,120 +47,118 @@ public class dj4 {
                 return;
             }
         }
-        a = new a();
+        l = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1391);
+        m = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1370);
+        n = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0374);
+        o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03b3);
     }
 
-    public static void a(MotionEvent motionEvent, int i, long j) {
+    public dj4() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{motionEvent, Integer.valueOf(i), Long.valueOf(j)}) == null) && motionEvent != null && motionEvent.getAction() == 0) {
-            g(i, j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
     }
 
-    public static void b(int i, int i2, long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
-            MissionEvent missionEvent = new MissionEvent();
-            missionEvent.tid = j;
-            missionEvent.pageId = i2;
-            missionEvent.pageType = i;
-            missionEvent.actionType = str;
-            o55.i(missionEvent);
-        }
-    }
-
-    public static void c(int i, long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), str}) == null) {
-            MissionEvent missionEvent = new MissionEvent();
-            missionEvent.tid = j;
-            missionEvent.pageId = i;
-            missionEvent.actionType = str;
-            o55.i(missionEvent);
-        }
-    }
-
-    public static TbPageContext d() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof BaseActivity) {
-                return ((BaseActivity) currentActivity).getPageContext();
-            }
-            if (currentActivity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) currentActivity).getPageContext();
-            }
-            return null;
-        }
-        return (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public static boolean e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? TbadkCoreApplication.getInst().isMainProcess(true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public static void f(int i, long j) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (e()) {
-                oi4.y().G();
-            } else {
-                c(i, j, MissionEvent.MESSAGE_PAUSE);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public static void g(int i, long j) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (e()) {
-                oi4.y().H();
-            } else {
-                c(i, j, MissionEvent.MESSAGE_TOUCH);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public static void h(int i, long j) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (e()) {
-                oi4.y().M(i, j);
-            } else {
-                c(i, j, MissionEvent.MESSAGE_ACTIVITY);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public static ir4 i(CompleteTaskToastData completeTaskToastData) {
-        InterceptResult invokeL;
-        TbPageContext d;
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, completeTaskToastData)) == null) {
-            if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
-                return null;
-            }
-            ir4 f = ir4.f(d.getPageActivity(), completeTaskToastData.message);
-            f.g(completeTaskToastData.duration);
-            f.h(a);
-            f.i(completeTaskToastData);
-            f.j();
-            return f;
-        }
-        return (ir4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public static void j(int i, int i2, long j) {
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            if (e()) {
-                oi4.y().R(i, j);
-            } else {
-                b(i, i2, j, "onResume");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public void h(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
+            int intValue = dataRes.type.intValue();
+            this.i = intValue;
+            if (intValue != 0 && intValue != 1) {
+                if (intValue == 2) {
+                    this.a = dataRes.title;
+                    this.d = dataRes.url;
+                    return;
+                } else if (intValue != 4 && intValue == 3) {
+                    this.d = dataRes.url;
+                    this.a = dataRes.title;
+                    this.b = dataRes.img;
+                    this.c = dataRes.tips;
+                    this.e = dataRes.btn_sure;
+                    this.f = dataRes.btn_cancel;
+                    return;
+                } else {
+                    return;
+                }
             }
+            this.a = StringUtils.isNull(dataRes.title) ? l : dataRes.title;
+            this.b = dataRes.img;
+            this.c = StringUtils.isNull(dataRes.tips) ? m : dataRes.tips;
+            if (!StringUtils.isNull(dataRes.url)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(dataRes.url);
+                    this.g = jSONObject.optString("appid");
+                    this.h = jSONObject.optString("appname");
+                    String optString = jSONObject.optString("url");
+                    Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
+                    this.k = valueOf;
+                    this.d = vl5.a(this.g, optString, "9104", valueOf);
+                    this.j = jSONObject.optString("swan_app_id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            this.e = StringUtils.isNull(dataRes.btn_sure) ? o : dataRes.btn_sure;
+            this.f = StringUtils.isNull(dataRes.btn_cancel) ? n : dataRes.btn_cancel;
         }
     }
 }

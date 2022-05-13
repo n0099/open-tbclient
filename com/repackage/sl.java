@@ -1,61 +1,116 @@
 package com.repackage;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Intent;
+import com.baidu.adp.plugin.proxy.ServiceProxy;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.DexClassLoader;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sl extends DexClassLoader {
+public class sl {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sl b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClassLoader a;
+    public Map<String, a> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sl(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
-        super(str, str2, str3, classLoader);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ServiceProxy a;
+        public Intent b;
+
+        public a(ServiceProxy serviceProxy, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {serviceProxy, intent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = serviceProxy;
+            this.b = intent;
+        }
+    }
+
+    public sl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, classLoader, classLoader2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.a = classLoader2;
+        this.a = new HashMap();
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Class<?> findClass(String str) throws ClassNotFoundException {
-        InterceptResult invokeL;
+    public static sl a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                return super.findClass(str);
-            } catch (Exception unused) {
-                ClassLoader classLoader = this.a;
-                if (classLoader != null) {
-                    Class<?> loadClass = classLoader.loadClass(str);
-                    if (BdBaseApplication.getInst().isDebugMode()) {
-                        BdLog.i("findClass from container. classname is " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (sl.class) {
+                    if (b == null) {
+                        b = new sl();
                     }
-                    return loadClass;
                 }
-                return null;
+            }
+            return b;
+        }
+        return (sl) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
+    }
+
+    public synchronized a c(String str) {
+        InterceptResult invokeL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                aVar = this.a.get(str);
+            }
+            return aVar;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public synchronized void d(String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) {
+            synchronized (this) {
+                this.a.put(str, aVar);
             }
         }
-        return (Class) invokeL.objValue;
+    }
+
+    public synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                this.a.remove(str);
+            }
+        }
     }
 }

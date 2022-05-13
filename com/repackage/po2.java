@@ -1,5 +1,9 @@
 package com.repackage;
+
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface po2<T> {
-    T make() throws IllegalAccessException, InstantiationException;
+    void d(String str);
+
+    void f(List<T> list);
 }

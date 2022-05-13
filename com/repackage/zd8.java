@@ -1,149 +1,76 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<b> b;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optLong("forum_id");
-                aVar.b = jSONObject.optString("forum_name");
-                aVar.c = jSONObject.optInt("member_count");
-                aVar.d = jSONObject.optInt("thread_count");
-                aVar.e = jSONObject.optString("avatar");
-                aVar.f = jSONObject.optString("slogan");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public List<a> b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        a a = a.a(optJSONArray.optJSONObject(i));
-                        if (a != null) {
-                            arrayList.add(a);
-                        }
-                    }
-                    bVar.b = arrayList;
-                }
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public zd8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static zd8 a(JSONObject jSONObject) {
+    public static synchronized String a(Context context) {
         InterceptResult invokeL;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            zd8 zd8Var = new zd8();
-            zd8Var.a = jSONObject.optInt("showLocate");
-            JSONArray optJSONArray = jSONObject.optJSONArray("tabList");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    b a2 = b.a(optJSONArray.optJSONObject(i));
-                    if (a2 != null) {
-                        arrayList.add(a2);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            synchronized (zd8.class) {
+                try {
+                    string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
-                zd8Var.b = arrayList;
             }
-            return zd8Var;
+            return string;
         }
-        return (zd8) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean startActivity(Context context, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, cls)) == null) {
+            try {
+                Intent intent = new Intent(context, cls);
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean startActivity(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
+            try {
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

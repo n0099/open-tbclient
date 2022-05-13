@@ -1227,7 +1227,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400e4);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400e7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1367,7 +1367,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             }
         };
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040269, R.attr.obfuscated_res_0x7f04026a, R.attr.obfuscated_res_0x7f04026b, R.attr.obfuscated_res_0x7f04026c, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f0402c5, R.attr.obfuscated_res_0x7f04049e, R.attr.obfuscated_res_0x7f0404a1, R.attr.obfuscated_res_0x7f0404a3}, i, obfuscated_res_0x7f10033f, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f04026c, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f04026f, R.attr.obfuscated_res_0x7f040270, R.attr.obfuscated_res_0x7f0402ca, R.attr.obfuscated_res_0x7f0404a3, R.attr.obfuscated_res_0x7f0404a6, R.attr.obfuscated_res_0x7f0404a8}, i, obfuscated_res_0x7f10033f, new int[0]);
         ColorStateList colorStateList = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0);
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.fabAlignmentMode = obtainStyledAttributes.getInt(2, 0);

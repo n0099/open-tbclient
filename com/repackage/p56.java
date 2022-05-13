@@ -1,64 +1,62 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.WindowManager;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.enterForum.recforum.holder.RecommendThreadHolder;
+import com.baidu.tieba.enterForum.recforum.view.RecommendThreadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p56 {
+public class p56 extends eo<t56, RecommendThreadHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static p56 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public p56() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p56(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static p56 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (p56.class) {
-                    if (a == null) {
-                        a = new p56();
-                    }
-                }
-            }
-            return a;
-        }
-        return (p56) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a = null;
-        }
-    }
-
-    public void c(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            if (context != null) {
-                WindowManager windowManager = (WindowManager) context.getSystemService("window");
                 return;
             }
-            throw new IllegalArgumentException("context cannot be null");
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public RecommendThreadHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new RecommendThreadHolder(new RecommendThreadView(viewGroup.getContext())) : (RecommendThreadHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, t56 t56Var, RecommendThreadHolder recommendThreadHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t56Var, recommendThreadHolder})) == null) {
+            recommendThreadHolder.c(t56Var);
+            return recommendThreadHolder.b();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

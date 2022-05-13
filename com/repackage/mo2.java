@@ -1,263 +1,78 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class mo2 {
+public class mo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Uri a;
-    public final Bitmap b;
-    public final Integer c;
-    public boolean d;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
     public int e;
-    public int f;
-    public Rect g;
-    public boolean h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755492639, "Lcom/repackage/mo2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755492639, "Lcom/repackage/mo2;");
-                return;
-            }
-        }
-        i = tg1.a;
-    }
-
-    public mo2(Bitmap bitmap, boolean z) {
+    public mo2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = bitmap;
-        this.a = null;
-        this.c = null;
-        this.d = false;
-        this.e = bitmap.getWidth();
-        this.f = bitmap.getHeight();
-        this.h = z;
+        this.a = 3;
+        this.b = true;
+        this.d = "back";
+        this.e = 60;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static mo2 a(String str) {
+    public static mo2 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    jx1.k("ImageSource", "asset name is null");
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            mo2 mo2Var = new mo2();
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
+                    int i = 0;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        String optString = optJSONArray.optString(i2);
+                        char c = 65535;
+                        int hashCode = optString.hashCode();
+                        if (hashCode != -1367751899) {
+                            if (hashCode == 92896879 && optString.equals("album")) {
+                                c = 0;
+                            }
+                        } else if (optString.equals("camera")) {
+                            c = 1;
+                        }
+                        if (c == 0) {
+                            i |= 1;
+                        } else if (c == 1) {
+                            i |= 2;
+                        }
+                    }
+                    mo2Var.a = i;
                 }
-                throw new NullPointerException("Asset name must not be null");
+                mo2Var.b = jSONObject.optBoolean("compressed", true);
+                int optInt = jSONObject.optInt("maxDuration", 60);
+                mo2Var.e = optInt <= 60 ? optInt : 60;
+                mo2Var.d = jSONObject.optString("camera");
+                mo2Var.c = jSONObject.optString("cb");
             }
-            return o("file:///android_asset/" + str);
+            return mo2Var;
         }
         return (mo2) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static mo2 b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap == null) {
-                if (!i) {
-                    jx1.k("ImageSource", "bitmap is null");
-                    return null;
-                }
-                throw new NullPointerException("Bitmap must not be null");
-            }
-            return new mo2(bitmap, true);
-        }
-        return (mo2) invokeL.objValue;
-    }
-
-    public static mo2 k(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? new mo2(i2) : (mo2) invokeI.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static mo2 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    jx1.k("ImageSource", "uri is null");
-                    return null;
-                }
-                throw new NullPointerException("Uri must not be null");
-            }
-            if (!str.contains("://")) {
-                if (str.startsWith("/")) {
-                    str = str.substring(1);
-                }
-                str = ImageSource.FILE_SCHEME + str;
-            }
-            return new mo2(Uri.parse(str));
-        }
-        return (mo2) invokeL.objValue;
-    }
-
-    public final Bitmap c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Bitmap) invokeV.objValue;
-    }
-
-    public final Integer d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Integer) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final Rect f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (Rect) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final Uri i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (Uri) invokeV.objValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
-    }
-
-    public mo2 l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (mo2) invokeZ.objValue;
-    }
-
-    public mo2 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            l(false);
-            return this;
-        }
-        return (mo2) invokeV.objValue;
-    }
-
-    public mo2 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            l(true);
-            return this;
-        }
-        return (mo2) invokeV.objValue;
-    }
-
-    public mo2(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        String uri2 = uri.toString();
-        if (uri2.startsWith(ImageSource.FILE_SCHEME) && !new File(uri2.substring(7)).exists()) {
-            try {
-                uri = Uri.parse(URLDecoder.decode(uri2, "UTF-8"));
-            } catch (UnsupportedEncodingException unused) {
-            }
-        }
-        this.b = null;
-        this.a = uri;
-        this.c = null;
-        this.d = true;
-    }
-
-    public mo2(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.a = null;
-        this.c = Integer.valueOf(i2);
-        this.d = true;
     }
 }

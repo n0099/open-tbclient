@@ -1,32 +1,31 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k23 extends g23 {
+public class k23 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k23(g13 g13Var) {
-        super(g13Var, "/swanAPI/setBackgroundColor");
+    public k23(r13 r13Var) {
+        super(r13Var, "/swanAPI/performancePanel");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,47 +39,42 @@ public class k23 extends g23 {
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                jx1.c("backgroundColor", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (!hm2.U().N() && !r23.b) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
                 return false;
-            }
-            if (g23.b) {
-                Log.d("backgroundColor", optParamsAsJo.toString());
-            }
-            sz1 V = wl2.U().V();
-            if (V == null) {
-                jx1.c("backgroundColor", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("backgroundColor");
-            if (TextUtils.isEmpty(optString) && (!TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorTop")) || !TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorBottom")))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101);
-                return false;
-            }
-            rz1 o = V.o();
-            if (o == null) {
-                jx1.c("backgroundColor", "slave container is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (TextUtils.equals("7", o.M1().l())) {
-                jx1.c("backgroundColor", "this page is from showModalPage api");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
-                return false;
-            } else if (!o.K2(o.w3(), SwanAppConfigData.t(optString), true)) {
-                jx1.c("backgroundColor", "set window background fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            } else if (u03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                    return false;
+                }
+                JSONArray optJSONArray = optParamsAsJo.optJSONArray("data");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            String optString = optJSONObject.optString("slaveId");
+                            String optString2 = optJSONObject.optString("actionName");
+                            long optLong = optJSONObject.optLong("timestamp", -1L);
+                            if (r23.b) {
+                                Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
+                            }
+                            lv2.b().d(optString, optString2, optLong);
+                        }
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty data");
+                return false;
             }
         }
         return invokeLLLL.booleanValue;

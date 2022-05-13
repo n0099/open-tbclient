@@ -1,91 +1,188 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class x52 implements u52 {
+public class x52 implements w52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static volatile x52 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Long> a;
+    public final Map<String, v52> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755220676, "Lcom/repackage/x52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ x52 b;
+
+        public a(x52 x52Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x52Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755220676, "Lcom/repackage/x52;");
-                return;
+            this.b = x52Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
             }
         }
-        b = tg1.a;
     }
 
-    public x52(int i) {
+    public x52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i = i <= 0 ? 10 : i;
-        this.a = new LruCache<>(i);
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
-        }
+        this.a = new HashMap();
     }
 
-    @Override // com.repackage.u52
-    public v52 a(String str, String str2) {
+    public static x52 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (x52.class) {
+                    if (b == null) {
+                        b = new x52();
+                    }
+                }
+            }
+            return b;
+        }
+        return (x52) invokeV.objValue;
+    }
+
+    public synchronized x52 b(String str, UbcFlowEvent ubcFlowEvent) {
         InterceptResult invokeLL;
+        v52 v52Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (b) {
-                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (v52Var = this.a.get(str)) != null) {
+                    v52Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
             }
-            Long l = this.a.get(str2);
-            if (l == null) {
-                return null;
-            }
-            v52 v52Var = new v52();
-            v52Var.a = ProcessUtils.getCurProcessName();
-            v52Var.b = l.longValue();
-            return v52Var;
         }
-        return (v52) invokeLL.objValue;
+        return (x52) invokeLL.objValue;
     }
 
-    @Override // com.repackage.u52
-    public void b(String str, String str2, boolean z) {
+    public final boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || TextUtils.isEmpty(str2)) {
-            return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
+    }
+
+    public synchronized x52 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        v52 v52Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (v52Var = this.a.get(str)) != null) {
+                    v52Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
         }
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        return (x52) invokeCommon.objValue;
+    }
+
+    public synchronized x52 f(String str, y52 y52Var) {
+        InterceptResult invokeLL;
+        v52 v52Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, y52Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (v52Var = this.a.get(str)) != null) {
+                    v52Var.e(str, y52Var);
+                    return this;
+                }
+                return this;
+            }
         }
-        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
+        return (x52) invokeLL.objValue;
+    }
+
+    public synchronized x52 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    v52 v52Var = new v52();
+                    this.a.put(str, v52Var);
+                    v52Var.f(str);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (x52) invokeL.objValue;
+    }
+
+    public final synchronized void h(String str) {
+        v52 v52Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (v52Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    v52Var.h(str);
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
+        }
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
+        }
     }
 }

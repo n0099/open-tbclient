@@ -1,59 +1,52 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class h1a<T> extends hz9<T> {
+public abstract class h1a<E> extends j1a<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pz9<? super T> e;
-    public final pz9<Throwable> f;
-    public final oz9 g;
+    public long consumerIndex;
 
-    public h1a(pz9<? super T> pz9Var, pz9<Throwable> pz9Var2, oz9 oz9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755699719, "Lcom/repackage/h1a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755699719, "Lcom/repackage/h1a;");
+                return;
+            }
+        }
+        h = t1a.a(h1a.class, "consumerIndex");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h1a(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pz9Var, pz9Var2, oz9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-        this.e = pz9Var;
-        this.f = pz9Var2;
-        this.g = oz9Var;
-    }
-
-    @Override // com.repackage.cz9
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.call();
-        }
-    }
-
-    @Override // com.repackage.cz9
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f.call(th);
-        }
-    }
-
-    @Override // com.repackage.cz9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.call(t);
         }
     }
 }

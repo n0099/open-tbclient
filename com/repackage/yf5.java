@@ -1,171 +1,246 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbListTextView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yf5 {
+public class yf5 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static final long[] a;
-    public static final String[] b;
-    public static final String[] c;
-    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public int f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755143703, "Lcom/repackage/yf5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+
+        public a(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755143703, "Lcom/repackage/yf5;");
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+        }
+    }
+
+    public yf5(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new long[]{19416, 19168, 42352, 21717, 53856, 55632, 91476, 22176, 39632, 21970, 19168, 42422, 42192, 53840, 119381, 46400, 54944, 44450, 38320, 84343, 18800, 42160, 46261, 27216, 27968, 109396, 11104, 38256, 21234, 18800, 25958, 54432, 59984, 28309, 23248, 11104, 100067, 37600, 116951, 51536, 54432, 120998, 46416, 22176, 107956, 9680, 37584, 53938, 43344, 46423, 27808, 46416, 86869, 19872, 42416, 83315, 21168, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 103846, 38320, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 21952, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 86390, 21168, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 118966, 53840, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 111189, 27936, 44448, 84835, 37744, 18936, 18800, 25776, 92326, 59984, 27424, 108228, 43744, 41696, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 84821, 19296, 42352, 21732, 53600, 59752, 54560, 55968, 92838, 22224, 19168, 43476, 41680, 53584, 62034, 54560};
-        b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
-        c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
-        d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
-        new SimpleDateFormat("yyyy年M月d日 EEEEE");
+        this.a = -1;
+        this.b = -1;
+        this.g = 0;
+        this.d = str;
+        this.c = i;
     }
 
-    public static final String a(int i) {
-        InterceptResult invokeI;
+    public static void a(Context context, bg5 bg5Var, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i == 10) {
-                return "初十";
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, bg5Var, Integer.valueOf(i), str, str2}) == null) || bg5Var == null) {
+            return;
+        }
+        if (i == 2) {
+            bg5Var.onLinkClicked(context, str, false);
+        } else if (i == 16) {
+            bg5Var.onAtClicked(context, str);
+        } else if (i == 18) {
+            bg5Var.onLinkClicked(context, str, true);
+        } else if (i == 32) {
+            bg5Var.onVideoClicked(context, str);
+        } else if (i == 64) {
+            bg5Var.onSongClicked(context, str);
+        } else if (i == 128) {
+            bg5Var.onVideoP2PClicked(context, str);
+        } else if (i == 256) {
+            bg5Var.onPhoneClicked(context, str, str2);
+        } else if (i == 1024) {
+            bg5Var.onLinkButtonClicked(context, str);
+        } else if (i != 1282) {
+        } else {
+            bg5Var.onLinkClicked(context, str, true);
+        }
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(65538, null, tbPageContext, i, str, str2) == null) && tbPageContext != null && (tbPageContext.getOrignalPage() instanceof bg5)) {
+            a(tbPageContext.getPageActivity(), (bg5) tbPageContext.getOrignalPage(), i, str, str2);
+        }
+    }
+
+    public static void c(TbPageContext<?> tbPageContext, bg5 bg5Var, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, bg5Var, Integer.valueOf(i), str, str2}) == null) || tbPageContext == null || bg5Var == null) {
+            return;
+        }
+        a(tbPageContext.getPageActivity(), bg5Var, i, str, str2);
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.c;
+            return i == 2 || i == 16 || i == 18 || i == 35 || i == 39;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.c;
+            return i == 2 || i == 16 || i == 18 || i == 35 || i == 39 || i == 1282;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.c, this.d, this.e));
+            int i2 = 2;
+            if (this.c == 2) {
+                int i3 = this.g;
+                if (i3 == 1) {
+                    i = 2;
+                } else if (i3 == 2) {
+                    i = 1;
+                } else {
+                    i = 1;
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).param("obj_source", i2).param("obj_type", i));
+                }
+                i2 = 1;
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).param("obj_source", i2).param("obj_type", i));
             }
-            if (i == 20) {
-                return "二十";
+            if (view2 instanceof TbListTextView) {
+                ((TbRichTextView) view2.getParent()).setPressed(true);
             }
-            if (i == 30) {
-                return "三十";
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, textPaint) == null) {
+            int i = this.b;
+            if (i != -1) {
+                textPaint.setColor(SkinManager.getColor(i));
+            } else if (f()) {
+                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
+            } else {
+                textPaint.setColor(textPaint.linkColor);
             }
-            int i2 = i / 10;
-            String str = i2 == 0 ? "初" : "";
-            if (i2 == 1) {
-                str = "十";
-            }
-            if (i2 == 2) {
-                str = "廿";
-            }
-            if (i2 == 3) {
-                str = "三";
-            }
-            switch (i % 10) {
-                case 1:
-                    return str + "一";
-                case 2:
-                    return str + "二";
-                case 3:
-                    return str + "三";
-                case 4:
-                    return str + "四";
-                case 5:
-                    return str + "五";
-                case 6:
-                    return str + "六";
-                case 7:
-                    return str + "七";
-                case 8:
-                    return str + "八";
-                case 9:
-                    return str + "九";
-                default:
-                    return str;
+            textPaint.setUnderlineText(false);
+            int i2 = this.a;
+            if (i2 != -1) {
+                textPaint.bgColor = i2;
+            } else if (this.f == 1 && e()) {
+                textPaint.bgColor = SkinManager.getColor(R.color.CAM_X0210);
+            } else if (this.f == 2) {
+                textPaint.bgColor = SkinManager.getColor(R.color.transparent);
             }
         }
-        return (String) invokeI.objValue;
-    }
-
-    public static ArrayList<String> b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (int i2 = 1; i2 <= i; i2++) {
-                arrayList.add(a(i2));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeI.objValue;
-    }
-
-    public static String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int i2 = i - 4;
-            sb.append(c[i2 % 10]);
-            sb.append(d[i2 % 12]);
-            sb.append("年");
-            return sb.toString();
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static ArrayList<String> d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (int i2 = 1; i2 < b.length; i2++) {
-                arrayList.add(b[i2] + "月");
-            }
-            if (g(i) != 0) {
-                int g = g(i);
-                arrayList.add(g, "闰" + b[g(i)] + "月");
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeI.objValue;
-    }
-
-    public static ArrayList<String> e(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            while (i < i2) {
-                arrayList.add(String.format("%s(%d)", c(i), Integer.valueOf(i)));
-                i++;
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeII.objValue;
-    }
-
-    public static final int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (g(i) != 0) {
-                return (a[i + (-1900)] & 65536) != 0 ? 30 : 29;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public static final int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? (int) (a[i - 1900] & 15) : invokeI.intValue;
-    }
-
-    public static final int h(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) ? (((long) (65536 >> i2)) & a[i + (-1900)]) == 0 ? 29 : 30 : invokeII.intValue;
     }
 }

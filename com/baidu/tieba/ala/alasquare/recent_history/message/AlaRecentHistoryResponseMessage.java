@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jq5;
 import com.repackage.kq5;
+import com.repackage.lq5;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jq5 mHistoryData;
+    public kq5 mHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRecentHistoryResponseMessage() {
@@ -45,18 +45,18 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            jq5 jq5Var = new jq5();
-            this.mHistoryData = jq5Var;
-            jq5Var.a = jSONObject.optInt("has_more") == 1;
+            kq5 kq5Var = new kq5();
+            this.mHistoryData = kq5Var;
+            kq5Var.a = jSONObject.optInt("has_more") == 1;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    kq5 kq5Var = new kq5();
-                    kq5Var.a(optJSONArray.optJSONObject(i2));
-                    arrayList2.add(kq5Var);
+                    lq5 lq5Var = new lq5();
+                    lq5Var.a(optJSONArray.optJSONObject(i2));
+                    arrayList2.add(lq5Var);
                 }
                 arrayList = arrayList2;
             }
@@ -64,9 +64,9 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public jq5 getRecentHistoryData() {
+    public kq5 getRecentHistoryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (jq5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (kq5) invokeV.objValue;
     }
 }

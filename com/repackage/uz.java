@@ -2,32 +2,68 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.VoteView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uz extends qy<eq4> {
+public class uz extends gy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumLayout f;
-    public int g;
+    public TbPageContext h;
+    public int i;
+    public VoteView j;
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn4 a;
+        public final /* synthetic */ uz b;
+
+        public a(uz uzVar, zn4 zn4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uzVar, zn4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = uzVar;
+            this.a = zn4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ThreadCardUtils.jumpToPB(this.a, (Context) this.b.h.getPageActivity(), this.b.i, false);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uz(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    public uz(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,80 +74,59 @@ public class uz extends qy<eq4> {
                 return;
             }
         }
-        this.g = 3;
-        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f = recommendForumLayout;
-        recommendForumLayout.setPageUniqueId(bdUniqueId);
-        this.f.setShowMore(true);
+        this.j = new VoteView(context);
+        r(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    @Override // com.repackage.qy
+    @Override // com.repackage.zx
     public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.j.C(i);
+        }
+    }
+
+    public final boolean u(zn4 zn4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, zn4Var)) == null) ? (zn4Var == null || zn4Var.getThreadData() == null || zn4Var.getThreadData().getPollData() == null || zn4Var.getThreadData().getPollData().getOptions() == null || zn4Var.getThreadData().getPollData().getOptions().size() <= 0 || zn4Var.getThreadData().isVideoThreadType()) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
-    /* renamed from: o */
-    public void a(eq4 eq4Var) {
+    @Override // com.repackage.oy
+    /* renamed from: v */
+    public void a(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eq4Var) == null) {
-            this.f.setData(eq4Var);
-        }
-    }
-
-    @Override // com.repackage.gz
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeL(1048580, this, zn4Var) == null) {
+            if (u(zn4Var)) {
+                this.j.setVisibility(0);
+                this.j.setData(zn4Var.getThreadData().getPollData(), zn4Var.getThreadData().getTid(), zn4Var.getThreadData().getFid());
+                this.j.setOnItemClickListener(new a(this, zn4Var));
+                return;
             }
-            this.g = i;
+            this.j.setVisibility(8);
         }
     }
 
-    public void p(boolean z) {
+    public void w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f.setEnableShowInto(z);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.i = i;
         }
     }
 
-    public void q(View.OnClickListener onClickListener) {
+    public void x(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f.setOnClickRightArrowListener(onClickListener);
-        }
-    }
-
-    public void r(km4<dq4> km4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, km4Var) == null) {
-            this.f.setOnItemCoverListener(km4Var);
-        }
-    }
-
-    public void s(PullLeftRefreshLayout.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f.setOnRullOkCallbackr(fVar);
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setShowMore(z);
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f.setShowSquareEntrance(z);
+        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
+            this.h = tbPageContext;
+            this.j.setPageContext(tbPageContext);
         }
     }
 }

@@ -1,84 +1,110 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.crypto.ShortBufferException;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
-public final class o10 implements p10 {
+public class o10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
+    public boolean b;
+    public boolean c;
 
-    public o10(int i) {
+    public o10(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = str;
+        this.b = z;
+        this.c = z2;
     }
 
-    @Override // com.repackage.p10
-    public int a(int i) {
+    public static int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.a;
-            return i2 - (i % i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 5 ? -1 : 0;
+                        }
+                        return 1;
+                    }
+                    return 3;
+                }
+                return 4;
+            }
+            return 6;
         }
         return invokeI.intValue;
     }
 
-    @Override // com.repackage.p10
-    public int a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    public String b(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            if (bArr == null || i2 == 0) {
-                return 0;
-            }
-            int i4 = i2 + i;
-            int i5 = bArr[i4 - 1];
-            int i6 = i5 & 255;
-            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
-                return -1;
-            }
-            for (int i7 = 0; i7 < i6; i7++) {
-                if (bArr[i3 + i7] != i5) {
-                    return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
+                short[] sArr = new short[5];
+                int[] iArr = new int[8];
+                int i3 = 5;
+                for (int i4 = 0; i4 < 5; i4++) {
+                    int i5 = (i2 * 5) + i4;
+                    if (i5 < bArr.length) {
+                        sArr[i4] = (short) (bArr[i5] & 255);
+                    } else {
+                        sArr[i4] = 0;
+                        i3--;
+                    }
+                }
+                int a = a(i3);
+                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
+                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
+                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
+                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
+                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
+                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
+                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
+                iArr[7] = (byte) (sArr[4] & 31);
+                int i6 = 0;
+                while (true) {
+                    i = 8 - a;
+                    if (i6 >= i) {
+                        break;
+                    }
+                    char charAt = this.a.charAt(iArr[i6]);
+                    if (this.c) {
+                        charAt = Character.toLowerCase(charAt);
+                    }
+                    byteArrayOutputStream.write(charAt);
+                    i6++;
+                }
+                if (this.b) {
+                    while (i < 8) {
+                        byteArrayOutputStream.write(61);
+                        i++;
+                    }
                 }
             }
-            return i3;
+            return new String(byteArrayOutputStream.toByteArray());
         }
-        return invokeLII.intValue;
-    }
-
-    @Override // com.repackage.p10
-    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
-            return;
-        }
-        if (i + i2 > bArr.length) {
-            throw new ShortBufferException("Buffer too small to hold padding");
-        }
-        byte b = (byte) (i2 & 255);
-        for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
-        }
+        return (String) invokeL.objValue;
     }
 }

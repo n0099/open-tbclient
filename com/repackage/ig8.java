@@ -1,203 +1,188 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-@Singleton
-@Service
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class ig8 implements n49 {
+public class ig8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public pg8 a;
+    public int b;
+    public a c;
+    public Context d;
 
-    public ig8() {
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+        public TextView b;
+
+        public a(ig8 ig8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ig8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public ig8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0;
+        this.d = context;
     }
 
-    @Override // com.repackage.n49
-    public boolean a() {
+    public final View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d02b3, (ViewGroup) null);
+            a aVar = new a(this);
+            this.c = aVar;
+            aVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913fa);
+            this.c.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091401);
+            inflate.setTag(this.c);
+            return inflate;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.n49
-    public int b() {
+    public final void b(a aVar, pg8 pg8Var, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, pg8Var, view2, i) == null) || aVar == null || pg8Var == null) {
+            return;
+        }
+        aVar.b.setText("");
+        if (i == 0) {
+            TextView textView = aVar.b;
+            textView.setText(this.d.getString(R.string.obfuscated_res_0x7f0f0262) + pg8Var.b);
+        } else {
+            aVar.b.setText(pg8Var.b);
+        }
+        if (i != this.b) {
+            aVar.a.setVisibility(4);
+            SkinManager.setViewTextColor(aVar.b, R.color.common_color_10200, 1);
+            return;
+        }
+        aVar.a.setVisibility(0);
+        SkinManager.setViewTextColor(aVar.b, R.color.common_color_10013, 1);
+    }
+
+    public pg8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (pg8) invokeV.objValue;
     }
 
-    @Override // com.repackage.n49
-    public boolean c(String str) {
-        InterceptResult invokeL;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            notifyDataSetChanged();
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.n49
-    public boolean d() {
-        InterceptResult invokeV;
+    public void e(pg8 pg8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pg8Var) == null) {
+            this.a = pg8Var;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.n49
-    public boolean e() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public int f() {
-        InterceptResult invokeV;
+        ArrayList<pg8> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
+            pg8 pg8Var = this.a;
+            if (pg8Var == null || (arrayList = pg8Var.e) == null) {
+                return 0;
+            }
+            return arrayList.size();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.n49
-    public int g() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        ArrayList<pg8> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            pg8 pg8Var = this.a;
+            if (pg8Var == null || (arrayList = pg8Var.e) == null) {
+                return null;
+            }
+            return arrayList.get(i);
         }
-        return invokeV.intValue;
+        return invokeI.objValue;
     }
 
-    @Override // com.repackage.n49
-    public String h() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    @Override // com.repackage.n49
-    public boolean i() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = a();
+            }
+            pg8 pg8Var = this.a;
+            if (pg8Var == null) {
+                return view2;
+            }
+            pg8 pg8Var2 = pg8Var.e.get(i);
+            a aVar = (a) view2.getTag();
+            this.c = aVar;
+            if (pg8Var2 != null) {
+                b(aVar, pg8Var2, view2, i);
+            }
+            return view2;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public List<String> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.repackage.n49
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n49
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

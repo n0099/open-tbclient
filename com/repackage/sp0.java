@@ -98,7 +98,7 @@ public final class sp0 {
                     j = channel.transferFrom(newChannel, j2, 4096L);
                     j2 += j;
                 } finally {
-                    ki0.a(fileOutputStream);
+                    ni0.a(fileOutputStream);
                 }
             }
         }

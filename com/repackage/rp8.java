@@ -1,50 +1,83 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rp8 extends CustomMessageListener {
+public class rp8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final jo8 b;
+    public TbPageContext<?> a;
+    public sp8 b;
+    public DressItemData c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rp8(MainTabActivity mainTabActivity, wn8 wn8Var) {
-        super(2921532);
+    public rp8(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wn8Var};
+            Object[] objArr = {tbPageContext, dressItemData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.mLogicController;
+        this.a = tbPageContext;
+        this.c = dressItemData;
+        this.b = new sp8(tbPageContext);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        jo8 jo8Var;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || TbSingleton.getInstance().isNewUserRedPackageShowed() || !this.a.isResumed || !TbSingleton.getInstance().hasPerformedFirstLoginTest() || (jo8Var = this.b) == null || jo8Var.d() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
-        this.b.d().d();
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            this.b.d(this.c);
+            this.a.getLayoutMode().j(this.b.a());
+            return this.b.a();
+        }
+        return (View) invokeILL.objValue;
     }
 }

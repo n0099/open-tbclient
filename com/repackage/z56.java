@@ -1,194 +1,146 @@
 package com.repackage;
 
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mk8;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class z56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LikeModel a;
-    public mk8 b;
-    public boolean c;
-    public b d;
-    public a e;
-    public TbPageContext f;
+    public EnterForumTabFeedFragment a;
+    public BdTypeRecyclerView b;
+    public l66 c;
+    public c66 d;
+    public e66 e;
+    public d66 f;
+    public f66 g;
+    public m66 h;
+    public h66 i;
+    public j66 j;
+    public i66 k;
+    public g66 l;
+    public k66 m;
+    public b66 n;
+    public n66 o;
+    public List<eo> p;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str, long j);
-
-        void b(String str, long j);
-
-        void c(Object obj);
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends a9 implements mk8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a a;
-        public final /* synthetic */ z56 b;
-
-        public b(z56 z56Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z56Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = z56Var;
-        }
-
-        @Override // com.repackage.mk8.a
-        public void a(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-                this.b.c = false;
-                oi.N(this.b.f.getPageActivity(), this.b.a.getErrorString());
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.b(str, j);
-                }
-            }
-        }
-
-        @Override // com.repackage.mk8.a
-        public void b(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                this.b.c = false;
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.a(str, j);
-                }
-            }
-        }
-
-        @Override // com.repackage.a9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.b.c = false;
-                if (this.b.a.getErrorCode() == 22) {
-                    oi.N(this.b.f.getPageActivity(), this.b.f.getString(R.string.obfuscated_res_0x7f0f0803));
-                } else if (obj == null) {
-                } else {
-                    if (this.b.a.getErrorCode() != 0) {
-                        oi.N(this.b.f.getPageActivity(), this.b.a.getErrorString());
-                        return;
-                    }
-                    a aVar = this.a;
-                    if (aVar != null) {
-                        aVar.c(obj);
-                    }
-                }
-            }
-        }
-
-        public void d(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-                this.a = aVar;
-            }
-        }
-    }
-
-    public z56() {
+    public z56(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {enterForumTabFeedFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final boolean d(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
-            if (oi.C()) {
-                return ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity());
-            }
-            UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c17));
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !this.c && d(this.f)) {
-            if (this.d == null) {
-                b bVar = new b(this);
-                this.d = bVar;
-                bVar.d(this.e);
-            }
-            if (this.a == null) {
-                LikeModel likeModel = new LikeModel(this.f);
-                this.a = likeModel;
-                likeModel.setLoadDataCallBack(this.d);
-            }
-            this.c = true;
-            this.a.P(str, str2);
-        }
-    }
-
-    public void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && !this.c && d(this.f)) {
-            if (this.d == null) {
-                b bVar = new b(this);
-                this.d = bVar;
-                bVar.d(this.e);
-            }
-            if (this.b == null) {
-                mk8 mk8Var = new mk8();
-                this.b = mk8Var;
-                mk8Var.b(this.d);
-            }
-            long g = mg.g(str2, -1L);
-            if (g == -1) {
                 return;
             }
-            this.c = true;
-            this.b.c(str, g);
+        }
+        this.p = new LinkedList();
+        this.a = enterForumTabFeedFragment;
+        this.b = bdTypeRecyclerView;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l66 l66Var = new l66(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.E0());
+            this.c = l66Var;
+            l66Var.d0(this.b);
+            this.p.add(this.c);
+            c66 c66Var = new c66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.E0());
+            this.d = c66Var;
+            c66Var.e0(this.b);
+            this.p.add(this.d);
+            e66 e66Var = new e66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.E0());
+            this.e = e66Var;
+            e66Var.d0(this.b);
+            this.p.add(this.e);
+            d66 d66Var = new d66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.E0());
+            this.f = d66Var;
+            d66Var.d0(this.b);
+            this.p.add(this.f);
+            f66 f66Var = new f66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.E0());
+            this.g = f66Var;
+            f66Var.d0(this.b);
+            this.p.add(this.g);
+            m66 m66Var = new m66(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.E0());
+            this.h = m66Var;
+            m66Var.g0(this.b);
+            this.p.add(this.h);
+            h66 h66Var = new h66(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.E0());
+            this.i = h66Var;
+            h66Var.b0(this.b);
+            this.p.add(this.i);
+            j66 j66Var = new j66(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.E0());
+            this.j = j66Var;
+            j66Var.d0(this.b);
+            this.p.add(this.j);
+            i66 i66Var = new i66(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.E0());
+            this.k = i66Var;
+            i66Var.b0(this.b);
+            this.p.add(this.k);
+            g66 g66Var = new g66(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.E0());
+            this.l = g66Var;
+            g66Var.d0(this.b);
+            this.p.add(this.l);
+            k66 k66Var = new k66(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.E0());
+            this.m = k66Var;
+            k66Var.d0(this.b);
+            this.p.add(this.m);
+            b66 b66Var = new b66(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.E0());
+            this.n = b66Var;
+            b66Var.e0(this.b);
+            this.p.add(this.n);
+            n66 n66Var = new n66(this.a.getPageContext(), vq4.d, this.a.getUniqueId(), this.a.E0());
+            this.o = n66Var;
+            n66Var.c0(this.b);
+            this.p.add(this.o);
+            this.b.a(this.p);
         }
     }
 
-    public void g(a aVar) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.e = aVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void h(TbPageContext tbPageContext) {
+    public void c(ArrayList<ro> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.f = tbPageContext;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.b.setData(arrayList);
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            c66 c66Var = this.d;
+            if (c66Var != null) {
+                c66Var.setFromCDN(z);
+            }
+            d66 d66Var = this.f;
+            if (d66Var != null) {
+                d66Var.setFromCDN(z);
+            }
+            e66 e66Var = this.e;
+            if (e66Var != null) {
+                e66Var.setFromCDN(z);
+            }
         }
     }
 }

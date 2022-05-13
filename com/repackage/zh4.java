@@ -1,49 +1,38 @@
 package com.repackage;
 
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import com.repackage.ge2;
-import com.repackage.re2;
-import java.util.Map;
+import com.repackage.bi4;
+import com.repackage.fj2;
+import com.repackage.z53;
 /* loaded from: classes7.dex */
-public class zh4 implements re2 {
+public class zh4 extends yh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public re2.a b;
-    public CyberExtractor c;
-    public volatile boolean d;
+    public int A;
+    public bi4 z;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements bi4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ zh4 c;
+        public final /* synthetic */ zh4 a;
 
-        public a(zh4 zh4Var, String str, Map map) {
+        public a(zh4 zh4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zh4Var, str, map};
+                Object[] objArr = {zh4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,132 +42,236 @@ public class zh4 implements re2 {
                     return;
                 }
             }
-            this.c = zh4Var;
-            this.a = str;
-            this.b = map;
+            this.a = zh4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.bi4.b
+        public void a(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.d) {
-                    if (zh4.e) {
-                        Log.d("MediaExtractorWidget", "media extractor already released");
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                this.a.z0();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements nf3<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zh4 a;
+
+        public b(zh4 zh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zh4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
+                if (num.intValue() == 2) {
+                    if (yh4.x) {
+                        Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " authorize deny => onError 0");
+                    }
+                    fj2.a aVar = this.a.i;
+                    if (aVar != null) {
+                        aVar.onError(0);
                         return;
                     }
                     return;
                 }
-                this.c.c.setDataSource(this.c.getContext(), Uri.parse(lh2.a(this.a)), this.b);
-                Bundle metaData = this.c.c.getMetaData();
-                if (this.c.b != null) {
-                    this.c.b.a(metaData);
+                if (yh4.x) {
+                    Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " real do prepareAsync");
+                }
+                zh4.super.prepareAsync();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements nf3<x53<z53.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nf3 a;
+        public final /* synthetic */ zh4 b;
+
+        public c(zh4 zh4Var, nf3 nf3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh4Var, nf3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = zh4Var;
+            this.a = nf3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(x53<z53.e> x53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
+                boolean h = s53.h(x53Var);
+                if (yh4.x) {
+                    Log.d("SwanInlineLiveWidget", this.b.f + "-" + hashCode() + " authorize: " + h);
+                }
+                this.b.A = h ? 1 : 2;
+                this.a.onCallback(Integer.valueOf(this.b.A));
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755112021, "Lcom/repackage/zh4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755112021, "Lcom/repackage/zh4;");
-                return;
-            }
-        }
-        e = tg1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zh4(ZeusPluginFactory.Invoker invoker, String str) {
+        super(invoker, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {invoker, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.d = false;
+        this.A = 0;
+        bi4 bi4Var = new bi4();
+        this.z = bi4Var;
+        bi4Var.e(this.c);
+        this.z.f(new a(this));
     }
 
-    @Override // com.repackage.ge2
-    public void A(@NonNull ge2.a aVar) {
+    @Override // com.repackage.yh4
+    public void C0(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.c = new CyberExtractor(true);
-            aVar.a(true);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
         }
     }
 
-    @Override // com.repackage.ge2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yh4
+    public void D0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? qj2.c() : (Context) invokeV.objValue;
-    }
-
-    @Override // com.repackage.re2
-    public void k(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        dd3.j(new a(this, str, map), "loadMetadata");
     }
 
-    @Override // com.repackage.ge2
-    @Nullable
-    public String k0() {
+    public final void M0(@NonNull Context context, @NonNull nf3<Integer> nf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, nf3Var) == null) {
+            if (yh4.x) {
+                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start authorize");
+            }
+            u03 a0 = u03.a0();
+            if (a0 == null) {
+                if (!yh4.x) {
+                    nf3Var.onCallback(0);
+                    return;
+                }
+                throw new RuntimeException("inline live authorize: swan app is null");
+            } else if (tw2.r()) {
+                this.A = 1;
+                if (yh4.x) {
+                    Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " authorize debug: true");
+                }
+                nf3Var.onCallback(Integer.valueOf(this.A));
+            } else {
+                a0.d0().g(context, "mapp_i_live_player", new c(this, nf3Var));
+            }
+        }
+    }
+
+    @Override // com.repackage.fj2
+    public void N(ZeusPluginFactory.Invoker invoker) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, invoker) == null) {
+        }
+    }
+
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.A : invokeV.intValue;
+    }
+
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public void b0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.fj2
+    public ZeusPluginFactory.Invoker f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return null;
         }
-        return (String) invokeV.objValue;
+        return (ZeusPluginFactory.Invoker) invokeV.objValue;
     }
 
-    @Override // com.repackage.re2
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public boolean prepareAsync() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (yh4.x) {
+                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start prepareAsync");
+            }
+            M0(this.c, new b(this));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.yh4, com.repackage.fj2
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = true;
-            CyberExtractor cyberExtractor = this.c;
-            if (cyberExtractor != null) {
-                cyberExtractor.release();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.release();
+            bi4 bi4Var = this.z;
+            if (bi4Var != null) {
+                bi4Var.g();
+                this.z = null;
             }
-            this.c = null;
-            re2.a aVar = this.b;
-            if (aVar != null) {
-                aVar.onRelease();
-            }
-            this.b = null;
-        }
-    }
-
-    @Override // com.repackage.re2
-    public void w(re2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.b = aVar;
         }
     }
 }

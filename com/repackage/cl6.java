@@ -1,99 +1,117 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cl6 implements uo {
+public class cl6 extends eo<ml6, a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755793308, "Lcom/repackage/cl6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cl6 cl6Var, View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cl6Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755793308, "Lcom/repackage/cl6;");
-                return;
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                if (viewGroup.getChildCount() > 0) {
+                    this.a = viewGroup.getChildAt(0);
+                }
             }
         }
-        h = BdUniqueId.gen();
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SkinManager.setBackgroundColor(this.a, R.color.CAM_X0209);
+                SkinManager.setBackgroundColor(this.itemView, R.color.CAM_X0205);
+            }
+        }
     }
 
-    public cl6(JSONObject jSONObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cl6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("id");
-        this.b = jSONObject.optString("main_tower_id");
-        jSONObject.optString("forum_id");
-        this.c = jSONObject.optString("user_id");
-        this.d = jSONObject.optString("user_name");
-        jSONObject.optString("create_time");
-        this.e = jSONObject.optString("content");
-        jSONObject.optString("reply_user_id");
-        this.f = jSONObject.optString("time_passed");
-        this.g = jSONObject.optInt("is_main_tower_user", 0) == 1;
+        this.e = bdUniqueId2;
     }
 
-    public boolean equals(Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public a M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof cl6) {
-                return this.a.equals(((cl6) obj).a);
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a);
+            View view2 = new View(this.a);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            layoutParams.leftMargin = mi.f(this.a, R.dimen.M_W_X005);
+            layoutParams.rightMargin = mi.f(this.a, R.dimen.M_W_X005);
+            frameLayout.addView(view2, layoutParams);
+            return new a(this, frameLayout);
         }
-        return invokeL.booleanValue;
+        return (a) invokeL.objValue;
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ml6 ml6Var, a aVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h : (BdUniqueId) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (Integer.valueOf(this.a).intValue() * 31) + 7 : invokeV.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ml6Var, aVar})) == null) {
+            aVar.c();
+            return aVar.b();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,32 +1,28 @@
 package com.repackage;
 
+import android.content.Context;
+import android.widget.Button;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.nf9;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public final class mf9 implements Runnable {
+public class mf9 implements TTAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ List a;
-    public final /* synthetic */ FunAdConfig b;
-    public final /* synthetic */ Map c;
-    public final /* synthetic */ long d;
-    public final /* synthetic */ nf9.a e;
+    public Button a;
 
-    public mf9(List list, FunAdConfig funAdConfig, Map map, long j, nf9.a aVar) {
+    public mf9(Button button) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, funAdConfig, map, Long.valueOf(j), aVar};
+            Object[] objArr = {button};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,122 +32,84 @@ public final class mf9 implements Runnable {
                 return;
             }
         }
-        this.a = list;
-        this.b = funAdConfig;
-        this.c = map;
-        this.d = j;
-        this.e = aVar;
+        this.a = button;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String str2;
+    public final String a(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (Ssp ssp : this.a) {
-                if (!this.b.forbiddenPlatforms.contains(ssp.type)) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    LogPrinter.d("sdk for %s init start", ssp.type);
-                    String str3 = ssp.type;
-                    str3.hashCode();
-                    char c = 65535;
-                    switch (str3.hashCode()) {
-                        case 3407:
-                            if (str3.equals(FunAdSdk.PLATFORM_JY)) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 3432:
-                            if (str3.equals(FunAdSdk.PLATFORM_KS)) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                        case 3477:
-                            if (str3.equals(FunAdSdk.PLATFORM_MB)) {
-                                c = 2;
-                                break;
-                            }
-                            break;
-                        case 102199:
-                            if (str3.equals(FunAdSdk.PLATFORM_GDT)) {
-                                c = 3;
-                                break;
-                            }
-                            break;
-                        case 106042:
-                            if (str3.equals(FunAdSdk.PLATFORM_KDS)) {
-                                c = 4;
-                                break;
-                            }
-                            break;
-                        case 113873:
-                            if (str3.equals(FunAdSdk.PLATFORM_SIG)) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 93498907:
-                            if (str3.equals("baidu")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                    }
-                    switch (c) {
-                        case 0:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.JyModule";
-                            nf9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 1:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.KsModule";
-                            nf9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 2:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.MbModule";
-                            nf9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 3:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.GdtModule";
-                            nf9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 4:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.KdsModule";
-                            nf9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 5:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.SigModule";
-                            nf9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        case 6:
-                            str = ssp.type;
-                            str2 = "com.fun.ad.sdk.channel.BaiduModule";
-                            nf9.c(str, str2, this.b, this.c, ssp.sspId);
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                        default:
-                            LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                            break;
-                    }
-                } else {
-                    LogPrinter.d("Ssp:%s is not initialized for type is forbidden", ssp.type);
-                }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? j != 0 ? context.getString(R.string.obfuscated_res_0x7f0f0769, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.obfuscated_res_0x7f0f076a) : (String) invokeCommon.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadActive(long j, long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 下载中，点击图片暂停", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(a(button.getContext(), j, j2));
             }
-            nf9.b(this.d, this.e, this.c);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFailed(long j, long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.e("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0768);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFinished(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 点击图片安装", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f076b);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadPaused(long j, long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 下载暂停，点击图片继续", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(a(button.getContext(), j, j2));
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onIdle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.e("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0768);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onInstalled(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            LogPrinter.d("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f076c);
+            }
         }
     }
 }

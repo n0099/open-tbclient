@@ -1,7 +1,5 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rg0 extends fc1<gm0> {
+public class rg0 extends qc1<si0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements gm0 {
+    public class a implements si0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,20 +32,11 @@ public class rg0 extends fc1<gm0> {
             }
         }
 
-        @Override // com.repackage.gm0
-        @NonNull
-        public String a() {
+        @Override // com.repackage.si0
+        public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sg0.c().a() : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.gm0
-        public void request() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                sg0.c().request();
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? pg0.e() : (String) invokeV.objValue;
         }
     }
 
@@ -66,11 +55,11 @@ public class rg0 extends fc1<gm0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
-    public gm0 createService() throws ServiceNotFoundException {
+    public si0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (gm0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (si0) invokeV.objValue;
     }
 }

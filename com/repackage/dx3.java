@@ -1,174 +1,257 @@
 package com.repackage;
 
+import android.graphics.Point;
+import android.util.Log;
+import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class dx3 implements ux3 {
+public final class dx3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static fx3[] b;
+    public static Point c;
+    public static float d;
+    public static float e;
+    public static boolean f;
+    public static int g;
+    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dx3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755752078, "Lcom/repackage/dx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755752078, "Lcom/repackage/dx3;");
+                return;
+            }
+        }
+        a = eh1.a;
+        c = new Point();
+        d = 1.0f;
+        e = 1.0f;
+        f = false;
+    }
+
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? h : invokeV.longValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? g : invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f : invokeV.booleanValue;
+    }
+
+    public static float d(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) ? j34.b(motionEvent.getX(i) * d) : invokeLI.floatValue;
+    }
+
+    public static float e(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) ? j34.b(motionEvent.getY(i) * e) : invokeLI.floatValue;
+    }
+
+    public static boolean f(EventTarget eventTarget) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eventTarget)) == null) {
+            if (eventTarget == null) {
+                return false;
+            }
+            return eventTarget.hasEventListener("touchstart", "touchmove", "touchcancel", "touchend");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            f = z;
+        }
+    }
+
+    public static void h(MotionEvent motionEvent, ex3 ex3Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65544, null, motionEvent, ex3Var, z) == null) {
+            try {
+                if (!z) {
+                    int actionIndex = motionEvent.getActionIndex();
+                    ex3Var.changedTouches = r1;
+                    fx3[] fx3VarArr = {new fx3()};
+                    ex3Var.changedTouches[0].identifier = motionEvent.getPointerId(actionIndex);
+                    ex3Var.changedTouches[0].clientX = d(motionEvent, actionIndex);
+                    ex3Var.changedTouches[0].clientY = e(motionEvent, actionIndex);
+                    return;
+                }
+                int pointerCount = motionEvent.getPointerCount();
+                if (b == null || b.length != pointerCount) {
+                    b = new fx3[pointerCount];
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < pointerCount; i++) {
+                    fx3 fx3Var = new fx3();
+                    fx3Var.identifier = motionEvent.getPointerId(i);
+                    fx3Var.clientX = d(motionEvent, i);
+                    fx3Var.clientY = e(motionEvent, i);
+                    if (!fx3Var.equals(b[i])) {
+                        arrayList.add(fx3Var);
+                    }
+                    b[i] = fx3Var;
+                }
+                if (arrayList.size() != 0) {
+                    fx3[] fx3VarArr2 = new fx3[arrayList.size()];
+                    ex3Var.changedTouches = fx3VarArr2;
+                    arrayList.toArray(fx3VarArr2);
+                }
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
-    @Override // com.repackage.ux3
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
+        if (r8.getActionIndex() != r3) goto L23;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void i(MotionEvent motionEvent, ex3 ex3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/gamevalid", dx1.a())) : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65545, null, motionEvent, ex3Var) == null) {
+            try {
+                int pointerCount = motionEvent.getPointerCount();
+                ArrayList arrayList = new ArrayList();
+                int i = 0;
+                while (i < pointerCount) {
+                    int actionMasked = motionEvent.getActionMasked();
+                    boolean z = true;
+                    if (actionMasked != 6 && actionMasked != 1 && actionMasked != 3) {
+                        z = false;
+                    }
+                    int pointerId = motionEvent.getPointerId(i);
+                    fx3 fx3Var = new fx3();
+                    fx3Var.identifier = pointerId;
+                    fx3Var.clientX = d(motionEvent, i);
+                    fx3Var.clientY = e(motionEvent, i);
+                    arrayList.add(fx3Var);
+                    i++;
+                }
+                ex3Var.touches = new fx3[arrayList.size()];
+                if (arrayList.isEmpty()) {
+                    return;
+                }
+                arrayList.toArray(ex3Var.touches);
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
     }
 
-    @Override // com.repackage.ux3
-    public String b() {
-        InterceptResult invokeV;
+    public static JSEvent j(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? fx1.v(String.format("%s/api/minigame/get_game_tencent_ads", dx1.a())) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, motionEvent)) == null) {
+            ex3 ex3Var = new ex3();
+            int actionMasked = motionEvent.getActionMasked();
+            String str = "touchend";
+            if (actionMasked == 0) {
+                h(motionEvent, ex3Var, false);
+                int i = g + 1;
+                g = i;
+                g = Math.min(i, 1000);
+                h = System.currentTimeMillis();
+            } else {
+                if (actionMasked == 1) {
+                    h(motionEvent, ex3Var, false);
+                } else if (actionMasked == 2) {
+                    h(motionEvent, ex3Var, true);
+                    str = "touchmove";
+                } else if (actionMasked == 3) {
+                    h(motionEvent, ex3Var, false);
+                    str = "touchcancel";
+                } else if (actionMasked == 5) {
+                    h(motionEvent, ex3Var, false);
+                } else if (actionMasked != 6) {
+                    str = "toucherror";
+                } else {
+                    h(motionEvent, ex3Var, false);
+                }
+                ex3Var.timeStamp = motionEvent.getEventTime();
+                i(motionEvent, ex3Var);
+                JSEvent jSEvent = new JSEvent(str);
+                jSEvent.data = ex3Var;
+                if (!"touchmove".equals(str) && ex3Var.changedTouches == null) {
+                    return null;
+                }
+            }
+            str = "touchstart";
+            ex3Var.timeStamp = motionEvent.getEventTime();
+            i(motionEvent, ex3Var);
+            JSEvent jSEvent2 = new JSEvent(str);
+            jSEvent2.data = ex3Var;
+            return !"touchmove".equals(str) ? jSEvent2 : jSEvent2;
+        }
+        return (JSEvent) invokeL.objValue;
     }
 
-    @Override // com.repackage.ux3
-    public String c() {
-        InterceptResult invokeV;
+    public static void k() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? fx1.v(String.format("%s/api/msgame/reservation/query", dx1.a())) : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            g = 0;
+        }
     }
 
-    @Override // com.repackage.ux3
-    public String d() {
-        InterceptResult invokeV;
+    public static void l(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? fx1.v(String.format("%s/api/report/download", dx1.a())) : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            Point point = c;
+            point.x = i;
+            point.y = i2;
+        }
     }
 
-    @Override // com.repackage.ux3
-    public String e() {
-        InterceptResult invokeV;
+    public static void m(int i, int i2) {
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? fx1.v(String.format("%s/api/msgame/adblock", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? fx1.v(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", u())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? fx1.v(String.format("%s/api/exchange/transfer_report", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/polling", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/realname", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? fx1.v(String.format("%s/api/user/rechargecheck", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? fx1.v(String.format("%s/ma/game/od/get_friend_cloud_storage", u())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? fx1.v(String.format("%s/user/gamehistory/upload", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? fx1.v(String.format("%s/ma/game/od/remove_user_cloud_storage", dx1.c())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? fx1.v(String.format("%s/api/msgame/reservation/auto_download/finish", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? fx1.v(String.format("%s/ma/game/od/set_user_cloud_storage", u())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? fx1.v(String.format("%s/api/exchange/list", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/behavior_report", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? fx1.v(String.format("%s/ma/game/od/get_user_info", u())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? fx1.v(String.format("%s/ma/game/od/get_user_cloud_storage", u())) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ux3
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? fx1.v(String.format("%s/api/minigame/get_return_guide_config", dx1.a())) : (String) invokeV.objValue;
-    }
-
-    public final String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? fx1.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeII(65549, null, i, i2) == null) {
+            float f2 = 1.0f;
+            d = (i == 0 || (i4 = c.x) == 0) ? 1.0f : i4 / i;
+            if (i2 != 0 && (i3 = c.y) != 0) {
+                f2 = i3 / i2;
+            }
+            e = f2;
+            if (a) {
+                Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(d), Float.valueOf(e)));
+            }
+        }
     }
 }

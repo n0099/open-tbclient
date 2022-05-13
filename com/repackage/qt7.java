@@ -18,7 +18,7 @@ public interface qt7 {
 
     void o(TbRichTextView.y yVar);
 
-    void p(String str);
+    void q(String str);
 
     void s(boolean z);
 

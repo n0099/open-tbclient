@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public NoNetworkView noNetWorkView;
     public RelativeLayout rootView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,12 +131,12 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            super.setContentView(R.layout.obfuscated_res_0x7f0d05f1);
-            this.navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
-            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09151a);
+            super.setContentView(R.layout.obfuscated_res_0x7f0d05e5);
+            this.navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091534);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091538);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (needNoNetWorkView()) {
-                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091599)).inflate();
+                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0915ad)).inflate();
             }
         }
     }
@@ -171,9 +171,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             if (needNoNetWorkView()) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091598);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0915ac);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091599);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0915ad);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.contentRootView = relativeLayout;

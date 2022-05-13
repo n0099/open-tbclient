@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud6;
+import com.repackage.zc6;
 /* loaded from: classes3.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -65,7 +65,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a2);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f2);
         this.b = textView;
         int i3 = e;
         textView.setPadding(0, i3, 0, i3 - d);
@@ -76,18 +76,18 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808f4, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080902, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
             this.b.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
 
-    public void d(ud6 ud6Var) {
+    public void d(zc6 zc6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ud6Var) == null) || ud6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zc6Var) == null) || zc6Var == null) {
             return;
         }
-        this.b.setText(R.string.obfuscated_res_0x7f0f0f2d);
+        this.b.setText(R.string.obfuscated_res_0x7f0f0f4a);
         c();
     }
 }

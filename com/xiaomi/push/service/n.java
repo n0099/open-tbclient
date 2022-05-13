@@ -112,7 +112,7 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m671a(String str) {
+    public boolean m672a(String str) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class n {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m672b(String str) {
+    public boolean m673b(String str) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
@@ -164,7 +164,7 @@ public class n {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m673c(String str) {
+    public boolean m674c(String str) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;

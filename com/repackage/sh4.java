@@ -1,80 +1,50 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class sh4 {
+public class sh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755320558, "Lcom/repackage/sh4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(Activity activity, View view2) {
+        InterceptResult invokeLL;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
+            if (activity == null || view2 == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) == null) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755320558, "Lcom/repackage/sh4;");
-                return;
-            }
+            b(view2);
+            viewGroup.removeView(view2);
+            viewGroup.addView(view2);
+            return true;
         }
-        g = tg1.a;
+        return invokeLL.booleanValue;
     }
 
-    public sh4() {
+    public static boolean b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 == null || view2.getParent() == null || !(view2.getParent() instanceof ViewGroup)) {
+                return false;
             }
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.put("videoBitrate", this.a);
-                jSONObject.put("audioBitrate", this.b);
-                jSONObject.put("videoFPS", this.c);
-                jSONObject.put("netSpeed", this.d);
-                jSONObject.put("videoWidth", this.e);
-                jSONObject.put("videoHeight", this.f);
-                jSONObject2.putOpt("info", jSONObject);
-                return jSONObject2.toString();
-            } catch (JSONException e) {
-                if (g) {
-                    Log.e("LiveNetworkStatus", "toJSONObject failed: " + Log.getStackTraceString(e));
-                    return null;
+            ViewGroup viewGroup = (ViewGroup) view2.getParent();
+            if (viewGroup.indexOfChild(view2) != -1) {
+                try {
+                    viewGroup.removeView(view2);
+                    return true;
+                } catch (Exception unused) {
+                    return true;
                 }
-                return null;
             }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

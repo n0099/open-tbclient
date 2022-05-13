@@ -1,67 +1,68 @@
 package com.repackage;
 
-import android.content.ContentResolver;
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n55 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n55 {
+    public static final a a = a.a;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? vt4.k().i() : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static ContentResolver b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? vt4.k().j() : (ContentResolver) invokeV.objValue;
-    }
-
-    public static OrmObject c(String str, Class<?> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) {
-            if (str == null || cls == null) {
-                return null;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-203817786, "Lcom/repackage/n55$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-203817786, "Lcom/repackage/n55$a;");
+                    return;
+                }
             }
-            return OrmObject.objectWithJsonStr(d(str), cls);
+            a = new a();
+            b = new ServiceReference("Frs", "FrsService");
         }
-        return (OrmObject) invokeLL.objValue;
-    }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return e(Uri.parse(a() + str));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(Uri uri) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                str = b().getType(uri);
-            } catch (SecurityException e) {
-                BdLog.detailException(e);
-                str = null;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            m55.m("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
-            return str;
         }
-        return (String) invokeL.objValue;
+
+        public final ServiceReference a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (ServiceReference) invokeV.objValue;
+        }
     }
+
+    void a(TbPageContext<?> tbPageContext, long j);
+
+    void b(Context context, Frs$From frs$From, Long l, String str);
+
+    void c(Long l, String str);
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u51;
+import com.repackage.f61;
 /* loaded from: classes2.dex */
 public class BdBaseImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -46,13 +46,13 @@ public class BdBaseImageView extends ImageView {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Color.alpha(u51.e(getContext())) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Color.alpha(f61.e(getContext())) != 0 : invokeV.booleanValue;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a || this.b != u51.e(getContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a || this.b != f61.e(getContext()) : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -61,8 +61,8 @@ public class BdBaseImageView extends ImageView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             try {
                 if (b()) {
-                    u51.c(getContext(), getDrawable());
-                    this.b = u51.e(getContext());
+                    f61.c(getContext(), getDrawable());
+                    this.b = f61.e(getContext());
                     this.a = false;
                 }
                 super.draw(canvas);
@@ -76,7 +76,7 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (a()) {
-                u51.d(getContext(), getDrawable(), i);
+                f61.d(getContext(), getDrawable(), i);
             } else {
                 super.setImageAlpha(i);
             }

@@ -1,142 +1,84 @@
 package com.repackage;
 
-import android.app.Dialog;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class pq3 extends Dialog {
+public class pq3 extends oq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DialogInterface.OnClickListener a;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pq3 a;
-
-        public a(pq3 pq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pq3Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                pq3 pq3Var = this.a;
-                DialogInterface.OnClickListener onClickListener = pq3Var.a;
-                if (onClickListener != null) {
-                    onClickListener.onClick(pq3Var, -2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pq3 a;
-
-        public b(pq3 pq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pq3Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                pq3 pq3Var = this.a;
-                DialogInterface.OnClickListener onClickListener = pq3Var.a;
-                if (onClickListener != null) {
-                    onClickListener.onClick(pq3Var, -1);
-                }
-            }
-        }
-    }
+    public boolean G;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pq3(@NonNull Context context) {
-        super(context, R.style.obfuscated_res_0x7f100001);
+    public pq3(Context context, AdElementInfo adElementInfo, pp3 pp3Var) {
+        super(context, adElementInfo, pp3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, adElementInfo, pp3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (pp3) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.G = false;
     }
 
-    public final void a() {
+    @Override // com.repackage.oq3
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092172);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09218c);
-            e44.a(textView);
-            e44.a(textView2);
-            textView.setOnClickListener(new a(this));
-            textView2.setOnClickListener(new b(this));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+            int videoWidth = adElementInfo.getVideoWidth();
+            int videoHeight = adElementInfo.getVideoHeight();
+            this.n = lp3.b().q();
+            this.o = lp3.b().p();
+            if (videoWidth < videoHeight) {
+                this.G = true;
+                int i = this.n;
+                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
+                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
+                layoutParams.leftMargin = (this.n - i2) - i3;
+                layoutParams.addRule(15);
+                layoutParams.removeRule(13);
+                layoutParams.removeRule(12);
+                layoutParams.bottomMargin = 0;
+                relativeLayout.setLayoutParams(layoutParams);
+                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f060882));
+            }
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    @Override // com.repackage.oq3
+    public String q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d00af);
-            setCancelable(false);
-            a();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.G ? "reward_banner_land_html" : "reward_banner_html" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.oq3
+    @SuppressLint({"InflateParams"})
+    public View u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0609, (ViewGroup) null) : (View) invokeV.objValue;
     }
 }

@@ -47,18 +47,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
-import com.repackage.en4;
-import com.repackage.kt4;
-import com.repackage.ni;
-import com.repackage.oi4;
-import com.repackage.qt4;
-import com.repackage.rg;
-import com.repackage.sg;
-import com.repackage.ul4;
-import com.repackage.vt4;
-import com.repackage.wy4;
+import com.repackage.du4;
+import com.repackage.fm4;
+import com.repackage.iu4;
+import com.repackage.ku4;
+import com.repackage.kz4;
+import com.repackage.li;
+import com.repackage.mn4;
+import com.repackage.on4;
+import com.repackage.pg;
+import com.repackage.qg;
 import com.repackage.xt4;
+import com.repackage.zi4;
 import com.tachikoma.core.component.input.InputType;
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -81,11 +81,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public boolean mClose;
     public String mCustomLoginCssUrl;
     public String mFromUrl;
-    public wy4 mInputUserNameDialog;
+    public kz4 mInputUserNameDialog;
     public int mLoginTypeForStatistic;
     public String mOldTbs;
     public Activity mPassActivity;
-    public final cn4.a mReLoginCallback;
+    public final mn4.a mReLoginCallback;
     public String mScheme;
     public int mSocialType;
     public int mTab;
@@ -138,7 +138,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
                 this.a.loginResult = -1;
                 this.a.finishForResult(0);
             }
@@ -151,7 +151,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
                 this.a.mWebAuthResult = webAuthResult;
                 this.a.mPassActivity = webAuthResult.activity;
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
                 this.a.passLoginSucc();
                 this.a.loginResult = 0;
             }
@@ -202,7 +202,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
                 this.a.loginResult = -1;
                 this.a.finishForResult(0);
             }
@@ -215,7 +215,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (interceptable == null || interceptable.invokeL(1048581, this, webAuthResult) == null) {
                 this.a.mWebAuthResult = webAuthResult;
                 this.a.mPassActivity = webAuthResult.activity;
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
                 this.a.passLoginSucc();
                 this.a.loginResult = 0;
                 this.a.processMinePageLoginStatistic();
@@ -286,7 +286,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements cn4.a {
+    public class d implements mn4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginActivity a;
@@ -342,11 +342,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.a = loginActivity;
         }
 
-        @Override // com.repackage.cn4.a
+        @Override // com.repackage.mn4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
                 this.a.closeLoadingDialog();
                 this.a.showToast(str2);
                 if (this.a.mPassActivity instanceof BaseSSOLoginActivity) {
@@ -356,26 +356,26 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.repackage.cn4.a
+        @Override // com.repackage.mn4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 if (this.a.getLoadingDialog() == null || !this.a.getLoadingDialog().c()) {
                     LoginActivity loginActivity = this.a;
-                    loginActivity.showLoadingDialog(loginActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0fff), new a(this));
+                    loginActivity.showLoadingDialog(loginActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1017), new a(this));
                 }
             }
         }
 
-        @Override // com.repackage.cn4.a
+        @Override // com.repackage.mn4.a
         public void c(AccountData accountData) {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
                 if (this.a.mWebAuthResult != null) {
                     str = this.a.mWebAuthResult.getLoginType();
-                    if (ni.isEmpty(str) && this.a.mWebAuthResult.activity != null) {
+                    if (li.isEmpty(str) && this.a.mWebAuthResult.activity != null) {
                         str = this.a.mWebAuthResult.activity.getClass().getSimpleName();
                     }
                 } else {
@@ -386,7 +386,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                     this.a.goToMainEntrance(accountData);
                     if (UbsABTestHelper.isBackUserTest()) {
-                        oi4.y().r();
+                        zi4.y().r();
                         return;
                     }
                     return;
@@ -426,14 +426,14 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                en4.g(this.a);
-                kt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                on4.g(this.a);
+                xt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class f implements wy4.e {
+    public class f implements kz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginActivity a;
@@ -456,7 +456,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.a = loginActivity;
         }
 
-        @Override // com.repackage.wy4.e
+        @Override // com.repackage.kz4.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -511,9 +511,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
-            if (!ni.isEmpty(this.mCustomLoginCssUrl)) {
+            if (!li.isEmpty(this.mCustomLoginCssUrl)) {
                 String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(this.mCustomLoginCssUrl);
-                if (!ni.isEmpty(customLoginCssStoragePath) && FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
+                if (!li.isEmpty(customLoginCssStoragePath) && FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
                     if (SapiAccountManager.getInstance().getConfignation() != null) {
                         SapiAccountManager.getInstance().getConfignation().skin = customLoginCssStoragePath;
                         return true;
@@ -560,7 +560,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, accountData) == null) {
             saveAccountInfo(accountData);
-            kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            xt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(getIntent());
             if (this.mClose) {
                 WebAuthResult webAuthResult = this.mWebAuthResult;
@@ -573,17 +573,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             this.mTab = intExtra;
             if (intExtra == -1) {
-                vt4 k = vt4.k();
+                iu4 k = iu4.k();
                 if (k.h("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
                     this.mTab = 2;
-                    vt4 k2 = vt4.k();
+                    iu4 k2 = iu4.k();
                     k2.u("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                 } else {
                     this.mTab = 2;
                 }
             }
-            if (qt4.b() != null) {
-                qt4.g(getPageContext().getPageActivity(), this.mTab, false);
+            if (du4.b() != null) {
+                du4.g(getPageContext().getPageActivity(), this.mTab, false);
             } else {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mTab)));
             }
@@ -671,7 +671,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.minePageStatisticLocate = intent.getStringExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE);
             String stringExtra = intent.getStringExtra("from");
             this.preFrom = stringExtra;
-            if (ni.isEmpty(stringExtra)) {
+            if (li.isEmpty(stringExtra)) {
                 this.preFrom = getPreExtraPageKey();
             }
             this.fromDialogType = intent.getStringExtra("fromDialog");
@@ -693,7 +693,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.mAccountLoginTask = cn4.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+                this.mAccountLoginTask = mn4.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
                 return;
             }
             finish();
@@ -711,10 +711,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     private void saveAccountInfo(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65563, this, accountData) == null) {
-            sg.a().c(new e(this, accountData));
-            kt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            qg.a().c(new e(this, accountData));
+            xt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-            ul4.f(TbadkCoreApplication.getInst());
+            fm4.f(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
@@ -725,9 +725,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (interceptable == null || interceptable.invokeL(65564, this, accountData) == null) {
             this.mOldTbs = TbadkCoreApplication.getCurrentTbs();
             if (this.mInputUserNameDialog == null) {
-                wy4 wy4Var = new wy4(this.mPassActivity);
-                this.mInputUserNameDialog = wy4Var;
-                wy4Var.x(this.mReLoginCallback);
+                kz4 kz4Var = new kz4(this.mPassActivity);
+                this.mInputUserNameDialog = kz4Var;
+                kz4Var.x(this.mReLoginCallback);
                 this.mInputUserNameDialog.v(new f(this));
             }
             this.mInputUserNameDialog.p();
@@ -817,15 +817,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                     i = 2;
                 }
                 this.mTab = i;
-                qt4.g(getPageContext().getPageActivity(), this.mTab, false);
+                du4.g(getPageContext().getPageActivity(), this.mTab, false);
             }
             BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            wy4 wy4Var = this.mInputUserNameDialog;
-            if (wy4Var != null) {
-                wy4Var.s();
+            kz4 kz4Var = this.mInputUserNameDialog;
+            if (kz4Var != null) {
+                kz4Var.s();
             }
             this.mWebAuthResult = null;
             this.mPassActivity = null;
@@ -847,13 +847,13 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, onCancelListener) == null) && rg.e(this.mPassActivity)) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, onCancelListener) == null) && pg.e(this.mPassActivity)) {
             if (str == null) {
                 str = getString(R.string.obfuscated_res_0x7f0f0037);
             }
-            xt4 xt4Var = new xt4(this.mPassActivity);
-            this.mWaitingDialog = xt4Var;
-            xt4Var.j(str);
+            ku4 ku4Var = new ku4(this.mPassActivity);
+            this.mWaitingDialog = ku4Var;
+            ku4Var.j(str);
             this.mWaitingDialog.e(onCancelListener);
             this.mWaitingDialog.d(false);
             this.mWaitingDialog.f(true);

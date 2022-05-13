@@ -1,58 +1,55 @@
 package com.repackage;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w4a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
-public class o5a implements k7a {
+public class o5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w4a.a a;
 
-    public o5a(w4a.a aVar) {
+    public static String a(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == ((double) j)) {
+                return String.valueOf(j);
             }
+            return new DecimalFormat("#.##").format(d);
         }
-        this.a = aVar;
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.k7a
-    public void a(CancelType cancelType) {
+    public static String b(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogListener", "createConfirmFinishDialog cancel clickArea:" + cancelType);
-            w4a.a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(cancelType);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == ((double) j)) {
+                return String.valueOf(j);
             }
+            return new DecimalFormat("#.#").format(d);
         }
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.k7a
-    public boolean b(DialogInterface dialogInterface) {
+    public static double c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0.0d;
+            }
+            try {
+                return Double.valueOf(str).doubleValue();
+            } catch (Throwable unused) {
+                RLog.error("StringUtils", "safeParseDouble " + str, new Object[0]);
+                return 0.0d;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeL.doubleValue;
     }
 }

@@ -1,137 +1,113 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public final class q52 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+/* loaded from: classes6.dex */
+public class q52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
-        public static int b = -1;
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ PrefetchEvent b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-118019706, "Lcom/repackage/q52$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(String str, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-118019706, "Lcom/repackage/q52$a;");
-            }
+            this.a = str;
+            this.b = prefetchEvent;
         }
 
-        public static String a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab") : (String) invokeV.objValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (q52.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
-                    String a2 = a();
-                    char c = 65535;
-                    int hashCode = a2.hashCode();
-                    if (hashCode != 251117829) {
-                        if (hashCode != 547804557) {
-                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
-                                c = 1;
-                            }
-                        } else if (a2.equals("debug_ab")) {
-                            c = 2;
-                        }
-                    } else if (a2.equals("debug_on_app_launch")) {
-                        c = 0;
-                    }
-                    if (c == 0) {
-                        return true;
-                    }
-                    if (c == 1) {
-                        return false;
-                    }
-                }
-                if (a < 0) {
-                    qj2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    a = 0;
-                }
-                if (q52.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
-                }
-                return a == 1;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                q52.d(this.a);
+                q52.d(q52.e(this.a, this.b.pageUrl));
             }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b == -1) {
-                    qj2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    b = 0;
-                }
-                return b == 1;
-            }
-            return invokeV.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755429213, "Lcom/repackage/q52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755429213, "Lcom/repackage/q52;");
-                return;
-            }
-        }
-        a = tg1.a;
-    }
-
-    public static void b(ix2 ix2Var, Bundle bundle) {
+    public static void c(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ix2Var, bundle) == null) {
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
-            }
-            Bundle bundle2 = new Bundle();
-            bundle2.putBundle("swan_app_on_launch_event", bundle);
-            bx2 bx2Var = new bx2(122, bundle2);
-            if (!ix2Var.S() && a.c()) {
-                ix2Var.e0(bx2Var.h());
-            } else {
-                zw2 e = zw2.e();
-                bx2Var.b(ix2Var.b);
-                bx2Var.p(true);
-                e.h(bx2Var);
-            }
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+        if ((interceptable == null || interceptable.invokeL(65538, null, prefetchEvent) == null) && vu2.a()) {
+            String str = prefetchEvent.appPath;
+            if (!TextUtils.isEmpty(str) && new File(str).exists()) {
+                od3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
             }
         }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                String[] list = file.list();
+                if (list == null || list.length == 0) {
+                    return;
+                }
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String str3 = str + File.separator + str2;
+                        File file2 = new File(str3);
+                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
+                            BdSailorWebView.addToWebCache("file://" + str3, true);
+                        }
+                    }
+                }
+            } else if (file.isFile()) {
+                String absolutePath = file.getAbsolutePath();
+                if (TextUtils.isEmpty(absolutePath)) {
+                    return;
+                }
+                if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
+                    BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+                }
+            }
+        }
+    }
+
+    public static String e(@NonNull String str, String str2) {
+        InterceptResult invokeLL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = me3.f(str2);
+            if (!TextUtils.isEmpty(f) && (lastIndexOf = f.lastIndexOf(File.separator)) > 0) {
+                String substring = f.substring(0, lastIndexOf);
+                return str + File.separator + substring;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 }

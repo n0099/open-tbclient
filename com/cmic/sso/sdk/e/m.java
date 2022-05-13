@@ -6,10 +6,10 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class m {
@@ -37,7 +37,7 @@ public class m {
                     }
                     return 0;
                 }
-                c.b("TelephonyUtils", CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
+                c.b("TelephonyUtils", "WIFI");
                 boolean a = g.a(context, "android.permission.CHANGE_NETWORK_STATE");
                 StringBuilder sb = new StringBuilder();
                 sb.append("CHANGE_NETWORK_STATE=");
@@ -80,7 +80,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             String str = Build.MANUFACTURER;
-            c.a("brand", str);
+            c.a(Constants.PHONE_BRAND, str);
             return "HUAWEI".equalsIgnoreCase(str);
         }
         return invokeV.booleanValue;

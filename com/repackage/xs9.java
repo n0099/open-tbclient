@@ -1,22 +1,25 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
+import com.win.opensdk.PBInterstitial;
+import com.win.opensdk.PBInterstitialListener;
 /* loaded from: classes7.dex */
-public class xs9 implements Runnable {
+public class xs9 implements PBInterstitialListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ at9 a;
+    public final /* synthetic */ PBInterstitial a;
 
-    public xs9(at9 at9Var) {
+    public xs9(PBInterstitial pBInterstitial) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {at9Var};
+            Object[] objArr = {pBInterstitial};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,15 +29,66 @@ public class xs9 implements Runnable {
                 return;
             }
         }
-        this.a = at9Var;
+        this.a = pBInterstitial;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        PBInterstitialListener pBInterstitialListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a.c.c.onFail(PBError.NO_FILL);
-            this.a.a.c.d = true;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBInterstitialListener = this.a.c) == null) {
+            return;
         }
+        pBInterstitialListener.onClicked();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) || (pBInterstitialListener = this.a.c) == null) {
+            return;
+        }
+        pBInterstitialListener.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDismissed() {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pBInterstitialListener = this.a.c) == null) {
+            return;
+        }
+        pBInterstitialListener.onInterstitialDismissed();
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDisplayed() {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBInterstitialListener = this.a.c) == null) {
+            return;
+        }
+        pBInterstitialListener.onInterstitialDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialShowFail(String str) {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (pBInterstitialListener = this.a.c) == null) {
+            return;
+        }
+        pBInterstitialListener.onInterstitialShowFail(str);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        PBInterstitialListener pBInterstitialListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pBInterstitialListener = this.a.c) == null) {
+            return;
+        }
+        pBInterstitialListener.onLoaded();
     }
 }

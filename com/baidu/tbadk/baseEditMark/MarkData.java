@@ -7,6 +7,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
-import com.repackage.ni;
+import com.repackage.li;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -110,7 +111,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!ni.isEmpty(this.mAuthorName)) {
+            if (!li.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -326,7 +327,7 @@ public class MarkData implements Serializable {
                 this.mTitle = jSONObject.optString("title");
                 this.mAuthorName = jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR).optString("name_show");
                 this.mUserName = jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR).optString("name");
-                this.portrait = jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR).optString("user_portrait");
+                this.portrait = jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR).optString(RecommendDetailActivityConfig.USER_PORTRAIT);
                 this.mUesrId = jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR).optString("lz_uid");
                 this.mId = this.mThreadId;
                 this.mReplyNum = jSONObject.optInt("reply_num");
@@ -336,7 +337,7 @@ public class MarkData implements Serializable {
                 if (this.isShareThread) {
                     OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                     this.originalThreadInfo = originalThreadInfo;
-                    originalThreadInfo.p(optJSONObject);
+                    originalThreadInfo.q(optJSONObject);
                 }
                 int optInt = jSONObject.optInt("thread_type");
                 this.threadType = optInt;
@@ -366,7 +367,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (ni.isEmpty(this.portrait)) {
+                if (li.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

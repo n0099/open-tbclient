@@ -338,10 +338,10 @@ public class d {
 
     /* renamed from: com.bytedance.sdk.openadsdk.downloadnew.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0265d implements k {
+    public static class C0264d implements k {
         public final WeakReference<Context> a;
 
-        public C0265d(Context context) {
+        public C0264d(Context context) {
             this.a = new WeakReference<>(context);
         }
 
@@ -417,7 +417,7 @@ public class d {
         if (a2 == null) {
             return false;
         }
-        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C0265d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
+        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C0264d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
             @Override // com.ss.android.download.api.config.i
             public JSONObject a() {
                 if (d.e() != null) {

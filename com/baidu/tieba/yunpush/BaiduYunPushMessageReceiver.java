@@ -16,8 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.kg;
+import com.repackage.ky4;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -49,7 +50,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
-                vt4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                iu4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -72,7 +73,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onMessage(Context context, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i) == null) || TextUtils.isEmpty(str) || ky4.M()) {
             return;
         }
         try {
@@ -93,7 +94,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int e = mg.e(str4, 2500);
+            int e = kg.e(str4, 2500);
             if (e < 2500) {
                 e += 2500;
             }

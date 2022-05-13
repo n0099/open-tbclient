@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class o38 extends ho<z48, CardViewHolder<d68>> {
+public class o38 extends eo<z48, CardViewHolder<d68>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
@@ -45,7 +45,7 @@ public class o38 extends ho<z48, CardViewHolder<d68>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
     public CardViewHolder<d68> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -59,7 +59,7 @@ public class o38 extends ho<z48, CardViewHolder<d68>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
     public View S(int i, View view2, ViewGroup viewGroup, z48 z48Var, CardViewHolder<d68> cardViewHolder) {
         InterceptResult invokeCommon;

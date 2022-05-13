@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nf;
+import com.repackage.of;
 /* loaded from: classes3.dex */
 public class HttpStat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nf stat;
+    public of stat;
 
     public HttpStat() {
         Interceptable interceptable = $ic;
@@ -24,6 +24,6 @@ public class HttpStat {
                 return;
             }
         }
-        this.stat = new nf();
+        this.stat = new of();
     }
 }

@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ao7;
 import com.repackage.b9;
 import com.repackage.bo7;
-import com.repackage.oi;
-import com.repackage.pg;
+import com.repackage.mi;
+import com.repackage.ng;
 import com.repackage.po7;
 import com.repackage.uo7;
 import com.repackage.yn7;
@@ -224,7 +224,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     }
                 }
                 MyEmotionManagerModel myEmotionManagerModel = this.a;
-                pg.a().post(new g(myEmotionManagerModel, myEmotionManagerModel, jSONArray));
+                ng.a().post(new g(myEmotionManagerModel, myEmotionManagerModel, jSONArray));
             }
         }
     }
@@ -494,7 +494,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (bo7.m().o()) {
-                oi.M(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f05d5);
+                mi.M(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f05db);
             } else {
                 yn7.b().a(new f(this));
             }
@@ -517,7 +517,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            pg.a().post(new e(this));
+            ng.a().post(new e(this));
         }
     }
 

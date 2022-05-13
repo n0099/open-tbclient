@@ -1,173 +1,153 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.os.AsyncTask;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t53 extends u53<JSONObject> {
+public abstract class t53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity m;
-    public final String n;
-    public final String o;
-    public boolean p;
-    public int q;
+    public Exception a;
+    public r53 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755339809, "Lcom/repackage/t53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t53 a;
+
+        public a(t53 t53Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755339809, "Lcom/repackage/t53;");
-                return;
+            this.a = t53Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.f()) {
+                        this.a.d();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    this.a.e(e);
+                }
             }
         }
-        r = tg1.a;
     }
 
-    public t53(Activity activity, String str, String str2, boolean z) {
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t53 a;
+
+        public b(t53 t53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t53Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b.l(this.a);
+            }
+        }
+    }
+
+    public t53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.m = activity;
-        this.n = str;
-        this.o = str2;
-        this.p = z;
     }
 
-    @Override // com.repackage.u53
-    public boolean E() {
+    public Exception b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f53.b() && !Q() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Exception) invokeV.objValue;
     }
 
-    @Override // com.repackage.u53
-    public void K() {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.q++;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == null : invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e(null);
         }
     }
 
-    public JSONObject P() {
-        InterceptResult invokeV;
+    public void e(@Nullable Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                j03 M = M();
-                jSONObject.put("ma_id", M.N());
-                jSONObject.put("scope", this.n);
-                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject.put("host_key_hash", h53.g());
-                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, M.N());
-                if (M.X() != null && M.X().T() != null) {
-                    jSONObject.put("scene", M.X().T());
-                }
-                if (this.p) {
-                    jSONObject.put("action_type", "1");
-                }
-                String l = qj2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject.put("host_api_key", l);
-                }
-                if (!TextUtils.isEmpty(this.o)) {
-                    jSONObject.put("provider_appkey", this.o);
-                }
-            } catch (JSONException e) {
-                if (r) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+            this.a = exc;
+            s53.l(new b(this));
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public boolean Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.q >= A() : invokeV.booleanValue;
-    }
+    public abstract boolean f() throws Exception;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.g53
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: R */
-    public JSONObject m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            JSONObject c = h53.c(jSONObject);
-            int optInt = c.optInt("errno", 10001);
-            if (optInt != 0) {
-                if (11001 == optInt) {
-                    h53.m(c);
-                    h53.t("MaOpenDataRequest", c.toString());
-                }
-                if (r) {
-                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
-                }
-            }
-            return c;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.repackage.g53
-    public boolean j() {
+    public t53 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            v("data", P().toString());
-            return true;
+            AsyncTask.execute(new a(this));
+            return this;
         }
-        return invokeV.booleanValue;
+        return (t53) invokeV.objValue;
     }
 
-    @Override // com.repackage.u53
-    public HttpRequest w(u53 u53Var) {
+    public t53 h(r53 r53Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, u53Var)) == null) ? qj2.o().u(this.m, u53Var.B()) : (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.repackage.u53
-    public SwanInterfaceType z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? SwanInterfaceType.OPEN_DATA : (SwanInterfaceType) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, r53Var)) == null) {
+            this.b = r53Var;
+            return this;
+        }
+        return (t53) invokeL.objValue;
     }
 }
